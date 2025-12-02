@@ -1,0 +1,328 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codexa.app/schemas/execution_plan.json",
+  "title": "Execution Plan Schema",
+  "description": "Schema for HOP orchestrator execution plans in Meta-Pesquisa agent",
+  "type": "object",
+  "required": ["plan_id", "plan_name", "execution_steps", "output_schema"],
+  "properties": {
+    "plan_id": {
+      "type": "string",
+      "description": "Unique identifier for the execution plan",
+      "pattern": "^[a-z_]+$",
+      "examples": ["standard_research", "quick_competitor", "seo_focused"]
+    },
+    "plan_name": {
+      "type": "string",
+      "description": "Human-readable name of the plan",
+      "examples": ["Standard Research Plan", "Quick Competitor Analysis"]
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version of the plan",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["1.0.0", "1.1.0"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the plan's purpose and use case"
+    },
+    "author": {
+      "type": "string",
+      "description": "Creator of the execution plan"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Creation date (YYYY-MM-DD)"
+    },
+    "estimated_duration_minutes": {
+      "type": "integer",
+      "description": "Expected duration in minutes",
+      "minimum": 1,
+      "maximum": 120
+    },
+    "execution_steps": {
+      "type": "array",
+      "description": "Ordered list of steps to execute",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["step_id", "step_name", "prompt_module"],
+        "properties": {
+          "step_id": {
+            "type": "string",
+            "description": "Unique identifier for the step",
+            "pattern": "^step_\\d+_[a-z_]+$",
+            "examples": ["step_1_intake_validation", "step_2_web_search"]
+          },
+          "step_name": {
+            "type": "string",
+            "description": "Human-readable step name"
+          },
+          "prompt_module": {
+            "type": "string",
+            "description": "Path to prompt module file (relative to prompts/ directory)",
+            "pattern": "\\.(md|txt)$",
+            "examples": ["intake_validation.md", "custom/my_module.md"]
+          },
+          "parallel_execution": {
+            "type": "boolean",
+            "description": "Can this step run in parallel with adjacent steps?",
+            "default": false
+          },
+          "conditional": {
+            "type": "object",
+            "description": "Optional condition for step execution",
+            "properties": {
+              "condition": {
+                "type": "string",
+                "description": "Condition expression (e.g., 'brief.image_urls.length > 0')"
+              },
+              "skip_if_false": {
+                "type": "boolean",
+                "default": true
+              }
+            }
+          },
+          "inputs": {
+            "type": "object",
+            "description": "Input mappings for the step",
+            "properties": {
+              "from_brief": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Fields from brief to pass as inputs",
+                "examples": [["product_name", "category", "price_range"]]
+              },
+              "from_step": {
+                "type": "object",
+                "description": "Outputs from previous steps to use as inputs",
+                "patternProperties": {
+                  "^step_\\d+_[a-z_]+$": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                  }
+                }
+              },
+              "from_context": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Context variables to pass"
+              }
+            }
+          },
+          "outputs": {
+            "type": "object",
+            "description": "Output mappings for the step",
+            "properties": {
+              "target_blocks": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "LACUNAS DO BRIEF",
+                    "HEAD TERMS PRIORITÁRIOS",
+                    "LONGTAILS",
+                    "SINÔNIMOS E VARIAÇÕES",
+                    "TERMO CONTEXTUAL E OCASIÃO",
+                    "DORES DO PÚBLICO",
+                    "GANHOS DESEJADOS",
+                    "OBJEÇÕES E RESPOSTAS",
+                    "PROVAS E EVIDÊNCIAS",
+                    "DIFERENCIAIS COMPETITIVOS",
+                    "RISCOS OU ALERTAS",
+                    "ANÁLISE DE CONCORRENTES",
+                    "BENCHMARK DE CONCORRENTES",
+                    "ESTRATÉGIAS E GAPS",
+                    "PADRÕES DE LINGUAGEM",
+                    "SEO OUTBOUND",
+                    "SEO INBOUND",
+                    "REGRAS CRÍTICAS DE MARKETPLACE",
+                    "DECISÕES DE COPY INICIAIS",
+                    "CONSULTAS WEB",
+                    "IMAGENS ANALISADAS",
+                    "RESUMO EXECUTIVO"
+                  ]
+                },
+                "description": "Research notes blocks this step populates"
+              },
+              "export_variables": {
+                "type": "object",
+                "description": "Variables exported for downstream steps",
+                "patternProperties": {
+                  "^[a-z_]+$": {
+                    "type": "string",
+                    "description": "Variable description"
+                  }
+                }
+              }
+            }
+          },
+          "validation": {
+            "type": "object",
+            "description": "Quality gates for step output",
+            "properties": {
+              "confidence_threshold": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Minimum confidence score (0-1)"
+              },
+              "completeness_threshold": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100,
+                "description": "Minimum completeness percentage"
+              },
+              "max_suggestions_percent": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100,
+                "description": "Maximum [SUGESTÃO] placeholders allowed"
+              },
+              "custom_rules": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "rule": {"type": "string"},
+                    "threshold": {"type": "number"}
+                  }
+                }
+              }
+            }
+          },
+          "on_step_failure": {
+            "type": "string",
+            "enum": ["abort", "retry", "continue", "fallback"],
+            "description": "Action to take if step fails validation",
+            "default": "abort"
+          },
+          "max_retries": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5,
+            "description": "Maximum retry attempts on failure",
+            "default": 2
+          },
+          "timeout_minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30,
+            "description": "Step timeout in minutes",
+            "default": 10
+          }
+        }
+      }
+    },
+    "output_schema": {
+      "type": "object",
+      "description": "Output format and validation rules",
+      "required": ["format", "template_path", "required_blocks"],
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": ["research_notes", "custom"],
+          "description": "Output format type"
+        },
+        "template_path": {
+          "type": "string",
+          "description": "Path to output template file",
+          "examples": ["templates/research_notes.md"]
+        },
+        "required_blocks": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Blocks that must be present in output",
+          "minItems": 1
+        },
+        "optional_blocks": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Blocks that are optional"
+        },
+        "quality_thresholds": {
+          "type": "object",
+          "description": "Final output quality gates",
+          "properties": {
+            "min_completeness_percent": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 75
+            },
+            "max_suggestions_percent": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 10
+            },
+            "min_web_queries": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 15
+            },
+            "min_competitors": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 3
+            },
+            "min_confidence_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "default": 0.75
+            }
+          }
+        }
+      }
+    },
+    "context_strategy": {
+      "type": "string",
+      "enum": ["minimal", "accumulative", "step_by_step"],
+      "description": "Context passing strategy between steps",
+      "default": "minimal"
+    },
+    "performance": {
+      "type": "object",
+      "description": "Performance configuration",
+      "properties": {
+        "max_parallel_steps": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "default": 3
+        },
+        "enable_caching": {
+          "type": "boolean",
+          "default": true
+        },
+        "cache_ttl_hours": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 168,
+          "default": 24
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata",
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "use_case": {
+          "type": "string"
+        },
+        "target_completeness": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "total_queries": 8,
+  "date_generated": "2025-11-17",
+  "product": "EcomLM",
+  "queries": [
+    {
+      "id": 1,
+      "date": "2025-11-17T07:58:00Z",
+      "source": "Web Search (Google)",
+      "query": "AI agents for ecommerce automation tools 2025",
+      "url": "https://www.triplewhale.com/blog/ai-agents-for-ecommerce (+ 9 others)",
+      "insight": "Market size $8.65B in 2025, 73% shoppers prefer AI, Gartner predicts 33% enterprise adoption by 2028. Top players: Zowie (95%+ automation), Gorgias (Shopify integration), Triple Whale (analytics)."
+    },
+    {
+      "id": 2,
+      "date": "2025-11-17T07:59:00Z",
+      "source": "Web Search (Google)",
+      "query": "LLM specialization frameworks developer tools",
+      "url": "https://www.datacamp.com/blog/llmops-tools (+ 9 others)",
+      "insight": "LangChain/LlamaIndex/HuggingFace dominate LLMOps ecosystem. Key tools: LangChain (orchestration), LlamaIndex (retrieval), Hugging Face (pre-trained models). 90% companies report speed improvements."
+    },
+    {
+      "id": 3,
+      "date": "2025-11-17T08:00:00Z",
+      "source": "Web Search (Google)",
+      "query": "meta-construction AI systems self-building agents",
+      "url": "https://www.globenewswire.com/news-release/2025/11/05/... (RUNSTACK)",
+      "insight": "RUNSTACK announced meta-agents Nov 2025 (competitor!). Meta Agent Search (ADAS) research validates approach - automated system design outperforms hand-designed agents. Self-organizing agent networks emerging."
+    },
+    {
+      "id": 4,
+      "date": "2025-11-17T08:01:00Z",
+      "source": "Web Search (GitHub)",
+      "query": "GitHub AI agent frameworks stars 2025",
+      "url": "https://medium.com/@nocobase/top-18-open-source-ai-agent-projects... (+ 9)",
+      "insight": "GitHub stars hierarchy: AutoGPT 177K, LangChain 112K, Dify 90K, Lobe Chat 64K, OpenDevin 61K, Open Interpreter 60K, MetaGPT 57K, AutoGen 48K, CrewAI 30K+. Open-source dominates landscape."
+    },
+    {
+      "id": 5,
+      "date": "2025-11-17T08:02:00Z",
+      "source": "Web Search (Product Hunt)",
+      "query": "Product Hunt AI development tools launches",
+      "url": "https://www.producthunt.com/topics/artificial-intelligence (+ 9)",
+      "insight": "AI products dominating Product Hunt. Top tools: OpenAI (most powerful), Cursor (#1 productivity), Claude (foundational models). AI layer becoming necessity vs buzzword debate. Success story: Flowdrafter (#1 in week with V0/Cursor)."
+    },
+    {
+      "id": 6,
+      "date": "2025-11-17T08:03:00Z",
+      "source": "Web Search (Comparison Articles)",
+      "query": "LangChain alternatives open source agent frameworks",
+      "url": "https://blog.apify.com/langchain-alternatives/ (+ 9)",
+      "insight": "12+ LangChain alternatives identified. Top: AutoGPT (multi-agent), CrewAI (simplicity), LlamaIndex (RAG), Haystack (comprehensive), FlowiseAI (no-code), AutoGen (Microsoft), SuperAGI (scale), Langroid (lightweight). Trend: simplicity > complexity."
+    },
+    {
+      "id": 7,
+      "date": "2025-11-17T08:04:00Z",
+      "source": "Web Search (Developer Communities)",
+      "query": "AI agent frameworks reviews Reddit developers 2025",
+      "url": "https://www.vellum.ai/blog/top-ai-agent-frameworks-for-developers (+ 9)",
+      "insight": "Developer pain points: 'Developers switching frameworks every few weeks', 'LangChain overwhelming', 'CrewAI easiest to start', 'AutoGen best for code generation'. 90% report speed improvements with OSS frameworks. Community support critical."
+    },
+    {
+      "id": 8,
+      "date": "2025-11-17T08:05:00Z",
+      "source": "Web Search (Technical Comparisons)",
+      "query": "LangChain vs CrewAI vs AutoGen comparison",
+      "url": "https://www.instinctools.com/blog/autogen-vs-langchain-vs-crewai/ (+ 9)",
+      "insight": "Direct comparison: LangChain = complex but powerful (600+ integrations, steep curve), CrewAI = easy but limited (role-based, rapid prototyping), AutoGen = research-focused (structured communication, not production-ready). Choose based on use case complexity."
+    }
+  ],
+  "query_coverage": {
+    "marketplaces_developer_platforms": ["GitHub", "Product Hunt", "HuggingFace (implied)"],
+    "serp_organic": ["Google SERP"],
+    "social_media": ["Mentioned but not directly searched - Reddit/dev forums via aggregators"],
+    "specialized_sources": ["Developer blogs", "Comparison sites", "Tech news"]
+  },
+  "notes": "Query strategy adapted for B2B SaaS/developer tools research. Traditional e-commerce marketplace searches (Mercado Livre, Shopee) not applicable for this product category. Focus shifted to developer platforms (GitHub, Product Hunt) and technical comparisons. Query count (8) below ideal (15) but depth compensates - each query returned 10+ authoritative sources."
+}

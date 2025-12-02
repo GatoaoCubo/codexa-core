@@ -1,0 +1,340 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codexa.app/schemas/research_brief.json",
+  "title": "Research Brief Schema",
+  "description": "Schema for product/service briefs submitted to Pesquisa Agent",
+  "type": "object",
+  "required": ["product_name", "category", "target_audience", "price_range"],
+  "properties": {
+    "product_name": {
+      "type": "string",
+      "description": "Product or service name",
+      "minLength": 3,
+      "maxLength": 200,
+      "examples": [
+        "Fone de ouvido Bluetooth esportivo",
+        "Garrafa de água reutilizável ecológica",
+        "Mouse gamer RGB"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "description": "E-commerce category (hierarchical path)",
+      "pattern": "^.+( > .+)*$",
+      "examples": [
+        "Eletrônicos > Áudio",
+        "Casa e Jardim > Cozinha",
+        "Informática > Periféricos"
+      ]
+    },
+    "target_audience": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Simple audience description",
+          "examples": [
+            "Atletas, 18-35 anos",
+            "Profissionais home office, 25-45 anos"
+          ]
+        },
+        {
+          "type": "object",
+          "description": "Detailed audience segmentation",
+          "properties": {
+            "segment": {
+              "type": "string",
+              "description": "Primary audience segment",
+              "examples": ["Atletas", "Profissionais home office", "Gamers"]
+            },
+            "age_range": {
+              "type": "string",
+              "pattern": "^\\d+-\\d+$",
+              "description": "Age range (e.g., '18-35')"
+            },
+            "gender": {
+              "type": "string",
+              "enum": ["masculino", "feminino", "unissex", "todos"],
+              "description": "Target gender"
+            },
+            "income_level": {
+              "type": "string",
+              "enum": ["A", "B", "C", "D", "E", "A-B", "C-D"],
+              "description": "Brazilian socioeconomic class"
+            },
+            "location": {
+              "type": "string",
+              "description": "Geographic focus (state, region, or 'Brasil')",
+              "examples": ["São Paulo", "Sul", "Brasil"]
+            },
+            "psychographic": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Lifestyle, values, interests",
+              "examples": [["eco-consciente", "tech-savvy", "fitness"]]
+            }
+          },
+          "required": ["segment"]
+        }
+      ]
+    },
+    "price_range": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Price range as string (BRL)",
+          "pattern": "^R\\$\\s*\\d+\\s*-\\s*R\\$\\s*\\d+$",
+          "examples": ["R$ 150 - R$ 280", "R$ 89-129"]
+        },
+        {
+          "type": "object",
+          "description": "Structured price range",
+          "required": ["min", "max"],
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Minimum price (BRL)"
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Maximum price (BRL)"
+            },
+            "currency": {
+              "type": "string",
+              "enum": ["BRL"],
+              "default": "BRL"
+            },
+            "avg": {
+              "type": "number",
+              "description": "Average/target price (optional)"
+            }
+          }
+        }
+      ]
+    },
+    "marketplace_target": {
+      "type": "array",
+      "description": "Target marketplaces (priority order)",
+      "items": {
+        "type": "string",
+        "enum": [
+          "mercadolivre",
+          "shopee",
+          "magazineluiza",
+          "amazon_br",
+          "americanas",
+          "casasbahia",
+          "submarino",
+          "tiktokshop",
+          "shein"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "default": ["mercadolivre", "shopee", "magazineluiza"]
+    },
+    "competitors": {
+      "type": "array",
+      "description": "Known competitors (brands or products)",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "Competitor name"
+          },
+          {
+            "type": "object",
+            "description": "Detailed competitor info",
+            "required": ["name"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Competitor name"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Product URL"
+              },
+              "price": {
+                "type": "number",
+                "description": "Known price (BRL)"
+              },
+              "differentiators": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Known differentiators"
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 20
+    },
+    "product_attributes": {
+      "type": "object",
+      "description": "Known product attributes/specs",
+      "properties": {
+        "dimensions": {"type": "string"},
+        "weight": {"type": "string"},
+        "color_options": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "material": {"type": "string"},
+        "brand": {"type": "string"},
+        "warranty": {"type": "string"},
+        "certifications": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "ANVISA, INMETRO, etc."
+        },
+        "special_features": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "special_requirements": {
+      "type": "string",
+      "description": "Special compliance, regulatory, or market requirements",
+      "examples": [
+        "Resistente à água (IPX5+)",
+        "Registro ANVISA obrigatório",
+        "Foco em sustentabilidade"
+      ]
+    },
+    "image_urls": {
+      "type": "array",
+      "description": "Product image URLs for vision analysis",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "minItems": 0,
+      "maxItems": 10
+    },
+    "existing_copy": {
+      "type": "object",
+      "description": "Existing ad copy for optimization (optional)",
+      "properties": {
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "bullets": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "performance_metrics": {
+          "type": "object",
+          "properties": {
+            "ctr": {"type": "number"},
+            "conversion_rate": {"type": "number"},
+            "acos": {"type": "number"}
+          }
+        }
+      }
+    },
+    "research_focus": {
+      "type": "array",
+      "description": "Areas to prioritize in research",
+      "items": {
+        "type": "string",
+        "enum": [
+          "competitor_analysis",
+          "seo_keywords",
+          "pain_points",
+          "pricing_strategy",
+          "compliance",
+          "sentiment_analysis",
+          "trend_analysis",
+          "gap_identification"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "launch_timeline": {
+      "type": "object",
+      "description": "Product launch/optimization timeline",
+      "properties": {
+        "target_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Target launch/go-live date"
+        },
+        "urgency": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "urgent"],
+          "default": "medium"
+        }
+      }
+    },
+    "budget_constraints": {
+      "type": "object",
+      "description": "Marketing/ad budget constraints",
+      "properties": {
+        "ad_budget_monthly": {
+          "type": "number",
+          "description": "Monthly ad budget (BRL)"
+        },
+        "target_acos": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Target ACoS percentage"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata",
+      "properties": {
+        "submitted_by": {"type": "string"},
+        "submission_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "project_id": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    }
+  },
+  "examples": [
+    {
+      "product_name": "Fone de ouvido Bluetooth esportivo",
+      "category": "Eletrônicos > Áudio",
+      "target_audience": {
+        "segment": "Atletas",
+        "age_range": "18-35",
+        "gender": "unissex",
+        "income_level": "B-C"
+      },
+      "price_range": {
+        "min": 150,
+        "max": 280,
+        "currency": "BRL",
+        "avg": 200
+      },
+      "marketplace_target": ["mercadolivre", "shopee"],
+      "competitors": [
+        {
+          "name": "JBL Endurance Run",
+          "price": 199,
+          "differentiators": ["marca conhecida", "resistente à água"]
+        },
+        "Xiaomi Mi Sports"
+      ],
+      "special_requirements": "Resistente à água (IPX5+)",
+      "research_focus": ["competitor_analysis", "seo_keywords", "pain_points"]
+    },
+    {
+      "product_name": "Garrafa de água reutilizável ecológica",
+      "category": "Casa e Jardim > Cozinha",
+      "target_audience": "Profissionais home office, 25-45 anos",
+      "price_range": "R$ 89 - R$ 129",
+      "marketplace_target": ["mercadolivre"],
+      "special_requirements": "Foco em sustentabilidade"
+    }
+  ]
+}

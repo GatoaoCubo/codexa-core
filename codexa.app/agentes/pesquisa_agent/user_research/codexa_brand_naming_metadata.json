@@ -1,0 +1,72 @@
+{
+  "research_id": "codexa_brand_naming_2025-11-30",
+  "product_name": "CODEXA",
+  "research_type": "brand_naming",
+  "category": "AI Agent Platform / E-commerce",
+  "execution_date": "2025-11-30",
+  "duration_minutes": 15,
+  "agent_version": "pesquisa_agent v3.1.0",
+  "platform": "Claude Code (Opus 4.5)",
+
+  "quality_scores": {
+    "completeness": 1.0,
+    "confidence": 0.92,
+    "sources_quality": 0.95,
+    "differentiation_analysis": 0.90,
+    "market_validation": 0.88,
+    "overall": 0.93
+  },
+
+  "execution_metrics": {
+    "web_queries_executed": 11,
+    "sources_analyzed": 15,
+    "competitors_analyzed": 6,
+    "letters_analyzed": 6,
+    "options_generated": 3,
+    "taglines_created": 5
+  },
+
+  "coverage": {
+    "naming_trends_2024_2025": true,
+    "tech_acronyms_etymology": true,
+    "agentic_ai_terminology": true,
+    "competitor_positioning": true,
+    "brazilian_market": true,
+    "philosophy_cognition_emergence": true,
+    "network_effects_platforms": true
+  },
+
+  "recommendation": {
+    "primary_option": "Filosófica-Científica",
+    "acronym": {
+      "C": "Cognição",
+      "O": "Orquestração",
+      "D": "Descoberta",
+      "E": "Emergência",
+      "X": "[Variável/Você]",
+      "A": "Autonomia"
+    },
+    "tagline": "Onde cognição orquestra descobertas, emergência encontra autonomia.",
+    "rationale": [
+      "Nenhum concorrente usa Cognição ou Emergência",
+      "Validado por filosofia da IA (MIT, complexity science)",
+      "Diferencia de LangChain/CrewAI/AutoGen",
+      "Som técnico-místico similar a NVIDIA"
+    ]
+  },
+
+  "etymology": {
+    "codexa_meaning": "CODE + -XA",
+    "code_dual_meaning": ["Código (técnico)", "Codex (livro antigo de conhecimento)"],
+    "xa_suffix_evokes": ["eXA (10^18 = escala)", "A de Agente/Autonomia", "Som feminino português"]
+  },
+
+  "validation_checklist": {
+    "all_letters_analyzed": true,
+    "multiple_options_generated": true,
+    "competitor_gap_identified": true,
+    "sources_cited": true,
+    "taglines_created": true,
+    "manifesto_written": true
+  }
+}

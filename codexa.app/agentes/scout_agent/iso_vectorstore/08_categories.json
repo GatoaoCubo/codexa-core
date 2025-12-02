@@ -1,0 +1,172 @@
+{
+  "version": "1.2.0",
+  "description": "Category detection rules for Scout indexer",
+  "categories": {
+    "prime": {
+      "patterns": ["**/PRIME.md"],
+      "priority": 1.0,
+      "description": "Agent entry point documentation"
+    },
+    "readme": {
+      "patterns": ["**/README.md", "**/README"],
+      "priority": 0.9,
+      "description": "Project/module documentation"
+    },
+    "instructions": {
+      "patterns": ["**/INSTRUCTIONS.md"],
+      "priority": 0.85,
+      "description": "AI assistant instructions"
+    },
+    "setup": {
+      "patterns": ["**/SETUP.md"],
+      "priority": 0.8,
+      "description": "Setup and installation guides"
+    },
+    "changelog": {
+      "patterns": ["**/CHANGELOG*.md", "**/CHANGELOG.md"],
+      "priority": 0.75,
+      "description": "Version history and changes"
+    },
+    "architecture": {
+      "patterns": ["**/ARCHITECTURE*.md", "**/ARQUITETURA*.md"],
+      "priority": 0.75,
+      "description": "System architecture documentation"
+    },
+    "vision": {
+      "patterns": ["**/VISION.md", "**/VISAO.md"],
+      "priority": 0.7,
+      "description": "Project vision and goals"
+    },
+    "guide": {
+      "patterns": ["**/GUIA*.md", "**/*_GUIDE.md", "**/GUIDE*.md"],
+      "priority": 0.7,
+      "description": "User and developer guides"
+    },
+    "hop": {
+      "patterns": ["**/*_HOP.md", "**/*_hop.md"],
+      "priority": 0.8,
+      "description": "Higher-Order Prompt modules"
+    },
+    "adw": {
+      "patterns": ["**/*_ADW*.md", "**/ADW_*.md"],
+      "priority": 0.8,
+      "description": "Agentic Developer Workflows"
+    },
+    "command": {
+      "patterns": ["**/.claude/commands/**/*.md"],
+      "priority": 0.7,
+      "description": "Claude Code slash commands"
+    },
+    "config": {
+      "patterns": ["**/config/**/*.json", "**/config.json"],
+      "priority": 0.7,
+      "description": "Configuration files"
+    },
+    "prompt": {
+      "patterns": ["**/prompts/**/*.md"],
+      "priority": 0.7,
+      "description": "Prompt templates"
+    },
+    "iso_vectorstore": {
+      "patterns": ["**/iso_vectorstore/**/*"],
+      "priority": 0.7,
+      "description": "Agent knowledge vectorstore"
+    },
+    "knowledge": {
+      "patterns": ["**/knowledge/**/*", "**/conhecimento/**/*"],
+      "priority": 0.65,
+      "description": "Knowledge base files"
+    },
+    "processados": {
+      "patterns": ["**/processados/**/*", "**/processed/**/*"],
+      "priority": 0.6,
+      "description": "Processed knowledge files"
+    },
+    "schema": {
+      "patterns": ["**/schema*.json", "**/schemas/**/*.json"],
+      "priority": 0.6,
+      "description": "JSON schemas"
+    },
+    "builder": {
+      "patterns": ["**/builders/**/*.py", "**/builders/**/*.js"],
+      "priority": 0.6,
+      "description": "Builder scripts"
+    },
+    "validator": {
+      "patterns": ["**/validators/**/*.py", "**/validators/**/*.js"],
+      "priority": 0.6,
+      "description": "Validator scripts"
+    },
+    "workflow": {
+      "patterns": ["**/workflows/**/*.md"],
+      "priority": 0.6,
+      "description": "Workflow definitions"
+    },
+    "context": {
+      "patterns": ["**/context/**/*", "**/contexto/**/*"],
+      "priority": 0.55,
+      "description": "Context and memory files"
+    },
+    "planning": {
+      "patterns": ["**/planning/**/*", "**/planejamento/**/*"],
+      "priority": 0.55,
+      "description": "Planning and roadmap documents"
+    },
+    "rascunho": {
+      "patterns": ["**/RASCUNHO/**/*", "**/rascunho/**/*", "**/drafts/**/*"],
+      "priority": 0.45,
+      "description": "Draft and work-in-progress files"
+    },
+    "fontes": {
+      "patterns": ["**/FONTES/**/*", "**/fontes/**/*", "**/sources/**/*"],
+      "priority": 0.5,
+      "description": "Source references and materials"
+    },
+    "user_output": {
+      "patterns": ["**/USER_DOCS/**/*", "**/user_docs/**/*"],
+      "priority": 0.5,
+      "description": "User-generated documentation"
+    },
+    "outputs": {
+      "patterns": ["**/outputs/**/*"],
+      "priority": 0.5,
+      "description": "Generated outputs"
+    },
+    "source": {
+      "patterns": ["**/src/**/*.py", "**/src/**/*.js", "**/src/**/*.ts"],
+      "priority": 0.5,
+      "description": "Source code"
+    },
+    "docs": {
+      "patterns": ["**/docs/**/*.md"],
+      "priority": 0.5,
+      "description": "Documentation"
+    },
+    "template": {
+      "patterns": ["**/templates/**/*"],
+      "priority": 0.5,
+      "description": "Template files"
+    },
+    "memory": {
+      "patterns": ["**/memory/**/*", "**/memoria/**/*"],
+      "priority": 0.5,
+      "description": "Memory storage files"
+    },
+    "asset": {
+      "patterns": ["**/assets/**/*", "**/images/**/*", "**/img/**/*"],
+      "priority": 0.4,
+      "description": "Static assets and images"
+    },
+    "test": {
+      "patterns": ["**/tests/**/*", "**/test_*.py", "**/*_test.py"],
+      "priority": 0.4,
+      "description": "Test files"
+    },
+    "example": {
+      "patterns": ["**/examples/**/*", "**/EXAMPLE*.md", "**/EXEMPLO*.md"],
+      "priority": 0.4,
+      "description": "Example files"
+    }
+  },
+  "default_priority": 0.3
+}

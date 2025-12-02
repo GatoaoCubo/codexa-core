@@ -1,0 +1,133 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Tapete Refrescante Gelado GATO3 65x50cm",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.88,
+  "execution_time_minutes": 3,
+
+  "titles": [
+    {
+      "text": "Tapete Refrescante Gelado Pet 65x50cm Cachorro Gato GATO3",
+      "char_count": 58,
+      "keyword_count": 9,
+      "density": 0.82,
+      "score": 0.90,
+      "variant": "A",
+      "focus": "equilibrado"
+    },
+    {
+      "text": "Tapete Gelado Pet Refrescante 65x50 Cachorro Gato Verao",
+      "char_count": 57,
+      "keyword_count": 8,
+      "density": 0.80,
+      "score": 0.87,
+      "variant": "B",
+      "focus": "emocional"
+    },
+    {
+      "text": "Tapete Refrescante 65x50cm Pet Gelado Atoxic Cachorro Gato",
+      "char_count": 59,
+      "keyword_count": 8,
+      "density": 0.78,
+      "score": 0.86,
+      "variant": "C",
+      "focus": "tecnico"
+    }
+  ],
+
+  "keywords": {
+    "block_a": {
+      "name": "Atributos e Variacoes",
+      "count": 115
+    },
+    "block_b": {
+      "name": "Beneficios e Uso",
+      "count": 116
+    },
+    "coverage_score": {
+      "head_terms": 0.95,
+      "longtails": 0.90,
+      "total_unique_keywords": 231
+    }
+  },
+
+  "description": {
+    "word_count": 3456,
+    "keyword_density": 0.038,
+    "readability_score": 68,
+    "sections": ["Hook", "Solucao", "Dimensoes", "Funcionamento", "Material", "Limpeza", "Portabilidade", "Versatilidade", "Prevencao", "Economia", "Garantia", "CTA"],
+    "template": "mercado_livre_physical",
+    "storybrand_elements": 7
+  },
+
+  "bullets": {
+    "count": 10,
+    "avg_chars": 247,
+    "mental_triggers": ["scarcity", "social_proof", "authority", "reciprocity"]
+  },
+
+  "visual_assets": {
+    "status": "quick_mode_skipped",
+    "image_prompts": [],
+    "video_script": null,
+    "asset_count": 0
+  },
+
+  "qa_report": {
+    "title_validation": {
+      "passed": true,
+      "char_count_compliance": true,
+      "keyword_density_passed": true,
+      "forbidden_words": 0,
+      "issues": []
+    },
+    "keywords_validation": {
+      "passed": true,
+      "total_keywords": 231,
+      "minimum_required": 200,
+      "issues": []
+    },
+    "description_validation": {
+      "passed": true,
+      "word_count": 3456,
+      "compliance_passed": true,
+      "issues": []
+    },
+    "compliance_validation": {
+      "passed": true,
+      "no_html": true,
+      "no_emojis": true,
+      "no_prohibited_claims": true,
+      "no_therapeutic_claims": true,
+      "no_external_links": true,
+      "issues": []
+    },
+    "aggregate_score": 0.88,
+    "validation_checks_passed": 11,
+    "validation_checks_total": 11
+  },
+
+  "strategic_brief": {
+    "product_name": "Tapete Refrescante Gelado GATO3 65x50cm",
+    "product_type": "PHYSICAL_PRODUCT",
+    "marketplace_type": "MERCADO_LIVRE",
+    "category": "Camas e Tapetes Pet / Tapetes Refrescantes",
+    "dimensions": "65 x 50 cm",
+    "weight_capacity": "Ate 25kg",
+    "target_audience": "Tutores de caes e gatos de pequeno/medio porte",
+    "price_gato3": 58.39,
+    "competitor_price_range": "R$35-48",
+    "main_competitor": "Ringo 65x50 (R$34,10, +5mil vendidos, 4.6 stars)",
+    "differentiation_strategy": "marca e qualidade"
+  },
+
+  "metadata": {
+    "workflow_version": "2.5.0",
+    "generator": "CodeXAnuncio v2.5.0",
+    "generated_at": "2025-11-29T10:55:00Z",
+    "plan": "quick_anuncio",
+    "mode": "ULTRATHINK_batch",
+    "status": "production_ready"
+  }
+}

@@ -1,0 +1,515 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codexa.app/schemas/photo_agent/standard_output/v3.0.0",
+  "title": "Photo Agent Standard Output Schema",
+  "description": "Output validation schema for photo_agent Core Workflow 1 - Standard 9-scene photography prompt generation",
+  "version": "3.0.0",
+  "type": "object",
+
+  "required": [
+    "metadata",
+    "prompts_grid_3x3",
+    "trinity_output",
+    "quality_report"
+  ],
+
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Output metadata and generation information",
+      "required": [
+        "agent",
+        "version",
+        "timestamp",
+        "input_hash",
+        "workflow_type"
+      ],
+      "properties": {
+        "agent": {
+          "type": "string",
+          "const": "photo_agent",
+          "description": "Agent identifier"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Agent version (semantic versioning)",
+          "examples": ["3.0.0"]
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Generation timestamp (ISO 8601)",
+          "examples": ["2025-11-18T10:30:00Z"]
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA256 hash of input data for traceability"
+        },
+        "workflow_type": {
+          "type": "string",
+          "enum": ["standard", "brand_aligned", "marketplace_compliant", "custom"],
+          "description": "Workflow type used for generation"
+        },
+        "generation_time_ms": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Total generation time in milliseconds"
+        },
+        "input_subject": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 500,
+          "description": "Original product/subject description from input"
+        },
+        "photography_style": {
+          "type": "string",
+          "enum": ["minimalist", "dramatic", "lifestyle", "editorial", "commercial", "cinematic", "vintage", "custom"],
+          "description": "Photography style preset used"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "prompts_grid_3x3": {
+      "type": "array",
+      "description": "9 photography prompts for 3x3 grid layout (scenes 1-9)",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_number",
+          "scene_name",
+          "scene_role",
+          "prompt_text",
+          "technical_specs",
+          "pnl_trigger"
+        ],
+        "properties": {
+          "scene_number": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9,
+            "description": "Scene number in 3x3 grid (1=top-left, 5=center, 9=bottom-right)"
+          },
+          "scene_name": {
+            "type": "string",
+            "description": "Scene descriptive name",
+            "examples": ["Hero Shot", "Lifestyle Context", "Detail Focus"]
+          },
+          "scene_role": {
+            "type": "string",
+            "enum": [
+              "hero_shot",
+              "lifestyle_context",
+              "detail_focus",
+              "environment_context",
+              "texture_closeup",
+              "usage_demonstration",
+              "flat_lay",
+              "artistic_creative",
+              "product_isolated"
+            ],
+            "description": "Scene purpose/role in storytelling grid"
+          },
+          "prompt_text": {
+            "type": "string",
+            "minLength": 150,
+            "maxLength": 300,
+            "description": "Complete AI photography prompt (150-300 words)",
+            "pattern": ".*camera.*lighting.*composition.*"
+          },
+          "technical_specs": {
+            "type": "object",
+            "description": "Camera and lighting technical specifications",
+            "required": ["camera", "lighting", "composition"],
+            "properties": {
+              "camera": {
+                "type": "object",
+                "required": ["model", "lens", "aperture", "iso", "shutter_speed"],
+                "properties": {
+                  "model": {
+                    "type": "string",
+                    "description": "Camera body model",
+                    "examples": ["Sony A7R IV", "Canon EOS R5", "Nikon Z7 II"]
+                  },
+                  "lens": {
+                    "type": "string",
+                    "description": "Lens focal length and aperture",
+                    "examples": ["85mm f/1.8", "50mm f/2.8", "24-70mm f/4"]
+                  },
+                  "aperture": {
+                    "type": "string",
+                    "pattern": "^f/\\d+(\\.\\d+)?$",
+                    "description": "Aperture f-stop",
+                    "examples": ["f/2.8", "f/5.6", "f/11"]
+                  },
+                  "iso": {
+                    "type": "integer",
+                    "minimum": 100,
+                    "maximum": 3200,
+                    "description": "ISO sensitivity"
+                  },
+                  "shutter_speed": {
+                    "type": "string",
+                    "pattern": "^1/\\d+s?$",
+                    "description": "Shutter speed",
+                    "examples": ["1/125", "1/250", "1/60"]
+                  },
+                  "white_balance": {
+                    "type": "string",
+                    "pattern": "^\\d{4}K$",
+                    "description": "White balance in Kelvin",
+                    "examples": ["5500K", "6500K", "3200K"]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "lighting": {
+                "type": "object",
+                "required": ["setup_type", "key_light", "color_temperature"],
+                "properties": {
+                  "setup_type": {
+                    "type": "string",
+                    "enum": ["3-point", "2-point", "single-key", "natural", "rim-only"],
+                    "description": "Lighting setup configuration"
+                  },
+                  "key_light": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "examples": ["soft box", "umbrella", "beauty dish", "natural window"]
+                      },
+                      "position": {
+                        "type": "string",
+                        "description": "Light position relative to subject",
+                        "examples": ["front-left 45°", "side 90°", "overhead"]
+                      },
+                      "intensity": {
+                        "type": "string",
+                        "pattern": "^\\d+%$",
+                        "examples": ["100%", "80%", "50%"]
+                      }
+                    }
+                  },
+                  "fill_light": {
+                    "type": "object",
+                    "properties": {
+                      "type": {"type": "string"},
+                      "position": {"type": "string"},
+                      "intensity": {"type": "string", "pattern": "^\\d+%$"}
+                    }
+                  },
+                  "rim_light": {
+                    "type": "object",
+                    "properties": {
+                      "type": {"type": "string"},
+                      "position": {"type": "string"},
+                      "intensity": {"type": "string", "pattern": "^\\d+%$"}
+                    }
+                  },
+                  "color_temperature": {
+                    "type": "string",
+                    "pattern": "^\\d{4}K$",
+                    "description": "Light color temperature in Kelvin",
+                    "examples": ["5500K", "6500K", "3200K"]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "composition": {
+                "type": "object",
+                "properties": {
+                  "angle": {
+                    "type": "string",
+                    "description": "Camera angle",
+                    "examples": ["top-down 90°", "eye-level", "low-angle 30°", "45° diagonal"]
+                  },
+                  "framing": {
+                    "type": "string",
+                    "examples": ["centered", "rule of thirds", "golden ratio", "off-center"]
+                  },
+                  "depth_of_field": {
+                    "type": "string",
+                    "enum": ["shallow", "medium", "deep"],
+                    "description": "Depth of field style"
+                  },
+                  "background": {
+                    "type": "string",
+                    "description": "Background description",
+                    "examples": ["pure white seamless", "wooden surface", "lifestyle environment"]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "pnl_trigger": {
+            "type": "string",
+            "enum": [
+              "urgência",
+              "escassez",
+              "exclusividade",
+              "conforto",
+              "pertencimento",
+              "desejo",
+              "transformação",
+              "controle",
+              "confiança",
+              "prazer",
+              "calma",
+              "segurança",
+              "clareza",
+              "aspiração",
+              "recompensa",
+              "simplicidade",
+              "autenticidade",
+              "descoberta"
+            ],
+            "description": "PNL emotional trigger applied to this scene"
+          },
+          "word_count": {
+            "type": "integer",
+            "minimum": 150,
+            "maximum": 300,
+            "description": "Prompt word count (must be 150-300)"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "batch_processing_block": {
+      "type": "string",
+      "description": "All 9 prompts concatenated in single text block for batch upload to AI generators",
+      "minLength": 1350,
+      "maxLength": 2700,
+      "pattern": ".*Scene 1.*Scene 9.*"
+    },
+
+    "trinity_output": {
+      "type": "object",
+      "description": "Trinity output file paths and metadata",
+      "required": ["markdown_file", "llm_json_file", "meta_json_file"],
+      "properties": {
+        "markdown_file": {
+          "type": "string",
+          "pattern": ".*\\.md$",
+          "description": "Path to .md file (human-readable)"
+        },
+        "llm_json_file": {
+          "type": "string",
+          "pattern": ".*\\.llm\\.json$",
+          "description": "Path to .llm.json file (machine-readable)"
+        },
+        "meta_json_file": {
+          "type": "string",
+          "pattern": ".*\\.meta\\.json$",
+          "description": "Path to .meta.json file (metadata)"
+        },
+        "output_directory": {
+          "type": "string",
+          "description": "Output directory path"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "quality_report": {
+      "type": "object",
+      "description": "11-point quality validation checklist results",
+      "required": ["overall_score", "technical_validation", "content_validation"],
+      "properties": {
+        "overall_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 11,
+          "description": "Total quality score (0-11 points)"
+        },
+        "technical_validation": {
+          "type": "object",
+          "required": [
+            "camera_specs_realistic",
+            "lighting_physics_correct",
+            "lens_subject_match",
+            "word_count_valid",
+            "prompt_structure_consistent",
+            "no_impossible_setups"
+          ],
+          "properties": {
+            "camera_specs_realistic": {
+              "type": "boolean",
+              "description": "✅ Camera specs realistic (f/2.8-f/16, ISO 100-3200, shutter 1/60-1/500)"
+            },
+            "lighting_physics_correct": {
+              "type": "boolean",
+              "description": "✅ Lighting physics correct (3-point setup, inverse square law)"
+            },
+            "lens_subject_match": {
+              "type": "boolean",
+              "description": "✅ Lens-subject match (macro for small, telephoto for portraits)"
+            },
+            "word_count_valid": {
+              "type": "boolean",
+              "description": "✅ All 9 prompts 150-300 words"
+            },
+            "prompt_structure_consistent": {
+              "type": "boolean",
+              "description": "✅ Prompt structure consistent (subject → camera → lighting → composition → mood)"
+            },
+            "no_impossible_setups": {
+              "type": "boolean",
+              "description": "✅ No impossible setups (conflicting specs)"
+            }
+          }
+        },
+        "content_validation": {
+          "type": "object",
+          "required": [
+            "pnl_triggers_aligned",
+            "no_text_logos",
+            "batch_block_valid"
+          ],
+          "properties": {
+            "pnl_triggers_aligned": {
+              "type": "boolean",
+              "description": "✅ PNL triggers aligned (consistency across scenes)"
+            },
+            "no_text_logos": {
+              "type": "boolean",
+              "description": "✅ No text/logos in prompts (AI generators can't render text well)"
+            },
+            "batch_block_valid": {
+              "type": "boolean",
+              "description": "✅ Batch block combines all 9 prompts correctly"
+            },
+            "brand_colors_integrated": {
+              "type": "boolean",
+              "description": "✅ Brand colors integrated (if brand_profile provided)"
+            },
+            "marketplace_white_bg": {
+              "type": "boolean",
+              "description": "✅ Scenes 1+9 white background (if marketplace=true)"
+            }
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of validation errors (if any)"
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of validation warnings (if any)"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "configs_loaded": {
+      "type": "object",
+      "description": "Configuration files loaded during generation",
+      "properties": {
+        "photography_style_file": {
+          "type": "string",
+          "description": "Path to 11_photo_photography_styles.json"
+        },
+        "camera_profiles_file": {
+          "type": "string",
+          "description": "Path to 10_photo_camera_profiles.json"
+        },
+        "pnl_triggers_file": {
+          "type": "string",
+          "description": "Path to 12_photo_pnl_triggers.json"
+        },
+        "output_template_file": {
+          "type": "string",
+          "description": "Path to 14_photo_Custom_Instructions.md"
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false,
+
+  "examples": [
+    {
+      "metadata": {
+        "agent": "photo_agent",
+        "version": "3.0.0",
+        "timestamp": "2025-11-18T10:30:00Z",
+        "input_hash": "a1b2c3d4e5f6...",
+        "workflow_type": "standard",
+        "generation_time_ms": 4500,
+        "input_subject": "Ceramic coffee mug 350ml with matte white glaze",
+        "photography_style": "minimalist"
+      },
+      "prompts_grid_3x3": [
+        {
+          "scene_number": 1,
+          "scene_name": "Hero Shot",
+          "scene_role": "hero_shot",
+          "prompt_text": "Professional product photography of a ceramic coffee mug...",
+          "technical_specs": {
+            "camera": {
+              "model": "Sony A7R IV",
+              "lens": "85mm f/1.8",
+              "aperture": "f/5.6",
+              "iso": 100,
+              "shutter_speed": "1/125",
+              "white_balance": "5500K"
+            },
+            "lighting": {
+              "setup_type": "3-point",
+              "key_light": {
+                "type": "soft box",
+                "position": "front-left 45°",
+                "intensity": "100%"
+              },
+              "color_temperature": "5500K"
+            },
+            "composition": {
+              "angle": "top-down 90°",
+              "framing": "centered",
+              "depth_of_field": "shallow",
+              "background": "pure white seamless"
+            }
+          },
+          "pnl_trigger": "urgência",
+          "word_count": 220
+        }
+      ],
+      "trinity_output": {
+        "markdown_file": "./output/ceramic_mug_350ml.md",
+        "llm_json_file": "./output/ceramic_mug_350ml.llm.json",
+        "meta_json_file": "./output/ceramic_mug_350ml.meta.json",
+        "output_directory": "./output"
+      },
+      "quality_report": {
+        "overall_score": 11,
+        "technical_validation": {
+          "camera_specs_realistic": true,
+          "lighting_physics_correct": true,
+          "lens_subject_match": true,
+          "word_count_valid": true,
+          "prompt_structure_consistent": true,
+          "no_impossible_setups": true
+        },
+        "content_validation": {
+          "pnl_triggers_aligned": true,
+          "no_text_logos": true,
+          "batch_block_valid": true
+        }
+      }
+    }
+  ]
+}

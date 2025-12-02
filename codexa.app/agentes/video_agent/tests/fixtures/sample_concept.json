@@ -1,0 +1,105 @@
+{
+  "brief_id": "nike_air_max_30s_001",
+  "generated_at": "2025-11-25T10:30:00Z",
+  "shots": [
+    {
+      "number": 1,
+      "duration": 4,
+      "description": "Close-up do tenis Nike Air Max girando 360 graus em fundo branco",
+      "composition": "Product hero shot, centered, white cyclorama background",
+      "narrative": "hook",
+      "camera": {
+        "movement": "slow orbit",
+        "angle": "eye level",
+        "lens": "50mm"
+      },
+      "lighting": "dramatic rim light with soft fill",
+      "key_element": "product_reveal"
+    },
+    {
+      "number": 2,
+      "duration": 5,
+      "description": "Pessoa jovem caminhando com confianca usando o Air Max em ambiente urbano",
+      "composition": "Tracking shot, focus on feet, urban street background",
+      "narrative": "build",
+      "camera": {
+        "movement": "tracking dolly",
+        "angle": "low angle",
+        "lens": "35mm"
+      },
+      "lighting": "natural daylight, golden hour tones",
+      "key_element": "lifestyle_context"
+    },
+    {
+      "number": 3,
+      "duration": 5,
+      "description": "Extreme close-up da tecnologia Air sendo comprimida durante caminhada",
+      "composition": "Macro shot, slow motion, visible air cushion compression",
+      "narrative": "benefit",
+      "camera": {
+        "movement": "static with subject movement",
+        "angle": "side profile",
+        "lens": "100mm macro"
+      },
+      "lighting": "soft diffused light highlighting texture",
+      "key_element": "technology_showcase"
+    },
+    {
+      "number": 4,
+      "duration": 5,
+      "description": "Pessoa sorrindo satisfeita apos dia longo, olhando para os pes com aprovacao",
+      "composition": "Medium shot, lifestyle setting, warm environment",
+      "narrative": "proof",
+      "camera": {
+        "movement": "subtle push in",
+        "angle": "eye level",
+        "lens": "50mm"
+      },
+      "lighting": "warm interior lighting, cozy atmosphere",
+      "key_element": "satisfaction_moment"
+    },
+    {
+      "number": 5,
+      "duration": 5,
+      "description": "Lineup de 3 colorways do Air Max em composicao elegante",
+      "composition": "Product showcase, three shoes in triangle formation",
+      "narrative": "build",
+      "camera": {
+        "movement": "slow crane down",
+        "angle": "high angle looking down",
+        "lens": "35mm"
+      },
+      "lighting": "studio lighting, even exposure on all products",
+      "key_element": "variety_showcase"
+    },
+    {
+      "number": 6,
+      "duration": 6,
+      "description": "Pack shot final: Air Max centralizado com swoosh Nike e call to action",
+      "composition": "Product centered, logo visible, clean background for text overlay",
+      "narrative": "cta",
+      "camera": {
+        "movement": "slow zoom in",
+        "angle": "slightly low angle (heroic)",
+        "lens": "50mm"
+      },
+      "lighting": "premium studio lighting, highlight on product",
+      "key_element": "final_cta"
+    }
+  ],
+  "total_duration": 30,
+  "narrative_arc": "Hook (product reveal) -> Build (lifestyle) -> Benefit (technology) -> Proof (satisfaction) -> Build (variety) -> CTA (conversion)",
+  "style_preset": "energetic",
+  "transitions": {
+    "1_to_2": "cut",
+    "2_to_3": "cut",
+    "3_to_4": "dissolve",
+    "4_to_5": "cut",
+    "5_to_6": "cut"
+  },
+  "music_suggestion": {
+    "genre": "electronic",
+    "tempo": "128 bpm",
+    "mood": "upbeat, motivational"
+  }
+}

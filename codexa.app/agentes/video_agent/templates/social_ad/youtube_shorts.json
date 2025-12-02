@@ -1,0 +1,224 @@
+{
+  "$schema": "../../schemas/video_input.json",
+  "template_id": "youtube_shorts_v1",
+  "template_name": "YouTube Shorts Ad",
+  "template_description": "Anuncio otimizado para YouTube Shorts - foco em informacao e valor",
+  "version": "1.0.0",
+  "category": "conversion",
+  "recommended_duration": 30,
+  "recommended_format": "9:16",
+  "recommended_style": "minimal",
+  "recommended_video_mode": "clean",
+
+  "platform_specs": {
+    "platform": "youtube_shorts",
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "max_duration": 60,
+    "optimal_duration": 30,
+    "safe_zone": {
+      "bottom": "15%",
+      "description": "Evitar area de titulo e subscribe button"
+    },
+    "auto_captions": {
+      "enabled": true,
+      "recommended": true,
+      "notes": "YouTube gera legendas automaticas - otimizar narracao para isso"
+    }
+  },
+
+  "narrative_arc": {
+    "structure": "educational_sell",
+    "phases": [
+      {
+        "name": "hook",
+        "purpose": "Promessa de valor ou curiosidade",
+        "duration_percent": 15,
+        "shots": 1,
+        "tone": "intrigante"
+      },
+      {
+        "name": "educate",
+        "purpose": "Entregar valor real antes de vender",
+        "duration_percent": 45,
+        "shots": 3,
+        "tone": "informativo"
+      },
+      {
+        "name": "product",
+        "purpose": "Apresentar produto como solucao",
+        "duration_percent": 25,
+        "shots": 1,
+        "tone": "solucionador"
+      },
+      {
+        "name": "cta",
+        "purpose": "Direcionar para acao",
+        "duration_percent": 15,
+        "shots": 1,
+        "tone": "direto"
+      }
+    ]
+  },
+
+  "shots_template": [
+    {
+      "number": 1,
+      "narrative": "hook",
+      "duration": 4,
+      "description_template": "Visual intrigante ou pergunta sendo respondida",
+      "composition": "Clean, minimal, focus on value proposition",
+      "camera": {
+        "movement": "static or slow push",
+        "angle": "eye level"
+      },
+      "lighting": "clean, professional",
+      "text_overlay": null,
+      "narration_template": "[PERGUNTA_OU_PROMESSA_DE_VALOR]",
+      "hook_formats": [
+        "Voce sabia que [fato]?",
+        "3 coisas que [beneficio]",
+        "O segredo para [resultado]",
+        "Por que [problema comum]?"
+      ]
+    },
+    {
+      "number": 2,
+      "narrative": "educate",
+      "duration": 5,
+      "description_template": "Visual demonstrando [PONTO_1] do conteudo educativo",
+      "composition": "Informative, clean",
+      "camera": {
+        "movement": "subtle movement",
+        "angle": "varied"
+      },
+      "lighting": "clear, informative",
+      "text_overlay": null,
+      "narration_template": "[PONTO_EDUCATIVO_1]"
+    },
+    {
+      "number": 3,
+      "narrative": "educate",
+      "duration": 5,
+      "description_template": "Visual demonstrando [PONTO_2] com mais detalhes",
+      "composition": "Detail focused",
+      "camera": {
+        "movement": "close-up or demonstration",
+        "angle": "detail"
+      },
+      "lighting": "focused",
+      "text_overlay": null,
+      "narration_template": "[PONTO_EDUCATIVO_2]"
+    },
+    {
+      "number": 4,
+      "narrative": "educate",
+      "duration": 4,
+      "description_template": "Visual de [PONTO_3] conectando com solucao",
+      "composition": "Transition to product context",
+      "camera": {
+        "movement": "transitioning",
+        "angle": "context building"
+      },
+      "lighting": "transitioning to product",
+      "text_overlay": null,
+      "narration_template": "[PONTO_EDUCATIVO_3_BRIDGE]"
+    },
+    {
+      "number": 5,
+      "narrative": "product",
+      "duration": 7,
+      "description_template": "[PRODUTO] sendo apresentado como a solucao ideal",
+      "composition": "Product hero with context",
+      "camera": {
+        "movement": "slow orbit or dolly",
+        "angle": "heroic low angle"
+      },
+      "lighting": "premium product lighting",
+      "text_overlay": null,
+      "narration_template": "[PRODUTO] resolve [PROBLEMA] porque [RAZAO]"
+    },
+    {
+      "number": 6,
+      "narrative": "cta",
+      "duration": 5,
+      "description_template": "[PRODUTO] com visual limpo e espaco para subscribe",
+      "composition": "Clean CTA shot",
+      "camera": {
+        "movement": "static or slow zoom",
+        "angle": "centered"
+      },
+      "lighting": "clean, premium",
+      "text_overlay": null,
+      "narration_template": "Link na descricao. [CTA_FRASE]",
+      "end_screen_compatible": true
+    }
+  ],
+
+  "voice_recommendation": {
+    "gender": "contextual",
+    "tone": "profissional",
+    "pace": "clear, measured, educational",
+    "suggested_voices": {
+      "feminina": "XrExE9yKIg1WjnnlVkGX",
+      "masculina": "VR6AewLTigWG4xSOukaG"
+    },
+    "tips": [
+      "Tom educativo, nao vendedor",
+      "Pausas para absorcao de informacao",
+      "Diccao clara para auto-captions",
+      "Evitar falar muito rapido"
+    ]
+  },
+
+  "music_recommendation": {
+    "genre": "ambient",
+    "mood": "subtle",
+    "tempo": "medium",
+    "volume": 0.2,
+    "notes": "Musica bem baixa - foco na narracao para auto-captions"
+  },
+
+  "auto_captions_optimization": {
+    "importance": "critical",
+    "guidelines": [
+      "Narracao clara e bem articulada",
+      "Evitar girias ou termos que confundem ASR",
+      "Pausas entre frases",
+      "Velocidade moderada (130-150 palavras/minuto)",
+      "Evitar musica alta que interfere no reconhecimento"
+    ]
+  },
+
+  "content_value_first": {
+    "principle": "Entregar valor ANTES de vender",
+    "ratio": "70% educacao / 30% produto",
+    "why": "YouTube audience espera conteudo util, nao so ads"
+  },
+
+  "seo_optimization": {
+    "title_keywords": true,
+    "description_rich": true,
+    "hashtags": ["#Shorts", "#[Categoria]", "#[Produto]"],
+    "end_screen": {
+      "subscribe_button": true,
+      "next_video": true
+    }
+  },
+
+  "example_brief": {
+    "produto": "Curso de Fotografia Online",
+    "duracao": 30,
+    "formato": "9:16",
+    "tom": "profissional",
+    "objetivo": "Educar sobre erros de iniciantes e apresentar curso como solucao",
+    "preco": "R$ 297",
+    "video_mode": "clean",
+    "educational_points": [
+      "Erro 1: Usar flash direto",
+      "Erro 2: ISO muito alto",
+      "Erro 3: Nao entender luz natural"
+    ],
+    "product_connection": "Nosso curso ensina a evitar todos esses erros"
+  }
+}

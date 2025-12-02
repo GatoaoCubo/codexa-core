@@ -1,0 +1,58 @@
+{
+  "version": "1.1.0",
+  "description": "Relevance scoring weights for Scout",
+  "weights": {
+    "text_match": 0.40,
+    "category_priority": 0.20,
+    "agent_match": 0.25,
+    "recency": 0.15
+  },
+  "text_match": {
+    "exact_match_boost": 0.3,
+    "path_match_weight": 0.4,
+    "tag_match_weight": 0.3,
+    "content_match_weight": 0.3,
+    "fuzzy_threshold": 0.6
+  },
+  "recency": {
+    "max_age_days": 365,
+    "decay_function": "linear"
+  },
+  "agent_detection": {
+    "patterns": [
+      "{agent}/",
+      "agentes/{agent}/",
+      "{agent}_agent/"
+    ]
+  },
+  "boost_rules": [
+    {
+      "condition": "file.category == 'prime' && query.includes('start')",
+      "boost": 0.2
+    },
+    {
+      "condition": "file.category == 'hop' && query.includes('prompt')",
+      "boost": 0.15
+    },
+    {
+      "condition": "file.category == 'config' && query.includes('settings')",
+      "boost": 0.1
+    },
+    {
+      "condition": "file.category == 'changelog' && query.includes('version')",
+      "boost": 0.15
+    },
+    {
+      "condition": "file.category == 'architecture' && query.includes('structure')",
+      "boost": 0.15
+    },
+    {
+      "condition": "file.category == 'guide' && query.includes('how')",
+      "boost": 0.12
+    },
+    {
+      "condition": "file.category == 'planning' && query.includes('roadmap')",
+      "boost": 0.1
+    }
+  ]
+}

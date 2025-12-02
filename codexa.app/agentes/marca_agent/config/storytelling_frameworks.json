@@ -1,0 +1,861 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-11-14",
+  "description": "Storytelling frameworks for brand narrative and copywriting",
+  "scope": "StoryBrand, Hero's Journey, PAS, AIDA, and Brazilian-adapted frameworks",
+  "usage": "Use these frameworks to create compelling brand narratives and marketing copy",
+
+  "storybrand": {
+    "framework_name": "StoryBrand Framework (Donald Miller)",
+    "overview": "7-part framework that positions customer as hero and brand as guide",
+    "key_principle": "Customer is the hero, NOT the brand. Brand is the guide helping hero succeed.",
+    "why_it_works": "People engage with stories where they see themselves, not brand-centric messaging",
+
+    "7_elements": {
+      "1_character": {
+        "name": "A Character (Customer as Hero)",
+        "description": "Identify your customer and what they want",
+        "key_questions": [
+          "Who is your customer?",
+          "What do they want? (external goal)",
+          "Why do they want it? (internal desire)",
+          "What transformation are they seeking?"
+        ],
+        "best_practices": [
+          "Be specific about customer persona",
+          "Focus on ONE clear desire (not multiple)",
+          "Make it relatable and universal",
+          "Frame as aspiration, not just product need"
+        ],
+        "brazilian_adaptation": {
+          "cultural_desires": [
+            "Ascensão social (social mobility)",
+            "Reconhecimento familiar (family recognition)",
+            "Segurança financeira (financial security)",
+            "Status e prestígio (status and prestige)",
+            "Bem-estar e saúde (wellness and health)"
+          ],
+          "language": "Use 'você' (informal) for relatability, 'senhor/senhora' for luxury/formal products"
+        },
+        "examples": {
+          "good": "Você quer uma pele radiante que faz você se sentir confiante em qualquer ocasião",
+          "bad": "Nosso creme hidratante tem 15 ingredientes premium"
+        }
+      },
+
+      "2_problem": {
+        "name": "Has a Problem",
+        "description": "Define the problem standing between customer and their goal",
+        "three_levels": {
+          "external_problem": {
+            "description": "The tangible, surface-level problem",
+            "examples": [
+              "Pele ressecada (dry skin)",
+              "Celular com pouca memória (phone low storage)",
+              "Roupas que não combinam (clothes that don't match)"
+            ]
+          },
+          "internal_problem": {
+            "description": "How the external problem makes them FEEL",
+            "examples": [
+              "Frustração (frustration)",
+              "Vergonha (shame)",
+              "Insegurança (insecurity)",
+              "Medo de julgamento (fear of judgment)"
+            ],
+            "critical": "This is the REAL problem you're solving - people buy based on feelings"
+          },
+          "philosophical_problem": {
+            "description": "The 'this shouldn't be this way' principle",
+            "examples": [
+              "Cuidar da pele não deveria ser complicado (skincare shouldn't be complicated)",
+              "Tecnologia deveria simplificar a vida, não complicar (tech should simplify, not complicate)",
+              "Todo mundo merece se sentir bem consigo mesmo (everyone deserves to feel good about themselves)"
+            ]
+          }
+        },
+        "formula": "External problem → Makes them feel (internal) → Which violates principle (philosophical)",
+        "brazilian_adaptation": {
+          "common_internal_problems": [
+            "Vergonha de não ter o melhor (shame of not having the best)",
+            "Medo de ficar para trás (fear of being left behind)",
+            "Frustração com burocracia (frustration with bureaucracy)",
+            "Insegurança sobre aparência (insecurity about appearance)",
+            "Ansiedade financeira (financial anxiety)"
+          ]
+        },
+        "copywriting_tip": "Agitate the problem (but don't dwell - move to solution quickly)"
+      },
+
+      "3_guide": {
+        "name": "Meets a Guide (Your Brand)",
+        "description": "Brand enters as experienced guide who understands the problem",
+        "two_characteristics": {
+          "empathy": {
+            "description": "Show you understand their pain",
+            "phrases_pt": [
+              "Sabemos como é frustrante... (We know how frustrating it is...)",
+              "Entendemos sua dor... (We understand your pain...)",
+              "Já estivemos no seu lugar... (We've been in your shoes...)",
+              "Você não está sozinho... (You're not alone...)"
+            ],
+            "avoid": "Don't be condescending or patronizing"
+          },
+          "authority": {
+            "description": "Prove you have the expertise to help",
+            "credibility_signals": [
+              "X anos de experiência (X years of experience)",
+              "X mil clientes atendidos (X thousand customers served)",
+              "Certificações e prêmios (certifications and awards)",
+              "Depoimentos de clientes (customer testimonials)",
+              "Estudos de caso (case studies)"
+            ],
+            "brazilian_trust_builders": [
+              "Avaliação 4.8/5.0 com X mil reviews",
+              "Recomendado por dermatologistas brasileiros (if true)",
+              "Selo ANVISA/INMETRO (if applicable)",
+              "X anos no mercado brasileiro"
+            ]
+          }
+        },
+        "balance": "Empathy first, authority second (don't lead with bragging)",
+        "examples": {
+          "good": "Sabemos o quanto é frustrante lidar com pele oleosa. Há 15 anos, ajudamos mais de 50 mil brasileiras a conquistar a pele dos sonhos.",
+          "bad": "Somos a melhor empresa de cosméticos do Brasil com 100 prêmios. Compre agora!"
+        }
+      },
+
+      "4_plan": {
+        "name": "Gives Them a Plan",
+        "description": "Simple, clear steps that reduce customer anxiety about taking action",
+        "two_types": {
+          "process_plan": {
+            "description": "Step-by-step how they'll succeed with your product",
+            "format": "3-4 simple steps",
+            "examples": [
+              "1. Escolha seu produto → 2. Receba em casa → 3. Veja resultados em 30 dias",
+              "1. Responda 5 perguntas → 2. Receba sua rotina personalizada → 3. Comece hoje mesmo",
+              "1. Faça o pedido → 2. Instalamos para você → 3. Aproveite sem complicação"
+            ],
+            "brazilian_adaptation": "Emphasize simplicity and speed (brazilians value 'descomplicar')"
+          },
+          "agreement_plan": {
+            "description": "List of promises that reduce risk/fear",
+            "format": "3-5 guarantees or values",
+            "examples": [
+              "Entrega garantida em 7 dias ou seu dinheiro de volta",
+              "Suporte 24/7 em português",
+              "Garantia de satisfação 100%",
+              "Frete grátis sem letra miúda",
+              "Sem fidelização ou mensalidade escondida"
+            ],
+            "brazilian_trust_issues": [
+              "Sem taxas escondidas (no hidden fees)",
+              "Nota fiscal sempre (always provide invoice)",
+              "Produto original garantido (guaranteed authentic)",
+              "Privacidade protegida (LGPD compliance)"
+            ]
+          }
+        },
+        "key_principle": "Plan reduces confusion and builds confidence",
+        "copywriting": "Use numbered lists, clear language, no jargon"
+      },
+
+      "5_calls_to_action": {
+        "name": "Calls Them to Action",
+        "description": "Clear, direct CTAs that tell customer exactly what to do",
+        "two_types": {
+          "direct_cta": {
+            "description": "Primary action you want them to take",
+            "examples_pt": [
+              "Compre Agora (Buy Now)",
+              "Adicione ao Carrinho (Add to Cart)",
+              "Garanta o Seu (Secure Yours)",
+              "Peça Já (Order Now)",
+              "Comece Hoje (Start Today)",
+              "Experimente Grátis (Try Free)"
+            ],
+            "best_practices": [
+              "Use action verbs (imperative)",
+              "Create urgency without being pushy",
+              "Make button stand out visually",
+              "Repeat CTA throughout page"
+            ],
+            "brazilian_phrases": [
+              "Aproveite a Oferta (Take Advantage of Offer)",
+              "Garanta Já o Seu (Secure Yours Now)",
+              "Peça com Frete Grátis (Order with Free Shipping)",
+              "Receba em Casa (Receive at Home)"
+            ]
+          },
+          "transitional_cta": {
+            "description": "Low-risk action for hesitant customers",
+            "examples_pt": [
+              "Saiba Mais (Learn More)",
+              "Veja Como Funciona (See How It Works)",
+              "Baixe o Guia Grátis (Download Free Guide)",
+              "Faça o Quiz (Take the Quiz)",
+              "Assista ao Vídeo (Watch Video)",
+              "Tire Suas Dúvidas (Get Your Questions Answered)"
+            ],
+            "when_to_use": "High-ticket items, complex products, need nurturing",
+            "brazilian_lead_magnets": [
+              "E-book grátis (free ebook)",
+              "Webinar exclusivo (exclusive webinar)",
+              "Diagnóstico personalizado (personalized assessment)",
+              "Cupom de desconto (discount coupon)"
+            ]
+          }
+        },
+        "frequency": "Include CTA every 500-700 words (don't make customer hunt for it)",
+        "avoid": "Weak CTAs like 'Clique aqui' (Click here) or 'Enviar' (Submit)"
+      },
+
+      "6_failure": {
+        "name": "That Helps Them Avoid Failure",
+        "description": "Show what's at stake if they don't act",
+        "key_principle": "People are more motivated by loss aversion than gain",
+        "how_to_use": [
+          "Paint picture of continued frustration",
+          "Show opportunity cost of inaction",
+          "Don't be fear-mongering (be realistic)"
+        ],
+        "examples": {
+          "skincare": "Continue gastando em produtos que não funcionam, vendo sua pele piorar a cada dia",
+          "finance": "Perca mais dinheiro com taxas abusivas enquanto seus amigos já investem melhor",
+          "education": "Fique para trás enquanto o mercado exige novas habilidades"
+        },
+        "brazilian_cultural_fears": [
+          "Ficar para trás (being left behind)",
+          "Perder oportunidade (missing opportunity - FOMO is strong)",
+          "Desperdiçar dinheiro (wasting money)",
+          "Parecer desatualizado (appearing outdated)",
+          "Não conseguir acompanhar (not being able to keep up)"
+        ],
+        "tone": "Empathetic concern, not guilt or shame",
+        "balance": "Don't overdramatize - keep it realistic and relatable"
+      },
+
+      "7_success": {
+        "name": "And Ends in Success",
+        "description": "Paint vivid picture of life AFTER they use your product",
+        "transformation_formula": "From (pain) → To (pleasure)",
+        "focus_on": [
+          "How they'll FEEL (not just what they'll have)",
+          "Identity transformation (who they'll become)",
+          "Life improvements (specific scenarios)",
+          "Recognition from others (social proof of success)"
+        ],
+        "examples": {
+          "skincare": "Imagine acordar e amar o reflexo no espelho. Receber elogios. Sentir-se confiante em qualquer foto.",
+          "fitness": "Visualize subir escadas sem cansar. Brincar com seus filhos sem dor. Sentir-se 10 anos mais jovem.",
+          "career": "Pense em finalmente ter o salário que você merece. A segurança de ser indispensável. O orgulho de contar para a família."
+        },
+        "brazilian_success_markers": [
+          "Reconhecimento da família (family recognition)",
+          "Admiração dos amigos (friends' admiration)",
+          "Segurança financeira (financial security)",
+          "Mais tempo com quem ama (more time with loved ones)",
+          "Realização de sonhos (dream fulfillment)"
+        ],
+        "sensory_details": "Use vivid, specific imagery - make them SEE and FEEL the success",
+        "copywriting_tip": "Use future pacing: 'Imagine...', 'Visualize...', 'Pense em...'"
+      }
+    },
+
+    "storybrand_brandscript_template": {
+      "usage": "Fill in each section to create complete brand story",
+      "template": {
+        "character": "[Customer persona] quer [desire]",
+        "problem": {
+          "external": "Mas enfrenta [external problem]",
+          "internal": "O que faz com que se sinta [internal feeling]",
+          "philosophical": "Porque [philosophical principle being violated]"
+        },
+        "guide": "[Brand name] entende. Com [credibility], ajudamos você a [solve problem]",
+        "plan": "É simples: [Step 1] → [Step 2] → [Step 3]",
+        "cta_direct": "[Direct CTA - e.g., Compre Agora]",
+        "cta_transitional": "[Transitional CTA - e.g., Saiba Mais]",
+        "failure": "Sem agir, você continua [negative consequence]",
+        "success": "Mas com [product], você finalmente [positive transformation]"
+      }
+    },
+
+    "storybrand_wireframe": {
+      "above_fold": {
+        "headline": "Clear statement of what customer wants",
+        "subheadline": "How you help them get it",
+        "cta_buttons": "Direct CTA (Compre) + Transitional CTA (Saiba Mais)",
+        "images": "Show success (customer happy with result, not product shot)"
+      },
+      "the_stakes": {
+        "failure": "Short section showing cost of inaction",
+        "success": "Vision of transformation"
+      },
+      "guide_section": {
+        "empathy": "We understand your frustration with...",
+        "authority": "Credentials, testimonials, proof"
+      },
+      "plan": {
+        "process_plan": "3 steps to success",
+        "agreement_plan": "Our guarantees to you"
+      },
+      "video_or_explanation": "How it works (if needed)",
+      "pricing": "Clear, simple pricing",
+      "testimonials": "Customer success stories (real transformations)"
+    }
+  },
+
+  "heros_journey": {
+    "framework_name": "Hero's Journey (Joseph Campbell - adapted for brands)",
+    "overview": "12-stage mythological structure - customer's transformation journey",
+    "why_it_works": "Universal story structure that resonates across cultures (including Brazil)",
+    "brand_application": "Map customer's journey from problem to transformation",
+
+    "12_stages": {
+      "1_ordinary_world": {
+        "name": "Ordinary World (Mundo Comum)",
+        "description": "Customer's life before discovering your product",
+        "brand_use": "Establish relatable starting point",
+        "examples": [
+          "Maria acorda cansada todos os dias, sem energia para viver plenamente",
+          "João luta para economizar, mas nunca sobra dinheiro no fim do mês",
+          "Ana evita fotos porque não gosta de sua pele"
+        ],
+        "copywriting": "Use present tense, relatable situations"
+      },
+
+      "2_call_to_adventure": {
+        "name": "Call to Adventure (Chamado à Aventura)",
+        "description": "Moment customer realizes they need change",
+        "brand_use": "Trigger event that makes them seek solution",
+        "examples": [
+          "Até que um dia, cansada de desperdiçar fins de semana dormindo...",
+          "Depois de perder mais uma oportunidade por falta de dinheiro...",
+          "Quando evitou mais um evento social por insegurança..."
+        ],
+        "brazilian_triggers": [
+          "Eventos sociais (weddings, parties - image matters)",
+          "Family pressure or expectations",
+          "Health scare or wake-up call",
+          "Missed opportunities (FOMO)",
+          "Seeing others succeed"
+        ]
+      },
+
+      "3_refusal_of_call": {
+        "name": "Refusal of the Call (Recusa do Chamado)",
+        "description": "Customer's doubts and objections",
+        "brand_use": "Acknowledge common hesitations (builds trust)",
+        "examples": [
+          "Talvez você pense: 'Já tentei de tudo, nada funciona comigo'",
+          "Você pode estar cético: 'É caro demais, não vale a pena'",
+          "Compreendemos se você duvida: 'Será que realmente funciona?'"
+        ],
+        "common_brazilian_objections": [
+          "É muito caro (price objection - strong in Brazil)",
+          "Já tentei antes e não funcionou (skepticism)",
+          "Não tenho tempo (busy culture)",
+          "Será que é confiável? (trust issues)",
+          "E se não der certo? (risk aversion)"
+        ],
+        "how_to_use": "Surface objection, then address it immediately"
+      },
+
+      "4_meeting_mentor": {
+        "name": "Meeting the Mentor (Encontro com o Mentor)",
+        "description": "Your brand appears as wise guide",
+        "brand_use": "Establish authority and empathy (StoryBrand Guide)",
+        "examples": [
+          "[Brand] já ajudou 50 mil brasileiros a superar essa mesma dúvida",
+          "Com 15 anos de experiência, sabemos exatamente o que funciona",
+          "Nossos especialistas desenvolveram um método comprovado"
+        ],
+        "mentor_characteristics": [
+          "Experience (anos de mercado)",
+          "Proven results (X mil clientes)",
+          "Credibility (certificações, prêmios)",
+          "Empathy (já estivemos no seu lugar)"
+        ]
+      },
+
+      "5_crossing_threshold": {
+        "name": "Crossing the Threshold (Cruzando o Limiar)",
+        "description": "Customer makes the decision to try",
+        "brand_use": "The purchase moment - reduce friction",
+        "cta_examples": [
+          "Dê o primeiro passo hoje",
+          "Comece sua transformação agora",
+          "Experimente sem risco por 30 dias"
+        ],
+        "reduce_friction": [
+          "Garantia de devolução (money-back guarantee)",
+          "Parcelamento sem juros (interest-free installments - critical in Brazil)",
+          "Frete grátis (free shipping)",
+          "Suporte em português (Portuguese support)"
+        ]
+      },
+
+      "6_tests_allies_enemies": {
+        "name": "Tests, Allies, Enemies (Provas, Aliados, Inimigos)",
+        "description": "Customer faces challenges using product",
+        "brand_use": "Onboarding, support, community",
+        "examples": [
+          "Nossa equipe está com você em cada etapa",
+          "Junte-se à comunidade de 10 mil usuários",
+          "Supere obstáculos com nossos tutoriais exclusivos"
+        ],
+        "allies_to_provide": [
+          "Customer support (SAC eficiente)",
+          "Community (grupo no WhatsApp/Telegram)",
+          "Resources (tutoriais, FAQs)",
+          "Encouragement (e-mails motivacionais)"
+        ]
+      },
+
+      "7_approach": {
+        "name": "Approach to Inmost Cave (Aproximação da Caverna Oculta)",
+        "description": "Customer prepares for major milestone",
+        "brand_use": "Build anticipation for key benefit",
+        "examples": [
+          "Nos próximos 21 dias, você verá mudanças reais",
+          "Prepare-se para o momento em que tudo se encaixa",
+          "A verdadeira transformação está próxima"
+        ]
+      },
+
+      "8_ordeal": {
+        "name": "Ordeal (Provação)",
+        "description": "Moment of doubt or biggest challenge",
+        "brand_use": "Address mid-journey drop-off, provide encouragement",
+        "examples": [
+          "Sabemos que a semana 2 é a mais difícil - continue firme",
+          "Se sentir desânimo, lembre-se do seu 'porquê'",
+          "Nosso time está aqui se precisar de ajuda"
+        ],
+        "brazilian_persistence_culture": "Brazilians value 'garra' (grit) - frame challenges as tests of strength"
+      },
+
+      "9_reward": {
+        "name": "Reward (Recompensa)",
+        "description": "Customer achieves first major win",
+        "brand_use": "Celebrate milestones, encourage sharing",
+        "examples": [
+          "Parabéns! Você alcançou seu primeiro objetivo",
+          "Veja o quanto você evoluiu em apenas 30 dias",
+          "Compartilhe sua vitória com a comunidade"
+        ],
+        "gamification": "Badges, progress tracking, social proof"
+      },
+
+      "10_road_back": {
+        "name": "The Road Back (O Caminho de Volta)",
+        "description": "Customer integrates change into daily life",
+        "brand_use": "Retention, habit formation",
+        "examples": [
+          "Agora torne isso um hábito para resultados duradouros",
+          "Continue sua jornada com nosso programa avançado",
+          "Mantenha o ritmo com check-ins semanais"
+        ]
+      },
+
+      "11_resurrection": {
+        "name": "Resurrection (Ressurreição)",
+        "description": "Final test - customer proves transformation is real",
+        "brand_use": "Before/after moments, testimonials",
+        "examples": [
+          "O momento em que você olha no espelho e não reconhece a pessoa antiga",
+          "Quando sua família pergunta: 'O que mudou?'",
+          "Aquele evento social onde você brilha com confiança"
+        ]
+      },
+
+      "12_return_with_elixir": {
+        "name": "Return with Elixir (Retorno com o Elixir)",
+        "description": "Customer shares transformation, becomes advocate",
+        "brand_use": "Referral programs, UGC, testimonials",
+        "examples": [
+          "Indique um amigo e ganhe 20% de desconto",
+          "Compartilhe sua história e inspire outros",
+          "Torne-se um embaixador da marca"
+        ],
+        "brazilian_word_of_mouth": "Brazilians trust recommendations from family/friends above all - leverage this"
+      }
+    },
+
+    "heros_journey_brand_narrative_template": {
+      "act_1_setup": {
+        "ordinary_world": "[Customer's current frustrating situation]",
+        "call_to_adventure": "[Trigger that makes them seek change]",
+        "refusal_of_call": "[Their doubts: 'Mas...']",
+        "meeting_mentor": "[Your brand's empathy + authority]"
+      },
+      "act_2_confrontation": {
+        "crossing_threshold": "[Customer decides to try - CTA]",
+        "tests_allies_enemies": "[Onboarding, support, challenges]",
+        "approach": "[Building toward key milestone]",
+        "ordeal": "[Moment of doubt - address it]",
+        "reward": "[First major win - celebrate]"
+      },
+      "act_3_resolution": {
+        "road_back": "[Integration into daily life]",
+        "resurrection": "[Final proof of transformation]",
+        "return_with_elixir": "[Customer becomes advocate]"
+      }
+    }
+  },
+
+  "pas_framework": {
+    "framework_name": "PAS - Problem, Agitate, Solve",
+    "overview": "Classic copywriting formula - short, punchy, conversion-focused",
+    "best_for": "Ads, emails, landing pages, social media posts",
+    "length": "Short-form copy (50-300 words)",
+
+    "3_steps": {
+      "1_problem": {
+        "name": "Problem (Problema)",
+        "description": "Identify the customer's pain point",
+        "how_to_write": "State problem clearly and relatably",
+        "examples": [
+          "Cansado de gastar fortunas em produtos que não funcionam?",
+          "Sua pele continua oleosa mesmo após 10 produtos diferentes?",
+          "Economizar parece impossível quando tudo está tão caro?"
+        ],
+        "length": "1-2 sentences",
+        "tone": "Empathetic question or statement"
+      },
+
+      "2_agitate": {
+        "name": "Agitate (Agitar)",
+        "description": "Make the problem feel urgent and painful",
+        "how_to_write": "Amplify consequences, emotional cost, opportunity cost",
+        "examples": [
+          "Enquanto isso, você desperdiça dinheiro, tempo e confiança. Cada dia que passa, a frustração aumenta.",
+          "Você evita espelhos. Cancela fotos. Se sente menos confiante. E nada parece melhorar.",
+          "Mais um mês sem sobrar nada. Mais uma oportunidade perdida por falta de grana. O sonho da casa própria cada vez mais distante."
+        ],
+        "length": "2-4 sentences",
+        "tone": "Emotionally resonant, but not fear-mongering",
+        "brazilian_agitation_points": [
+          "Desperdício de dinheiro (wasting money - strong trigger)",
+          "Perder oportunidades (missing out - FOMO)",
+          "Frustração acumulada (accumulated frustration)",
+          "Vergonha ou insegurança (shame or insecurity)"
+        ]
+      },
+
+      "3_solve": {
+        "name": "Solve (Solucionar)",
+        "description": "Present your product as the solution",
+        "how_to_write": "Introduce product, key benefit, social proof, CTA",
+        "examples": [
+          "[Produto X] foi desenvolvido especificamente para peles oleosas brasileiras. Mais de 10 mil clientes já conquistaram a pele dos sonhos. Experimente sem risco por 30 dias. [CTA: Peça Já]",
+          "Com [App Y], você economiza automaticamente sem perceber. Já ajudamos 50 mil brasileiros a juntar R$ 10 mil em 12 meses. Comece grátis hoje. [CTA: Baixe Agora]"
+        ],
+        "length": "3-5 sentences",
+        "components": [
+          "Product introduction (nome + diferencial)",
+          "Key benefit (o que resolve)",
+          "Social proof (X mil clientes, avaliação 4.9, etc.)",
+          "Risk reversal (garantia, teste grátis)",
+          "Strong CTA"
+        ]
+      }
+    },
+
+    "pas_template": {
+      "problem": "[Frustração do cliente em forma de pergunta ou afirmação]",
+      "agitate": "[Amplifique a dor: consequências emocionais, tempo perdido, oportunidades perdidas. 2-3 frases.]",
+      "solve": "[Nome do produto] resolve isso com [diferencial chave]. [Social proof]. [Garantia/risco zero]. [CTA forte]."
+    },
+
+    "pas_examples_by_industry": {
+      "skincare": {
+        "problem": "Cansada de produtos que prometem pele perfeita mas entregam decepção?",
+        "agitate": "Você gasta R$ 200, R$ 300 por mês em cremes que não fazem diferença. Sua autoestima despenca. Você evita fotos, eventos, praias. E a pior parte? Achar que o problema é você.",
+        "solve": "O Sérum [Nome] foi formulado para peles brasileiras. Ingredientes clínicos comprovados + textura leve para nosso clima. Mais de 8 mil mulheres já viram resultados em 21 dias. Garantia de 60 dias ou dinheiro de volta. Experimente sem risco. [Peça Já com Frete Grátis]"
+      },
+      "finance": {
+        "problem": "Nunca sobra dinheiro no fim do mês?",
+        "agitate": "Você trabalha duro, mas parece que está sempre no vermelho. Empréstimos, cartões estourados, sonhos adiados. Enquanto seus amigos viajam, você mal consegue pagar as contas.",
+        "solve": "O App [Nome] organiza suas finanças em 5 minutos. Sem planilhas complicadas, sem jargão financeiro. Já ajudamos 30 mil brasileiros a economizar R$ 500/mês em média. Comece grátis, sem cartão de crédito. [Baixe Agora]"
+      },
+      "fitness": {
+        "problem": "Cansado de começar dietas que não duram nem 1 semana?",
+        "agitate": "Segunda-feira você está motivado. Quarta já desistiu. Sexta come tudo que evitou. E o ciclo se repete, mês após mês, ano após ano. Sua saúde piorando, sua autoestima no chão.",
+        "solve": "[Programa X] não é dieta - é reeducação alimentar para brasileiros de verdade (sim, com arroz, feijão e churrasco). Mais de 5 mil alunos já perderam 10kg+ sem sofrimento. Nutricionista brasileiro disponível 24/7. Teste 7 dias grátis. [Comece Hoje]"
+      }
+    }
+  },
+
+  "aida_framework": {
+    "framework_name": "AIDA - Attention, Interest, Desire, Action",
+    "overview": "Classic advertising formula - guide customer from awareness to action",
+    "best_for": "Ads, product pages, email sequences, sales letters",
+    "length": "Medium to long-form copy (200-1000+ words)",
+
+    "4_stages": {
+      "1_attention": {
+        "name": "Attention (Atenção)",
+        "description": "Grab attention with bold headline or hook",
+        "techniques": [
+          "Provocative question",
+          "Shocking statistic",
+          "Bold promise",
+          "Relatable problem statement",
+          "Curiosity gap"
+        ],
+        "examples_pt": [
+          "87% das brasileiras estão usando o produto errado para sua pele",
+          "Como economizar R$ 10 mil em 12 meses (mesmo ganhando pouco)",
+          "A verdade sobre [problema] que a indústria esconde",
+          "Você está cometendo esses 5 erros com [produto]?",
+          "Dermatologistas revelam: o segredo para pele impecável"
+        ],
+        "brazilian_attention_grabbers": [
+          "Numbers in reais (R$) - very concrete",
+          "Time frames (em X dias/meses)",
+          "Social proof (X mil brasileiros)",
+          "Authority (dermatologistas, especialistas)",
+          "Exclusivity (segredo, método exclusivo)"
+        ],
+        "avoid": [
+          "Clickbait falso (fake clickbait)",
+          "ALL CAPS excessivo",
+          "Promessas impossíveis"
+        ]
+      },
+
+      "2_interest": {
+        "name": "Interest (Interesse)",
+        "description": "Build interest by relating to their situation and introducing solution",
+        "what_to_include": [
+          "Elaborate on the problem",
+          "Show you understand their frustration",
+          "Introduce your solution (not full pitch yet)",
+          "Tease benefits without revealing all"
+        ],
+        "examples": [
+          "Se você já tentou 10 produtos diferentes e nada funcionou, não é culpa sua. O problema é que 90% dos cosméticos não são formulados para o clima brasileiro. Nossa pele oleosa + umidade tropical = fórmulas importadas que falham. Mas existe uma solução criada especificamente para você...",
+          "Economizar parece impossível quando você ganha apenas o suficiente para sobreviver. Mas e se eu te dissesse que o problema não é quanto você ganha, mas como você gerencia? Milhares de brasileiros com renda de R$ 2-3 mil já juntaram reservas que nunca imaginaram..."
+        ],
+        "length": "2-4 paragraphs",
+        "tone": "Conversational, empathetic, educational"
+      },
+
+      "3_desire": {
+        "name": "Desire (Desejo)",
+        "description": "Build desire by showing transformation and benefits",
+        "what_to_include": [
+          "Paint vivid picture of success",
+          "Show specific benefits (not just features)",
+          "Use testimonials and social proof",
+          "Address objections preemptively",
+          "Show unique mechanism (why it works)"
+        ],
+        "techniques": {
+          "future_pacing": "Imagine acordar sem oleosidade. Selfies perfeitas sem filtro. Elogios de amigas perguntando seu segredo.",
+          "social_proof": "Mais de 8 mil clientes, avaliação 4.9/5.0, recomendado por dermatologistas",
+          "unique_mechanism": "Nossa fórmula exclusiva com [ingrediente] adaptado para o pH da pele brasileira",
+          "risk_reversal": "Garantia incondicional de 60 dias - se não amar, devolvemos 100% do seu dinheiro"
+        },
+        "brazilian_desire_triggers": [
+          "Transformation visível (antes/depois)",
+          "Reconhecimento social (elogios, admiração)",
+          "Economia de dinheiro (quanto poupa a longo prazo)",
+          "Simplicidade (descomplicar a vida)",
+          "Status e prestígio"
+        ],
+        "length": "4-8 paragraphs (longest section)"
+      },
+
+      "4_action": {
+        "name": "Action (Ação)",
+        "description": "Clear, compelling call to action",
+        "what_to_include": [
+          "Specific instruction (what to do now)",
+          "Urgency or scarcity (ethical)",
+          "Final risk reversal",
+          "Simple next steps"
+        ],
+        "examples": [
+          "Clique em 'Adicionar ao Carrinho' agora. Você receberá em 3-5 dias úteis com frete grátis. Teste por 60 dias sem risco - se não amar, devolvemos seu dinheiro, sem perguntas. Mais de 200 unidades vendidas hoje. Garanta a sua antes que acabe o estoque.",
+          "Baixe o app grátis agora (sem cartão de crédito). Responda 5 perguntas simples. Receba seu plano personalizado em 2 minutos. Comece a economizar hoje mesmo."
+        ],
+        "urgency_tactics_ethical": [
+          "Estoque limitado (if true)",
+          "Promoção por tempo limitado (if true)",
+          "Bônus expirando (deadline real)",
+          "Vagas limitadas (for courses/programs)"
+        ],
+        "brazilian_action_facilitators": [
+          "Parcelamento sem juros (installments - CRITICAL)",
+          "Frete grátis (free shipping)",
+          "Entrega rápida (fast delivery)",
+          "Atendimento em português (Portuguese support)"
+        ],
+        "cta_button_text": [
+          "Quero Garantir Meu Desconto",
+          "Comprar Agora com Frete Grátis",
+          "Começar Meu Teste Grátis",
+          "Receber na Minha Casa"
+        ]
+      }
+    },
+
+    "aida_template": {
+      "attention": "[Headline provocativo: pergunta, estatística ou promessa ousada]",
+      "interest": "[2-3 parágrafos: elabore o problema, mostre empatia, introduza solução]",
+      "desire": "[4-6 parágrafos: benefícios específicos, transformação visual, social proof, mecanismo único, objeções respondidas]",
+      "action": "[CTA claro: o que fazer agora + urgência ética + risk reversal + facilitadores (parcelamento, frete)]"
+    }
+  },
+
+  "brazilian_adaptations": {
+    "cultural_copywriting_principles": {
+      "warmth_and_relatability": {
+        "description": "Brazilians value warmth (calor humano) over corporate coldness",
+        "how_to_apply": [
+          "Use 'você' instead of 'senhor/senhora' (unless luxury brand)",
+          "Conversational tone (como se estivesse falando com um amigo)",
+          "Emojis acceptable in social media (but not overuse)",
+          "Show personality and humanity"
+        ],
+        "examples": {
+          "warm": "A gente sabe como é difícil encontrar o produto certo, né?",
+          "cold": "Nossa empresa oferece soluções para suas necessidades."
+        }
+      },
+
+      "social_proof_importance": {
+        "description": "Brazilians trust recommendations > advertising",
+        "tactics": [
+          "Depoimentos em vídeo (video testimonials)",
+          "Avaliações de clientes reais (real customer reviews)",
+          "Influenciadores brasileiros (BR influencers)",
+          "Casos de sucesso com nome e cidade (social proof localizado)"
+        ],
+        "phrases": [
+          "Mais de X mil brasileiros já confiam",
+          "Avaliação 4.9/5.0 com X mil reviews",
+          "Veja o que clientes de [cidade] estão dizendo"
+        ]
+      },
+
+      "price_sensitivity": {
+        "description": "Brazil has high price sensitivity - address cost concerns",
+        "tactics": [
+          "Parcelamento sempre visível (installments - 'ou 12x de R$ XX')",
+          "Mostrar economia a longo prazo (quanto economiza vs alternativas)",
+          "Comparar com desperdício atual (quanto gasta sem resultados)",
+          "Cupons e descontos (brasileiros adoram promoções)"
+        ],
+        "phrases": [
+          "Apenas R$ 3,30 por dia (menos que um café)",
+          "Parcele em 12x sem juros no cartão",
+          "Economize R$ 500 nos primeiros 3 meses",
+          "Use o cupom PRIMEIRA20 para 20% off"
+        ]
+      },
+
+      "simplicity_value": {
+        "description": "'Descomplicar' is a strong value - Brazilians hate bureaucracy",
+        "how_to_apply": [
+          "Emphasize simplicity and ease",
+          "Show how quick/easy it is to use",
+          "Reduce friction in purchasing process",
+          "Avoid jargon or complex explanations"
+        ],
+        "phrases": [
+          "Simples assim. Sem complicação.",
+          "Pronto em 5 minutos, sem burocracia",
+          "Fácil de usar, mesmo para quem não tem experiência",
+          "Tudo descomplicado para você"
+        ]
+      },
+
+      "family_and_community": {
+        "description": "Family and social circles are central to Brazilian identity",
+        "how_to_use": [
+          "Show family benefits (mais tempo com família)",
+          "Emphasize social recognition (orgulho da família)",
+          "Community aspect (não está sozinho)",
+          "Referral rewards (indique um amigo)"
+        ],
+        "phrases": [
+          "Imagine o orgulho da sua família",
+          "Mais tempo para o que realmente importa: sua família",
+          "Junte-se a uma comunidade de X mil brasileiros",
+          "Indique um amigo e ganhem juntos"
+        ]
+      }
+    },
+
+    "linguistic_nuances": {
+      "formality_levels": {
+        "informal_voce": "Use for: Youth brands, tech, casual products, social media",
+        "formal_senhor": "Use for: Luxury, finance (sometimes), medical, legal",
+        "mixed": "Start formal, become informal after trust built"
+      },
+      "brazilian_portuguese_vs_portugal": {
+        "key_differences": [
+          "BR: 'celular' | PT: 'telemóvel'",
+          "BR: 'trem' (slang for coisa) | PT: doesn't exist",
+          "BR: gerúndio common (estou fazendo) | PT: infinitivo (estou a fazer)",
+          "BR: 'você' | PT: 'tu' in many regions"
+        ],
+        "critical": "ALWAYS use Brazilian Portuguese, never Portugal Portuguese"
+      },
+      "slang_usage": {
+        "when_to_use": "Youth brands, casual products, social media",
+        "when_to_avoid": "Luxury, medical, finance, B2B",
+        "popular_slang": [
+          "Tá (está)",
+          "Né (não é)",
+          "Tipo (like)",
+          "Demais (muito bom)",
+          "Top (excelente)"
+        ],
+        "caution": "Slang dates quickly - use timeless language for evergreen content"
+      }
+    }
+  },
+
+  "framework_selection_guide": {
+    "when_to_use_storybrand": [
+      "Building comprehensive brand narrative",
+      "Website homepage",
+      "Long-form sales pages",
+      "Brand positioning documents",
+      "Complex products needing explanation"
+    ],
+    "when_to_use_heros_journey": [
+      "Customer success stories",
+      "Case studies",
+      "Email sequences (nurture campaigns)",
+      "Course/program narratives",
+      "Before/after transformations"
+    ],
+    "when_to_use_pas": [
+      "Facebook/Instagram ads",
+      "Email subject lines + preview text",
+      "Social media posts",
+      "Short landing pages",
+      "Retargeting ads"
+    ],
+    "when_to_use_aida": [
+      "Product pages",
+      "Sales letters",
+      "Email campaigns",
+      "Video sales letters (VSLs)",
+      "Advertorials"
+    ]
+  },
+
+  "notes": {
+    "combining_frameworks": "StoryBrand for overall structure + PAS for individual sections = powerful combo",
+    "testing": "A/B test different frameworks for same product to see what resonates",
+    "authenticity": "Frameworks are guides, not formulas - inject brand personality and authenticity",
+    "cultural_adaptation": "Always adapt frameworks to Brazilian culture, language, and values"
+  }
+}

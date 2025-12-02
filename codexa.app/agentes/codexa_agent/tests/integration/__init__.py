@@ -1,0 +1,4 @@
+"""
+Integration Tests
+End-to-end tests for the complete CODEXA system.
+"""

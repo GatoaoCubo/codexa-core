@@ -1,0 +1,20 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Caixa Transportadora Pet PP GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.87,
+  "execution_time_minutes": 5,
+  "titles": [
+    {"text": "Caixa Transportadora Pet PP Gato Cachorro 47x29cm Segura", "char_count": 58, "keyword_count": 8, "density": 0.78, "score": 0.86, "variant": "A", "focus": "equilibrado"},
+    {"text": "Caixa Transporte PP Pet Gato Cachorro Viagem Segura GATO3", "char_count": 58, "keyword_count": 9, "density": 0.82, "score": 0.88, "variant": "B", "focus": "emocional"},
+    {"text": "Caixa Transportadora PP 47x29x32cm Pet Gato Cachorro Leve", "char_count": 58, "keyword_count": 8, "density": 0.78, "score": 0.85, "variant": "C", "focus": "tecnico"}
+  ],
+  "keywords": {"block_a": {"name": "Atributos", "count": 118}, "block_b": {"name": "Beneficios", "count": 117}, "coverage_score": {"head_terms": 0.90, "longtails": 0.85, "total_unique_keywords": 235}},
+  "description": {"word_count": 3847, "keyword_density": 0.039, "readability_score": 68, "sections": ["Hook", "Solucao", "Ventilacao", "Porta", "Material", "Alca", "Limpeza", "Versatilidade", "Design", "Garantia", "CTA"], "storybrand_elements": 7},
+  "bullets": {"count": 10, "avg_chars": 260},
+  "visual_assets": {"image_prompts": 9, "video_script_scenes": 6, "status": "full_mode"},
+  "qa_report": {"aggregate_score": 0.87, "validation_checks_passed": 11, "validation_checks_total": 11, "compliance_validation": {"passed": true}},
+  "strategic_brief": {"product_name": "Caixa Transportadora Pet PP GATO3", "dimensions": "47x29.5x32cm", "weight_capacity": "6kg", "price_gato3": 11.00, "main_competitor": "Mec Pet N.0 (R$22,09, +500 vendidos, 4.2 stars)", "differentiation": "preco competitivo"},
+  "metadata": {"workflow_version": "2.5.0", "generator": "CodeXAnuncio v2.5.0", "generated_at": "2025-11-29T10:30:00Z", "plan": "full_anuncio", "status": "production_ready"}
+}

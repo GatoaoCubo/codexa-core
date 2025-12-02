@@ -1,0 +1,563 @@
+# CODEXA Artifact Schemas Configuration
+# Version: 1.0.0
+# Created: 2025-11-24
+# Purpose: Define artifact types, templates, generators, validators, and schemas
+
+# ============================================================================
+# ARTIFACT TYPES
+# ============================================================================
+
+artifact_types:
+  # Planning Artifacts
+  implementation_plan:
+    id: "implementation_plan"
+    name: "Implementation Plan"
+    description: "Detailed implementation guide created by planning_agent"
+    filename: "implementation_plan.md"
+    template: "artifacts/templates/implementation_plan.jinja2"
+    generator: "artifacts/generators/plan_generator.py"
+    validator: "artifacts/validators/plan_validator.py"
+    created_by: "planning_agent"
+    mode: "PLANNING"
+
+    required_fields:
+      - feature_name
+      - overview
+      - goal
+      - scope
+      - current_architecture
+      - technical_approach
+      - implementation_phases
+      - acceptance_criteria
+      - rollback_plan
+
+    optional_fields:
+      - existing_patterns
+      - relevant_files
+      - dependencies
+      - design_decisions
+      - risks
+      - testing_strategy
+      - files_summary
+      - next_steps
+
+    validation_rules:
+      feature_name:
+        min_length: 5
+        max_length: 100
+      overview:
+        min_length: 50
+        max_length: 1000
+      implementation_phases:
+        min_count: 1
+        max_count: 10
+      acceptance_criteria:
+        min_count: 2
+        max_count: 20
+
+  # Execution Artifacts
+  execution_report:
+    id: "execution_report"
+    name: "Execution Report"
+    description: "Detailed execution summary created by execution_agent"
+    filename: "execution_report.md"
+    template: "artifacts/templates/execution_report.jinja2"
+    generator: "artifacts/generators/report_generator.py"
+    validator: "artifacts/validators/report_validator.py"
+    created_by: "execution_agent"
+    mode: "EXECUTION"
+
+    required_fields:
+      - feature_name
+      - execution_id
+      - status
+      - summary
+      - metrics
+      - files
+      - tasks
+
+    optional_fields:
+      - plan_adherence
+      - plan_deviations
+      - progress_checkpoints
+      - phases
+      - code_quality
+      - issues
+      - dependencies
+      - git
+      - performance
+      - next_steps
+      - artifacts
+
+    validation_rules:
+      status:
+        allowed_values: ["success", "partial", "failed"]
+      metrics:
+        required_fields: ["total_tasks", "completed_tasks", "files_created", "files_modified"]
+        completion_percentage:
+          min: 0
+          max: 100
+
+  # Verification Artifacts
+  verification_report:
+    id: "verification_report"
+    name: "Verification Report"
+    description: "Comprehensive test and validation report created by verification_agent"
+    filename: "verification_report.md"
+    template: "artifacts/templates/verification_report.jinja2"
+    generator: "artifacts/generators/report_generator.py"
+    validator: "artifacts/validators/report_validator.py"
+    created_by: "verification_agent"
+    mode: "VERIFICATION"
+
+    required_fields:
+      - feature_name
+      - verification_id
+      - status
+      - gates
+      - spec_compliance_matrix
+
+    optional_fields:
+      - compliance_score
+      - coverage_percentage
+      - extra_features
+      - manual_verification
+      - files_verified
+      - issues
+      - recommendations
+      - traceability_matrix
+
+    validation_rules:
+      status:
+        allowed_values: ["approved", "revise", "reject"]
+      gates:
+        required_gates:
+          - unit_tests
+          - integration_tests
+          - e2e_tests
+          - type_check
+          - lint
+          - coverage
+          - spec_compliance
+      compliance_score:
+        min: 0
+        max: 100
+      coverage_percentage:
+        min: 0
+        max: 100
+
+  walkthrough:
+    id: "walkthrough"
+    name: "Feature Walkthrough"
+    description: "Visual walkthrough with screenshots created by verification_agent"
+    filename: "walkthrough.md"
+    generator: "artifacts/generators/walkthrough_generator.py"
+    created_by: "verification_agent"
+    mode: "VERIFICATION"
+
+    required_fields:
+      - feature_name
+      - feature_overview
+      - screenshots
+
+    optional_fields:
+      - user_flows
+      - edge_cases
+      - verification_summary
+
+    validation_rules:
+      screenshots:
+        min_count: 1
+        max_count: 10
+
+  # Review Artifacts
+  review_report:
+    id: "review_report"
+    name: "Review Report"
+    description: "Quality assurance and spec compliance report created by review_agent"
+    filename: "review_report.md"
+    template: "artifacts/templates/review_report.jinja2"
+    generator: "artifacts/generators/report_generator.py"
+    validator: "artifacts/validators/report_validator.py"
+    created_by: "review_agent"
+    mode: "REVIEW"
+
+    required_fields:
+      - feature_name
+      - review_id
+      - decision
+      - compliance_score
+      - quality_score
+      - scores
+      - requirements
+
+    optional_fields:
+      - extra_features
+      - code_structure
+      - code_quality
+      - testing
+      - documentation
+      - spec_compliance
+      - visual_verification
+      - strengths
+      - areas_for_improvement
+      - recommendations
+      - traceability_matrix
+
+    validation_rules:
+      decision:
+        allowed_values: ["APPROVE", "REVISE", "REJECT"]
+      scores:
+        required_scores:
+          - code_structure
+          - code_quality
+          - testing
+          - documentation
+          - spec_compliance
+        score_range:
+          min: 0
+          max: 20
+      quality_score:
+        min: 0
+        max: 100
+      quality_grade:
+        allowed_values: ["A", "B", "C", "D", "F"]
+      compliance_score:
+        min: 0
+        max: 100
+
+  # Orchestration Artifacts
+  orchestration_report:
+    id: "orchestration_report"
+    name: "Orchestration Report"
+    description: "Multi-agent workflow report created by orchestrator"
+    filename: "orchestration_report.md"
+    created_by: "orchestrator"
+    mode: "ORCHESTRATION"
+
+    required_fields:
+      - workflow_id
+      - workflow_name
+      - pattern
+      - agents
+      - status
+
+    optional_fields:
+      - duration
+      - agent_execution_summary
+      - arguments_chain
+      - artifacts_generated
+      - lessons_learned
+
+    validation_rules:
+      pattern:
+        allowed_values: ["sequential", "parallel", "iterative", "hybrid"]
+      status:
+        allowed_values: ["SUCCESS", "PARTIAL", "FAILED", "RUNNING"]
+
+# ============================================================================
+# ARTIFACT RELATIONSHIPS
+# ============================================================================
+
+artifact_relationships:
+  # Planning → Execution
+  implementation_plan_to_execution:
+    source: "implementation_plan"
+    target: "execution_report"
+    relationship: "input"
+    description: "Implementation plan is input to execution agent"
+
+  # Execution → Verification
+  execution_to_verification:
+    source: "execution_report"
+    target: "verification_report"
+    relationship: "input"
+    description: "Execution report is input to verification agent"
+
+  # Verification → Review
+  verification_to_review:
+    source: "verification_report"
+    target: "review_report"
+    relationship: "input"
+    description: "Verification report is input to review agent"
+
+  # Walkthrough accompanies Verification
+  walkthrough_accompanies_verification:
+    source: "walkthrough"
+    target: "verification_report"
+    relationship: "accompanies"
+    description: "Walkthrough provides visual proof for verification"
+
+# ============================================================================
+# ARTIFACT WORKFLOWS
+# ============================================================================
+
+artifact_workflows:
+  # Standard Feature Development
+  standard_feature_development:
+    name: "Standard Feature Development"
+    description: "Complete workflow from planning to review"
+    artifacts:
+      - phase: "planning"
+        artifact: "implementation_plan"
+        agent: "planning_agent"
+
+      - phase: "execution"
+        artifact: "execution_report"
+        agent: "execution_agent"
+        input_from: "implementation_plan"
+
+      - phase: "verification"
+        artifacts:
+          - "verification_report"
+          - "walkthrough"
+        agent: "verification_agent"
+        input_from: "execution_report"
+
+      - phase: "review"
+        artifact: "review_report"
+        agent: "review_agent"
+        input_from:
+          - "execution_report"
+          - "verification_report"
+
+    duration_estimate: "4-6 hours"
+
+  # Quick Feature (Skip Planning)
+  quick_feature:
+    name: "Quick Feature"
+    description: "Simple features that don't need full planning"
+    artifacts:
+      - phase: "execution"
+        artifact: "execution_report"
+        agent: "execution_agent"
+
+      - phase: "verification"
+        artifact: "verification_report"
+        agent: "verification_agent"
+        input_from: "execution_report"
+
+    duration_estimate: "1-2 hours"
+
+# ============================================================================
+# ARTIFACT TEMPLATES METADATA
+# ============================================================================
+
+templates:
+  implementation_plan:
+    file: "artifacts/templates/implementation_plan.jinja2"
+    sections: 11
+    estimated_length: "400-800 lines"
+    variables:
+      required:
+        - feature_name
+        - overview
+        - goal
+        - scope
+        - technical_approach
+        - implementation_phases
+      optional:
+        - design_decisions
+        - risks
+        - testing_strategy
+
+  execution_report:
+    file: "artifacts/templates/execution_report.jinja2"
+    sections: 12
+    estimated_length: "300-600 lines"
+    variables:
+      required:
+        - feature_name
+        - status
+        - metrics
+        - files
+        - tasks
+      optional:
+        - issues
+        - performance
+        - next_steps
+
+  verification_report:
+    file: "artifacts/templates/verification_report.jinja2"
+    sections: 10
+    estimated_length: "400-700 lines"
+    variables:
+      required:
+        - feature_name
+        - status
+        - gates
+        - spec_compliance_matrix
+      optional:
+        - manual_verification
+        - issues
+        - recommendations
+
+  review_report:
+    file: "artifacts/templates/review_report.jinja2"
+    sections: 8
+    estimated_length: "350-650 lines"
+    variables:
+      required:
+        - feature_name
+        - decision
+        - scores
+        - requirements
+      optional:
+        - visual_verification
+        - areas_for_improvement
+        - recommendations
+
+# ============================================================================
+# GENERATORS METADATA
+# ============================================================================
+
+generators:
+  plan_generator:
+    file: "artifacts/generators/plan_generator.py"
+    class: "PlanGenerator"
+    methods:
+      - generate
+      - from_json
+    input_format: "ImplementationPlan dataclass or JSON"
+    output_format: "Markdown"
+
+  report_generator:
+    file: "artifacts/generators/report_generator.py"
+    class: "ReportGenerator"
+    methods:
+      - generate_execution_report
+      - generate_verification_report
+      - generate_review_report
+      - from_json
+    input_format: "Dictionary or JSON"
+    output_format: "Markdown"
+
+  walkthrough_generator:
+    file: "artifacts/generators/walkthrough_generator.py"
+    class: "WalkthroughGenerator"
+    methods:
+      - generate
+      - generate_minimal
+    input_format: "WalkthroughBuilder or parameters"
+    output_format: "Markdown"
+
+# ============================================================================
+# VALIDATORS METADATA
+# ============================================================================
+
+validators:
+  plan_validator:
+    file: "artifacts/validators/plan_validator.py"
+    class: "PlanValidator"
+    methods:
+      - validate
+      - validate_markdown
+    checks:
+      - required_sections
+      - feature_name
+      - overview_goal
+      - scope
+      - technical_approach
+      - implementation_phases
+      - risks
+      - testing_strategy
+      - acceptance_criteria
+      - rollback_plan
+      - completeness
+
+  report_validator:
+    file: "artifacts/validators/report_validator.py"
+    class: "ReportValidator"
+    methods:
+      - validate_execution_report
+      - validate_verification_report
+      - validate_review_report
+    checks:
+      execution:
+        - required_fields
+        - status_values
+        - metrics
+        - files
+        - tasks
+      verification:
+        - required_fields
+        - status_values
+        - quality_gates
+        - compliance_score
+        - coverage_percentage
+      review:
+        - required_fields
+        - decision_values
+        - scores
+        - quality_score
+        - compliance_score
+        - decision_consistency
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+metadata:
+  version: "1.0.0"
+  created: "2025-11-24"
+  updated: "2025-11-24"
+  maintainer: "CODEXA Team"
+  schema_version: "1.0"
+  compatible_with: "CODEXA v2.0.0+"
+
+  stats:
+    total_artifact_types: 6
+    total_templates: 4
+    total_generators: 3
+    total_validators: 2
+    total_workflows: 2
+
+# ============================================================================
+# USAGE EXAMPLES
+# ============================================================================
+
+examples:
+  # Example 1: Generate implementation plan
+  generate_implementation_plan:
+    description: "Generate plan from planning agent data"
+    code: |
+      from artifacts.generators.plan_generator import PlanGenerator, ImplementationPlan
+
+      plan = ImplementationPlan(
+          feature_name="Dark Mode Toggle",
+          overview="Add dark mode to app",
+          # ... other fields
+      )
+
+      generator = PlanGenerator()
+      markdown = generator.generate(plan, Path("agents/adw_123/implementation_plan.md"))
+
+  # Example 2: Validate execution report
+  validate_execution_report:
+    description: "Validate execution report data"
+    code: |
+      from artifacts.validators.report_validator import ReportValidator
+
+      report_data = {
+          "feature_name": "Dark Mode",
+          "status": "success",
+          # ... other fields
+      }
+
+      validator = ReportValidator()
+      result = validator.validate_execution_report(report_data)
+
+      if result.valid:
+          print("✅ Report is valid")
+
+  # Example 3: Generate walkthrough
+  generate_walkthrough:
+    description: "Generate visual walkthrough with screenshots"
+    code: |
+      from artifacts.generators.walkthrough_generator import WalkthroughBuilder
+
+      walkthrough = (WalkthroughBuilder()
+          .with_feature("Dark Mode", "Toggle between themes")
+          .add_screenshot("Light Mode", "01_light.png", [...], [...])
+          .add_user_flow("Happy Path", [...], "✅ Success")
+          .build(Path("agents/adw_123/walkthrough.md")))

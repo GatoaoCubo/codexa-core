@@ -1,0 +1,20 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Tapete Refrescante 40x50cm para caes e gatos GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.86,
+  "execution_time_minutes": 3,
+  "titles": [
+    {"text": "Tapete Refrescante 40x50cm Pet Cachorro Gato Gelado GATO3", "char_count": 58, "keyword_count": 8, "density": 0.80, "score": 0.86, "variant": "A", "focus": "equilibrado"},
+    {"text": "Tapete Gelado Pet 40x50 Refrescante Cachorro Gato Verao", "char_count": 56, "keyword_count": 8, "density": 0.80, "score": 0.87, "variant": "B", "focus": "emocional"},
+    {"text": "Tapete Refrescante 40x50cm Gelado Pet Atoxic Gato Cachorro", "char_count": 59, "keyword_count": 8, "density": 0.78, "score": 0.85, "variant": "C", "focus": "tecnico"}
+  ],
+  "keywords": {"block_a": {"name": "Atributos", "count": 115}, "block_b": {"name": "Beneficios", "count": 116}, "coverage_score": {"head_terms": 0.86, "longtails": 0.84, "total_unique_keywords": 231}},
+  "description": {"word_count": 3312, "keyword_density": 0.038, "readability_score": 70, "storybrand_elements": 7},
+  "bullets": {"count": 10, "avg_chars": 228},
+  "visual_assets": {"status": "quick_mode_skipped"},
+  "qa_report": {"aggregate_score": 0.86, "validation_checks_passed": 11, "validation_checks_total": 11, "compliance_validation": {"passed": true}},
+  "strategic_brief": {"product_name": "Tapete Refrescante Pequeno GATO3", "dimensoes": "40 x 50 cm", "capacity": "ate 15kg", "price_gato3": 28.90, "target": "caes e gatos de pequeno porte"},
+  "metadata": {"workflow_version": "2.5.0", "generator": "CodeXAnuncio v2.5.0", "generated_at": "2025-11-29T11:10:00Z", "plan": "quick_anuncio", "status": "production_ready"}
+}

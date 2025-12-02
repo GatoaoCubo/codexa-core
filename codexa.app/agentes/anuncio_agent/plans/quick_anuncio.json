@@ -1,0 +1,234 @@
+{
+  "$schema": "../../config/hop_framework/execution_plan_schema.json",
+  "plan_id": "quick_anuncio",
+  "plan_name": "Quick Anúncio Generation - Fast Workflow",
+  "agent_type": "codex_anuncio",
+  "plan_version": "1.0.0",
+  "description": "Workflow otimizado para geração rápida de anúncios básicos. Inclui apenas elementos essenciais: títulos, keywords, bullet points e descrição. Duração: 5-8 min. Completeness: 75%. Ideal para testes A/B e iteração rápida.",
+  "metadata": {
+    "author": "TAC-7 Team",
+    "created": "2025-11-10T00:00:00Z",
+    "tags": ["quick", "fast", "testing", "iteration"],
+    "complexity": "simple",
+    "estimated_duration_minutes": 6
+  },
+  "execution_steps": [
+    {
+      "step_id": "step_1_parse_input",
+      "step_name": "Parse Research Notes Input",
+      "step_type": "prompt_execution",
+      "prompt_module": "10_main_agent_hop.md",
+      "parameters": {
+        "validate_schema": true,
+        "extract_strategic_brief": true
+      },
+      "inputs": {
+        "from_brief": [
+          "research_notes_path",
+          "marketplace"
+        ]
+      },
+      "outputs": {
+        "target_blocks": [
+          "IDENTIDADE_DO_PRODUTO"
+        ],
+        "export_variables": {
+          "head_terms": "Top 3 head terms",
+          "diferenciais": "Top 3 diferenciais",
+          "dores": "Top 3 dores",
+          "ganhos": "Top 3 ganhos"
+        }
+      },
+      "validation": {
+        "required": true,
+        "quality_gate": {
+          "mode": "warn",
+          "confidence_threshold": 0.60
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_2_titulos",
+      "step_name": "Generate 3 Titles",
+      "step_type": "prompt_execution",
+      "prompt_module": "20_titulo_generator.md",
+      "inputs": {
+        "from_step": {
+          "step_1_parse_input": "head_terms",
+          "step_1_parse_input": "diferenciais"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "BLOCOS_DE_TITULOS"
+        ],
+        "export_variables": {
+          "titulos_list": "3 títulos 58-60 chars"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 3,
+        "quality_gate": {
+          "mode": "warn"
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_3_keywords",
+      "step_name": "Expand Keywords",
+      "step_type": "prompt_execution",
+      "prompt_module": "30_keywords_expander.md",
+      "inputs": {
+        "from_step": {
+          "step_1_parse_input": "head_terms",
+          "step_2_titulos": "titulos_list"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "BLOCO_PALAVRAS_1",
+          "BLOCO_PALAVRAS_2"
+        ],
+        "export_variables": {
+          "keywords_blocks": "2 blocos keywords"
+        }
+      },
+      "validation": {
+        "required": true,
+        "quality_gate": {
+          "mode": "warn"
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_4_bullets",
+      "step_name": "Generate 10 Bullet Points",
+      "step_type": "prompt_execution",
+      "prompt_module": "40_bullet_points.md",
+      "inputs": {
+        "from_step": {
+          "step_1_parse_input": "diferenciais",
+          "step_1_parse_input": "dores",
+          "step_1_parse_input": "ganhos"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "BULLET_POINTS_ESTRATEGICOS"
+        ],
+        "export_variables": {
+          "bullets_list": "10 bullet points"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 10,
+        "quality_gate": {
+          "mode": "warn"
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_5_descricao_simple",
+      "step_name": "Build Simplified Description",
+      "step_type": "prompt_execution",
+      "prompt_module": "50_descricao_builder.md",
+      "parameters": {
+        "simplified": true,
+        "min_chars": 2000
+      },
+      "inputs": {
+        "from_step": {
+          "step_4_bullets": "bullets_list",
+          "step_1_parse_input": "dores",
+          "step_1_parse_input": "ganhos"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "DESCRICAO_LONGA"
+        ],
+        "export_variables": {
+          "descricao_text": "Descrição simplificada (≥2000 chars)"
+        }
+      },
+      "validation": {
+        "required": true,
+        "quality_gate": {
+          "mode": "warn"
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_6_qa_basic",
+      "step_name": "Basic QA Validation",
+      "step_type": "validation",
+      "prompt_module": "90_qa_validation.md",
+      "parameters": {
+        "basic_mode": true
+      },
+      "inputs": {
+        "from_step": {
+          "step_2_titulos": "titulos_list",
+          "step_3_keywords": "keywords_blocks",
+          "step_4_bullets": "bullets_list",
+          "step_5_descricao_simple": "descricao_text"
+        },
+        "from_brief": [
+          "marketplace"
+        ]
+      },
+      "outputs": {
+        "target_blocks": [
+          "AUDITORIA_QA"
+        ],
+        "export_variables": {
+          "qa_report": "QA básico",
+          "compliance_score": "Compliance score",
+          "proibicoes_count": "Proibições detectadas"
+        }
+      },
+      "validation": {
+        "required": true,
+        "quality_gate": {
+          "mode": "warn"
+        }
+      },
+      "timeout_minutes": 1
+    }
+  ],
+  "output_schema": {
+    "format": "anuncio_output",
+    "template_path": "output_template.md",
+    "required_blocks": [
+      "IDENTIDADE_DO_PRODUTO",
+      "BLOCOS_DE_TITULOS",
+      "BLOCO_PALAVRAS_1",
+      "BLOCO_PALAVRAS_2",
+      "BULLET_POINTS_ESTRATEGICOS",
+      "DESCRICAO_LONGA",
+      "AUDITORIA_QA"
+    ],
+    "optional_blocks": [
+      "NOTAS_DE_FALLBACK"
+    ],
+    "quality_thresholds": {
+      "min_completeness_percent": 75,
+      "mode": "flexible"
+    }
+  },
+  "error_handling": {
+    "on_step_failure": "continue",
+    "max_retries": 1
+  },
+  "context_management": {
+    "context_strategy": "minimal",
+    "context_limit_tokens": 10000
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "file_info": {
+    "filename": "tenis_nike_air_max_2024_30s.mp4",
+    "path": "outputs/tenis_nike_air_max_2024_30s.mp4",
+    "size_bytes": 19398656,
+    "size_mb": 18.5,
+    "created_at": "2025-11-24T14:32:15Z",
+    "checksum_md5": "a1b2c3d4e5f6789012345678"
+  },
+  "video_specs": {
+    "codec_video": "H.264",
+    "codec_audio": "AAC",
+    "container": "MP4",
+    "duration_seconds": 30.2,
+    "duration_formatted": "00:00:30.200",
+    "frame_rate": 30.0,
+    "frame_count": 906,
+    "bit_rate_kbps": 5120,
+    "resolution": {
+      "width": 1080,
+      "height": 1920
+    },
+    "aspect_ratio": "9:16",
+    "pixel_format": "yuv420p",
+    "color_space": "bt709"
+  },
+  "audio_specs": {
+    "codec": "AAC",
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_rate_kbps": 192,
+    "duration_seconds": 30.2
+  },
+  "encoding_settings": {
+    "encoder": "libx264",
+    "preset": "medium",
+    "crf": 23,
+    "profile": "high",
+    "level": "4.0",
+    "movflags": "+faststart"
+  },
+  "processing_metadata": {
+    "ffmpeg_version": "6.0",
+    "processing_host": "video-agent-worker-01",
+    "processing_time_seconds": 19.9,
+    "temp_files_cleaned": true
+  },
+  "source_clips": {
+    "count": 6,
+    "total_duration_seconds": 30.0,
+    "apis_used": ["runway", "pika"],
+    "runway_clips": 5,
+    "pika_clips": 1
+  },
+  "audio_layers": {
+    "narration": {
+      "source": "elevenlabs",
+      "voice_id": "Rachel",
+      "model": "eleven_multilingual_v2",
+      "volume": 1.0,
+      "duration_seconds": 14.5
+    },
+    "music": {
+      "source": "music/upbeat_electronic.mp3",
+      "volume": 0.3,
+      "duration_seconds": 30.2
+    }
+  },
+  "text_overlays": {
+    "count": 3,
+    "font": "arial.ttf",
+    "font_size_range": [36, 48],
+    "font_color": "white",
+    "border_color": "black",
+    "border_width": 3
+  },
+  "quality_metrics": {
+    "psnr": 42.5,
+    "ssim": 0.98,
+    "vmaf": 95.2,
+    "bitrate_consistency": 0.92
+  },
+  "platform_compatibility": {
+    "instagram_reels": {
+      "compatible": true,
+      "notes": "Optimal format 9:16, duration under 90s"
+    },
+    "tiktok": {
+      "compatible": true,
+      "notes": "Optimal format 9:16, duration under 60s"
+    },
+    "youtube_shorts": {
+      "compatible": true,
+      "notes": "Optimal format 9:16, duration under 60s"
+    },
+    "facebook_stories": {
+      "compatible": true,
+      "notes": "Optimal format 9:16"
+    }
+  },
+  "cost_breakdown": {
+    "llm_calls": {
+      "concept": 0.02,
+      "script": 0.01,
+      "visual": 0.03
+    },
+    "video_generation": {
+      "runway": 1.20,
+      "pika": 0.18
+    },
+    "tts": {
+      "elevenlabs": 0.05
+    },
+    "storage": 0.001,
+    "total_usd": 1.49
+  },
+  "agent_metadata": {
+    "agent_name": "video_agent",
+    "agent_version": "1.0.0",
+    "pipeline_version": "1.0.0",
+    "codexa_version": "1.3.0"
+  }
+}

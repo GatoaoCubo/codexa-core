@@ -1,0 +1,314 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "marca_agent_brand_rules",
+  "description": "Branding methodology and rules for marca_agent v3.0.0",
+  "version": "3.0.0",
+  "methodology": {
+    "name": "Metamorfose Brand Building",
+    "phases": 5,
+    "framework": "SDLC-adapted for branding"
+  },
+  "core_principles": {
+    "brand_consistency": {
+      "definition": "Coherent expression across all touchpoints",
+      "threshold": 0.85,
+      "measurement": "8 quality gates weighted average"
+    },
+    "brand_uniqueness": {
+      "definition": "Differentiation from competitors and category norms",
+      "threshold": 8.0,
+      "measurement": "5-dimension fingerprint score (0-10)"
+    },
+    "archetype_alignment": {
+      "definition": "All brand elements reinforce chosen archetype",
+      "primary_weight": 0.7,
+      "secondary_weight": 0.3
+    }
+  },
+  "quality_gates": {
+    "gate_1_identity_positioning": {
+      "name": "Identity-Positioning Alignment",
+      "weight": 0.15,
+      "checks": [
+        "Brand name supports positioning",
+        "Tagline reinforces UVP",
+        "Archetype matches target segment"
+      ]
+    },
+    "gate_2_archetype_tone": {
+      "name": "Archetype-Tone Consistency",
+      "weight": 0.15,
+      "checks": [
+        "Tone dimensions match archetype profile",
+        "Voice attributes align with archetype expression",
+        "Example phrases embody archetype"
+      ]
+    },
+    "gate_3_visual_personality": {
+      "name": "Visual-Personality Coherence",
+      "weight": 0.15,
+      "checks": [
+        "Color psychology matches archetype",
+        "Typography reflects brand personality",
+        "Mood board prompts capture brand essence"
+      ]
+    },
+    "gate_4_narrative_values": {
+      "name": "Narrative-Values Harmony",
+      "weight": 0.15,
+      "checks": [
+        "Origin story embodies core values",
+        "Mission/Vision align with brand promise",
+        "Manifesto reflects brand essence"
+      ]
+    },
+    "gate_5_compliance": {
+      "name": "Regulatory Compliance",
+      "weight": 0.10,
+      "agencies": ["ANVISA", "INMETRO", "CONAR", "CDC"],
+      "checks": [
+        "No forbidden health claims",
+        "Proper certification references",
+        "Ethical advertising compliance"
+      ]
+    },
+    "gate_6_wcag": {
+      "name": "WCAG Accessibility",
+      "weight": 0.10,
+      "level": "AA",
+      "checks": [
+        "At least 2 color pairs meet Level AA contrast",
+        "Text colors readable on backgrounds",
+        "Accent colors accessible"
+      ]
+    },
+    "gate_7_seed_words": {
+      "name": "Proprietary Vocabulary",
+      "weight": 0.10,
+      "minimum": 2,
+      "checks": [
+        "Seed words present in brand essence",
+        "Seed words used in taglines/messaging",
+        "Seed words integrated in narrative"
+      ]
+    },
+    "gate_8_tone_consistency": {
+      "name": "Tone Consistency",
+      "weight": 0.10,
+      "threshold_percent": 95,
+      "checks": [
+        "5 tone adjectives appear in 95% of outputs",
+        "Vocabulary level consistent",
+        "Sentence structure matches guidelines"
+      ]
+    }
+  },
+  "tagline_rules": {
+    "length": {
+      "min": 40,
+      "max": 60,
+      "unit": "characters",
+      "strict": true
+    },
+    "forbidden": [
+      "emojis",
+      "hashtags",
+      "excessive punctuation",
+      "ALL CAPS (except proper nouns)"
+    ],
+    "types": {
+      "functional": "Describes what the product does",
+      "emotional": "Evokes feeling or aspiration",
+      "aspirational": "Paints vision of better future"
+    },
+    "brazilian_context": {
+      "avoid": ["literal translations", "foreign idioms"],
+      "prefer": ["Brazilian expressions", "local cultural references"]
+    }
+  },
+  "name_generation_rules": {
+    "types": {
+      "descriptive": {
+        "purpose": "Clearly communicates what the brand does",
+        "examples": ["PayPal", "YouTube", "Dropbox"]
+      },
+      "evocative": {
+        "purpose": "Creates emotional connection or imagery",
+        "examples": ["Apple", "Nike", "Amazon"]
+      },
+      "creative": {
+        "purpose": "Unique, memorable, defensible",
+        "examples": ["Kodak", "Xerox", "Google"]
+      }
+    },
+    "validation": {
+      "check_trademark": "INPI (BR trademark database)",
+      "check_domain": ".com.br availability",
+      "check_social": "Instagram, TikTok handle availability"
+    }
+  },
+  "archetype_rules": {
+    "selection": {
+      "primary": "Dominant archetype (70% expression)",
+      "secondary": "Supporting archetype (30% expression)"
+    },
+    "forbidden_combinations": [
+      {"pair": ["Innocent", "Rebel"], "reason": "Conflicting core desires"},
+      {"pair": ["Sage", "Jester"], "reason": "Opposing credibility approaches"},
+      {"pair": ["Ruler", "Everyman"], "reason": "Status vs accessibility conflict"}
+    ],
+    "recommended_by_category": {
+      "sports_fitness": ["Hero", "Explorer", "Rebel"],
+      "beauty_care": ["Lover", "Caregiver", "Creator"],
+      "technology": ["Magician", "Sage", "Creator"],
+      "food_beverage": ["Everyman", "Caregiver", "Jester"],
+      "fashion": ["Lover", "Creator", "Rebel"],
+      "home_garden": ["Caregiver", "Creator", "Everyman"]
+    }
+  },
+  "color_rules": {
+    "palette_structure": {
+      "primary": {"count": "1-2", "usage": "Logo, headers, CTAs"},
+      "secondary": {"count": "2-3", "usage": "Backgrounds, accents"},
+      "accent": {"count": "1-2", "usage": "Highlights, alerts"}
+    },
+    "wcag_requirements": {
+      "level_aa": {
+        "normal_text": 4.5,
+        "large_text": 3.0,
+        "ui_components": 3.0
+      }
+    },
+    "brazilian_associations": {
+      "green": "Nature, sustainability, hope, Brazil identity",
+      "yellow": "Joy, warmth, energy, Brazil identity",
+      "blue": "Trust, professionalism, calm",
+      "red": "Passion, urgency, energy",
+      "orange": "Creativity, enthusiasm, youth",
+      "purple": "Premium, creativity, spirituality",
+      "pink": "Femininity, sweetness, care",
+      "black": "Sophistication, luxury, power",
+      "white": "Purity, simplicity, cleanliness"
+    }
+  },
+  "tone_dimensions": {
+    "framework": "Nielsen Norman Group 4-Dimension",
+    "scales": {
+      "formality": {
+        "1": "Very Casual",
+        "2": "Casual",
+        "3": "Neutral",
+        "4": "Formal",
+        "5": "Very Formal"
+      },
+      "enthusiasm": {
+        "1": "Very Matter-of-fact",
+        "2": "Matter-of-fact",
+        "3": "Neutral",
+        "4": "Enthusiastic",
+        "5": "Very Enthusiastic"
+      },
+      "respect": {
+        "1": "Very Irreverent",
+        "2": "Irreverent",
+        "3": "Neutral",
+        "4": "Respectful",
+        "5": "Very Respectful"
+      },
+      "humor": {
+        "1": "Very Funny",
+        "2": "Funny",
+        "3": "Neutral",
+        "4": "Serious",
+        "5": "Very Serious"
+      }
+    }
+  },
+  "narrative_rules": {
+    "origin_story": {
+      "min_chars": 500,
+      "structure": "Hero's Journey adapted",
+      "elements": ["Problem identified", "Solution discovered", "Mission formed"]
+    },
+    "mission_statement": {
+      "min_chars": 100,
+      "max_chars": 150,
+      "tone": "Action-oriented",
+      "formula": "[Action verb] + [Target] + [Benefit]"
+    },
+    "vision_statement": {
+      "min_chars": 100,
+      "max_chars": 150,
+      "tone": "Aspirational",
+      "formula": "[Future state] + [Impact] + [Scope]"
+    },
+    "core_values": {
+      "count": 5,
+      "requirements": [
+        "Defensible (specific to brand)",
+        "Non-generic (avoid 'quality', 'innovation')",
+        "Measurable (can verify in practice)"
+      ]
+    },
+    "manifesto": {
+      "min_chars": 300,
+      "tone": "Emotional rallying cry",
+      "purpose": "Inspire and unite around brand purpose"
+    }
+  },
+  "compliance_rules": {
+    "anvisa": {
+      "categories": ["Cosmetics", "Foods", "Supplements", "Sanitizers"],
+      "forbidden_claims": [
+        "Cura",
+        "Tratamento de doenças",
+        "100% natural sem registro",
+        "Resultados garantidos",
+        "Efeito imediato"
+      ]
+    },
+    "inmetro": {
+      "categories": ["Electronics", "Toys", "Textiles", "Equipment"],
+      "requirements": ["Certification mention", "Safety warnings"]
+    },
+    "conar": {
+      "principles": [
+        "Truthfulness",
+        "Social responsibility",
+        "Honest competition",
+        "Child protection"
+      ],
+      "forbidden": [
+        "Misleading comparisons",
+        "Unsubstantiated claims",
+        "Exploitation of fear"
+      ]
+    },
+    "cdc": {
+      "requirements": [
+        "Clear pricing",
+        "Product specifications",
+        "Warranty information",
+        "Return policy clarity"
+      ]
+    }
+  },
+  "marketplace_specific": {
+    "mercadolivre": {
+      "tone": "Trust-focused, deal-oriented",
+      "keywords_style": "SEO-optimized, category terms"
+    },
+    "shopee": {
+      "tone": "Casual, promotional",
+      "keywords_style": "Trend-focused, hashtag-friendly"
+    },
+    "magalu": {
+      "tone": "Family-friendly, accessible",
+      "keywords_style": "Clear benefits, trust signals"
+    },
+    "amazon_br": {
+      "tone": "Professional, quality-focused",
+      "keywords_style": "Feature-rich, comparison terms"
+    }
+  }
+}

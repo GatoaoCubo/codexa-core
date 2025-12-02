@@ -1,0 +1,20 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Guia Pet Cachorro Cintura Bolsa Pochete Adestramento Passeio GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.86,
+  "execution_time_minutes": 3,
+  "titles": [
+    {"text": "Guia Cintura Cachorro Pochete Passeio Hands Free Pet Corrida", "char_count": 59, "keyword_count": 8, "density": 0.80, "score": 0.86, "variant": "A", "focus": "equilibrado"},
+    {"text": "Guia Pet Maos Livres Cintura Pochete Passeio Corrida GATO3", "char_count": 58, "keyword_count": 8, "density": 0.78, "score": 0.85, "variant": "B", "focus": "emocional"},
+    {"text": "Guia Cachorro Cintura Hands Free Pochete Adestramento Passeio", "char_count": 60, "keyword_count": 8, "density": 0.78, "score": 0.84, "variant": "C", "focus": "tecnico"}
+  ],
+  "keywords": {"block_a": {"name": "Atributos", "count": 116}, "block_b": {"name": "Beneficios", "count": 115}, "coverage_score": {"head_terms": 0.90, "longtails": 0.86, "total_unique_keywords": 231}},
+  "description": {"word_count": 3312, "keyword_density": 0.039, "readability_score": 70, "sections": ["Hook", "Solucao", "Pochete", "Corrida", "Elastico", "Cintura", "Material", "Adestramento", "Versatilidade", "Colocacao", "Garantia", "CTA"], "storybrand_elements": 7},
+  "bullets": {"count": 10, "avg_chars": 191},
+  "visual_assets": {"status": "quick_mode_skipped"},
+  "qa_report": {"aggregate_score": 0.86, "validation_checks_passed": 11, "validation_checks_total": 11, "compliance_validation": {"passed": true}},
+  "strategic_brief": {"product_name": "Guia Cintura Pochete GATO3", "material": "Nylon resistente", "price_gato3": 36.90, "competitor_range": "R$31-156", "main_competitor": "Guia Passeio Maos Livres (R$46,66, +25 vendidos, 5.0 stars)", "differentiation": "demanda tutores ativos"},
+  "metadata": {"workflow_version": "2.5.0", "generator": "CodeXAnuncio v2.5.0", "generated_at": "2025-11-29T11:50:00Z", "plan": "quick_anuncio", "status": "production_ready"}
+}

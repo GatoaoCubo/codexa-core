@@ -1,0 +1,154 @@
+{
+  "video_modes": {
+    "overlay": {
+      "name": "Overlay Mode",
+      "description": "Video with text overlays (default)",
+      "text_overlays_required": true,
+      "composition": "Reserve bottom 20% for text",
+      "narration_required": false,
+      "use_cases": [
+        "Direct conversion",
+        "Instagram/TikTok content",
+        "Price visibility required",
+        "Silent feed optimization",
+        "Strong CTA needed"
+      ]
+    },
+    "clean": {
+      "name": "Clean Mode (--NO TEXT)",
+      "description": "Video without any rendered text",
+      "text_overlays_required": false,
+      "composition": "Full frame composition",
+      "narration_required": true,
+      "use_cases": [
+        "International/multi-language",
+        "Premium/cinematic tone",
+        "YouTube (auto-captions)",
+        "Brand awareness",
+        "Content repurposing"
+      ]
+    }
+  },
+  "selection_rules": {
+    "clean_triggers": [
+      {
+        "field": "international",
+        "value": true,
+        "description": "Video will be translated to multiple languages"
+      },
+      {
+        "field": "tom",
+        "values": ["premium", "cinematografico", "sofisticado"],
+        "description": "Premium/cinematic tone requires clean aesthetics"
+      },
+      {
+        "field": "objective",
+        "value": "brand_awareness",
+        "description": "Brand awareness benefits from clean presentation"
+      },
+      {
+        "field": "repurpose",
+        "value": true,
+        "description": "Content will be repurposed across platforms"
+      },
+      {
+        "field": "platforms",
+        "contains": "youtube",
+        "description": "YouTube has native auto-captions"
+      }
+    ],
+    "overlay_triggers": [
+      {
+        "field": "objective",
+        "value": "conversao",
+        "description": "Conversion objective benefits from text reinforcement"
+      },
+      {
+        "field": "platforms",
+        "contains_any": ["instagram", "tiktok"],
+        "description": "Social platforms often viewed without sound"
+      },
+      {
+        "field": "preco",
+        "not_null": true,
+        "description": "Price must be visible for direct sales"
+      },
+      {
+        "field": "cta_required",
+        "value": true,
+        "description": "Strong CTA needs text overlay"
+      }
+    ],
+    "default": "overlay"
+  },
+  "validation_rules": {
+    "overlay": {
+      "text_overlays": {
+        "min": 1,
+        "required_types": ["product_name", "cta"]
+      },
+      "composition": {
+        "safe_zone": "top_80_percent",
+        "text_zone": "bottom_20_percent"
+      }
+    },
+    "clean": {
+      "text_overlays": {
+        "max": 0,
+        "enforced": true
+      },
+      "narration": {
+        "required": true,
+        "min_words": 10
+      },
+      "composition": {
+        "safe_zone": "full_frame"
+      }
+    }
+  },
+  "phase_impact": {
+    "script_writer": {
+      "overlay": "Generate text_overlays array with min 1 item",
+      "clean": "Set text_overlays to empty array []"
+    },
+    "visual_prompter": {
+      "overlay": "Reserve bottom 20% of frame, focus composition on top 80%",
+      "clean": "Use full frame for composition, no text considerations"
+    },
+    "editor": {
+      "overlay": "Apply FFmpeg drawtext filter for text rendering",
+      "clean": "Skip text rendering entirely"
+    }
+  },
+  "examples": {
+    "overlay_example": {
+      "brief": {
+        "produto": "Nike Air Max",
+        "objetivo": "conversao",
+        "platforms": ["instagram"],
+        "preco": 599
+      },
+      "selected_mode": "overlay",
+      "output": {
+        "text_overlays": [
+          "NIKE AIR MAX",
+          "CONFORTO MÁXIMO",
+          "R$ 599"
+        ]
+      }
+    },
+    "clean_example": {
+      "brief": {
+        "produto": "Nike Air Max",
+        "objetivo": "brand_awareness",
+        "international": true,
+        "platforms": ["youtube"]
+      },
+      "selected_mode": "clean",
+      "output": {
+        "text_overlays": [],
+        "audio_tracks": ["ptbr.mp3", "en.mp3", "es.mp3"]
+      }
+    }
+  }
+}

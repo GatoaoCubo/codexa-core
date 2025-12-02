@@ -1,0 +1,121 @@
+{
+  "summary": {
+    "success": 12,
+    "failed": 0,
+    "skipped": 10
+  },
+  "dry_run": false,
+  "log": [
+    {
+      "id": "bd629e95-f695-4be3-8b5b-4241ab852c4e",
+      "name": "Tapete 65x50",
+      "status": "success",
+      "updates": {
+        "name": "Tapete Refrescante Gelado GATO3 65x50 cm"
+      },
+      "timestamp": "2025-11-28T19:09:55.801984"
+    },
+    {
+      "id": "33f19248-49ee-4cc8-b9c8-17052ee0889a",
+      "name": "Tapete 50x90",
+      "status": "success",
+      "updates": {
+        "name": "Tapete Gelado Grande 50x90 GATO3",
+        "seo_title": "Tapete Gelado Grande 50x90 GATO3"
+      },
+      "timestamp": "2025-11-28T19:09:55.902152"
+    },
+    {
+      "id": "72f6c8e3-615f-4eaa-9f8c-aefabc8dfdb4",
+      "name": "Tapete 40x50",
+      "status": "success",
+      "updates": {
+        "name": "Tapete Refrescante 40x50cm para cães e gatos GATO3"
+      },
+      "timestamp": "2025-11-28T19:09:55.967977"
+    },
+    {
+      "id": "2354fdee-3f9d-4a8a-abbd-8d725a94876a",
+      "name": "Portao Retratil 2",
+      "status": "success",
+      "updates": {
+        "name": "Portão Retrátil Bebês Pets 1.80 m 89 cm trava segura fácil"
+      },
+      "timestamp": "2025-11-28T19:09:56.048709"
+    },
+    {
+      "id": "ed1f6428-2f1c-4d24-a72f-10456c313733",
+      "name": "Caixa Transporte PP",
+      "status": "success",
+      "updates": {
+        "name": "Caixa Transportadora Pet PP GATO3 – 47x29,5x32 cm",
+        "tagline": "Sensação de abrigo para o animal",
+        "seo_title": "Caixa Transportadora Pet PP GATO3 – 47x29,5x32 cm"
+      },
+      "timestamp": "2025-11-28T19:09:56.122898"
+    },
+    {
+      "id": "c55f2f6c-8e81-4374-a498-cb70fdc72572",
+      "name": "Tapete Gelado",
+      "status": "success",
+      "updates": {
+        "name": "Tapete Gelado Colchonete Refrescante Pet Cão Gato Cama..."
+      },
+      "timestamp": "2025-11-28T19:09:56.195220"
+    },
+    {
+      "id": "62449357-e638-4d25-8ba2-3df4922ad957",
+      "name": "Cama Janela",
+      "status": "success",
+      "updates": {
+        "tagline": "Gatos adoram altura, calor e vista."
+      },
+      "timestamp": "2025-11-28T19:09:56.263228"
+    },
+    {
+      "id": "a98f4ccd-8910-4d59-a405-fcba001a58fb",
+      "name": "Varinha Ventosa",
+      "status": "success",
+      "updates": {
+        "name": "Brinquedo Interativo Para Gato Varinha Com Ventosa Pena"
+      },
+      "timestamp": "2025-11-28T19:09:56.404600"
+    },
+    {
+      "id": "52ae57ec-b816-47d9-82db-49c5f5227991",
+      "name": "Rolo Tira Pelos",
+      "status": "success",
+      "updates": {
+        "name": "ROLO TIRA PELOS 20 FOLHAS GATO3"
+      },
+      "timestamp": "2025-11-28T19:09:56.484621"
+    },
+    {
+      "id": "3b08f364-fc8f-4f9b-97be-736326ecd5c6",
+      "name": "Pote Retratil",
+      "status": "success",
+      "updates": {
+        "name": "Comedouro/Bebedouro Retrátil para Pets GATO3"
+      },
+      "timestamp": "2025-11-28T19:09:56.557709"
+    },
+    {
+      "id": "e7b800dc-7d43-4139-b110-06bebf05a136",
+      "name": "Bola Inteligente",
+      "status": "success",
+      "updates": {
+        "name": "Bola Inteligente Pet USB — interativa GATO3"
+      },
+      "timestamp": "2025-11-28T19:09:56.627155"
+    },
+    {
+      "id": "495d92ad-b773-41ab-904b-7c2e6c7e861b",
+      "name": "Corda Pilha",
+      "status": "success",
+      "updates": {
+        "name": "Brinquedo Automático Gatos Interativo Corda Pilha GATO3"
+      },
+      "timestamp": "2025-11-28T19:09:56.689413"
+    }
+  ]
+}

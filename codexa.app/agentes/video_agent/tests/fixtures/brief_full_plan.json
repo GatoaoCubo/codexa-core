@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/video_input.json",
+  "execution_plan": "full",
+  "produto": "Fone Bluetooth Premium XYZ",
+  "duracao": 30,
+  "formato": "9:16",
+  "tom": "sofisticado",
+  "objetivo": "Destacar qualidade de som superior e design premium para audiophiles",
+  "preco": "R$ 899",
+  "cta_text": "Experimente Agora",
+  "video_mode": "overlay",
+  "voice": {
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "voice_name": "Bella",
+    "gender": "feminina"
+  },
+  "brand_profile": {
+    "nome": "XYZ Audio",
+    "cores": {
+      "primaria": "#1a1a2e",
+      "secundaria": "#D4AF37",
+      "acento": "#FFFFFF"
+    },
+    "tom": "premium",
+    "personalidade": "sofisticado",
+    "valores": ["qualidade", "inovacao", "excelencia"]
+  },
+  "platform_target": "instagram_reels",
+  "features": [
+    {
+      "nome": "Active Noise Cancellation",
+      "descricao": "Cancelamento de ruido ativo de ultima geracao"
+    },
+    {
+      "nome": "40h Battery",
+      "descricao": "Bateria de longa duracao para o dia todo"
+    }
+  ],
+  "test_metadata": {
+    "plan": "full",
+    "expected_phases": 7,
+    "expected_outputs": ["config.json", "concept.json", "script.json", "visual_prompts.json", "clips/", "final_video.mp4", "validation_report.json"],
+    "expected_duration_min": 180,
+    "expected_duration_max": 420
+  }
+}

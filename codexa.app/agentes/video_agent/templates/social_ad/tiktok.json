@@ -1,0 +1,245 @@
+{
+  "$schema": "../../schemas/video_input.json",
+  "template_id": "tiktok_ad_v1",
+  "template_name": "TikTok Ad",
+  "template_description": "Anuncio nativo para TikTok - autenticidade e trend-driven",
+  "version": "1.0.0",
+  "category": "conversion",
+  "recommended_duration": 15,
+  "recommended_format": "9:16",
+  "recommended_style": "energetic",
+  "recommended_video_mode": "overlay",
+
+  "platform_specs": {
+    "platform": "tiktok",
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "max_duration": 60,
+    "optimal_duration": 15,
+    "safe_zone": {
+      "top": "10%",
+      "bottom": "25%",
+      "right": "15%",
+      "description": "Evitar UI do TikTok (like, comment, share buttons)"
+    },
+    "native_feel": {
+      "important": true,
+      "avoid": ["overly polished", "corporate feel", "stock footage"],
+      "embrace": ["authentic", "user-generated style", "trending formats"]
+    }
+  },
+
+  "narrative_arc": {
+    "structure": "native_storytelling",
+    "phases": [
+      {
+        "name": "hook",
+        "purpose": "Parecer conteudo organico, nao ad",
+        "duration_percent": 15,
+        "shots": 1,
+        "tone": "autentico"
+      },
+      {
+        "name": "story",
+        "purpose": "Contar mini-historia com produto",
+        "duration_percent": 50,
+        "shots": 2,
+        "tone": "relatable"
+      },
+      {
+        "name": "reveal",
+        "purpose": "Revelar produto como solucao",
+        "duration_percent": 20,
+        "shots": 1,
+        "tone": "satisfatorio"
+      },
+      {
+        "name": "cta",
+        "purpose": "Converter sem parecer ad",
+        "duration_percent": 15,
+        "shots": 1,
+        "tone": "casual_urgente"
+      }
+    ]
+  },
+
+  "shots_template": [
+    {
+      "number": 1,
+      "narrative": "hook",
+      "duration": 2,
+      "description_template": "POV ou talking head estilo criador - [SITUACAO_RELATABLE]",
+      "composition": "Selfie style, casual framing",
+      "camera": {
+        "movement": "handheld, slightly shaky (authentic)",
+        "angle": "selfie or POV"
+      },
+      "lighting": "natural, not perfect",
+      "text_overlay": {
+        "text_template": "[HOOK_TREND_FORMAT]",
+        "position": "top_center",
+        "style": "tiktok_native"
+      },
+      "narration_template": null,
+      "native_formats": [
+        "POV: [situacao]",
+        "Quando voce [situacao]",
+        "Testei [produto] e...",
+        "Ninguem fala sobre isso mas..."
+      ]
+    },
+    {
+      "number": 2,
+      "narrative": "story",
+      "duration": 4,
+      "description_template": "Mostrando [PROBLEMA_OU_SITUACAO] de forma autentica",
+      "composition": "Casual, lifestyle",
+      "camera": {
+        "movement": "handheld following action",
+        "angle": "varied, dynamic"
+      },
+      "lighting": "natural environment",
+      "text_overlay": {
+        "text_template": "[CONTEXTO_RELATABLE]",
+        "position": "center",
+        "style": "normal"
+      },
+      "narration_template": "[HISTORIA_CASUAL]"
+    },
+    {
+      "number": 3,
+      "narrative": "story",
+      "duration": 3,
+      "description_template": "Buildup para revelacao do [PRODUTO]",
+      "composition": "Transition shot",
+      "camera": {
+        "movement": "quick transition or match cut",
+        "angle": "dynamic"
+      },
+      "lighting": "transitioning",
+      "text_overlay": null,
+      "narration_template": "[BUILDUP_FRASE]"
+    },
+    {
+      "number": 4,
+      "narrative": "reveal",
+      "duration": 3,
+      "description_template": "[PRODUTO] sendo mostrado com reacao genuina",
+      "composition": "Product reveal with human reaction",
+      "camera": {
+        "movement": "zoom in on product",
+        "angle": "product focus"
+      },
+      "lighting": "good lighting on product",
+      "text_overlay": {
+        "text_template": "[PRODUTO_NOME]",
+        "position": "center",
+        "style": "bold"
+      },
+      "narration_template": "[REACAO_GENUINA]"
+    },
+    {
+      "number": 5,
+      "narrative": "cta",
+      "duration": 3,
+      "description_template": "[PRODUTO] em uso final com satisfacao",
+      "composition": "Happy user with product visible",
+      "camera": {
+        "movement": "static or subtle",
+        "angle": "eye level"
+      },
+      "lighting": "flattering",
+      "text_overlay": {
+        "text_template": "Link na bio | [PRECO]",
+        "position": "center",
+        "style": "cta"
+      },
+      "narration_template": "[CTA_CASUAL]",
+      "cta_formats": [
+        "Link na bio",
+        "Corre la pegar o seu",
+        "Ta no precinho",
+        "Voces pediram, ta ai"
+      ]
+    }
+  ],
+
+  "voice_recommendation": {
+    "gender": "match_target_audience",
+    "tone": "casual_autentico",
+    "pace": "conversational, natural pauses",
+    "suggested_voices": {
+      "feminina": "pMsXgVXv3BLzUgSXRplE",
+      "masculina": "ErXwobaYiN019PkySvjV"
+    },
+    "tips": [
+      "Evitar voz de locutor",
+      "Soar como criador de conteudo",
+      "Usar girias e expressoes atuais",
+      "Pausas naturais"
+    ]
+  },
+
+  "music_recommendation": {
+    "genre": "trending_tiktok",
+    "mood": "match_trend",
+    "tempo": "varies",
+    "volume": 0.4,
+    "notes": "USAR AUDIO TRENDING DO TIKTOK - critico para alcance",
+    "trending_sounds": true,
+    "beat_sync": true
+  },
+
+  "authenticity_guidelines": {
+    "do": [
+      "Parecer conteudo organico",
+      "Usar formatos trending",
+      "Incluir reacoes genuinas",
+      "Lighting natural",
+      "Camera movimento autentico"
+    ],
+    "dont": [
+      "Parecer comercial de TV",
+      "Usar stock footage",
+      "Over-produced look",
+      "Voz de locutor",
+      "CTA agressivo demais"
+    ]
+  },
+
+  "trending_formats_2024": [
+    {
+      "format": "POV",
+      "description": "Point of view do usuario",
+      "example": "POV: voce descobriu esse produto"
+    },
+    {
+      "format": "Get Ready With Me",
+      "description": "Rotina com produto",
+      "example": "GRWM usando [produto]"
+    },
+    {
+      "format": "Review Honesto",
+      "description": "Opiniao genuina",
+      "example": "Testei por 30 dias e..."
+    },
+    {
+      "format": "Expectativa vs Realidade",
+      "description": "Comparacao surpreendente",
+      "example": "O que eu esperava vs o que recebi"
+    }
+  ],
+
+  "example_brief": {
+    "produto": "Skincare Serum ABC",
+    "duracao": 15,
+    "formato": "9:16",
+    "tom": "autentico",
+    "objetivo": "Vender serum com abordagem de criador de conteudo",
+    "preco": "R$ 89",
+    "video_mode": "overlay",
+    "trend_format": "POV",
+    "hook": "POV: voce achou O serum",
+    "target_audience": "Mulheres 18-35 interessadas em skincare"
+  }
+}

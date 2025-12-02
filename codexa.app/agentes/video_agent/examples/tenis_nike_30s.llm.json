@@ -1,0 +1,161 @@
+{
+  "video_id": "tenis_nike_air_max_2024_30s",
+  "generated_at": "2025-11-24T14:32:15Z",
+  "status": "complete",
+  "input": {
+    "produto": "Tenis Nike Air Max 2024",
+    "duracao": 30,
+    "formato": "9:16",
+    "tom": "energetico, esportivo",
+    "objetivo": "destacar amortecimento Air e design moderno"
+  },
+  "concept": {
+    "shots": [
+      {
+        "number": 1,
+        "duration": 3,
+        "description": "Close-up dramatico do tenis girando 360 graus em fundo branco",
+        "composition": "Product shot, eye-level, white background",
+        "narrative": "hook"
+      },
+      {
+        "number": 2,
+        "duration": 4,
+        "description": "Macro shot do sistema Air visivel na sola",
+        "composition": "Detail shot, low angle",
+        "narrative": "build"
+      },
+      {
+        "number": 3,
+        "duration": 5,
+        "description": "Split screen mostrando diferentes angulos do tenis em movimento",
+        "composition": "Dynamic multi-angle",
+        "narrative": "build"
+      },
+      {
+        "number": 4,
+        "duration": 6,
+        "description": "Pessoa caminhando com o tenis, enfase no conforto",
+        "composition": "Lifestyle shot, tracking camera",
+        "narrative": "benefit"
+      },
+      {
+        "number": 5,
+        "duration": 6,
+        "description": "Close-up do tenis em acao durante corrida, slow motion",
+        "composition": "Action shot, slow motion",
+        "narrative": "proof"
+      },
+      {
+        "number": 6,
+        "duration": 6,
+        "description": "Tenis centralizado com preco e botao de compra",
+        "composition": "Product centered, bold typography",
+        "narrative": "cta"
+      }
+    ],
+    "total_duration": 30,
+    "narrative_arc": "Hook -> Build -> Benefit -> Proof -> CTA",
+    "style_preset": "energetico"
+  },
+  "script": {
+    "narration": [
+      {"start": 0.3, "end": 2.8, "text": "Conheca o futuro do conforto"},
+      {"start": 5.0, "end": 9.0, "text": "Nike Air Max com tecnologia revolucionaria"},
+      {"start": 12.5, "end": 17.0, "text": "Amortecimento Air para o dia todo"},
+      {"start": 26.0, "end": 29.5, "text": "Garanta o seu por apenas R$ 599"}
+    ],
+    "text_overlays": [
+      {"start": 1, "end": 4, "text": "NIKE AIR MAX 2024", "position": "bottom", "style": "bold"},
+      {"start": 12, "end": 16, "text": "AMORTECIMENTO AIR", "position": "center", "style": "normal"},
+      {"start": 26, "end": 30, "text": "R$ 599 | FRETE GRATIS | COMPRE AGORA", "position": "center", "style": "bold"}
+    ],
+    "music": {
+      "track": "music/upbeat_electronic.mp3",
+      "volume": 0.3
+    },
+    "voice": "Rachel"
+  },
+  "visual_prompts": [
+    {
+      "shot_number": 1,
+      "duration": 3,
+      "runway_prompt": "Nike sneaker rotating 360 degrees on pure white background, dramatic lighting, push in camera movement, eye-level angle, high contrast, energetic dynamic 4K professional product photography",
+      "camera": {"movement": "push in", "angle": "eye-level"},
+      "transition": "hard cut"
+    },
+    {
+      "shot_number": 2,
+      "duration": 4,
+      "runway_prompt": "Extreme macro close-up of Nike Air Max sole showing visible air cushioning technology, slow dolly movement, low angle, revealing internal structure, cinematic detail shot 4K",
+      "camera": {"movement": "slow dolly", "angle": "low angle"},
+      "transition": "cut"
+    },
+    {
+      "shot_number": 3,
+      "duration": 5,
+      "runway_prompt": "Dynamic multi-angle showcase of Nike sneaker in motion, split screen effect, fast cuts between different perspectives, high energy, vibrant colors, professional product video 4K",
+      "camera": {"movement": "dynamic tracking", "angle": "multiple"},
+      "transition": "whip pan"
+    },
+    {
+      "shot_number": 4,
+      "duration": 6,
+      "runway_prompt": "Person walking confidently wearing Nike Air Max sneakers, focus on comfortable stride, tracking shot following feet, natural outdoor lighting, lifestyle commercial 4K",
+      "camera": {"movement": "tracking", "angle": "low angle"},
+      "transition": "dissolve"
+    },
+    {
+      "shot_number": 5,
+      "duration": 6,
+      "runway_prompt": "Nike sneaker in action during running, slow motion impact showing cushioning effect, dramatic angles, athletic movement, high-speed capture, cinematic sports footage 4K",
+      "camera": {"movement": "static/slow mo", "angle": "dramatic low"},
+      "transition": "cut"
+    },
+    {
+      "shot_number": 6,
+      "duration": 6,
+      "runway_prompt": "Nike Air Max sneaker centered on dynamic gradient background, bold clean composition, product hero shot, minimal design, call to action space, professional e-commerce 4K",
+      "camera": {"movement": "static", "angle": "eye-level centered"},
+      "transition": "fade"
+    }
+  ],
+  "production": {
+    "clips": [
+      {"shot_number": 1, "clip_path": "outputs/clips/clip_001.mp4", "success": true, "api_used": "runway", "cost_usd": 0.15, "generation_time_s": 42.3},
+      {"shot_number": 2, "clip_path": "outputs/clips/clip_002.mp4", "success": true, "api_used": "runway", "cost_usd": 0.20, "generation_time_s": 48.1},
+      {"shot_number": 3, "clip_path": "outputs/clips/clip_003.mp4", "success": true, "api_used": "runway", "cost_usd": 0.25, "generation_time_s": 51.2},
+      {"shot_number": 4, "clip_path": "outputs/clips/clip_004.mp4", "success": true, "api_used": "runway", "cost_usd": 0.30, "generation_time_s": 55.8},
+      {"shot_number": 5, "clip_path": "outputs/clips/clip_005.mp4", "success": true, "api_used": "pika", "cost_usd": 0.18, "generation_time_s": 38.5},
+      {"shot_number": 6, "clip_path": "outputs/clips/clip_006.mp4", "success": true, "api_used": "runway", "cost_usd": 0.30, "generation_time_s": 44.7}
+    ],
+    "total_generation_time_s": 280.6,
+    "total_cost_usd": 1.38,
+    "success_rate": 1.0
+  },
+  "output": {
+    "video_path": "outputs/tenis_nike_air_max_2024_30s.mp4",
+    "duration_seconds": 30.2,
+    "format": "9:16",
+    "resolution": "1080x1920",
+    "file_size_mb": 18.5,
+    "has_narration": true,
+    "has_music": true,
+    "text_overlays_count": 3
+  },
+  "validation": {
+    "quality_score": 10.0,
+    "brand_score": 9.0,
+    "checks_passed": 11,
+    "checks_total": 11,
+    "passed": true
+  },
+  "performance": {
+    "total_pipeline_time_s": 312.5,
+    "concept_time_s": 4.2,
+    "script_time_s": 2.8,
+    "visual_time_s": 8.5,
+    "production_time_s": 280.6,
+    "editing_time_s": 19.9
+  }
+}

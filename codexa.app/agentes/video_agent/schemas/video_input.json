@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "video_input.json",
+  "title": "Video Agent Input Schema",
+  "description": "Input contract for video_agent video generation",
+  "type": "object",
+  "required": ["produto", "duracao", "formato", "objetivo"],
+  "properties": {
+    "produto": {
+      "type": "string",
+      "description": "Product name and key attributes",
+      "minLength": 3,
+      "maxLength": 200,
+      "examples": ["Tênis Nike Air Max 2024", "Fone Bluetooth Premium XYZ"]
+    },
+    "duracao": {
+      "type": "integer",
+      "description": "Video duration in seconds",
+      "minimum": 15,
+      "maximum": 60,
+      "default": 30,
+      "examples": [15, 30, 45, 60]
+    },
+    "formato": {
+      "type": "string",
+      "description": "Video aspect ratio",
+      "enum": ["9:16", "16:9", "1:1"],
+      "default": "9:16",
+      "enumDescriptions": {
+        "9:16": "Vertical (Instagram Reels, TikTok, YouTube Shorts)",
+        "16:9": "Horizontal (YouTube, Facebook)",
+        "1:1": "Square (Instagram Feed, Facebook Feed)"
+      }
+    },
+    "tom": {
+      "type": "string",
+      "description": "Video tone/mood",
+      "default": "energético",
+      "examples": ["energético, esportivo", "calmo, sofisticado", "dramático, impactante", "minimalista, clean"]
+    },
+    "objetivo": {
+      "type": "string",
+      "description": "Primary goal of the video",
+      "minLength": 10,
+      "maxLength": 500,
+      "examples": ["destacar amortecimento Air e design moderno", "mostrar qualidade de som e conforto"]
+    },
+    "brand_profile": {
+      "type": "object",
+      "description": "Optional brand configuration",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Brand name"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+            "secondary": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+            "accent": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+          }
+        },
+        "tone": {
+          "type": "string",
+          "enum": ["professional", "playful", "luxury", "minimal", "bold"]
+        },
+        "logo_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "style_preset": {
+      "type": "string",
+      "description": "Pre-defined style preset",
+      "enum": ["energetic", "calm", "dramatic", "minimal", "cinematic"],
+      "default": "energetic"
+    },
+    "music_preference": {
+      "type": "object",
+      "properties": {
+        "genre": {
+          "type": "string",
+          "enum": ["electronic", "acoustic", "orchestral", "hip-hop", "ambient"],
+          "default": "electronic"
+        },
+        "tempo": {
+          "type": "string",
+          "enum": ["slow", "medium", "fast"],
+          "default": "medium"
+        },
+        "include_narration": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "technical_overrides": {
+      "type": "object",
+      "description": "Advanced technical settings",
+      "properties": {
+        "resolution": {
+          "type": "string",
+          "enum": ["720p", "1080p", "4k"],
+          "default": "1080p"
+        },
+        "fps": {
+          "type": "integer",
+          "enum": [24, 30, 60],
+          "default": 30
+        },
+        "video_api": {
+          "type": "string",
+          "enum": ["runway", "pika", "auto"],
+          "default": "auto"
+        },
+        "tts_voice": {
+          "type": "string",
+          "description": "ElevenLabs voice ID",
+          "default": "Rachel"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

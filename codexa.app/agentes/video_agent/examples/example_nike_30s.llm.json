@@ -1,0 +1,145 @@
+{
+  "$schema": "../schemas/video_output.json",
+  "generation_id": "nike_air_max_30s_001",
+  "generated_at": "2025-11-25T10:45:00Z",
+  "version": "2.0.0",
+
+  "brief": {
+    "produto": "Nike Air Max 2024",
+    "duracao": 30,
+    "formato": "9:16",
+    "tom": "energetico",
+    "objetivo": "Mostrar conforto e estilo do novo Air Max para jovens urbanos",
+    "preco": "R$ 599",
+    "cta_text": "Compre Agora",
+    "video_mode": "overlay"
+  },
+
+  "concept": {
+    "total_shots": 6,
+    "total_duration": 30,
+    "narrative_arc": "Hook -> Build -> Benefit -> Proof -> Build -> CTA",
+    "shots": [
+      {
+        "number": 1,
+        "duration": 4,
+        "narrative": "hook",
+        "description": "Close-up do tenis Nike Air Max girando 360 graus"
+      },
+      {
+        "number": 2,
+        "duration": 5,
+        "narrative": "build",
+        "description": "Pessoa caminhando com o tenis, foco nos pes"
+      },
+      {
+        "number": 3,
+        "duration": 5,
+        "narrative": "benefit",
+        "description": "Detalhe do amortecimento Air sendo comprimido"
+      },
+      {
+        "number": 4,
+        "duration": 5,
+        "narrative": "proof",
+        "description": "Pessoa sorrindo satisfeita com conforto"
+      },
+      {
+        "number": 5,
+        "duration": 5,
+        "narrative": "build",
+        "description": "Lineup de 3 colorways do Air Max"
+      },
+      {
+        "number": 6,
+        "duration": 6,
+        "narrative": "cta",
+        "description": "Pack shot final com logo Nike"
+      }
+    ]
+  },
+
+  "script": {
+    "video_mode": "overlay",
+    "narration": [
+      {"start": 0.3, "end": 3.5, "text": "Conheca o futuro do conforto"},
+      {"start": 5.0, "end": 8.5, "text": "Nike Air Max com tecnologia revolucionaria"},
+      {"start": 10.0, "end": 13.5, "text": "Amortecimento Air para o dia todo"},
+      {"start": 15.5, "end": 18.5, "text": "Conforto que voce sente"},
+      {"start": 25.5, "end": 29.5, "text": "Garanta o seu por apenas quinhentos e noventa e nove reais"}
+    ],
+    "text_overlays": [
+      {"start": 1, "end": 4, "text": "NIKE AIR MAX 2024", "position": "bottom", "style": "bold"},
+      {"start": 10, "end": 14, "text": "AMORTECIMENTO AIR", "position": "center", "style": "normal"},
+      {"start": 25, "end": 30, "text": "R$ 599 | COMPRE AGORA", "position": "center", "style": "cta"}
+    ],
+    "voice": {
+      "voice_id": "pMsXgVXv3BLzUgSXRplE",
+      "voice_name": "Camila",
+      "gender": "feminina"
+    },
+    "music": {
+      "track": "upbeat_electronic.mp3",
+      "volume": 0.3
+    }
+  },
+
+  "visual_prompts": {
+    "platform": "runway",
+    "prompts_count": 6,
+    "prompts": [
+      {
+        "shot_number": 1,
+        "prompt": "Slow orbit shot: Cinematic 4K quality, professional studio lighting. Nike Air Max 2024 sneaker rotating smoothly on pristine white surface. Shallow depth of field, dramatic rim light, high-end commercial aesthetic.",
+        "negative_prompt": "blurry, low quality, distorted, artifacts, cluttered background"
+      },
+      {
+        "shot_number": 2,
+        "prompt": "Tracking shot: Cinematic 4K quality, natural daylight. Person walking confidently on urban sidewalk wearing Nike Air Max. Focus on feet and sneakers. Golden hour lighting, lifestyle aesthetic.",
+        "negative_prompt": "blurry, low quality, distorted faces, unnatural movement"
+      },
+      {
+        "shot_number": 3,
+        "prompt": "Macro shot: Cinematic 4K quality, soft diffused light. Extreme close-up of Nike Air Max sole compressing during step. Visible air cushion technology. Slow motion, detail-focused.",
+        "negative_prompt": "blurry, low quality, distorted, artifacts"
+      },
+      {
+        "shot_number": 4,
+        "prompt": "Medium shot: Cinematic 4K quality, warm interior lighting. Young person smiling contentedly, looking down at their Nike Air Max sneakers with approval. Cozy, satisfied expression.",
+        "negative_prompt": "blurry, distorted face, unnatural expression"
+      },
+      {
+        "shot_number": 5,
+        "prompt": "Crane down shot: Cinematic 4K quality, studio lighting. Three Nike Air Max sneakers in different colors arranged elegantly. High angle looking down, premium product showcase.",
+        "negative_prompt": "blurry, low quality, uneven lighting, cluttered"
+      },
+      {
+        "shot_number": 6,
+        "prompt": "Slow zoom in: Cinematic 4K quality, premium studio lighting. Nike Air Max 2024 centered in frame with Nike swoosh logo visible. Clean background, heroic low angle, high-end commercial finish.",
+        "negative_prompt": "blurry, low quality, distorted logo, cluttered background"
+      }
+    ]
+  },
+
+  "production": {
+    "clips_generated": 6,
+    "clips_successful": 6,
+    "success_rate": 1.0,
+    "total_api_time_seconds": 185.3,
+    "clips": [
+      {"shot": 1, "path": "clips/clip_001.mp4", "duration": 4.0, "cost_usd": 0.20},
+      {"shot": 2, "path": "clips/clip_002.mp4", "duration": 5.0, "cost_usd": 0.25},
+      {"shot": 3, "path": "clips/clip_003.mp4", "duration": 5.0, "cost_usd": 0.25},
+      {"shot": 4, "path": "clips/clip_004.mp4", "duration": 5.0, "cost_usd": 0.25},
+      {"shot": 5, "path": "clips/clip_005.mp4", "duration": 5.0, "cost_usd": 0.25},
+      {"shot": 6, "path": "clips/clip_006.mp4", "duration": 6.0, "cost_usd": 0.30}
+    ]
+  },
+
+  "output": {
+    "video_path": "outputs/example_nike_30s.mp4",
+    "report_path": "outputs/example_nike_30s.md",
+    "llm_json_path": "outputs/example_nike_30s.llm.json",
+    "meta_json_path": "outputs/example_nike_30s.meta.json"
+  }
+}

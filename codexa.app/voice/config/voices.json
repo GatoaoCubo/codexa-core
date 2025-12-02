@@ -1,0 +1,74 @@
+{
+  "edge_tts": {
+    "default": "pt-BR-FranciscaNeural",
+    "portuguese": [
+      {
+        "id": "pt-BR-FranciscaNeural",
+        "name": "Francisca",
+        "gender": "female",
+        "description": "Natural, friendly Brazilian Portuguese"
+      },
+      {
+        "id": "pt-BR-AntonioNeural",
+        "name": "Antonio",
+        "gender": "male",
+        "description": "Clear, professional Brazilian Portuguese"
+      },
+      {
+        "id": "pt-PT-RaquelNeural",
+        "name": "Raquel",
+        "gender": "female",
+        "description": "European Portuguese"
+      },
+      {
+        "id": "pt-PT-DuarteNeural",
+        "name": "Duarte",
+        "gender": "male",
+        "description": "European Portuguese"
+      }
+    ],
+    "english": [
+      {
+        "id": "en-US-JennyNeural",
+        "name": "Jenny",
+        "gender": "female",
+        "description": "American English"
+      },
+      {
+        "id": "en-US-GuyNeural",
+        "name": "Guy",
+        "gender": "male",
+        "description": "American English"
+      }
+    ]
+  },
+  "elevenlabs": {
+    "default": "21m00Tcm4TlvDq8ikWAM",
+    "voices": [
+      {
+        "id": "21m00Tcm4TlvDq8ikWAM",
+        "name": "Rachel",
+        "gender": "female",
+        "description": "Natural, calm American English"
+      },
+      {
+        "id": "pMsXgVXv3BLzUgSXRplE",
+        "name": "Camila",
+        "gender": "female",
+        "description": "Energetic, modern Brazilian Portuguese"
+      },
+      {
+        "id": "EXAVITQu4vr4xnSDxMaL",
+        "name": "Bella",
+        "gender": "female",
+        "description": "Soft, sophisticated"
+      },
+      {
+        "id": "TX3LPaxmHKxFdv7VOQHJ",
+        "name": "Rafael",
+        "gender": "male",
+        "description": "Deep, authoritative"
+      }
+    ]
+  }
+}

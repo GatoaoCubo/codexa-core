@@ -1,0 +1,61 @@
+{
+  "platform": "Cursor",
+  "version": "v1.2",
+  "date_captured": "2025-11-24",
+  "source": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/tree/main/Cursor%20Prompts",
+  "files": {
+    "system_prompt": "system_prompt.txt",
+    "tools": "tools.json",
+    "notes": "NOTES.md"
+  },
+  "capabilities": {
+    "autonomous_operation": true,
+    "semantic_search": true,
+    "code_editing": true,
+    "terminal_execution": true,
+    "web_search": true,
+    "memory_management": true,
+    "linter_integration": true,
+    "git_integration": true,
+    "notebook_support": true
+  },
+  "key_features": [
+    "Autonomous task completion",
+    "Context-aware editing",
+    "Proactive information gathering",
+    "Multi-tool orchestration",
+    "Semantic code understanding"
+  ],
+  "tools_count": 13,
+  "prompt_structure": {
+    "identity_and_role": true,
+    "responsibilities": true,
+    "capabilities": true,
+    "strategies": true,
+    "protocols": true,
+    "constraints": true
+  },
+  "unique_aspects": [
+    "Explicit autonomous operation mandate",
+    "Thorough information gathering emphasis",
+    "Memory management system",
+    "Linter error fixing protocol (max 3 attempts)",
+    "Reapply tool for failed edits"
+  ],
+  "integration_potential": {
+    "codexa_alignment": "high",
+    "reusable_patterns": [
+      "Autonomous operation protocol",
+      "Tool orchestration strategy",
+      "Context awareness guidelines",
+      "Error handling patterns",
+      "Memory management approach"
+    ],
+    "applicable_to": [
+      "CODEXA agent architecture",
+      "HOP development",
+      "Multi-agent orchestration",
+      "Tool calling patterns"
+    ]
+  }
+}

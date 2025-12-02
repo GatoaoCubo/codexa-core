@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "agent": "photo_agent_marketplace",
+    "version": "1.0.0",
+    "timestamp": "2025-11-15T14:30:00Z",
+    "input_hash": "abc123def456789012345678901234567890123456789012345678901234567",
+    "workflow_type": "marketplace_product"
+  },
+  "input": {
+    "subject": "Garrafa de água reutilizável ecológica 750ml aço inox",
+    "target_marketplace": "all",
+    "reference_image_provided": false
+  },
+  "quality_metrics": {
+    "total_prompts": 9,
+    "validation_passed": 9,
+    "validation_failed": 0,
+    "avg_validation_score": 0.94,
+    "avg_character_count": 377,
+    "marketplace_compliance_status": "FULL_COMPLIANCE",
+    "white_bg_compliance": true
+  },
+  "compliance": {
+    "white_bg_scenes": [1, 9],
+    "white_bg_count": 2,
+    "13_point_checklist_pass": true,
+    "compliant_marketplaces": ["mercadolivre", "shopee", "magalu", "amazon_br"]
+  },
+  "performance": {
+    "generation_time_ms": 8500,
+    "validation_time_ms": 1200,
+    "total_time_ms": 9700,
+    "target_met": true
+  },
+  "integration": {
+    "anuncio_agent_ready": true,
+    "recommended_scenes": [1, 2, 3, 5, 9],
+    "prompt_compatibility": ["gemini", "dalle3", "midjourney", "stable_diffusion"]
+  },
+  "trinity_files": {
+    "markdown": "marketplace_garrafa_agua.md",
+    "llm_json": "marketplace_garrafa_agua.llm.json",
+    "metadata_json": "marketplace_garrafa_agua.meta.json"
+  }
+}

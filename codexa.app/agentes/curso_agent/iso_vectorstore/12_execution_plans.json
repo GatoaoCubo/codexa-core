@@ -1,0 +1,242 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Curso Agent Execution Plans",
+  "description": "Pre-configured execution plans for common course generation scenarios",
+  "version": "2.5.0",
+  "plans": {
+    "quick": {
+      "name": "Quick Course Outline",
+      "description": "Fast outline generation for planning purposes",
+      "duration": "5-10 minutes",
+      "phases": [
+        {
+          "phase": 1,
+          "name": "PLAN",
+          "duration": "1-2 min",
+          "actions": ["gather_parameters", "load_context"],
+          "inputs": ["topic", "audience", "duration"],
+          "outputs": ["validated_parameters"]
+        },
+        {
+          "phase": 2,
+          "name": "BUILD",
+          "duration": "2-3 min",
+          "actions": ["generate_outline"],
+          "builder": "01_course_outline_builder.py",
+          "outputs": ["outline.md", "outline.llm.json", "outline.meta.json"]
+        },
+        {
+          "phase": 3,
+          "name": "TEST",
+          "duration": "1 min",
+          "actions": ["validate_structure"],
+          "checks": ["module_count >= 4", "objectives_present", "layer_progression"]
+        },
+        {
+          "phase": 4,
+          "name": "REVIEW",
+          "duration": "1-2 min",
+          "actions": ["human_review"],
+          "checklist": ["sequential_modules", "clear_objectives", "realistic_timing"]
+        },
+        {
+          "phase": 5,
+          "name": "DOCUMENT",
+          "duration": "1 min",
+          "actions": ["log_result"],
+          "outputs": ["workflow_log.txt"]
+        }
+      ],
+      "success_criteria": {
+        "outline_generated": true,
+        "modules_defined": { "min": 4, "max": 8 },
+        "layer_progression": true
+      },
+      "arguments_chain": "$topic -> $audience -> $duration -> $outline_path"
+    },
+    "full_module": {
+      "name": "Full Module Content",
+      "description": "Complete content generation for a single module",
+      "duration": "30-45 minutes",
+      "phases": [
+        {
+          "phase": 1,
+          "name": "PLAN",
+          "duration": "3-5 min",
+          "actions": ["load_module_context", "review_outline", "identify_dependencies"],
+          "inputs": ["module_id", "layer_level"],
+          "outputs": ["module_plan"]
+        },
+        {
+          "phase": 2,
+          "name": "BUILD",
+          "duration": "15-20 min",
+          "actions": ["generate_video_script", "generate_workbook"],
+          "builders": ["02_video_script_builder.py", "03_workbook_builder.py"],
+          "outputs": ["video_script.md", "workbook.md", "*.llm.json", "*.meta.json"]
+        },
+        {
+          "phase": 3,
+          "name": "TEST",
+          "duration": "5-8 min",
+          "actions": ["run_validators"],
+          "validators": [
+            "01_content_quality_validator.py",
+            "02_brand_voice_validator.py",
+            "03_pedagogical_validator.py",
+            "04_technical_validator.py"
+          ],
+          "threshold": 7.0
+        },
+        {
+          "phase": 4,
+          "name": "REVIEW",
+          "duration": "3-5 min",
+          "actions": ["human_review", "apply_feedback"],
+          "checklist": ["hook_engaging", "objectives_measurable", "exercises_actionable"]
+        },
+        {
+          "phase": 5,
+          "name": "DOCUMENT",
+          "duration": "2-3 min",
+          "actions": ["update_changelog", "generate_package"],
+          "outputs": ["module_package/", "changelog_entry"]
+        }
+      ],
+      "success_criteria": {
+        "all_validators_pass": { "threshold": 7.0 },
+        "video_script_generated": true,
+        "workbook_generated": true,
+        "trinity_output": true
+      },
+      "arguments_chain": "$module_id -> $script_path -> $workbook_path -> $validation -> $package"
+    },
+    "sales_package": {
+      "name": "Sales Package Generation",
+      "description": "Complete sales funnel materials for Hotmart",
+      "duration": "20-30 minutes",
+      "phases": [
+        {
+          "phase": 1,
+          "name": "PLAN",
+          "duration": "2-3 min",
+          "actions": ["load_brand_voice", "define_target_persona", "set_pricing"],
+          "inputs": ["course_outline", "price", "guarantee_days"],
+          "outputs": ["sales_brief"]
+        },
+        {
+          "phase": 2,
+          "name": "BUILD",
+          "duration": "12-15 min",
+          "actions": ["generate_landing_page", "generate_email_sequence", "generate_ad_copy"],
+          "builder": "04_sales_collateral_builder.py",
+          "outputs": ["landing_page.md", "emails.md", "ads.md", "*.llm.json", "*.meta.json"]
+        },
+        {
+          "phase": 3,
+          "name": "TEST",
+          "duration": "3-5 min",
+          "actions": ["validate_brand_voice", "check_compliance"],
+          "validators": ["02_brand_voice_validator.py", "05_hotmart_compliance_validator.py"],
+          "threshold": { "brand_voice": 7.0, "compliance": 8.0 }
+        },
+        {
+          "phase": 4,
+          "name": "REVIEW",
+          "duration": "2-4 min",
+          "actions": ["human_review", "check_cta_clarity"],
+          "checklist": ["no_hype_words", "guarantee_explicit", "lgpd_compliant"]
+        },
+        {
+          "phase": 5,
+          "name": "DOCUMENT",
+          "duration": "1-2 min",
+          "actions": ["package_for_hotmart"],
+          "outputs": ["sales_package/", "hotmart_manifest.json"]
+        }
+      ],
+      "success_criteria": {
+        "landing_page_generated": true,
+        "email_sequence_generated": { "count": 6 },
+        "ad_variations_generated": { "count": 3 },
+        "brand_voice_score": { "min": 7.0 },
+        "compliance_score": { "min": 8.0 }
+      },
+      "arguments_chain": "$brand_voice -> $landing -> $emails -> $ads -> $validation -> $package"
+    },
+    "complete_course": {
+      "name": "Complete Course Generation",
+      "description": "End-to-end course creation including all modules and sales",
+      "duration": "4-6 hours",
+      "phases": [
+        {
+          "phase": 1,
+          "name": "PLAN",
+          "duration": "15-20 min",
+          "actions": ["full_requirements_gathering", "outline_generation", "dependency_mapping"],
+          "sub_plan": "quick"
+        },
+        {
+          "phase": 2,
+          "name": "BUILD",
+          "duration": "2-4 hours",
+          "actions": ["iterate_modules"],
+          "sub_plan": "full_module",
+          "iterations": "per_module (4-8)"
+        },
+        {
+          "phase": 3,
+          "name": "BUILD_SALES",
+          "duration": "30-45 min",
+          "actions": ["sales_package_generation"],
+          "sub_plan": "sales_package"
+        },
+        {
+          "phase": 4,
+          "name": "TEST",
+          "duration": "30-45 min",
+          "actions": ["full_validation_suite", "cross_module_consistency"],
+          "validators": ["all"],
+          "threshold": 7.0
+        },
+        {
+          "phase": 5,
+          "name": "DOCUMENT",
+          "duration": "15-20 min",
+          "actions": ["hotmart_package", "final_changelog", "deployment_checklist"],
+          "builder": "05_hotmart_package_builder.py",
+          "outputs": ["hotmart_package/", "HOTMART_MANIFEST.json", "DEPLOYMENT_CHECKLIST.md"]
+        }
+      ],
+      "success_criteria": {
+        "all_modules_generated": true,
+        "sales_package_complete": true,
+        "hotmart_ready": true,
+        "overall_quality_score": { "min": 7.0 }
+      },
+      "arguments_chain": "$requirements -> $outline -> $modules[] -> $sales -> $package -> $deploy"
+    }
+  },
+  "plan_selection_guide": {
+    "quick": {
+      "use_when": ["Initial planning", "Client scoping", "Quick iteration"],
+      "inputs_required": ["topic", "audience", "duration"],
+      "outputs": ["Course outline"]
+    },
+    "full_module": {
+      "use_when": ["Module-by-module development", "Content refinement", "Single module update"],
+      "inputs_required": ["module_id", "layer_level", "approved_outline"],
+      "outputs": ["Video script", "Workbook", "Validation report"]
+    },
+    "sales_package": {
+      "use_when": ["Launch preparation", "Marketing campaign", "Sales optimization"],
+      "inputs_required": ["course_outline", "pricing", "brand_voice"],
+      "outputs": ["Landing page", "Email sequence", "Ad copy"]
+    },
+    "complete_course": {
+      "use_when": ["New course from scratch", "Full course rebuild", "Comprehensive update"],
+      "inputs_required": ["Full requirements", "Timeline", "Resources"],
+      "outputs": ["Complete Hotmart-ready course package"]
+    }
+  }
+}

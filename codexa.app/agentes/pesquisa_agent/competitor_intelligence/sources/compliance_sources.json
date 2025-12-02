@@ -1,0 +1,298 @@
+{
+  "metadata": {
+    "category": "Compliance & Regulatory Sources",
+    "market": "Brazil",
+    "last_updated": "2025-11-23",
+    "total_sources": 8,
+    "update_frequency": "weekly",
+    "criticality": "high"
+  },
+  "data_protection": {
+    "lgpd_official": {
+      "name": "LGPD - Lei Geral de Proteção de Dados",
+      "authority": "MCTI - Ministério da Ciência, Tecnologia e Inovação",
+      "priority": "critical",
+      "urls": {
+        "main": "https://www.gov.br/mcti/pt-br/acesso-a-informacao/lei-geral-de-protecao-de-dados-pessoais-lgpd",
+        "full_text": "http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm",
+        "anpd": "https://www.gov.br/anpd/pt-br",
+        "guias": "https://www.gov.br/anpd/pt-br/documentos-e-publicacoes"
+      },
+      "monitoring": {
+        "law_updates": true,
+        "anpd_resolutions": true,
+        "penalties": true,
+        "guidance_docs": true
+      },
+      "key_topics": [
+        "consent_requirements",
+        "data_minimization",
+        "purpose_limitation",
+        "security_measures",
+        "data_subject_rights",
+        "cross_border_transfer",
+        "ai_specific_guidelines"
+      ],
+      "implications_for_ai": [
+        "prompt_data_handling",
+        "training_data_consent",
+        "automated_decisions",
+        "profiling_transparency",
+        "data_retention_policies"
+      ]
+    },
+    "anpd": {
+      "name": "ANPD - Autoridade Nacional de Proteção de Dados",
+      "authority": "federal",
+      "priority": "critical",
+      "urls": {
+        "main": "https://www.gov.br/anpd/pt-br",
+        "normativas": "https://www.gov.br/anpd/pt-br/assuntos/noticias",
+        "sancoes": "https://www.gov.br/anpd/pt-br/assuntos/fiscalizacao"
+      },
+      "monitoring": {
+        "new_regulations": true,
+        "enforcement_actions": true,
+        "interpretative_guidance": true,
+        "ai_specific_rules": true
+      },
+      "key_topics": [
+        "enforcement_precedents",
+        "ai_regulation",
+        "sector_specific_guidance",
+        "international_cooperation"
+      ]
+    }
+  },
+  "advertising_regulation": {
+    "conar": {
+      "name": "CONAR - Conselho Nacional de Autorregulamentação Publicitária",
+      "authority": "self_regulation",
+      "priority": "high",
+      "urls": {
+        "main": "https://www.conar.org.br/",
+        "codigo": "https://www.conar.org.br/codigo/codigo.php",
+        "decisoes": "https://www.conar.org.br/processos/",
+        "noticias": "https://www.conar.org.br/noticias/"
+      },
+      "monitoring": {
+        "code_updates": true,
+        "case_decisions": true,
+        "ai_advertising_cases": true,
+        "deepfake_guidelines": true
+      },
+      "key_topics": [
+        "truthfulness_principle",
+        "misleading_claims",
+        "comparative_advertising",
+        "social_responsibility",
+        "children_protection",
+        "ai_generated_content",
+        "disclosure_requirements"
+      ],
+      "implications_for_ai": [
+        "ai_content_disclosure",
+        "deepfake_prohibition",
+        "guarantee_claims",
+        "testimonial_authenticity",
+        "source_attribution"
+      ]
+    },
+    "procon": {
+      "name": "Procon - Proteção ao Consumidor",
+      "authority": "state_level",
+      "priority": "high",
+      "urls": {
+        "sp": "https://www.procon.sp.gov.br/",
+        "federal": "https://www.gov.br/mj/pt-br/assuntos/seus-direitos/consumidor"
+      },
+      "monitoring": {
+        "consumer_complaints": true,
+        "enforcement_actions": true,
+        "marketplace_investigations": true
+      },
+      "key_topics": [
+        "consumer_rights",
+        "false_advertising",
+        "refund_policies",
+        "marketplace_liability"
+      ]
+    }
+  },
+  "marketplace_compliance": {
+    "cdc": {
+      "name": "CDC - Código de Defesa do Consumidor",
+      "authority": "federal_law",
+      "priority": "critical",
+      "urls": {
+        "full_text": "http://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "senacon": "https://www.gov.br/mj/pt-br/assuntos/seus-direitos/consumidor"
+      },
+      "monitoring": {
+        "jurisprudence": true,
+        "regulatory_updates": true,
+        "marketplace_liability": true
+      },
+      "key_topics": [
+        "product_information_requirements",
+        "warranty_obligations",
+        "cancellation_rights",
+        "platform_liability",
+        "delivery_obligations"
+      ]
+    },
+    "ecommerce_decree": {
+      "name": "Decreto do E-commerce (7.962/2013)",
+      "authority": "federal_decree",
+      "priority": "high",
+      "urls": {
+        "full_text": "http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+      },
+      "monitoring": {
+        "updates": true,
+        "enforcement": true
+      },
+      "key_topics": [
+        "clear_information",
+        "checkout_summary",
+        "cancellation_rights",
+        "customer_service"
+      ]
+    }
+  },
+  "intellectual_property": {
+    "copyright_law": {
+      "name": "Lei de Direitos Autorais (9.610/98)",
+      "authority": "federal_law",
+      "priority": "high",
+      "urls": {
+        "full_text": "http://www.planalto.gov.br/ccivil_03/leis/l9610.htm",
+        "inpi": "https://www.gov.br/inpi/pt-br"
+      },
+      "monitoring": {
+        "ai_content_jurisprudence": true,
+        "infringement_cases": true,
+        "fair_use_interpretation": true
+      },
+      "key_topics": [
+        "image_rights",
+        "text_originality",
+        "ai_generated_content",
+        "derivative_works",
+        "commercial_use"
+      ],
+      "implications_for_ai": [
+        "training_data_copyright",
+        "generated_content_ownership",
+        "infringement_liability",
+        "attribution_requirements"
+      ]
+    }
+  },
+  "fact_checking": {
+    "reuters_factcheck": {
+      "name": "Reuters Fact Check",
+      "authority": "journalism",
+      "priority": "medium",
+      "urls": {
+        "main": "https://www.reuters.com/fact-check/",
+        "portugues": "https://www.reuters.com/fact-check/portugues/"
+      },
+      "monitoring": {
+        "deepfake_cases": true,
+        "marketplace_scams": true,
+        "ai_misuse": true
+      },
+      "key_topics": [
+        "deepfake_detection",
+        "false_endorsements",
+        "marketplace_fraud",
+        "synthetic_media"
+      ]
+    }
+  },
+  "cross_references": {
+    "ai_specific_compliance": {
+      "lgpd_ai_principles": [
+        "transparency_in_algorithms",
+        "explainability_requirements",
+        "automated_decision_review",
+        "bias_mitigation"
+      ],
+      "conar_ai_guidelines": [
+        "ai_content_identification",
+        "deepfake_prohibition",
+        "authentic_testimonials",
+        "guarantee_limitations"
+      ],
+      "marketplace_ai_rules": [
+        "no_copied_descriptions",
+        "original_images_only",
+        "accurate_product_info",
+        "no_misleading_claims"
+      ]
+    },
+    "common_violations": {
+      "image_appropriation": {
+        "law": "copyright + marketplace_terms",
+        "platforms": ["mercado_livre", "shopee", "amazon"],
+        "penalties": "listing_removal + account_suspension"
+      },
+      "false_guarantees": {
+        "law": "conar + cdc",
+        "examples": "guaranteed_sales, guaranteed_results",
+        "penalties": "ad_removal + fines"
+      },
+      "data_misuse": {
+        "law": "lgpd",
+        "examples": "unauthorized_profiling, excessive_data_collection",
+        "penalties": "fines_up_to_2%_revenue"
+      }
+    }
+  },
+  "tracking": {
+    "kpis": [
+      "new_regulations",
+      "enforcement_actions",
+      "jurisprudence_changes",
+      "ai_specific_guidance",
+      "penalty_amounts",
+      "compliance_trends"
+    ],
+    "alerts": {
+      "new_regulation": true,
+      "major_enforcement": true,
+      "precedent_case": true,
+      "guidance_update": true
+    },
+    "update_schedule": {
+      "weekly": ["anpd", "conar"],
+      "biweekly": ["procon", "senacon"],
+      "monthly": ["jurisprudence_review"]
+    }
+  },
+  "best_practices": {
+    "ai_content_courses": [
+      "Always disclose AI-generated content",
+      "Never guarantee specific financial results",
+      "Ensure data collection has legal basis (LGPD)",
+      "Obtain consent for marketing communications",
+      "Provide clear opt-out mechanisms",
+      "Maintain data minimization principle",
+      "Document AI decision-making processes",
+      "Implement bias detection and mitigation",
+      "Respect intellectual property rights",
+      "Avoid deepfakes and misleading synthetic media"
+    ],
+    "marketplace_compliance": [
+      "Use only original or licensed images",
+      "Write unique product descriptions",
+      "Comply with platform-specific guidelines",
+      "Monitor and respond to customer complaints",
+      "Maintain clear refund/exchange policies",
+      "Ensure accurate product information",
+      "Respect competitor trademarks",
+      "Follow pricing transparency rules"
+    ]
+  }
+}

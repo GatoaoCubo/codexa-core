@@ -1,0 +1,240 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "production_patterns.json",
+  "title": "Video Production Patterns",
+  "description": "Scripts, transitions, hooks, and narrative patterns for e-commerce videos",
+  "version": "2.5.0",
+
+  "narrative_arcs": {
+    "standard_5_beat": {
+      "name": "Hook-Build-Benefit-Proof-CTA",
+      "beats": [
+        {"name": "hook", "position": "0-10%", "goal": "Stop scroll, capture attention"},
+        {"name": "build", "position": "10-40%", "goal": "Introduce product/problem"},
+        {"name": "benefit", "position": "40-70%", "goal": "Show value proposition"},
+        {"name": "proof", "position": "70-85%", "goal": "Social proof/credibility"},
+        {"name": "cta", "position": "85-100%", "goal": "Call to action"}
+      ],
+      "best_for": ["product ads", "direct response", "e-commerce"]
+    },
+
+    "problem_solution": {
+      "name": "Pain-Agitate-Solution",
+      "beats": [
+        {"name": "pain", "position": "0-30%", "goal": "Show the problem"},
+        {"name": "agitate", "position": "30-50%", "goal": "Amplify frustration"},
+        {"name": "solution", "position": "50-100%", "goal": "Present product as hero"}
+      ],
+      "best_for": ["pain-point products", "innovation", "disruption"]
+    },
+
+    "transformation": {
+      "name": "Before-During-After",
+      "beats": [
+        {"name": "before", "position": "0-25%", "goal": "Show current state"},
+        {"name": "during", "position": "25-75%", "goal": "Show transformation"},
+        {"name": "after", "position": "75-100%", "goal": "Show result + CTA"}
+      ],
+      "best_for": ["beauty", "fitness", "home improvement"]
+    },
+
+    "brand_story": {
+      "name": "Why-How-What",
+      "beats": [
+        {"name": "why", "position": "0-40%", "goal": "Purpose/mission"},
+        {"name": "how", "position": "40-70%", "goal": "Process/approach"},
+        {"name": "what", "position": "70-100%", "goal": "Product/service"}
+      ],
+      "best_for": ["brand awareness", "premium products", "storytelling"]
+    }
+  },
+
+  "hook_patterns": {
+    "question_hook": {
+      "template": "Voce sabia que [estatistica surpreendente]?",
+      "examples": ["Voce sabia que 80% dos tenis nao tem amortecimento real?"],
+      "visual": "Text overlay with question, product reveal"
+    },
+
+    "bold_claim": {
+      "template": "[Adjetivo superlativo] + [categoria]",
+      "examples": ["O tenis mais confortavel do Brasil"],
+      "visual": "Product hero shot, dramatic lighting"
+    },
+
+    "problem_opener": {
+      "template": "Cansado de [problema comum]?",
+      "examples": ["Cansado de dor no pe depois do treino?"],
+      "visual": "Relatable pain point visual"
+    },
+
+    "curiosity_gap": {
+      "template": "Isso vai mudar como voce [atividade]",
+      "examples": ["Isso vai mudar como voce corre"],
+      "visual": "Mysterious/intriguing product shot"
+    },
+
+    "social_proof": {
+      "template": "[Numero] pessoas ja [beneficio]",
+      "examples": ["50 mil pessoas ja sentiram a diferenca"],
+      "visual": "User testimonial or crowd"
+    },
+
+    "visual_only": {
+      "template": "No text, pure visual impact",
+      "examples": ["Slow-mo product reveal"],
+      "visual": "Cinematic product shot, dramatic reveal"
+    }
+  },
+
+  "transition_patterns": {
+    "by_narrative_role": {
+      "hook_to_build": {
+        "recommended": ["cut", "whip_pan"],
+        "energy": "high",
+        "duration_ms": 200
+      },
+      "build_to_benefit": {
+        "recommended": ["dissolve", "match_cut"],
+        "energy": "medium",
+        "duration_ms": 500
+      },
+      "benefit_to_proof": {
+        "recommended": ["cut", "zoom"],
+        "energy": "medium",
+        "duration_ms": 300
+      },
+      "proof_to_cta": {
+        "recommended": ["dissolve", "fade"],
+        "energy": "resolved",
+        "duration_ms": 500
+      }
+    },
+
+    "by_style": {
+      "energetic": ["quick_cut", "whip_pan", "zoom"],
+      "calm": ["dissolve", "fade", "slow_zoom"],
+      "dramatic": ["hard_cut", "flash", "glitch"],
+      "minimal": ["cut", "simple_fade"],
+      "cinematic": ["cross_dissolve", "match_cut", "j_cut"]
+    },
+
+    "technical_specs": {
+      "cut": {"duration_ms": 0, "frames": 0},
+      "dissolve": {"duration_ms": 500, "frames": 15},
+      "fade": {"duration_ms": 500, "frames": 15},
+      "whip_pan": {"duration_ms": 200, "frames": 6},
+      "zoom": {"duration_ms": 300, "frames": 9}
+    }
+  },
+
+  "script_patterns": {
+    "narration_formulas": {
+      "benefit_focused": {
+        "structure": "[Produto] + [beneficio principal] + [como]",
+        "example": "Nike Air Max. Amortecimento que protege cada passo. Tecnologia Air em acao.",
+        "word_count": "10-20 palavras"
+      },
+
+      "emotion_focused": {
+        "structure": "[Sentimento] + [produto como solucao]",
+        "example": "Sinta a liberdade de correr sem dor. Nike Air Max.",
+        "word_count": "10-15 palavras"
+      },
+
+      "feature_list": {
+        "structure": "[Feature 1]. [Feature 2]. [Feature 3]. [CTA]",
+        "example": "Amortecimento Air. Design moderno. Durabilidade extrema. Seu novo favorito.",
+        "word_count": "15-25 palavras"
+      }
+    },
+
+    "text_overlay_formulas": {
+      "product_intro": {
+        "text": "[MARCA] [PRODUTO]",
+        "position": "bottom",
+        "timing": "shots 1-2"
+      },
+      "key_benefit": {
+        "text": "[BENEFICIO EM 2-3 PALAVRAS]",
+        "position": "bottom",
+        "timing": "middle shots"
+      },
+      "cta_price": {
+        "text": "R$ [PRECO] | [CTA]",
+        "position": "bottom",
+        "timing": "final shot"
+      }
+    }
+  },
+
+  "cta_patterns": {
+    "urgency": {
+      "templates": [
+        "Compre agora",
+        "Ultimas unidades",
+        "Oferta por tempo limitado"
+      ],
+      "visual": "Countdown or urgency graphics"
+    },
+
+    "value": {
+      "templates": [
+        "R$ [preco] | Frete gratis",
+        "Parcelamos em ate 12x",
+        "Desconto de [%] hoje"
+      ],
+      "visual": "Price display with discount"
+    },
+
+    "action": {
+      "templates": [
+        "Clique no link da bio",
+        "Arrasta pra cima",
+        "Link nos comentarios"
+      ],
+      "visual": "Swipe up animation or arrow"
+    },
+
+    "social": {
+      "templates": [
+        "Junte-se a milhares de clientes satisfeitos",
+        "Faca como [numero] pessoas"
+      ],
+      "visual": "Social proof numbers or testimonials"
+    }
+  },
+
+  "pacing_patterns": {
+    "by_duration": {
+      "15s": {
+        "shots": 3,
+        "avg_shot_duration": 5,
+        "cuts_per_minute": 12
+      },
+      "30s": {
+        "shots": 6,
+        "avg_shot_duration": 5,
+        "cuts_per_minute": 12
+      },
+      "45s": {
+        "shots": 7,
+        "avg_shot_duration": 6.4,
+        "cuts_per_minute": 9
+      },
+      "60s": {
+        "shots": 8,
+        "avg_shot_duration": 7.5,
+        "cuts_per_minute": 8
+      }
+    },
+
+    "by_style": {
+      "energetic": {"cuts_per_minute": 15, "shot_range": "3-5s"},
+      "calm": {"cuts_per_minute": 8, "shot_range": "5-8s"},
+      "dramatic": {"cuts_per_minute": 12, "shot_range": "3-6s"},
+      "minimal": {"cuts_per_minute": 10, "shot_range": "4-6s"},
+      "cinematic": {"cuts_per_minute": 10, "shot_range": "4-7s"}
+    }
+  }
+}

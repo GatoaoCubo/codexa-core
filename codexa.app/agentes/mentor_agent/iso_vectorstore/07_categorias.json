@@ -1,0 +1,370 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2025-11-13",
+  "description": "Complete taxonomy of knowledge categories for Mentor Agent",
+
+  "categorias": [
+    {
+      "id": "marketplace_optimization",
+      "nome": "Otimização de Marketplaces",
+      "descricao": "SEO, títulos, descrições, posicionamento em marketplaces",
+      "assuntos_comuns": [
+        "titulos_seo",
+        "descricoes_produto",
+        "fotos_produto",
+        "categorização",
+        "keywords",
+        "ranking_busca",
+        "taxa_conversao"
+      ],
+      "marketplaces": [
+        "mercadolivre",
+        "shopee",
+        "magalu",
+        "amazon_br",
+        "americanas"
+      ],
+      "quando_usar": [
+        "quando_criar_anuncios",
+        "quando_produto_nao_aparece_busca",
+        "quando_tem_cliques_mas_nao_vende",
+        "quando_otimizar_anuncios_existentes"
+      ]
+    },
+    {
+      "id": "copywriting",
+      "nome": "Copywriting e Conversão",
+      "descricao": "Escrita persuasiva, gatilhos mentais, storytelling",
+      "assuntos_comuns": [
+        "gatilhos_mentais",
+        "storytelling",
+        "descricao_conversao",
+        "chamadas_acao",
+        "beneficios_vs_caracteristicas",
+        "urgencia_escassez",
+        "prova_social"
+      ],
+      "marketplaces": [
+        "todos"
+      ],
+      "quando_usar": [
+        "quando_melhorar_copy",
+        "quando_baixa_conversao",
+        "quando_criar_descricao_produto",
+        "quando_escrever_anuncio"
+      ]
+    },
+    {
+      "id": "estrategia_produto",
+      "nome": "Estratégia de Produto",
+      "descricao": "Mix de produtos, posicionamento, diferenciação",
+      "assuntos_comuns": [
+        "mix_produtos",
+        "posicionamento",
+        "diferenciacao",
+        "bundling",
+        "upsell_crosssell",
+        "ciclo_vida_produto",
+        "portfolio_management"
+      ],
+      "marketplaces": [
+        "todos"
+      ],
+      "quando_usar": [
+        "quando_definir_catalogo",
+        "quando_enfrentar_concorrencia",
+        "quando_expandir_linha",
+        "quando_decidir_o_que_vender"
+      ]
+    },
+    {
+      "id": "analise_concorrencia",
+      "nome": "Análise de Concorrência",
+      "descricao": "Como estudar, entender e se diferenciar dos concorrentes",
+      "assuntos_comuns": [
+        "pesquisa_concorrentes",
+        "benchmark_precos",
+        "analise_anuncios",
+        "diferenciacao",
+        "posicionamento_competitivo",
+        "gap_analysis"
+      ],
+      "marketplaces": [
+        "todos"
+      ],
+      "quando_usar": [
+        "quando_entrar_mercado_novo",
+        "quando_perder_vendas_concorrente",
+        "quando_definir_precos",
+        "quando_planejar_diferenciacao"
+      ]
+    },
+    {
+      "id": "compliance_legal",
+      "nome": "Compliance e Legal",
+      "descricao": "Regras dos marketplaces, legislação, evitar bloqueios",
+      "assuntos_comuns": [
+        "termos_proibidos",
+        "politicas_marketplace",
+        "direitos_consumidor",
+        "nota_fiscal",
+        "garantias",
+        "cancelamentos_devolucoes",
+        "evitar_bloqueio_conta"
+      ],
+      "marketplaces": [
+        "mercadolivre",
+        "shopee",
+        "magalu",
+        "amazon_br",
+        "americanas"
+      ],
+      "quando_usar": [
+        "quando_criar_anuncio_novo",
+        "quando_conta_bloqueada",
+        "quando_anuncio_pausado",
+        "quando_duvida_sobre_regras"
+      ]
+    },
+    {
+      "id": "branding",
+      "nome": "Branding e Identidade",
+      "descricao": "Nome da loja, reputação, identidade visual, marca",
+      "assuntos_comuns": [
+        "nome_loja",
+        "logo",
+        "identidade_visual",
+        "reputacao",
+        "avaliações",
+        "tom_voz",
+        "posicionamento_marca"
+      ],
+      "marketplaces": [
+        "todos"
+      ],
+      "quando_usar": [
+        "quando_criar_loja_nova",
+        "quando_melhorar_reputacao",
+        "quando_diferenciar_marca",
+        "quando_construir_confianca"
+      ]
+    },
+    {
+      "id": "visual_design",
+      "nome": "Design Visual",
+      "descricao": "Fotos de produtos, infográficos, vídeos, estética",
+      "assuntos_comuns": [
+        "fotos_produto",
+        "infograficos",
+        "videos_produto",
+        "edicao_imagens",
+        "background_produto",
+        "lifestyle_photos",
+        "mobile_optimization"
+      ],
+      "marketplaces": [
+        "todos"
+      ],
+      "quando_usar": [
+        "quando_melhorar_fotos",
+        "quando_baixa_conversao_visual",
+        "quando_criar_infografico",
+        "quando_fotos_nao_destacam_produto"
+      ]
+    },
+    {
+      "id": "customer_experience",
+      "nome": "Experiência do Cliente",
+      "descricao": "Atendimento, avaliações, pós-venda, SAC",
+      "assuntos_comuns": [
+        "atendimento_cliente",
+        "resposta_duvidas",
+        "gestao_avaliacoes",
+        "pos_venda",
+        "recuperacao_clientes",
+        "fidelizacao",
+        "gestao_reclamacoes"
+      ],
+      "marketplaces": [
+        "todos"
+      ],
+      "quando_usar": [
+        "quando_avaliacoes_negativas",
+        "quando_melhorar_atendimento",
+        "quando_cliente_insatisfeito",
+        "quando_aumentar_recompra"
+      ]
+    },
+    {
+      "id": "operacoes_logistica",
+      "nome": "Operações e Logística",
+      "descricao": "Estoque, envio, prazo de entrega, fulfillment",
+      "assuntos_comuns": [
+        "gestao_estoque",
+        "opcoes_envio",
+        "prazo_entrega",
+        "embalagem",
+        "rastreamento",
+        "full_marketplace",
+        "dropshipping"
+      ],
+      "marketplaces": [
+        "todos"
+      ],
+      "quando_usar": [
+        "quando_organizar_logistica",
+        "quando_problemas_entrega",
+        "quando_decidir_modelo_envio",
+        "quando_otimizar_custos_envio"
+      ]
+    },
+    {
+      "id": "financeiro_precificacao",
+      "nome": "Financeiro e Precificação",
+      "descricao": "Preços, margem, custos, promoções, lucro",
+      "assuntos_comuns": [
+        "calculo_margem",
+        "precificacao",
+        "custos_marketplace",
+        "promocoes",
+        "frete_gratis",
+        "parcelamento",
+        "fluxo_caixa"
+      ],
+      "marketplaces": [
+        "todos"
+      ],
+      "quando_usar": [
+        "quando_definir_precos",
+        "quando_fazer_promocao",
+        "quando_calcular_margem",
+        "quando_competir_preco"
+      ]
+    }
+  ],
+
+  "niveis": [
+    {
+      "id": "basico",
+      "nome": "Básico",
+      "descricao": "Seller iniciante, aprendendo conceitos fundamentais",
+      "caracteristicas": [
+        "Primeira vez vendendo online",
+        "Conhecimento limitado de marketplaces",
+        "Perguntas amplas sobre 'como fazer'",
+        "Precisa de muita explicação"
+      ]
+    },
+    {
+      "id": "intermediario",
+      "nome": "Intermediário",
+      "descricao": "Seller que já vende, quer otimizar e crescer",
+      "caracteristicas": [
+        "Já tem alguns produtos vendendo",
+        "Conhece basics dos marketplaces",
+        "Perguntas específicas sobre otimização",
+        "Quer técnicas práticas"
+      ]
+    },
+    {
+      "id": "avancado",
+      "nome": "Avançado",
+      "descricao": "Seller experiente, buscando edge e escala",
+      "caracteristicas": [
+        "Operação estabelecida",
+        "Domina marketplaces",
+        "Perguntas sobre edge cases e otimizações",
+        "Busca diferenciais competitivos"
+      ]
+    }
+  ],
+
+  "tags_comuns": [
+    "mercadolivre",
+    "shopee",
+    "magalu",
+    "amazon_br",
+    "seo",
+    "conversao",
+    "keywords",
+    "fotos",
+    "preco",
+    "margem",
+    "estoque",
+    "envio",
+    "atendimento",
+    "avaliacoes",
+    "promocoes",
+    "anuncios",
+    "titulos",
+    "descricoes",
+    "gatilhos_mentais",
+    "diferenciacao",
+    "concorrencia",
+    "compliance",
+    "branding",
+    "visual",
+    "logistica",
+    "financeiro"
+  ],
+
+  "relacionamentos_categorias": {
+    "marketplace_optimization": [
+      "copywriting",
+      "visual_design",
+      "compliance_legal"
+    ],
+    "copywriting": [
+      "marketplace_optimization",
+      "branding",
+      "visual_design"
+    ],
+    "estrategia_produto": [
+      "analise_concorrencia",
+      "financeiro_precificacao",
+      "marketplace_optimization"
+    ],
+    "analise_concorrencia": [
+      "estrategia_produto",
+      "financeiro_precificacao",
+      "marketplace_optimization"
+    ],
+    "compliance_legal": [
+      "marketplace_optimization",
+      "customer_experience"
+    ],
+    "branding": [
+      "visual_design",
+      "copywriting",
+      "customer_experience"
+    ],
+    "visual_design": [
+      "branding",
+      "marketplace_optimization",
+      "copywriting"
+    ],
+    "customer_experience": [
+      "branding",
+      "operacoes_logistica",
+      "compliance_legal"
+    ],
+    "operacoes_logistica": [
+      "customer_experience",
+      "financeiro_precificacao"
+    ],
+    "financeiro_precificacao": [
+      "estrategia_produto",
+      "analise_concorrencia",
+      "operacoes_logistica"
+    ]
+  },
+
+  "metadata": {
+    "total_categorias": 10,
+    "total_niveis": 3,
+    "total_tags": 27,
+    "created": "2025-11-13",
+    "agent": "mentor_agent_consolidado",
+    "version": "2.0.0"
+  }
+}

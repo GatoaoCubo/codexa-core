@@ -1,0 +1,228 @@
+{# Implementation Plan Template #}
+{# Used by: planning_agent #}
+{# Output: implementation_plan.md #}
+{# Version: 1.0.0 #}
+# Implementation Plan: {{ feature_name }}
+
+**Created**: {{ created_at }}
+**Complexity**: {{ complexity }}
+**Estimated Duration**: {{ estimated_duration }}
+**Planning Agent**: {{ agent_version }}
+
+---
+
+## 1. Overview
+
+{{ overview }}
+
+**Goal**: {{ goal }}
+
+**Scope**: {{ scope }}
+
+---
+
+## 2. Current State Analysis
+
+### Architecture
+{{ current_architecture }}
+
+### Existing Patterns
+{% for pattern in existing_patterns %}
+- **{{ pattern.name }}**: {{ pattern.description }}
+{% endfor %}
+
+### Relevant Files
+{% for file in relevant_files %}
+- `{{ file.path }}` - {{ file.purpose }}
+{% endfor %}
+
+### Dependencies
+{% for dep in dependencies %}
+- **{{ dep.name }}** ({{ dep.version }}): {{ dep.purpose }}
+{% endfor %}
+
+---
+
+## 3. Technical Approach
+
+### Pattern
+**Chosen Pattern**: {{ technical_approach.pattern }}
+
+**Rationale**: {{ technical_approach.rationale }}
+
+### Libraries
+{% for library in technical_approach.libraries %}
+- **{{ library.name }}** ({{ library.version }})
+  - Purpose: {{ library.purpose }}
+  - Why: {{ library.rationale }}
+{% endfor %}
+
+### Architecture
+{{ technical_approach.architecture }}
+
+### Data Flow
+```
+{{ technical_approach.data_flow }}
+```
+
+---
+
+## 4. Design Decisions
+
+{% for decision in design_decisions %}
+### Decision {{ loop.index }}: {{ decision.name }}
+
+**Chosen**: {{ decision.chosen }}
+
+**Rationale**: {{ decision.rationale }}
+
+**Alternatives Considered**:
+{% for alt in decision.alternatives %}
+- **{{ alt.name }}**
+  - Pros: {{ alt.pros }}
+  - Cons: {{ alt.cons }}
+{% endfor %}
+
+**Trade-offs**:
+- **Positive**: {{ decision.tradeoffs.positive }}
+- **Negative**: {{ decision.tradeoffs.negative }}
+- **Risks**: {{ decision.tradeoffs.risks }}
+
+---
+
+{% endfor %}
+
+## 5. Implementation Phases
+
+{% for phase in implementation_phases %}
+### Phase {{ loop.index }}: {{ phase.name }}
+
+**Duration**: {{ phase.duration }}
+
+**Files to Modify**:
+{% for file in phase.files_to_modify %}
+- `{{ file.path }}` - {{ file.reason }}
+{% endfor %}
+
+**Files to Create**:
+{% for file in phase.files_to_create %}
+- `{{ file.path }}` - {{ file.purpose }}
+{% endfor %}
+
+**Dependencies**: {% if phase.dependencies %}{{ phase.dependencies | join(', ') }}{% else %}None{% endif %}
+
+**Steps**:
+{% for step in phase.steps %}
+{{ loop.index }}. {{ step }}
+{% endfor %}
+
+---
+
+{% endfor %}
+
+## 6. Risk Assessment
+
+### High Risk
+{% for risk in risks.high %}
+- **{{ risk.name }}**: {{ risk.description }}
+  - **Impact**: {{ risk.impact }}
+  - **Mitigation**: {{ risk.mitigation }}
+{% endfor %}
+
+### Medium Risk
+{% for risk in risks.medium %}
+- **{{ risk.name }}**: {{ risk.description }}
+  - **Impact**: {{ risk.impact }}
+  - **Mitigation**: {{ risk.mitigation }}
+{% endfor %}
+
+### Low Risk
+{% for risk in risks.low %}
+- **{{ risk.name }}**: {{ risk.description }}
+{% endfor %}
+
+---
+
+## 7. Testing Strategy
+
+### Unit Tests Needed
+{% for test in testing_strategy.unit_tests %}
+- **{{ test.name }}** (`{{ test.file }}`)
+  - Tests: {{ test.tests_description }}
+  - Coverage target: {{ test.coverage_target }}
+{% endfor %}
+
+### Integration Tests Needed
+{% for test in testing_strategy.integration_tests %}
+- **{{ test.name }}** (`{{ test.file }}`)
+  - Tests: {{ test.tests_description }}
+  - Flows: {{ test.flows | join(', ') }}
+{% endfor %}
+
+### E2E Tests Needed
+{% for test in testing_strategy.e2e_tests %}
+- **{{ test.name }}** (`{{ test.file }}`)
+  - User flow: {{ test.user_flow }}
+  - Steps: {{ test.steps | length }} steps
+{% endfor %}
+
+### Test Data Requirements
+{% for data in testing_strategy.test_data %}
+- **{{ data.name }}**: {{ data.description }}
+{% endfor %}
+
+---
+
+## 8. Acceptance Criteria
+
+{% for criterion in acceptance_criteria %}
+- [ ] {{ criterion }}
+{% endfor %}
+
+---
+
+## 9. Rollback Plan
+
+{{ rollback_plan }}
+
+**Steps to Rollback**:
+{% for step in rollback_steps %}
+{{ loop.index }}. {{ step }}
+{% endfor %}
+
+---
+
+## 10. File Change Summary
+
+### Total Files
+- **To Modify**: {{ files_summary.to_modify }}
+- **To Create**: {{ files_summary.to_create }}
+- **Total**: {{ files_summary.total }}
+
+### Estimated Lines
+- **Code**: {{ files_summary.estimated_lines.code }}
+- **Tests**: {{ files_summary.estimated_lines.tests }}
+- **Config**: {{ files_summary.estimated_lines.config }}
+- **Total**: {{ files_summary.estimated_lines.total }}
+
+### Complexity Breakdown
+- **High**: {{ files_summary.complexity.high }} files
+- **Medium**: {{ files_summary.complexity.medium }} files
+- **Low**: {{ files_summary.complexity.low }} files
+
+---
+
+## 11. Next Steps
+
+**Immediate**: {{ next_steps.immediate }}
+
+**After Approval**: {{ next_steps.after_approval }}
+
+**Ready for Execution**: {% if ready_for_execution %}✅ Yes{% else %}❌ No ({{ blocking_issues | join(', ') }}){% endif %}
+
+---
+
+**Generated By**: Planning Agent {{ agent_version }}
+**Generated At**: {{ generated_at }}
+**Methodology**: Devin's two-phase planning pattern
+**ADW**: {{ adw_path }}

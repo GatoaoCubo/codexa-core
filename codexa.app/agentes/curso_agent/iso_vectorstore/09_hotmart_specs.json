@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Hotmart Platform Specifications",
+  "description": "Technical specifications and best practices for Hotmart integration",
+  "version": "2.5.0",
+  "video_specs": {
+    "player": {
+      "name": "Hotmart Player",
+      "features": ["DRM", "watermark", "analytics", "auto_captions"],
+      "supported_formats": ["MP4"],
+      "codec": "H.264",
+      "resolutions": {
+        "recommended": "1080p (1920x1080)",
+        "minimum": "720p (1280x720)",
+        "aspect_ratio": "16:9"
+      },
+      "bitrate": {
+        "1080p": "4-8 Mbps",
+        "720p": "2-4 Mbps"
+      },
+      "audio": {
+        "codec": "AAC",
+        "bitrate": "128-256 kbps",
+        "channels": "stereo"
+      },
+      "max_file_size": "5GB"
+    },
+    "duration_recommendations": {
+      "single_concept": { "min": 8, "max": 12, "completion_rate": "60-70%" },
+      "deep_dive": { "min": 15, "max": 20, "completion_rate": "~50%" },
+      "workshop": { "min": 25, "max": 30, "completion_rate": "30-40%" },
+      "avoid": { "min": 40, "note": "Completion drops to <15%" }
+    },
+    "transcripts": {
+      "formats": [".SRT", ".VTT"],
+      "auto_generated": true,
+      "languages": ["pt-BR"],
+      "sync_tolerance": "0.5s"
+    },
+    "drm": {
+      "enabled": true,
+      "features": ["anti_download", "domain_restriction", "watermark_optional"],
+      "watermark": "student_email"
+    }
+  },
+  "club_structure": {
+    "taxonomy": {
+      "level_1": { "name": "Pilar", "description": "Main course category" },
+      "level_2": { "name": "Modulo", "description": "Course module" },
+      "level_3": { "name": "Aula", "description": "Individual lesson" },
+      "level_4": { "name": "Recurso", "description": "Downloadable resource" }
+    },
+    "recommended_structure": {
+      "modules_per_course": { "min": 5, "max": 8 },
+      "lessons_per_module": { "min": 3, "max": 7 },
+      "resources_per_lesson": { "min": 0, "max": 3 }
+    },
+    "gotejamento": {
+      "description": "Drip content release to improve completion",
+      "strategies": [
+        { "type": "weekly", "completion_rate": "40-60%" },
+        { "type": "bi_weekly", "completion_rate": "50-65%" },
+        { "type": "full_unlock", "completion_rate": "10-15%" }
+      ],
+      "best_practice": {
+        "week_1": "Modules 1-2 (foundations), welcome live",
+        "week_2_4": "Core modules (1 per week), exercises due",
+        "week_5_plus": "Advanced modules, case studies"
+      }
+    },
+    "turmas": {
+      "description": "Cohorts - separate groups by enrollment date",
+      "benefits": ["personalized_onboarding", "community_building", "live_sessions"],
+      "reuse": "Content reusable with minor customization"
+    }
+  },
+  "checkout": {
+    "customization": {
+      "brand_colors": true,
+      "trust_badges": true,
+      "faq_section": true,
+      "video_sales_letter": true
+    },
+    "payment_methods": {
+      "cartao": { "installments": { "min": 1, "max": 12 } },
+      "pix": { "discount_recommended": "5-10%" },
+      "boleto": { "recovery_flow": true }
+    },
+    "garantia": {
+      "min_days": 7,
+      "max_days": 30,
+      "display": ["checkout_page", "welcome_email", "club_welcome"]
+    },
+    "ofertas": {
+      "main": true,
+      "upsell": true,
+      "downsell": true,
+      "cupons": { "launch_windows": true }
+    },
+    "compra_teste": {
+      "required": true,
+      "description": "Always test full purchase flow before public launch"
+    }
+  },
+  "compliance": {
+    "lgpd": {
+      "privacy_policy_link": "required",
+      "opt_out_marketing": "required",
+      "data_retention_policy": "recommended"
+    },
+    "claims_sensiveis": {
+      "finance": { "disclaimer": "required" },
+      "health": { "disclaimer": "required" },
+      "legal": { "disclaimer": "required" }
+    },
+    "direitos_autorais": {
+      "licensed_assets_only": true,
+      "cite_sources": true
+    },
+    "garantias": {
+      "explicit_refund_terms": "required",
+      "location": ["checkout_page", "club_welcome"]
+    }
+  },
+  "analytics": {
+    "key_metrics": [
+      "completion_rate",
+      "lesson_engagement",
+      "time_on_video",
+      "drop_off_points",
+      "exercise_completion"
+    ],
+    "benchmarks": {
+      "good_completion": ">50%",
+      "excellent_completion": ">70%",
+      "average_completion": "30-50%"
+    }
+  }
+}

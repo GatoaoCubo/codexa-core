@@ -1,0 +1,337 @@
+{
+  "$schema": "../execution_plan_schema.json",
+  "plan_id": "standard_research",
+  "plan_name": "Standard Market Research - Full Pipeline",
+  "plan_version": "1.0.0",
+  "description": "Complete 9-step market research workflow covering intake validation, web searches (inbound/outbound), competitor analysis, SEO taxonomy, and optional image analysis. Delivers comprehensive research_notes with all 22 blocks.",
+  "metadata": {
+    "author": "Meta Pesquisa Agent",
+    "created": "2025-11-10T00:00:00Z",
+    "tags": ["complete", "marketplace", "seo", "competitors"],
+    "complexity": "complex",
+    "estimated_duration_minutes": 25
+  },
+  "execution_steps": [
+    {
+      "step_id": "step_1_intake",
+      "step_name": "Intake and Validation",
+      "step_type": "prompt_execution",
+      "prompt_module": "intake_validation.md",
+      "inputs": {
+        "from_brief": [
+          "produto_nome",
+          "categoria",
+          "marketplace_destino",
+          "publico_alvo_primario",
+          "preco_medio_ou_faixa",
+          "head_terms_sugeridos",
+          "atributos_tecnicos",
+          "diferenciais_declarados",
+          "concorrentes_conhecidos",
+          "contexto_uso"
+        ]
+      },
+      "outputs": {
+        "target_blocks": ["LACUNAS DO BRIEF"],
+        "export_variables": {
+          "head_terms": "List of validated head terms",
+          "lacunas_criticas": "Boolean indicating critical gaps",
+          "categorias_inferidas": "Inferred categories if missing"
+        }
+      },
+      "validation": {
+        "required": true,
+        "quality_gate": {
+          "completeness_threshold": 60
+        }
+      },
+      "timeout_minutes": 3
+    },
+    {
+      "step_id": "step_2_query_bank",
+      "step_name": "Query Bank Generation",
+      "step_type": "prompt_execution",
+      "prompt_module": "internal/query_bank_generation.md",
+      "inputs": {
+        "from_step": {
+          "step_1_intake": "head_terms"
+        },
+        "from_brief": ["categoria", "atributos_tecnicos"]
+      },
+      "outputs": {
+        "target_blocks": [
+          "HEAD TERMS PRIORITÁRIOS",
+          "LONGTAILS",
+          "SINÔNIMOS E VARIAÇÕES MORFOLÓGICAS",
+          "TERMO CONTEXTUAL E OCASIÃO"
+        ],
+        "export_variables": {
+          "query_list_inbound": "Queries for marketplace search",
+          "query_list_outbound": "Queries for SERP/social search"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 10,
+        "quality_gate": {
+          "completeness_threshold": 75
+        }
+      },
+      "timeout_minutes": 3
+    },
+    {
+      "step_id": "step_3_file_search",
+      "step_name": "File Search - Compliance Rules",
+      "step_type": "prompt_execution",
+      "prompt_module": "internal/file_search.md",
+      "inputs": {
+        "from_brief": ["categoria", "marketplace_destino"],
+        "from_step": {
+          "step_1_intake": "categorias_inferidas"
+        }
+      },
+      "outputs": {
+        "target_blocks": ["REGRAS CRÍTICAS DE MARKETPLACE", "RISCOS OU ALERTAS DE COMPLIANCE"],
+        "export_variables": {
+          "compliance_rules": "List of applicable compliance rules",
+          "prohibited_terms": "Terms to avoid"
+        }
+      },
+      "validation": {
+        "required": false
+      },
+      "parallel_execution": true,
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_4_web_inbound",
+      "step_name": "Web Search Inbound - Marketplaces",
+      "step_type": "prompt_execution",
+      "prompt_module": "web_search_inbound.md",
+      "inputs": {
+        "from_step": {
+          "step_2_query_bank": "query_list_inbound"
+        },
+        "from_brief": ["marketplace_destino", "categoria"]
+      },
+      "outputs": {
+        "target_blocks": [
+          "SEO INBOUND",
+          "PADRÕES DE LINGUAGEM EFICAZ",
+          "CONSULTAS WEB"
+        ],
+        "export_variables": {
+          "competitors_found": "List of competitor names/products",
+          "pricing_data": "Price ranges observed",
+          "top_patterns": "Title and attribute patterns"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 9,
+        "quality_gate": {
+          "completeness_threshold": 70
+        }
+      },
+      "parallel_execution": true,
+      "timeout_minutes": 10
+    },
+    {
+      "step_id": "step_5_web_outbound",
+      "step_name": "Web Search Outbound - SERP & Social",
+      "step_type": "prompt_execution",
+      "prompt_module": "web_search_outbound.md",
+      "inputs": {
+        "from_step": {
+          "step_2_query_bank": "query_list_outbound"
+        },
+        "from_brief": ["produto_nome", "categoria"]
+      },
+      "outputs": {
+        "target_blocks": [
+          "SEO OUTBOUND",
+          "DORES DO PÚBLICO",
+          "GANHOS DESEJADOS",
+          "OBJEÇÕES E RESPOSTAS",
+          "CONSULTAS WEB"
+        ],
+        "export_variables": {
+          "frequent_questions": "Top user questions",
+          "sentiment_themes": "Positive/negative themes",
+          "risk_signals": "Complaints or alerts from Reclame Aqui"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 6,
+        "quality_gate": {
+          "completeness_threshold": 70
+        }
+      },
+      "parallel_execution": true,
+      "timeout_minutes": 10
+    },
+    {
+      "step_id": "step_6_competitor",
+      "step_name": "Competitor Analysis & Benchmark",
+      "step_type": "prompt_execution",
+      "prompt_module": "competitor_analysis.md",
+      "inputs": {
+        "from_step": {
+          "step_4_web_inbound": ["competitors_found", "pricing_data"]
+        },
+        "from_brief": ["concorrentes_conhecidos"]
+      },
+      "outputs": {
+        "target_blocks": [
+          "ANÁLISE DE CONCORRENTES",
+          "BENCHMARK DE CONCORRENTES",
+          "PROVAS E EVIDÊNCIAS DISPONÍVEIS"
+        ],
+        "export_variables": {
+          "benchmark_metrics": "Aggregated competitor metrics",
+          "top_competitor": "Market leader identified",
+          "gaps_identified": "Competitive gaps"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 3,
+        "quality_gate": {
+          "completeness_threshold": 80
+        }
+      },
+      "timeout_minutes": 5
+    },
+    {
+      "step_id": "step_7_strategy",
+      "step_name": "Strategy & Gaps Analysis",
+      "step_type": "prompt_execution",
+      "prompt_module": "strategy_gaps.md",
+      "inputs": {
+        "from_step": {
+          "step_6_competitor": "gaps_identified",
+          "step_5_web_outbound": "frequent_questions",
+          "step_4_web_inbound": "top_patterns"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "ESTRATÉGIAS E GAPS",
+          "DIFERENCIAIS COMPETITIVOS",
+          "DECISÕES DE COPY INICIAIS"
+        ],
+        "export_variables": {
+          "winning_strategies": "Patterns that work",
+          "exploitable_gaps": "Opportunities"
+        }
+      },
+      "validation": {
+        "required": true,
+        "quality_gate": {
+          "completeness_threshold": 75
+        }
+      },
+      "timeout_minutes": 8
+    },
+    {
+      "step_id": "step_8_seo",
+      "step_name": "SEO Taxonomy Consolidation",
+      "step_type": "prompt_execution",
+      "prompt_module": "seo_taxonomy.md",
+      "inputs": {
+        "from_step": {
+          "step_2_query_bank": "*",
+          "step_4_web_inbound": "top_patterns",
+          "step_5_web_outbound": "frequent_questions"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "SEO INBOUND",
+          "SEO OUTBOUND"
+        ],
+        "export_variables": {
+          "keyword_clusters": "Semantic clusters",
+          "priority_keywords": "High-value terms"
+        }
+      },
+      "validation": {
+        "required": true,
+        "quality_gate": {
+          "completeness_threshold": 80
+        }
+      },
+      "timeout_minutes": 3
+    },
+    {
+      "step_id": "step_9_image",
+      "step_name": "Image Analysis (Conditional)",
+      "step_type": "prompt_execution",
+      "prompt_module": "image_analysis.md",
+      "inputs": {
+        "from_brief": ["image_urls"],
+        "from_step": {
+          "step_6_competitor": "benchmark_metrics"
+        }
+      },
+      "outputs": {
+        "target_blocks": ["IMAGENS ANALISADAS"]
+      },
+      "validation": {
+        "required": false
+      },
+      "conditional": {
+        "if": "brief.image_urls.length > 0",
+        "then": "execute",
+        "else": "skip"
+      },
+      "timeout_minutes": 3
+    }
+  ],
+  "output_schema": {
+    "format": "research_notes",
+    "template_path": "research_notes.md",
+    "required_blocks": [
+      "LACUNAS DO BRIEF",
+      "HEAD TERMS PRIORITÁRIOS",
+      "LONGTAILS",
+      "SINÔNIMOS E VARIAÇÕES MORFOLÓGICAS",
+      "DORES DO PÚBLICO",
+      "GANHOS DESEJADOS",
+      "OBJEÇÕES E RESPOSTAS",
+      "ANÁLISE DE CONCORRENTES",
+      "BENCHMARK DE CONCORRENTES",
+      "ESTRATÉGIAS E GAPS",
+      "SEO INBOUND",
+      "SEO OUTBOUND",
+      "CONSULTAS WEB"
+    ],
+    "optional_blocks": [
+      "TERMO CONTEXTUAL E OCASIÃO",
+      "PROVAS E EVIDÊNCIAS DISPONÍVEIS",
+      "DIFERENCIAIS COMPETITIVOS",
+      "RISCOS OU ALERTAS DE COMPLIANCE",
+      "PADRÕES DE LINGUAGEM EFICAZ",
+      "REGRAS CRÍTICAS DE MARKETPLACE",
+      "DECISÕES DE COPY INICIAIS",
+      "IMAGENS ANALISADAS",
+      "NOTAS DE FALLBACK"
+    ],
+    "quality_thresholds": {
+      "min_completeness_percent": 75,
+      "max_suggestions_percent": 10,
+      "min_web_queries": 15,
+      "min_competitors": 3
+    }
+  },
+  "error_handling": {
+    "on_step_failure": "retry",
+    "max_retries": 2,
+    "fallback_plan": "quick_competitor"
+  },
+  "context_management": {
+    "context_strategy": "minimal",
+    "context_limit_tokens": 100000
+  }
+}

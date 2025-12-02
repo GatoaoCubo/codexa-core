@@ -1,0 +1,20 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Brinquedo Interativo Para Gato Varinha Com Ventosa Pena GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.87,
+  "execution_time_minutes": 5,
+  "titles": [
+    {"text": "Brinquedo Gato Varinha Ventosa Pena Interativo Mola GATO3", "char_count": 58, "keyword_count": 9, "density": 0.82, "score": 0.88, "variant": "A", "focus": "equilibrado"},
+    {"text": "Varinha Interativa Gato Ventosa Pena Mola Brinquedo Felino", "char_count": 58, "keyword_count": 8, "density": 0.80, "score": 0.86, "variant": "B", "focus": "emocional"},
+    {"text": "Brinquedo Varinha Gato Ventosa Pena Mola Interativo Pet", "char_count": 56, "keyword_count": 8, "density": 0.78, "score": 0.85, "variant": "C", "focus": "tecnico"}
+  ],
+  "keywords": {"block_a": {"name": "Atributos", "count": 118}, "block_b": {"name": "Beneficios", "count": 117}, "coverage_score": {"head_terms": 0.92, "longtails": 0.88, "total_unique_keywords": 235}},
+  "description": {"word_count": 3500, "keyword_density": 0.040, "readability_score": 69, "storybrand_elements": 7},
+  "bullets": {"count": 10, "avg_chars": 250},
+  "visual_assets": {"image_prompts": 9, "video_script_scenes": 6, "status": "full_mode"},
+  "qa_report": {"aggregate_score": 0.87, "validation_checks_passed": 11, "validation_checks_total": 11, "compliance_validation": {"passed": true}},
+  "strategic_brief": {"product_name": "Varinha Ventosa GATO3", "material": "Plastico resistente, penas sinteticas, mola de aco", "price_gato3": 19.30},
+  "metadata": {"workflow_version": "2.5.0", "generator": "CodeXAnuncio v2.5.0", "generated_at": "2025-11-29T10:25:00Z", "plan": "full_anuncio", "status": "production_ready"}
+}

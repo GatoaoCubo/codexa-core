@@ -1,0 +1,14 @@
+# Production dependencies for CODEXA Agent System
+
+# LLM Providers
+anthropic==0.45.0          # Claude (Anthropic)
+openai==1.52.0             # GPT (OpenAI)
+google-generativeai==0.8.3 # Gemini (Google)
+
+# Environment & Configuration
+python-dotenv==1.0.0
+pyyaml==6.0.1
+
+# Async & Utilities
+aiofiles==23.2.1
+asyncio==3.4.3

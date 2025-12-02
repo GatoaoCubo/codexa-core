@@ -1,0 +1,315 @@
+{
+  "_meta": {
+    "source": "consolidated from plans/",
+    "agent": "anuncio_agent",
+    "version": "3.2.0",
+    "scope": "TEXT-ONLY",
+    "synced": "2025-11-30",
+    "notes": "v3.2.0: Version sync. Removed image/video steps. FULL mode only. Conversion-optimized."
+  },
+  "plans": {
+    "full_anuncio": {
+      "$schema": "../../config/hop_framework/execution_plan_schema.json",
+      "plan_id": "full_anuncio",
+      "plan_name": "Full Anúncio Generation - Complete Workflow",
+      "agent_type": "codex_anuncio",
+      "plan_version": "3.2.0",
+      "description": "TEXT-ONLY workflow otimizado para CONVERSÃO MÁXIMA. Gera títulos (3x 58-60 chars), keywords (2x 115-120 termos), bullets (10x 250-299 chars), descrição (>=3300 chars StoryBrand). Agente autônomo end-to-end. Duração: 8-10 min.",
+      "metadata": {
+        "author": "TAC-7 Team",
+        "created": "2025-11-10T00:00:00Z",
+        "tags": [
+          "full",
+          "text-only",
+          "conversion-optimized",
+          "autonomous"
+        ],
+        "complexity": "standard",
+        "estimated_duration_minutes": 8
+      },
+      "execution_steps": [
+        {
+          "step_id": "step_1_parse_input",
+          "step_name": "Parse Research Notes Input",
+          "step_type": "prompt_execution",
+          "prompt_module": "10_main_agent_hop.md",
+          "parameters": {
+            "validate_schema": true,
+            "extract_strategic_brief": true
+          },
+          "inputs": {
+            "from_brief": [
+              "research_notes_path",
+              "marketplace"
+            ]
+          },
+          "outputs": {
+            "target_blocks": [
+              "IDENTIDADE_DO_PRODUTO",
+              "PROPOSTA_DE_VALOR"
+            ],
+            "export_variables": {
+              "head_terms": "Top 3 head terms (confidence ≥0.85)",
+              "diferenciais": "Top 3 diferenciais mensuráveis",
+              "dores": "Top 3 dores do público",
+              "ganhos": "Top 3 ganhos desejados",
+              "provas": "Provas e evidências disponíveis",
+              "confidence_score": "Research confidence score"
+            }
+          },
+          "validation": {
+            "required": true,
+            "min_outputs": 5,
+            "quality_gate": {
+              "mode": "warn",
+              "confidence_threshold": 0.6,
+              "completeness_threshold": 75
+            }
+          },
+          "timeout_minutes": 2
+        },
+        {
+          "step_id": "step_2_titulos",
+          "step_name": "Generate 3 Optimized Titles",
+          "step_type": "prompt_execution",
+          "prompt_module": "20_titulo_generator.md",
+          "inputs": {
+            "from_step": {
+              "step_1_parse_input": "diferenciais"
+            },
+            "from_brief": [
+              "marketplace"
+            ]
+          },
+          "outputs": {
+            "target_blocks": [
+              "BLOCOS_DE_TITULOS"
+            ],
+            "export_variables": {
+              "titulos_list": "Lista dos 3 títulos gerados (58-60 chars cada)",
+              "keywords_density": "Densidade de keywords (0-1)"
+            }
+          },
+          "validation": {
+            "required": true,
+            "min_outputs": 3,
+            "quality_gate": {
+              "mode": "warn",
+              "completeness_threshold": 100
+            }
+          },
+          "timeout_minutes": 2
+        },
+        {
+          "step_id": "step_3_keywords",
+          "step_name": "Expand Keywords (2 Blocks)",
+          "step_type": "prompt_execution",
+          "prompt_module": "30_keywords_expander.md",
+          "inputs": {
+            "from_step": {
+              "step_1_parse_input": "head_terms",
+              "step_2_titulos": "titulos_list"
+            }
+          },
+          "outputs": {
+            "target_blocks": [
+              "BLOCO_PALAVRAS_1",
+              "BLOCO_PALAVRAS_2"
+            ],
+            "export_variables": {
+              "keywords_blocks": "2 blocos de 115-120 termos cada",
+              "keywords_total": "Total de termos gerados"
+            }
+          },
+          "validation": {
+            "required": true,
+            "min_outputs": 2,
+            "quality_gate": {
+              "mode": "warn",
+              "completeness_threshold": 100
+            }
+          },
+          "timeout_minutes": 2
+        },
+        {
+          "step_id": "step_4_bullets",
+          "step_name": "Generate 10 Strategic Bullet Points",
+          "step_type": "prompt_execution",
+          "prompt_module": "40_bullet_points.md",
+          "inputs": {
+            "from_step": {
+              "step_1_parse_input": "provas"
+            }
+          },
+          "outputs": {
+            "target_blocks": [
+              "BULLET_POINTS_ESTRATEGICOS"
+            ],
+            "export_variables": {
+              "bullets_list": "10 bullet points magnéticos (250-299 chars cada)",
+              "gatilhos_mentais": "Gatilhos aplicados em cada bullet"
+            }
+          },
+          "validation": {
+            "required": true,
+            "min_outputs": 10,
+            "quality_gate": {
+              "mode": "warn",
+              "completeness_threshold": 100
+            }
+          },
+          "timeout_minutes": 3
+        },
+        {
+          "step_id": "step_5_descricao",
+          "step_name": "Build Long Description (≥3.300 chars)",
+          "step_type": "prompt_execution",
+          "prompt_module": "50_descricao_builder.md",
+          "inputs": {
+            "from_step": {
+              "step_4_bullets": "bullets_list",
+              "step_3_keywords": "keywords_blocks",
+              "step_1_parse_input": "ganhos"
+            }
+          },
+          "outputs": {
+            "target_blocks": [
+              "DESCRICAO_LONGA"
+            ],
+            "export_variables": {
+              "descricao_text": "Descrição longa completa (≥3.300 chars)",
+              "descricao_chars": "Total de caracteres",
+              "storybrand_applied": "Elementos StoryBrand usados"
+            }
+          },
+          "validation": {
+            "required": true,
+            "min_outputs": 1,
+            "quality_gate": {
+              "mode": "warn",
+              "confidence_threshold": 0.75,
+              "completeness_threshold": 100
+            }
+          },
+          "timeout_minutes": 3
+        },
+        {
+          "step_id": "step_6_qa_validation",
+          "step_name": "QA & 5-Dimension Scoring",
+          "step_type": "validation",
+          "prompt_module": "90_qa_validation.md",
+          "inputs": {
+            "from_step": {
+              "step_2_titulos": "titulos_list",
+              "step_3_keywords": "keywords_blocks",
+              "step_4_bullets": "bullets_list",
+              "step_5_descricao": "descricao_text"
+            },
+            "from_brief": [
+              "marketplace"
+            ]
+          },
+          "outputs": {
+            "target_blocks": [
+              "AUDITORIA_QA"
+            ],
+            "export_variables": {
+              "qa_report": "Relatório completo de QA",
+              "dimension_scores": {
+                "titulo_score": "0.0-1.0 (peso sugerido: ~30%)",
+                "keywords_score": "0.0-1.0 (peso sugerido: ~25%)",
+                "descricao_score": "0.0-1.0 (peso sugerido: ~20%)",
+                "bullets_score": "0.0-1.0 (peso sugerido: ~15%)",
+                "compliance_score": "0.0-1.0 (peso sugerido: ~10%)"
+              },
+              "overall_score": "Weighted average (threshold >= 0.85)",
+              "source_attribution": "Map of sources per section"
+            }
+          },
+          "validation": {
+            "required": true,
+            "quality_gate": {
+              "mode": "warn",
+              "completeness_threshold": 100
+            }
+          },
+          "timeout_minutes": 2
+        },
+        {
+          "step_id": "step_7_output_assembly",
+          "step_name": "Assemble Final Output (TEXT-ONLY)",
+          "step_type": "data_transform",
+          "prompt_module": "output_assembly.md",
+          "inputs": {
+            "from_step": {
+              "step_1_parse_input": "*",
+              "step_2_titulos": "*",
+              "step_3_keywords": "*",
+              "step_4_bullets": "*",
+              "step_5_descricao": "*",
+              "step_6_qa_validation": "*"
+            }
+          },
+          "outputs": {
+            "target_blocks": [
+              "NOTAS_DE_FALLBACK"
+            ],
+            "export_variables": {
+              "final_output": "anuncio_output.md completo"
+            }
+          },
+          "validation": {
+            "required": true,
+            "quality_gate": {
+              "mode": "warn",
+              "completeness_threshold": 90
+            }
+          },
+          "timeout_minutes": 1
+        }
+      ],
+      "output_schema": {
+        "format": "anuncio_output_v3.1",
+        "template_path": "07_output_template.md",
+        "scope": "TEXT-ONLY",
+        "required_blocks": [
+          "IDENTIDADE_DO_PRODUTO",
+          "BLOCOS_DE_TITULOS",
+          "BLOCO_PALAVRAS_1",
+          "BLOCO_PALAVRAS_2",
+          "BULLET_POINTS_ESTRATEGICOS",
+          "DESCRICAO_LONGA",
+          "AUDITORIA_QA",
+          "SOURCE_ATTRIBUTION"
+        ],
+        "optional_blocks": [
+          "NOTAS_DE_FALLBACK"
+        ],
+        "quality_thresholds": {
+          "min_dimension_score": 0.75,
+          "min_overall_score": 0.85,
+          "mode": "autonomous"
+        }
+      },
+      "error_handling": {
+        "on_step_failure": "intelligent_fallback",
+        "max_retries": 2,
+        "fallback_strategy": {
+          "low_confidence": "generate_with_suggestions",
+          "missing_input": "request_minimum_data",
+          "validation_fail": "auto_fix_and_retry"
+        }
+      },
+      "context_management": {
+        "context_strategy": "autonomous",
+        "context_limit_tokens": 12000,
+        "input_source": "{{input.output_text}}"
+      },
+      "autonomy": {
+        "end_to_end": true,
+        "pre_enriched_by": "mentor_agent",
+        "research_source": "pesquisa_agent"
+      }
+    }
+  }
+}

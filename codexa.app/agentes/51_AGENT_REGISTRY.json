@@ -1,0 +1,449 @@
+{
+  "version": "2.5.0",
+  "last_updated": "2025-11-25",
+  "description": "Central registry for all agents in the CODEXA system - Verticalized architecture with /prime_* specialization commands",
+  "agents": {
+    "anuncio_agent": {
+      "name": "Anúncio Generation Agent",
+      "description": "Creates optimized, compliant product listings for Brazilian e-commerce marketplaces",
+      "version": "2.5.0",
+      "prime_command": "/prime_anuncio",
+      "entry_command": "/anuncio",
+      "location": "codexa.app/agentes/anuncio_agent",
+      "iso_vectorstore_files": 20,
+      "hop_enabled": true,
+      "dependencies": ["pesquisa_agent"],
+      "status": "active",
+      "updated": "2025-11-19",
+      "components": {
+        "prime": "codexa.app/agentes/anuncio_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/anuncio_agent/iso_vectorstore/",
+        "commands": {
+          "prime": ".claude/commands/prime_anuncio.md",
+          "execute": ".claude/commands/anuncio.md"
+        }
+      },
+      "capabilities": [
+        "7-phase generation pipeline (intake → keywords → description → images → video → QA → output)",
+        "StoryBrand framework for Brazilian e-commerce",
+        "Compliance validation (ANVISA, INMETRO, Procon)",
+        "Multi-marketplace optimization (ML, Amazon, Shopee, etc)",
+        "SEO keyword optimization",
+        "Trinity output format (.md, .llm.json, .meta.json)"
+      ],
+      "specialty": "E-commerce copywriting, marketplace compliance, SEO optimization"
+    },
+    "pesquisa_agent": {
+      "name": "Pesquisa (Market Research) Agent",
+      "description": "Conducts professional competitive analysis and market intelligence for Brazilian e-commerce",
+      "version": "2.1.0",
+      "prime_command": "/prime_pesquisa",
+      "entry_command": "/pesquisa",
+      "location": "codexa.app/agentes/pesquisa_agent",
+      "iso_vectorstore_files": 20,
+      "hop_enabled": true,
+      "dependencies": [],
+      "status": "active",
+      "updated": "2025-11-19",
+      "components": {
+        "prime": "codexa.app/agentes/pesquisa_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/pesquisa_agent/iso_vectorstore/",
+        "commands": {
+          "prime": ".claude/commands/prime_pesquisa.md",
+          "execute": ".claude/commands/pesquisa.md"
+        }
+      },
+      "capabilities": [
+        "Brazilian marketplace competitive analysis (9 platforms)",
+        "Product trend identification and validation",
+        "SEO keyword research and taxonomy building",
+        "Pricing intelligence and positioning",
+        "Discovery-first workflows (700+ tested URLs)",
+        "Consumer behavior pattern analysis",
+        "Multiple execution plans (quick, standard, SEO-focused, comprehensive)"
+      ],
+      "specialty": "Competitive analysis, market trends, SEO research, pricing intelligence"
+    },
+    "conhecimento_agent": {
+      "name": "[ARCHIVED] Conhecimento (Knowledge) Agent",
+      "description": "CONSOLIDATED into mentor_agent v2.0.0 (2025-11-13)",
+      "entry_command": "/knowledge [REMOVED - use /prime_mentor]",
+      "original_location": "codexa/agentes/conhecimento_agent",
+      "consolidated_into": "codexa/agentes/mentor_agent",
+      "prompts_count": 0,
+      "hop_enabled": false,
+      "dependencies": [],
+      "status": "archived",
+      "archived_date": "2025-11-13",
+      "migration_note": "All knowledge management functionality now in mentor_agent. Use /prime_mentor + /processar"
+    },
+    "marca_agent": {
+      "name": "Marca (Brand Strategy) Agent",
+      "description": "Develops comprehensive brand strategies, positioning, and visual identity for Brazilian e-commerce",
+      "version": "2.5.0",
+      "prime_command": "/prime_marca",
+      "entry_command": "/brand",
+      "location": "codexa.app/agentes/marca_agent",
+      "iso_vectorstore_files": 20,
+      "hop_enabled": true,
+      "dependencies": [],
+      "status": "active",
+      "updated": "2025-11-19",
+      "components": {
+        "prime": "codexa.app/agentes/marca_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/marca_agent/iso_vectorstore/",
+        "commands": {
+          "prime": ".claude/commands/prime_marca.md",
+          "execute": ".claude/commands/brand.md"
+        }
+      },
+      "capabilities": [
+        "Brand positioning strategies and frameworks",
+        "Brand archetype mapping (12 archetypes)",
+        "Voice and tone guidelines development",
+        "Visual identity system creation",
+        "StoryBrand framework for brand narrative",
+        "Competitive brand differentiation",
+        "Brazilian market brand adaptation"
+      ],
+      "specialty": "Brand positioning, identity systems, voice development, archetypes"
+    },
+    "mentor_agent": {
+      "name": "Mentor (Knowledge Processing & Teaching) Agent",
+      "description": "Knowledge processing pipeline and seller mentoring - transforms raw materials into structured knowledge for Brazilian e-commerce sellers",
+      "version": "3.0.0",
+      "prime_command": "/prime_mentor",
+      "entry_command": "/mentor",
+      "location": "codexa.app/agentes/mentor_agent",
+      "iso_vectorstore_files": 20,
+      "hop_enabled": true,
+      "dependencies": ["scout_agent"],
+      "status": "active",
+      "updated": "2025-11-28",
+      "consolidated_agents": ["conhecimento_agent"],
+      "components": {
+        "prime": "codexa.app/agentes/mentor_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/mentor_agent/iso_vectorstore/",
+        "commands": {
+          "prime": ".claude/commands/prime_mentor.md",
+          "execute": ".claude/commands/mentor.md"
+        }
+      },
+      "capabilities": [
+        "Developer onboarding workflows",
+        "LLM agent orientation and training",
+        "System quality assurance and health checks",
+        "Validation frameworks (HOP sync, README, taxonomy, schema)",
+        "Best practice documentation",
+        "Troubleshooting and debugging guidance",
+        "Teaching patterns vs solving problems"
+      ],
+      "specialty": "Onboarding, validation, quality assurance, teaching methodologies"
+    },
+    "scout_agent": {
+      "name": "Scout Agent (Path Discovery & Navigation)",
+      "description": "Master of Paths - MCP Server for path discovery, file indexing, and CRUD operations across the entire CODEXA project",
+      "version": "1.0.0",
+      "prime_command": "/prime_scout",
+      "entry_command": "/scout",
+      "location": "codexa.app/agentes/scout_agent",
+      "mcp_server": "codexa.app/mcp-servers/scout-mcp",
+      "hop_enabled": false,
+      "dependencies": [],
+      "status": "active",
+      "created": "2025-11-28",
+      "updated": "2025-11-28",
+      "architecture": "mcp_server",
+      "components": {
+        "prime": "codexa.app/agentes/scout_agent/PRIME.md",
+        "config": "codexa.app/agentes/scout_agent/config/",
+        "mcp_server": "codexa.app/mcp-servers/scout-mcp/index.js",
+        "commands": {
+          "prime": ".claude/commands/prime_scout.md"
+        }
+      },
+      "mcp_tools": [
+        "discover",
+        "search",
+        "agent_context",
+        "create",
+        "read",
+        "update",
+        "delete",
+        "move",
+        "refresh",
+        "stats",
+        "validate_paths",
+        "map_dependencies",
+        "related"
+      ],
+      "capabilities": [
+        "Path discovery with natural language queries",
+        "File search by glob patterns",
+        "Agent context retrieval (all files for an agent)",
+        "CRUD operations with automatic backups",
+        "Dependency mapping between files",
+        "Related files discovery",
+        "Index statistics and validation",
+        "Multi-factor relevance scoring"
+      ],
+      "specialty": "Path discovery, file navigation, CRUD operations, context assembly",
+      "philosophy": "Every agent's companion - knows where everything is"
+    },
+    "codexa_agent": {
+      "name": "CODEXA Agent (Meta-Constructor)",
+      "description": "Self-building agent that constructs and validates other CODEXA agents and components",
+      "version": "2.5.0",
+      "prime_command": "/prime_codexa",
+      "entry_commands": [
+        "/codexa_when_to_use",
+        "/codexa_build_agent",
+        "/codexa_build_command",
+        "/codexa_build_mcp",
+        "/codexa_build_prompt",
+        "/codexa_build_schema",
+        "/codexa_orchestrate"
+      ],
+      "location": "codexa.app/agentes/codexa_agent",
+      "iso_vectorstore_files": 20,
+      "builders_count": 7,
+      "validators_count": 3,
+      "prompts_count": 3,
+      "workflows_count": 4,
+      "commands_count": 7,
+      "hop_enabled": true,
+      "dependencies": [],
+      "status": "active",
+      "created": "2025-11-13",
+      "updated": "2025-11-19",
+      "components": {
+        "prime": "codexa.app/agentes/codexa_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/codexa_agent/iso_vectorstore/",
+        "builders": "codexa.app/agentes/codexa_agent/builders/",
+        "validators": "codexa.app/agentes/codexa_agent/validators/",
+        "prompts": "codexa.app/agentes/codexa_agent/prompts/",
+        "workflows": "codexa.app/agentes/codexa_agent/workflows/",
+        "commands": {
+          "prime": ".claude/commands/prime_codexa.md",
+          "build": ".claude/commands/codexa_*.md"
+        },
+        "readme": "codexa.app/agentes/codexa_agent/README.md"
+      },
+      "capabilities": [
+        "Build complete agents using 5-phase meta-constructor",
+        "Create slash commands for Claude Code",
+        "Generate HOP modules following TAC-7 framework",
+        "Create MCP servers for external integrations",
+        "Build output schemas and execution plans",
+        "Orchestrate multi-phase ADW workflows",
+        "Validate HOPs, READMEs, and taxonomy",
+        "Self-improvement and system consolidation"
+      ],
+      "specialty": "Meta-construction, builders, validators, HOPs, ADWs, self-improvement",
+      "philosophy": "Build the thing that builds the thing"
+    },
+    "photo_agent": {
+      "name": "Photo Agent (Product Photography)",
+      "description": "Generates marketplace-optimized AI product photography using dual-layer architecture (ADW + HOP)",
+      "version": "2.5.0",
+      "prime_command": "/prime_photo",
+      "entry_command": "/photo",
+      "location": "codexa.app/agentes/photo_agent",
+      "iso_vectorstore_files": 20,
+      "prompts_count": 5,
+      "hop_enabled": true,
+      "dependencies": [],
+      "status": "active",
+      "created": "2025-11-15",
+      "updated": "2025-11-19",
+      "architecture": "dual_layer",
+      "components": {
+        "prime": "codexa.app/agentes/photo_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/photo_agent/iso_vectorstore/",
+        "prompts": "codexa.app/agentes/photo_agent/prompts/",
+        "workflows": "codexa.app/agentes/photo_agent/workflows/",
+        "commands": {
+          "prime": ".claude/commands/prime_photo.md",
+          "execute": ".claude/commands/photo.md"
+        },
+        "config": "codexa.app/agentes/photo_agent/config/",
+        "schemas": "codexa.app/agentes/photo_agent/schemas/",
+        "validators": "codexa.app/agentes/photo_agent/validators/"
+      },
+      "hop_prompts": [
+        "10_scene_planner_HOP.md",
+        "20_camera_designer_HOP.md",
+        "30_prompt_generator_HOP.md",
+        "40_brand_validator_HOP.md",
+        "50_batch_assembler_HOP.md"
+      ],
+      "workflows": [
+        "100_ADW_RUN_PHOTO.md"
+      ],
+      "capabilities": [
+        "AI-generated product photography workflows",
+        "Marketplace-specific image requirements (9 platforms)",
+        "Brand-aligned visual style guidelines",
+        "Multi-angle product visualization",
+        "5-phase ADW workflow (Scene Planning → Camera Design → Prompt Gen → Validation → Assembly)",
+        "12 camera profiles with technical specs",
+        "7 photography styles (minimalist, dramatic, lifestyle, editorial, commercial, cinematic, vintage)",
+        "18 PNL emotional triggers for visual storytelling",
+        "Compliance with marketplace image policies",
+        "Trinity output format (.md + .llm.json + .meta.json)"
+      ],
+      "specialty": "Product photography, marketplace optimization, AI image generation, visual quality",
+      "quality_score": 8.5,
+      "documentation_status": "excellent"
+    },
+    "video_agent": {
+      "name": "Video Agent (Product Video)",
+      "description": "Generates AI-powered e-commerce product videos (15-60s) using 5-stage pipeline with Runway/Pika APIs",
+      "version": "2.5.0",
+      "prime_command": "/prime_video",
+      "entry_command": "/video",
+      "location": "codexa.app/agentes/video_agent",
+      "prompts_count": 5,
+      "builders_count": 5,
+      "validators_count": 3,
+      "hop_enabled": true,
+      "dependencies": [],
+      "status": "active",
+      "created": "2025-11-24",
+      "updated": "2025-11-24",
+      "architecture": "dual_layer",
+      "components": {
+        "prime": "codexa.app/agentes/video_agent/PRIME.md",
+        "prompts": "codexa.app/agentes/video_agent/prompts/",
+        "builders": "codexa.app/agentes/video_agent/builders/",
+        "validators": "codexa.app/agentes/video_agent/validators/",
+        "workflows": "codexa.app/agentes/video_agent/workflows/",
+        "config": "codexa.app/agentes/video_agent/config/",
+        "schemas": "codexa.app/agentes/video_agent/schemas/",
+        "examples": "codexa.app/agentes/video_agent/examples/",
+        "commands": {
+          "prime": ".claude/commands/prime_video.md",
+          "execute": ".claude/commands/video.md"
+        },
+        "readme": "codexa.app/agentes/video_agent/README.md"
+      },
+      "hop_prompts": [
+        "10_concept_planner_HOP.md",
+        "20_script_writer_HOP.md",
+        "30_visual_prompter_HOP.md",
+        "40_production_runner_HOP.md",
+        "50_editor_assembler_HOP.md"
+      ],
+      "workflows": [
+        "100_ADW_RUN_VIDEO.md"
+      ],
+      "capabilities": [
+        "5-stage video pipeline (Concept → Script → Visual → Production → Editing)",
+        "AI video generation via Runway Gen-3 and Pika 1.5",
+        "TTS narration via ElevenLabs",
+        "FFmpeg editing (concatenation, audio mixing, text overlays)",
+        "15-60 second e-commerce videos",
+        "Platform-optimized formats (9:16 for Reels/TikTok, 16:9 for YouTube)",
+        "5 style presets (energetic, calm, dramatic, minimal, cinematic)",
+        "11-point quality validation checklist",
+        "Brand compliance validation",
+        "Trinity output format (.mp4 + .llm.json + .meta.json)"
+      ],
+      "specialty": "Product video, social media content, AI video generation, FFmpeg editing",
+      "quality_score": null,
+      "documentation_status": "complete"
+    },
+    "curso_agent": {
+      "name": "Curso (Course Builder) Agent",
+      "description": "Educational content architect for creating comprehensive Hotmart courses about the CODEXA system",
+      "version": "2.5.0",
+      "prime_command": "/prime_curso",
+      "entry_command": "/curso",
+      "location": "codexa.app/agentes/curso_agent",
+      "iso_vectorstore_files": 24,
+      "context_files": 10,
+      "prompts_count": 0,
+      "hop_enabled": true,
+      "dependencies": ["marca_agent", "pesquisa_agent", "anuncio_agent"],
+      "status": "active",
+      "created": "2025-11-20",
+      "updated": "2025-11-20",
+      "components": {
+        "prime": "codexa.app/agentes/curso_agent/PRIME.md",
+        "instructions": "codexa.app/agentes/curso_agent/INSTRUCTIONS.md",
+        "setup": "codexa.app/agentes/curso_agent/SETUP.md",
+        "iso_vectorstore": "codexa.app/agentes/curso_agent/iso_vectorstore/",
+        "context": "codexa.app/agentes/curso_agent/context/",
+        "artifacts": "codexa.app/agentes/curso_agent/artifacts/",
+        "commands": {
+          "prime": ".claude/commands/prime_curso.md",
+          "execute": ".claude/commands/curso.md"
+        },
+        "readme": "codexa.app/agentes/curso_agent/README.md"
+      },
+      "capabilities": [
+        "Multi-format course content generation (video scripts, workbooks, exercises, sales copy)",
+        "Progressive pedagogical architecture (Layer 1 → 2 → 3)",
+        "Strategic [OPEN_VARIABLES] for customization",
+        "5-phase workflow (Intake → Outline → Content → QA → Delivery)",
+        "Hotmart platform optimization and integration",
+        "4-dimension quality validation (Content, Brand Voice, Pedagogy, Technical)",
+        "Brazilian e-commerce education focus",
+        "StoryBrand framework for educational content",
+        "Bloom's Taxonomy learning objectives",
+        "Anti-piracy strategies and licensing"
+      ],
+      "specialty": "Educational content, course architecture, video scripts, Hotmart optimization, pedagogical design",
+      "quality_score": 9.5,
+      "documentation_status": "excellent"
+    }
+  },
+  "navigation_system": {
+    "name": "CODEXA Navigation System",
+    "description": "Verticalized command system for agent specialization and context loading",
+    "version": "3.0.0",
+    "updated": "2025-11-25",
+    "components": {
+      "main_navigator": ".claude/commands/prime.md",
+      "specialist_commands": [
+        ".claude/commands/prime_codexa.md",
+        ".claude/commands/prime_anuncio.md",
+        ".claude/commands/prime_pesquisa.md",
+        ".claude/commands/prime_marca.md",
+        ".claude/commands/prime_mentor.md",
+        ".claude/commands/prime_photo.md",
+        ".claude/commands/prime_video.md",
+        ".claude/commands/prime_curso.md",
+        ".claude/commands/prime_scout.md"
+      ],
+      "build_commands": [
+        ".claude/commands/codexa_when_to_use.md",
+        ".claude/commands/codexa_build_agent.md",
+        ".claude/commands/codexa_build_command.md",
+        ".claude/commands/codexa_build_mcp.md",
+        ".claude/commands/codexa_build_prompt.md",
+        ".claude/commands/codexa_build_schema.md",
+        ".claude/commands/codexa_orchestrate.md"
+      ]
+    },
+    "philosophy": "Pure navigation → Deep specialization → Focused execution",
+    "principles": [
+      "One Purpose Per Command - Each command serves a single, clear domain",
+      "No Overlap - Context doesn't repeat between commands",
+      "Deep Not Wide - Depth in domain, not breadth",
+      "Load Only What Needed - Only domain-specific files",
+      "Clear Entry Points - User/LLM knows exactly when to use each command"
+    ]
+  },
+  "system_stats": {
+    "total_agents": 9,
+    "active_agents": 9,
+    "archived_agents": 1,
+    "total_iso_vectorstore_files": 144,
+    "total_prime_commands": 10,
+    "total_build_commands": 7,
+    "total_mcp_servers": 3,
+    "last_updated": "2025-11-28",
+    "architecture_version": "3.1.0 (Scout MCP Integration)"
+  }
+}

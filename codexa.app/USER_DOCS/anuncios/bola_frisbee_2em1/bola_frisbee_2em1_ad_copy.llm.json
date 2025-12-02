@@ -1,0 +1,133 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Brinquedo Bola Frisbee Gato ao Cubo Diversao 2 em 1 Pet GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.86,
+  "execution_time_minutes": 3,
+
+  "titles": [
+    {
+      "text": "Brinquedo Bola Frisbee Gato Cachorro 2em1 Interativo GATO3",
+      "char_count": 59,
+      "keyword_count": 8,
+      "density": 0.80,
+      "score": 0.87,
+      "variant": "A",
+      "focus": "equilibrado"
+    },
+    {
+      "text": "Bola Frisbee Pet 2em1 Gato Cachorro Brinquedo Diversao Fun",
+      "char_count": 59,
+      "keyword_count": 9,
+      "density": 0.83,
+      "score": 0.86,
+      "variant": "B",
+      "focus": "emocional"
+    },
+    {
+      "text": "Brinquedo Pet Bola Frisbee 2em1 Gato Cachorro Transformavel",
+      "char_count": 59,
+      "keyword_count": 8,
+      "density": 0.78,
+      "score": 0.84,
+      "variant": "C",
+      "focus": "tecnico"
+    }
+  ],
+
+  "keywords": {
+    "block_a": {
+      "name": "Atributos e Variacoes",
+      "count": 116
+    },
+    "block_b": {
+      "name": "Beneficios e Uso",
+      "count": 115
+    },
+    "coverage_score": {
+      "head_terms": 0.91,
+      "longtails": 0.87,
+      "total_unique_keywords": 231
+    }
+  },
+
+  "description": {
+    "word_count": 3298,
+    "keyword_density": 0.036,
+    "readability_score": 67,
+    "sections": ["Hook", "Solucao", "Transformacao", "Gatos", "Cachorros", "Material", "Peso", "Uso", "Cores", "Durabilidade", "CTA"],
+    "template": "mercado_livre_physical",
+    "storybrand_elements": 7
+  },
+
+  "bullets": {
+    "count": 10,
+    "avg_chars": 198,
+    "mental_triggers": ["scarcity", "social_proof", "authority", "reciprocity"]
+  },
+
+  "visual_assets": {
+    "status": "quick_mode_skipped",
+    "image_prompts": [],
+    "video_script": null,
+    "asset_count": 0
+  },
+
+  "qa_report": {
+    "title_validation": {
+      "passed": true,
+      "char_count_compliance": true,
+      "keyword_density_passed": true,
+      "forbidden_words": 0,
+      "issues": []
+    },
+    "keywords_validation": {
+      "passed": true,
+      "total_keywords": 231,
+      "minimum_required": 200,
+      "issues": []
+    },
+    "description_validation": {
+      "passed": true,
+      "word_count": 3298,
+      "compliance_passed": true,
+      "issues": []
+    },
+    "compliance_validation": {
+      "passed": true,
+      "no_html": true,
+      "no_emojis": true,
+      "no_prohibited_claims": true,
+      "no_therapeutic_claims": true,
+      "no_external_links": true,
+      "issues": []
+    },
+    "aggregate_score": 0.86,
+    "validation_checks_passed": 11,
+    "validation_checks_total": 11
+  },
+
+  "strategic_brief": {
+    "product_name": "Brinquedo Bola Frisbee Gato ao Cubo Diversao 2 em 1 Pet GATO3",
+    "product_type": "PHYSICAL_PRODUCT",
+    "marketplace_type": "MERCADO_LIVRE",
+    "category": "Brinquedos Pet / Bolas e Frisbees",
+    "function": "Bola + Frisbee transformavel",
+    "material": "Plastico flexivel seguro",
+    "target_audience": "Tutores de gatos e caes que buscam brinquedos versateis",
+    "price_gato3": 27.70,
+    "competitor_price_range": "R$19-78",
+    "main_competitor": "Bola Magica Disco (R$38,40, +3 vendidos)",
+    "differentiation_strategy": "funcao dupla em produto unico"
+  },
+
+  "metadata": {
+    "workflow_version": "2.5.0",
+    "generator": "CodeXAnuncio v2.5.0",
+    "generated_at": "2025-11-29T11:25:00Z",
+    "plan": "quick_anuncio",
+    "mode": "ULTRATHINK_batch",
+    "status": "production_ready"
+  }
+}

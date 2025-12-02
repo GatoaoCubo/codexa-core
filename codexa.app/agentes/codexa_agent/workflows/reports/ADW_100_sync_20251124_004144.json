@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-11-24T00:41:44.158999",
+  "execution_mode": "auto_fix",
+  "agents_processed": 1,
+  "agents_synced": 1,
+  "files_created": 0,
+  "files_updated": 0,
+  "files_deleted": 0,
+  "validation_errors": [],
+  "warnings": [],
+  "recommendations": [],
+  "agent_scores": {
+    "curso_agent": 0.93
+  },
+  "changes_made": []
+}

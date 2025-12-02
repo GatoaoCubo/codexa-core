@@ -1,0 +1,133 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Arranhador Cama Gato Papelao Resistente Anti Stress GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.87,
+  "execution_time_minutes": 3,
+
+  "titles": [
+    {
+      "text": "Arranhador Cama Gato Papelao Resistente Anti Stress GATO3",
+      "char_count": 58,
+      "keyword_count": 8,
+      "density": 0.80,
+      "score": 0.88,
+      "variant": "A",
+      "focus": "equilibrado"
+    },
+    {
+      "text": "Arranhador Gato Papelao Cama Anti Stress Resistente Pet",
+      "char_count": 56,
+      "keyword_count": 8,
+      "density": 0.82,
+      "score": 0.86,
+      "variant": "B",
+      "focus": "emocional"
+    },
+    {
+      "text": "Arranhador Papelao Gato Cama Antiestresse Lixa Unha GATO3",
+      "char_count": 58,
+      "keyword_count": 8,
+      "density": 0.78,
+      "score": 0.85,
+      "variant": "C",
+      "focus": "tecnico"
+    }
+  ],
+
+  "keywords": {
+    "block_a": {
+      "name": "Atributos e Variacoes",
+      "count": 118
+    },
+    "block_b": {
+      "name": "Beneficios e Uso",
+      "count": 116
+    },
+    "coverage_score": {
+      "head_terms": 0.92,
+      "longtails": 0.88,
+      "total_unique_keywords": 234
+    }
+  },
+
+  "description": {
+    "word_count": 3356,
+    "keyword_density": 0.037,
+    "readability_score": 68,
+    "sections": ["Hook", "Solucao", "Textura", "Funcao Dupla", "Material", "Necessidade", "Anti Stress", "Unhas", "Ecologia", "Design", "Refil", "CTA"],
+    "template": "mercado_livre_physical",
+    "storybrand_elements": 7
+  },
+
+  "bullets": {
+    "count": 10,
+    "avg_chars": 210,
+    "mental_triggers": ["scarcity", "social_proof", "authority", "reciprocity"]
+  },
+
+  "visual_assets": {
+    "status": "quick_mode_skipped",
+    "image_prompts": [],
+    "video_script": null,
+    "asset_count": 0
+  },
+
+  "qa_report": {
+    "title_validation": {
+      "passed": true,
+      "char_count_compliance": true,
+      "keyword_density_passed": true,
+      "forbidden_words": 0,
+      "issues": []
+    },
+    "keywords_validation": {
+      "passed": true,
+      "total_keywords": 234,
+      "minimum_required": 200,
+      "issues": []
+    },
+    "description_validation": {
+      "passed": true,
+      "word_count": 3356,
+      "compliance_passed": true,
+      "issues": []
+    },
+    "compliance_validation": {
+      "passed": true,
+      "no_html": true,
+      "no_emojis": true,
+      "no_prohibited_claims": true,
+      "no_therapeutic_claims": true,
+      "no_external_links": true,
+      "issues": []
+    },
+    "aggregate_score": 0.87,
+    "validation_checks_passed": 11,
+    "validation_checks_total": 11
+  },
+
+  "strategic_brief": {
+    "product_name": "Arranhador Cama Gato Papelao Resistente Anti Stress GATO3",
+    "product_type": "PHYSICAL_PRODUCT",
+    "marketplace_type": "MERCADO_LIVRE",
+    "category": "Acessorios para Gatos / Arranhadores",
+    "material": "Papelao ondulado resistente",
+    "function": "Arranhador + Cama",
+    "target_audience": "Tutores de gatos que buscam proteger moveis",
+    "price_gato3": 38.33,
+    "competitor_price_range": "R$19-75",
+    "main_competitor": "Arranhador Cama (R$48,10, +100 vendidos, 4.5 stars)",
+    "differentiation_strategy": "qualidade e durabilidade"
+  },
+
+  "metadata": {
+    "workflow_version": "2.5.0",
+    "generator": "CodeXAnuncio v2.5.0",
+    "generated_at": "2025-11-29T11:20:00Z",
+    "plan": "quick_anuncio",
+    "mode": "ULTRATHINK_batch",
+    "status": "production_ready"
+  }
+}

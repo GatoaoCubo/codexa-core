@@ -1,0 +1,320 @@
+{
+  "metadata": {
+    "agent": "photo_agent_marketplace",
+    "version": "1.0.0",
+    "timestamp": "2025-11-15T14:30:00Z",
+    "input_hash": "abc123def456789012345678901234567890123456789012345678901234567",
+    "workflow_type": "marketplace_product",
+    "generation_time_ms": 8500,
+    "input_subject": "Garrafa de água reutilizável ecológica 750ml aço inox",
+    "target_marketplace": "all",
+    "anuncio_agent_integration": true
+  },
+  "prompts_grid_3x3": [
+    {
+      "scene_number": 1,
+      "scene_name": "Hero White Background (Marketplace Thumbnail)",
+      "scene_role": "hero_white",
+      "prompt_with_reference": "Professional product photography fiel ao {INSERIR_IMAGEM_PRODUTO_AQUI}, garrafa de água reutilizável 750ml aço inox, pure white background #FFFFFF, centered composition rule of thirds, camera 50mm f/8 1/160s ISO 100, high-key lighting soft uniform shadows, full sharp focus mostrando textura do aço inox e acabamento, PNL: clareza imediata na escolha produto confiável sem dúvidas, no watermarks, no text, no third-party logos, 8K quality, marketplace compliant",
+      "reference_image_instructions": "⚠️ ANTES DE GERAR: Cole/anexe a imagem da garrafa no lugar de {INSERIR_IMAGEM_PRODUTO_AQUI}. Sem a imagem, a IA vai inventar uma garrafa genérica.",
+      "technical_specs": {
+        "camera": "50mm f/8 1/160s ISO 100",
+        "focal_length": "50mm",
+        "aperture": "f/8",
+        "shutter_speed": "1/160s",
+        "iso": 100,
+        "lighting": "High-key clean, soft uniform shadows",
+        "background": "#FFFFFF pure white",
+        "composition": "Centered, rule of thirds",
+        "depth_of_field": "full_focus"
+      },
+      "compliance_white_bg": true,
+      "marketplace_purpose": "main_thumbnail",
+      "pnl_trigger": "clareza imediata na escolha, produto confiável sem dúvidas",
+      "pnl_trigger_key": "clareza",
+      "validation_score": 0.96,
+      "character_count": 287,
+      "validation_status": "PASS",
+      "file_name_suggestion": "garrafa_agua_cena_01_hero_branco.png"
+    },
+    {
+      "scene_number": 2,
+      "scene_name": "Lifestyle Use Context",
+      "scene_role": "lifestyle",
+      "prompt_with_reference": "Professional lifestyle photography fiel ao {INSERIR_IMAGEM_PRODUTO_AQUI}, garrafa de água sendo usada em ambiente de treino fitness real authentic moment, background ambiente fitness natural bokeh clean desfocado suave, lighting natural window light warm 5500K soft directional, camera 85mm f/4 1/160s ISO 400, candid authentic composition storytelling casual, shallow depth of field produto em foco, PNL: confiança no produto durante uso real benefício visível, no watermarks, no text, 8K quality",
+      "reference_image_instructions": "⚠️ IMPORTANTE: Substitua {INSERIR_IMAGEM_PRODUTO_AQUI} pela imagem real da garrafa para manter fidelidade visual.",
+      "technical_specs": {
+        "camera": "85mm f/4 1/160s ISO 400",
+        "focal_length": "85mm",
+        "aperture": "f/4",
+        "shutter_speed": "1/160s",
+        "iso": 400,
+        "lighting": "Natural window light warm soft",
+        "background": "Real fitness environment authentic bokeh",
+        "composition": "Candid authentic storytelling",
+        "depth_of_field": "shallow"
+      },
+      "compliance_white_bg": false,
+      "marketplace_purpose": "lifestyle_context",
+      "pnl_trigger": "confiança no produto durante uso real, benefício visível",
+      "pnl_trigger_key": "confiança",
+      "validation_score": 0.93,
+      "character_count": 351,
+      "validation_status": "PASS",
+      "file_name_suggestion": "garrafa_agua_cena_02_lifestyle.png"
+    },
+    {
+      "scene_number": 3,
+      "scene_name": "Macro Detail Quality",
+      "scene_role": "macro",
+      "prompt_with_reference": "Professional macro photography fiel ao {INSERIR_IMAGEM_PRODUTO_AQUI}, close-up extremo mostrando textura do aço inox acabamento premium detalhes visíveis garrafa água 750ml, background neutral gradient clean minimal sem distrações, lighting lateral dramatic shadows contrast realça textura, camera 100mm macro f/5.6 1/125s ISO 100, composition close-up macro extreme detail focus, shallow depth of field foco seletivo textura, PNL: qualidade visível material premium que justifica investimento, no watermarks, no text, 8K quality",
+      "reference_image_instructions": "⚠️ IMPORTANTE: Anexe a foto do produto para garantir fidelidade nos detalhes de textura e acabamento.",
+      "technical_specs": {
+        "camera": "100mm macro f/5.6 1/125s ISO 100",
+        "focal_length": "100mm",
+        "aperture": "f/5.6",
+        "shutter_speed": "1/125s",
+        "iso": 100,
+        "lighting": "Lateral dramatic shadows contrast",
+        "background": "Neutral gradient clean minimal",
+        "composition": "Close-up macro detail extreme",
+        "depth_of_field": "shallow"
+      },
+      "compliance_white_bg": false,
+      "marketplace_purpose": "detail_zoom",
+      "pnl_trigger": "qualidade visível material premium que justifica investimento",
+      "pnl_trigger_key": "confiança",
+      "validation_score": 0.92,
+      "character_count": 393,
+      "validation_status": "PASS",
+      "file_name_suggestion": "garrafa_agua_cena_03_macro_detalhe.png"
+    },
+    {
+      "scene_number": 4,
+      "scene_name": "User Hand Interaction",
+      "scene_role": "user_interaction",
+      "prompt_with_reference": "Professional product photography fiel ao {INSERIR_IMAGEM_PRODUTO_AQUI}, mão segurando garrafa de água 750ml demonstrando ergonomia tamanho real proporção humana, background minimalist clean environment lifestyle sem distrações foco no produto, lighting soft diffused even clean sem sombras duras, camera 50mm f/4 1/125s ISO 200, composition hand interaction ergonomic demonstration natural, moderate depth of field mão e produto nítidos, PNL: segurança no tamanho ideal perfeito para rotina diária, no watermarks, no text, 8K quality",
+      "reference_image_instructions": "⚠️ ANTES DE GERAR: Cole a imagem do produto para manter proporções e cores corretas na demonstração.",
+      "technical_specs": {
+        "camera": "50mm f/4 1/125s ISO 200",
+        "focal_length": "50mm",
+        "aperture": "f/4",
+        "shutter_speed": "1/125s",
+        "iso": 200,
+        "lighting": "Soft diffused even clean",
+        "background": "Minimalist clean environment lifestyle",
+        "composition": "Hand interaction ergonomic demonstration",
+        "depth_of_field": "moderate"
+      },
+      "compliance_white_bg": false,
+      "marketplace_purpose": "usage_demo",
+      "pnl_trigger": "segurança no tamanho ideal perfeito para rotina diária",
+      "pnl_trigger_key": "segurança",
+      "validation_score": 0.94,
+      "character_count": 387,
+      "validation_status": "PASS",
+      "file_name_suggestion": "garrafa_agua_cena_04_mao_ergonomia.png"
+    },
+    {
+      "scene_number": 5,
+      "scene_name": "Benefit Demonstration",
+      "scene_role": "benefit",
+      "prompt_with_reference": "Professional lifestyle photography fiel ao {INSERIR_IMAGEM_PRODUTO_AQUI}, garrafa água reutilizável em ambiente natural externo demonstrando benefício sustentabilidade ecológica zero plástico, background natural outdoor environment green bokeh árvores desfocadas, lighting natural outdoor soft diffused 6000K clean, camera 85mm f/5.6 1/160s ISO 400, composition benefit visualization storytelling eco-conscious, shallow depth of field produto destaque isolado, PNL: orgulho em escolha sustentável consciente impacto positivo, no watermarks, no text, 8K quality",
+      "reference_image_instructions": "⚠️ IMPORTANTE: Use a imagem real do produto para garantir que as cores e detalhes permaneçam fiéis no contexto natural.",
+      "technical_specs": {
+        "camera": "85mm f/5.6 1/160s ISO 400",
+        "focal_length": "85mm",
+        "aperture": "f/5.6",
+        "shutter_speed": "1/160s",
+        "iso": 400,
+        "lighting": "Natural outdoor soft diffused",
+        "background": "Natural outdoor environment green bokeh",
+        "composition": "Benefit visualization storytelling",
+        "depth_of_field": "shallow"
+      },
+      "compliance_white_bg": false,
+      "marketplace_purpose": "benefit_proof",
+      "pnl_trigger": "orgulho em escolha sustentável consciente impacto positivo",
+      "pnl_trigger_key": "confiança",
+      "validation_score": 0.91,
+      "character_count": 398,
+      "validation_status": "PASS",
+      "file_name_suggestion": "garrafa_agua_cena_05_sustentabilidade.png"
+    },
+    {
+      "scene_number": 6,
+      "scene_name": "Top-down Functional View",
+      "scene_role": "topdown",
+      "prompt_with_reference": "Professional flat lay photography fiel ao {INSERIR_IMAGEM_PRODUTO_AQUI}, visão superior top-down garrafa água 750ml mostrando tampa detalhes funcionais hermeticidade, background clean surface minimalist white surface sem texturas, lighting top-down even flat clean sem sombras laterais, camera 50mm f/8 1/125s ISO 100, composition top-down flat lay centered symmetrical, full sharp focus detalhes tampa e corpo nítidos, PNL: clareza funcional design inteligente tampa hermética segura, no watermarks, no text, 8K quality",
+      "reference_image_instructions": "⚠️ ANTES DE GERAR: Anexe a imagem do produto para mostrar detalhes reais da tampa e funcionalidade.",
+      "technical_specs": {
+        "camera": "50mm f/8 1/125s ISO 100",
+        "focal_length": "50mm",
+        "aperture": "f/8",
+        "shutter_speed": "1/125s",
+        "iso": 100,
+        "lighting": "Top-down even flat clean",
+        "background": "Clean surface minimalist white",
+        "composition": "Top-down flat lay centered",
+        "depth_of_field": "full_focus"
+      },
+      "compliance_white_bg": false,
+      "marketplace_purpose": "functional_view",
+      "pnl_trigger": "clareza funcional design inteligente tampa hermética segura",
+      "pnl_trigger_key": "clareza",
+      "validation_score": 0.95,
+      "character_count": 369,
+      "validation_status": "PASS",
+      "file_name_suggestion": "garrafa_agua_cena_06_topdown_tampa.png"
+    },
+    {
+      "scene_number": 7,
+      "scene_name": "Environment Context",
+      "scene_role": "environment",
+      "prompt_with_reference": "Professional environmental photography fiel ao {INSERIR_IMAGEM_PRODUTO_AQUI}, garrafa água em mesa escritório workspace profissional ambiente trabalho clean organizado, background professional workspace environment desk laptop bokeh clean desfocado, lighting soft office window light natural 5500K lateral suave, camera 85mm f/4 1/125s ISO 400, composition environmental context storytelling professional lifestyle, shallow depth of field produto foco workspace desfocado, PNL: pertencimento rotina profissional produtiva hidratação durante trabalho, no watermarks, no text, 8K quality",
+      "reference_image_instructions": "⚠️ IMPORTANTE: Cole a imagem do produto para integrar fielmente ao contexto de escritório profissional.",
+      "technical_specs": {
+        "camera": "85mm f/4 1/125s ISO 400",
+        "focal_length": "85mm",
+        "aperture": "f/4",
+        "shutter_speed": "1/125s",
+        "iso": 400,
+        "lighting": "Soft office window light natural",
+        "background": "Professional workspace environment clean",
+        "composition": "Environmental context storytelling",
+        "depth_of_field": "shallow"
+      },
+      "compliance_white_bg": false,
+      "marketplace_purpose": "environment_shot",
+      "pnl_trigger": "pertencimento rotina profissional produtiva hidratação durante trabalho",
+      "pnl_trigger_key": "pertencimento",
+      "validation_score": 0.92,
+      "character_count": 395,
+      "validation_status": "PASS",
+      "file_name_suggestion": "garrafa_agua_cena_07_escritorio_contexto.png"
+    },
+    {
+      "scene_number": 8,
+      "scene_name": "Material Quality Close-up",
+      "scene_role": "material",
+      "prompt_with_reference": "Professional artistic photography fiel ao {INSERIR_IMAGEM_PRODUTO_AQUI}, close-up artístico textura aço inox premium garrafa água acabamento impecável reflexos controlados, background dark gradient dramatic contrast preto suave, lighting dramatic lateral contrast dark mood low-key realça textura reflexos, camera 85mm f/2.8 1/160s ISO 200, composition close-up artistic luxury mood elegante sofisticado, ultra shallow depth of field textura detalhes foco seletivo, PNL: exclusividade material premium acabamento luxuoso diferenciado, no watermarks, no text, 8K quality",
+      "reference_image_instructions": "⚠️ ANTES DE GERAR: Use a imagem real para capturar fielmente os reflexos e textura do aço inox premium.",
+      "technical_specs": {
+        "camera": "85mm f/2.8 1/160s ISO 200",
+        "focal_length": "85mm",
+        "aperture": "f/2.8",
+        "shutter_speed": "1/160s",
+        "iso": 200,
+        "lighting": "Dramatic lateral contrast dark mood",
+        "background": "Dark gradient dramatic contrast",
+        "composition": "Close-up artistic luxury mood",
+        "depth_of_field": "ultra_shallow"
+      },
+      "compliance_white_bg": false,
+      "marketplace_purpose": "quality_proof",
+      "pnl_trigger": "exclusividade material premium acabamento luxuoso diferenciado",
+      "pnl_trigger_key": "exclusividade",
+      "validation_score": 0.93,
+      "character_count": 397,
+      "validation_status": "PASS",
+      "file_name_suggestion": "garrafa_agua_cena_08_textura_premium.png"
+    },
+    {
+      "scene_number": 9,
+      "scene_name": "Commercial Cover (White Background)",
+      "scene_role": "commercial_cover",
+      "prompt_with_reference": "Professional commercial photography fiel ao {INSERIR_IMAGEM_PRODUTO_AQUI}, garrafa água 750ml aço inox ângulo dinâmico comercial profissional apresentação impecável, pure white background #FFFFFF limpo uniforme sem gradientes, lighting high-key commercial clean professional soft shadows minimal, camera 85mm f/8 1/160s ISO 100, composition dynamic angle commercial professional hero shot polished, full sharp focus produto completo nítido detalhes visíveis, PNL: confiança acabamento profissional apresentação comercial premium, no watermarks, no text, no third-party logos, 8K quality, marketplace compliant",
+      "reference_image_instructions": "⚠️ ANTES DE GERAR: Cole/anexe a imagem da garrafa para garantir fidelidade total nesta imagem de capa comercial.",
+      "technical_specs": {
+        "camera": "85mm f/8 1/160s ISO 100",
+        "focal_length": "85mm",
+        "aperture": "f/8",
+        "shutter_speed": "1/160s",
+        "iso": 100,
+        "lighting": "High-key commercial clean professional",
+        "background": "#FFFFFF pure white",
+        "composition": "Dynamic angle commercial professional",
+        "depth_of_field": "full_focus"
+      },
+      "compliance_white_bg": true,
+      "marketplace_purpose": "cover_image",
+      "pnl_trigger": "confiança acabamento profissional apresentação comercial premium",
+      "pnl_trigger_key": "confiança",
+      "validation_score": 0.96,
+      "character_count": 395,
+      "validation_status": "PASS",
+      "file_name_suggestion": "garrafa_agua_cena_09_cover_branco.png"
+    }
+  ],
+  "reference_instructions": {
+    "workflow_overview": "Este output gera 9 PROMPTS prontos para copiar e colar. CADA PROMPT contém {INSERIR_IMAGEM_PRODUTO_AQUI} que você DEVE substituir pela imagem real do produto antes de gerar. Isso garante fidelidade 100% ao produto original em todas as 9 cenas.",
+    "step_by_step": [
+      "1. Tenha a IMAGEM DO PRODUTO pronta (PNG, JPG, WEBP, ou URL pública)",
+      "2. Copie o PROMPT da cena desejada (ex: Cena 1 - Hero White)",
+      "3. COLE/ANEXE a imagem do produto no lugar de {INSERIR_IMAGEM_PRODUTO_AQUI}",
+      "4. Cole o prompt completo (com imagem) na LLM geradora (Gemini 2.5 Flash, DALL-E 3, Midjourney, etc.)",
+      "5. Gere a imagem. Repita para cada uma das 9 cenas."
+    ],
+    "fidelity_guarantee": "⚠️ IMPORTANTE: Anexar a imagem de referência em CADA geração garante que a IA mantenha fidelidade ao produto original (forma, cor, textura, detalhes) em todas as 9 cenas. SEM a imagem, a IA vai 'inventar' um produto genérico.",
+    "supported_formats": ["PNG", "JPG", "JPEG", "WEBP", "URL"],
+    "recommended_resolution": "1024x1024 mínimo, 2048x2048 ideal para detalhes"
+  },
+  "quality_report": {
+    "total_prompts": 9,
+    "validation_passed": 9,
+    "validation_failed": 0,
+    "avg_validation_score": 0.94,
+    "avg_character_count": 377,
+    "marketplace_compliance_status": "FULL_COMPLIANCE",
+    "white_bg_scenes_count": 2,
+    "white_bg_scenes": [1, 9],
+    "compliance_details": {
+      "scene_1_white_bg": true,
+      "scene_9_white_bg": true,
+      "all_lengths_valid": true,
+      "all_camera_specified": true,
+      "all_lighting_described": true,
+      "all_background_mentioned": true,
+      "all_composition_defined": true,
+      "all_8k_stated": true,
+      "all_no_watermarks": true,
+      "all_no_text": true,
+      "all_no_logos": true,
+      "all_pnl_included": true,
+      "all_reference_placeholder": true
+    },
+    "warnings": [],
+    "errors": [],
+    "performance_metrics": {
+      "generation_time_ms": 8500,
+      "validation_time_ms": 1200,
+      "total_time_ms": 9700,
+      "target_met": true
+    }
+  },
+  "marketplace_compliance": {
+    "compliant_marketplaces": ["mercadolivre", "shopee", "magalu", "amazon_br"],
+    "rules_applied": [
+      "ML: Scene 1 white bg #FFFFFF for thumbnail",
+      "Shopee: Exactly 9 images maximum",
+      "Amazon BR: No watermarks, no text overlay",
+      "Magalu: High-key lighting for product clarity"
+    ],
+    "non_compliance_risks": []
+  },
+  "trinity_output": {
+    "markdown": "marketplace_garrafa_agua.md",
+    "llm_json": "marketplace_garrafa_agua.llm.json",
+    "metadata_json": "marketplace_garrafa_agua.meta.json"
+  },
+  "anuncio_integration": {
+    "ready_for_anuncio": true,
+    "recommended_scenes": [1, 2, 3, 5, 9],
+    "prompt_compatibility": "all"
+  },
+  "input_echo": {
+    "subject": "Garrafa de água reutilizável ecológica 750ml aço inox",
+    "marketplace": "all",
+    "reference_image_provided": false
+  }
+}

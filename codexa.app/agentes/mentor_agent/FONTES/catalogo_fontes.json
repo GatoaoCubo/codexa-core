@@ -1,0 +1,696 @@
+{
+  "version": "1.1.0",
+  "last_updated": "2025-12-02",
+  "description": "Master catalog of external documentation sources for continuous learning and updates",
+
+  "fontes": [
+    {
+      "id": "anthropic_docs",
+      "categoria": "LLM_PLATFORMS",
+      "plataforma": "anthropic",
+      "nome": "Anthropic Claude Documentation",
+      "tipo": "documentation",
+      "url_oficial": "https://docs.anthropic.com",
+      "urls_especificas": {
+        "api_reference": "https://docs.anthropic.com/en/api/getting-started",
+        "prompt_engineering": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering",
+        "vision": "https://docs.anthropic.com/en/docs/build-with-claude/vision",
+        "tool_use": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use",
+        "streaming": "https://docs.anthropic.com/en/api/streaming"
+      },
+      "arquivos_locais": [
+        "FONTES/LLM_PLATFORMS/anthropic/api_reference.md",
+        "FONTES/LLM_PLATFORMS/anthropic/prompt_engineering.md",
+        "FONTES/LLM_PLATFORMS/anthropic/tool_use.md"
+      ],
+      "arquivos_existentes": 3,
+      "topics": [
+        "claude_api",
+        "prompt_engineering",
+        "context_windows",
+        "streaming",
+        "function_calling",
+        "vision",
+        "system_prompts",
+        "xml_tags",
+        "thinking",
+        "rate_limits"
+      ],
+      "refresh_frequency": "weekly",
+      "last_refresh": "2025-12-02",
+      "next_refresh": "2025-12-09",
+      "status": "active",
+      "priority": "critical",
+      "aplicacao": [
+        "quando_desenvolver_agentes_llm",
+        "quando_otimizar_prompts",
+        "quando_implementar_function_calling",
+        "quando_trabalhar_com_vision"
+      ]
+    },
+    {
+      "id": "openai_docs",
+      "categoria": "LLM_PLATFORMS",
+      "plataforma": "openai",
+      "nome": "OpenAI Platform Documentation",
+      "tipo": "documentation",
+      "url_oficial": "https://platform.openai.com/docs",
+      "urls_especificas": {
+        "api_reference": "https://platform.openai.com/docs/api-reference",
+        "guides": "https://platform.openai.com/docs/guides",
+        "gpt_best_practices": "https://platform.openai.com/docs/guides/prompt-engineering",
+        "embeddings": "https://platform.openai.com/docs/guides/embeddings",
+        "fine_tuning": "https://platform.openai.com/docs/guides/fine-tuning",
+        "assistants": "https://platform.openai.com/docs/assistants/overview"
+      },
+      "arquivos_locais": [
+        "FONTES/LLM_PLATFORMS/openai/api_reference.md",
+        "FONTES/LLM_PLATFORMS/openai/gpt_best_practices.md",
+        "FONTES/LLM_PLATFORMS/openai/embeddings.md",
+        "FONTES/LLM_PLATFORMS/openai/fine_tuning.md",
+        "FONTES/LLM_PLATFORMS/openai/assistants.md"
+      ],
+      "topics": [
+        "gpt4",
+        "gpt4o",
+        "embeddings",
+        "fine_tuning",
+        "assistants_api",
+        "function_calling",
+        "vision",
+        "dall_e",
+        "whisper"
+      ],
+      "refresh_frequency": "weekly",
+      "last_refresh": null,
+      "next_refresh": "2025-12-01",
+      "status": "active",
+      "priority": "high",
+      "aplicacao": [
+        "quando_usar_gpt4",
+        "quando_criar_embeddings",
+        "quando_fine_tuning",
+        "quando_usar_assistants_api"
+      ]
+    },
+    {
+      "id": "google_ai_docs",
+      "categoria": "LLM_PLATFORMS",
+      "plataforma": "google",
+      "nome": "Google AI (Gemini) Documentation",
+      "tipo": "documentation",
+      "url_oficial": "https://ai.google.dev/docs",
+      "urls_especificas": {
+        "gemini_api": "https://ai.google.dev/gemini-api/docs",
+        "prompting": "https://ai.google.dev/gemini-api/docs/prompting-strategies",
+        "vision": "https://ai.google.dev/gemini-api/docs/vision",
+        "function_calling": "https://ai.google.dev/gemini-api/docs/function-calling"
+      },
+      "arquivos_locais": [
+        "FONTES/LLM_PLATFORMS/google/gemini_api.md",
+        "FONTES/LLM_PLATFORMS/google/prompting_strategies.md",
+        "FONTES/LLM_PLATFORMS/google/function_calling.md"
+      ],
+      "arquivos_existentes": 3,
+      "topics": [
+        "gemini_pro",
+        "gemini_vision",
+        "prompting",
+        "function_calling",
+        "multimodal",
+        "context_caching"
+      ],
+      "refresh_frequency": "weekly",
+      "last_refresh": "2025-12-02",
+      "next_refresh": "2025-12-09",
+      "status": "active",
+      "priority": "high",
+      "aplicacao": [
+        "quando_usar_gemini",
+        "quando_trabalhar_multimodal",
+        "quando_otimizar_custos_llm"
+      ]
+    },
+    {
+      "id": "cohere_docs",
+      "categoria": "LLM_PLATFORMS",
+      "plataforma": "cohere",
+      "nome": "Cohere Platform Documentation",
+      "tipo": "documentation",
+      "url_oficial": "https://docs.cohere.com",
+      "urls_especificas": {
+        "api_reference": "https://docs.cohere.com/reference/about",
+        "embeddings": "https://docs.cohere.com/docs/embeddings",
+        "rerank": "https://docs.cohere.com/docs/rerank"
+      },
+      "arquivos_locais": [
+        "FONTES/LLM_PLATFORMS/cohere/api_reference.md",
+        "FONTES/LLM_PLATFORMS/cohere/embeddings.md",
+        "FONTES/LLM_PLATFORMS/cohere/rerank.md"
+      ],
+      "topics": [
+        "command_r",
+        "embeddings",
+        "rerank",
+        "rag"
+      ],
+      "refresh_frequency": "bi-weekly",
+      "last_refresh": null,
+      "next_refresh": "2025-12-08",
+      "status": "active",
+      "priority": "medium",
+      "aplicacao": [
+        "quando_implementar_rag",
+        "quando_rerank_results",
+        "quando_embeddings_multilingual"
+      ]
+    },
+    {
+      "id": "mercadolivre_api",
+      "categoria": "MARKETPLACES",
+      "plataforma": "mercadolivre",
+      "nome": "Mercado Livre Developers",
+      "tipo": "api_documentation",
+      "url_oficial": "https://developers.mercadolivre.com.br",
+      "urls_especificas": {
+        "api_docs": "https://developers.mercadolivre.com.br/pt_br/api-docs",
+        "listings": "https://developers.mercadolivre.com.br/pt_br/itens-e-buscas",
+        "seo": "https://developers.mercadolivre.com.br/pt_br/melhorar-vendas",
+        "authentication": "https://developers.mercadolivre.com.br/pt_br/autenticacao-e-autorizacao"
+      },
+      "arquivos_locais": [
+        "FONTES/MARKETPLACES/mercadolivre/api_overview.md"
+      ],
+      "arquivos_existentes": 1,
+      "topics": [
+        "listing_api",
+        "seo_ml",
+        "product_catalog",
+        "advertising",
+        "shipping",
+        "authentication",
+        "categories",
+        "search_api"
+      ],
+      "refresh_frequency": "monthly",
+      "last_refresh": "2025-12-02",
+      "next_refresh": "2026-01-02",
+      "status": "active",
+      "priority": "critical",
+      "aplicacao": [
+        "quando_integrar_ml_api",
+        "quando_otimizar_seo_ml",
+        "quando_automatizar_anuncios",
+        "quando_entender_categorias_ml"
+      ]
+    },
+    {
+      "id": "shopee_docs",
+      "categoria": "MARKETPLACES",
+      "plataforma": "shopee",
+      "nome": "Shopee Open Platform",
+      "tipo": "api_documentation",
+      "url_oficial": "https://open.shopee.com/documents",
+      "urls_especificas": {
+        "api_overview": "https://open.shopee.com/documents/v2/v2.product.get_item_list",
+        "product_api": "https://open.shopee.com/documents/v2/v2.product.get_item_list",
+        "order_api": "https://open.shopee.com/documents/v2/v2.order.get_order_list"
+      },
+      "arquivos_locais": [
+        "FONTES/MARKETPLACES/shopee/api_reference.md",
+        "FONTES/MARKETPLACES/shopee/product_guide.md",
+        "FONTES/MARKETPLACES/shopee/seo_guide.md"
+      ],
+      "topics": [
+        "product_api",
+        "order_management",
+        "logistics",
+        "seo_shopee",
+        "authentication"
+      ],
+      "refresh_frequency": "monthly",
+      "last_refresh": null,
+      "next_refresh": "2025-12-24",
+      "status": "active",
+      "priority": "high",
+      "aplicacao": [
+        "quando_integrar_shopee_api",
+        "quando_automatizar_shopee",
+        "quando_otimizar_seo_shopee"
+      ]
+    },
+    {
+      "id": "amazon_br_docs",
+      "categoria": "MARKETPLACES",
+      "plataforma": "amazon_br",
+      "nome": "Amazon Selling Partner API",
+      "tipo": "api_documentation",
+      "url_oficial": "https://developer-docs.amazon.com/sp-api/",
+      "urls_especificas": {
+        "sp_api": "https://developer-docs.amazon.com/sp-api/docs/welcome",
+        "product_api": "https://developer-docs.amazon.com/sp-api/docs/catalog-items-api-v2020-12-01-reference",
+        "seo_guide": "https://sell.amazon.com.br/learn/seo"
+      },
+      "arquivos_locais": [
+        "FONTES/MARKETPLACES/amazon_br/sp_api_overview.md"
+      ],
+      "arquivos_existentes": 1,
+      "topics": [
+        "sp_api",
+        "catalog_api",
+        "fba",
+        "seo_amazon",
+        "advertising"
+      ],
+      "refresh_frequency": "monthly",
+      "last_refresh": "2025-12-02",
+      "next_refresh": "2026-01-02",
+      "status": "active",
+      "priority": "medium",
+      "aplicacao": [
+        "quando_integrar_amazon_api",
+        "quando_usar_fba",
+        "quando_otimizar_seo_amazon"
+      ]
+    },
+    {
+      "id": "magalu_docs",
+      "categoria": "MARKETPLACES",
+      "plataforma": "magalu",
+      "nome": "Magazine Luiza Integrador",
+      "tipo": "api_documentation",
+      "url_oficial": "https://integrador.magazineluiza.com.br",
+      "urls_especificas": {
+        "api_docs": "https://integrador.magazineluiza.com.br/#/",
+        "onboarding": "https://integrador.magazineluiza.com.br/#/onboarding"
+      },
+      "arquivos_locais": [
+        "FONTES/MARKETPLACES/magalu/api_reference.md",
+        "FONTES/MARKETPLACES/magalu/integration_guide.md"
+      ],
+      "topics": [
+        "product_integration",
+        "order_management",
+        "catalog_api"
+      ],
+      "refresh_frequency": "monthly",
+      "last_refresh": null,
+      "next_refresh": "2025-12-24",
+      "status": "active",
+      "priority": "medium",
+      "aplicacao": [
+        "quando_integrar_magalu",
+        "quando_automatizar_magalu"
+      ]
+    },
+    {
+      "id": "langchain_docs",
+      "categoria": "FRAMEWORKS",
+      "plataforma": "langchain",
+      "nome": "LangChain Documentation",
+      "tipo": "framework_documentation",
+      "url_oficial": "https://python.langchain.com/docs/get_started/introduction",
+      "urls_especificas": {
+        "introduction": "https://python.langchain.com/docs/get_started/introduction",
+        "agents": "https://python.langchain.com/docs/modules/agents/",
+        "chains": "https://python.langchain.com/docs/modules/chains/",
+        "rag": "https://python.langchain.com/docs/use_cases/question_answering/",
+        "tools": "https://python.langchain.com/docs/modules/tools/"
+      },
+      "arquivos_locais": [
+        "FONTES/FRAMEWORKS/langchain/introduction.md"
+      ],
+      "arquivos_existentes": 1,
+      "topics": [
+        "agents",
+        "chains",
+        "rag",
+        "tools",
+        "memory",
+        "callbacks",
+        "output_parsers"
+      ],
+      "refresh_frequency": "weekly",
+      "last_refresh": "2025-12-02",
+      "next_refresh": "2025-12-09",
+      "status": "active",
+      "priority": "high",
+      "aplicacao": [
+        "quando_construir_agents",
+        "quando_implementar_rag",
+        "quando_criar_chains",
+        "quando_usar_tools"
+      ]
+    },
+    {
+      "id": "vercel_ai_sdk",
+      "categoria": "FRAMEWORKS",
+      "plataforma": "vercel_ai_sdk",
+      "nome": "Vercel AI SDK",
+      "tipo": "framework_documentation",
+      "url_oficial": "https://sdk.vercel.ai/docs",
+      "urls_especificas": {
+        "introduction": "https://sdk.vercel.ai/docs/introduction",
+        "ai_sdk_ui": "https://sdk.vercel.ai/docs/ai-sdk-ui/overview",
+        "ai_sdk_core": "https://sdk.vercel.ai/docs/ai-sdk-core/overview",
+        "streaming": "https://sdk.vercel.ai/docs/ai-sdk-ui/streaming"
+      },
+      "arquivos_locais": [
+        "FONTES/FRAMEWORKS/vercel_ai_sdk/introduction.md"
+      ],
+      "arquivos_existentes": 1,
+      "topics": [
+        "streaming",
+        "react_hooks",
+        "ai_sdk_ui",
+        "ai_sdk_core",
+        "tool_calling",
+        "generative_ui"
+      ],
+      "refresh_frequency": "weekly",
+      "last_refresh": "2025-12-02",
+      "next_refresh": "2025-12-09",
+      "status": "active",
+      "priority": "high",
+      "aplicacao": [
+        "quando_construir_ui_ai",
+        "quando_implementar_streaming",
+        "quando_usar_react_ai",
+        "quando_criar_generative_ui"
+      ]
+    },
+    {
+      "id": "llamaindex_docs",
+      "categoria": "FRAMEWORKS",
+      "plataforma": "llamaindex",
+      "nome": "LlamaIndex Documentation",
+      "tipo": "framework_documentation",
+      "url_oficial": "https://docs.llamaindex.ai/en/stable/",
+      "urls_especificas": {
+        "getting_started": "https://docs.llamaindex.ai/en/stable/getting_started/",
+        "indexing": "https://docs.llamaindex.ai/en/stable/understanding/indexing/indexing/",
+        "querying": "https://docs.llamaindex.ai/en/stable/understanding/querying/querying/",
+        "agents": "https://docs.llamaindex.ai/en/stable/understanding/agent/"
+      },
+      "arquivos_locais": [
+        "FONTES/FRAMEWORKS/llamaindex/introduction.md"
+      ],
+      "arquivos_existentes": 1,
+      "topics": [
+        "indexing",
+        "querying",
+        "rag",
+        "agents",
+        "vector_stores",
+        "embeddings"
+      ],
+      "refresh_frequency": "bi-weekly",
+      "last_refresh": "2025-12-02",
+      "next_refresh": "2025-12-16",
+      "status": "active",
+      "priority": "medium",
+      "aplicacao": [
+        "quando_indexar_documentos",
+        "quando_implementar_rag_avancado",
+        "quando_trabalhar_vector_stores"
+      ]
+    },
+    {
+      "id": "crewai_docs",
+      "categoria": "FRAMEWORKS",
+      "plataforma": "crewai",
+      "nome": "CrewAI Documentation",
+      "tipo": "framework_documentation",
+      "url_oficial": "https://docs.crewai.com",
+      "urls_especificas": {
+        "introduction": "https://docs.crewai.com/introduction",
+        "core_concepts": "https://docs.crewai.com/core-concepts/Agents/",
+        "tools": "https://docs.crewai.com/core-concepts/Tools/"
+      },
+      "arquivos_locais": [
+        "FONTES/FRAMEWORKS/crewai/introduction.md"
+      ],
+      "arquivos_existentes": 1,
+      "topics": [
+        "multi_agent",
+        "crews",
+        "tasks",
+        "tools",
+        "collaboration"
+      ],
+      "refresh_frequency": "bi-weekly",
+      "last_refresh": "2025-12-02",
+      "next_refresh": "2025-12-16",
+      "status": "active",
+      "priority": "medium",
+      "aplicacao": [
+        "quando_construir_multi_agent_systems",
+        "quando_orquestrar_agents",
+        "quando_criar_crews"
+      ]
+    },
+    {
+      "id": "google_search_central",
+      "categoria": "ECOMMERCE",
+      "plataforma": "seo",
+      "nome": "Google Search Central",
+      "tipo": "seo_documentation",
+      "url_oficial": "https://developers.google.com/search/docs",
+      "urls_especificas": {
+        "seo_starter": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+        "ecommerce_seo": "https://developers.google.com/search/docs/specialty/ecommerce",
+        "structured_data": "https://developers.google.com/search/docs/appearance/structured-data"
+      },
+      "arquivos_locais": [
+        "FONTES/ECOMMERCE/seo/google_seo_starter.md",
+        "FONTES/ECOMMERCE/seo/ecommerce_seo.md"
+      ],
+      "arquivos_existentes": 2,
+      "topics": [
+        "seo_fundamentals",
+        "ecommerce_seo",
+        "structured_data",
+        "product_schema",
+        "keywords",
+        "content_optimization"
+      ],
+      "refresh_frequency": "monthly",
+      "last_refresh": "2025-12-02",
+      "next_refresh": "2026-01-02",
+      "status": "active",
+      "priority": "high",
+      "aplicacao": [
+        "quando_otimizar_seo",
+        "quando_implementar_structured_data",
+        "quando_melhorar_ranking_google"
+      ]
+    },
+    {
+      "id": "copywriting_resources",
+      "categoria": "ECOMMERCE",
+      "plataforma": "copywriting",
+      "nome": "E-commerce Copywriting Best Practices",
+      "tipo": "knowledge_base",
+      "url_oficial": "https://copyblogger.com/ecommerce-copywriting/",
+      "urls_especificas": {
+        "copywriting_101": "https://copyblogger.com/copywriting-101/",
+        "product_descriptions": "https://copyblogger.com/product-descriptions/",
+        "conversion_copy": "https://copyblogger.com/conversion-copywriting/"
+      },
+      "arquivos_locais": [
+        "FONTES/ECOMMERCE/copywriting/copywriting_fundamentals.md"
+      ],
+      "arquivos_existentes": 1,
+      "topics": [
+        "copywriting_fundamentals",
+        "product_descriptions",
+        "conversion_copy",
+        "headlines",
+        "cta",
+        "storytelling",
+        "persuasion"
+      ],
+      "refresh_frequency": "quarterly",
+      "last_refresh": "2025-12-02",
+      "next_refresh": "2026-03-02",
+      "status": "active",
+      "priority": "medium",
+      "aplicacao": [
+        "quando_escrever_descricoes",
+        "quando_melhorar_conversao",
+        "quando_criar_headlines",
+        "quando_aplicar_gatilhos_mentais"
+      ]
+    },
+    {
+      "id": "conversion_optimization",
+      "categoria": "ECOMMERCE",
+      "plataforma": "conversion",
+      "nome": "Conversion Rate Optimization Resources",
+      "tipo": "knowledge_base",
+      "url_oficial": "https://cxl.com/blog/",
+      "urls_especificas": {
+        "cro_fundamentals": "https://cxl.com/blog/cro-fundamentals/",
+        "ecommerce_optimization": "https://cxl.com/blog/ecommerce-optimization/",
+        "ab_testing": "https://cxl.com/blog/ab-testing-guide/"
+      },
+      "arquivos_locais": [
+        "FONTES/ECOMMERCE/conversion/cro_fundamentals.md",
+        "FONTES/ECOMMERCE/conversion/ecommerce_optimization.md",
+        "FONTES/ECOMMERCE/conversion/ab_testing.md"
+      ],
+      "topics": [
+        "cro",
+        "ab_testing",
+        "user_psychology",
+        "friction_reduction",
+        "trust_signals",
+        "checkout_optimization"
+      ],
+      "refresh_frequency": "quarterly",
+      "last_refresh": null,
+      "next_refresh": "2026-02-24",
+      "status": "active",
+      "priority": "medium",
+      "aplicacao": [
+        "quando_melhorar_taxa_conversao",
+        "quando_fazer_ab_testing",
+        "quando_otimizar_checkout",
+        "quando_reduzir_atrito"
+      ]
+    },
+    {
+      "id": "google_analytics",
+      "categoria": "ECOMMERCE",
+      "plataforma": "analytics",
+      "nome": "Google Analytics for E-commerce",
+      "tipo": "analytics_documentation",
+      "url_oficial": "https://support.google.com/analytics/",
+      "urls_especificas": {
+        "ecommerce_analytics": "https://support.google.com/analytics/answer/1037249",
+        "enhanced_ecommerce": "https://support.google.com/analytics/answer/6014841"
+      },
+      "arquivos_locais": [
+        "FONTES/ECOMMERCE/analytics/ga4_ecommerce.md",
+        "FONTES/ECOMMERCE/analytics/enhanced_ecommerce.md"
+      ],
+      "topics": [
+        "ga4",
+        "ecommerce_tracking",
+        "conversion_funnel",
+        "attribution",
+        "reporting"
+      ],
+      "refresh_frequency": "quarterly",
+      "last_refresh": null,
+      "next_refresh": "2026-02-24",
+      "status": "active",
+      "priority": "low",
+      "aplicacao": [
+        "quando_analisar_metricas",
+        "quando_rastrear_conversoes",
+        "quando_entender_funil"
+      ]
+    }
+  ],
+
+  "categorias": [
+    {
+      "id": "LLM_PLATFORMS",
+      "nome": "LLM Platforms",
+      "descricao": "Documentation from LLM providers (APIs, prompting, best practices)",
+      "plataformas": ["anthropic", "openai", "google", "cohere"],
+      "total_fontes": 4,
+      "priority": "critical"
+    },
+    {
+      "id": "MARKETPLACES",
+      "nome": "Marketplaces",
+      "descricao": "APIs and guides from Brazilian e-commerce marketplaces",
+      "plataformas": ["mercadolivre", "shopee", "amazon_br", "magalu"],
+      "total_fontes": 4,
+      "priority": "critical"
+    },
+    {
+      "id": "FRAMEWORKS",
+      "nome": "Frameworks & SDKs",
+      "descricao": "Development frameworks for AI/LLM applications",
+      "plataformas": ["langchain", "vercel_ai_sdk", "llamaindex", "crewai"],
+      "total_fontes": 4,
+      "priority": "high"
+    },
+    {
+      "id": "ECOMMERCE",
+      "nome": "E-commerce Knowledge",
+      "descricao": "General e-commerce best practices (SEO, copywriting, CRO, analytics)",
+      "plataformas": ["seo", "copywriting", "conversion", "analytics"],
+      "total_fontes": 4,
+      "priority": "medium"
+    }
+  ],
+
+  "refresh_schedule": {
+    "critical": {
+      "frequency": "weekly",
+      "day": "monday",
+      "fontes": ["anthropic_docs", "mercadolivre_api"]
+    },
+    "high": {
+      "frequency": "weekly",
+      "day": "monday",
+      "fontes": ["openai_docs", "google_ai_docs", "langchain_docs", "vercel_ai_sdk"]
+    },
+    "medium": {
+      "frequency": "bi-weekly",
+      "fontes": ["cohere_docs", "shopee_docs", "amazon_br_docs", "magalu_docs", "llamaindex_docs", "crewai_docs"]
+    },
+    "low": {
+      "frequency": "monthly",
+      "fontes": ["copywriting_resources", "conversion_optimization", "google_analytics"]
+    }
+  },
+
+  "automation": {
+    "enabled": true,
+    "check_frequency": "daily",
+    "check_time": "08:00",
+    "auto_refresh": false,
+    "notify_on_changes": true,
+    "notification_channels": ["log", "file"],
+    "scripts": {
+      "check_updates": "scripts/fontes/check_updates.py",
+      "refresh_fonte": "scripts/fontes/refresh_fonte.py",
+      "sync_all": "scripts/fontes/sync_all.py",
+      "validate_links": "scripts/fontes/validate_links.py"
+    }
+  },
+
+  "metadata": {
+    "total_fontes": 16,
+    "total_categorias": 4,
+    "arquivos_criados": 15,
+    "created": "2025-11-24",
+    "agent": "mentor_agent",
+    "version": "1.2.0",
+    "last_validation": "2025-12-02",
+    "fontes_atualizadas": [
+      "anthropic_docs",
+      "google_ai_docs",
+      "langchain_docs",
+      "vercel_ai_sdk",
+      "llamaindex_docs",
+      "crewai_docs",
+      "mercadolivre_api",
+      "amazon_br_docs",
+      "google_search_central",
+      "copywriting_resources"
+    ],
+    "fontes_inacessiveis": [
+      "openai_docs (403 Forbidden)",
+      "cohere_docs (404 Not Found)",
+      "shopee_docs (blocked)",
+      "magalu_docs (host not found)",
+      "conversion_optimization (403 Forbidden)"
+    ]
+  }
+}

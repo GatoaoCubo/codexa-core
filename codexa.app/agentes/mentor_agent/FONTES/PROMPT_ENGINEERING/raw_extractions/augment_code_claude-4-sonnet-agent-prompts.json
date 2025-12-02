@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "ferramenta": "augment_code",
+    "versao": "unknown",
+    "categoria": "coding_ide",
+    "modelo_base": "unknown",
+    "data_extracao": "2025-12-01",
+    "tokens_original": 2709,
+    "linhas_original": 160,
+    "arquivo_fonte": "augment_code\\claude-4-sonnet-agent-prompts.txt"
+  },
+  "estrutura": {
+    "secoes_detectadas": [],
+    "formatacao": {
+      "usa_xml_tags": true,
+      "usa_markdown": true,
+      "usa_json_schemas": false,
+      "usa_typescript": false,
+      "usa_exemplos": true,
+      "usa_good_bad_examples": false
+    }
+  },
+  "patterns": [
+    {
+      "nome": "tool_calling",
+      "descricao": "Padrão tool_calling detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "task_management",
+      "descricao": "Padrão task_management detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "file_operations",
+      "descricao": "Padrão file_operations detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "terminal_commands",
+      "descricao": "Padrão terminal_commands detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    }
+  ],
+  "techniques": [],
+  "insights_codexa": [
+    "Extração básica - requer análise manual",
+    "Prompt tem 2709 tokens",
+    "Categoria: coding_ide"
+  ],
+  "diferenciais": [],
+  "metricas": {
+    "clareza": 0.5,
+    "completude": 0.5,
+    "reusabilidade": 0.5,
+    "inovacao": 0.5
+  },
+  "_extraction_method": "regex_fallback"
+}

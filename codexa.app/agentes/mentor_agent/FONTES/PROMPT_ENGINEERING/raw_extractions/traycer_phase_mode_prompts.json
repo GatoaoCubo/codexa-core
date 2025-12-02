@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "ferramenta": "traycer",
+    "versao": "unknown",
+    "categoria": "enterprise",
+    "modelo_base": "unknown",
+    "data_extracao": "2025-12-01",
+    "tokens_original": 960,
+    "linhas_original": 47,
+    "arquivo_fonte": "traycer\\phase_mode_prompts.txt"
+  },
+  "estrutura": {
+    "secoes_detectadas": [
+      {
+        "nome": "communication",
+        "tokens_aprox": 0,
+        "proposito": "Seção de communication",
+        "exemplo_conteudo": ""
+      }
+    ],
+    "formatacao": {
+      "usa_xml_tags": true,
+      "usa_markdown": false,
+      "usa_json_schemas": false,
+      "usa_typescript": false,
+      "usa_exemplos": false,
+      "usa_good_bad_examples": false
+    }
+  },
+  "patterns": [
+    {
+      "nome": "tool_calling",
+      "descricao": "Padrão tool_calling detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "task_management",
+      "descricao": "Padrão task_management detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "file_operations",
+      "descricao": "Padrão file_operations detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "terminal_commands",
+      "descricao": "Padrão terminal_commands detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    }
+  ],
+  "techniques": [],
+  "insights_codexa": [
+    "Extração básica - requer análise manual",
+    "Prompt tem 960 tokens",
+    "Categoria: enterprise"
+  ],
+  "diferenciais": [],
+  "metricas": {
+    "clareza": 0.5,
+    "completude": 0.5,
+    "reusabilidade": 0.5,
+    "inovacao": 0.5
+  },
+  "_extraction_method": "regex_fallback"
+}

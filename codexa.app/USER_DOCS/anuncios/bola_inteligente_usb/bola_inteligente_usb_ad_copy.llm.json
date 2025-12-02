@@ -1,0 +1,20 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Bola Inteligente Pet USB GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.90,
+  "execution_time_minutes": 3,
+  "titles": [
+    {"text": "Bola Inteligente Pet USB Interativa Gato Cachorro GATO3", "char_count": 56, "keyword_count": 8, "density": 0.80, "score": 0.88, "variant": "A", "focus": "equilibrado"},
+    {"text": "Bola Automatica Pet Interativa USB Gato Cachorro Eletrica", "char_count": 58, "keyword_count": 8, "density": 0.78, "score": 0.86, "variant": "B", "focus": "emocional"},
+    {"text": "Bola Inteligente USB Recarregavel Pet Gato Cachorro GATO3", "char_count": 58, "keyword_count": 8, "density": 0.78, "score": 0.87, "variant": "C", "focus": "tecnico"}
+  ],
+  "keywords": {"block_a": {"name": "Atributos", "count": 118}, "block_b": {"name": "Beneficios", "count": 116}, "coverage_score": {"head_terms": 0.92, "longtails": 0.88, "total_unique_keywords": 234}},
+  "description": {"word_count": 3489, "keyword_density": 0.041, "readability_score": 70, "sections": ["Hook", "Solucao", "Sensores", "USB", "LED", "Rolamento", "Tamanho", "Sensor", "Estimulo", "Energia", "Garantia", "CTA"], "storybrand_elements": 7},
+  "bullets": {"count": 10, "avg_chars": 246},
+  "visual_assets": {"status": "quick_mode_skipped"},
+  "qa_report": {"aggregate_score": 0.90, "validation_checks_passed": 11, "validation_checks_total": 11, "compliance_validation": {"passed": true, "no_html": true, "no_emojis": true}},
+  "strategic_brief": {"product_name": "Bola Inteligente Pet USB GATO3", "category": "Brinquedos para Pets / Bolas Interativas", "price_gato3": 77.33, "main_competitor": "Bola Inteligente (R$19,99, +10mil vendidos, 4.2 stars)", "differentiation": "durabilidade e suporte"},
+  "metadata": {"workflow_version": "2.5.0", "generator": "CodeXAnuncio v2.5.0", "generated_at": "2025-11-29T10:58:00Z", "plan": "quick_anuncio", "mode": "ULTRATHINK_batch", "status": "production_ready"}
+}

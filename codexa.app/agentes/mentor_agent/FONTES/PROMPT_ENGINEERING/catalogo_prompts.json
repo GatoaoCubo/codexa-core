@@ -1,0 +1,2230 @@
+{
+  "version": "1.0.0",
+  "description": "Catálogo master de extrações de prompts de ferramentas AI",
+  "created": "2025-12-01",
+  "source_dir": "../../../../../../FONTES/ai_tools_prompts",
+  "total_ferramentas": 0,
+  "total_arquivos": 0,
+  "categorias": {
+    "coding_ide": {
+      "descricao": "IDEs de código com AI integrada",
+      "ferramentas": [
+        "cursor",
+        "windsurf",
+        "augment_code",
+        "vscode_agent",
+        "xcode",
+        "trae"
+      ]
+    },
+    "ai_agent": {
+      "descricao": "Agentes AI autônomos",
+      "ferramentas": [
+        "devin",
+        "manus",
+        "lovable",
+        "same_dev",
+        "junie",
+        "kiro",
+        "emergent"
+      ]
+    },
+    "open_source": {
+      "descricao": "Ferramentas open source",
+      "ferramentas": [
+        "cline",
+        "bolt",
+        "roocode",
+        "codex_cli",
+        "gemini_cli",
+        "lumo"
+      ]
+    },
+    "platform": {
+      "descricao": "Plataformas e assistentes",
+      "ferramentas": [
+        "claude_code",
+        "anthropic",
+        "replit",
+        "v0",
+        "perplexity",
+        "notion_ai",
+        "gemini"
+      ]
+    },
+    "enterprise": {
+      "descricao": "Soluções enterprise",
+      "ferramentas": [
+        "cluely",
+        "codebuddy",
+        "comet_assistant",
+        "amp",
+        "qoder",
+        "orchids",
+        "leap",
+        "poke",
+        "warp",
+        "dia",
+        "traycer",
+        "zai_code"
+      ]
+    }
+  },
+  "extractions": [
+    {
+      "ferramenta": "amp",
+      "arquivo": "amp\\claude-4-sonnet.yaml",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "amp",
+      "arquivo": "amp\\gpt-5.yaml",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "amp",
+      "arquivo": "amp\\README.md",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "anthropic",
+      "arquivo": "anthropic\\Claude Code 2.0.txt",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "anthropic",
+      "arquivo": "anthropic\\Sonnet 4.5 Prompt.txt",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "augment_code",
+      "arquivo": "augment_code\\claude-4-sonnet-agent-prompts.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "augment_code",
+      "arquivo": "augment_code\\claude-4-sonnet-tools.json",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "augment_code",
+      "arquivo": "augment_code\\gpt-5-agent-prompts.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "augment_code",
+      "arquivo": "augment_code\\gpt-5-tools.json",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "claude_code",
+      "arquivo": "claude_code\\claude-code-system-prompt.txt",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "claude_code",
+      "arquivo": "claude_code\\claude-code-tools.json",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cluely",
+      "arquivo": "cluely\\Default Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cluely",
+      "arquivo": "cluely\\Enterprise Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "codebuddy",
+      "arquivo": "codebuddy\\Chat Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "codebuddy",
+      "arquivo": "codebuddy\\Craft Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "comet_assistant",
+      "arquivo": "comet_assistant\\System Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\Agent CLI Prompt 2025-08-07.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\Agent Prompt 2.0.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\Agent Prompt 2025-09-03.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\Agent Prompt v1.0.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\Agent Prompt v1.2.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\Agent Tools v1.0.json",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\Chat Prompt.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\metadata.json",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\NOTES.md",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\system_prompt.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "cursor",
+      "arquivo": "cursor\\tools.json",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "devin",
+      "arquivo": "devin\\DeepWiki Prompt.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "devin",
+      "arquivo": "devin\\Prompt.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "dia",
+      "arquivo": "dia\\Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "emergent",
+      "arquivo": "emergent\\Prompt.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "emergent",
+      "arquivo": "emergent\\Tools.json",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "gemini",
+      "arquivo": "gemini\\AI Studio Vibe-Coder.txt",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "google",
+      "arquivo": "google\\Antigravity\\Fast Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "google",
+      "arquivo": "google\\Antigravity\\planning-mode.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "junie",
+      "arquivo": "junie\\Prompt.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "kiro",
+      "arquivo": "kiro\\Mode_Clasifier_Prompt.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "kiro",
+      "arquivo": "kiro\\Spec_Prompt.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "kiro",
+      "arquivo": "kiro\\Vibe_Prompt.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "leap",
+      "arquivo": "leap\\Prompts.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "leap",
+      "arquivo": "leap\\tools.json",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "lovable",
+      "arquivo": "lovable\\Agent Prompt.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "lovable",
+      "arquivo": "lovable\\Agent Tools.json",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "manus",
+      "arquivo": "manus\\Agent loop.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "manus",
+      "arquivo": "manus\\Modules.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "manus",
+      "arquivo": "manus\\Prompt.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "manus",
+      "arquivo": "manus\\tools.json",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "notion_ai",
+      "arquivo": "notion_ai\\Prompt.txt",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "notion_ai",
+      "arquivo": "notion_ai\\tools.json",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "open_source",
+      "arquivo": "open_source\\Bolt\\Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "open_source",
+      "arquivo": "open_source\\Cline\\Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "open_source",
+      "arquivo": "open_source\\Codex CLI\\openai-codex-cli-system-prompt-20250820.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "open_source",
+      "arquivo": "open_source\\Codex CLI\\Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "open_source",
+      "arquivo": "open_source\\Gemini CLI\\google-gemini-cli-system-prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "open_source",
+      "arquivo": "open_source\\Lumo\\Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "open_source",
+      "arquivo": "open_source\\RooCode\\Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "orchids",
+      "arquivo": "orchids\\Decision-making prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "orchids",
+      "arquivo": "orchids\\System Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "perplexity",
+      "arquivo": "perplexity\\Prompt.txt",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "poke",
+      "arquivo": "poke\\Poke agent.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "poke",
+      "arquivo": "poke\\Poke_p1.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "poke",
+      "arquivo": "poke\\Poke_p2.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "poke",
+      "arquivo": "poke\\Poke_p3.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "poke",
+      "arquivo": "poke\\Poke_p4.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "poke",
+      "arquivo": "poke\\Poke_p5.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "poke",
+      "arquivo": "poke\\Poke_p6.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "qoder",
+      "arquivo": "qoder\\prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "qoder",
+      "arquivo": "qoder\\Quest Action.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "qoder",
+      "arquivo": "qoder\\Quest Design.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "replit",
+      "arquivo": "replit\\Prompt.txt",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "replit",
+      "arquivo": "replit\\Tools.json",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "same_dev",
+      "arquivo": "same_dev\\Prompt.txt",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "same_dev",
+      "arquivo": "same_dev\\Tools.json",
+      "categoria": "ai_agent",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "trae",
+      "arquivo": "trae\\Builder Prompt.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "trae",
+      "arquivo": "trae\\Builder Tools.json",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "trae",
+      "arquivo": "trae\\Chat Prompt.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "traycer",
+      "arquivo": "traycer\\phase_mode_prompts.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "traycer",
+      "arquivo": "traycer\\phase_mode_tools.json",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "traycer",
+      "arquivo": "traycer\\plan_mode_tools.json",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "v0",
+      "arquivo": "v0\\Prompt.txt",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "v0",
+      "arquivo": "v0\\Tools.json",
+      "categoria": "platform",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "vscode_agent",
+      "arquivo": "vscode_agent\\chat-titles.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "vscode_agent",
+      "arquivo": "vscode_agent\\claude-sonnet-4.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "vscode_agent",
+      "arquivo": "vscode_agent\\gemini-2.5-pro.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "vscode_agent",
+      "arquivo": "vscode_agent\\gpt-4.1.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "vscode_agent",
+      "arquivo": "vscode_agent\\gpt-4o.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "vscode_agent",
+      "arquivo": "vscode_agent\\gpt-5-mini.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "vscode_agent",
+      "arquivo": "vscode_agent\\gpt-5.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "vscode_agent",
+      "arquivo": "vscode_agent\\nes-tab-completion.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "vscode_agent",
+      "arquivo": "vscode_agent\\Prompt.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "warp",
+      "arquivo": "warp\\Prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "windsurf",
+      "arquivo": "windsurf\\Prompt Wave 11.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands",
+        "security_constraints"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "windsurf",
+      "arquivo": "windsurf\\Tools Wave 11.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "xcode",
+      "arquivo": "xcode\\DocumentAction.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "xcode",
+      "arquivo": "xcode\\ExplainAction.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "xcode",
+      "arquivo": "xcode\\MessageAction.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "xcode",
+      "arquivo": "xcode\\PlaygroundAction.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "xcode",
+      "arquivo": "xcode\\PreviewAction.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "xcode",
+      "arquivo": "xcode\\System.txt",
+      "categoria": "coding_ide",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    },
+    {
+      "ferramenta": "zai_code",
+      "arquivo": "zai_code\\prompt.txt",
+      "categoria": "enterprise",
+      "data": "2025-12-01",
+      "patterns": [
+        "tool_calling",
+        "task_management",
+        "file_operations",
+        "terminal_commands"
+      ],
+      "metricas": {
+        "clareza": 0.5,
+        "completude": 0.5,
+        "reusabilidade": 0.5,
+        "inovacao": 0.5
+      }
+    }
+  ],
+  "patterns_index": {
+    "tool_calling": [
+      "amp",
+      "amp",
+      "amp",
+      "anthropic",
+      "anthropic",
+      "augment_code",
+      "augment_code",
+      "augment_code",
+      "augment_code",
+      "claude_code",
+      "claude_code",
+      "cluely",
+      "codebuddy",
+      "codebuddy",
+      "comet_assistant",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "devin",
+      "devin",
+      "dia",
+      "emergent",
+      "emergent",
+      "gemini",
+      "google",
+      "google",
+      "junie",
+      "kiro",
+      "kiro",
+      "kiro",
+      "leap",
+      "leap",
+      "lovable",
+      "lovable",
+      "manus",
+      "manus",
+      "manus",
+      "manus",
+      "notion_ai",
+      "notion_ai",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "orchids",
+      "orchids",
+      "poke",
+      "poke",
+      "poke",
+      "poke",
+      "poke",
+      "poke",
+      "qoder",
+      "qoder",
+      "qoder",
+      "replit",
+      "replit",
+      "same_dev",
+      "same_dev",
+      "trae",
+      "trae",
+      "trae",
+      "traycer",
+      "traycer",
+      "traycer",
+      "v0",
+      "v0",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "warp",
+      "windsurf",
+      "windsurf",
+      "xcode",
+      "xcode",
+      "zai_code"
+    ],
+    "task_management": [
+      "amp",
+      "amp",
+      "anthropic",
+      "anthropic",
+      "augment_code",
+      "augment_code",
+      "augment_code",
+      "augment_code",
+      "claude_code",
+      "claude_code",
+      "cluely",
+      "codebuddy",
+      "comet_assistant",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "devin",
+      "devin",
+      "emergent",
+      "emergent",
+      "gemini",
+      "google",
+      "google",
+      "kiro",
+      "kiro",
+      "kiro",
+      "leap",
+      "leap",
+      "lovable",
+      "lovable",
+      "manus",
+      "manus",
+      "manus",
+      "manus",
+      "notion_ai",
+      "notion_ai",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "orchids",
+      "orchids",
+      "poke",
+      "poke",
+      "poke",
+      "poke",
+      "poke",
+      "qoder",
+      "qoder",
+      "qoder",
+      "replit",
+      "replit",
+      "same_dev",
+      "same_dev",
+      "trae",
+      "trae",
+      "trae",
+      "traycer",
+      "traycer",
+      "traycer",
+      "v0",
+      "v0",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "warp",
+      "windsurf",
+      "windsurf",
+      "xcode",
+      "zai_code"
+    ],
+    "file_operations": [
+      "amp",
+      "amp",
+      "anthropic",
+      "anthropic",
+      "augment_code",
+      "augment_code",
+      "augment_code",
+      "augment_code",
+      "claude_code",
+      "claude_code",
+      "codebuddy",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "devin",
+      "emergent",
+      "gemini",
+      "google",
+      "google",
+      "junie",
+      "kiro",
+      "kiro",
+      "leap",
+      "lovable",
+      "lovable",
+      "manus",
+      "manus",
+      "manus",
+      "manus",
+      "notion_ai",
+      "notion_ai",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "orchids",
+      "poke",
+      "poke",
+      "poke",
+      "qoder",
+      "qoder",
+      "qoder",
+      "replit",
+      "replit",
+      "same_dev",
+      "same_dev",
+      "trae",
+      "trae",
+      "trae",
+      "traycer",
+      "traycer",
+      "traycer",
+      "v0",
+      "v0",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "warp",
+      "windsurf",
+      "windsurf",
+      "zai_code"
+    ],
+    "terminal_commands": [
+      "amp",
+      "amp",
+      "anthropic",
+      "anthropic",
+      "augment_code",
+      "augment_code",
+      "augment_code",
+      "augment_code",
+      "claude_code",
+      "claude_code",
+      "cluely",
+      "codebuddy",
+      "comet_assistant",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "devin",
+      "dia",
+      "emergent",
+      "emergent",
+      "gemini",
+      "google",
+      "google",
+      "junie",
+      "kiro",
+      "kiro",
+      "kiro",
+      "leap",
+      "manus",
+      "manus",
+      "manus",
+      "notion_ai",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "open_source",
+      "orchids",
+      "perplexity",
+      "qoder",
+      "qoder",
+      "qoder",
+      "replit",
+      "replit",
+      "same_dev",
+      "same_dev",
+      "trae",
+      "trae",
+      "trae",
+      "traycer",
+      "traycer",
+      "traycer",
+      "v0",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "vscode_agent",
+      "warp",
+      "windsurf",
+      "windsurf",
+      "zai_code"
+    ],
+    "security_constraints": [
+      "amp",
+      "anthropic",
+      "anthropic",
+      "claude_code",
+      "claude_code",
+      "comet_assistant",
+      "cursor",
+      "cursor",
+      "cursor",
+      "cursor",
+      "devin",
+      "dia",
+      "emergent",
+      "emergent",
+      "google",
+      "kiro",
+      "kiro",
+      "leap",
+      "lovable",
+      "lovable",
+      "notion_ai",
+      "open_source",
+      "open_source",
+      "open_source",
+      "poke",
+      "qoder",
+      "qoder",
+      "qoder",
+      "same_dev",
+      "trae",
+      "v0",
+      "vscode_agent",
+      "vscode_agent",
+      "windsurf"
+    ]
+  },
+  "techniques_index": {
+    "think_tool": ["devin"],
+    "memory_system": ["windsurf", "cursor"],
+    "planning_mode": ["devin"],
+    "parallel_execution": ["claude_code", "cursor"],
+    "semantic_search": ["cursor", "devin"],
+    "design_subagent": ["v0"],
+    "partial_edits": ["cursor", "v0", "windsurf"],
+    "lsp_integration": ["devin"],
+    "browser_automation": ["devin", "v0"]
+  },
+  "quality_scores_deep_analysis": {
+    "claude_code": {"clareza": 0.90, "completude": 0.88, "reusabilidade": 0.85, "inovacao": 0.80},
+    "cursor": {"clareza": 0.88, "completude": 0.85, "reusabilidade": 0.82, "inovacao": 0.85},
+    "devin": {"clareza": 0.85, "completude": 0.82, "reusabilidade": 0.80, "inovacao": 0.92},
+    "windsurf": {"clareza": 0.82, "completude": 0.75, "reusabilidade": 0.78, "inovacao": 0.78},
+    "v0": {"clareza": 0.87, "completude": 0.90, "reusabilidade": 0.75, "inovacao": 0.88}
+  },
+  "stats": {
+    "processed": 100,
+    "pending": 106,
+    "failed": 0,
+    "deep_analyzed": 5,
+    "last_updated": "2025-12-02T00:00:00.000000",
+    "analysis_version": "2.0.0-llm-deep"
+  }
+}

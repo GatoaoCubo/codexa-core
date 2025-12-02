@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codexa.ai/schemas/competitor-intelligence/source.schema.json",
+  "title": "Competitor Intelligence Source Schema",
+  "description": "Flexible schema for defining any type of competitive intelligence source",
+  "version": "1.0.0",
+
+  "type": "object",
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": ["name", "urls"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Display name of the source",
+          "minLength": 1
+        },
+
+        "tier": {
+          "type": "string",
+          "description": "User-defined tier classification",
+          "examples": ["free", "paid", "premium", "freemium", "enterprise"]
+        },
+
+        "priority": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"],
+          "default": "medium",
+          "description": "Priority level for monitoring and updates"
+        },
+
+        "urls": {
+          "type": "object",
+          "description": "All relevant URLs for this source",
+          "minProperties": 1,
+          "patternProperties": {
+            "^[a-z_]+$": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL for specific purpose (main, docs, pricing, etc.)"
+            }
+          },
+          "examples": [
+            {
+              "main": "https://example.com",
+              "pricing": "https://example.com/pricing",
+              "docs": "https://docs.example.com"
+            }
+          ]
+        },
+
+        "monitoring": {
+          "type": "object",
+          "description": "What to monitor for this source",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          "patternProperties": {
+            "^[a-z_]+$": {
+              "oneOf": [
+                {"type": "boolean"},
+                {"type": "number"},
+                {"type": "string"}
+              ],
+              "description": "User-defined monitoring metrics"
+            }
+          },
+          "examples": [
+            {
+              "price_changes": true,
+              "new_features": true,
+              "reputation_score": true,
+              "price_drop_threshold": 15
+            }
+          ]
+        },
+
+        "metrics": {
+          "type": "object",
+          "description": "Current metrics/values for this source",
+          "patternProperties": {
+            "^[a-z_]+$": {
+              "description": "Any user-defined metric",
+              "examples": [
+                "price_brl",
+                "duration_hours",
+                "rating_score",
+                "user_count"
+              ]
+            }
+          }
+        },
+
+        "custom_fields": {
+          "type": "object",
+          "description": "Completely flexible - user can add ANY fields they need",
+          "additionalProperties": true
+        },
+
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "User-defined tags for categorization",
+          "examples": [["b2b", "saas", "brazil"], ["ecommerce", "ai-powered"]]
+        },
+
+        "notes": {
+          "type": "string",
+          "description": "Free-form notes about this source"
+        },
+
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "added_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "last_updated": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "verified": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+
+      "additionalProperties": true,
+      "examples": [
+        {
+          "sebrae": {
+            "name": "Sebrae - IA na Prática",
+            "tier": "free",
+            "priority": "high",
+            "urls": {
+              "main_course": "https://sebrae.com.br/...",
+              "catalog": "https://sebrae.com.br/cursos"
+            },
+            "monitoring": {
+              "new_courses": true,
+              "partnerships": true
+            },
+            "metrics": {
+              "duration_hours": 3,
+              "price_brl": 0,
+              "certification": true
+            },
+            "tags": ["institutional", "free", "brazil"],
+            "custom_fields": {
+              "partnership_google": true,
+              "partnership_alura": true
+            }
+          }
+        }
+      ]
+    }
+  },
+
+  "additionalProperties": false
+}

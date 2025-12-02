@@ -1,0 +1,344 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Camera Technical Profiles",
+  "description": "Camera and lens specifications for professional photography simulation",
+  "version": "1.0.0",
+
+  "profiles": {
+    "24mm_f8": {
+      "name": "Wide Angle Environmental",
+      "focal_length": "24mm",
+      "aperture": "f/8",
+      "shutter_speed": "1/160s",
+      "iso": 100,
+      "depth_of_field": "deep",
+      "field_of_view": "84_degrees_horizontal",
+      "perspective": "wide_environmental",
+      "distortion": "minimal_rectilinear",
+      "use_cases": [
+        "architectural_photography",
+        "environmental_portraits",
+        "interior_spaces",
+        "wide_product_in_context",
+        "landscape_backgrounds"
+      ],
+      "best_for_scenes": [7],
+      "notes": "Captures environment context, shows product in full setting"
+    },
+
+    "35mm_f28": {
+      "name": "Documentary Standard",
+      "focal_length": "35mm",
+      "aperture": "f/2.8",
+      "shutter_speed": "1/160s",
+      "iso": 400,
+      "depth_of_field": "moderate",
+      "field_of_view": "63_degrees_horizontal",
+      "perspective": "natural_documentary",
+      "distortion": "minimal",
+      "use_cases": [
+        "street_photography",
+        "documentary_lifestyle",
+        "environmental_storytelling",
+        "cinematic_narrative",
+        "wide_portraits"
+      ],
+      "best_for_scenes": [2, 7],
+      "notes": "Versatile for storytelling, natural perspective"
+    },
+
+    "50mm_f8": {
+      "name": "Standard Product Hero",
+      "focal_length": "50mm",
+      "aperture": "f/8",
+      "shutter_speed": "1/160s",
+      "iso": 100,
+      "depth_of_field": "deep_full_focus",
+      "field_of_view": "46_degrees_horizontal",
+      "perspective": "normal_human_eye",
+      "distortion": "none",
+      "use_cases": [
+        "product_photography",
+        "hero_shots",
+        "white_background_commercial",
+        "full_focus_required",
+        "ecommerce_listings"
+      ],
+      "best_for_scenes": [1, 4, 6, 9],
+      "notes": "Default for product hero shots, scenes 1 & 9 marketplace compliance"
+    },
+
+    "50mm_f4": {
+      "name": "Standard Lifestyle",
+      "focal_length": "50mm",
+      "aperture": "f/4",
+      "shutter_speed": "1/160s",
+      "iso": 400,
+      "depth_of_field": "moderate",
+      "field_of_view": "46_degrees_horizontal",
+      "perspective": "normal",
+      "distortion": "none",
+      "use_cases": [
+        "lifestyle_product",
+        "moderate_background_blur",
+        "natural_scenes",
+        "balanced_dof",
+        "versatile_general"
+      ],
+      "best_for_scenes": [2, 4, 7],
+      "notes": "Balanced between sharpness and background separation"
+    },
+
+    "50mm_f56": {
+      "name": "Standard Balanced",
+      "focal_length": "50mm",
+      "aperture": "f/5.6",
+      "shutter_speed": "1/160s",
+      "iso": 100,
+      "depth_of_field": "moderate_deep",
+      "field_of_view": "46_degrees_horizontal",
+      "perspective": "normal",
+      "distortion": "none",
+      "use_cases": [
+        "mid_shot_photography",
+        "user_interaction",
+        "routine_scenes",
+        "balanced_sharpness",
+        "editorial_mid"
+      ],
+      "best_for_scenes": [4],
+      "notes": "Scene 4 user routine - balanced focus with slight background blur"
+    },
+
+    "85mm_f28": {
+      "name": "Portrait Bokeh",
+      "focal_length": "85mm",
+      "aperture": "f/2.8",
+      "shutter_speed": "1/160s",
+      "iso": 400,
+      "depth_of_field": "ultra_shallow",
+      "field_of_view": "28_degrees_horizontal",
+      "perspective": "portrait_compression",
+      "distortion": "none_flattering",
+      "use_cases": [
+        "portrait_photography",
+        "dramatic_bokeh",
+        "subject_isolation",
+        "beauty_shots",
+        "shallow_dof_artistic"
+      ],
+      "best_for_scenes": [2, 5],
+      "notes": "Strong background blur, subject isolation, emotional scenes"
+    },
+
+    "85mm_f4": {
+      "name": "Portrait Lifestyle",
+      "focal_length": "85mm",
+      "aperture": "f/4",
+      "shutter_speed": "1/160s",
+      "iso": 400,
+      "depth_of_field": "shallow",
+      "field_of_view": "28_degrees_horizontal",
+      "perspective": "portrait_compression",
+      "distortion": "minimal_flattering",
+      "use_cases": [
+        "lifestyle_photography",
+        "environmental_portraits",
+        "product_in_use",
+        "storytelling",
+        "contextual_blur"
+      ],
+      "best_for_scenes": [2, 5, 7],
+      "notes": "Default for lifestyle scenes, natural bokeh, flattering compression"
+    },
+
+    "85mm_f56": {
+      "name": "Editorial Balanced",
+      "focal_length": "85mm",
+      "aperture": "f/5.6",
+      "shutter_speed": "1/160s",
+      "iso": 100,
+      "depth_of_field": "moderate_balanced",
+      "field_of_view": "28_degrees_horizontal",
+      "perspective": "portrait_compression",
+      "distortion": "minimal",
+      "use_cases": [
+        "editorial_photography",
+        "magazine_quality",
+        "material_detail",
+        "balanced_sharpness",
+        "professional_portraits"
+      ],
+      "best_for_scenes": [7, 8],
+      "notes": "Scene 8 material quality - sharp detail with slight background separation"
+    },
+
+    "100mm_f28": {
+      "name": "Macro Detail",
+      "focal_length": "100mm",
+      "aperture": "f/2.8",
+      "shutter_speed": "1/160s",
+      "iso": 100,
+      "depth_of_field": "ultra_shallow_macro",
+      "field_of_view": "24_degrees_horizontal",
+      "perspective": "telephoto_compression",
+      "distortion": "none",
+      "magnification_ratio": "1:1_macro_capable",
+      "use_cases": [
+        "macro_photography",
+        "extreme_closeups",
+        "detail_shots",
+        "texture_focus",
+        "bokeh_background"
+      ],
+      "best_for_scenes": [3],
+      "notes": "Scene 3 macro detail - extreme close-up on critical quality points"
+    },
+
+    "100mm_f56": {
+      "name": "Macro Balanced",
+      "focal_length": "100mm",
+      "aperture": "f/5.6",
+      "shutter_speed": "1/160s",
+      "iso": 100,
+      "depth_of_field": "shallow_macro",
+      "field_of_view": "24_degrees_horizontal",
+      "perspective": "telephoto_compression",
+      "magnification_ratio": "1:2_close_focus",
+      "use_cases": [
+        "close_detail_photography",
+        "material_texture",
+        "moderate_macro",
+        "editorial_detail"
+      ],
+      "best_for_scenes": [8],
+      "notes": "Alternative for scene 8 - more depth than f/2.8"
+    },
+
+    "135mm_f4": {
+      "name": "Telephoto Portrait",
+      "focal_length": "135mm",
+      "aperture": "f/4",
+      "shutter_speed": "1/200s",
+      "iso": 400,
+      "depth_of_field": "shallow",
+      "field_of_view": "18_degrees_horizontal",
+      "perspective": "strong_compression",
+      "distortion": "none_highly_flattering",
+      "use_cases": [
+        "fashion_photography",
+        "beauty_portraits",
+        "compressed_perspective",
+        "background_isolation",
+        "runway_shots"
+      ],
+      "best_for_scenes": [5],
+      "notes": "Strong compression, maximum subject isolation"
+    },
+
+    "200mm_f56": {
+      "name": "Telephoto Compression",
+      "focal_length": "200mm",
+      "aperture": "f/5.6",
+      "shutter_speed": "1/250s",
+      "iso": 400,
+      "depth_of_field": "shallow",
+      "field_of_view": "12_degrees_horizontal",
+      "perspective": "extreme_compression",
+      "distortion": "none",
+      "use_cases": [
+        "fashion_editorial",
+        "compressed_backgrounds",
+        "layered_composition",
+        "sports_action",
+        "wildlife_distance"
+      ],
+      "best_for_scenes": [],
+      "notes": "Specialty use, extreme background compression"
+    }
+  },
+
+  "scene_recommendations": {
+    "scene_1_hero_white": {
+      "primary": "50mm_f8",
+      "alternatives": ["50mm_f56"],
+      "rationale": "Full focus required for marketplace compliance, standard perspective"
+    },
+    "scene_2_lifestyle_use": {
+      "primary": "85mm_f4",
+      "alternatives": ["85mm_f28", "50mm_f4"],
+      "rationale": "Flattering compression, background separation, natural storytelling"
+    },
+    "scene_3_macro_detail": {
+      "primary": "100mm_f28",
+      "alternatives": ["100mm_f56"],
+      "rationale": "Macro capability, extreme close-up, strong bokeh"
+    },
+    "scene_4_user_routine": {
+      "primary": "50mm_f56",
+      "alternatives": ["50mm_f4", "85mm_f4"],
+      "rationale": "Balanced focus, natural perspective, moderate DOF"
+    },
+    "scene_5_benefit_moment": {
+      "primary": "85mm_f4",
+      "alternatives": ["85mm_f28", "135mm_f4"],
+      "rationale": "Emotional intimacy, background blur, subject focus"
+    },
+    "scene_6_topdown_functional": {
+      "primary": "50mm_f8",
+      "alternatives": ["50mm_f56"],
+      "rationale": "Overhead perspective, full focus, geometric composition"
+    },
+    "scene_7_life_context": {
+      "primary": "85mm_f56",
+      "alternatives": ["50mm_f4", "35mm_f28"],
+      "rationale": "Environmental context, moderate blur, balanced composition"
+    },
+    "scene_8_material_quality": {
+      "primary": "85mm_f56",
+      "alternatives": ["100mm_f56", "100mm_f28"],
+      "rationale": "Detail focus, controlled DOF, material texture sharpness"
+    },
+    "scene_9_commercial_hero": {
+      "primary": "50mm_f8",
+      "alternatives": ["50mm_f56"],
+      "rationale": "Marketplace compliance, full focus, clean cutout"
+    }
+  },
+
+  "technical_specifications": {
+    "shutter_speed_guide": {
+      "1/60s": "Low light, static subjects, risk of motion blur",
+      "1/125s": "Standard minimum, slight motion tolerance",
+      "1/160s": "Default for static product photography",
+      "1/200s": "Slight motion safety, portraiture",
+      "1/250s": "Telephoto stabilization, action readiness",
+      "1/500s": "Action photography, motion freeze"
+    },
+    "iso_guide": {
+      "100": "Studio lighting, maximum quality, no noise",
+      "200": "Bright natural light, slight flexibility",
+      "400": "Indoor natural light, window light, lifestyle",
+      "800": "Low light natural, elevated noise acceptable",
+      "1600": "Very low light, noticeable grain",
+      "3200": "Emergency low light, artistic grain"
+    },
+    "aperture_dof_guide": {
+      "f/1.2_f/1.8": "Ultra shallow DOF, extreme bokeh, low light",
+      "f/2.0_f/2.8": "Shallow DOF, strong bokeh, portrait/macro",
+      "f/4_f/5.6": "Moderate DOF, balanced, lifestyle/editorial",
+      "f/8_f/11": "Deep DOF, full focus, product/architecture",
+      "f/16_f/22": "Maximum DOF, landscape, group shots"
+    }
+  },
+
+  "metadata": {
+    "total_profiles": 12,
+    "default_profile": "50mm_f8",
+    "most_versatile": "50mm_f4",
+    "best_for_portraits": "85mm_f4",
+    "best_for_macro": "100mm_f28",
+    "best_for_products": "50mm_f8",
+    "best_for_lifestyle": "85mm_f4"
+  }
+}

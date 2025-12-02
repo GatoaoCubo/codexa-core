@@ -1,0 +1,99 @@
+{
+  "workflow_version": "2.5.0",
+  "workflow_id": "adw_run_anuncio",
+  "workflow_name": "Anuncio Generation Agent Execution",
+  "generator": "CodeXAnuncio v2.5.0",
+  "generated_at": "2025-11-29T11:40:00Z",
+  "phases_executed": 6,
+  "total_duration_minutes": 3,
+  "mode": "quick_anuncio",
+
+  "phase_breakdown": {
+    "phase_1_input_validation": {
+      "phase_name": "Input Validation",
+      "duration_min": 0.5,
+      "status": "completed"
+    },
+    "phase_2_title_generation": {
+      "phase_name": "Title Generation",
+      "duration_min": 0.5,
+      "status": "completed"
+    },
+    "phase_3_keywords_expansion": {
+      "phase_name": "Keywords Expansion",
+      "duration_min": 0.5,
+      "status": "completed"
+    },
+    "phase_4_description_building": {
+      "phase_name": "Description Building",
+      "duration_min": 1,
+      "status": "completed"
+    },
+    "phase_5_visual_assets": {
+      "phase_name": "Visual Assets",
+      "duration_min": 0,
+      "status": "skipped_quick_mode"
+    },
+    "phase_6_qa_variants": {
+      "phase_name": "QA & Variants",
+      "duration_min": 0.5,
+      "status": "completed"
+    }
+  },
+
+  "quality_metrics": {
+    "research_quality": 0.85,
+    "final_output_quality": 0.87,
+    "validation_checks_passed": 11,
+    "validation_checks_total": 11,
+    "component_scores": {
+      "title": 0.88,
+      "keywords": 0.87,
+      "description": 0.87,
+      "bullets": 0.86,
+      "compliance": 1.0
+    }
+  },
+
+  "context": {
+    "product_name": "Assento Carro Cao Pet Pequeno Medio Grande Lavavel Seguranca GATO3",
+    "marketplace_type": "MERCADO_LIVRE",
+    "product_type": "PHYSICAL_PRODUCT",
+    "compliance_requirements": [],
+    "target_audience": "Tutores de caes e gatos que viajam de carro frequentemente"
+  },
+
+  "execution_environment": {
+    "agent": "anuncio_agent",
+    "agent_version": "2.5.0",
+    "workflow_file": "quick_anuncio.json",
+    "output_directory": "USER_DOCS/anuncios/assento_carro_pet/",
+    "batch_mode": "ULTRATHINK"
+  },
+
+  "output_files": {
+    "markdown": {
+      "filename": "assento_carro_pet_ad_copy.md",
+      "format": "mercado_livre_physical"
+    },
+    "structured_data": {
+      "filename": "assento_carro_pet_ad_copy.llm.json",
+      "format": "json"
+    },
+    "metadata": {
+      "filename": "assento_carro_pet_ad_copy.meta.json",
+      "format": "json"
+    }
+  },
+
+  "validation_summary": {
+    "all_phases_completed": true,
+    "all_validations_passed": true,
+    "critical_issues": 0,
+    "production_ready": true
+  },
+
+  "status": "production_ready",
+  "maintainer": "CodeXAnuncio",
+  "version": "1.0.0"
+}

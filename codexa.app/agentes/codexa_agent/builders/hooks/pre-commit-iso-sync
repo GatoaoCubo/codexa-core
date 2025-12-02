@@ -1,0 +1,47 @@
+#!/bin/bash
+# ISO Vectorstore Pre-commit Hook
+#
+# Installation:
+#   Option A (copy to git hooks):
+#     cp codexa_agent/builders/hooks/pre-commit-iso-sync .git/hooks/pre-commit
+#     chmod +x .git/hooks/pre-commit
+#
+#   Option B (use pre-commit framework):
+#     cd agentes && pre-commit install
+#
+# This hook runs the iso_vectorstore sync before each commit,
+# ensuring export packages stay synchronized with source files.
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+AGENTES_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+SYNC_SCRIPT="$AGENTES_DIR/codexa_agent/builders/18_iso_vectorstore_sync.py"
+
+echo "[pre-commit] Running ISO Vectorstore Sync..."
+
+# Check if Python is available
+if ! command -v python &> /dev/null; then
+    if command -v python3 &> /dev/null; then
+        PYTHON=python3
+    else
+        echo "[WARN] Python not found, skipping iso_vectorstore sync"
+        exit 0
+    fi
+else
+    PYTHON=python
+fi
+
+# Run sync in pre-commit mode (only changed agents)
+cd "$AGENTES_DIR"
+$PYTHON "$SYNC_SCRIPT" --pre-commit
+
+# Check exit code
+if [ $? -ne 0 ]; then
+    echo "[ERROR] ISO Vectorstore sync failed"
+    exit 1
+fi
+
+# Stage any changes made by the sync
+git add "*/iso_vectorstore/*" 2>/dev/null || true
+
+echo "[pre-commit] ISO Vectorstore Sync complete"
+exit 0

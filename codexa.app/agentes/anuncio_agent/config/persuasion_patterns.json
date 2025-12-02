@@ -1,0 +1,395 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0",
+  "description": "Persuasion patterns, mental triggers, and copywriting frameworks for CodeXAnuncio",
+
+  "gatilhos_mentais": {
+    "escassez": {
+      "descricao": "Criar senso de limitação ou urgência",
+      "tecnicas": [
+        "Quantidade limitada",
+        "Tempo limitado",
+        "Exclusividade",
+        "Ultimas unidades"
+      ],
+      "exemplos_eticos": [
+        "Estoque limitado por lote de produção",
+        "Disponível enquanto durar o estoque",
+        "Edição limitada desta temporada"
+      ],
+      "evitar": [
+        "Falsas urgências",
+        "Contadores de tempo fake",
+        "Estoque infinito com claim de 'últimas unidades'"
+      ],
+      "peso_persuasao": 0.9
+    },
+    "prova_social": {
+      "descricao": "Mostrar que outros já compraram e aprovaram",
+      "tecnicas": [
+        "Depoimentos",
+        "Número de vendas",
+        "Avaliações positivas",
+        "Casos de uso"
+      ],
+      "exemplos_eticos": [
+        "Avaliado por milhares de clientes",
+        "Escolha de profissionais da área",
+        "Aprovado por especialistas"
+      ],
+      "evitar": [
+        "Depoimentos falsos",
+        "Manipulação de números",
+        "Reviews compradas"
+      ],
+      "peso_persuasao": 0.85
+    },
+    "autoridade": {
+      "descricao": "Demonstrar expertise, certificações ou reconhecimento",
+      "tecnicas": [
+        "Certificações",
+        "Prêmios",
+        "Reconhecimento de entidades",
+        "Expertise técnica"
+      ],
+      "exemplos_eticos": [
+        "Certificado pelo INMETRO",
+        "Desenvolvido com tecnologia X",
+        "Recomendado por associação profissional"
+      ],
+      "evitar": [
+        "Certificações inventadas",
+        "Prêmios não verificáveis",
+        "False authority"
+      ],
+      "peso_persuasao": 0.80
+    },
+    "reciprocidade": {
+      "descricao": "Oferecer valor antes de pedir compra",
+      "tecnicas": [
+        "Informação útil",
+        "Guia de uso",
+        "Conteúdo educativo",
+        "Benefícios extras"
+      ],
+      "exemplos_eticos": [
+        "Incluímos guia completo de instalação",
+        "Acesso a vídeos tutoriais exclusivos",
+        "Manual digital detalhado em português"
+      ],
+      "evitar": [
+        "Promessas de bônus inexistentes",
+        "Valor falso agregado"
+      ],
+      "peso_persuasao": 0.70
+    },
+    "compromisso_consistencia": {
+      "descricao": "Levar a pequenos compromissos progressivos",
+      "tecnicas": [
+        "Perguntas que geram 'sim'",
+        "Pequenos passos",
+        "Identidade aspiracional"
+      ],
+      "exemplos_eticos": [
+        "Você busca mais conforto? Este produto oferece...",
+        "Se você valoriza qualidade, então...",
+        "Para quem não aceita menos que o melhor"
+      ],
+      "evitar": [
+        "Manipulação psicológica agressiva",
+        "False dichotomies"
+      ],
+      "peso_persuasao": 0.65
+    },
+    "afinidade": {
+      "descricao": "Criar conexão emocional e identificação",
+      "tecnicas": [
+        "Linguagem inclusiva",
+        "Storytelling relatable",
+        "Valores compartilhados"
+      ],
+      "exemplos_eticos": [
+        "Pensado para quem, como você, valoriza...",
+        "Sabemos que você busca...",
+        "Para famílias que priorizam..."
+      ],
+      "evitar": [
+        "Manipulação emocional excessiva",
+        "Falsa empatia"
+      ],
+      "peso_persuasao": 0.75
+    }
+  },
+
+  "frameworks_copywriting": {
+    "StoryBrand": {
+      "descricao": "Framework de Donald Miller - 7 elementos de storytelling",
+      "elementos": [
+        {
+          "nome": "Personagem (Hero)",
+          "descricao": "O cliente é o herói, não a marca",
+          "aplicacao": "Identificar persona e aspirações"
+        },
+        {
+          "nome": "Problema",
+          "descricao": "Problema que o herói enfrenta (externo, interno, filosófico)",
+          "aplicacao": "Conectar com dores reais do research"
+        },
+        {
+          "nome": "Guia",
+          "descricao": "A marca como guia experiente (não herói)",
+          "aplicacao": "Posicionar produto como solução confiável"
+        },
+        {
+          "nome": "Plano",
+          "descricao": "Passos claros para resolver o problema",
+          "aplicacao": "Como usar, o que esperar, processo simples"
+        },
+        {
+          "nome": "Call to Action",
+          "descricao": "Chamado claro e direto à ação",
+          "aplicacao": "CTA ético e persuasivo"
+        },
+        {
+          "nome": "Evitar Fracasso",
+          "descricao": "O que acontece se não resolver o problema",
+          "aplicacao": "Mostrar custo de inação (sem medo excessivo)"
+        },
+        {
+          "nome": "Conquistar Sucesso",
+          "descricao": "Transformação positiva alcançada",
+          "aplicacao": "Mostrar resultado final desejado"
+        }
+      ],
+      "peso_persuasao": 0.95,
+      "quando_usar": "Descrições longas, variações S5, copy principal"
+    },
+    "AIDA": {
+      "descricao": "Attention, Interest, Desire, Action",
+      "fases": [
+        {
+          "fase": "Attention (Atenção)",
+          "objetivo": "Capturar atenção com gancho forte",
+          "tecnicas": ["Headline impactante", "Imagem hero", "Pergunta provocativa"]
+        },
+        {
+          "fase": "Interest (Interesse)",
+          "objetivo": "Manter interesse com informação relevante",
+          "tecnicas": ["Benefícios claros", "Dados interessantes", "Storytelling inicial"]
+        },
+        {
+          "fase": "Desire (Desejo)",
+          "objetivo": "Criar desejo pela transformação",
+          "tecnicas": ["Visualização de resultado", "Prova social", "Diferenciais únicos"]
+        },
+        {
+          "fase": "Action (Ação)",
+          "objetivo": "Levar à compra com CTA claro",
+          "tecnicas": ["CTA direto", "Redução de fricção", "Garantias"]
+        }
+      ],
+      "peso_persuasao": 0.85,
+      "quando_usar": "Títulos, aberturas, sequências curtas"
+    },
+    "PAS": {
+      "descricao": "Problem, Agitate, Solution",
+      "fases": [
+        {
+          "fase": "Problem (Problema)",
+          "objetivo": "Identificar problema claro",
+          "exemplo": "Falta de espaço para seu gato em apartamento pequeno"
+        },
+        {
+          "fase": "Agitate (Agitar)",
+          "objetivo": "Amplificar dor sem exagero",
+          "exemplo": "Gato entediado, sem enriquecimento ambiental, pode desenvolver comportamentos destrutivos"
+        },
+        {
+          "fase": "Solution (Solução)",
+          "objetivo": "Apresentar produto como solução",
+          "exemplo": "Cama de janela: economia de espaço + enriquecimento + vista panorâmica"
+        }
+      ],
+      "peso_persuasao": 0.80,
+      "quando_usar": "Quando dor é conhecida e bem definida"
+    },
+    "QUEST": {
+      "descricao": "Qualify, Understand, Educate, Stimulate, Transition",
+      "fases": [
+        "Qualify: Segmentar público (quem é este produto para)",
+        "Understand: Mostrar empatia com problema",
+        "Educate: Educar sobre solução",
+        "Stimulate: Estimular desejo pela transformação",
+        "Transition: CTA natural"
+      ],
+      "peso_persuasao": 0.75,
+      "quando_usar": "Produtos técnicos ou que requerem educação"
+    },
+    "4Ps": {
+      "descricao": "Picture, Promise, Prove, Push",
+      "fases": [
+        "Picture: Pintar imagem da transformação",
+        "Promise: Promessa clara e verificável",
+        "Prove: Provas (social proof, certificações, dados)",
+        "Push: Empurrão final com CTA + urgência ética"
+      ],
+      "peso_persuasao": 0.82,
+      "quando_usar": "Copy de conversão, landing pages"
+    }
+  },
+
+  "verbos_acao_por_contexto": {
+    "compra_imediata": [
+      "comprar", "adquirir", "garantir", "aproveitar", "levar", "escolher"
+    ],
+    "descoberta": [
+      "descobrir", "conhecer", "explorar", "ver", "experimentar", "testar"
+    ],
+    "transformacao": [
+      "transformar", "melhorar", "otimizar", "elevar", "aprimorar", "revolucionar"
+    ],
+    "economia": [
+      "economizar", "poupar", "ganhar", "investir", "valorizar"
+    ],
+    "seguranca": [
+      "proteger", "garantir", "assegurar", "confiar", "tranquilizar"
+    ]
+  },
+
+  "estruturas_beneficio": {
+    "beneficio_prova_condicao": {
+      "template": "[Benefício] + [Prova/Como] + [Condição/Quando]",
+      "exemplo": "Economize espaço (benefício) com design compacto e dobrável (prova) ideal para apartamentos pequenos (condição)"
+    },
+    "dor_solucao_resultado": {
+      "template": "[Dor] + [Como produto resolve] + [Resultado alcançado]",
+      "exemplo": "Gato entediado (dor)? Cama de janela oferece vista panorâmica e enriquecimento (solução) = gato feliz e ativo (resultado)"
+    },
+    "antes_depois": {
+      "template": "Antes [situação negativa] → Depois [situação positiva]",
+      "exemplo": "Antes: Gato sem espaço próprio → Depois: Gato com território exclusivo e vista privilegiada"
+    },
+    "feature_beneficio_ganho": {
+      "template": "[Feature técnica] → [Benefício funcional] → [Ganho emocional]",
+      "exemplo": "Ventosas reforçadas 90mm (feature) → Fixação segura até 15kg (benefício) → Tranquilidade e confiança (ganho)"
+    }
+  },
+
+  "densidade_beneficios": {
+    "ratio_ideal": {
+      "beneficios_por_feature": 2.0,
+      "descricao": "Para cada feature técnica, apresentar 2 benefícios",
+      "exemplo": "Feature: Tecido Oxford 600D → Benefício 1: Resistente à água → Benefício 2: Fácil de limpar"
+    },
+    "distribuicao_recomendada": {
+      "beneficios_funcionais": 0.60,
+      "beneficios_emocionais": 0.40,
+      "descricao": "60% benefícios funcionais (o que faz), 40% emocionais (como faz sentir)"
+    }
+  },
+
+  "padroes_linguagem": {
+    "inclusao_cliente": [
+      "seu", "sua", "você", "seu gato", "sua família", "para você"
+    ],
+    "concretude": [
+      "Usar números específicos: '15 kg' não 'muito peso'",
+      "Usar dimensões exatas: '55x39 cm' não 'tamanho grande'",
+      "Usar materiais específicos: 'Tecido Oxford 600D' não 'tecido resistente'"
+    ],
+    "simplicidade": [
+      "Frases curtas (média 15-20 palavras)",
+      "Parágrafos curtos (3-5 frases)",
+      "Evitar jargões sem explicação",
+      "Usar voz ativa"
+    ],
+    "especificidade": [
+      "Substituir 'alta qualidade' por especificação técnica",
+      "Substituir 'muito resistente' por 'suporta até X kg em testes'",
+      "Substituir 'fácil' por 'instalação em 3 passos sem furar parede'"
+    ]
+  },
+
+  "elementos_confianca": {
+    "garantias": [
+      "Garantia de X meses/anos",
+      "Satisfação garantida ou devolução",
+      "Política de troca transparente"
+    ],
+    "transparencia": [
+      "Especificações técnicas completas",
+      "Informações de origem e fabricação",
+      "Composição de materiais",
+      "Instruções claras de uso"
+    ],
+    "suporte": [
+      "Atendimento disponível",
+      "Manual em português",
+      "Vídeos tutoriais",
+      "FAQ detalhado"
+    ],
+    "certificacoes": [
+      "Certificações oficiais (INMETRO, ANVISA)",
+      "Testes de qualidade",
+      "Conformidade com normas"
+    ]
+  },
+
+  "storytelling_patterns": {
+    "hero_journey_simplificado": {
+      "etapas": [
+        "Mundo comum (situação atual do cliente)",
+        "Problema surge (dor identificada)",
+        "Encontro com mentor (produto como solução)",
+        "Jornada (uso do produto)",
+        "Transformação (resultado alcançado)"
+      ],
+      "aplicacao": "Variação B (emocional), descrições longas com storytelling"
+    },
+    "transformacao_3_atos": {
+      "ato_1": "Estabelecer contexto e dor",
+      "ato_2": "Apresentar solução e processo",
+      "ato_3": "Mostrar resultado e CTA",
+      "aplicacao": "Roteiros de vídeo VEO3"
+    }
+  },
+
+  "calibragem_emocional": {
+    "tom_por_categoria": {
+      "produtos_pets": {
+        "tom": "Afetuoso, cuidadoso, protetor",
+        "palavras_chave": ["bem-estar", "conforto", "amor", "cuidado", "felicidade"],
+        "evitar": ["antropomorfização excessiva"]
+      },
+      "produtos_tecnologia": {
+        "tom": "Inovador, preciso, confiável",
+        "palavras_chave": ["performance", "eficiência", "tecnologia", "precisão"],
+        "evitar": ["jargões excessivos sem explicação"]
+      },
+      "produtos_casa": {
+        "tom": "Acolhedor, prático, harmonioso",
+        "palavras_chave": ["conforto", "praticidade", "organização", "harmonia"],
+        "evitar": ["exagero em benefícios estéticos"]
+      },
+      "produtos_infantis": {
+        "tom": "Seguro, educativo, divertido",
+        "palavras_chave": ["segurança", "desenvolvimento", "diversão", "aprendizado"],
+        "evitar": ["apelo imperativo direto à criança"]
+      }
+    }
+  },
+
+  "deteccao_frameworks": {
+    "regex_storybrand": {
+      "personagem": "(você|seu|sua|quem)",
+      "problema": "(problema|dor|dificuldade|desafio)",
+      "solucao": "(solução|resolve|ajuda|oferece)",
+      "resultado": "(resultado|transformação|conquista|alcança)"
+    },
+    "regex_gatilhos": {
+      "escassez": "(limitado|exclusivo|enquanto|últimas)",
+      "prova_social": "(clientes|avaliações|aprovado|escolha)",
+      "autoridade": "(certificado|testado|reconhecido|expertise)"
+    }
+  }
+}

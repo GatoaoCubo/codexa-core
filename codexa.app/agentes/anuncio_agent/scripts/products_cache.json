@@ -1,0 +1,178 @@
+[
+  {
+    "id": "bd629e95-f695-4be3-8b5b-4241ab852c4e",
+    "name": "Tapete Refrescante Gelado 65x50cm Pet Cachorro Gato",
+    "slug": "tapete-65-50",
+    "price": 58.39,
+    "status": "published",
+    "created_at": "2025-10-22T16:36:29.762817+00:00"
+  },
+  {
+    "id": "33f19248-49ee-4cc8-b9c8-17052ee0889a",
+    "name": "Tapete Gelado Grande 50x90cm Pet Refrescante",
+    "slug": "tapete-50-90",
+    "price": 68.93,
+    "status": "published",
+    "created_at": "2025-10-14T20:18:07.708461+00:00"
+  },
+  {
+    "id": "72f6c8e3-615f-4eaa-9f8c-aefabc8dfdb4",
+    "name": "Tapete Refrescante 40x50cm Pet Cachorro Gato",
+    "slug": "tapete-40-50",
+    "price": 28.9,
+    "status": "published",
+    "created_at": "2025-10-14T17:05:43.178037+00:00"
+  },
+  {
+    "id": "2354fdee-3f9d-4a8a-abbd-8d725a94876a",
+    "name": "Portão Retrátil Bebês Pets 1.80 m 89 cm trava segura fácil",
+    "slug": "portao-retratil2",
+    "price": 213.0,
+    "status": "published",
+    "created_at": "2025-10-11T14:57:41.559462+00:00"
+  },
+  {
+    "id": "ed1f6428-2f1c-4d24-a72f-10456c313733",
+    "name": "Caixa Transportadora Pet PP 47x29,5x32cm Gato Cachorro",
+    "slug": "caixa-transportepp",
+    "price": 11.0,
+    "status": "published",
+    "created_at": "2025-10-10T14:38:08.883949+00:00"
+  },
+  {
+    "id": "44ad323b-e1c5-4009-a1aa-b8ef4e644164",
+    "name": "Guia Pet Cachorro Cintura Bolsa Pochete Adestramento Passeio",
+    "slug": "cb3092-guia-passeio",
+    "price": 36.9,
+    "status": "published",
+    "created_at": "2025-10-10T02:57:53.845558+00:00"
+  },
+  {
+    "id": "aa91cfe0-de40-433c-a42d-1396b2a98399",
+    "name": "Brinquedo Bola Frisbee Gato³ ao Cubo - Diversão 2 em 1 Pet",
+    "slug": "cb3854-bola-frisbe",
+    "price": 27.7,
+    "status": "published",
+    "created_at": "2025-10-10T02:32:03.920112+00:00"
+  },
+  {
+    "id": "ad11178b-ead7-491a-8981-62f93bd7ad22",
+    "name": "Escova Massageadora Canto Gato Catnip Limpeza Divertida Pet",
+    "slug": "escova-catnip",
+    "price": 11.3,
+    "status": "published",
+    "created_at": "2025-10-10T01:58:39.790263+00:00"
+  },
+  {
+    "id": "6b7f62d0-7f78-4b68-a18b-e32e90710eb0",
+    "name": "Brinquedo Laser Pet Gato Cachorro Interativo Cat Anti Stress",
+    "slug": "laser-pet",
+    "price": 6.9,
+    "status": "published",
+    "created_at": "2025-10-10T01:34:38.417989+00:00"
+  },
+  {
+    "id": "205dfb4a-e6b7-4dee-8615-beba911ef920",
+    "name": "Assento Carro Cão Pet Pequeno Médio Grande Lavável Segurança",
+    "slug": "cb2188-assento-carro",
+    "price": 79.9,
+    "status": "published",
+    "created_at": "2025-10-10T01:02:28.636504+00:00"
+  },
+  {
+    "id": "01dd38d3-5607-4d1b-8b8c-c62965a1fa1b",
+    "name": "Arranhador Cama Gato Papelão Resistente Anti Stress Pet",
+    "slug": "arranhador-cb3276",
+    "price": 38.33,
+    "status": "published",
+    "created_at": "2025-10-10T00:41:38.156378+00:00"
+  },
+  {
+    "id": "19f5b892-1fb3-4389-84f8-486f14ee1ead",
+    "name": "Caixa Gaiola Transporte Retrátil Dobravel Viagem Cão Gato",
+    "slug": "caixa-transporte-r",
+    "price": 279.33,
+    "status": "published",
+    "created_at": "2025-10-10T00:00:54.525059+00:00"
+  },
+  {
+    "id": "c55f2f6c-8e81-4374-a498-cb70fdc72572",
+    "name": "Tapete Gelado Colchonete Refrescante Pet Cão Gato Cama...",
+    "slug": "tapete-gelado",
+    "price": 36.69,
+    "status": "published",
+    "created_at": "2025-10-09T22:02:07.599674+00:00"
+  },
+  {
+    "id": "02a81a77-8dfd-470e-bd1d-ef108adcc849",
+    "name": "Brinquedo Gato Catnip Corda Penas Antiestresse Felinos",
+    "slug": "corda-catnip",
+    "price": 11.3,
+    "status": "published",
+    "created_at": "2025-10-06T23:36:41.334421+00:00"
+  },
+  {
+    "id": "30bbe2ff-9157-42c8-b932-c6b327349db1",
+    "name": "Grade Ajustável 1.80m Segurança Divisória Bebe Pet Escada",
+    "slug": "portao-retratil",
+    "price": 215.3,
+    "status": "published",
+    "created_at": "2025-10-06T16:35:24.040891+00:00"
+  },
+  {
+    "id": "e2a93ae8-55c4-409a-9515-d5c3d3962b83",
+    "name": "Mochila Pet Cápsula Astronauta Gatos e Cães até 6,5 kg",
+    "slug": "mochila-astronauta",
+    "price": 77.33,
+    "status": "published",
+    "created_at": "2025-10-06T16:21:13.391284+00:00"
+  },
+  {
+    "id": "62449357-e638-4d25-8ba2-3df4922ad957",
+    "name": "Cama Suspensa Janela para Gatos Ventosas 55x39cm Bege 15kg",
+    "slug": "cama-janela",
+    "price": 43.9,
+    "status": "published",
+    "created_at": "2025-10-06T15:50:39.163128+00:00"
+  },
+  {
+    "id": "a98f4ccd-8910-4d59-a405-fcba001a58fb",
+    "name": "Brinquedo Interativo Para Gato Varinha Com Ventosa Pena",
+    "slug": "varinha-ventosa",
+    "price": 19.3,
+    "status": "published",
+    "created_at": "2025-10-06T14:37:17.835015+00:00"
+  },
+  {
+    "id": "52ae57ec-b816-47d9-82db-49c5f5227991",
+    "name": "Rolo Tira Pelos Pet 20 Folhas Adesivas Removedor",
+    "slug": "rolo-tirapelos",
+    "price": 6.3,
+    "status": "published",
+    "created_at": "2025-10-06T14:02:51.177285+00:00"
+  },
+  {
+    "id": "3b08f364-fc8f-4f9b-97be-736326ecd5c6",
+    "name": "Comedouro Bebedouro Retratil Pet Portatil Viagem",
+    "slug": "pote-retratil",
+    "price": 17.35,
+    "status": "published",
+    "created_at": "2025-10-06T12:22:32.983699+00:00"
+  },
+  {
+    "id": "e7b800dc-7d43-4139-b110-06bebf05a136",
+    "name": "Bola Inteligente Pet USB Interativa Gato Cachorro",
+    "slug": "bola-inteligente",
+    "price": 77.33,
+    "status": "published",
+    "created_at": "2025-10-06T12:14:59.01977+00:00"
+  },
+  {
+    "id": "495d92ad-b773-41ab-904b-7c2e6c7e861b",
+    "name": "Brinquedo Automatico Gato Corda Interativo Pilha",
+    "slug": "corda-pilha",
+    "price": 36.3,
+    "status": "published",
+    "created_at": "2025-10-06T10:20:54.184445+00:00"
+  }
+]

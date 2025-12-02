@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "ferramenta": "v0",
+    "versao": "unknown",
+    "categoria": "platform",
+    "modelo_base": "unknown",
+    "data_extracao": "2025-12-01",
+    "tokens_original": 10961,
+    "linhas_original": 1139,
+    "arquivo_fonte": "v0\\Prompt.txt"
+  },
+  "estrutura": {
+    "secoes_detectadas": [
+      {
+        "nome": "code_handling",
+        "tokens_aprox": 0,
+        "proposito": "Seção de code_handling",
+        "exemplo_conteudo": ""
+      }
+    ],
+    "formatacao": {
+      "usa_xml_tags": true,
+      "usa_markdown": true,
+      "usa_json_schemas": false,
+      "usa_typescript": true,
+      "usa_exemplos": true,
+      "usa_good_bad_examples": false
+    }
+  },
+  "patterns": [
+    {
+      "nome": "tool_calling",
+      "descricao": "Padrão tool_calling detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "task_management",
+      "descricao": "Padrão task_management detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "file_operations",
+      "descricao": "Padrão file_operations detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "terminal_commands",
+      "descricao": "Padrão terminal_commands detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "security_constraints",
+      "descricao": "Padrão security_constraints detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    }
+  ],
+  "techniques": [],
+  "insights_codexa": [
+    "Extração básica - requer análise manual",
+    "Prompt tem 10961 tokens",
+    "Categoria: platform"
+  ],
+  "diferenciais": [],
+  "metricas": {
+    "clareza": 0.5,
+    "completude": 0.5,
+    "reusabilidade": 0.5,
+    "inovacao": 0.5
+  },
+  "_extraction_method": "regex_fallback"
+}

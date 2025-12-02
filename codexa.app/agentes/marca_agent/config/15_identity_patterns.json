@@ -1,0 +1,375 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "marca_agent_identity_patterns",
+  "description": "Visual, verbal, and values identity patterns for brand building",
+  "version": "2.5.0",
+  "visual_patterns": {
+    "color_psychology_br": {
+      "vermelho": {
+        "hex_range": ["#DC2626", "#EF4444", "#B91C1C"],
+        "emotions": ["Paixao", "Energia", "Urgencia", "Poder"],
+        "usage": "CTAs, promoções, destaques importantes",
+        "brazilian_context": "Muito usado em promoções, estimula ação imediata",
+        "avoid_with": ["Produtos relaxantes", "Marcas premium sutis"]
+      },
+      "azul": {
+        "hex_range": ["#2563EB", "#1E40AF", "#0EA5E9"],
+        "emotions": ["Confiança", "Profissionalismo", "Calma", "Segurança"],
+        "usage": "Marcas corporativas, tecnologia, finanças",
+        "brazilian_context": "Associado a bancos e instituições confiáveis",
+        "combine_with": ["Branco", "Cinza", "Laranja (contraste)"]
+      },
+      "verde": {
+        "hex_range": ["#059669", "#10B981", "#22C55E"],
+        "emotions": ["Natureza", "Sustentabilidade", "Saúde", "Crescimento"],
+        "usage": "Produtos naturais, orgânicos, sustentáveis",
+        "brazilian_context": "Forte associação com Brasil, natureza, esperança",
+        "combine_with": ["Marrom", "Amarelo", "Branco"]
+      },
+      "amarelo": {
+        "hex_range": ["#FBBF24", "#F59E0B", "#EAB308"],
+        "emotions": ["Alegria", "Otimismo", "Energia", "Atenção"],
+        "usage": "Destaques, marcas jovens, promoções",
+        "brazilian_context": "Associado a Brasil (bandeira), festas, verão",
+        "caution": "Usar com moderação, pode cansar visualmente"
+      },
+      "roxo": {
+        "hex_range": ["#7C3AED", "#8B5CF6", "#6D28D9"],
+        "emotions": ["Criatividade", "Luxo", "Mistério", "Sabedoria"],
+        "usage": "Marcas criativas, premium, tecnologia inovadora",
+        "brazilian_context": "Associado a espiritualidade e criatividade",
+        "combine_with": ["Dourado", "Rosa", "Branco"]
+      },
+      "laranja": {
+        "hex_range": ["#EA580C", "#F97316", "#FB923C"],
+        "emotions": ["Entusiasmo", "Criatividade", "Aventura", "Acessibilidade"],
+        "usage": "Marcas jovens, CTAs, destaques amigáveis",
+        "brazilian_context": "Energia positiva, muito usado em varejo",
+        "combine_with": ["Azul", "Branco", "Cinza escuro"]
+      },
+      "rosa": {
+        "hex_range": ["#EC4899", "#F472B6", "#BE185D"],
+        "emotions": ["Feminilidade", "Doçura", "Romance", "Cuidado"],
+        "usage": "Produtos femininos, beleza, cuidado",
+        "brazilian_context": "Tendência de uso por marcas de qualquer gênero",
+        "modern_usage": "Unissex em contextos de inovação"
+      },
+      "preto": {
+        "hex_range": ["#000000", "#171717", "#1F2937"],
+        "emotions": ["Sofisticação", "Luxo", "Poder", "Elegância"],
+        "usage": "Marcas premium, luxo, moda",
+        "brazilian_context": "Associado a exclusividade e status",
+        "combine_with": ["Dourado", "Branco", "Vermelho"]
+      },
+      "branco": {
+        "hex_range": ["#FFFFFF", "#FAFAFA", "#F9FAFB"],
+        "emotions": ["Pureza", "Simplicidade", "Limpeza", "Minimalismo"],
+        "usage": "Fundos, espaço negativo, marcas minimalistas",
+        "brazilian_context": "Universal, base para qualquer paleta",
+        "function": "Respiro visual, destaque de outros elementos"
+      }
+    },
+    "typography_patterns": {
+      "personality_mapping": {
+        "professional": {
+          "fonts": ["Inter", "Source Sans Pro", "IBM Plex Sans"],
+          "characteristics": "Clean, readable, corporate",
+          "archetypes": ["sage", "ruler", "caregiver"]
+        },
+        "creative": {
+          "fonts": ["Space Grotesk", "Archivo", "DM Sans"],
+          "characteristics": "Modern, distinctive, fresh",
+          "archetypes": ["creator", "magician", "explorer"]
+        },
+        "friendly": {
+          "fonts": ["Nunito", "Poppins", "Quicksand"],
+          "characteristics": "Rounded, approachable, warm",
+          "archetypes": ["innocent", "everyman", "jester"]
+        },
+        "elegant": {
+          "fonts": ["Playfair Display", "Cormorant", "Libre Baskerville"],
+          "characteristics": "Serif, sophisticated, classic",
+          "archetypes": ["ruler", "lover", "sage"]
+        },
+        "bold": {
+          "fonts": ["Montserrat", "Oswald", "Bebas Neue"],
+          "characteristics": "Strong, impactful, confident",
+          "archetypes": ["hero", "rebel", "ruler"]
+        },
+        "playful": {
+          "fonts": ["Fredoka One", "Baloo", "Comfortaa"],
+          "characteristics": "Fun, rounded, youthful",
+          "archetypes": ["jester", "innocent", "creator"]
+        }
+      },
+      "hierarchy_rules": {
+        "headline": {
+          "role": "Attention grabbing, brand expression",
+          "size_ratio": "2.5x-3x body",
+          "weight": "Bold or Extra Bold"
+        },
+        "subheadline": {
+          "role": "Supporting information, clarification",
+          "size_ratio": "1.5x body",
+          "weight": "Medium or Semi Bold"
+        },
+        "body": {
+          "role": "Main content, readability focus",
+          "size_range": "14-18px web, 10-12pt print",
+          "weight": "Regular"
+        },
+        "caption": {
+          "role": "Secondary info, legal, fine print",
+          "size_ratio": "0.75x body",
+          "weight": "Regular or Light"
+        }
+      }
+    },
+    "imagery_patterns": {
+      "photography_styles": {
+        "lifestyle": {
+          "description": "Product in use, real-life context",
+          "best_for": ["everyman", "explorer", "caregiver"],
+          "characteristics": "Natural lighting, candid moments"
+        },
+        "studio": {
+          "description": "Clean, controlled environment",
+          "best_for": ["ruler", "sage", "creator"],
+          "characteristics": "Perfect lighting, professional setup"
+        },
+        "documentary": {
+          "description": "Raw, authentic, unfiltered",
+          "best_for": ["rebel", "hero", "explorer"],
+          "characteristics": "High contrast, gritty, real"
+        },
+        "aspirational": {
+          "description": "Idealized, perfect scenarios",
+          "best_for": ["lover", "magician", "ruler"],
+          "characteristics": "Beautiful settings, dreamy quality"
+        },
+        "playful": {
+          "description": "Fun, colorful, energetic",
+          "best_for": ["jester", "innocent", "creator"],
+          "characteristics": "Bright colors, movement, joy"
+        }
+      },
+      "mood_board_categories": {
+        "texture": "Materials, surfaces, tactile elements",
+        "environment": "Settings, locations, atmospheres",
+        "emotion": "Facial expressions, body language, mood",
+        "product": "Product shots, details, features",
+        "lifestyle": "Usage scenarios, daily life integration",
+        "color": "Palette exploration, color combinations",
+        "typography": "Type treatments, layouts, lettering",
+        "pattern": "Graphic elements, shapes, motifs",
+        "inspiration": "Reference brands, art, culture"
+      }
+    }
+  },
+  "verbal_patterns": {
+    "messaging_hierarchy": {
+      "level_1_brand_essence": {
+        "purpose": "One-line soul of the brand",
+        "length": "10-15 words max",
+        "example": "Transformamos hidratação em estilo de vida consciente"
+      },
+      "level_2_tagline": {
+        "purpose": "Memorable brand expression",
+        "length": "40-60 characters",
+        "types": ["functional", "emotional", "aspirational"]
+      },
+      "level_3_value_proposition": {
+        "purpose": "Differentiated promise",
+        "structure": "For [target] who [need], [brand] is [category] that [benefit]",
+        "length": "2-3 sentences"
+      },
+      "level_4_key_messages": {
+        "purpose": "Supporting proof points",
+        "count": "3-5 messages",
+        "structure": "Claim + Evidence + Benefit"
+      },
+      "level_5_proof_points": {
+        "purpose": "Specific facts and features",
+        "types": ["features", "testimonials", "data", "certifications"]
+      }
+    },
+    "storytelling_frameworks": {
+      "storybrand": {
+        "elements": [
+          "Character (customer with desire)",
+          "Problem (villain, external, internal, philosophical)",
+          "Guide (brand with empathy and authority)",
+          "Plan (simple steps to success)",
+          "Call to Action (direct and transitional)",
+          "Success (vision of positive outcome)",
+          "Failure (stakes if they don't act)"
+        ],
+        "best_for": ["Service brands", "Transformative products"]
+      },
+      "heros_journey": {
+        "stages": [
+          "Ordinary World (before problem)",
+          "Call to Adventure (discovery of need)",
+          "Refusal (hesitation)",
+          "Meeting the Mentor (brand enters)",
+          "Crossing the Threshold (purchase)",
+          "Tests and Allies (using product)",
+          "Reward (transformation)",
+          "Return (new normal)"
+        ],
+        "best_for": ["Hero", "Explorer", "Magician archetypes"]
+      },
+      "pas_formula": {
+        "structure": [
+          "Problem (agitate the pain)",
+          "Agitation (make it urgent)",
+          "Solution (present the answer)"
+        ],
+        "best_for": ["Short-form copy", "Ads", "Landing pages"]
+      },
+      "aida_formula": {
+        "structure": [
+          "Attention (grab interest)",
+          "Interest (build curiosity)",
+          "Desire (create want)",
+          "Action (drive conversion)"
+        ],
+        "best_for": ["Sales copy", "Ads", "Email sequences"]
+      }
+    },
+    "tone_voice_patterns": {
+      "formal_to_casual_spectrum": {
+        "very_formal": {
+          "vocabulary": "Technical, industry terms, complex",
+          "sentence": "Long, structured, passive voice ok",
+          "pronouns": "Third person (A empresa, O produto)",
+          "contractions": "Never"
+        },
+        "formal": {
+          "vocabulary": "Professional but clear",
+          "sentence": "Medium length, active voice",
+          "pronouns": "We/You (Nós/Você)",
+          "contractions": "Rarely"
+        },
+        "neutral": {
+          "vocabulary": "Clear, accessible",
+          "sentence": "Varied length",
+          "pronouns": "Flexible",
+          "contractions": "Sometimes"
+        },
+        "casual": {
+          "vocabulary": "Everyday language",
+          "sentence": "Short to medium",
+          "pronouns": "You/We familiar",
+          "contractions": "Often"
+        },
+        "very_casual": {
+          "vocabulary": "Slang ok, colloquial",
+          "sentence": "Short, fragmented ok",
+          "pronouns": "First person, intimate",
+          "contractions": "Always"
+        }
+      }
+    }
+  },
+  "values_patterns": {
+    "value_categories": {
+      "functional": {
+        "description": "What the brand does/delivers",
+        "examples": ["Qualidade", "Durabilidade", "Eficiência", "Praticidade"]
+      },
+      "emotional": {
+        "description": "How the brand makes people feel",
+        "examples": ["Confiança", "Alegria", "Segurança", "Pertencimento"]
+      },
+      "social": {
+        "description": "What using the brand says about the person",
+        "examples": ["Consciência", "Sucesso", "Autenticidade", "Inovação"]
+      },
+      "aspirational": {
+        "description": "What the brand helps people become",
+        "examples": ["Melhor versão", "Líder", "Pioneiro", "Realizador"]
+      }
+    },
+    "value_validation": {
+      "defensibility_test": {
+        "question": "Could a competitor claim the exact same value?",
+        "pass": "No - unique to our brand expression",
+        "fail": "Yes - too generic"
+      },
+      "specificity_test": {
+        "question": "Can we describe exactly how we live this value?",
+        "pass": "Yes - with specific actions and examples",
+        "fail": "No - too abstract"
+      },
+      "measurability_test": {
+        "question": "Can we prove we embody this value?",
+        "pass": "Yes - with metrics, stories, or evidence",
+        "fail": "No - just aspirational"
+      }
+    },
+    "generic_values_to_avoid": [
+      "Qualidade (too vague)",
+      "Inovação (overused)",
+      "Excelência (unmeasurable)",
+      "Compromisso (expected)",
+      "Respeito (baseline)",
+      "Integridade (assumed)"
+    ],
+    "strong_values_examples": {
+      "instead_of_quality": "Precisão artesanal em cada detalhe",
+      "instead_of_innovation": "Reinventamos o óbvio todo dia",
+      "instead_of_excellence": "Obsessão pelo resultado perfeito",
+      "instead_of_commitment": "Presença incansável até a solução",
+      "instead_of_respect": "Escuta antes de falar, sempre",
+      "instead_of_integrity": "Transparência mesmo quando dói"
+    }
+  },
+  "brazilian_context": {
+    "cultural_values": {
+      "jeitinho": {
+        "description": "Creative problem-solving, flexibility",
+        "brand_application": "Show adaptability, practical solutions"
+      },
+      "calor_humano": {
+        "description": "Warmth, personal connection",
+        "brand_application": "Friendly tone, relationship-focused"
+      },
+      "alegria": {
+        "description": "Joy, celebration, positivity",
+        "brand_application": "Optimistic messaging, celebration of small wins"
+      },
+      "familia": {
+        "description": "Family bonds, community",
+        "brand_application": "Inclusive language, family-friendly imagery"
+      },
+      "futuro": {
+        "description": "Optimism about tomorrow",
+        "brand_application": "Aspirational messaging, growth stories"
+      }
+    },
+    "linguistic_preferences": {
+      "use": [
+        "Você (informal you)",
+        "Brazilian expressions",
+        "Positive framing",
+        "Active voice",
+        "Present tense"
+      ],
+      "avoid": [
+        "Tu/Vós (regional or archaic)",
+        "Portugal Portuguese",
+        "Literal translations",
+        "Excessive formality",
+        "Passive voice overuse"
+      ]
+    },
+    "regional_considerations": {
+      "sudeste": "More formal, cosmopolitan, trend-setting",
+      "sul": "European influence, quality focus",
+      "nordeste": "Warmth, creativity, cultural richness",
+      "centro_oeste": "Agribusiness influence, practical",
+      "norte": "Nature connection, sustainability"
+    }
+  }
+}

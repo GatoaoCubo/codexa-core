@@ -1,0 +1,94 @@
+{
+  "$schema": "video_agent_catalog_v1",
+  "version": "1.0.0",
+  "updated": "2025-11-25",
+  "description": "Catálogo de conhecimento processado do video_agent",
+  "stats": {
+    "total_arquivos": 6,
+    "categorias_ativas": 4,
+    "quality_media": 0.88
+  },
+  "categorias": [
+    "voice_configuration",
+    "video_modes",
+    "prompt_engineering",
+    "platform_optimization",
+    "text_overlay_rules",
+    "quality_standards"
+  ],
+  "arquivos": [
+    {
+      "arquivo": "voice_config_ptbr_narracao_20251125.md",
+      "categoria": "voice_configuration",
+      "assunto": "vozes_elevenlabs_ptbr",
+      "tags": ["elevenlabs", "tts", "narracao", "portugues", "feminina", "masculina"],
+      "nivel": "intermediário",
+      "aplicacao": "quando_configurar_narracao",
+      "criado": "2025-11-25",
+      "fonte_original": "ElevenLabs Voice Library + CODEXA Research",
+      "quality_score": 0.92
+    },
+    {
+      "arquivo": "video_modes_text_vs_clean_20251125.md",
+      "categoria": "video_modes",
+      "assunto": "modo_no_text_vs_overlays",
+      "tags": ["no-text", "clean-video", "text-overlays", "pure-visual"],
+      "nivel": "básico",
+      "aplicacao": "quando_definir_estilo_video",
+      "criado": "2025-11-25",
+      "fonte_original": "CODEXA Best Practices",
+      "quality_score": 0.90
+    },
+    {
+      "arquivo": "prompt_magic_words_ecommerce_20251125.md",
+      "categoria": "prompt_engineering",
+      "assunto": "magic_words_produto",
+      "tags": ["prompt", "magic-words", "qualidade", "cinematografico"],
+      "nivel": "avançado",
+      "aplicacao": "quando_gerar_prompts_video",
+      "criado": "2025-11-25",
+      "fonte_original": "knowledge/prompt_engineering/magic_words.md",
+      "quality_score": 0.88
+    },
+    {
+      "arquivo": "platform_selection_guide_20251125.md",
+      "categoria": "platform_optimization",
+      "assunto": "escolha_plataforma_ia",
+      "tags": ["runway", "pika", "veo3", "sora2", "kling", "hailuo"],
+      "nivel": "intermediário",
+      "aplicacao": "quando_escolher_plataforma",
+      "criado": "2025-11-25",
+      "fonte_original": "knowledge/platforms/*.md",
+      "quality_score": 0.85
+    },
+    {
+      "arquivo": "text_overlay_best_practices_20251125.md",
+      "categoria": "text_overlay_rules",
+      "assunto": "regras_texto_video",
+      "tags": ["overlay", "cta", "legibilidade", "ffmpeg"],
+      "nivel": "básico",
+      "aplicacao": "quando_adicionar_texto",
+      "criado": "2025-11-25",
+      "fonte_original": "prompts/20_script_writer_HOP.md",
+      "quality_score": 0.87
+    },
+    {
+      "arquivo": "quality_checklist_11_pontos_20251125.md",
+      "categoria": "quality_standards",
+      "assunto": "validacao_qualidade",
+      "tags": ["qualidade", "checklist", "validacao", "11-pontos"],
+      "nivel": "intermediário",
+      "aplicacao": "quando_validar_video",
+      "criado": "2025-11-25",
+      "fonte_original": "PRIME.md + validators/",
+      "quality_score": 0.91
+    }
+  ],
+  "indice_rapido": {
+    "voz": ["voice_config_ptbr_narracao_20251125.md"],
+    "texto": ["video_modes_text_vs_clean_20251125.md", "text_overlay_best_practices_20251125.md"],
+    "prompt": ["prompt_magic_words_ecommerce_20251125.md"],
+    "plataforma": ["platform_selection_guide_20251125.md"],
+    "qualidade": ["quality_checklist_11_pontos_20251125.md"]
+  }
+}

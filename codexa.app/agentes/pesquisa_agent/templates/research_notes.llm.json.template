@@ -1,0 +1,245 @@
+{
+  "$schema": "https://codexa.app/schemas/research_notes_llm.json",
+  "version": "1.1.0",
+  "format": "structured_research_output",
+  "created_at": "{{timestamp}}",
+  "execution_plan": "{{plan_id}}",
+
+  "product": {
+    "name": "{{product_name}}",
+    "category": "{{category}}",
+    "target_audience": "{{target_audience}}",
+    "price_range": {
+      "min": {{price_min}},
+      "max": {{price_max}},
+      "currency": "BRL"
+    }
+  },
+
+  "blocks": {
+    "lacunas_do_brief": {
+      "fields": [
+        {
+          "field_name": "string",
+          "status": "missing | ambiguous | suggested",
+          "impact": "critical | moderate | low",
+          "suggestion": "string",
+          "confidence": 0.0
+        }
+      ],
+      "critical_gaps_count": 0,
+      "approval_status": "approved | requires_clarification"
+    },
+
+    "head_terms": {
+      "terms": ["string"],
+      "count": 0
+    },
+
+    "longtails": {
+      "phrases": ["string"],
+      "count": 0
+    },
+
+    "sinonimos_variacoes": {
+      "synonyms": ["string"],
+      "regional_variations": ["string"]
+    },
+
+    "dores_do_publico": {
+      "pain_points": [
+        {
+          "pain": "string",
+          "frequency": 0,
+          "severity": "low | medium | high | critical",
+          "sources": ["string"],
+          "category": "string"
+        }
+      ],
+      "total_count": 0,
+      "top_3": ["string"]
+    },
+
+    "ganhos_desejados": {
+      "desired_gains": [
+        {
+          "gain": "string",
+          "importance": "low | medium | high",
+          "current_satisfaction": 0,
+          "frequency": 0
+        }
+      ],
+      "total_count": 0
+    },
+
+    "objecoes_respostas": {
+      "objections": [
+        {
+          "objection": "string",
+          "frequency": 0,
+          "suggested_response": "string",
+          "proof_needed": ["string"]
+        }
+      ],
+      "total_count": 0
+    },
+
+    "analise_concorrentes": {
+      "competitors": [
+        {
+          "name": "string",
+          "price": 0,
+          "rating": 0.0,
+          "review_count": 0,
+          "differentiators": ["string"],
+          "weaknesses": ["string"]
+        }
+      ],
+      "total_analyzed": 0
+    },
+
+    "benchmark_concorrentes": {
+      "pricing": {
+        "min": 0,
+        "avg": 0,
+        "max": 0,
+        "variance_percent": 0,
+        "sources": ["string"]
+      },
+      "ratings": {
+        "avg_rating": 0.0,
+        "avg_review_count": 0
+      },
+      "shipping": {
+        "free_shipping_percent": 0
+      }
+    },
+
+    "diferenciais_competitivos": {
+      "opportunities": ["string"],
+      "recommended_positioning": "string"
+    },
+
+    "estrategias_gaps": {
+      "winning_strategies": [
+        {
+          "strategy": "string",
+          "rationale": "string",
+          "priority": "high | medium | low",
+          "effort": "low | medium | high",
+          "impact": "low | medium | high"
+        }
+      ],
+      "exploitable_gaps": [
+        {
+          "gap": "string",
+          "opportunity_size": "small | medium | large",
+          "competition_level": "low | medium | high",
+          "action": "string"
+        }
+      ],
+      "risks_to_avoid": [
+        {
+          "risk": "string",
+          "severity": "low | medium | high | critical",
+          "mitigation": "string"
+        }
+      ],
+      "top_5_actions": [
+        {
+          "action": "string",
+          "timing": "immediate | short-term | medium-term",
+          "expected_impact": "string"
+        }
+      ]
+    },
+
+    "padroes_linguagem": {
+      "title_patterns": ["string"],
+      "messaging_patterns": ["string"],
+      "tone": "string"
+    },
+
+    "seo_outbound": {
+      "keywords": ["string"],
+      "search_volume": {},
+      "content_opportunities": ["string"]
+    },
+
+    "seo_inbound": {
+      "keywords": ["string"],
+      "marketplace_patterns": ["string"]
+    },
+
+    "regras_criticas_marketplace": {
+      "rules": [
+        {
+          "marketplace": "string",
+          "rule": "string",
+          "severity": "critical | high | medium",
+          "source": "string"
+        }
+      ]
+    },
+
+    "consultas_web": {
+      "queries": [
+        {
+          "date": "string",
+          "source": "string",
+          "url": "string",
+          "query": "string",
+          "insight": "string"
+        }
+      ],
+      "total_count": 0,
+      "sources_used": ["string"]
+    },
+
+    "imagens_analisadas": {
+      "images": [
+        {
+          "url": "string",
+          "insights": ["string"],
+          "quality_score": 0.0
+        }
+      ],
+      "total_analyzed": 0
+    },
+
+    "resumo_executivo": {
+      "summary": "string",
+      "key_findings": ["string"],
+      "recommended_next_steps": ["string"]
+    }
+  },
+
+  "metadata": {
+    "execution_metadata": {
+      "plan_id": "{{plan_id}}",
+      "plan_version": "string",
+      "execution_date": "string",
+      "duration_minutes": 0,
+      "steps_executed": 0,
+      "steps_skipped": 0,
+      "steps_failed": 0
+    },
+
+    "quality_metrics": {
+      "quality_score": 0.0,
+      "completeness_percent": 0,
+      "suggestions_percent": 0,
+      "web_queries_count": 0,
+      "competitors_analyzed": 0,
+      "confidence_score": 0.0
+    },
+
+    "validation_results": {
+      "all_blocks_present": true,
+      "quality_gates_passed": true,
+      "min_thresholds_met": true,
+      "warnings": ["string"],
+      "errors": ["string"]
+    }
+  }
+}

@@ -1,0 +1,691 @@
+# CODEXA Agent Operating Modes Configuration
+# Version: 1.0.0
+# Created: 2025-11-24
+# Purpose: Define operating modes, access levels, and transitions for CODEXA agents
+
+# ============================================================================
+# OPERATING MODES
+# ============================================================================
+
+modes:
+  # MODE 1: PLANNING MODE 🔍
+  planning:
+    id: "PLANNING"
+    name: "Planning Mode"
+    emoji: "🔍"
+    description: "Read-only exploration and implementation planning"
+    access_level: "READ_ONLY"
+
+    characteristics:
+      - "Non-invasive: No file modifications"
+      - "Exploratory: Discovers codebase structure"
+      - "Analytical: Creates detailed plans"
+      - "Systematic: Follows Devin's two-phase pattern"
+
+    allowed_tools:
+      - "Read"           # Read files
+      - "Glob"           # Find files by pattern
+      - "Grep"           # Search code
+      - "Bash"           # Read-only commands (ls, git status, git diff)
+      - "WebFetch"       # Fetch documentation
+      - "WebSearch"      # Search for best practices
+      - "Task"           # Spawn Explore sub-agents
+      - "AskUserQuestion" # Clarify requirements
+
+    forbidden_tools:
+      - "Write"          # No file creation
+      - "Edit"           # No file modification
+      - "NotebookEdit"   # No notebook editing
+      - "git commit"     # No commits
+      - "git push"       # No pushes
+      - "destructive bash commands"  # No rm, mv of critical files
+
+    output_artifacts:
+      - "implementation_plan.md"   # Detailed implementation guide
+      - "task.md"                  # Task checklist
+      - "affected_files.json"      # Machine-readable file list
+      - "design_decisions.md"      # Architecture decisions
+
+    agents_using_mode:
+      - "planning_agent"
+      - "orchestrator (planning phase)"
+
+    duration_estimate: "40-70 minutes"
+
+    transitions:
+      - to: "EXECUTION"
+        condition: "Planning complete, user approves"
+        trigger: "User request or orchestrator decision"
+
+      - to: "RESEARCH"
+        condition: "Unfamiliar domain, need more context"
+        trigger: "Planning agent discovers knowledge gap"
+
+  # MODE 2: EXECUTION MODE ⚙️
+  execution:
+    id: "EXECUTION"
+    name: "Execution Mode"
+    emoji: "⚙️"
+    description: "Write access for code implementation"
+    access_level: "FULL_WRITE"
+
+    characteristics:
+      - "Systematic: Follows implementation plan"
+      - "Task-oriented: One task at a time"
+      - "Progressive: Updates task.md after each task"
+      - "Incremental: Small, testable changes"
+
+    allowed_tools:
+      - "Read"           # Read before write (MANDATORY)
+      - "Write"          # Create new files
+      - "Edit"           # Modify existing files
+      - "NotebookEdit"   # Edit notebooks
+      - "Glob"           # Find files
+      - "Grep"           # Search code
+      - "Bash"           # All commands (npm, pip, git, etc.)
+      - "AskUserQuestion" # Clarify during execution
+      - "TodoWrite"      # Track progress
+
+    safety_protocols:
+      - "Read Before Write: ALWAYS read file before editing"
+      - "One Task at a Time: Focus on single task from checklist"
+      - "Progress Tracking: Update task.md after each task"
+      - "Incremental Changes: Small changes over large rewrites"
+      - "Git Awareness: Track changes, don't auto-commit"
+
+    output_artifacts:
+      - "code_files"             # Source code
+      - "test_files"             # Unit/integration/E2E tests
+      - "config_files"           # Configuration updates
+      - "execution_report.md"    # Execution summary
+      - "updated_task.md"        # Updated checklist
+
+    agents_using_mode:
+      - "execution_agent"
+      - "orchestrator (execution phase)"
+
+    duration_estimate: "Variable (depends on task count)"
+
+    transitions:
+      - to: "VERIFICATION"
+        condition: "All tasks complete"
+        trigger: "Orchestrator or user request"
+
+      - to: "FIX"
+        condition: "Error encountered during execution"
+        trigger: "Automatic on error"
+
+  # MODE 3: VERIFICATION MODE ✅
+  verification:
+    id: "VERIFICATION"
+    name: "Verification Mode"
+    emoji: "✅"
+    description: "Testing and validation against quality gates"
+    access_level: "READ_TEST"
+
+    characteristics:
+      - "Comprehensive: Tests all aspects (unit, integration, E2E)"
+      - "Strict: Enforces 7 quality gates"
+      - "Evidence-based: Captures screenshots, test reports"
+      - "Objective: Uses clear pass/fail criteria"
+
+    allowed_tools:
+      - "Read"           # Inspect code and specs
+      - "Bash"           # Run tests, linters, type checkers
+      - "Grep"           # Search for patterns
+      - "Glob"           # Find test files
+      - "WebFetch"       # Test APIs
+
+    conditional_tools:
+      - tool: "Write/Edit"
+        condition: "Only in FIX MODE after gate failure"
+        access: "Constrained to fixing identified issues"
+
+    quality_gates:
+      - gate: "Unit Tests"
+        requirement: "All unit tests pass"
+        command: "npm test (or pytest)"
+        failure_action: "→ FIX MODE"
+
+      - gate: "Integration Tests"
+        requirement: "All integration tests pass"
+        command: "npm run test:integration"
+        failure_action: "→ FIX MODE"
+
+      - gate: "Type Check"
+        requirement: "No type errors"
+        command: "tsc --noEmit (or mypy)"
+        failure_action: "→ FIX MODE (critical)"
+
+      - gate: "Lint"
+        requirement: "No lint errors (warnings OK)"
+        command: "npm run lint"
+        failure_action: "→ FIX MODE if errors"
+
+      - gate: "Test Coverage"
+        requirement: "Coverage ≥80%"
+        command: "npm run coverage"
+        failure_action: "→ REVISE (add tests)"
+
+      - gate: "Spec Compliance"
+        requirement: "Compliance score ≥90%"
+        method: "Manual review against spec"
+        failure_action: "→ REVISE"
+
+      - gate: "Visual Verification"
+        requirement: "Feature works in application (UI features)"
+        method: "Manual testing + screenshots"
+        failure_action: "→ FIX MODE"
+
+    output_artifacts:
+      - "walkthrough.md"           # Visual proof with screenshots
+      - "verification_report.md"   # Complete test report
+
+    agents_using_mode:
+      - "verification_agent"
+
+    duration_estimate: "60-105 minutes"
+
+    transitions:
+      - to: "REVIEW"
+        condition: "All quality gates passed"
+        trigger: "Orchestrator or user request"
+
+      - to: "FIX"
+        condition: "Any quality gate failed"
+        trigger: "Automatic on gate failure"
+
+  # MODE 4: FIX MODE 🔧
+  fix:
+    id: "FIX"
+    name: "Fix Mode"
+    emoji: "🔧"
+    description: "Constrained write access to fix identified issues"
+    access_level: "CONSTRAINED_WRITE"
+
+    characteristics:
+      - "Focused: Only fixes identified issues"
+      - "Limited: Cannot add new features"
+      - "Iterative: Fix → Re-verify loop"
+      - "Documented: All fixes documented in report"
+
+    allowed_tools:
+      - "Read"           # Read code
+      - "Write"          # Fix issues (constrained)
+      - "Edit"           # Modify files (constrained)
+      - "Bash"           # Run tests after fixes
+      - "Grep/Glob"      # Find issue locations
+
+    constraints:
+      - "Can ONLY modify code to fix identified issues"
+      - "Cannot add new features"
+      - "Cannot refactor unrelated code"
+      - "Must re-verify after each fix"
+      - "Limited to 3 fix attempts per issue"
+
+    workflow:
+      - step: 1
+        action: "Identify root cause of failure"
+
+      - step: 2
+        action: "Propose fix (document rationale)"
+
+      - step: 3
+        action: "Apply fix (Write/Edit)"
+
+      - step: 4
+        action: "Re-run affected tests"
+
+      - step: 5
+        action: "Verify fix successful"
+
+      - step: 6
+        action: "Document fix in report"
+
+    output_artifacts:
+      - "fixed_files"          # Files with fixes applied
+      - "fix_report.md"        # Documentation of fixes
+
+    agents_using_mode:
+      - "verification_agent (after gate failure)"
+      - "execution_agent (on error)"
+
+    duration_estimate: "15-60 minutes per issue"
+
+    transitions:
+      - to: "VERIFICATION"
+        condition: "Fixes applied, need re-verification"
+        trigger: "Automatic after fixes"
+
+      - to: "EXECUTION"
+        condition: "Fix successful, return to execution"
+        trigger: "Automatic after verification passes"
+
+  # MODE 5: RESEARCH MODE 📚
+  research:
+    id: "RESEARCH"
+    name: "Research Mode"
+    emoji: "📚"
+    description: "Read-only research for unfamiliar domains"
+    access_level: "READ_WEB"
+
+    characteristics:
+      - "Exploratory: Discovers best practices"
+      - "Learning: Researches unfamiliar technologies"
+      - "Evidence-based: Cites sources"
+      - "Synthesis: Combines multiple sources"
+
+    allowed_tools:
+      - "Read"           # Read existing code
+      - "WebSearch"      # Search for documentation
+      - "WebFetch"       # Fetch documentation pages
+      - "Grep/Glob"      # Search codebase
+      - "Bash"           # Read-only commands
+
+    forbidden_tools:
+      - "Write/Edit"     # No modifications
+      - "git commands"   # No version control
+
+    output_artifacts:
+      - "research_findings.md"   # Research summary
+      - "best_practices.md"      # Best practices discovered
+      - "technology_guide.md"    # Technology overview
+
+    agents_using_mode:
+      - "planning_agent (research phase)"
+      - "orchestrator (research phase)"
+
+    duration_estimate: "20-40 minutes"
+
+    transitions:
+      - to: "PLANNING"
+        condition: "Research complete, ready to plan"
+        trigger: "Orchestrator or planning agent"
+
+  # MODE 6: ORCHESTRATION MODE 🎭
+  orchestration:
+    id: "ORCHESTRATION"
+    name: "Orchestration Mode"
+    emoji: "🎭"
+    description: "Multi-agent coordination and workflow management"
+    access_level: "COORDINATION"
+
+    characteristics:
+      - "High-level: Coordinates other agents"
+      - "Delegating: Does not perform work directly"
+      - "Monitoring: Tracks agent progress"
+      - "Aggregating: Combines results from multiple agents"
+
+    allowed_tools:
+      - "Task"           # Spawn sub-agents
+      - "Read"           # Read agent outputs
+      - "Write"          # Generate orchestration report
+      - "AskUserQuestion" # Clarify orchestration strategy
+
+    forbidden_tools:
+      - "Direct code operations"  # Delegates to execution agents
+      - "Direct testing"          # Delegates to verification agents
+
+    orchestration_patterns:
+      - pattern: "Sequential"
+        description: "Phase 1 → Phase 2 → Phase 3"
+        use_case: "Standard workflows with dependencies"
+
+      - pattern: "Parallel"
+        description: "All agents run simultaneously"
+        use_case: "Independent sub-tasks"
+
+      - pattern: "Iterative"
+        description: "Plan → Execute → Verify → Fix loop"
+        use_case: "Quality-critical features"
+
+      - pattern: "Hybrid"
+        description: "Mix of sequential and parallel"
+        use_case: "Complex multi-phase workflows"
+
+    output_artifacts:
+      - "orchestration_report.md"  # Master report
+      - "adw_directory/"           # Agent Development Workspace
+
+    agents_using_mode:
+      - "orchestrator"
+
+    duration_estimate: "Variable (sum of all agent durations)"
+
+    transitions:
+      - to: "Any mode"
+        condition: "Spawns agents in appropriate modes"
+        trigger: "Orchestration plan"
+
+  # MODE 7: REVIEW MODE 🔍📋
+  review:
+    id: "REVIEW"
+    name: "Review Mode"
+    emoji: "🔍📋"
+    description: "Quality assurance and specification compliance"
+    access_level: "READ_ANALYSIS"
+
+    characteristics:
+      - "Objective: Uses scoring rubrics"
+      - "Evidence-based: Provides code samples"
+      - "Comprehensive: Reviews all aspects"
+      - "Actionable: Provides specific recommendations"
+
+    allowed_tools:
+      - "Read"           # Read code and specs
+      - "Bash"           # Read-only commands
+      - "Grep/Glob"      # Search code
+
+    forbidden_tools:
+      - "Write/Edit"     # No modifications
+      - "Execution tools" # No running code
+
+    review_criteria:
+      - criterion: "Code Structure"
+        weight: "20%"
+        description: "Organization, conventions, separation of concerns"
+
+      - criterion: "Code Quality"
+        weight: "20%"
+        description: "Naming, error handling, no code smells"
+
+      - criterion: "Testing"
+        weight: "20%"
+        description: "Unit tests, integration tests, coverage"
+
+      - criterion: "Documentation"
+        weight: "20%"
+        description: "Inline docs, README, API docs"
+
+      - criterion: "Spec Compliance"
+        weight: "20%"
+        description: "All requirements met, correct interpretation"
+
+    decisions:
+      - decision: "APPROVE ✅"
+        condition: "Compliance ≥90%, Quality ≥80/100"
+        action: "Ready for deployment"
+
+      - decision: "REVISE ⚠️"
+        condition: "Compliance 70-89%, Quality 60-79/100"
+        action: "Fix issues, then re-review"
+
+      - decision: "REJECT ❌"
+        condition: "Compliance <70%, Quality <60/100"
+        action: "Major rework needed"
+
+    output_artifacts:
+      - "review_report.md"       # Comprehensive review
+
+    agents_using_mode:
+      - "review_agent"
+
+    duration_estimate: "70-100 minutes"
+
+    transitions:
+      - to: "FIX"
+        condition: "REVISE decision, issues identified"
+        trigger: "Review agent recommendation"
+
+# ============================================================================
+# MODE TRANSITION RULES
+# ============================================================================
+
+transitions:
+  # Planning → Execution
+  planning_to_execution:
+    from: "PLANNING"
+    to: "EXECUTION"
+    conditions:
+      - "implementation_plan.md created"
+      - "task.md created with task list"
+      - "User approval received (optional)"
+    trigger: "Orchestrator or user request"
+
+  # Planning → Research
+  planning_to_research:
+    from: "PLANNING"
+    to: "RESEARCH"
+    conditions:
+      - "Knowledge gap identified"
+      - "Unfamiliar technology/framework"
+    trigger: "Planning agent decision"
+
+  # Research → Planning
+  research_to_planning:
+    from: "RESEARCH"
+    to: "PLANNING"
+    conditions:
+      - "research_findings.md created"
+      - "Sufficient knowledge gained"
+    trigger: "Research completion"
+
+  # Execution → Verification
+  execution_to_verification:
+    from: "EXECUTION"
+    to: "VERIFICATION"
+    conditions:
+      - "All tasks in task.md completed"
+      - "execution_report.md generated"
+    trigger: "Orchestrator or user request"
+
+  # Execution → Fix
+  execution_to_fix:
+    from: "EXECUTION"
+    to: "FIX"
+    conditions:
+      - "Error encountered during execution"
+    trigger: "Automatic on error"
+
+  # Verification → Review
+  verification_to_review:
+    from: "VERIFICATION"
+    to: "REVIEW"
+    conditions:
+      - "All 7 quality gates passed"
+      - "verification_report.md generated"
+    trigger: "Orchestrator or user request"
+
+  # Verification → Fix
+  verification_to_fix:
+    from: "VERIFICATION"
+    to: "FIX"
+    conditions:
+      - "Any quality gate failed"
+    trigger: "Automatic on gate failure"
+
+  # Fix → Verification
+  fix_to_verification:
+    from: "FIX"
+    to: "VERIFICATION"
+    conditions:
+      - "Fixes applied"
+      - "Need re-verification"
+    trigger: "Automatic after fixes"
+
+  # Fix → Execution
+  fix_to_execution:
+    from: "FIX"
+    to: "EXECUTION"
+    conditions:
+      - "Fix successful"
+      - "Verification passed"
+      - "Return to task execution"
+    trigger: "Automatic after successful fix"
+
+  # Review → Fix
+  review_to_fix:
+    from: "REVIEW"
+    to: "FIX"
+    conditions:
+      - "Review decision: REVISE"
+      - "Issues identified"
+    trigger: "Review agent recommendation"
+
+# ============================================================================
+# ACCESS LEVELS
+# ============================================================================
+
+access_levels:
+  READ_ONLY:
+    description: "Can only read files and search code"
+    capabilities:
+      - "Read files"
+      - "Search codebase (Grep, Glob)"
+      - "Run read-only bash commands (ls, git status)"
+      - "Fetch web content"
+    restrictions:
+      - "Cannot modify files"
+      - "Cannot create files"
+      - "Cannot execute destructive commands"
+
+  READ_TEST:
+    description: "Can read and run tests, but not modify code"
+    capabilities:
+      - "All READ_ONLY capabilities"
+      - "Run tests (npm test, pytest)"
+      - "Run linters and type checkers"
+      - "Capture screenshots"
+    restrictions:
+      - "Cannot modify code (except in FIX MODE)"
+
+  READ_WEB:
+    description: "Can read files and web content"
+    capabilities:
+      - "All READ_ONLY capabilities"
+      - "Web search"
+      - "Fetch documentation"
+    restrictions:
+      - "Cannot modify files"
+
+  READ_ANALYSIS:
+    description: "Can read and analyze, but not modify"
+    capabilities:
+      - "All READ_ONLY capabilities"
+      - "Code analysis"
+      - "Spec comparison"
+    restrictions:
+      - "Cannot modify files"
+
+  CONSTRAINED_WRITE:
+    description: "Limited write access for fixing specific issues"
+    capabilities:
+      - "All READ_ONLY capabilities"
+      - "Modify files (only to fix identified issues)"
+      - "Run tests"
+    restrictions:
+      - "Cannot add new features"
+      - "Cannot refactor unrelated code"
+      - "Limited to 3 fix attempts per issue"
+
+  FULL_WRITE:
+    description: "Complete write access for implementation"
+    capabilities:
+      - "Create files"
+      - "Modify files"
+      - "Delete files"
+      - "Run all commands"
+      - "Install dependencies"
+    restrictions:
+      - "Must read before write"
+      - "Cannot auto-commit without user request"
+
+  COORDINATION:
+    description: "Can spawn agents and aggregate results"
+    capabilities:
+      - "Spawn sub-agents"
+      - "Read agent outputs"
+      - "Generate reports"
+    restrictions:
+      - "Cannot perform direct file operations"
+      - "Delegates work to specialized agents"
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+metadata:
+  version: "1.0.0"
+  created: "2025-11-24"
+  updated: "2025-11-24"
+  maintainer: "CODEXA Team"
+  schema_version: "1.0"
+  compatible_with: "CODEXA v2.0.0+"
+
+  stats:
+    total_modes_defined: 7
+    total_transitions_defined: 9
+    total_access_levels_defined: 7
+
+# ============================================================================
+# USAGE EXAMPLES
+# ============================================================================
+
+examples:
+  # Example 1: Simple feature (skip planning)
+  simple_feature:
+    workflow: "Add copy button to CodeBlock"
+    pattern: "Direct execution"
+    mode_sequence:
+      - mode: "EXECUTION"
+        duration: "30 min"
+      - mode: "VERIFICATION"
+        duration: "20 min"
+    total_duration: "50 min"
+
+  # Example 2: Standard feature (two-phase workflow)
+  standard_feature:
+    workflow: "Add dark mode toggle"
+    pattern: "Two-phase workflow"
+    mode_sequence:
+      - mode: "PLANNING"
+        duration: "60 min"
+      - mode: "EXECUTION"
+        duration: "120 min"
+      - mode: "VERIFICATION"
+        duration: "60 min"
+      - mode: "REVIEW"
+        duration: "80 min"
+    total_duration: "320 min (5h 20min)"
+
+  # Example 3: Complex feature with research
+  complex_feature:
+    workflow: "Add OAuth authentication"
+    pattern: "Extended workflow with research"
+    mode_sequence:
+      - mode: "RESEARCH"
+        duration: "30 min"
+      - mode: "PLANNING"
+        duration: "90 min"
+      - mode: "EXECUTION"
+        duration: "300 min"
+      - mode: "VERIFICATION"
+        duration: "90 min"
+      - mode: "FIX"
+        duration: "45 min"
+      - mode: "VERIFICATION"
+        duration: "30 min (re-verify)"
+      - mode: "REVIEW"
+        duration: "100 min"
+    total_duration: "685 min (11h 25min)"
+
+  # Example 4: Parallel orchestration
+  parallel_orchestration:
+    workflow: "Build full-stack feature"
+    pattern: "Parallel execution"
+    mode_sequence:
+      - mode: "ORCHESTRATION"
+        sub_agents:
+          - agent: "frontend_agent"
+            mode: "EXECUTION"
+            duration: "120 min"
+          - agent: "backend_agent"
+            mode: "EXECUTION"
+            duration: "150 min"
+          - agent: "test_agent"
+            mode: "EXECUTION"
+            duration: "90 min"
+        parallel_duration: "150 min (max of all agents)"
+      - mode: "VERIFICATION"
+        duration: "90 min"
+    total_duration: "240 min (4h)"

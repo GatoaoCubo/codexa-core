@@ -1,0 +1,205 @@
+{
+  "$schema": "../../schemas/video_input.json",
+  "template_id": "brand_story_v1",
+  "template_name": "Brand Story",
+  "template_description": "Narrativa emocional de marca com arco dramatico completo",
+  "version": "1.0.0",
+  "category": "brand_awareness",
+  "recommended_duration": 45,
+  "recommended_format": "16:9",
+  "recommended_style": "cinematic",
+  "recommended_video_mode": "clean",
+
+  "narrative_arc": {
+    "structure": "hero_journey",
+    "phases": [
+      {
+        "name": "hook",
+        "purpose": "Capturar atencao com problema/desejo universal",
+        "duration_percent": 10,
+        "shots": 1,
+        "tone": "intrigante"
+      },
+      {
+        "name": "setup",
+        "purpose": "Apresentar contexto e personagem/marca",
+        "duration_percent": 15,
+        "shots": 1,
+        "tone": "informativo"
+      },
+      {
+        "name": "conflict",
+        "purpose": "Mostrar desafio ou necessidade",
+        "duration_percent": 20,
+        "shots": 2,
+        "tone": "tensao"
+      },
+      {
+        "name": "transformation",
+        "purpose": "Revelar solucao/produto como heroi",
+        "duration_percent": 25,
+        "shots": 2,
+        "tone": "esperanca"
+      },
+      {
+        "name": "resolution",
+        "purpose": "Mostrar resultado positivo",
+        "duration_percent": 20,
+        "shots": 1,
+        "tone": "satisfacao"
+      },
+      {
+        "name": "cta",
+        "purpose": "Call to action emocional",
+        "duration_percent": 10,
+        "shots": 1,
+        "tone": "inspirador"
+      }
+    ]
+  },
+
+  "shots_template": [
+    {
+      "number": 1,
+      "narrative": "hook",
+      "duration": 4,
+      "description_template": "Close-up emotivo de [PERSONAGEM] em momento de [EMOCAO]",
+      "composition": "Extreme close-up, shallow depth of field",
+      "camera": {
+        "movement": "slow push in",
+        "angle": "eye level"
+      },
+      "lighting": "dramatic, low-key",
+      "narration_template": "[PERGUNTA_PROVOCATIVA]"
+    },
+    {
+      "number": 2,
+      "narrative": "setup",
+      "duration": 6,
+      "description_template": "Wide shot estabelecendo [CONTEXTO] onde [PERSONAGEM] vive/trabalha",
+      "composition": "Wide establishing shot",
+      "camera": {
+        "movement": "slow tracking",
+        "angle": "slightly high"
+      },
+      "lighting": "natural, warm",
+      "narration_template": "Apresentacao do universo da marca"
+    },
+    {
+      "number": 3,
+      "narrative": "conflict",
+      "duration": 5,
+      "description_template": "[PERSONAGEM] enfrentando [DESAFIO] sem solucao",
+      "composition": "Medium shot, off-center",
+      "camera": {
+        "movement": "handheld subtle",
+        "angle": "eye level"
+      },
+      "lighting": "transitioning, cooler tones",
+      "narration_template": "O problema que todos enfrentam"
+    },
+    {
+      "number": 4,
+      "narrative": "conflict",
+      "duration": 4,
+      "description_template": "Momento de frustracao ou busca de [PERSONAGEM]",
+      "composition": "Close-up hands or face",
+      "camera": {
+        "movement": "static with subtle movement",
+        "angle": "close"
+      },
+      "lighting": "low contrast",
+      "narration_template": "Aprofundando a dor"
+    },
+    {
+      "number": 5,
+      "narrative": "transformation",
+      "duration": 6,
+      "description_template": "[PRODUTO] sendo descoberto/revelado por [PERSONAGEM]",
+      "composition": "Product hero shot with human element",
+      "camera": {
+        "movement": "slow orbit or dolly",
+        "angle": "eye level to low"
+      },
+      "lighting": "golden hour, warm highlights",
+      "narration_template": "A descoberta que muda tudo"
+    },
+    {
+      "number": 6,
+      "narrative": "transformation",
+      "duration": 5,
+      "description_template": "[PERSONAGEM] usando [PRODUTO] com expressao de descoberta",
+      "composition": "Medium shot, centered",
+      "camera": {
+        "movement": "slow push in",
+        "angle": "slightly low (empowering)"
+      },
+      "lighting": "bright, optimistic",
+      "narration_template": "A experiencia transformadora"
+    },
+    {
+      "number": 7,
+      "narrative": "resolution",
+      "duration": 8,
+      "description_template": "[PERSONAGEM] vivendo resultado positivo gracas a [PRODUTO]",
+      "composition": "Wide shot showing new reality",
+      "camera": {
+        "movement": "crane up or wide tracking",
+        "angle": "slightly low"
+      },
+      "lighting": "golden, aspirational",
+      "narration_template": "O novo mundo possivel"
+    },
+    {
+      "number": 8,
+      "narrative": "cta",
+      "duration": 4,
+      "description_template": "[PRODUTO] em destaque com logo da marca",
+      "composition": "Product centered, clean background",
+      "camera": {
+        "movement": "slow zoom in",
+        "angle": "eye level"
+      },
+      "lighting": "studio, premium",
+      "narration_template": "[MARCA]. [TAGLINE]."
+    }
+  ],
+
+  "voice_recommendation": {
+    "gender": "contextual",
+    "tone": "sofisticado",
+    "pace": "measured, emotional",
+    "suggested_voices": {
+      "feminina": "EXAVITQu4vr4xnSDxMaL",
+      "masculina": "TX3LPaxmHKxFdv7VOQHJ"
+    }
+  },
+
+  "music_recommendation": {
+    "genre": "orchestral",
+    "mood": "emotional_journey",
+    "tempo": "building",
+    "volume": 0.25,
+    "notes": "Comecar suave, crescer no transformation, resolver no final"
+  },
+
+  "platform_targets": ["youtube", "website", "tv"],
+
+  "example_brief": {
+    "produto": "Nike Air Max 2024",
+    "duracao": 45,
+    "formato": "16:9",
+    "tom": "cinematografico",
+    "objetivo": "Contar a historia de um corredor amador que supera seus limites com o novo Air Max",
+    "video_mode": "clean",
+    "brand_profile": {
+      "cores": {
+        "primaria": "#000000",
+        "secundaria": "#FFFFFF",
+        "acento": "#FF5722"
+      },
+      "tom": "inspirador",
+      "valores": ["superacao", "determinacao", "inovacao"]
+    }
+  }
+}

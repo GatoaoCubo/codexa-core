@@ -1,0 +1,266 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0",
+  "description": "Compliance rules and copywriting restrictions for CodeXAnuncio",
+
+  "proibicoes_gerais": {
+    "html_css_js": {
+      "descricao": "HTML, CSS, JavaScript tags e formatação",
+      "exemplos": ["<div>", "<p>", "<strong>", "<style>", "<script>", "class=", "id="],
+      "regex_patterns": ["<[^>]+>", "class\\s*=", "id\\s*=", "style\\s*="],
+      "severidade": "CRITICAL"
+    },
+    "emojis": {
+      "descricao": "Emojis e símbolos Unicode decorativos",
+      "exemplos": ["😀", "🎉", "❤️", "✅", "🔥"],
+      "regex_patterns": ["[\\u{1F300}-\\u{1F9FF}]", "[\\u{2600}-\\u{26FF}]", "[\\u{2700}-\\u{27BF}]"],
+      "severidade": "HIGH"
+    },
+    "claims_ranking": {
+      "descricao": "Claims de posicionamento absoluto",
+      "exemplos": ["#1", "nº 1", "número 1", "melhor do Brasil", "único no mercado", "líder absoluto"],
+      "regex_patterns": ["#1", "n[úu]mero\\s+1", "melhor\\s+do\\s+(brasil|mundo)", "[úu]nico\\s+(no|do)\\s+mercado"],
+      "severidade": "HIGH"
+    },
+    "claims_terapeuticos": {
+      "descricao": "Claims terapêuticos ou medicinais sem ANVISA",
+      "exemplos": ["cura", "trata", "previne doenças", "elimina infecções", "anti-ansiedade terapêutico"],
+      "regex_patterns": ["cura[rs]?", "trata[mr]?\\s+(doen[çc]a|infec[çc][ãa]o)", "previne\\s+doen[çc]as", "anti-ansiedade", "terap[êe]utico"],
+      "severidade": "CRITICAL"
+    },
+    "superlativos_absolutos": {
+      "descricao": "Superlativos absolutos não comprovados",
+      "exemplos": ["o mais barato", "o melhor", "totalmente perfeito", "100% garantido sem provas"],
+      "regex_patterns": ["o\\s+mais\\s+(barato|caro|eficaz|r[áa]pido)", "o\\s+melhor", "totalmente\\s+perfeito", "100%\\s+garantido"],
+      "severidade": "MEDIUM"
+    },
+    "links_externos": {
+      "descricao": "URLs e links externos",
+      "exemplos": ["http://", "https://", "www.", ".com", ".br"],
+      "regex_patterns": ["https?://", "www\\.", "\\.(com|br|net|org)(/|\\s|$)"],
+      "severidade": "HIGH"
+    },
+    "precos_desatualizados": {
+      "descricao": "Preços específicos inline (usar apenas ranges ou contexto)",
+      "exemplos": ["R$ 99,90", "por apenas 50 reais", "custa 120"],
+      "regex_patterns": ["R\\$\\s*\\d+[,.]\\d+", "por\\s+apenas\\s+\\d+\\s+reais", "custa\\s+\\d+"],
+      "severidade": "MEDIUM"
+    }
+  },
+
+  "proibicoes_por_marketplace": {
+    "mercadolivre": {
+      "restricoes": [
+        "Não incluir links externos para redes sociais ou outros sites",
+        "Não fazer claims médicos ou terapêuticos sem comprovação",
+        "Não usar preços desatualizados ou promoções expiradas",
+        "Não usar HTML ou formatação não suportada",
+        "Não fazer referência a outros vendedores ou concorrentes",
+        "Não usar linguagem discriminatória ou ofensiva"
+      ],
+      "limites": {
+        "titulo_max_chars": 60,
+        "descricao_max_chars": 50000,
+        "imagens_max": 12,
+        "videos_max": 1
+      },
+      "campos_obrigatorios": ["titulo", "categoria", "preco", "estoque", "imagens"],
+      "recomendacoes": [
+        "Usar Mercado Envio para melhor ranqueamento",
+        "Adicionar EAN/GTIN quando disponível",
+        "Usar fotos de alta qualidade (mínimo 800x800)",
+        "Responder perguntas em até 24h"
+      ]
+    },
+    "shopee": {
+      "restricoes": [
+        "Não fazer spam de keywords repetitivas",
+        "Não reenviar anúncios removidos sem correções",
+        "Não usar imagens com texto excessivo",
+        "Não fazer claims de desconto falsos",
+        "Não violar direitos autorais de marcas",
+        "Não usar termos enganosos de frete grátis"
+      ],
+      "limites": {
+        "titulo_max_chars": 120,
+        "descricao_max_chars": 3000,
+        "imagens_max": 9,
+        "videos_max": 1
+      },
+      "campos_obrigatorios": ["titulo", "categoria", "preco", "estoque", "variacao"],
+      "recomendacoes": [
+        "Participar de campanhas promocionais",
+        "Usar Shopee Garantia quando aplicável",
+        "Otimizar para mobile (90% dos usuários)",
+        "Usar vídeos de demonstração"
+      ]
+    },
+    "magalu": {
+      "restricoes": [
+        "Não usar texto em imagens (apenas produto visível)",
+        "Não incluir logomarcas de outras empresas",
+        "Não usar CAIXA ALTA excessivamente",
+        "Não incluir links ou informações de contato nas imagens",
+        "Não fazer claims sem documentação técnica",
+        "Não usar termos proibidos: 'original', 'réplica', 'importado' sem comprovação"
+      ],
+      "limites": {
+        "titulo_max_chars": 256,
+        "descricao_max_chars": 4000,
+        "imagens_max": 20,
+        "videos_max": 1
+      },
+      "campos_obrigatorios": ["titulo", "categoria", "marca", "modelo", "ean", "ncm"],
+      "recomendacoes": [
+        "Preencher todos os atributos técnicos",
+        "Usar EAN obrigatoriamente",
+        "Seguir padrão de título: Marca + Modelo + Características",
+        "Adicionar manual e certificações quando disponível"
+      ]
+    },
+    "amazon": {
+      "restricoes": [
+        "Não fazer claims não comprovados de qualidade",
+        "Não usar linguagem sensacionalista ou superlativa sem base",
+        "Não violar políticas de conteúdo proibido",
+        "Não usar símbolos ou caracteres especiais no título",
+        "Não incluir informações promocionais no título",
+        "Não fazer referência a Amazon ou outros sellers"
+      ],
+      "limites": {
+        "titulo_max_chars": 200,
+        "descricao_max_chars": 2000,
+        "bullet_points": 5,
+        "bullet_point_max_chars": 500,
+        "imagens_max": 9,
+        "videos_max": 1
+      },
+      "campos_obrigatorios": ["titulo", "marca", "bullet_points", "descricao", "imagens", "keywords_backend"],
+      "recomendacoes": [
+        "Usar A+ Content para descrições enriquecidas",
+        "Otimizar keywords backend (250 bytes)",
+        "Seguir Amazon Style Guide rigorosamente",
+        "Usar títulos formato: Marca + Modelo + Características + Especificações"
+      ]
+    }
+  },
+
+  "orgaos_reguladores": {
+    "ANVISA": {
+      "descricao": "Agência Nacional de Vigilância Sanitária",
+      "categorias_reguladas": ["alimentos", "suplementos", "cosméticos", "medicamentos", "produtos de saúde"],
+      "restricoes": [
+        "Claims de saúde devem ser comprovados cientificamente",
+        "Produtos notificados devem exibir número ANVISA",
+        "Não fazer alegações terapêuticas sem registro",
+        "Seguir RDC específica da categoria"
+      ],
+      "termos_proibidos": ["cura", "trata", "previne doenças", "emagrece", "elimina gordura"],
+      "termos_permitidos": ["ajuda a", "contribui para", "auxilia na", "favorece"],
+      "links_referencia": [
+        "https://www.gov.br/anvisa/pt-br/assuntos/regulamentacao"
+      ]
+    },
+    "INMETRO": {
+      "descricao": "Instituto Nacional de Metrologia, Qualidade e Tecnologia",
+      "categorias_reguladas": ["eletroeletrônicos", "brinquedos", "produtos infantis", "calçados", "têxteis"],
+      "restricoes": [
+        "Produtos regulamentados devem ter selo INMETRO",
+        "Especificações técnicas devem ser verificáveis",
+        "Peso, dimensões e capacidades devem ser precisos",
+        "Certificações devem ser válidas e verificáveis"
+      ],
+      "termos_recomendados": ["certificado INMETRO", "testado conforme norma", "atende requisitos técnicos"]
+    },
+    "CONAR": {
+      "descricao": "Conselho Nacional de Autorregulamentação Publicitária",
+      "principios": [
+        "Publicidade deve ser legal, decente, honesta e verdadeira",
+        "Não fazer publicidade enganosa ou abusiva",
+        "Respeitar princípios da livre concorrência",
+        "Proteger crianças e adolescentes"
+      ],
+      "restricoes": [
+        "Não usar comparações diretas depreciativas",
+        "Não explorar medo ou superstição",
+        "Não usar apelo imperativo de consumo para crianças",
+        "Não fazer discriminação de qualquer tipo"
+      ]
+    }
+  },
+
+  "thresholds_qualidade": {
+    "excellent": {
+      "score_min": 0.90,
+      "descricao": "Qualidade excelente - compliance 100%, persuasão alta",
+      "criterios": [
+        "Zero violações de compliance",
+        "Todos os blocos completos e otimizados",
+        "Persuasion score ≥0.85",
+        "Keywords otimizados e deduplicados",
+        "Descrição ≥3.500 caracteres com storytelling forte"
+      ]
+    },
+    "good": {
+      "score_min": 0.75,
+      "descricao": "Qualidade boa - compliance OK, persuasão adequada",
+      "criterios": [
+        "Máximo 1-2 warnings menores",
+        "Blocos obrigatórios completos",
+        "Persuasion score ≥0.75",
+        "Keywords adequados",
+        "Descrição ≥3.300 caracteres"
+      ]
+    },
+    "fair": {
+      "score_min": 0.60,
+      "descricao": "Qualidade aceitável - requer melhorias",
+      "criterios": [
+        "Algumas warnings de compliance",
+        "Blocos obrigatórios presentes mas não otimizados",
+        "Persuasion score ≥0.60",
+        "Keywords básicos",
+        "Descrição ≥3.300 caracteres mas sem storytelling"
+      ]
+    },
+    "poor": {
+      "score_min": 0.0,
+      "descricao": "Qualidade baixa - requer refatoração",
+      "criterios": [
+        "Violações críticas de compliance",
+        "Blocos incompletos",
+        "Persuasion score <0.60",
+        "Keywords insuficientes ou duplicados",
+        "Descrição <3.300 caracteres"
+      ]
+    }
+  },
+
+  "validacao_regex": {
+    "titulo_valido": "^[A-Za-zÀ-ÿ0-9\\s\\-,]+$",
+    "sem_html": "^(?!.*<[^>]+>).*$",
+    "sem_emojis": "^(?![\\u{1F300}-\\u{1F9FF}\\u{2600}-\\u{26FF}\\u{2700}-\\u{27BF}]).*$",
+    "comprimento_titulo": "^.{58,60}$",
+    "sem_claims_numero_1": "^(?!.*(#1|nº\\s*1|número\\s*1)).*$"
+  },
+
+  "fallback_strategies": {
+    "claim_problematico_detectado": {
+      "acao": "Substituir por versão neutra",
+      "exemplo": "'cura ansiedade' → 'ajuda a promover bem-estar'"
+    },
+    "impossivel_neutralizar": {
+      "acao": "Remover claim e registrar em NOTAS_DE_FALLBACK",
+      "exemplo": "'único produto certificado' → remover, alertar falta de prova"
+    },
+    "remocao_quebra_copy": {
+      "acao": "Alertar usuário e solicitar input manual",
+      "exemplo": "Remoção de diferencial chave torna copy genérica"
+    },
+    "confidence_score_baixo": {
+      "acao": "Alertar no output e usar disclaimers",
+      "threshold": 0.75,
+      "exemplo": "Research confidence <0.75: incluir nota de cautela em NOTAS_DE_FALLBACK"
+    }
+  }
+}

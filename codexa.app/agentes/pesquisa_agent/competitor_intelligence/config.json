@@ -1,0 +1,181 @@
+{
+  "system": {
+    "name": "Competitor Intelligence System",
+    "version": "1.0.0",
+    "created": "2025-11-23",
+    "status": "active"
+  },
+  "directories": {
+    "sources": "sources/",
+    "docs": "docs/",
+    "snapshots": "snapshots/",
+    "scripts": "scripts/"
+  },
+  "update_schedule": {
+    "daily": {
+      "enabled": false,
+      "time": "09:00",
+      "categories": ["marketplaces_docs", "ecommerce_trends"],
+      "priority": "high"
+    },
+    "weekly": {
+      "enabled": false,
+      "day": "monday",
+      "time": "06:00",
+      "categories": "all",
+      "force_refresh": true
+    },
+    "monthly": {
+      "enabled": false,
+      "day": 1,
+      "time": "03:00",
+      "action": "comprehensive_review"
+    }
+  },
+  "monitoring": {
+    "change_detection": {
+      "enabled": true,
+      "snapshot_comparison": true,
+      "content_hashing": true
+    },
+    "alerts": {
+      "enabled": false,
+      "channels": [],
+      "triggers": {
+        "critical": {
+          "policy_change": true,
+          "new_regulation": true,
+          "price_drop_percent": 20,
+          "reputation_drop": 1.0
+        },
+        "high": {
+          "new_competitor": true,
+          "feature_launch": true,
+          "price_change_percent": 15
+        },
+        "medium": {
+          "content_update": true,
+          "partnership": true,
+          "price_change_percent": 10
+        }
+      }
+    }
+  },
+  "fetching": {
+    "rate_limiting": {
+      "enabled": true,
+      "delay_seconds": 2,
+      "max_retries": 3,
+      "backoff_multiplier": 2
+    },
+    "caching": {
+      "enabled": true,
+      "ttl_hours": 24,
+      "force_refresh_flag": "--force-refresh"
+    },
+    "user_agent": "CODEXA-Research-Bot/1.0 (Competitor Intelligence; +https://github.com/codexa)"
+  },
+  "storage": {
+    "snapshot_retention_days": 90,
+    "doc_archive_months": 12,
+    "index_retention": "indefinite",
+    "compression": {
+      "enabled": false,
+      "format": "gzip",
+      "age_days": 30
+    }
+  },
+  "sources": {
+    "total": 40,
+    "categories": {
+      "ai_courses_platforms": {
+        "count": 10,
+        "priority_high": 7,
+        "update_frequency": "weekly"
+      },
+      "marketplaces_docs": {
+        "count": 9,
+        "priority_high": 5,
+        "update_frequency": "daily"
+      },
+      "ecommerce_trends": {
+        "count": 12,
+        "priority_high": 5,
+        "update_frequency": "daily"
+      },
+      "compliance_sources": {
+        "count": 8,
+        "priority_high": 3,
+        "update_frequency": "weekly"
+      }
+    }
+  },
+  "integrations": {
+    "claude_code": {
+      "slash_command": "/update_competitor_docs",
+      "enabled": true
+    },
+    "python_scripts": {
+      "fetch_docs": "scripts/fetch_docs.py",
+      "enabled": true
+    },
+    "bash_scripts": {
+      "monitor_changes": "scripts/monitor_changes.sh",
+      "enabled": true
+    },
+    "external_apis": {
+      "enabled": false,
+      "services": []
+    }
+  },
+  "quality_gates": {
+    "min_sources_active": 35,
+    "max_fetch_failures_percent": 10,
+    "min_content_length": 100,
+    "required_metadata_fields": [
+      "source_name",
+      "fetched_at",
+      "content_hash",
+      "urls"
+    ]
+  },
+  "reporting": {
+    "change_reports": {
+      "enabled": true,
+      "format": "markdown",
+      "location": "snapshots/[date]/change_report_[timestamp].md"
+    },
+    "index_updates": {
+      "enabled": true,
+      "format": "json",
+      "location": "docs_index_latest.json"
+    },
+    "summary_reports": {
+      "enabled": false,
+      "frequency": "weekly",
+      "recipients": []
+    }
+  },
+  "experimental": {
+    "ai_analysis": {
+      "enabled": false,
+      "features": [
+        "sentiment_analysis",
+        "trend_detection",
+        "anomaly_detection",
+        "competitive_positioning"
+      ]
+    },
+    "visualization": {
+      "enabled": false,
+      "dashboards": []
+    }
+  },
+  "metadata": {
+    "maintainer": "CODEXA Research Team",
+    "project": "pesquisa_agent",
+    "parent_system": "CODEXA Meta-Constructor",
+    "documentation": "README.md",
+    "quick_start": "QUICKSTART.md"
+  }
+}

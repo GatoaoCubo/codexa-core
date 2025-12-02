@@ -1,0 +1,323 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-11-14",
+  "description": "Brazilian compliance rules for brand strategy - ANVISA, CONAR, INMETRO",
+  "scope": "E-commerce brands targeting Brazilian marketplaces",
+
+  "anvisa_rules": {
+    "description": "ANVISA (Agência Nacional de Vigilância Sanitária) - Health regulation authority",
+    "categories": {
+      "cosmetics": {
+        "prohibited_claims": [
+          {
+            "pattern": "\\bcura\\b",
+            "severity": "critical",
+            "description": "Medical cure claims require clinical evidence and ANVISA registration",
+            "alternative": "Use 'auxilia', 'contribui para', 'ajuda a manter'"
+          },
+          {
+            "pattern": "\\btrata(?:mento)?\\b",
+            "severity": "critical",
+            "description": "Treatment claims require medical device registration",
+            "alternative": "Use 'cuidado', 'manutenção', 'proteção'"
+          },
+          {
+            "pattern": "\\banti-idade\\b",
+            "severity": "high",
+            "description": "Anti-aging claims need substantiation",
+            "alternative": "Use 'ação antioxidante', 'hidratação profunda'"
+          },
+          {
+            "pattern": "\\bclarea(?:dor|mento)?\\b",
+            "severity": "high",
+            "description": "Skin lightening claims heavily regulated",
+            "alternative": "Use 'uniformiza o tom', 'ilumina a pele'"
+          }
+        ],
+        "required_disclaimers": [
+          "Este produto é um cosmético e não substitui tratamento médico",
+          "Resultados podem variar de pessoa para pessoa"
+        ]
+      },
+      "supplements": {
+        "prohibited_claims": [
+          {
+            "pattern": "\\bemagrece\\b",
+            "severity": "critical",
+            "description": "Weight loss claims require clinical studies and ANVISA approval",
+            "alternative": "Use 'auxilia no metabolismo', 'complemento alimentar'"
+          },
+          {
+            "pattern": "\\bprevine doenças\\b",
+            "severity": "critical",
+            "description": "Disease prevention claims are prohibited for supplements",
+            "alternative": "Use 'contribui para o bem-estar', 'complementa a alimentação'"
+          },
+          {
+            "pattern": "\\b(?:100%|cem por cento)\\s+natural\\b",
+            "severity": "high",
+            "description": "100% natural requires organic certification (SisOrg)",
+            "alternative": "Use 'ingredientes naturais', 'origem natural'"
+          }
+        ],
+        "required_disclaimers": [
+          "Este produto não substitui uma alimentação equilibrada",
+          "Consulte seu médico antes de usar"
+        ]
+      },
+      "health_devices": {
+        "prohibited_claims": [
+          {
+            "pattern": "\\bdiagnostica\\b",
+            "severity": "critical",
+            "description": "Diagnostic claims require ANVISA medical device registration",
+            "alternative": "Use 'monitora', 'acompanha'"
+          },
+          {
+            "pattern": "\\bgarante(?:\\s+resultados)?\\b",
+            "severity": "high",
+            "description": "Guarantee claims without clinical evidence",
+            "alternative": "Use 'pode proporcionar', 'auxilia'"
+          }
+        ]
+      }
+    },
+    "general_prohibitions": [
+      {
+        "pattern": "\\baprovado por médicos\\b",
+        "severity": "high",
+        "description": "Doctor endorsement claims without documented proof",
+        "alternative": "Use 'desenvolvido com orientação profissional' (if true)"
+      },
+      {
+        "pattern": "\\bresultados?\\s+(?:imediatos?|instantâneos?)\\b",
+        "severity": "medium",
+        "description": "Immediate results claims need substantiation",
+        "alternative": "Use 'resultados progressivos', specify timeframe"
+      }
+    ]
+  },
+
+  "conar_rules": {
+    "description": "CONAR (Conselho Nacional de Autorregulamentação Publicitária) - Advertising self-regulation",
+    "prohibited_superlatives": [
+      {
+        "pattern": "\\b#1\\b|\\bnúmero 1\\b|\\bnº\\s*1\\b",
+        "severity": "high",
+        "description": "Superlative claim #1 without verified third-party source",
+        "alternative": "Use specific metrics: 'mais de 100.000 clientes', 'nota 4.8/5.0'"
+      },
+      {
+        "pattern": "\\bmelhor do brasil\\b|\\bmelhor de todos\\b",
+        "severity": "high",
+        "description": "Best in Brazil/Best of all claims require comparative data from recognized institute",
+        "alternative": "Use 'altamente avaliado', 'preferido por milhares'"
+      },
+      {
+        "pattern": "\\bo único\\b(?! que)",
+        "severity": "medium",
+        "description": "Unique claims without proof of exclusivity",
+        "alternative": "Use 'diferenciado', 'inovador', or specify what makes it unique"
+      },
+      {
+        "pattern": "\\bexclusivo\\b",
+        "severity": "medium",
+        "description": "Exclusivity claims need substantiation",
+        "alternative": "Use 'distintivo', 'especial', or specify exclusivity scope"
+      }
+    ],
+    "ethical_guidelines": [
+      {
+        "category": "environmental_claims",
+        "rule": "Green claims must be substantiated with certifications",
+        "examples": [
+          "AVOID: '100% sustentável' (too absolute)",
+          "USE: 'Produzido com práticas sustentáveis certificadas'"
+        ]
+      },
+      {
+        "category": "social_responsibility",
+        "rule": "Social claims require verifiable evidence",
+        "examples": [
+          "AVOID: 'Mudamos o mundo'",
+          "USE: 'A cada compra, doamos X% para [instituição verificável]'"
+        ]
+      },
+      {
+        "category": "comparative_advertising",
+        "rule": "Comparisons must be factual, verifiable, and not denigrate competitors",
+        "examples": [
+          "AVOID: 'Melhor que a marca X'",
+          "USE: 'Nosso produto tem Y% mais [atributo mensurável]'"
+        ]
+      }
+    ],
+    "truth_in_advertising": {
+      "rule": "All claims must be truthful, provable, and not misleading",
+      "red_flags": [
+        "Exaggerated benefits without proof",
+        "Hidden conditions in offers",
+        "Misleading pricing (fake discounts)",
+        "Testimonials without consent or payment disclosure"
+      ]
+    }
+  },
+
+  "inmetro_rules": {
+    "description": "INMETRO (Instituto Nacional de Metrologia) - Product certification and quality standards",
+    "certifications_required": [
+      {
+        "category": "electronics",
+        "requirement": "Compulsory INMETRO certification seal",
+        "products": ["Chargers", "Power banks", "Electronics", "LED lamps"],
+        "note": "Cannot sell without INMETRO seal visible in product images"
+      },
+      {
+        "category": "textiles",
+        "requirement": "Fiber composition label",
+        "products": ["Clothing", "Bedding", "Towels"],
+        "note": "Must declare fiber percentages accurately"
+      },
+      {
+        "category": "toys",
+        "requirement": "INMETRO safety certification",
+        "products": ["Children's toys", "Games for ages 0-14"],
+        "note": "Mandatory safety testing and age grading"
+      },
+      {
+        "category": "measuring_devices",
+        "requirement": "INMETRO verification seal",
+        "products": ["Scales", "Thermometers", "Blood pressure monitors"],
+        "note": "Metrological verification required"
+      }
+    ],
+    "labeling_requirements": {
+      "mandatory_info": [
+        "Product name in Portuguese",
+        "Manufacturer/importer name and CNPJ",
+        "Country of origin",
+        "Net weight/volume (metric system)",
+        "Batch/lot number",
+        "Expiration date (for perishables)",
+        "Customer service contact (SAC)"
+      ],
+      "warnings": [
+        "Safety warnings in Portuguese",
+        "Age restrictions for toys",
+        "Allergen information for food/cosmetics"
+      ]
+    }
+  },
+
+  "marketplace_specific": {
+    "mercado_livre": {
+      "title_restrictions": [
+        "Max 60 characters",
+        "No emojis in title",
+        "No superlatives without proof ('melhor', '#1')",
+        "No contact info (phone, email, social media)"
+      ],
+      "description_restrictions": [
+        "No external links to other marketplaces",
+        "No promotional language ('compre agora', 'oferta imperdível')",
+        "Must include technical specifications"
+      ],
+      "image_requirements": [
+        "Min 500x500px, recommended 1200x1200px",
+        "No watermarks or borders",
+        "Main image: white background preferred",
+        "Must show actual product (no mockups only)"
+      ]
+    },
+    "shopee": {
+      "title_restrictions": [
+        "Max 255 characters",
+        "Emojis allowed but limited (max 3)",
+        "Keyword stuffing prohibited"
+      ],
+      "prohibited_content": [
+        "Sexually suggestive content",
+        "Violence or weapons",
+        "Counterfeit goods mentions",
+        "Misleading health claims"
+      ]
+    },
+    "amazon_br": {
+      "brand_registry": {
+        "requirement": "Registered trademark with INPI (Instituto Nacional da Propriedade Industrial)",
+        "benefits": ["Brand protection", "A+ Content", "Sponsored Brands ads"]
+      },
+      "title_format": {
+        "pattern": "Brand + Key Feature + Product Type + Size/Model",
+        "max_length": 200,
+        "prohibited": ["ALL CAPS", "Promotional language", "Price mentions"]
+      }
+    },
+    "magalu": {
+      "title_restrictions": [
+        "Max 150 characters",
+        "No promotional phrases",
+        "Brand name must match registered brand"
+      ],
+      "family_friendly": {
+        "rule": "All content must be family-appropriate",
+        "prohibited": ["Adult content", "Alcohol/tobacco", "Weapons"]
+      }
+    }
+  },
+
+  "validation_checklist": {
+    "pre_publish": [
+      "All health claims substantiated with studies/certifications",
+      "No ANVISA prohibited words for product category",
+      "Superlatives backed by verifiable data or removed",
+      "INMETRO certifications obtained and displayed (if applicable)",
+      "Marketplace-specific title/description limits respected",
+      "Contact info (SAC) included in product page",
+      "All text in Portuguese (BR) with correct grammar"
+    ],
+    "ongoing_monitoring": [
+      "Customer reviews for compliance issues",
+      "Competitor claims for comparative advertising rules",
+      "Regulatory updates (ANVISA/CONAR/INMETRO quarterly)",
+      "Marketplace policy changes (monthly check)"
+    ]
+  },
+
+  "penalty_levels": {
+    "critical": {
+      "description": "Immediate legal risk - ANVISA/CONAR prosecution possible",
+      "examples": ["Medical cure claims", "Unlicensed health device claims", "False certifications"],
+      "action": "BLOCK publication, legal review required"
+    },
+    "high": {
+      "description": "High risk of marketplace takedown or CONAR complaint",
+      "examples": ["Unsubstantiated superlatives", "Misleading environmental claims"],
+      "action": "Revise before publication"
+    },
+    "medium": {
+      "description": "Moderate risk - may trigger customer complaints or marketplace warnings",
+      "examples": ["Vague uniqueness claims", "Exaggerated testimonials"],
+      "action": "Recommend revision"
+    },
+    "low": {
+      "description": "Best practice violation - minor quality issue",
+      "examples": ["Suboptimal wording", "Missing optional disclaimers"],
+      "action": "Suggest improvement"
+    }
+  },
+
+  "resources": {
+    "anvisa_portal": "https://www.gov.br/anvisa/pt-br",
+    "conar_code": "http://www.conar.org.br/",
+    "inmetro_certifications": "https://www.gov.br/inmetro/pt-br",
+    "consumer_defense_code": "CDC - Código de Defesa do Consumidor (Lei 8.078/1990)",
+    "advertising_law": "Lei 4.680/1965 (Advertising regulation)"
+  },
+
+  "notes": {
+    "disclaimer": "This is a reference guide. Consult legal professionals for official compliance advice.",
+    "maintenance": "Update quarterly or when major regulatory changes occur",
+    "scope_limitation": "Focused on common e-commerce categories. Specialized categories (pharma, finance, etc.) require additional research."
+  }
+}

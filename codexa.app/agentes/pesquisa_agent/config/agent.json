@@ -1,0 +1,207 @@
+{
+  "agent_name": "Pesquisa Agent BR",
+  "version": "2.6.0",
+  "description": "Brazilian e-commerce market research agent with 12 Leverage Points framework and Claude Code tools mapping",
+  "isolation": "full",
+  "portability": "llm_agnostic",
+  "framework": "12_leverage_points",
+
+  "capabilities": {
+    "web_search": {
+      "required": true,
+      "detection": "auto",
+      "fallback": "manual_urls",
+      "config": {
+        "max_results_per_query": 10,
+        "timeout_seconds": 30,
+        "retry_attempts": 3
+      }
+    },
+    "vision": {
+      "required": false,
+      "detection": "auto",
+      "fallback": "text_only",
+      "config": {
+        "screenshot_analysis": true,
+        "image_url_analysis": true
+      }
+    },
+    "file_search": {
+      "required": false,
+      "detection": "auto",
+      "fallback": "web_search",
+      "config": {
+        "vector_store_name": "pesquisa_knowledge_base",
+        "chunk_size": 800,
+        "chunk_overlap": 400
+      }
+    },
+    "code_interpreter": {
+      "required": false,
+      "detection": "auto",
+      "fallback": "manual_calculation",
+      "config": {
+        "allowed_operations": [
+          "data_analysis",
+          "metric_calculation",
+          "text_processing",
+          "validation"
+        ]
+      }
+    }
+  },
+
+  "execution": {
+    "default_plan": "standard_research",
+    "plans_directory": "config/plans/",
+    "available_plans": [
+      "standard_research.json",
+      "quick_competitor.json",
+      "seo_focused.json"
+    ],
+    "custom_plans_allowed": true
+  },
+
+  "prompts": {
+    "entry_point": "PRIME.md",
+    "modules_directory": "prompts/",
+    "required_modules": [
+      "intake_validation.md",
+      "web_search_inbound.md",
+      "web_search_outbound.md",
+      "competitor_analysis.md",
+      "seo_taxonomy.md"
+    ],
+    "optional_modules": [
+      "image_analysis.md",
+      "price_comparison.md",
+      "sentiment_analysis.md",
+      "gap_identification.md",
+      "trend_analysis.md",
+      "strategy_gaps.md"
+    ]
+  },
+
+  "output": {
+    "format": "markdown",
+    "template_file": "templates/research_notes.md",
+    "output_directory": "user_research/",
+    "required_blocks": 22,
+    "include_metadata": true,
+    "include_query_log": true,
+    "trinity_output": {
+      "human_readable": "[produto]_research_notes.md",
+      "structured_data": "[produto]_research_notes.llm.json",
+      "metadata": "[produto]_metadata.json"
+    }
+  },
+
+  "validation": {
+    "brief_required_fields": [
+      "product_name",
+      "category",
+      "target_audience",
+      "price_range"
+    ],
+    "brief_recommended_fields": [
+      "marketplace_target",
+      "competitors",
+      "special_requirements"
+    ],
+    "quality_gates": {
+      "min_competitors_analyzed": 3,
+      "min_web_queries_logged": 15,
+      "min_confidence_score": 0.75,
+      "max_suggestions_percent": 10,
+      "min_completeness_percent": 75,
+      "all_blocks_present": true
+    },
+    "web_search_coverage": {
+      "inbound_per_head_term": 3,
+      "outbound_per_head_term": 2,
+      "must_include_reclameaqui": true
+    }
+  },
+
+  "regional_config": {
+    "country": "BR",
+    "language": "pt-BR",
+    "currency": "BRL",
+    "marketplaces_config": "config/marketplaces.json",
+    "marketplaces_priority": [
+      "mercadolivre",
+      "shopee",
+      "magazineluiza",
+      "amazon_br",
+      "americanas",
+      "casasbahia",
+      "tiktokshop",
+      "shein"
+    ],
+    "regulatory_bodies": [
+      "ANVISA",
+      "INMETRO",
+      "ANATEL",
+      "CONAR"
+    ],
+    "compliance_validation": true
+  },
+
+  "performance": {
+    "max_execution_time_minutes": 30,
+    "concurrent_web_searches": 3,
+    "cache_results": true,
+    "cache_ttl_hours": 24,
+    "timeout_per_step_minutes": 10
+  },
+
+  "error_handling": {
+    "on_capability_missing": "adapt_workflow",
+    "on_step_failure": "retry",
+    "max_retries_per_step": 2,
+    "fallback_plan": "quick_competitor",
+    "abort_on_web_search_unavailable": true
+  },
+
+  "logging": {
+    "log_level": "INFO",
+    "log_web_searches": true,
+    "log_file_searches": true,
+    "log_decisions": true,
+    "export_logs": true,
+    "log_file": "user_research/[produto]_execution.log"
+  },
+
+  "integrations": {
+    "upstream_agents": [
+      "marca_agent (optional - brand guidelines)",
+      "user_brief (required)"
+    ],
+    "downstream_agents": [
+      "anuncio_agent (consumes research_notes)",
+      "marca_agent (uses market insights)"
+    ],
+    "data_repositories": [
+      "USER_DOCS/produtos/ (centralized product docs)"
+    ]
+  },
+
+  "metadata": {
+    "author": "CODEXA Meta-Construction System",
+    "created": "2025-11-13",
+    "last_updated": "2025-11-26",
+    "version_history": [
+      "v2.6.0 (2025-11-26) - Claude Code tools mapping, iso_vectorstore docs, competitor_intelligence integration",
+      "v2.5.0 (2025-11-25) - 12 Leverage Points framework, task boundaries",
+      "v2.1.0 (2025-11-13) - Full isolation, auto-capability detection",
+      "v2.0.0 (2025-11-10) - HOP framework + execution plans",
+      "v1.1.0 (2025-11-03) - Vision + 700 URLs",
+      "v1.0.0 (2025-10-XX) - Initial release"
+    ],
+    "status": "production",
+    "maturity": "9.0/10",
+    "isolation_level": "full",
+    "portability": "universal",
+    "framework": "12_leverage_points"
+  }
+}

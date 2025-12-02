@@ -1,0 +1,224 @@
+{
+  "version": "2.5.0",
+  "last_updated": "2025-11-25",
+  "description": "Knowledge catalog for CODEXA Curso Agent v2.5.0 - 12 Leverage Points Implementation",
+  "file_count": 20,
+  "structure": "01-20 numbered files + catalogo.json",
+  "arquivos": [
+    {
+      "arquivo": "01_QUICK_START.md",
+      "categoria": "navigation",
+      "assunto": "mental_checklist",
+      "tags": ["navigation", "quick-start", "mental-checklist", "commands"],
+      "nivel": "basico",
+      "aplicacao": "quando_iniciar_qualquer_tarefa",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "02_PRIME.md",
+      "categoria": "identity",
+      "assunto": "agent_identity",
+      "tags": ["identity", "capabilities", "12-leverage-points", "status"],
+      "nivel": "basico",
+      "aplicacao": "quando_entender_agente",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "03_INSTRUCTIONS.md",
+      "categoria": "operations",
+      "assunto": "workflow_rules",
+      "tags": ["rules", "workflow", "task-boundaries", "error-handling"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_executar_tarefas",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "04_README.md",
+      "categoria": "documentation",
+      "assunto": "agent_overview",
+      "tags": ["overview", "architecture", "quick-reference"],
+      "nivel": "basico",
+      "aplicacao": "quando_entender_estrutura",
+      "quality_score": 0.90
+    },
+    {
+      "arquivo": "05_ARCHITECTURE.md",
+      "categoria": "architecture",
+      "assunto": "12_leverage_points",
+      "tags": ["architecture", "dual-layer", "adw", "hop", "data-flow"],
+      "nivel": "avancado",
+      "aplicacao": "quando_entender_sistema",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "06_input_schema.json",
+      "categoria": "types",
+      "assunto": "input_validation",
+      "tags": ["schema", "validation", "json-schema", "inputs"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_validar_entradas",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "07_output_template.md",
+      "categoria": "templates",
+      "assunto": "output_format",
+      "tags": ["template", "output", "trinity", "format"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_gerar_saidas",
+      "quality_score": 0.90
+    },
+    {
+      "arquivo": "08_curso_rules.json",
+      "categoria": "types",
+      "assunto": "educational_methodology",
+      "tags": ["rules", "pedagogy", "brand-voice", "quality-thresholds"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_criar_conteudo",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "09_hotmart_specs.json",
+      "categoria": "types",
+      "assunto": "platform_specifications",
+      "tags": ["hotmart", "video-specs", "checkout", "compliance"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_preparar_hotmart",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "10_pedagogy_patterns.json",
+      "categoria": "types",
+      "assunto": "learning_design",
+      "tags": ["blooms-taxonomy", "objectives", "addie", "instructional-design"],
+      "nivel": "avancado",
+      "aplicacao": "quando_desenhar_aprendizado",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "11_ADW_orchestrator.md",
+      "categoria": "workflows",
+      "assunto": "5_phase_adw",
+      "tags": ["adw", "orchestration", "plan-build-test-review-document", "quality-gates"],
+      "nivel": "avancado",
+      "aplicacao": "quando_orquestrar_workflow",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "12_execution_plans.json",
+      "categoria": "plans",
+      "assunto": "execution_modes",
+      "tags": ["plans", "quick", "full", "sales", "complete"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_escolher_plano",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "13_HOP_video_script.md",
+      "categoria": "prompts",
+      "assunto": "video_script_generation",
+      "tags": ["hop", "tac-7", "video", "script", "timing"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_gerar_roteiro_video",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "14_HOP_workbook.md",
+      "categoria": "prompts",
+      "assunto": "workbook_generation",
+      "tags": ["hop", "tac-7", "workbook", "exercises", "reflection"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_gerar_apostila",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "15_HOP_sales_copy.md",
+      "categoria": "prompts",
+      "assunto": "sales_copy_generation",
+      "tags": ["hop", "tac-7", "sales", "landing-page", "emails"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_gerar_materiais_venda",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "16_hotmart_integration.md",
+      "categoria": "hotmart_platform",
+      "assunto": "integration_workflow",
+      "tags": ["hotmart", "0-to-1", "checklist", "compliance"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_lancar_curso_hotmart",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "17_HOP_hotmart_video.md",
+      "categoria": "hotmart_platform",
+      "assunto": "video_management",
+      "tags": ["hotmart", "player", "drm", "upload", "transcripts"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_fazer_upload_videos",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "18_HOP_hotmart_checkout.md",
+      "categoria": "hotmart_platform",
+      "assunto": "checkout_optimization",
+      "tags": ["hotmart", "checkout", "conversion", "payment"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_configurar_pagamento",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "19_HOP_hotmart_club.md",
+      "categoria": "hotmart_platform",
+      "assunto": "club_structure",
+      "tags": ["hotmart", "club", "gotejamento", "turmas"],
+      "nivel": "intermediario",
+      "aplicacao": "quando_estruturar_conteudo",
+      "quality_score": 0.95
+    },
+    {
+      "arquivo": "20_CHANGELOG.md",
+      "categoria": "documentation",
+      "assunto": "version_history",
+      "tags": ["changelog", "versions", "history"],
+      "nivel": "basico",
+      "aplicacao": "quando_verificar_versao",
+      "quality_score": 0.95
+    }
+  ],
+  "categorias": [
+    "navigation",
+    "identity",
+    "operations",
+    "documentation",
+    "architecture",
+    "types",
+    "templates",
+    "workflows",
+    "plans",
+    "prompts",
+    "hotmart_platform"
+  ],
+  "leverage_points_mapping": {
+    "01_context": ["01_QUICK_START.md"],
+    "02_model": ["02_PRIME.md"],
+    "03_prompt": ["13_HOP_video_script.md", "14_HOP_workbook.md", "15_HOP_sales_copy.md"],
+    "04_tools": ["builders/", "validators/"],
+    "05_standard_out": ["11_ADW_orchestrator.md", "07_output_template.md"],
+    "06_types": ["06_input_schema.json", "08_curso_rules.json", "09_hotmart_specs.json", "10_pedagogy_patterns.json", "12_execution_plans.json"],
+    "07_documentation": ["04_README.md", "02_PRIME.md", "03_INSTRUCTIONS.md"],
+    "08_tests": ["validators/"],
+    "09_architecture": ["05_ARCHITECTURE.md", "11_ADW_orchestrator.md"],
+    "10_plans": ["12_execution_plans.json"],
+    "11_templates": ["templates/"],
+    "12_adws": ["11_ADW_orchestrator.md"]
+  },
+  "quality_metrics": {
+    "total_files": 20,
+    "avg_quality_score": 0.94,
+    "leverage_points_implemented": 12,
+    "tac7_hops": 6,
+    "json_schemas": 5,
+    "hotmart_specific_files": 4
+  }
+}

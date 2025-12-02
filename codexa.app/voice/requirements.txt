@@ -1,0 +1,25 @@
+# CODEXA Voice - Dependencies
+# ============================
+# Install: pip install -r requirements.txt
+
+# Core Audio
+sounddevice>=0.4.6
+soundfile>=0.12.1
+numpy>=1.24.0
+
+# TTS Providers
+edge-tts>=6.1.0      # Free, online
+pyttsx3>=2.90        # Offline fallback
+elevenlabs>=1.0.0    # Premium (optional)
+
+# Audio Playback
+pygame>=2.5.0        # For reliable audio playback
+
+# STT (via ElevenLabs)
+# Already included in elevenlabs package
+
+# Environment
+python-dotenv>=1.0.0
+
+# MCP Server
+mcp>=0.1.0

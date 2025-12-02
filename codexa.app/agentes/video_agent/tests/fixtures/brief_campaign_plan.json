@@ -1,0 +1,55 @@
+{
+  "$schema": "../../schemas/video_input.json",
+  "execution_plan": "campaign",
+  "campaign_config": {
+    "multi_format": true,
+    "formats": ["9:16", "16:9", "1:1"],
+    "durations": [15, 30],
+    "modes": ["overlay", "clean"],
+    "total_variants": 6
+  },
+  "produto": "Perfume Luxe Edition",
+  "duracao": 30,
+  "formato": "9:16",
+  "tom": "sofisticado",
+  "objetivo": "Lancamento global de fragrancia premium",
+  "international": true,
+  "platforms": ["instagram", "youtube", "tiktok"],
+  "brand_profile": {
+    "nome": "Luxe Paris",
+    "cores": {
+      "primaria": "#C9A961",
+      "secundaria": "#1C1C1C",
+      "acento": "#FFFFFF"
+    },
+    "tom": "luxuoso",
+    "personalidade": "elegante",
+    "valores": ["exclusividade", "sofisticacao", "arte"]
+  },
+  "voice": {
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "voice_name": "Bella",
+    "gender": "feminina"
+  },
+  "features": [
+    {
+      "nome": "Notas de Topo",
+      "descricao": "Bergamota e Rosa Damascena"
+    },
+    {
+      "nome": "Fixacao",
+      "descricao": "Ate 12 horas de duracao"
+    }
+  ],
+  "test_metadata": {
+    "plan": "campaign",
+    "expected_videos": 6,
+    "expected_formats": ["9:16", "16:9", "1:1"],
+    "expected_durations": [15, 30],
+    "expected_modes": ["overlay", "clean"],
+    "expected_duration_min": 600,
+    "expected_duration_max": 900,
+    "cost_estimate_max_usd": 5.00,
+    "multi_language_ready": true
+  }
+}

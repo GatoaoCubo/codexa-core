@@ -1,0 +1,407 @@
+{
+  "plan_id": "comprehensive_research",
+  "plan_name": "Comprehensive Research Plan v1.1",
+  "version": "1.1.0",
+  "description": "Full research with advanced analysis (pricing, sentiment, gaps, trends). 13 steps, 35-50min execution time.",
+  "author": "CODEXA Meta-Construction System",
+  "created_at": "2025-11-14",
+  "estimated_duration_minutes": 45,
+
+  "execution_steps": [
+    {
+      "step_id": "step_1_intake_validation",
+      "step_name": "Intake & Validation",
+      "prompt_module": "intake_validation.md",
+      "parallel_execution": false,
+      "inputs": {
+        "from_brief": ["product_name", "category", "target_audience", "price_range", "marketplace_target", "competitors", "special_requirements"]
+      },
+      "outputs": {
+        "target_blocks": ["LACUNAS DO BRIEF"],
+        "export_variables": {
+          "head_terms": "Derived search terms",
+          "validated_brief": "Enriched brief with inferences",
+          "approval_status": "approved | requires_clarification",
+          "critical_gaps": "Number of critical gaps"
+        }
+      },
+      "validation": {
+        "confidence_threshold": 0.6,
+        "completeness_threshold": 60,
+        "max_suggestions_percent": 40
+      },
+      "on_step_failure": "abort",
+      "timeout_minutes": 5
+    },
+
+    {
+      "step_id": "step_2_query_bank_generation",
+      "step_name": "Query Bank Generation",
+      "prompt_module": "internal",
+      "parallel_execution": false,
+      "inputs": {
+        "from_step": {
+          "step_1_intake_validation": ["head_terms", "validated_brief"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["HEAD TERMS PRIORITÁRIOS", "LONGTAILS", "SINÔNIMOS E VARIAÇÕES"],
+        "export_variables": {
+          "query_list": "15-20 search queries for web search steps"
+        }
+      },
+      "validation": {
+        "min_head_terms": 10,
+        "min_longtails": 30
+      },
+      "on_step_failure": "retry",
+      "max_retries": 2,
+      "timeout_minutes": 3
+    },
+
+    {
+      "step_id": "step_3_file_search",
+      "step_name": "File Search (Compliance Rules)",
+      "prompt_module": "internal",
+      "parallel_execution": true,
+      "conditional": {
+        "condition": "file_search capability available",
+        "skip_if_false": true
+      },
+      "inputs": {
+        "from_step": {
+          "step_1_intake_validation": ["validated_brief"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["REGRAS CRÍTICAS DE MARKETPLACE"],
+        "export_variables": {
+          "compliance_rules": "ANVISA, INMETRO, etc."
+        }
+      },
+      "timeout_minutes": 5
+    },
+
+    {
+      "step_id": "step_4_web_search_inbound",
+      "step_name": "Web Search Inbound (Marketplaces)",
+      "prompt_module": "web_search_inbound.md",
+      "parallel_execution": true,
+      "inputs": {
+        "from_step": {
+          "step_2_query_bank_generation": ["query_list"],
+          "step_1_intake_validation": ["validated_brief"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["SEO INBOUND", "PADRÕES DE LINGUAGEM", "CONSULTAS WEB"],
+        "export_variables": {
+          "competitors": "Competitor products found",
+          "marketplace_patterns": "Title/messaging patterns"
+        }
+      },
+      "validation": {
+        "min_queries": 15,
+        "min_marketplaces": 3
+      },
+      "on_step_failure": "retry",
+      "timeout_minutes": 8
+    },
+
+    {
+      "step_id": "step_5_web_search_outbound",
+      "step_name": "Web Search Outbound (SERP + Social)",
+      "prompt_module": "web_search_outbound.md",
+      "parallel_execution": true,
+      "inputs": {
+        "from_step": {
+          "step_2_query_bank_generation": ["query_list"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["SEO OUTBOUND", "DORES DO PÚBLICO", "GANHOS DESEJADOS", "CONSULTAS WEB"],
+        "export_variables": {
+          "organic_keywords": "Content keywords",
+          "pain_points_initial": "Initial pain points from SERP"
+        }
+      },
+      "validation": {
+        "min_queries": 15,
+        "min_channels": 3,
+        "reclameaqui_required": true
+      },
+      "on_step_failure": "retry",
+      "timeout_minutes": 8
+    },
+
+    {
+      "step_id": "step_6_competitor_analysis",
+      "step_name": "Competitor Analysis & Benchmark",
+      "prompt_module": "competitor_analysis.md",
+      "parallel_execution": false,
+      "inputs": {
+        "from_step": {
+          "step_4_web_search_inbound": ["competitors"],
+          "step_1_intake_validation": ["validated_brief"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["ANÁLISE DE CONCORRENTES", "BENCHMARK DE CONCORRENTES", "DIFERENCIAIS COMPETITIVOS"],
+        "export_variables": {
+          "competitor_list": "Detailed competitor profiles",
+          "benchmark_data": "Aggregated metrics"
+        }
+      },
+      "validation": {
+        "min_competitors": 3,
+        "min_metrics": 5
+      },
+      "on_step_failure": "retry",
+      "timeout_minutes": 6
+    },
+
+    {
+      "step_id": "step_7_price_comparison",
+      "step_name": "Price Comparison Analysis (NEW v1.1)",
+      "prompt_module": "price_comparison.md",
+      "parallel_execution": true,
+      "inputs": {
+        "from_step": {
+          "step_2_query_bank_generation": ["head_terms"],
+          "step_1_intake_validation": ["validated_brief"],
+          "step_6_competitor_analysis": ["competitor_list"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["BENCHMARK DE CONCORRENTES"],
+        "export_variables": {
+          "avg_market_price": "Average market price (BRL)",
+          "pricing_opportunities": "Pricing strategy recommendations"
+        }
+      },
+      "validation": {
+        "min_sources": 3,
+        "min_price_points": 10
+      },
+      "on_step_failure": "continue",
+      "timeout_minutes": 8
+    },
+
+    {
+      "step_id": "step_8_sentiment_analysis",
+      "step_name": "Sentiment Analysis (NEW v1.1)",
+      "prompt_module": "sentiment_analysis.md",
+      "parallel_execution": true,
+      "inputs": {
+        "from_step": {
+          "step_2_query_bank_generation": ["head_terms"],
+          "step_6_competitor_analysis": ["competitor_list"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["DORES DO PÚBLICO", "GANHOS DESEJADOS", "OBJEÇÕES E RESPOSTAS"],
+        "export_variables": {
+          "sentiment_score": "Overall sentiment (-1.0 to 1.0)",
+          "pain_points": "Prioritized pain points",
+          "desired_gains": "Desired benefits",
+          "objections": "Common objections + responses"
+        }
+      },
+      "validation": {
+        "min_sources": 4,
+        "reclameaqui_required": true,
+        "min_pain_points": 20,
+        "min_desired_gains": 15,
+        "min_objections": 10
+      },
+      "on_step_failure": "retry",
+      "timeout_minutes": 12
+    },
+
+    {
+      "step_id": "step_9_gap_identification",
+      "step_name": "Gap Identification (NEW v1.1)",
+      "prompt_module": "gap_identification.md",
+      "parallel_execution": false,
+      "inputs": {
+        "from_step": {
+          "step_2_query_bank_generation": ["head_terms"],
+          "step_1_intake_validation": ["validated_brief"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["ESTRATÉGIAS E GAPS", "SEO INBOUND", "SEO OUTBOUND"],
+        "export_variables": {
+          "keyword_gaps": "Neglected keywords",
+          "content_gaps": "Unanswered questions",
+          "product_gaps": "Unmet needs"
+        }
+      },
+      "validation": {
+        "min_sources": 3,
+        "min_gaps_identified": 10
+      },
+      "on_step_failure": "continue",
+      "timeout_minutes": 10
+    },
+
+    {
+      "step_id": "step_10_trend_analysis",
+      "step_name": "Trend Analysis (NEW v1.1)",
+      "prompt_module": "trend_analysis.md",
+      "parallel_execution": false,
+      "inputs": {
+        "from_step": {
+          "step_1_intake_validation": ["validated_brief"],
+          "step_2_query_bank_generation": ["head_terms"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["ESTRATÉGIAS E GAPS"],
+        "export_variables": {
+          "macro_trends": "Long-term trends (1-3 years)",
+          "active_trends": "Current trending (3-6 months)",
+          "micro_trends": "Emerging micro-trends (<3 months)",
+          "timing_recommendation": "Best timing for launch"
+        }
+      },
+      "validation": {
+        "min_sources": 5,
+        "min_trends_identified": 8,
+        "timing_recommendation_required": true
+      },
+      "on_step_failure": "continue",
+      "timeout_minutes": 15
+    },
+
+    {
+      "step_id": "step_11_strategy_gaps",
+      "step_name": "Strategy Gaps Consolidation (NEW v1.1)",
+      "prompt_module": "strategy_gaps.md",
+      "parallel_execution": false,
+      "inputs": {
+        "from_step": {
+          "step_6_competitor_analysis": ["competitor_list", "benchmark_data"],
+          "step_7_price_comparison": ["pricing_opportunities"],
+          "step_8_sentiment_analysis": ["pain_points", "desired_gains", "objections"],
+          "step_9_gap_identification": ["keyword_gaps", "content_gaps", "product_gaps"],
+          "step_10_trend_analysis": ["macro_trends", "active_trends", "micro_trends"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["ESTRATÉGIAS E GAPS"],
+        "export_variables": {
+          "winning_strategies": "Top strategies with rationale",
+          "exploitable_gaps": "Prioritized gaps",
+          "risks_to_avoid": "Risk mitigation plan",
+          "top_5_actions": "Prioritized action items"
+        }
+      },
+      "validation": {
+        "min_strategies": 3,
+        "min_gaps": 3,
+        "min_risks": 2,
+        "top_actions_required": 5
+      },
+      "on_step_failure": "abort",
+      "timeout_minutes": 12
+    },
+
+    {
+      "step_id": "step_12_seo_taxonomy",
+      "step_name": "SEO Taxonomy",
+      "prompt_module": "seo_taxonomy.md",
+      "parallel_execution": false,
+      "inputs": {
+        "from_step": {
+          "step_4_web_search_inbound": ["marketplace_patterns"],
+          "step_5_web_search_outbound": ["organic_keywords"],
+          "step_9_gap_identification": ["keyword_gaps"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["SEO INBOUND", "SEO OUTBOUND"],
+        "export_variables": {
+          "seo_clusters": "Semantic keyword clusters"
+        }
+      },
+      "timeout_minutes": 4
+    },
+
+    {
+      "step_id": "step_13_image_analysis",
+      "step_name": "Image Analysis (Optional)",
+      "prompt_module": "image_analysis.md",
+      "parallel_execution": false,
+      "conditional": {
+        "condition": "validated_brief.image_urls.length > 0 AND vision capability available",
+        "skip_if_false": true
+      },
+      "inputs": {
+        "from_step": {
+          "step_1_intake_validation": ["validated_brief"]
+        }
+      },
+      "outputs": {
+        "target_blocks": ["IMAGENS ANALISADAS"]
+      },
+      "timeout_minutes": 5
+    }
+  ],
+
+  "output_schema": {
+    "format": "research_notes",
+    "template_path": "templates/research_notes.md",
+    "required_blocks": [
+      "LACUNAS DO BRIEF",
+      "HEAD TERMS PRIORITÁRIOS",
+      "LONGTAILS",
+      "SINÔNIMOS E VARIAÇÕES",
+      "DORES DO PÚBLICO",
+      "GANHOS DESEJADOS",
+      "OBJEÇÕES E RESPOSTAS",
+      "ANÁLISE DE CONCORRENTES",
+      "BENCHMARK DE CONCORRENTES",
+      "DIFERENCIAIS COMPETITIVOS",
+      "ESTRATÉGIAS E GAPS",
+      "PADRÕES DE LINGUAGEM",
+      "SEO OUTBOUND",
+      "SEO INBOUND",
+      "REGRAS CRÍTICAS DE MARKETPLACE",
+      "CONSULTAS WEB",
+      "RESUMO EXECUTIVO"
+    ],
+    "optional_blocks": [
+      "IMAGENS ANALISADAS",
+      "TERMO CONTEXTUAL E OCASIÃO",
+      "PROVAS E EVIDÊNCIAS",
+      "RISCOS OU ALERTAS",
+      "DECISÕES DE COPY INICIAIS"
+    ],
+    "quality_thresholds": {
+      "min_completeness_percent": 90,
+      "max_suggestions_percent": 5,
+      "min_web_queries": 30,
+      "min_competitors": 3,
+      "min_confidence_score": 0.80,
+      "min_price_sources": 3,
+      "min_sentiment_sources": 4,
+      "min_gap_sources": 3,
+      "min_trend_sources": 5
+    }
+  },
+
+  "context_strategy": "step_by_step",
+
+  "performance": {
+    "max_parallel_steps": 3,
+    "enable_caching": true,
+    "cache_ttl_hours": 24
+  },
+
+  "metadata": {
+    "tags": ["comprehensive", "advanced", "v1.1", "full_research"],
+    "use_case": "Pre-launch research, complete market intelligence, strategic planning",
+    "target_completeness": 100
+  }
+}

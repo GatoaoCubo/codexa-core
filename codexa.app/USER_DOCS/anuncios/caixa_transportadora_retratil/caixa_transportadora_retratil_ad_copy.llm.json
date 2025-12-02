@@ -1,0 +1,20 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Caixa Transportadora Retratil Pet Dobravel PP 47cm GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.91,
+  "execution_time_minutes": 3,
+  "titles": [
+    {"text": "Caixa Transportadora Retratil Pet Dobravel PP 47cm GATO3", "char_count": 59, "keyword_count": 8, "density": 0.82, "score": 0.90, "variant": "A", "focus": "principal"},
+    {"text": "Caixa Transporte Pet Retratil Dobravel Gato Cao 47x29x32", "char_count": 58, "keyword_count": 8, "density": 0.80, "score": 0.88, "variant": "B", "focus": "seo"},
+    {"text": "Caixa Pet Retratil Compacta Ventilada Transporte Gato Cao", "char_count": 60, "keyword_count": 8, "density": 0.78, "score": 0.87, "variant": "C", "focus": "beneficio"}
+  ],
+  "keywords": {"block_a": {"name": "Atributos", "count": 120}, "block_b": {"name": "Beneficios", "count": 118}, "coverage_score": {"head_terms": 0.94, "longtails": 0.90, "total_unique_keywords": 238}},
+  "description": {"word_count": 3500, "keyword_density": 0.041, "readability_score": 70, "storybrand_elements": 7},
+  "bullets": {"count": 10, "avg_chars": 250},
+  "visual_assets": {"status": "quick_mode_skipped"},
+  "qa_report": {"aggregate_score": 0.91, "validation_checks_passed": 11, "validation_checks_total": 11, "compliance_validation": {"passed": true}},
+  "strategic_brief": {"product_name": "Caixa Retratil GATO3", "dimensions": "47x29x32cm", "price_gato3": 279.33, "source": "MLB-4276153883"},
+  "metadata": {"workflow_version": "2.5.0", "generator": "CodeXAnuncio v2.5.0", "generated_at": "2025-11-29T11:35:00Z", "plan": "quick_anuncio", "status": "production_ready"}
+}

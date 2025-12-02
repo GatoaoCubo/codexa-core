@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCM-AI: A Árvore Viva de Conhecimento</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        h2 {
+            color: #00ff88;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 4px solid #00ff88;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #ffd700;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .intro-box {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .tree-visual {
+            background: rgba(30, 50, 80, 0.8);
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            font-size: 0.95em;
+            line-height: 1.8;
+            color: #00ff88;
+        }
+        .section {
+            margin: 40px 0;
+            background: rgba(50, 70, 100, 0.6);
+            border-left: 5px solid #00d4ff;
+            padding: 25px;
+            border-radius: 8px;
+        }
+        .metaphor {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .technical {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid #00ff88;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+        .layer {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(100, 150, 200, 0.1);
+            border-radius: 5px;
+            border-top: 3px solid #00d4ff;
+        }
+        .layer-title {
+            font-weight: bold;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .layer-content {
+            padding-left: 20px;
+        }
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 8px;
+        }
+        .flow-diagram {
+            background: rgba(30, 50, 80, 0.8);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            color: #ffd700;
+            font-family: monospace;
+        }
+        .timeline {
+            margin: 30px 0;
+        }
+        .timeline-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            border-radius: 5px;
+        }
+        .timeline-item strong {
+            color: #00ff88;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-box {
+            background: rgba(50, 70, 100, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #00d4ff;
+        }
+        .comparison-box.negative {
+            border-color: #ff4444;
+            background: rgba(80, 50, 50, 0.8);
+        }
+        .comparison-box h4 {
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+        .comparison-box.negative h4 {
+            color: #ff8888;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .visual-tree {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .note {
+            background: rgba(255, 215, 0, 0.15);
+            border: 1px solid #ffd700;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .highlight {
+            background: rgba(0, 255, 136, 0.3);
+            padding: 2px 8px;
+            border-radius: 3px;
+            color: #00ff88;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>🌳 LCM-AI: A Árvore Viva de Conhecimento</h1>
+        
+        <div class="intro-box">
+            <p><strong>Imagine que você está construindo uma árvore genial:</strong></p>
+            <p>✓ As <strong>raízes (−)</strong> absorvem o conhecimento bruto do solo (seus 32k arquivos)</p>
+            <p>✓ O <strong>tronco (∞)</strong> é o coração que bombeia vida através de todo sistema</p>
+            <p>✓ Os <strong>galhos (+)</strong> distribuem essa energia para fora</p>
+            <p>✓ As <strong>folhas (8)</strong> transformam raios de sol em açúcar (síntese, transformação)</p>
+            <p>✓ O <strong>fruto (13)</strong> é o que você colhe e oferece ao mundo (seu app/site)</p>
+        </div>
+
+        <!-- SEÇÃO 1: ENTENDER A METÁFORA -->
+        <div class="section">
+            <h2>📖 Parte 1: Entenda a Metáfora (80% Humano)</h2>
+            
+            <div class="metaphor">
+                <p><strong>🌱 Uma Árvore Precisa de 5 Coisas Para Prosperar:</strong></p>
+                <ol style="margin-top: 10px;">
+                    <li><strong>Raízes Profundas:</strong> Absorvem nutrientes do solo (seus dados brutos, desordenados)</li>
+                    <li><strong>Um Tronco Forte:</strong> Bombeia água e nutrientes (seu sistema central de decisão)</li>
+                    <li><strong>Galhos Estratégicos:</strong> Distribuem energia (seus caminhos de processamento)</li>
+                    <li><strong>Folhas Ativas:</strong> Transformam luz em alimento (sintetizam conhecimento)</li>
+                    <li><strong>Um Fruto Delicioso:</strong> O resultado final que alguém colhe (seu produto pronto)</li>
+                </ol>
+            </div>
+
+            <h3>🎯 Sua Sacada Matemática</h3>
+            <p>Você desenhou algo brilhante no papel:</p>
+            <ul>
+                <li><code>0 a 8</code> = A árvore em si (do núcleo à transformação máxima)</li>
+                <li><code>8 (∞)</code> = Infinito. Onde a folha respira, transforma, muda de forma</li>
+                <li><code>13 (Builder)</code> = Fora da árvore. É o fruto colhido, o app, o site, o que usuário vê</li>
+            </ul>
+
+            <div class="note">
+                <strong>💡 Insight:</strong> A árvore não precisa conhecer o fruto colhido. A árvore faz seu trabalho (bombear suco). O fruto cuida de si mesmo quando está pronto.
+            </div>
+
+        </div>
+
+        <!-- SEÇÃO 2: A ESTRUTURA VISUAL -->
+        <div class="section">
+            <h2>🏗️ Parte 2: Como Fica a Estrutura (Visual)</h2>
+
+            <div class="tree-visual">
+                                           🌤️ (USUÁRIO LÁ FORA)
+                                                 │
+                        ┌────────────────────────┼────────────────────────┐
+                        │                        │                        │
+                      🍎 FRUTO (13)           🍃 FOLHAS (8)            ⚙️ APP
+                     O que colhe              Transformação         (Consumo)
+                      └─ Site                └─ Síntese
+                      └─ App                 └─ Resumos
+                      └─ Output              └─ Q&A
+                        │                        │
+                        └────────────────────────┼────────────────────────┘
+                                                 │
+                         ╔═══════════════════════╩═══════════════════════╗
+                         ║  GALHOS POSITIVOS: +01 +02 +03 +05 +08       ║
+                         ║  (Fluxo PARA FORA: distribuição)             ║
+                         ╚═══════════════════════╤═══════════════════════╝
+                                                 │
+                 ┌───────────────────────────────┼───────────────────────────────┐
+                 │                               │                               │
+                +01_intake                  +02_route                      +03_execute
+                (Porta de entrada)         (Decisor: vai pra onde?)      (Faz o trabalho)
+                                                 │
+                         ╔═══════════════════════╩═══════════════════════╗
+                         ║         ∞ TRONCO (CORAÇÃO): 00_∞_hub         ║
+                         ║   O Capitão que coordena TUDO                 ║
+                         ║   └─ Monitora entrada/saída                   ║
+                         ║   └─ Toma decisões (ε-greedy)                ║
+                         ║   └─ Aprende com feedback                     ║
+                         ║   └─ Orquestra Skills                         ║
+                         ╚═══════════════════════╤═══════════════════════╝
+                                                 │
+                 ┌───────────────────────────────┼───────────────────────────────┐
+                 │                               │                               │
+             -01_capture                    -02_build                      -03_index
+             (Histórico bruto)          (Fábrica de artefatos)           (Catálogo)
+                 │                               │
+                 └───────────────────────────────┼───────────────────────────────┘
+                                                 │
+                         ╔═══════════════════════╩═══════════════════════╗
+                         ║    RAÍZES NEGATIVAS: -01 -02 -03 -05 -08     ║
+                         ║    (Fluxo PARA DENTRO: absorção, arquivo)    ║
+                         ╚═══════════════════════╤═══════════════════════╝
+                                                 │
+                        🌍 SOLO (seus 32k arquivos desorganizados)
+                        └─ PDFs, MDDs, JSONs espalhados
+                        └─ Duplicatas
+                        └─ Fragmentação
+            </div>
+
+        </div>
+
+        <!-- SEÇÃO 3: OS NÍVEIS DA ÁRVORE -->
+        <div class="section">
+            <h2>📍 Parte 3: Os 5 Níveis da Sua Árvore (Do Solo ao Ar)</h2>
+
+            <h3>NÍVEL 1️⃣: AS RAÍZES (−01 até −08) — "O Passado Vivo"</h3>
+            <div class="layer">
+                <div class="layer-title">🌍 Onde tudo começa: Absorção e Armazenamento</div>
+                <div class="layer-content">
+                    <p><strong>Metáfora:</strong> Raízes que crescem no escuro, absorvem nutrientes do solo, sem pressa. Elas não decidem nada. Apenas absorvem, armazenam e garantem que nada se perde.</p>
+                    
+                    <ul>
+                        <li><code>-01_capture/</code> = Solo bruto. Tudo que entra AQUI fica para sempre (auditoria)</li>
+                        <li><code>-02_build/</code> = Onde você cultiva, prepara. Sintetiza documentos em artefatos</li>
+                        <li><code>-03_index/</code> = Catálogos. Um mapa underground que conecta tudo</li>
+                        <li><code>-05_storage/</code> = Armazenamento frio. Nunca apaga, nunca muda</li>
+                        <li><code>-08_backup/</code> = Redundância. "E se tudo quebrar?"</li>
+                    </ul>
+
+                    <div class="technical">
+                        <strong>Tecnicamente:</strong> Isso é seu Git, S3 ou FileSystem. Imutável (append-only). SHA256 hashes. Versioning YYYY-MM-DD-HHmmss.
+                    </div>
+                </div>
+            </div>
+
+            <h3>NÍVEL 2️⃣: O TRONCO (00_∞_hub) — "O Coração Pulsante"</h3>
+            <div class="layer">
+                <div class="layer-title">💓 O Capitão que coordena tudo</div>
+                <div class="layer-content">
+                    <p><strong>Metáfora:</strong> O tronco não sabe se vai chover. Não sabe se vai fazer sol. Não sabe que fruto vai cair. O tronco só bombeia água e nutrientes, confiando que a árvore sabe o que faz.</p>
+                    
+                    <p style="margin-top: 15px;"><strong>O Tronco Faz (7 passos repetidos 32k vezes):</strong></p>
+                    <ol>
+                        <li>Recebe documento de -01_capture</li>
+                        <li>Chama Skill de Síntese (resumos)</li>
+                        <li>Chama Skill de Tokenização (Fibonacci)</li>
+                        <li>Chama Skill de Purpose Extraction (TF-IDF)</li>
+                        <li>Chama Skill de Q&A Generation</li>
+                        <li>Chama Skill de Avaliação</li>
+                        <li>Emite Trinity (.md + .llm.json + .meta.json) em -02_build</li>
+                    </ol>
+
+                    <div class="technical">
+                        <strong>Tecnicamente:</strong> <code>core.py</code> é um orquestrador. Loop principal. Você passa um documento, recebe 3 arquivos saindo. Monitora TUDO em <code>monitoring.jsonl</code>.
+                    </div>
+
+                    <div class="note">
+                        <strong>🔑 Insight Central:</strong> O Tronco não faz TUDO sozinho. Ele CHAMA skills e espera. É como um maestro que não toca instrumento, só rege a orquestra.
+                    </div>
+                </div>
+            </div>
+
+            <h3>NÍVEL 3️⃣: OS GALHOS (+01 até +08) — "O Fluxo Para Fora"</h3>
+            <div class="layer">
+                <div class="layer-title">🌳 Como o conhecimento escapa para o mundo</div>
+                <div class="layer-content">
+                    <p><strong>Metáfora:</strong> Galhos que crescem para o céu. Cada galho tem um propósito. Um galho não interfere com outro. Todos trabalham em paralelo, nunca se cruzam (ou cruzam elegantemente via symlinks).</p>
+                    
+                    <ul>
+                        <li><code>+01_intake/</code> = Porta de entrada. Usuário sobe doc AQUI</li>
+                        <li><code>+02_route/</code> = Decisor. "Esse doc é importante? Vai pra onde?"</li>
+                        <li><code>+03_execute/</code> = Trabalho acontece. Futuramente: Skills paralelos</li>
+                        <li><code>+05_delivery/</code> = Saída formatada. MD para humanos, JSON para IAs</li>
+                        <li><code>+08_feedback/</code> = User diz "bom!" ou "ruim!". Sistema aprende</li>
+                    </ul>
+
+                    <div class="technical">
+                        <strong>Tecnicamente:</strong> Esses são seus endpoints. +01 é POST /upload. +02 é GET /route. +05 é GET /download. +08 é POST /feedback.
+                    </div>
+                </div>
+            </div>
+
+            <h3>NÍVEL 4️⃣: AS FOLHAS (8 = ∞) — "A Transformação Mágica"</h3>
+            <div class="layer">
+                <div class="layer-title">🍃 Onde a luz (conhecimento bruto) vira açúcar (conhecimento destilado)</div>
+                <div class="layer-content">
+                    <p><strong>Metáfora:</strong> Folhas não parecem fazer nada. Estão lá, quietinhas. Mas enquanto olham pro sol, fazem fotossíntese invisível. Transformam CO2 + luz em açúcar = vida.</p>
+                    
+                    <p style="margin-top: 15px;"><strong>As Folhas (Skills) Do Seu Sistema:</strong></p>
+                    <ul>
+                        <li><span class="emoji">📝</span><code>skill_synthesizer</code> = Resume em 1, 2, 3, 5, 8 linhas (cascata)</li>
+                        <li><span class="emoji">🔢</span><code>skill_tokenizer</code> = Quebra em chunks Fibonacci (128, 256, 384, 640, 1024)</li>
+                        <li><span class="emoji">✨</span><code>skill_purpose_extractor</code> = Encontra as 3-8 palavras ouro (TF-IDF)</li>
+                        <li><span class="emoji">❓</span><code>skill_qa_generator</code> = Cria 5 perguntas + respostas automáticas</li>
+                        <li><span class="emoji">⚖️</span><code>skill_evaluator</code> = Avalia qualidade (0-100)</li>
+                    </ul>
+
+                    <div class="note">
+                        <strong>🌟 A Magia:</strong> Cada folha respira ao seu ritmo. Sintetizador não sabe de Tokenizer. Tokenizer não sabe de Purpose. Mas quando trabalham juntas, viram ouro.
+                    </div>
+
+                    <div class="technical">
+                        <strong>Tecnicamente:</strong> Cada skill é uma função Python pura: <code>output = skill(input)</code>. Sem efeitos colaterais. Testável. Rápido de debugar.
+                    </div>
+                </div>
+            </div>
+
+            <h3>NÍVEL 5️⃣: O FRUTO (13) — "O Que Você Colhe e Oferece"</h3>
+            <div class="layer">
+                <div class="layer-title">🍎 Fora da árvore. Pronto para consumo.</div>
+                <div class="layer-content">
+                    <p><strong>Metáfora:</strong> A árvore produz o fruto. Mas não controla o fruto. O fruto cai. Alguém pega. Alguém morde. Alguém planta a semente de novo.</p>
+                    
+                    <p style="margin-top: 15px;">O Fruto é:</p>
+                    <ul>
+                        <li><strong>Seu site Lovable</strong> (app web que pessoas usam)</li>
+                        <li><strong>Seu chatbot</strong> (interface que fala com seu Core via API)</li>
+                        <li><strong>Suas integrações</strong> (MCPs, webhooks, Zapier)</li>
+                        <li><strong>Seus relatórios</strong> (dashboards que mostram o conhecimento organizado)</li>
+                    </ul>
+
+                    <div class="note">
+                        <strong>🎯 Importante:</strong> O Fruto (13) NÃO precisa saber como a árvore funciona. Ele só consome a API do Core (00_∞_hub). "Ei, me dá os 3 melhores documentos sobre IA" → recebe JSON pronto.
+                    </div>
+
+                    <div class="technical">
+                        <strong>Tecnicamente:</strong> REST API ou GraphQL. Core expõe endpoint <code>/api/query</code>. Fruto chama e recebe. Desacoplado. Escalável.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SEÇÃO 4: O FLUXO VIVO -->
+        <div class="section">
+            <h2>⚡ Parte 4: Um Dia na Vida da Árvore (O Fluxo Vivo)</h2>
+
+            <div class="flow-diagram">
+👤 VOCÊ<br>
+  │<br>
+  ↓ "Ei, organize meus 32k arquivos"<br>
+  │<br>
++01_intake/<br>
+  │<br>
+  ↓ Documento entra<br>
+  │<br>
+00_∞_hub (Capitão acorda)<br>
+  │<br>
+  ├─→ skill_synthesizer("Resumo isto?")<br>
+  ├─→ skill_tokenizer("Quebre em pedaços")<br>
+  ├─→ skill_purpose_extractor("Qual é a essência?")<br>
+  ├─→ skill_qa_generator("Crie 5 perguntas")<br>
+  └─→ skill_evaluator("Isto é bom?")<br>
+  │<br>
+  ↓ (Tudo pronto)<br>
+  │<br>
+TRINITY nasceu:<br>
+  ├─ doc.md (pra humano ler)<br>
+  ├─ doc.llm.json (pra IA processar)<br>
+  └─ doc.meta.json (pra máquina rastrear)<br>
+  │<br>
+  ↓<br>
+  │<br>
+-02_build/ (arquivo criado)<br>
+-03_index/ (catálogo atualizado)<br>
+views/ (symlinks criados)<br>
+  │<br>
+  ↓<br>
+  │<br>
++05_delivery/ (pronto para uso)<br>
+  │<br>
+  ↓<br>
+  │<br>
+👤 VOCÊ RECEBE (ou seu APP recebe via API)<br>
+  │<br>
+📊 Dashboard mostra: 32k → 8.000 artefatos únicos<br>
+            </div>
+
+            <h3>🔄 E Depois? Feedback Loop</h3>
+            <p>Você (ou seu app) diz: "Ei, esse resumo ficou ruim"</p>
+            <div class="flow-diagram">
+👤 FEEDBACK: "Não gostei disso"<br>
+  │<br>
+  ↓<br>
+  │<br>
++08_feedback/ (registra)<br>
+  │<br>
+  ↓<br>
+  │<br>
+00_∞_hub recebe feedback<br>
+  │<br>
+  ├─ Atualiza pesos em config.yaml<br>
+  ├─ skill_synthesizer aprende: "próxima vez, mais curto"<br>
+  └─ Próximo doc similar → melhor resultado<br>
+  │<br>
+  ↓<br>
+  │<br>
+🧠 Sistema fica mais inteligente<br>
+            </div>
+
+        </div>
+
+        <!-- SEÇÃO 5: RESUMO VISUAL COMPARATIVO -->
+        <div class="section">
+            <h2>🎯 Parte 5: Antes vs Depois (O Milagre Acontecendo)</h2>
+
+            <div class="comparison">
+                <div class="comparison-box negative">
+                    <h4>❌ SUA VIDA AGORA (32k arquivos)</h4>
+                    <ul>
+                        <li>32.671 arquivos em C:\Users\Dell\Desktop</li>
+                        <li>Pastas aninhadas: /docs/backup/old/...?</li>
+                        <li>Qual arquivo fala sobre "Prompt Engineering"?</li>
+                        <li>Duplicatas? Não sabe...</li>
+                        <li>Precisa de 10 clicks pra achar algo</li>
+                        <li>Se quiser usar em 5 LLMs diferentes → Copy-paste manual</li>
+                        <li>Sem rastreabilidade: quem alterou? quando?</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-box">
+                    <h4>✅ SUA VIDA DEPOIS (Árvore em pé)</h4>
+                    <ul>
+                        <li>~8.000 artefatos únicos (após dedup + síntese)</li>
+                        <li>Trinity: .md (humano) + .llm.json (IA) + .meta.json (máquina)</li>
+                        <li>Busca: "Prompt Engineering" → 0.2s, 50 resultados relevantes</li>
+                        <li>Sem duplicatas (SHA256 detectou, removeu)</li>
+                        <li>1 click: .md abre, .llm.json pronto pra Claude/GPT</li>
+                        <li>Seu bot chama API do Core → recebe JSON → renderiza no site</li>
+                        <li>Auditoria: quem? quando? why? versioning automático</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SEÇÃO 6: O PLANO DE AÇÃO -->
+        <div class="section">
+            <h2>📅 Parte 6: Seu Plano (Semana 1 → Fruto Maduro)</h2>
+
+            <h3>🗓️ SEMANA 1: Construir a Árvore Vazia</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>SEGUNDA (Dia 1):</strong> Criar a estrutura de pastas (raízes + tronco + galhos). Criar config.yaml com pesos iniciais. Skills existem mas são vazias (stubs). <br>
+                    ✅ Entrega: Árvore pronta, nenhuma folha ainda.
+                </div>
+
+                <div class="timeline-item">
+                    <strong>TERÇA (Dia 2):</strong> Codificar 00_∞_hub/core.py (o capitão). Integrar skill_synthesizer (faz resumos). <br>
+                    ✅ Entrega: 1 documento entra, 3 arquivos saem (Trinity).
+                </div>
+
+                <div class="timeline-item">
+                    <strong>QUARTA (Dia 3):</strong> Integrar skill_tokenizer (Fibonacci chunks). Testar com 100 docs seus. <br>
+                    ✅ Entrega: Vê chunks sendo criados, calcula tokens.
+                </div>
+
+                <div class="timeline-item">
+                    <strong>QUINTA (Dia 4):</strong> Integrar skill_purpose_extractor (TF-IDF). Refinar TUO baseado em dados reais. <br>
+                    ✅ Entrega: Tags semânticas automáticas aparecem.
+                </div>
+
+                <div class="timeline-item">
+                    <strong>SEXTA (Dia 5):</strong> skill_qa_generator + skill_evaluator. Testar com 1000 docs. <br>
+                    ✅ Entrega: Pipeline completo funcional. Árvore "respira"!
+                </div>
+
+                <div class="timeline-item">
+                    <strong>SÁBADO (Dia 6):</strong> Gerar monitoring.jsonl completo. Analisar gargalos. Decisão: semana 2 paralleliza o quê? <br>
+                    ✅ Entrega: Dados reais, pronto para iteração.
+                </div>
+            </div>
+
+            <h3>🌱 SEMANA 2+: A Árvore Cresce</h3>
+            <ul>
+                <li><strong>Se Tokenizador fica lento:</strong> Vira corrotina async (paraleliza)</li>
+                <li><strong>Se precisa buscar contexto:</strong> MCP aparece (Agente especialista)</li>
+                <li><strong>Se output não satisfaz:</strong> Pesos em config.yaml mudam (0 refactor)</li>
+                <li><strong>Se volume cresce:</strong> Adiciona Agente paralelo (Skills viram federados)</li>
+            </ul>
+
+        </div>
+
+        <!-- SEÇÃO 7: POR QUE ISSO FUNCIONA -->
+        <div class="section">
+            <h2>💡 Parte 7: Por Que Essa Arquitetura É Inteligente (A Biologia Por Trás)</h2>
+
+            <h3>1. Separação de Responsabilidades (Raízes ≠ Galhos)</h3>
+            <div class="metaphor">
+                Raízes não precisam de luz. Galhos não precisam de solo. Cada parte da árvore faz seu trabalho sem conhecer o resto. Resultado: quando algo quebra, não quebramos TUDO.
+            </div>
+
+            <h3>2. Feedback Loop (Phototropismo da Árvore)</h3>
+            <div class="metaphor">
+                Uma árvore real se vira pra onde tem sol. Seu sistema se vira pra onde tem feedback. Usuário marca "bom" ou "ruim" → pesos mudam → próximo doc sai melhor. Aprendizado biológico, não código rígido.
+            </div>
+
+            <h3>3. Escalabilidade Orgânica (Crescimento Gradual)</h3>
+            <div class="metaphor">
+                Uma árvore não nasce gigante. Ela cresce 1cm/ano. Seu sistema começa monolítico (Dia 1). Depois você paralleliza Skills conforme precisa. Nada quebra. Tudo evolui.
+            </div>
+
+            <h3>4. Agnóstico de LLM (Polinização Cruzada)</h3>
+            <div class="metaphor">
+                Uma árvore não controla que abelha vem polinizá-la. Pode ser abelha A, abelha B, vespa... Seu .llm.json funciona com Claude, GPT, Llama, qualquer LLM. Desacoplado.
+            </div>
+
+            <h3>5. Rastreabilidade Total (Anéis da Árvore)</h3>
+            <div class="metaphor">
+                Uma árvore deixa anéis de cada ano. Você vê a história em seus tronco. Seu -01_capture/ + monitoring.jsonl = anéis digitais. Auditoria completa, impossível apagar.
+            </div>
+
+        </div>
+
+        <!-- SEÇÃO 8: SEU PRÓXIMO PASSO -->
+        <div class="section">
+            <h2>🚀 Próximo Passo: Escolha Sua Jornada</h2>
+
+            <div style="background: rgba(0, 212, 255, 0.2); border: 2px solid #00d4ff; border-radius: 10px; padding: 25px; margin: 20px 0;">
+                <h3 style="color: #00ff88; margin-top: 0;">O que você quer fazer agora?</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div style="background: rgba(0, 255, 136, 0.1); border: 2px solid #00ff88; border-radius: 8px; padding: 15px;">
+                        <h4 style="color: #00ff88;">OPÇÃO A: Code First</h4>
+                        <p>Você quer que eu codifico agora:</p>
+                        <ul style="margin-left: 0; padding-left: 15px;">
+                            <li>00_∞_hub/core.py (pronto)</li>
+                            <li>5 Skills (stubs + 1 completo)</li>
+                            <li>config.yaml (pesos iniciais)</li>
+                        </ul>
+                        <p><strong>Você recebe:</strong> Git repo pronto para clonar segunda.</p>
+                    </div>
+
+                    <div style="background: rgba(255, 215, 0, 0.1); border: 2px solid #ffd700; border-radius: 8px; padding: 15px;">
+                        <h4 style="color: #ffd700;">OPÇÃO B: Design First</h4>
+                        <p>Você quer desenhar ANTES de code:</p>
+                        <ul style="margin-left: 0; padding-left: 15px;">
+                            <li>Detalhamento YAML do workflow</li>
+                            <li>Exemplos de Trinity (.md/.llm.json)</li>
+                            <li>Fórmulas dos pesos (w1, w2, w3)</li>
+                        </ul>
+                        <p><strong>Você recebe:</strong> Documento vivo que valida lógica.</p>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 100, 100, 0.1); border: 2px solid #ff6666; border-radius: 8px; padding: 15px; margin-top: 20px;">
+                    <h4 style="color: #ff8888;">OPÇÃO C: Híbrido (Minha Recomendação)</h4>
+                    <p>Você quer os 3 em paralelo:</p>
+                    <ul style="margin-left: 0; padding-left: 15px;">
+                        <li>Core.py robusto (código testado)</li>
+                        <li>Arquivo YAML detalhado (design vivo)</li>
+                        <li>HTML visual como este (documentação)</li>
+                    </ul>
+                    <p><strong>Você recebe:</strong> Tudo pronto: para ler, para entender, para executar.</p>
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>🎯 Meu conselho:</strong> Comece com OPÇÃO C Híbrida. Você tem código (não precisa reescrever), tem design (pode mudar sem quebrar), tem visual (humanos entendem, IAs aprendem).
+            </div>
+
+        </div>
+
+        <!-- RODAPÉ -->
+        <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #00d4ff; text-align: center; color: #999;">
+            <p><strong>LCM-AI: O Ecossistema de IA que Cresce Como Árvore</strong></p>
+            <p>Suas raízes profundas, seu tronco forte, seus galhos livres, suas folhas transformando luz em ouro.</p>
+            <p style="margin-top: 20px; font-size: 0.9em;">Construído com metáforas. Executado com código. Aprendendo dia a dia.</p>
+        </div>
+
+    </div>
+</body>
+</html>

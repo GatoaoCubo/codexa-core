@@ -1,0 +1,20 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Brinquedo Automatico Gatos Interativo Corda Pilha GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.88,
+  "execution_time_minutes": 3,
+  "titles": [
+    {"text": "Brinquedo Automatico Gato Interativo Corda Pilha Levanta", "char_count": 56, "keyword_count": 7, "density": 0.78, "score": 0.87, "variant": "A", "focus": "equilibrado"},
+    {"text": "Brinquedo Gato Automatico Corda Interativo Pilha Fun GATO3", "char_count": 58, "keyword_count": 8, "density": 0.82, "score": 0.88, "variant": "B", "focus": "emocional"},
+    {"text": "Brinquedo Automatico Interativo Gato Corda Levanta Pilha", "char_count": 56, "keyword_count": 7, "density": 0.78, "score": 0.86, "variant": "C", "focus": "tecnico"}
+  ],
+  "keywords": {"block_a": {"name": "Atributos", "count": 117}, "block_b": {"name": "Beneficios", "count": 116}, "coverage_score": {"head_terms": 0.88, "longtails": 0.86, "total_unique_keywords": 233}},
+  "description": {"word_count": 3412, "keyword_density": 0.040, "readability_score": 70, "storybrand_elements": 7},
+  "bullets": {"count": 10, "avg_chars": 210},
+  "visual_assets": {"status": "quick_mode_skipped"},
+  "qa_report": {"aggregate_score": 0.88, "validation_checks_passed": 11, "validation_checks_total": 11, "compliance_validation": {"passed": true}},
+  "strategic_brief": {"product_name": "Brinquedo Automatico Corda GATO3", "funcionamento": "Pilha (nao inclusa)", "mecanismo": "Corda levanta automaticamente", "price_gato3": 36.30, "target": "tutores de gatos"},
+  "metadata": {"workflow_version": "2.5.0", "generator": "CodeXAnuncio v2.5.0", "generated_at": "2025-11-29T11:35:00Z", "plan": "quick_anuncio", "status": "production_ready"}
+}

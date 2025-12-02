@@ -1,0 +1,134 @@
+{
+  "brief_id": "nike_air_max_30s_001",
+  "generated_at": "2025-11-25T10:31:00Z",
+  "video_mode": "overlay",
+  "total_duration": 30,
+  "narration": [
+    {
+      "segment_id": 1,
+      "start": 0.3,
+      "end": 3.5,
+      "duration": 3.2,
+      "text": "Conheca o futuro do conforto",
+      "shot_reference": 1,
+      "narrative_purpose": "hook",
+      "word_count": 5
+    },
+    {
+      "segment_id": 2,
+      "start": 5.0,
+      "end": 8.5,
+      "duration": 3.5,
+      "text": "Nike Air Max com tecnologia revolucionaria",
+      "shot_reference": 2,
+      "narrative_purpose": "introduce",
+      "word_count": 6
+    },
+    {
+      "segment_id": 3,
+      "start": 10.0,
+      "end": 13.5,
+      "duration": 3.5,
+      "text": "Amortecimento Air para o dia todo",
+      "shot_reference": 3,
+      "narrative_purpose": "benefit",
+      "word_count": 6
+    },
+    {
+      "segment_id": 4,
+      "start": 15.5,
+      "end": 18.5,
+      "duration": 3.0,
+      "text": "Conforto que voce sente",
+      "shot_reference": 4,
+      "narrative_purpose": "proof",
+      "word_count": 4
+    },
+    {
+      "segment_id": 5,
+      "start": 20.0,
+      "end": 23.5,
+      "duration": 3.5,
+      "text": "Escolha seu estilo favorito",
+      "shot_reference": 5,
+      "narrative_purpose": "variety",
+      "word_count": 4
+    },
+    {
+      "segment_id": 6,
+      "start": 25.5,
+      "end": 29.5,
+      "duration": 4.0,
+      "text": "Garanta o seu por apenas quinhentos e noventa e nove reais",
+      "shot_reference": 6,
+      "narrative_purpose": "cta",
+      "word_count": 10
+    }
+  ],
+  "text_overlays": [
+    {
+      "overlay_id": 1,
+      "start": 1.0,
+      "end": 4.0,
+      "duration": 3.0,
+      "text": "NIKE AIR MAX 2024",
+      "position": "bottom",
+      "style": "bold",
+      "font_size": 56,
+      "color": "#FFFFFF",
+      "border_color": "#000000",
+      "shot_reference": 1
+    },
+    {
+      "overlay_id": 2,
+      "start": 10.0,
+      "end": 14.0,
+      "duration": 4.0,
+      "text": "AMORTECIMENTO AIR",
+      "position": "center",
+      "style": "normal",
+      "font_size": 48,
+      "color": "#FFFFFF",
+      "border_color": "#000000",
+      "shot_reference": 3
+    },
+    {
+      "overlay_id": 3,
+      "start": 25.0,
+      "end": 30.0,
+      "duration": 5.0,
+      "text": "R$ 599 | COMPRE AGORA",
+      "position": "center",
+      "style": "cta",
+      "font_size": 64,
+      "color": "#FFD700",
+      "border_color": "#000000",
+      "background": "rgba(0,0,0,0.5)",
+      "shot_reference": 6
+    }
+  ],
+  "music": {
+    "track": "music/upbeat_electronic.mp3",
+    "volume": 0.3,
+    "fade_in": 0.5,
+    "fade_out": 1.0,
+    "genre": "electronic",
+    "bpm": 128
+  },
+  "voice": {
+    "voice_id": "pMsXgVXv3BLzUgSXRplE",
+    "voice_name": "Camila",
+    "gender": "feminina",
+    "provider": "elevenlabs",
+    "model": "eleven_multilingual_v2",
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.0
+  },
+  "timing_validation": {
+    "total_narration_time": 20.7,
+    "total_silence_time": 9.3,
+    "overlapping_segments": 0,
+    "narration_exceeds_video": false
+  }
+}

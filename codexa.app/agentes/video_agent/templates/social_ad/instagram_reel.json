@@ -1,0 +1,208 @@
+{
+  "$schema": "../../schemas/video_input.json",
+  "template_id": "instagram_reel_v1",
+  "template_name": "Instagram Reel Ad",
+  "template_description": "Anuncio otimizado para Instagram Reels - formato vertical, ritmo rapido",
+  "version": "1.0.0",
+  "category": "conversion",
+  "recommended_duration": 15,
+  "recommended_format": "9:16",
+  "recommended_style": "energetic",
+  "recommended_video_mode": "overlay",
+
+  "platform_specs": {
+    "platform": "instagram_reels",
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "max_duration": 90,
+    "optimal_duration": 15,
+    "safe_zone": {
+      "top": "15%",
+      "bottom": "20%",
+      "description": "Evitar texto nas areas de UI do Instagram"
+    },
+    "audio_requirements": {
+      "music_trending": true,
+      "captions_auto": true,
+      "volume_narration": 1.0,
+      "volume_music": 0.3
+    }
+  },
+
+  "narrative_arc": {
+    "structure": "attention_conversion",
+    "phases": [
+      {
+        "name": "hook",
+        "purpose": "Parar o scroll em 1 segundo",
+        "duration_percent": 20,
+        "shots": 1,
+        "tone": "impactante",
+        "critical": true
+      },
+      {
+        "name": "value",
+        "purpose": "Mostrar valor rapidamente",
+        "duration_percent": 40,
+        "shots": 2,
+        "tone": "direto"
+      },
+      {
+        "name": "cta",
+        "purpose": "Converter com urgencia",
+        "duration_percent": 40,
+        "shots": 1,
+        "tone": "urgente"
+      }
+    ]
+  },
+
+  "shots_template": [
+    {
+      "number": 1,
+      "narrative": "hook",
+      "duration": 3,
+      "description_template": "Movimento dinamico de [PRODUTO] ou resultado surpreendente",
+      "composition": "Full frame product, vertical optimized",
+      "camera": {
+        "movement": "quick zoom or whip pan",
+        "angle": "dynamic"
+      },
+      "lighting": "high contrast, attention-grabbing",
+      "text_overlay": {
+        "text_template": "[HOOK_TEXT_CURTO]",
+        "position": "center",
+        "style": "bold",
+        "animation": "pop_in"
+      },
+      "narration_template": "[HOOK_AUDIO_2_PALAVRAS]",
+      "hook_tips": [
+        "Movimento nos primeiros 0.5s",
+        "Cor vibrante ou contraste alto",
+        "Texto grande e legivel",
+        "Som que chama atencao"
+      ]
+    },
+    {
+      "number": 2,
+      "narrative": "value",
+      "duration": 3,
+      "description_template": "[PRODUTO] em uso mostrando [BENEFICIO_VISUAL]",
+      "composition": "Product in action, vertical frame",
+      "camera": {
+        "movement": "tracking or static with subject movement",
+        "angle": "eye level"
+      },
+      "lighting": "lifestyle, natural",
+      "text_overlay": {
+        "text_template": "[BENEFICIO_1]",
+        "position": "center",
+        "style": "normal"
+      },
+      "narration_template": "[BENEFICIO_FRASE_CURTA]"
+    },
+    {
+      "number": 3,
+      "narrative": "value",
+      "duration": 3,
+      "description_template": "Detalhe ou prova social de [PRODUTO]",
+      "composition": "Close-up or testimonial style",
+      "camera": {
+        "movement": "subtle push in",
+        "angle": "intimate"
+      },
+      "lighting": "warm, trustworthy",
+      "text_overlay": {
+        "text_template": "[PROVA_SOCIAL_OU_FEATURE]",
+        "position": "center",
+        "style": "normal"
+      },
+      "narration_template": "[CREDIBILIDADE_FRASE]"
+    },
+    {
+      "number": 4,
+      "narrative": "cta",
+      "duration": 6,
+      "description_template": "[PRODUTO] em destaque com elementos de urgencia visual",
+      "composition": "Product hero with CTA space",
+      "camera": {
+        "movement": "slow zoom to product",
+        "angle": "slightly low"
+      },
+      "lighting": "premium, focused",
+      "text_overlay": {
+        "text_template": "[PRECO] | [CTA_URGENTE]",
+        "position": "center",
+        "style": "cta",
+        "animation": "pulse"
+      },
+      "narration_template": "[PRECO_E_CTA_COM_URGENCIA]",
+      "cta_elements": [
+        "Preco visivel e grande",
+        "Urgencia (So Hoje, Ultimas Unidades)",
+        "Acao clara (Compre, Garanta, Clique)",
+        "Swipe up indicator se aplicavel"
+      ]
+    }
+  ],
+
+  "voice_recommendation": {
+    "gender": "feminina",
+    "tone": "energetico",
+    "pace": "fast, punchy",
+    "suggested_voices": {
+      "feminina": "pMsXgVXv3BLzUgSXRplE",
+      "masculina": "ErXwobaYiN019PkySvjV"
+    },
+    "tips": [
+      "Frases curtas (3-5 palavras)",
+      "Tom conversacional",
+      "Enfase no CTA"
+    ]
+  },
+
+  "music_recommendation": {
+    "genre": "trending_audio",
+    "mood": "upbeat",
+    "tempo": "120-140 bpm",
+    "volume": 0.3,
+    "notes": "Usar audio trending do Instagram quando possivel",
+    "beat_sync": true
+  },
+
+  "text_overlay_rules": {
+    "max_words_per_overlay": 4,
+    "font_size_minimum": 48,
+    "always_high_contrast": true,
+    "avoid_bottom_20_percent": true,
+    "animation_recommended": true
+  },
+
+  "performance_benchmarks": {
+    "hook_rate_target": "50%+",
+    "watch_through_target": "30%+",
+    "ctr_target": "2%+",
+    "tips_for_performance": [
+      "Hook nos primeiros 0.5s e crucial",
+      "Texto legivel sem audio",
+      "CTA claro e urgente",
+      "Cores vibrantes performam melhor"
+    ]
+  },
+
+  "example_brief": {
+    "produto": "Fone Bluetooth XYZ",
+    "duracao": 15,
+    "formato": "9:16",
+    "tom": "energetico",
+    "objetivo": "Vender fone bluetooth com foco em preco promocional",
+    "preco": "R$ 149",
+    "preco_original": "R$ 299",
+    "cta_text": "COMPRE AGORA",
+    "video_mode": "overlay",
+    "hook_text": "SOM PERFEITO",
+    "beneficio_1": "24h de bateria",
+    "beneficio_2": "Cancelamento de ruido",
+    "urgencia": "SO HOJE 50% OFF"
+  }
+}

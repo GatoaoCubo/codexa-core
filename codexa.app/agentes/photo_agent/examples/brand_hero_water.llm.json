@@ -1,0 +1,466 @@
+{
+  "metadata": {
+    "agent": "photo_agent_brand",
+    "version": "1.0.0",
+    "timestamp": "2025-11-15T15:00:00Z",
+    "input_hash": "def456abc789012345678901234567890123456789012345678901234567890",
+    "workflow_type": "brand_social_media",
+    "generation_time_ms": 9200,
+    "input_subject": "Garrafa de água reutilizável ecológica - marca HeroWater",
+    "brand_name": "HeroWater",
+    "brand_archetype": "Hero",
+    "target_platforms": ["instagram_feed", "instagram_stories", "tiktok", "pinterest"],
+    "marca_agent_integration": true
+  },
+  "prompts_social_grid": [
+    {
+      "scene_number": 1,
+      "scene_name": "Brand Hero Lifestyle Shot",
+      "scene_role": "brand_hero",
+      "prompt_brand_aligned": "Professional lifestyle photography in Hero archetype style, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa HeroWater sendo usada por atleta em ambiente urbano dinâmico ao amanhecer energético determinado, background ambiente urbano com cores da marca #FF5722 laranja vibrante e #212121 cinza carvão acentos arquitetônicos modernos, mood enérgico determinado inspirador convoca ação, lighting golden hour natural warm 5500K directional com sombras longas dramáticas heroicas, camera 85mm f/4 1/160s ISO 400, composition diagonal bold asymmetric movimento implícito energia, shallow depth of field bokeh urbano clean produto destaque, PNL Hero archetype: coragem que prova seu valor através da ação decisiva e persistente superação, aspect ratio 4:5 Instagram feed vertical, no watermarks, 8K quality --ar 4:5",
+      "aspect_ratio": "4:5",
+      "aspect_ratio_notes": {
+        "instagram_feed": "4:5"
+      },
+      "technical_specs": {
+        "camera": "85mm f/4 1/160s ISO 400",
+        "focal_length": "85mm",
+        "aperture": "f/4",
+        "shutter_speed": "1/160s",
+        "iso": 400,
+        "lighting": "Golden hour natural warm 5500K directional com sombras longas",
+        "background": "Ambiente urbano dinâmico com cores da marca #FF5722 e #212121",
+        "composition": "Diagonal bold asymmetric movimento implícito",
+        "depth_of_field": "shallow"
+      },
+      "brand_elements": {
+        "brand_colors_applied": ["#FF5722", "#212121", "#FFFFFF"],
+        "brand_mood": "Enérgico, determinado, inspirador",
+        "brand_archetype_personality": "Hero: coragem, determinação, superação de obstáculos",
+        "brand_tone_of_voice": "Confiante e inspirador, convoca para ação",
+        "brand_values_visual": ["Sustentabilidade", "Performance", "Coragem"]
+      },
+      "pnl_trigger_archetype": "Hero: coragem que prova seu valor através da ação decisiva e persistente",
+      "pnl_trigger_key": "coragem",
+      "archetype_pnl_mapping": {
+        "Hero": ["confiança", "coragem", "transformação"]
+      },
+      "platform_optimization": {
+        "primary_platform": "instagram_feed",
+        "secondary_platforms": ["facebook"],
+        "caption_suggestion": "💪 Prove seu valor. Cada gole é um passo rumo à sua melhor versão. #HeroWater #SustentabilidadeAtiva",
+        "hashtag_strategy": [
+          "#HeroWater",
+          "#SustentabilidadeAtiva",
+          "#VivaComCoragem",
+          "#ZeroPlastico",
+          "#PerformanceSustentavel"
+        ]
+      },
+      "validation_score": 0.93,
+      "character_count": 447,
+      "validation_status": "PASS",
+      "file_name_suggestion": "hero_water_cena_01_brand_hero_4x5.png"
+    },
+    {
+      "scene_number": 2,
+      "scene_name": "Product in Branded Environment",
+      "scene_role": "product_context",
+      "prompt_brand_aligned": "Professional product photography in Hero brand style, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa HeroWater em ambiente minimalista moderno com accent wall #FF5722 laranja vibrante marca identificável, background clean minimalist com cores da marca #FFFFFF branco e #212121 detalhes urbanos contraste, mood clean moderno enérgico sofisticado sem exageros, lighting soft window light natural 5500K lateral clean realça produto, camera 50mm f/5.6 1/125s ISO 200, composition centered balanced clean com destaque visual marca cores, moderate depth of field produto e contexto nítidos, PNL Hero: confiança em escolha que reflete valores pessoais coragem, aspect ratio 1:1 Instagram feed square, no watermarks, 8K quality --ar 1:1",
+      "aspect_ratio": "1:1",
+      "technical_specs": {
+        "camera": "50mm f/5.6 1/125s ISO 200",
+        "focal_length": "50mm",
+        "aperture": "f/5.6",
+        "shutter_speed": "1/125s",
+        "iso": 200,
+        "lighting": "Soft window light natural 5500K lateral clean",
+        "background": "Ambiente minimalista com #FF5722 accent wall moderno",
+        "composition": "Centered balanced clean com destaque marca",
+        "depth_of_field": "moderate"
+      },
+      "brand_elements": {
+        "brand_colors_applied": ["#FF5722", "#FFFFFF", "#212121"],
+        "brand_mood": "Clean, moderno, enérgico sofisticado",
+        "brand_archetype_personality": "Hero: escolhas que refletem valores",
+        "brand_tone_of_voice": "Moderno sem exageros, confiante",
+        "brand_values_visual": ["Inovação", "Autenticidade"]
+      },
+      "pnl_trigger_archetype": "Hero: confiança em escolha que reflete valores pessoais coragem",
+      "pnl_trigger_key": "confiança",
+      "platform_optimization": {
+        "primary_platform": "instagram_feed",
+        "caption_suggestion": "Design que reflete coragem. Funcionalidade que prova valor. #HeroWater",
+        "hashtag_strategy": ["#HeroWater", "#DesignConsciente", "#InovaçãoSustentável"]
+      },
+      "validation_score": 0.90,
+      "character_count": 436,
+      "validation_status": "PASS",
+      "file_name_suggestion": "hero_water_cena_02_ambiente_marca_1x1.png"
+    },
+    {
+      "scene_number": 3,
+      "scene_name": "Action Photography (Stories/Reels)",
+      "scene_role": "transformation",
+      "prompt_brand_aligned": "Professional action photography in Hero archetype style, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa HeroWater em movimento durante treino intenso atleta em ação dinâmica superação visível, background ambiente de treino urbano com #FF5722 elementos vibrantes movimento blur energia pura, mood urgente energético motivacional transformação em progresso, lighting dramatic lateral strong contrast realça movimento ação, camera 85mm f/2.8 1/500s ISO 800 captura movimento freezado, composition vertical 9:16 dynamic asymmetric ação momento decisivo, ultra shallow depth of field subject isolation foco na superação, PNL Hero: transformação através da disciplina diária ação persistente, aspect ratio 9:16 Instagram stories TikTok Reels, no watermarks, 8K quality --ar 9:16",
+      "aspect_ratio": "9:16",
+      "technical_specs": {
+        "camera": "85mm f/2.8 1/500s ISO 800",
+        "focal_length": "85mm",
+        "aperture": "f/2.8",
+        "shutter_speed": "1/500s",
+        "iso": 800,
+        "lighting": "Dramatic lateral strong contrast movimento",
+        "background": "Ambiente de treino urbano com #FF5722 elementos vibrantes blur",
+        "composition": "Vertical 9:16 dynamic asymmetric ação capturada",
+        "depth_of_field": "ultra_shallow"
+      },
+      "brand_elements": {
+        "brand_colors_applied": ["#FF5722", "#212121"],
+        "brand_mood": "Urgente, energético, motivacional",
+        "brand_archetype_personality": "Hero: transformação através da ação",
+        "brand_tone_of_voice": "Motivacional urgente",
+        "brand_values_visual": ["Performance", "Disciplina"]
+      },
+      "pnl_trigger_archetype": "Hero: transformação através da disciplina diária ação persistente",
+      "pnl_trigger_key": "transformação",
+      "platform_optimization": {
+        "primary_platform": "instagram_stories",
+        "secondary_platforms": ["tiktok"],
+        "caption_suggestion": "⚡ Transformação exige ação. Disciplina constrói heróis. #HeroWater #TransformaçãoAtiva",
+        "hashtag_strategy": ["#HeroWater", "#ReelsMotivação", "#AçãoDiária"]
+      },
+      "validation_score": 0.92,
+      "character_count": 451,
+      "validation_status": "PASS",
+      "file_name_suggestion": "hero_water_cena_03_acao_stories_9x16.png"
+    },
+    {
+      "scene_number": 4,
+      "scene_name": "User Experience Moment",
+      "scene_role": "user_experience",
+      "prompt_brand_aligned": "Professional lifestyle photography in Hero brand storytelling, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa HeroWater em momento autêntico de hidratação pós-treino satisfação visível real, background real-world environment natural bokeh com #4CAF50 verde sustentável natureza desfocada, mood autêntico inspirador real sem pose artifício genuíno, lighting natural soft diffused 5500K storytelling suave emocional, camera 85mm f/4 1/160s ISO 400, composition candid authentic storytelling momento genuíno capturado, shallow depth of field foco na experiência emoção verdadeira, PNL Hero: confiança construída pela experiência real benefício sentido, aspect ratio 4:5 Instagram feed vertical, no watermarks, 8K quality --ar 4:5",
+      "aspect_ratio": "4:5",
+      "technical_specs": {
+        "camera": "85mm f/4 1/160s ISO 400",
+        "focal_length": "85mm",
+        "aperture": "f/4",
+        "shutter_speed": "1/160s",
+        "iso": 400,
+        "lighting": "Natural soft diffused 5500K storytelling",
+        "background": "Real-world environment bokeh com #4CAF50 verde natural",
+        "composition": "Candid authentic storytelling momento genuíno",
+        "depth_of_field": "shallow"
+      },
+      "brand_elements": {
+        "brand_colors_applied": ["#4CAF50", "#FFFFFF"],
+        "brand_mood": "Autêntico, inspirador, genuíno",
+        "brand_archetype_personality": "Hero: experiência real que constrói confiança",
+        "brand_tone_of_voice": "Autêntico sem artifício",
+        "brand_values_visual": ["Autenticidade", "Sustentabilidade"]
+      },
+      "pnl_trigger_archetype": "Hero: confiança construída pela experiência real benefício sentido",
+      "pnl_trigger_key": "confiança",
+      "platform_optimization": {
+        "primary_platform": "instagram_feed",
+        "caption_suggestion": "Cada vitória começa com um passo. Hidrate sua jornada. #HeroWater",
+        "hashtag_strategy": ["#HeroWater", "#JornadaHeroica", "#AutenticidadeSemFiltro"]
+      },
+      "validation_score": 0.89,
+      "character_count": 443,
+      "validation_status": "PASS",
+      "file_name_suggestion": "hero_water_cena_04_experiencia_4x5.png"
+    },
+    {
+      "scene_number": 5,
+      "scene_name": "Brand Values Visualization",
+      "scene_role": "values_visualization",
+      "prompt_brand_aligned": "Professional brand values photography in Hero archetype, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa HeroWater em ambiente que simboliza sustentabilidade e performance unidos força consciente, background ambiente natural com elementos #4CAF50 verde sustentável e #FF5722 energia performance contraste harmonioso, mood inspirador consciente poderoso valores visíveis ação, lighting natural outdoor balanced 6000K clean realça valores, camera 50mm f/5.6 1/125s ISO 200, composition balanced storytelling valor visual mensagem clara, moderate depth of field contexto e produto comunicam valores, PNL Hero: orgulho em valores que guiam ação coragem sustentável, aspect ratio 1:1 Instagram feed Pinterest, no watermarks, 8K quality --ar 1:1",
+      "aspect_ratio": "1:1",
+      "technical_specs": {
+        "camera": "50mm f/5.6 1/125s ISO 200",
+        "focal_length": "50mm",
+        "aperture": "f/5.6",
+        "shutter_speed": "1/125s",
+        "iso": 200,
+        "lighting": "Natural outdoor balanced 6000K clean",
+        "background": "Ambiente natural com elementos #4CAF50 e #FF5722",
+        "composition": "Balanced storytelling valor visual",
+        "depth_of_field": "moderate"
+      },
+      "brand_elements": {
+        "brand_colors_applied": ["#FF5722", "#4CAF50", "#FFFFFF"],
+        "brand_mood": "Inspirador, consciente, poderoso",
+        "brand_archetype_personality": "Hero: valores que guiam ação corajosa",
+        "brand_tone_of_voice": "Inspirador consciente",
+        "brand_values_visual": ["Sustentabilidade", "Performance", "Coragem"]
+      },
+      "pnl_trigger_archetype": "Hero: orgulho em valores que guiam ação coragem sustentável",
+      "pnl_trigger_key": "confiança",
+      "platform_optimization": {
+        "primary_platform": "instagram_feed",
+        "secondary_platforms": ["pinterest"],
+        "caption_suggestion": "Coragem + Sustentabilidade = Performance sem limites. #HeroWater #ValoresEmAção",
+        "hashtag_strategy": ["#HeroWater", "#SustentabilidadeCorajosa", "#PerformanceConsciente"]
+      },
+      "validation_score": 0.91,
+      "character_count": 445,
+      "validation_status": "PASS",
+      "file_name_suggestion": "hero_water_cena_05_valores_1x1.png"
+    },
+    {
+      "scene_number": 6,
+      "scene_name": "Storytelling Close-up",
+      "scene_role": "storytelling",
+      "prompt_brand_aligned": "Professional emotional close-up in Hero brand mood, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa HeroWater em close-up intimista mostrando detalhes textura com atmosfera determinada foco, background bokeh atmosférico clean com hint sutil de #FF5722 laranja energia latente, mood intimista determinado foco pré-ação momento decisivo, lighting soft lateral emotional 5200K suave realça textura emoção, camera 85mm f/2.8 1/160s ISO 200, composition close-up emotional storytelling intimista detalhes falam, ultra shallow depth of field emoção capturada foco seletivo, PNL Hero: determinação silenciosa que antecede vitória preparação, aspect ratio 1:1 Instagram feed, no watermarks, 8K quality --ar 1:1",
+      "aspect_ratio": "1:1",
+      "technical_specs": {
+        "camera": "85mm f/2.8 1/160s ISO 200",
+        "focal_length": "85mm",
+        "aperture": "f/2.8",
+        "shutter_speed": "1/160s",
+        "iso": 200,
+        "lighting": "Soft lateral emotional 5200K suave",
+        "background": "Bokeh atmosférico com hint de #FF5722",
+        "composition": "Close-up emotional storytelling intimista",
+        "depth_of_field": "ultra_shallow"
+      },
+      "brand_elements": {
+        "brand_colors_applied": ["#FF5722", "#212121"],
+        "brand_mood": "Intimista, determinado, foco",
+        "brand_archetype_personality": "Hero: determinação silenciosa pré-vitória",
+        "brand_tone_of_voice": "Focado intimista",
+        "brand_values_visual": ["Determinação", "Foco"]
+      },
+      "pnl_trigger_archetype": "Hero: determinação silenciosa que antecede vitória preparação",
+      "pnl_trigger_key": "confiança",
+      "platform_optimization": {
+        "primary_platform": "instagram_feed",
+        "caption_suggestion": "Grandes vitórias nascem de pequenos momentos de determinação. #HeroWater",
+        "hashtag_strategy": ["#HeroWater", "#DeterminaçãoDiária", "#FocoNaMeta"]
+      },
+      "validation_score": 0.90,
+      "character_count": 431,
+      "validation_status": "PASS",
+      "file_name_suggestion": "hero_water_cena_06_closeup_1x1.png"
+    },
+    {
+      "scene_number": 7,
+      "scene_name": "Social Proof Scene",
+      "scene_role": "social_proof",
+      "prompt_brand_aligned": "Professional community photography in Hero brand narrative, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa HeroWater presente em momento de grupo treino comunidade heróis unidos objetivo comum, background grupo treino urbano com cores da marca #FF5722 e #212121 identidade visual forte, mood pertencimento comunidade juntos força coletiva inspiração mútua, lighting natural group light balanced 5500K ilumina comunidade, camera 50mm f/4 1/125s ISO 400, composition group storytelling pertencimento comunidade valor coletivo, moderate depth of field grupo e contexto comunicam união, PNL Hero: pertencimento comunidade que supera junto apoio mútuo, aspect ratio 4:5 Instagram feed vertical, no watermarks, 8K quality --ar 4:5",
+      "aspect_ratio": "4:5",
+      "technical_specs": {
+        "camera": "50mm f/4 1/125s ISO 400",
+        "focal_length": "50mm",
+        "aperture": "f/4",
+        "shutter_speed": "1/125s",
+        "iso": 400,
+        "lighting": "Natural group light balanced 5500K",
+        "background": "Grupo treino urbano com #FF5722 e #212121",
+        "composition": "Group storytelling pertencimento comunidade",
+        "depth_of_field": "moderate"
+      },
+      "brand_elements": {
+        "brand_colors_applied": ["#FF5722", "#212121", "#FFFFFF"],
+        "brand_mood": "Pertencimento, comunidade, força coletiva",
+        "brand_archetype_personality": "Hero: comunidade que supera junto",
+        "brand_tone_of_voice": "Coletivo inspirador",
+        "brand_values_visual": ["Comunidade", "Apoio mútuo"]
+      },
+      "pnl_trigger_archetype": "Hero: pertencimento comunidade que supera junto apoio mútuo",
+      "pnl_trigger_key": "pertencimento",
+      "platform_optimization": {
+        "primary_platform": "instagram_feed",
+        "caption_suggestion": "Heróis não caminham sozinhos. Juntos, somos mais fortes. #HeroWater #ComunidadeHero",
+        "hashtag_strategy": ["#HeroWater", "#JuntosSomosMais", "#ComunidadeAtiva"]
+      },
+      "validation_score": 0.88,
+      "character_count": 442,
+      "validation_status": "PASS",
+      "file_name_suggestion": "hero_water_cena_07_comunidade_4x5.png"
+    },
+    {
+      "scene_number": 8,
+      "scene_name": "Brand Atmosphere Shot",
+      "scene_role": "atmosphere",
+      "prompt_brand_aligned": "Professional atmospheric brand photography Hero archetype mood, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa HeroWater em ambiente atmosférico urbano energético com luz dourada dramática marca imersiva, background urban atmosphere com cores da marca #FF5722 laranja vibrante e #FFC107 dourado energia pura, mood atmosférico energético marca pura imersão total identidade forte, lighting atmospheric backlight dramatic 5000K dourado heroico contraluz, camera 85mm f/4 1/160s ISO 400, composition atmospheric brand mood imersivo envolvente experiência marca, shallow depth of field atmosfera envolvente produto imerso marca, PNL Hero: energia que inspira superar limites alcançar impossível, aspect ratio 1:1 Instagram feed Pinterest, no watermarks, 8K quality --ar 1:1",
+      "aspect_ratio": "1:1",
+      "technical_specs": {
+        "camera": "85mm f/4 1/160s ISO 400",
+        "focal_length": "85mm",
+        "aperture": "f/4",
+        "shutter_speed": "1/160s",
+        "iso": 400,
+        "lighting": "Atmospheric backlight dramatic 5000K",
+        "background": "Urban atmosphere com #FF5722 e #FFC107 dourado",
+        "composition": "Atmospheric brand mood imersivo",
+        "depth_of_field": "shallow"
+      },
+      "brand_elements": {
+        "brand_colors_applied": ["#FF5722", "#FFC107", "#212121"],
+        "brand_mood": "Atmosférico, energético, marca pura",
+        "brand_archetype_personality": "Hero: energia que supera limites",
+        "brand_tone_of_voice": "Imersivo poderoso",
+        "brand_values_visual": ["Energia", "Sem limites"]
+      },
+      "pnl_trigger_archetype": "Hero: energia que inspira superar limites alcançar impossível",
+      "pnl_trigger_key": "coragem",
+      "platform_optimization": {
+        "primary_platform": "instagram_feed",
+        "secondary_platforms": ["pinterest"],
+        "caption_suggestion": "Quando a energia encontra o propósito, limites deixam de existir. #HeroWater",
+        "hashtag_strategy": ["#HeroWater", "#EnergiaPura", "#SemLimites"]
+      },
+      "validation_score": 0.92,
+      "character_count": 443,
+      "validation_status": "PASS",
+      "file_name_suggestion": "hero_water_cena_08_atmosfera_1x1.png"
+    },
+    {
+      "scene_number": 9,
+      "scene_name": "Call-to-Action Visual (Stories)",
+      "scene_role": "cta_visual",
+      "prompt_brand_aligned": "Professional call-to-action brand photography Hero archetype, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa HeroWater em composição vertical clean para CTA stories mensagem clara direta inspiradora, background clean com #FF5722 laranja vibrante bold statement visual marca forte atenção, mood direto inspirador call to action convocação heroica decisão agora, lighting clean bright inspirational 5500K direto ilumina escolha, camera 50mm f/5.6 1/125s ISO 200, composition vertical 9:16 centered CTA visual claro mensagem produto, full focus sharp mensagem clara sem ambiguidade produto destaque, PNL Hero: chamado para ação que define heróis prove seu valor agora, aspect ratio 9:16 Instagram stories TikTok vertical, no watermarks, 8K quality --ar 9:16",
+      "aspect_ratio": "9:16",
+      "technical_specs": {
+        "camera": "50mm f/5.6 1/125s ISO 200",
+        "focal_length": "50mm",
+        "aperture": "f/5.6",
+        "shutter_speed": "1/125s",
+        "iso": 200,
+        "lighting": "Clean bright inspirational 5500K direto",
+        "background": "Clean com #FF5722 bold statement visual",
+        "composition": "Vertical centered CTA visual claro",
+        "depth_of_field": "full_focus"
+      },
+      "brand_elements": {
+        "brand_colors_applied": ["#FF5722", "#FFFFFF", "#212121"],
+        "brand_mood": "Direto, inspirador, call to action",
+        "brand_archetype_personality": "Hero: chamado para ação que define heróis",
+        "brand_tone_of_voice": "Direto convocatório",
+        "brand_values_visual": ["Ação", "Decisão"]
+      },
+      "pnl_trigger_archetype": "Hero: chamado para ação que define heróis prove seu valor agora",
+      "pnl_trigger_key": "coragem",
+      "platform_optimization": {
+        "primary_platform": "instagram_stories",
+        "secondary_platforms": ["tiktok"],
+        "caption_suggestion": "Sua jornada heroica começa agora. Link na bio. #HeroWater #ProveVocêMesmo",
+        "hashtag_strategy": ["#HeroWater", "#JornadaHeroica", "#AçãoAgora"]
+      },
+      "validation_score": 0.94,
+      "character_count": 448,
+      "validation_status": "PASS",
+      "file_name_suggestion": "hero_water_cena_09_cta_stories_9x16.png"
+    }
+  ],
+  "brand_integration": {
+    "brand_strategy_loaded": true,
+    "brand_strategy_path": "USER_DOCS/Marca/hero_water_brand_strategy.md",
+    "brand_identity": {
+      "brand_name": "HeroWater",
+      "tagline": "Prove seu valor a cada gole",
+      "primary_archetype": "Hero",
+      "secondary_archetype": "Explorer",
+      "color_palette": {
+        "primary": "#FF5722",
+        "secondary": ["#212121", "#FFFFFF", "#FFC107"],
+        "accent": "#4CAF50"
+      },
+      "mood_tone": "Enérgico, determinado, inspirador",
+      "core_values": [
+        "Sustentabilidade",
+        "Performance",
+        "Coragem",
+        "Inovação",
+        "Autenticidade"
+      ]
+    },
+    "visual_consistency_score": 0.94,
+    "brand_alignment_checks": {
+      "colors_from_palette": true,
+      "mood_consistency": true,
+      "archetype_personality": true,
+      "pnl_triggers_aligned": true,
+      "composition_style": true,
+      "values_visualization": true,
+      "tone_of_voice_visual": true,
+      "target_audience_appeal": true
+    }
+  },
+  "quality_report": {
+    "total_prompts": 9,
+    "validation_passed": 9,
+    "validation_failed": 0,
+    "avg_validation_score": 0.91,
+    "avg_character_count": 442,
+    "brand_consistency_status": "EXCELLENT",
+    "aspect_ratio_distribution": {
+      "1:1": 4,
+      "4:5": 3,
+      "9:16": 2
+    },
+    "compliance_details": {
+      "all_lengths_valid": true,
+      "all_camera_specified": true,
+      "all_lighting_described": true,
+      "all_background_mentioned": true,
+      "all_composition_defined": true,
+      "all_aspect_ratios_valid": true,
+      "all_brand_colors_applied": true,
+      "all_pnl_aligned_archetype": true,
+      "all_8k_stated": true,
+      "all_no_watermarks": true,
+      "platform_optimized": true
+    },
+    "warnings": [],
+    "errors": []
+  },
+  "social_media_specs": {
+    "platform_breakdown": {
+      "instagram_feed": {
+        "scenes": [1, 2, 4, 5, 6, 7, 8],
+        "aspect_ratios": ["4:5", "1:1"]
+      },
+      "instagram_stories": {
+        "scenes": [3, 9],
+        "aspect_ratio": "9:16"
+      },
+      "tiktok": {
+        "scenes": [3, 9],
+        "aspect_ratio": "9:16"
+      },
+      "pinterest": {
+        "scenes": [5, 8],
+        "aspect_ratios": ["1:1"]
+      }
+    },
+    "recommended_posting_strategy": {
+      "carousel_posts": [
+        {
+          "scenes": [1, 4, 5, 7, 8],
+          "narrative": "Hero's Journey: Do amanhecer à comunidade",
+          "platform": "instagram_feed"
+        }
+      ],
+      "hero_singles": [1, 5, 9],
+      "stories_sequence": [3, 4, 7, 9]
+    }
+  },
+  "trinity_output": {
+    "markdown": "brand_hero_water.md",
+    "llm_json": "brand_hero_water.llm.json",
+    "metadata_json": "brand_hero_water.meta.json"
+  },
+  "marca_integration": {
+    "ready_for_social": true,
+    "brand_guidelines_followed": true,
+    "recommended_campaign_theme": "Hero's Journey - Transformação através da ação sustentável"
+  },
+  "input_echo": {
+    "subject": "Garrafa de água reutilizável ecológica - marca HeroWater",
+    "brand_strategy_path": "USER_DOCS/Marca/hero_water_brand_strategy.md",
+    "target_platforms": ["instagram_feed", "instagram_stories", "tiktok", "pinterest"]
+  }
+}

@@ -1,0 +1,368 @@
+{
+  "adw_id": "dd2b5962",
+  "agent_description": "Create a simple test agent for validating workflow",
+  "scout_context": {
+    "success": true,
+    "working_dir": "C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent",
+    "timestamp": "2025-11-13T09:08:20.217606",
+    "stats": {
+      "total_files": 37,
+      "indexed_files": 37,
+      "directories": 17,
+      "unique_extensions": 3,
+      "largest_extension_group": 21
+    },
+    "cache_enabled": true,
+    "index": {
+      "INSTRUCTIONS.md": {
+        "path": "INSTRUCTIONS.md",
+        "name": "INSTRUCTIONS.md",
+        "extension": ".md",
+        "size": 12678,
+        "modified": "2025-11-13T08:26:02.426445"
+      },
+      "PRIME.md": {
+        "path": "PRIME.md",
+        "name": "PRIME.md",
+        "extension": ".md",
+        "size": 8569,
+        "modified": "2025-11-13T08:33:45.499670"
+      },
+      "README.md": {
+        "path": "README.md",
+        "name": "README.md",
+        "extension": ".md",
+        "size": 10697,
+        "modified": "2025-11-13T08:49:54.731540"
+      },
+      "builders\\01_agent_builder.py": {
+        "path": "builders\\01_agent_builder.py",
+        "name": "01_agent_builder.py",
+        "extension": ".py",
+        "size": 26870,
+        "modified": "2025-11-12T12:13:32.743233"
+      },
+      "builders\\02_agent_meta_constructor.py": {
+        "path": "builders\\02_agent_meta_constructor.py",
+        "name": "02_agent_meta_constructor.py",
+        "extension": ".py",
+        "size": 39548,
+        "modified": "2025-11-13T09:08:12.088338"
+      },
+      "builders\\03_build_task.py": {
+        "path": "builders\\03_build_task.py",
+        "name": "03_build_task.py",
+        "extension": ".py",
+        "size": 19373,
+        "modified": "2025-11-12T12:13:41.944625"
+      },
+      "builders\\04_chore_task.py": {
+        "path": "builders\\04_chore_task.py",
+        "name": "04_chore_task.py",
+        "extension": ".py",
+        "size": 17225,
+        "modified": "2025-11-12T12:13:42.005964"
+      },
+      "builders\\05_command_generator.py": {
+        "path": "builders\\05_command_generator.py",
+        "name": "05_command_generator.py",
+        "extension": ".py",
+        "size": 7440,
+        "modified": "2025-11-12T12:13:54.138782"
+      },
+      "builders\\06_cron_orchestrator.py": {
+        "path": "builders\\06_cron_orchestrator.py",
+        "name": "06_cron_orchestrator.py",
+        "extension": ".py",
+        "size": 23333,
+        "modified": "2025-11-12T12:13:54.204679"
+      },
+      "builders\\08_prompt_generator.py": {
+        "path": "builders\\08_prompt_generator.py",
+        "name": "08_prompt_generator.py",
+        "extension": ".py",
+        "size": 12659,
+        "modified": "2025-11-13T09:03:52.081804"
+      },
+      "commands\\90_codexa_when_to_use.md": {
+        "path": "commands\\90_codexa_when_to_use.md",
+        "name": "90_codexa_when_to_use.md",
+        "extension": ".md",
+        "size": 9537,
+        "modified": "2025-11-13T08:48:37.041723"
+      },
+      "commands\\91_codexa_build_agent.md": {
+        "path": "commands\\91_codexa_build_agent.md",
+        "name": "91_codexa_build_agent.md",
+        "extension": ".md",
+        "size": 13121,
+        "modified": "2025-11-13T08:48:37.050722"
+      },
+      "commands\\92_codexa_build_command.md": {
+        "path": "commands\\92_codexa_build_command.md",
+        "name": "92_codexa_build_command.md",
+        "extension": ".md",
+        "size": 10450,
+        "modified": "2025-11-13T08:48:37.075294"
+      },
+      "commands\\93_codexa_build_mcp.md": {
+        "path": "commands\\93_codexa_build_mcp.md",
+        "name": "93_codexa_build_mcp.md",
+        "extension": ".md",
+        "size": 9111,
+        "modified": "2025-11-13T08:48:37.090074"
+      },
+      "commands\\94_codexa_build_prompt.md": {
+        "path": "commands\\94_codexa_build_prompt.md",
+        "name": "94_codexa_build_prompt.md",
+        "extension": ".md",
+        "size": 10403,
+        "modified": "2025-11-13T08:48:37.123481"
+      },
+      "commands\\95_codexa_build_schema.md": {
+        "path": "commands\\95_codexa_build_schema.md",
+        "name": "95_codexa_build_schema.md",
+        "extension": ".md",
+        "size": 11805,
+        "modified": "2025-11-13T08:48:37.148584"
+      },
+      "commands\\96_codexa_orchestrate.md": {
+        "path": "commands\\96_codexa_orchestrate.md",
+        "name": "96_codexa_orchestrate.md",
+        "extension": ".md",
+        "size": 14399,
+        "modified": "2025-11-13T08:48:37.157264"
+      },
+      "commands\\codexa.md": {
+        "path": "commands\\codexa.md",
+        "name": "codexa.md",
+        "extension": ".md",
+        "size": 1977,
+        "modified": "2025-11-11T19:19:01.990531"
+      },
+      "commands\\codexa_quick.md": {
+        "path": "commands\\codexa_quick.md",
+        "name": "codexa_quick.md",
+        "extension": ".md",
+        "size": 1728,
+        "modified": "2025-11-12T10:09:48.622643"
+      },
+      "commands\\codexa_run.md": {
+        "path": "commands\\codexa_run.md",
+        "name": "codexa_run.md",
+        "extension": ".md",
+        "size": 668,
+        "modified": "2025-11-12T10:11:43.107566"
+      },
+      "commands\\orchestrator.md": {
+        "path": "commands\\orchestrator.md",
+        "name": "orchestrator.md",
+        "extension": ".md",
+        "size": 5845,
+        "modified": "2025-11-07T14:42:38.974941"
+      },
+      "prompts\\91_meta_build_agent_HOP.md": {
+        "path": "prompts\\91_meta_build_agent_HOP.md",
+        "name": "91_meta_build_agent_HOP.md",
+        "extension": ".md",
+        "size": 15059,
+        "modified": "2025-11-13T07:25:49.245084"
+      },
+      "prompts\\94_meta_build_prompt_HOP.md": {
+        "path": "prompts\\94_meta_build_prompt_HOP.md",
+        "name": "94_meta_build_prompt_HOP.md",
+        "extension": ".md",
+        "size": 10019,
+        "modified": "2025-11-13T07:29:22.013392"
+      },
+      "prompts\\96_meta_orchestrate_HOP.md": {
+        "path": "prompts\\96_meta_orchestrate_HOP.md",
+        "name": "96_meta_orchestrate_HOP.md",
+        "extension": ".md",
+        "size": 11645,
+        "modified": "2025-11-13T07:30:46.999041"
+      },
+      "validators\\07_hop_sync_validator.py": {
+        "path": "validators\\07_hop_sync_validator.py",
+        "name": "07_hop_sync_validator.py",
+        "extension": ".py",
+        "size": 12893,
+        "modified": "2025-11-12T12:14:27.748417"
+      },
+      "validators\\09_readme_validator.py": {
+        "path": "validators\\09_readme_validator.py",
+        "name": "09_readme_validator.py",
+        "extension": ".py",
+        "size": 15505,
+        "modified": "2025-11-12T12:14:27.692590"
+      },
+      "validators\\10_taxonomy_validator.py": {
+        "path": "validators\\10_taxonomy_validator.py",
+        "name": "10_taxonomy_validator.py",
+        "extension": ".py",
+        "size": 11589,
+        "modified": "2025-11-12T12:14:27.634911"
+      },
+      "workflows\\97_ADW_NEW_AGENT_WORKFLOW.md": {
+        "path": "workflows\\97_ADW_NEW_AGENT_WORKFLOW.md",
+        "name": "97_ADW_NEW_AGENT_WORKFLOW.md",
+        "extension": ".md",
+        "size": 10807,
+        "modified": "2025-11-13T07:32:10.014526"
+      },
+      "workflows\\98_ADW_CONSOLIDATION_WORKFLOW.md": {
+        "path": "workflows\\98_ADW_CONSOLIDATION_WORKFLOW.md",
+        "name": "98_ADW_CONSOLIDATION_WORKFLOW.md",
+        "extension": ".md",
+        "size": 7771,
+        "modified": "2025-11-13T07:32:58.991448"
+      },
+      "workflows\\99_ADW_SYSTEM_UPGRADE_WORKFLOW.md": {
+        "path": "workflows\\99_ADW_SYSTEM_UPGRADE_WORKFLOW.md",
+        "name": "99_ADW_SYSTEM_UPGRADE_WORKFLOW.md",
+        "extension": ".md",
+        "size": 10713,
+        "modified": "2025-11-13T07:34:01.789256"
+      },
+      "builders\\adw_modules\\agent.py": {
+        "path": "builders\\adw_modules\\agent.py",
+        "name": "agent.py",
+        "extension": ".py",
+        "size": 12929,
+        "modified": "2025-11-13T08:27:44.683441"
+      },
+      "builders\\adw_modules\\README.md": {
+        "path": "builders\\adw_modules\\README.md",
+        "name": "README.md",
+        "extension": ".md",
+        "size": 7829,
+        "modified": "2025-11-13T08:31:29.102638"
+      },
+      "builders\\adw_modules\\scout_integration.py": {
+        "path": "builders\\adw_modules\\scout_integration.py",
+        "name": "scout_integration.py",
+        "extension": ".py",
+        "size": 17523,
+        "modified": "2025-11-13T08:29:35.005113"
+      },
+      "builders\\adw_modules\\utils.py": {
+        "path": "builders\\adw_modules\\utils.py",
+        "name": "utils.py",
+        "extension": ".py",
+        "size": 8232,
+        "modified": "2025-11-13T08:08:43.689006"
+      },
+      "builders\\adw_modules\\__init__.py": {
+        "path": "builders\\adw_modules\\__init__.py",
+        "name": "__init__.py",
+        "extension": ".py",
+        "size": 3936,
+        "modified": "2025-11-13T08:30:17.397962"
+      },
+      "agents\\b80b9ac3\\oneoff\\cc_raw_output_summary.json": {
+        "path": "agents\\b80b9ac3\\oneoff\\cc_raw_output_summary.json",
+        "name": "cc_raw_output_summary.json",
+        "extension": ".json",
+        "size": 932,
+        "modified": "2025-11-13T09:04:06.741544"
+      },
+      "agents\\17b006be\\oneoff\\cc_raw_output_summary.json": {
+        "path": "agents\\17b006be\\oneoff\\cc_raw_output_summary.json",
+        "name": "cc_raw_output_summary.json",
+        "extension": ".json",
+        "size": 948,
+        "modified": "2025-11-13T09:03:58.556204"
+      }
+    },
+    "files_by_extension": {
+      ".md": [
+        "INSTRUCTIONS.md",
+        "PRIME.md",
+        "README.md",
+        "commands\\90_codexa_when_to_use.md",
+        "commands\\91_codexa_build_agent.md",
+        "commands\\92_codexa_build_command.md",
+        "commands\\93_codexa_build_mcp.md",
+        "commands\\94_codexa_build_prompt.md",
+        "commands\\95_codexa_build_schema.md",
+        "commands\\96_codexa_orchestrate.md",
+        "commands\\codexa.md",
+        "commands\\codexa_quick.md",
+        "commands\\codexa_run.md",
+        "commands\\orchestrator.md",
+        "prompts\\91_meta_build_agent_HOP.md",
+        "prompts\\94_meta_build_prompt_HOP.md",
+        "prompts\\96_meta_orchestrate_HOP.md",
+        "workflows\\97_ADW_NEW_AGENT_WORKFLOW.md",
+        "workflows\\98_ADW_CONSOLIDATION_WORKFLOW.md",
+        "workflows\\99_ADW_SYSTEM_UPGRADE_WORKFLOW.md",
+        "builders\\adw_modules\\README.md"
+      ],
+      ".py": [
+        "builders\\01_agent_builder.py",
+        "builders\\02_agent_meta_constructor.py",
+        "builders\\03_build_task.py",
+        "builders\\04_chore_task.py",
+        "builders\\05_command_generator.py",
+        "builders\\06_cron_orchestrator.py",
+        "builders\\08_prompt_generator.py",
+        "validators\\07_hop_sync_validator.py",
+        "validators\\09_readme_validator.py",
+        "validators\\10_taxonomy_validator.py",
+        "builders\\adw_modules\\agent.py",
+        "builders\\adw_modules\\scout_integration.py",
+        "builders\\adw_modules\\utils.py",
+        "builders\\adw_modules\\__init__.py"
+      ],
+      ".json": [
+        "agents\\b80b9ac3\\oneoff\\cc_raw_output_summary.json",
+        "agents\\17b006be\\oneoff\\cc_raw_output_summary.json"
+      ]
+    },
+    "from_cache": false
+  },
+  "model": "sonnet",
+  "target_dir": "agents/dd2b5962/agent-artifacts",
+  "working_dir": "C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent",
+  "timestamp_start": "2025-11-13T09:08:20.225400",
+  "agent_files": [
+    "builders\\01_agent_builder.py",
+    "builders\\02_agent_meta_constructor.py",
+    "builders\\adw_modules\\agent.py"
+  ],
+  "$plan": "\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-planner-dd2b59\n**ADW ID**: dd2b5962\n**Model**: sonnet\n\n## Prompt Details\n- Length: 1677 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR tasked with planning an ISOLATED agent for OpenAI Agent Builder.\n\nAGENT TO BUILD:\nCreate a simple test agent for validating workflow\n\nMETA-CONSTRUCTION PRINCIPLES:\n1. **Intentional Entropy**: Leave [VARIABLES] unspecified to allow creative freedom\n2. **$argument Chaining**: Design outputs that flow naturally to next phases\n3. **Isolation**: Agent must be self-contained (no external dependencies)\n4. **GPT-4o/GPT-5**: Assume access to advanced models\n5. **Single Node**: ...\n```\n\n## Execution Summary\nPrompt processed successfully with full context. Output includes:\n1. \u2705 Validated prompt structure\n2. \u2705 Resolved context files\n3. \u2705 Generated execution metadata\n4. \u2705 Structured output for $argument chaining\n\n## Metadata\n```json\n{\n  \"agent_name\": \"meta-planner-dd2b59\",\n  \"adw_id\": \"dd2b5962\",\n  \"model\": \"sonnet\",\n  \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm.codexa\\\\codexa.app\\\\agentes\\\\codexa_agent\",\n  \"prompt_length\": 1677,\n  \"context_files\": [],\n  \"status\": \"completed\",\n  \"timestamp\": \"2025-11-13T09:08:20.243758\"\n}\n```\n\n## For Workflow Chaining\nThis output is ready to be passed as `$prompt_result` to subsequent phases.\nExtract specific fields using JSON parsing of the metadata section.\n",
+  "$agent_name": "[AGENT_NAME]",
+  "$artifacts": "\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-builder-dd2b59\n**ADW ID**: dd2b5962\n**Model**: sonnet\n\n## Prompt Details\n- Length: 3153 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the BUILD phase.\n\nPREVIOUS PHASE OUTPUT ($plan):\n\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-planner-dd2b59\n**ADW ID**: dd2b5962\n**Model**: sonnet\n\n## Prompt Details\n- Length: 1677 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR tasked with planning an ISOLATED agent...\n```\n\n## Execution Summary\nPrompt processed successfully with full context. Output includes:\n1. \u2705 Validated prompt structure\n2. \u2705 Resolved context files\n3. \u2705 Generated execution metadata\n4. \u2705 Structured output for $argument chaining\n\n## Metadata\n```json\n{\n  \"agent_name\": \"meta-builder-dd2b59\",\n  \"adw_id\": \"dd2b5962\",\n  \"model\": \"sonnet\",\n  \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm.codexa\\\\codexa.app\\\\agentes\\\\codexa_agent\",\n  \"prompt_length\": 3153,\n  \"context_files\": [],\n  \"status\": \"completed\",\n  \"timestamp\": \"2025-11-13T09:08:20.258142\"\n}\n```\n\n## For Workflow Chaining\nThis output is ready to be passed as `$prompt_result` to subsequent phases.\nExtract specific fields using JSON parsing of the metadata section.\n",
+  "$target_dir": "agents/dd2b5962/agent-artifacts",
+  "$test_results": "\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-tester-dd2b59\n**ADW ID**: dd2b5962\n**Model**: sonnet\n\n## Prompt Details\n- Length: 3346 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the TEST phase.\n\nARTIFACTS CREATED ($artifacts):\n\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-builder-dd2b59\n**ADW ID**: dd2b5962\n**Model**: sonnet\n\n## Prompt Details\n- Length: 3153 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the BUILD phase.\n\nPREVIOUS PHASE OU...\n```\n\n## Execution Summary\nPrompt processed successfully with full context. Output includes:\n1. \u2705 Validated prompt structure\n2. \u2705 Resolved context files\n3. \u2705 Generated execution metadata\n4. \u2705 Structured output for $argument chaining\n\n## Metadata\n```json\n{\n  \"agent_name\": \"meta-tester-dd2b59\",\n  \"adw_id\": \"dd2b5962\",\n  \"model\": \"sonnet\",\n  \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm.codexa\\\\codexa.app\\\\agentes\\\\codexa_agent\",\n  \"prompt_length\": 3346,\n  \"context_files\": [],\n  \"status\": \"completed\",\n  \"timestamp\": \"2025-11-13T09:08:20.276692\"\n}\n```\n\n## For Workflow Chaining\nThis output is ready to be passed as `$prompt_result` to subsequent phases.\nExtract specific fields using JSON parsing of the metadata section.\n",
+  "$test_score": "[UNKNOWN]",
+  "$review": "\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-reviewer-dd2b59\n**ADW ID**: dd2b5962\n**Model**: sonnet\n\n## Prompt Details\n- Length: 3432 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the REVIEW phase.\n\nTEST RESULTS ($test_results):\n\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-tester-dd2b59\n**ADW ID**: dd2b5962\n**Model**: sonnet\n\n## Prompt Details\n- Length: 3346 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the TEST phase.\n\nARTIFACTS CREATED (...\n```\n\n## Execution Summary\nPrompt processed successfully with full context. Output includes:\n1. \u2705 Validated prompt structure\n2. \u2705 Resolved context files\n3. \u2705 Generated execution metadata\n4. \u2705 Structured output for $argument chaining\n\n## Metadata\n```json\n{\n  \"agent_name\": \"meta-reviewer-dd2b59\",\n  \"adw_id\": \"dd2b5962\",\n  \"model\": \"sonnet\",\n  \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm.codexa\\\\codexa.app\\\\agentes\\\\codexa_agent\",\n  \"prompt_length\": 3432,\n  \"context_files\": [],\n  \"status\": \"completed\",\n  \"timestamp\": \"2025-11-13T09:08:20.294581\"\n}\n```\n\n## For Workflow Chaining\nThis output is ready to be passed as `$prompt_result` to subsequent phases.\nExtract specific fields using JSON parsing of the metadata section.\n",
+  "$review_verdict": "[UNKNOWN]",
+  "$documentation": "\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-documenter-dd2b59\n**ADW ID**: dd2b5962\n**Model**: sonnet\n\n## Prompt Details\n- Length: 21305 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the DOCUMENTATION phase.\n\nCOMPLETE WORKFLOW CONTEXT:\n- Agent Description: Create a simple test agent for validating workflow\n- ADW ID: dd2b5962\n- Target Directory: agents/dd2b5962/agent-artifacts\n- Test Score: [UNKNOWN]\n- Review Verdict: [UNKNOWN]\n\nFULL CONTEXT:\n{\n  \"adw_id\": \"dd2b5962\",\n  \"agent_description\": \"Create a simple test agent for validating workflow\",\n  \"scout_context\": {\n    \"success\": true,\n    \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm...\n```\n\n## Execution Summary\nPrompt processed successfully with full context. Output includes:\n1. \u2705 Validated prompt structure\n2. \u2705 Resolved context files\n3. \u2705 Generated execution metadata\n4. \u2705 Structured output for $argument chaining\n\n## Metadata\n```json\n{\n  \"agent_name\": \"meta-documenter-dd2b59\",\n  \"adw_id\": \"dd2b5962\",\n  \"model\": \"sonnet\",\n  \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm.codexa\\\\codexa.app\\\\agentes\\\\codexa_agent\",\n  \"prompt_length\": 21305,\n  \"context_files\": [],\n  \"status\": \"completed\",\n  \"timestamp\": \"2025-11-13T09:08:20.308247\"\n}\n```\n\n## For Workflow Chaining\nThis output is ready to be passed as `$prompt_result` to subsequent phases.\nExtract specific fields using JSON parsing of the metadata section.\n",
+  "phases": {
+    "plan": {
+      "success": true,
+      "output_dir": "./agents/dd2b5962/meta-planner-dd2b59/"
+    },
+    "build": {
+      "success": true,
+      "output_dir": "./agents/dd2b5962/meta-builder-dd2b59/"
+    },
+    "test": {
+      "success": true,
+      "output_dir": "./agents/dd2b5962/meta-tester-dd2b59/",
+      "score": null
+    },
+    "review": {
+      "success": true,
+      "output_dir": "./agents/dd2b5962/meta-reviewer-dd2b59/",
+      "verdict": null
+    },
+    "document": {
+      "success": true,
+      "output_dir": "./agents/dd2b5962/meta-documenter-dd2b59/"
+    }
+  },
+  "overall_success": true,
+  "timestamp_end": "2025-11-13T09:08:20.322433"
+}

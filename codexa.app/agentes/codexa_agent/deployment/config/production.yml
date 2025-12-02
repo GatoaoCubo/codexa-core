@@ -1,0 +1,125 @@
+# CODEXA Agent - Production Configuration
+# Version: 3.1.0
+
+# Environment
+environment: production
+debug: false
+log_level: INFO
+
+# LLM Providers
+llm:
+  default_provider: claude
+  providers:
+    claude:
+      enabled: true
+      model: claude-sonnet-4-20250514
+      max_tokens: 8192
+      temperature: 0.7
+    openai:
+      enabled: true
+      model: gpt-4-turbo-preview
+      max_tokens: 4096
+      temperature: 0.7
+    gemini:
+      enabled: false
+      model: gemini-pro
+      max_tokens: 4096
+      temperature: 0.7
+
+# Rate Limiting
+rate_limiting:
+  enabled: true
+  per_provider:
+    claude:
+      requests_per_minute: 50
+      requests_per_hour: 1000
+      tokens_per_minute: 100000
+      tokens_per_day: 1000000
+    openai:
+      requests_per_minute: 60
+      requests_per_hour: 3500
+      tokens_per_minute: 150000
+      tokens_per_day: 2000000
+  per_user:
+    requests_per_minute: 30
+    requests_per_hour: 500
+    tokens_per_day: 500000
+
+# Authentication
+auth:
+  api_key_required: true
+  audit_logging: true
+  audit_log_retention_days: 90
+
+# Tool Permissions
+tools:
+  file:
+    allowed_paths:
+      - /app/outputs
+      - /app/artifacts
+      - /app/logs
+    blocked_paths:
+      - /etc
+      - /var
+      - /root
+      - /home
+    max_file_size_mb: 10
+  bash:
+    enabled: true
+    sandbox_mode: true
+    blocked_commands:
+      - rm -rf /
+      - sudo
+      - chmod 777
+      - curl | bash
+    max_execution_time_seconds: 300
+
+# Agent Configuration
+agents:
+  max_concurrent: 5
+  default_timeout_seconds: 600
+  retry_attempts: 3
+  retry_backoff_seconds: [1, 2, 4]
+
+# Workflow Configuration
+workflows:
+  max_steps: 100
+  checkpoint_interval: 10
+  artifact_retention_days: 30
+
+# Monitoring
+monitoring:
+  enabled: true
+  metrics_endpoint: /metrics
+  health_endpoint: /health
+  collect_metrics:
+    - request_count
+    - response_time
+    - error_rate
+    - token_usage
+    - cost
+
+# Logging
+logging:
+  format: json
+  output:
+    - stdout
+    - file
+  file:
+    path: /app/logs/codexa.log
+    max_size_mb: 100
+    backup_count: 5
+  include_fields:
+    - timestamp
+    - level
+    - message
+    - workflow_id
+    - agent_id
+    - user_id
+
+# Security
+security:
+  allowed_origins:
+    - "*"  # Configure appropriately in production
+  max_request_size_mb: 50
+  request_timeout_seconds: 300

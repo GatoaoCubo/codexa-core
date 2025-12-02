@@ -1,0 +1,54 @@
+{
+  "project": {
+    "name": "AI Courses Intelligence - Brazil",
+    "domain": "ai_courses",
+    "market": "brazil",
+    "language": "pt-BR",
+    "created": "2025-11-24T00:00:00"
+  },
+  "categories": {
+    "ai_courses_platforms": {
+      "id": "ai_courses_platforms",
+      "name": "AI Course Platforms",
+      "description": "Training platforms offering AI courses for e-commerce and small business",
+      "update_frequency": "weekly",
+      "enabled": true,
+      "sources": {}
+    },
+    "marketplaces_docs": {
+      "id": "marketplaces_docs",
+      "name": "Marketplace Documentation",
+      "description": "Official docs and educational resources from major Brazilian marketplaces",
+      "update_frequency": "weekly",
+      "enabled": true,
+      "sources": {}
+    },
+    "ecommerce_trends": {
+      "id": "ecommerce_trends",
+      "name": "E-commerce Trends & Research",
+      "description": "Market research, trends, and news sources for e-commerce in Brazil",
+      "update_frequency": "daily",
+      "enabled": true,
+      "sources": {}
+    },
+    "compliance_sources": {
+      "id": "compliance_sources",
+      "name": "Compliance & Regulations",
+      "description": "LGPD, ANPD, and regulatory sources for AI/data compliance",
+      "update_frequency": "monthly",
+      "enabled": true,
+      "sources": {}
+    }
+  },
+  "preferences": {
+    "output_format": "both",
+    "report_detail_level": "standard",
+    "snapshot_retention_days": 90
+  },
+  "integrations": {
+    "alerts": {
+      "enabled": false,
+      "channels": []
+    }
+  }
+}

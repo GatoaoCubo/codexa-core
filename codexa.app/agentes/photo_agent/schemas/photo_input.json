@@ -1,0 +1,367 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codexa.app/schemas/photo_agent/input/v1.0.0",
+  "title": "Photo Agent Input Schema",
+  "description": "Input validation schema for photo_agent AI photography prompt generation",
+  "version": "1.0.0",
+  "type": "object",
+
+  "required": ["subject"],
+
+  "properties": {
+    "subject": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 500,
+      "description": "Main subject to photograph (product, person, scene, concept)",
+      "examples": [
+        "Ceramic coffee mug with matte white glaze",
+        "Male model wearing black leather jacket",
+        "Minimalist home office desk setup",
+        "Abstract concept of digital transformation"
+      ],
+      "pattern": "^(?!\\s*$).+",
+      "errorMessage": {
+        "type": "Subject must be a string",
+        "minLength": "Subject description must be at least 5 characters",
+        "maxLength": "Subject description must not exceed 500 characters",
+        "pattern": "Subject cannot be empty or whitespace only"
+      }
+    },
+
+    "style": {
+      "type": "string",
+      "enum": [
+        "minimalist",
+        "dramatic",
+        "lifestyle",
+        "editorial",
+        "commercial",
+        "cinematic",
+        "vintage",
+        "custom"
+      ],
+      "default": "editorial",
+      "description": "Photography style preset to apply across all scenes",
+      "examples": ["minimalist", "dramatic", "lifestyle"],
+      "errorMessage": {
+        "enum": "Style must be one of: minimalist, dramatic, lifestyle, editorial, commercial, cinematic, vintage, custom"
+      }
+    },
+
+    "scenes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9,
+      "default": 9,
+      "description": "Number of photography scenes to generate (1=hero, 3=essential, 5=expanded, 9=full arc)",
+      "examples": [1, 3, 5, 9],
+      "errorMessage": {
+        "type": "Scenes must be an integer",
+        "minimum": "Scenes count must be at least 1",
+        "maximum": "Scenes count cannot exceed 9"
+      }
+    },
+
+    "brand_profile": {
+      "type": "object",
+      "description": "Brand visual identity settings for consistency across scenes",
+      "properties": {
+        "colors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+          },
+          "minItems": 1,
+          "maxItems": 5,
+          "description": "Brand color palette (hex codes)",
+          "examples": [
+            ["#FFFFFF", "#000000"],
+            ["#F5F5DC", "#8B7355", "#FFFFFF"]
+          ],
+          "errorMessage": {
+            "type": "Colors must be an array",
+            "items": "Each color must be a valid hex code (e.g., #FFFFFF or #FFF)",
+            "minItems": "Provide at least 1 brand color",
+            "maxItems": "Maximum 5 brand colors allowed"
+          }
+        },
+        "mood": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 100,
+          "description": "Brand mood/tone (e.g., 'luxury minimal', 'playful energetic', 'zen serene')",
+          "examples": [
+            "luxury minimal zen aesthetic",
+            "playful energetic vibrant",
+            "professional trustworthy clean"
+          ],
+          "errorMessage": {
+            "minLength": "Mood must be at least 3 characters",
+            "maxLength": "Mood must not exceed 100 characters"
+          }
+        },
+        "target_audience": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 200,
+          "description": "Target audience demographics and psychographics",
+          "examples": [
+            "urban millennials 25-35",
+            "busy parents with young children",
+            "luxury consumers high-income",
+            "fitness enthusiasts health-conscious"
+          ],
+          "errorMessage": {
+            "minLength": "Target audience must be at least 5 characters",
+            "maxLength": "Target audience must not exceed 200 characters"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "pnl_triggers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "confiança",
+          "conforto",
+          "clareza",
+          "calma",
+          "desejo",
+          "urgência",
+          "pertencimento",
+          "transformação",
+          "segurança",
+          "prazer",
+          "exclusividade",
+          "controle"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 9,
+      "uniqueItems": true,
+      "description": "Programação neurolinguística emotional triggers to embed in scenes",
+      "examples": [
+        ["confiança", "clareza"],
+        ["desejo", "urgência", "transformação"]
+      ],
+      "errorMessage": {
+        "type": "PNL triggers must be an array",
+        "items": "Each trigger must be a valid PNL emotional anchor",
+        "minItems": "Provide at least 1 PNL trigger",
+        "maxItems": "Maximum 9 PNL triggers (one per scene)",
+        "uniqueItems": "PNL triggers must be unique (no duplicates)"
+      }
+    },
+
+    "technical_overrides": {
+      "type": "object",
+      "description": "Manual camera and lighting overrides (advanced users)",
+      "properties": {
+        "focal_length": {
+          "type": "string",
+          "enum": [
+            "24mm",
+            "35mm",
+            "50mm",
+            "85mm",
+            "100mm",
+            "135mm",
+            "200mm"
+          ],
+          "description": "Override default focal length for all scenes",
+          "examples": ["50mm", "85mm"],
+          "errorMessage": {
+            "enum": "Focal length must be one of: 24mm, 35mm, 50mm, 85mm, 100mm, 135mm, 200mm"
+          }
+        },
+        "aperture": {
+          "type": "string",
+          "pattern": "^f/([1-9]|1[0-6])(\\.[0-9])?$",
+          "description": "Override default aperture (f/1.2 to f/16)",
+          "examples": ["f/2.8", "f/4", "f/5.6", "f/8"],
+          "errorMessage": {
+            "pattern": "Aperture must be in format f/X or f/X.X where X is 1-16 (e.g., f/2.8, f/8)"
+          }
+        },
+        "lighting": {
+          "type": "string",
+          "enum": [
+            "high-key",
+            "low-key",
+            "3-point",
+            "Rembrandt",
+            "Butterfly",
+            "Loop",
+            "Split",
+            "natural",
+            "golden-hour"
+          ],
+          "description": "Override default lighting setup",
+          "examples": ["high-key", "Rembrandt", "natural"],
+          "errorMessage": {
+            "enum": "Lighting must be one of: high-key, low-key, 3-point, Rembrandt, Butterfly, Loop, Split, natural, golden-hour"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "errorMessage": {
+        "additionalProperties": "Only focal_length, aperture, and lighting overrides are allowed"
+      }
+    },
+
+    "ai_model": {
+      "type": "string",
+      "enum": [
+        "midjourney",
+        "dalle3",
+        "stable_diffusion",
+        "imagen"
+      ],
+      "default": "midjourney",
+      "description": "Target AI image generation model",
+      "examples": ["midjourney", "dalle3"],
+      "errorMessage": {
+        "enum": "AI model must be one of: midjourney, dalle3, stable_diffusion, imagen"
+      }
+    },
+
+    "output_format": {
+      "type": "string",
+      "enum": [
+        "grid_3x3",
+        "sequential_9"
+      ],
+      "default": "grid_3x3",
+      "description": "Output format (single grid vs separate images)",
+      "examples": ["grid_3x3", "sequential_9"],
+      "errorMessage": {
+        "enum": "Output format must be either 'grid_3x3' or 'sequential_9'"
+      }
+    },
+
+    "compliance_mode": {
+      "type": "string",
+      "enum": [
+        "marketplace",
+        "artistic",
+        "brand"
+      ],
+      "default": "artistic",
+      "description": "Compliance enforcement level (marketplace=strict white backgrounds, artistic=flexible, brand=brand guidelines)",
+      "examples": ["marketplace", "artistic", "brand"],
+      "errorMessage": {
+        "enum": "Compliance mode must be one of: marketplace, artistic, brand"
+      }
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for tracking and organization",
+      "properties": {
+        "project_name": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "client_name": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 50
+          },
+          "maxItems": 10
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+
+  "additionalProperties": false,
+
+  "examples": [
+    {
+      "subject": "Ceramic coffee mug with matte white glaze",
+      "style": "minimalist",
+      "scenes": 9,
+      "output_format": "grid_3x3"
+    },
+    {
+      "subject": "Male model wearing black leather jacket",
+      "style": "dramatic",
+      "scenes": 5,
+      "brand_profile": {
+        "colors": ["#000000", "#8B0000", "#FFFFFF"],
+        "mood": "edgy rebellious luxury",
+        "target_audience": "urban millennials 25-35"
+      },
+      "pnl_triggers": ["desejo", "confiança", "pertencimento"],
+      "output_format": "sequential_9"
+    },
+    {
+      "subject": "Wireless noise-canceling headphones matte black",
+      "style": "editorial",
+      "scenes": 9,
+      "technical_overrides": {
+        "focal_length": "85mm",
+        "aperture": "f/5.6",
+        "lighting": "3-point"
+      },
+      "ai_model": "midjourney",
+      "compliance_mode": "marketplace"
+    },
+    {
+      "subject": "Artisan sourdough bread fresh from oven",
+      "style": "lifestyle",
+      "scenes": 9,
+      "brand_profile": {
+        "colors": ["#D2691E", "#F5DEB3", "#8B4513"],
+        "mood": "rustic artisanal warm comfort",
+        "target_audience": "home bakers food enthusiasts"
+      },
+      "pnl_triggers": ["prazer", "conforto", "calma"],
+      "technical_overrides": {
+        "lighting": "golden-hour"
+      }
+    }
+  ],
+
+  "definitions": {
+    "validations": {
+      "subject_not_empty": "Subject description is required and cannot be empty",
+      "scenes_valid_range": "Scenes must be between 1 and 9",
+      "brand_colors_valid_hex": "Brand colors must be valid hex codes",
+      "pnl_unique": "PNL triggers must be unique (no duplicates)",
+      "technical_no_conflicts": "Technical overrides must not create impossible combinations (e.g., f/1.4 + full focus)"
+    },
+    "conflict_rules": {
+      "aperture_focal_conflicts": [
+        {
+          "condition": "aperture f/1.2-f/2.8 AND scene requires full focus",
+          "error": "Shallow aperture (f/1.2-f/2.8) incompatible with full focus requirement. Use f/8+ or remove override for hero scenes."
+        },
+        {
+          "condition": "aperture f/8-f/16 AND style requires bokeh",
+          "error": "Deep aperture (f/8-f/16) incompatible with bokeh requirement. Use f/2.8-f/5.6 for background blur."
+        }
+      ],
+      "lighting_style_conflicts": [
+        {
+          "condition": "lighting 'low-key' AND style 'minimalist'",
+          "warning": "Low-key lighting conflicts with minimalist style (typically high-key). Consider 'dramatic' style or 'high-key' lighting."
+        },
+        {
+          "condition": "lighting 'high-key' AND style 'dramatic'",
+          "warning": "High-key lighting conflicts with dramatic style (typically low-key). Consider 'minimalist' style or 'low-key' lighting."
+        }
+      ]
+    }
+  }
+}

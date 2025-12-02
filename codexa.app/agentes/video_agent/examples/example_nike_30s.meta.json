@@ -1,0 +1,148 @@
+{
+  "$schema": "../schemas/video_output.json",
+  "generation_id": "nike_air_max_30s_001",
+  "generated_at": "2025-11-25T10:45:00Z",
+  "agent_version": "2.0.0",
+  "adw_version": "2.0.0",
+
+  "video_specs": {
+    "duration_seconds": 30.2,
+    "resolution": {
+      "width": 1080,
+      "height": 1920
+    },
+    "aspect_ratio": "9:16",
+    "frame_rate": 30,
+    "codec": "h264",
+    "bitrate_mbps": 8,
+    "file_size_mb": 28.4,
+    "file_format": "mp4"
+  },
+
+  "audio_specs": {
+    "has_narration": true,
+    "has_music": true,
+    "narration_volume": 1.0,
+    "music_volume": 0.3,
+    "sample_rate": 44100,
+    "channels": 2,
+    "codec": "aac"
+  },
+
+  "performance": {
+    "total_time_seconds": 212.9,
+    "phase_times": {
+      "concept": 4.2,
+      "script": 2.8,
+      "visual": 8.5,
+      "production": 185.3,
+      "editing": 12.1
+    },
+    "api_calls": {
+      "anthropic": 3,
+      "runway": 6,
+      "elevenlabs": 1
+    }
+  },
+
+  "cost": {
+    "currency": "USD",
+    "total": 1.57,
+    "breakdown": {
+      "llm_api": 0.02,
+      "video_api": 1.50,
+      "tts_api": 0.05
+    },
+    "per_second": 0.052
+  },
+
+  "quality": {
+    "overall_score": 9.2,
+    "brand_compliance_score": 8.5,
+    "validation_passed": true,
+    "validation_points": {
+      "duration": {"passed": true, "actual": 30.2, "expected": 30, "tolerance": "10%"},
+      "resolution": {"passed": true, "actual": "1080x1920", "minimum": "1080p"},
+      "frame_rate": {"passed": true, "actual": 30, "minimum": 24},
+      "audio_sync": {"passed": true, "drift_ms": 45, "tolerance_ms": 100},
+      "text_visibility": {"passed": true, "contrast_ratio": 7.2, "minimum": 4.5},
+      "brand_compliance": {"passed": true, "score": 8.5, "minimum": 8.0},
+      "no_artifacts": {"passed": true, "artifacts_detected": 0},
+      "file_size": {"passed": true, "actual_mb": 28.4, "max_mb_per_min": 50},
+      "codec": {"passed": true, "actual": "h264", "required": "h264"},
+      "aspect_ratio": {"passed": true, "actual": "9:16", "expected": "9:16"},
+      "metadata_complete": {"passed": true, "fields_present": 11, "fields_required": 11}
+    }
+  },
+
+  "content": {
+    "produto": "Nike Air Max 2024",
+    "video_mode": "overlay",
+    "style_preset": "energetic",
+    "platform_target": "instagram_reels",
+    "shots_count": 6,
+    "narration_segments": 5,
+    "text_overlays_count": 3,
+    "has_cta": true,
+    "cta_text": "R$ 599 | COMPRE AGORA",
+    "voice_used": {
+      "name": "Camila",
+      "gender": "feminina",
+      "provider": "elevenlabs"
+    }
+  },
+
+  "platform_compatibility": {
+    "instagram_reels": {
+      "compatible": true,
+      "aspect_ratio_ok": true,
+      "duration_ok": true,
+      "file_size_ok": true
+    },
+    "tiktok": {
+      "compatible": true,
+      "aspect_ratio_ok": true,
+      "duration_ok": true,
+      "file_size_ok": true
+    },
+    "youtube_shorts": {
+      "compatible": true,
+      "aspect_ratio_ok": true,
+      "duration_ok": true,
+      "file_size_ok": true
+    },
+    "facebook_reels": {
+      "compatible": true,
+      "aspect_ratio_ok": true,
+      "duration_ok": true,
+      "file_size_ok": true
+    }
+  },
+
+  "files": {
+    "video": {
+      "path": "outputs/example_nike_30s.mp4",
+      "size_mb": 28.4,
+      "checksum_md5": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"
+    },
+    "report": {
+      "path": "outputs/example_nike_30s.md",
+      "size_kb": 4.2
+    },
+    "llm_json": {
+      "path": "outputs/example_nike_30s.llm.json",
+      "size_kb": 5.8
+    },
+    "meta_json": {
+      "path": "outputs/example_nike_30s.meta.json",
+      "size_kb": 3.1
+    }
+  },
+
+  "notes": [
+    "Video generated successfully in mock mode",
+    "All quality validation points passed",
+    "Optimized for vertical social media platforms",
+    "Trinity output format complete"
+  ]
+}

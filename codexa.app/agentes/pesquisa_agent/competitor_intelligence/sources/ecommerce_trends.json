@@ -1,0 +1,302 @@
+{
+  "metadata": {
+    "category": "E-commerce Trends & Market Intelligence",
+    "market": "Brazil",
+    "last_updated": "2025-11-23",
+    "total_sources": 12,
+    "update_frequency": "daily"
+  },
+  "news_portals": {
+    "b9": {
+      "name": "B9",
+      "focus": "tech_business",
+      "priority": "high",
+      "urls": {
+        "main": "https://www.b9.com.br/",
+        "tiktok_coverage": "https://www.b9.com.br/172869/tiktok-world-brasil-ia/",
+        "search_ecommerce": "https://www.b9.com.br/?s=e-commerce",
+        "search_ia": "https://www.b9.com.br/?s=inteligência+artificial"
+      },
+      "monitoring": {
+        "ai_trends": true,
+        "marketplace_news": true,
+        "startup_ecosystem": true
+      },
+      "key_topics": [
+        "ai_adoption",
+        "marketplace_evolution",
+        "social_commerce",
+        "tech_innovation"
+      ]
+    },
+    "mercado_consumo": {
+      "name": "Mercado & Consumo",
+      "focus": "retail_ecommerce",
+      "priority": "high",
+      "urls": {
+        "main": "https://mercadoeconsumo.com.br/",
+        "shopee_training": "https://ia.mercadoeconsumo.com.br/05/02/2025/gestao/shopee-capacita-lojistas-para-o-dia-do-consumidor-com-treinamentos-gratuitos/",
+        "tag_ecommerce": "https://mercadoeconsumo.com.br/categoria/e-commerce/",
+        "tag_ia": "https://ia.mercadoeconsumo.com.br/tag/inteligencia-artificial/"
+      },
+      "monitoring": {
+        "marketplace_campaigns": true,
+        "retail_trends": true,
+        "training_events": true
+      },
+      "key_topics": [
+        "marketplace_education",
+        "seasonal_campaigns",
+        "seller_training",
+        "retail_innovation"
+      ]
+    },
+    "it_forum": {
+      "name": "IT Forum",
+      "focus": "enterprise_tech",
+      "priority": "medium",
+      "urls": {
+        "main": "https://itforum.com.br/",
+        "udemy_growth": "https://itforum.com.br/noticias/cursos-ia-udemy-brasil-crescem/",
+        "tag_ia": "https://itforum.com.br/tag/inteligencia-artificial/"
+      },
+      "monitoring": {
+        "corporate_ai": true,
+        "training_market": true,
+        "enterprise_trends": true
+      },
+      "key_topics": [
+        "corporate_training",
+        "ai_adoption_metrics",
+        "enterprise_tools",
+        "skills_market"
+      ]
+    },
+    "money_report": {
+      "name": "Money Report",
+      "focus": "business_finance",
+      "priority": "medium",
+      "urls": {
+        "main": "https://www.moneyreport.com.br/",
+        "imersao_ia": "https://www.moneyreport.com.br/negocios/google-sebrae-e-alura-lancam-curso-gratis-de-ia-para-pequenos-negocios/",
+        "negocios": "https://www.moneyreport.com.br/negocios/"
+      },
+      "monitoring": {
+        "business_education": true,
+        "partnership_announcements": true,
+        "market_insights": true
+      },
+      "key_topics": [
+        "business_training",
+        "partnerships",
+        "market_trends",
+        "sme_focus"
+      ]
+    }
+  },
+  "research_institutions": {
+    "pwc_brasil": {
+      "name": "PwC Brasil",
+      "focus": "market_research",
+      "priority": "high",
+      "urls": {
+        "press_room": "https://www.pwc.com.br/pt/sala-de-imprensa/",
+        "ai_jobs_study": "https://www.pwc.com.br/pt/sala-de-imprensa/release/numero-vagas-de-emprego-que-exigem-conhecimentos-em-ia-quadruplicou-no-brasil-de-2021-a-2024-diz-pwc.html",
+        "insights": "https://www.pwc.com.br/pt/insights.html"
+      },
+      "monitoring": {
+        "labor_market": true,
+        "ai_adoption_metrics": true,
+        "industry_reports": true
+      },
+      "key_topics": [
+        "ai_skills_demand",
+        "labor_market_trends",
+        "digital_transformation",
+        "corporate_readiness"
+      ]
+    },
+    "ebit_nielsen": {
+      "name": "Ebit | Nielsen",
+      "focus": "ecommerce_metrics",
+      "priority": "high",
+      "urls": {
+        "main": "https://company.ebit.com.br/",
+        "webshoppers": "https://company.ebit.com.br/webshoppers"
+      },
+      "monitoring": {
+        "quarterly_reports": true,
+        "market_size": true,
+        "category_performance": true
+      },
+      "key_topics": [
+        "webshoppers_report",
+        "gmv_trends",
+        "category_analysis",
+        "consumer_behavior"
+      ]
+    },
+    "abcomm": {
+      "name": "ABComm",
+      "focus": "ecommerce_association",
+      "priority": "medium",
+      "urls": {
+        "main": "https://abcomm.org/",
+        "noticias": "https://abcomm.org/noticias/",
+        "pesquisas": "https://abcomm.org/pesquisas/"
+      },
+      "monitoring": {
+        "industry_studies": true,
+        "regulatory_updates": true,
+        "market_data": true
+      },
+      "key_topics": [
+        "market_regulation",
+        "industry_benchmarks",
+        "best_practices",
+        "advocacy"
+      ]
+    }
+  },
+  "educational_news": {
+    "udemy_brasil": {
+      "name": "Udemy Business Blog",
+      "focus": "corporate_training",
+      "priority": "medium",
+      "urls": {
+        "blog": "https://business.udemy.com/pt-br/blog/",
+        "reports": "https://business.udemy.com/pt-br/resources/"
+      },
+      "monitoring": {
+        "course_trends": true,
+        "skills_demand": true,
+        "learning_metrics": true
+      },
+      "key_topics": [
+        "ai_course_growth",
+        "corporate_learning",
+        "skills_trends",
+        "market_demand"
+      ]
+    },
+    "alura": {
+      "name": "Alura",
+      "focus": "tech_education",
+      "priority": "medium",
+      "urls": {
+        "blog": "https://www.alura.com.br/blog",
+        "imersao": "https://www.alura.com.br/imersao",
+        "carreira": "https://carreira.alura.com.br/cursos-imersivos/curta-duracao/ia-para-negocios"
+      },
+      "monitoring": {
+        "new_programs": true,
+        "partnerships": true,
+        "immersive_events": true
+      },
+      "key_topics": [
+        "tech_immersion",
+        "ai_programs",
+        "google_partnership",
+        "sebrae_partnership"
+      ]
+    }
+  },
+  "social_commerce": {
+    "tiktok_newsroom": {
+      "name": "TikTok Newsroom Brasil",
+      "focus": "platform_announcements",
+      "priority": "high",
+      "urls": {
+        "main": "https://newsroom.tiktok.com/pt-BR",
+        "tiktok_world": "https://newsroom.tiktok.com/pt-BR/tiktok-world-brasil-2025"
+      },
+      "monitoring": {
+        "feature_launches": true,
+        "ai_tools": true,
+        "commerce_updates": true,
+        "events": true
+      },
+      "key_topics": [
+        "tiktok_shop_brasil",
+        "ai_creative_tools",
+        "commerce_features",
+        "advertiser_solutions"
+      ]
+    },
+    "meta_business": {
+      "name": "Meta for Business",
+      "focus": "social_commerce",
+      "priority": "medium",
+      "urls": {
+        "main": "https://www.facebook.com/business/",
+        "news": "https://www.facebook.com/business/news",
+        "instagram_shopping": "https://business.instagram.com/shopping"
+      },
+      "monitoring": {
+        "commerce_features": true,
+        "ai_ad_tools": true,
+        "whatsapp_business": true
+      },
+      "key_topics": [
+        "instagram_shopping",
+        "facebook_marketplace",
+        "whatsapp_commerce",
+        "meta_ai_tools"
+      ]
+    }
+  },
+  "reputation_monitoring": {
+    "reclame_aqui": {
+      "name": "Reclame Aqui",
+      "focus": "consumer_reputation",
+      "priority": "critical",
+      "urls": {
+        "main": "https://www.reclameaqui.com.br/",
+        "empresas": "https://www.reclameaqui.com.br/empresas/",
+        "ranking": "https://www.reclameaqui.com.br/ranking/"
+      },
+      "monitoring": {
+        "competitor_reputation": true,
+        "complaint_patterns": true,
+        "response_times": true,
+        "resolution_rates": true
+      },
+      "key_topics": [
+        "reputation_scores",
+        "common_complaints",
+        "resolution_practices",
+        "service_quality"
+      ],
+      "tracked_companies": [
+        "g4-educacao",
+        "resultados-digitais",
+        "ecommerce-na-pratica",
+        "shopee",
+        "mercado-livre",
+        "amazon",
+        "magazine-luiza"
+      ]
+    }
+  },
+  "tracking": {
+    "kpis": [
+      "ai_adoption_trends",
+      "market_size_growth",
+      "new_platform_launches",
+      "training_demand",
+      "reputation_changes",
+      "regulatory_updates"
+    ],
+    "alerts": {
+      "major_announcement": true,
+      "new_competitor": true,
+      "reputation_crisis": true,
+      "market_shift": true
+    },
+    "update_schedule": {
+      "daily": ["reclame_aqui", "b9", "tiktok_newsroom"],
+      "weekly": ["pwc_brasil", "ebit_nielsen", "udemy_brasil"],
+      "monthly": ["abcomm"]
+    }
+  }
+}

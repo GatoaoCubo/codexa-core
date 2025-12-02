@@ -1,0 +1,307 @@
+{
+  "marketplaces": [
+    {
+      "id": "mercadolivre",
+      "name": "Mercado Livre",
+      "domain": "mercadolivre.com.br",
+      "site_search": "site:mercadolivre.com.br",
+      "priority": 1,
+      "categories": ["all"],
+      "features": {
+        "has_ratings": true,
+        "has_questions": true,
+        "has_seller_reputation": true,
+        "has_full_program": true,
+        "has_free_shipping": true
+      },
+      "limits": {
+        "title_max_chars": 60,
+        "description_max_chars": 50000,
+        "images_max": 12,
+        "image_min_resolution": "500x500"
+      },
+      "policies": {
+        "white_background_required": true,
+        "watermark_allowed": false,
+        "anatel_required_electronics": true,
+        "return_days_minimum": 7
+      },
+      "ranking_factors": [
+        "sales_volume",
+        "rating",
+        "seller_reputation",
+        "shipping_speed",
+        "title_relevance"
+      ]
+    },
+    {
+      "id": "shopee",
+      "name": "Shopee",
+      "domain": "shopee.com.br",
+      "site_search": "site:shopee.com.br",
+      "priority": 2,
+      "categories": ["all"],
+      "features": {
+        "has_ratings": true,
+        "has_questions": false,
+        "has_seller_reputation": true,
+        "has_flash_deals": true,
+        "has_free_shipping": true,
+        "has_livestream": true
+      },
+      "limits": {
+        "title_max_chars": 120,
+        "description_max_chars": 3000,
+        "images_max": 9,
+        "image_min_resolution": "800x800"
+      },
+      "policies": {
+        "white_background_required": false,
+        "watermark_allowed": false,
+        "anatel_required_electronics": true,
+        "return_days_minimum": 7
+      },
+      "ranking_factors": [
+        "price_competitiveness",
+        "sales_volume",
+        "rating",
+        "shipping_speed",
+        "seller_responsiveness"
+      ]
+    },
+    {
+      "id": "magazineluiza",
+      "name": "Magazine Luiza",
+      "domain": "magazineluiza.com.br",
+      "site_search": "site:magazineluiza.com",
+      "priority": 3,
+      "categories": ["electronics", "home", "appliances", "furniture"],
+      "features": {
+        "has_ratings": true,
+        "has_questions": false,
+        "has_seller_reputation": true,
+        "has_magalu_pay": true,
+        "has_store_pickup": true
+      },
+      "limits": {
+        "title_max_chars": 100,
+        "description_max_chars": 8000,
+        "images_max": 10,
+        "image_min_resolution": "1000x1000"
+      },
+      "policies": {
+        "white_background_required": true,
+        "watermark_allowed": false,
+        "anatel_required_electronics": true,
+        "return_days_minimum": 7,
+        "requires_official_seller": true
+      },
+      "ranking_factors": [
+        "brand_reputation",
+        "rating",
+        "sales_volume",
+        "in_stock",
+        "shipping_availability"
+      ]
+    },
+    {
+      "id": "amazon_br",
+      "name": "Amazon Brasil",
+      "domain": "amazon.com.br",
+      "site_search": "site:amazon.com.br",
+      "priority": 4,
+      "categories": ["all"],
+      "features": {
+        "has_ratings": true,
+        "has_questions": true,
+        "has_seller_reputation": true,
+        "has_prime": true,
+        "has_a_plus_content": true,
+        "has_brand_stores": true
+      },
+      "limits": {
+        "title_max_chars": 200,
+        "description_max_chars": 2000,
+        "bullet_points_max": 5,
+        "bullet_point_max_chars": 500,
+        "images_max": 9,
+        "image_min_resolution": "1000x1000"
+      },
+      "policies": {
+        "white_background_required": true,
+        "watermark_allowed": false,
+        "anatel_required_electronics": true,
+        "inmetro_required_toys": true,
+        "return_days_minimum": 30,
+        "requires_brand_registry_for_a_plus": true
+      },
+      "ranking_factors": [
+        "conversion_rate",
+        "rating",
+        "review_count",
+        "price",
+        "fulfillment_method",
+        "title_keyword_relevance"
+      ]
+    },
+    {
+      "id": "americanas",
+      "name": "Americanas",
+      "domain": "americanas.com.br",
+      "site_search": "site:americanas.com.br",
+      "priority": 5,
+      "categories": ["all"],
+      "features": {
+        "has_ratings": true,
+        "has_questions": false,
+        "has_seller_reputation": false,
+        "has_ame_points": true,
+        "has_store_pickup": true
+      },
+      "limits": {
+        "title_max_chars": 120,
+        "description_max_chars": 5000,
+        "images_max": 8,
+        "image_min_resolution": "800x800"
+      },
+      "policies": {
+        "white_background_required": false,
+        "watermark_allowed": false,
+        "anatel_required_electronics": true,
+        "return_days_minimum": 7
+      },
+      "ranking_factors": [
+        "sales_volume",
+        "price",
+        "rating",
+        "in_stock"
+      ]
+    },
+    {
+      "id": "casasbahia",
+      "name": "Casas Bahia",
+      "domain": "casasbahia.com.br",
+      "site_search": "site:casasbahia.com.br",
+      "priority": 6,
+      "categories": ["electronics", "appliances", "furniture", "home"],
+      "features": {
+        "has_ratings": true,
+        "has_questions": false,
+        "has_store_pickup": true,
+        "has_installment_focus": true
+      },
+      "limits": {
+        "title_max_chars": 120,
+        "description_max_chars": 5000,
+        "images_max": 8,
+        "image_min_resolution": "800x800"
+      },
+      "policies": {
+        "white_background_required": false,
+        "watermark_allowed": false,
+        "anatel_required_electronics": true,
+        "return_days_minimum": 7
+      },
+      "ranking_factors": [
+        "brand",
+        "installment_options",
+        "rating",
+        "availability"
+      ]
+    },
+    {
+      "id": "tiktokshop",
+      "name": "TikTok Shop",
+      "domain": "shop.tiktok.com",
+      "site_search": "site:shop.tiktok.com",
+      "priority": 7,
+      "categories": ["fashion", "beauty", "accessories", "home"],
+      "features": {
+        "has_ratings": true,
+        "has_livestream": true,
+        "has_influencer_marketing": true,
+        "has_video_product": true
+      },
+      "limits": {
+        "title_max_chars": 100,
+        "description_max_chars": 5000,
+        "images_max": 9,
+        "video_required_recommended": true
+      },
+      "policies": {
+        "white_background_required": false,
+        "watermark_allowed": false,
+        "video_strongly_recommended": true,
+        "return_days_minimum": 7
+      },
+      "ranking_factors": [
+        "video_engagement",
+        "influencer_promotion",
+        "conversion_rate",
+        "rating",
+        "sales_velocity"
+      ]
+    },
+    {
+      "id": "shein",
+      "name": "Shein",
+      "domain": "br.shein.com",
+      "site_search": "site:br.shein.com",
+      "priority": 8,
+      "categories": ["fashion", "accessories", "beauty"],
+      "features": {
+        "has_ratings": true,
+        "has_questions": false,
+        "has_fast_fashion": true,
+        "has_points_program": true
+      },
+      "limits": {
+        "title_max_chars": 150,
+        "description_max_chars": 3000,
+        "images_max": 10,
+        "image_min_resolution": "800x800"
+      },
+      "policies": {
+        "white_background_required": false,
+        "watermark_allowed": false,
+        "lifestyle_images_preferred": true,
+        "return_days_minimum": 15
+      },
+      "ranking_factors": [
+        "newness",
+        "price",
+        "rating",
+        "sales_volume",
+        "trend_alignment"
+      ]
+    }
+  ],
+  "category_mapping": {
+    "electronics": ["mercadolivre", "shopee", "amazon_br", "magazineluiza", "americanas", "casasbahia"],
+    "fashion": ["shopee", "mercadolivre", "amazon_br", "tiktokshop", "shein"],
+    "beauty": ["shopee", "mercadolivre", "amazon_br", "americanas", "tiktokshop"],
+    "home": ["magazineluiza", "mercadolivre", "shopee", "casasbahia", "americanas"],
+    "toys": ["mercadolivre", "shopee", "amazon_br", "magazineluiza"],
+    "sports": ["mercadolivre", "shopee", "amazon_br", "magazineluiza"],
+    "books": ["amazon_br", "mercadolivre", "americanas"],
+    "food": ["mercadolivre", "amazon_br", "magazineluiza"]
+  },
+  "regulatory_requirements": {
+    "electronics": {
+      "certifications": ["ANATEL"],
+      "mandatory_info": ["voltage", "warranty", "origin_country"]
+    },
+    "toys": {
+      "certifications": ["INMETRO"],
+      "mandatory_info": ["age_range", "safety_warnings", "origin_country"]
+    },
+    "cosmetics": {
+      "certifications": ["ANVISA"],
+      "mandatory_info": ["ingredients", "batch_number", "expiration_date"]
+    },
+    "food": {
+      "certifications": ["ANVISA", "Ministério da Agricultura"],
+      "mandatory_info": ["nutritional_info", "allergens", "expiration_date", "origin"]
+    }
+  }
+}

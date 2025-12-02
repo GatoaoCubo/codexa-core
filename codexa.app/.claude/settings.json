@@ -1,0 +1,65 @@
+{
+  "mcpServers": {
+    "scout": {
+      "command": "node",
+      "args": [
+        "C:/Users/Dell/Documents/GitHub/connect-my-github/codexa.gato/codexa.app/mcp-servers/scout-mcp/index.js"
+      ],
+      "env": {
+        "SCOUT_ROOT": "C:/Users/Dell/Documents/GitHub/connect-my-github/codexa.gato"
+      }
+    },
+    "browser": {
+      "command": "node",
+      "args": [
+        "C:/Users/Dell/Documents/GitHub/connect-my-github/codexa.gato/codexa.app/mcp-servers/browser-mcp/index.js"
+      ]
+    },
+    "voice": {
+      "command": "python",
+      "args": [
+        "C:/Users/Dell/Documents/GitHub/connect-my-github/codexa.gato/codexa.app/voice/server.py"
+      ]
+    }
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "C:/Users/Dell/Documents/GitHub/connect-my-github/codexa.gato/codexa.app/.claude/hooks/validate_paths.py"
+            ]
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "C:/Users/Dell/Documents/GitHub/connect-my-github/codexa.gato/codexa.app/.claude/hooks/validate_paths.py"
+            ]
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "C:/Users/Dell/Documents/GitHub/connect-my-github/codexa.gato/codexa.app/.claude/hooks/validate_paths.py"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

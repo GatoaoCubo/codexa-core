@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "ferramenta": "poke",
+    "versao": "unknown",
+    "categoria": "enterprise",
+    "modelo_base": "unknown",
+    "data_extracao": "2025-12-01",
+    "tokens_original": 289,
+    "linhas_original": 24,
+    "arquivo_fonte": "poke\\Poke_p5.txt"
+  },
+  "estrutura": {
+    "secoes_detectadas": [],
+    "formatacao": {
+      "usa_xml_tags": false,
+      "usa_markdown": false,
+      "usa_json_schemas": false,
+      "usa_typescript": false,
+      "usa_exemplos": false,
+      "usa_good_bad_examples": false
+    }
+  },
+  "patterns": [
+    {
+      "nome": "tool_calling",
+      "descricao": "Padrão tool_calling detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    }
+  ],
+  "techniques": [],
+  "insights_codexa": [
+    "Extração básica - requer análise manual",
+    "Prompt tem 289 tokens",
+    "Categoria: enterprise"
+  ],
+  "diferenciais": [],
+  "metricas": {
+    "clareza": 0.5,
+    "completude": 0.5,
+    "reusabilidade": 0.5,
+    "inovacao": 0.5
+  },
+  "_extraction_method": "regex_fallback"
+}

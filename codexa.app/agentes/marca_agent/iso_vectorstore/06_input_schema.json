@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "marca_agent_input_schema",
+  "description": "Input validation schema for marca_agent brand strategy creation",
+  "version": "3.0.0",
+  "type": "object",
+  "required": ["brief"],
+  "properties": {
+    "brief": {
+      "type": "object",
+      "description": "Brand brief containing product and market information",
+      "required": ["product_name", "category", "target_audience", "price_range"],
+      "properties": {
+        "product_name": {
+          "type": "string",
+          "description": "Name of the product or service",
+          "minLength": 2,
+          "maxLength": 100,
+          "examples": ["Garrafa Eco", "SmartWatch Pro", "Creme Anti-idade"]
+        },
+        "category": {
+          "type": "string",
+          "description": "Product category for marketplace classification",
+          "minLength": 3,
+          "maxLength": 100,
+          "examples": ["Esportes e Fitness", "Tecnologia", "Beleza e Cuidados"]
+        },
+        "target_audience": {
+          "type": "string",
+          "description": "Primary target audience description",
+          "minLength": 10,
+          "maxLength": 500,
+          "examples": ["Mulheres 25-45 anos, classe B/C, preocupadas com sustentabilidade"]
+        },
+        "price_range": {
+          "type": "string",
+          "description": "Price range in BRL",
+          "pattern": "^R\\$\\s*\\d+([.,]\\d{2})?\\s*(-|a|ate|até)\\s*R\\$\\s*\\d+([.,]\\d{2})?$|^\\d+\\s*(-|a)\\s*\\d+$",
+          "examples": ["R$ 89,00 - R$ 129,00", "89-129", "R$ 150 a R$ 300"]
+        },
+        "marketplace_target": {
+          "type": "string",
+          "description": "Target marketplace(s) for the brand",
+          "enum": ["mercadolivre", "shopee", "magalu", "amazon_br", "all"],
+          "default": "all"
+        },
+        "competitors": {
+          "type": "array",
+          "description": "List of main competitors",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "maxItems": 10,
+          "examples": [["Marca A", "Marca B", "Marca C"]]
+        },
+        "USPs": {
+          "type": "array",
+          "description": "Unique Selling Propositions",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "maxItems": 5,
+          "examples": [["100% reciclável", "Tecnologia patenteada", "Made in Brazil"]]
+        },
+        "brand_inspirations": {
+          "type": "array",
+          "description": "Brands that inspire the desired positioning",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "maxItems": 5,
+          "examples": [["Apple", "Patagonia", "Natura"]]
+        },
+        "tone_preferences": {
+          "type": "string",
+          "description": "Preferred tone of voice",
+          "maxLength": 200,
+          "examples": ["Profissional mas acessível", "Jovem e descontraído", "Premium e sofisticado"]
+        },
+        "research_notes": {
+          "type": "string",
+          "description": "Market research notes (from pesquisa_agent)",
+          "maxLength": 5000
+        }
+      }
+    },
+    "config": {
+      "type": "object",
+      "description": "Execution configuration",
+      "properties": {
+        "execution_mode": {
+          "type": "string",
+          "description": "Workflow execution mode",
+          "enum": ["full", "quick"],
+          "default": "full"
+        },
+        "output_path": {
+          "type": "string",
+          "description": "Output directory path",
+          "default": "USER_DOCS/Marca/"
+        },
+        "quality_thresholds": {
+          "type": "object",
+          "properties": {
+            "consistency_threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "default": 0.85
+            },
+            "uniqueness_threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10,
+              "default": 8.0
+            },
+            "wcag_compliance": {
+              "type": "string",
+              "enum": ["Level A", "Level AA", "Level AAA"],
+              "default": "Level AA"
+            }
+          }
+        },
+        "compliance_validation": {
+          "type": "boolean",
+          "description": "Enable ANVISA/INMETRO/CONAR compliance checks",
+          "default": true
+        },
+        "brazilian_context": {
+          "type": "boolean",
+          "description": "Apply BR-specific cultural insights",
+          "default": true
+        }
+      }
+    }
+  },
+  "validation_rules": {
+    "brief_quality": {
+      "minimal": {
+        "fields": 4,
+        "description": "Only required fields, agent asks strategic questions"
+      },
+      "standard": {
+        "fields": "6-8",
+        "description": "Normal execution, 15min"
+      },
+      "rich": {
+        "fields": "10+",
+        "description": "Higher quality, nuanced brand, 20min"
+      }
+    },
+    "strategic_questions": {
+      "trigger": "brief.fields < 6",
+      "questions": [
+        "Qual o principal diferencial competitivo do produto?",
+        "Quem é o cliente ideal (idade, estilo de vida, valores)?",
+        "Qual sensação/emoção a marca deve transmitir?",
+        "Existem marcas que você admira e gostaria de se inspirar?",
+        "Qual o principal problema que o produto resolve?"
+      ]
+    }
+  },
+  "examples": {
+    "minimal_brief": {
+      "brief": {
+        "product_name": "Garrafa Eco",
+        "category": "Esportes e Fitness",
+        "target_audience": "Pessoas conscientes 25-40 anos",
+        "price_range": "R$ 89 - R$ 129"
+      }
+    },
+    "complete_brief": {
+      "brief": {
+        "product_name": "Garrafa Eco Flow",
+        "category": "Esportes e Fitness - Hidratação",
+        "target_audience": "Homens e mulheres 25-40 anos, classe B, praticam esportes, preocupados com sustentabilidade e saúde",
+        "price_range": "R$ 89,00 - R$ 129,00",
+        "marketplace_target": "mercadolivre",
+        "competitors": ["Squeeze Nike", "Garrafa Adidas", "Stanley"],
+        "USPs": ["100% reciclável", "Mantém temperatura 24h", "Design brasileiro"],
+        "brand_inspirations": ["Patagonia", "Natura"],
+        "tone_preferences": "Jovem, consciente, autêntico"
+      },
+      "config": {
+        "execution_mode": "full",
+        "quality_thresholds": {
+          "consistency_threshold": 0.90
+        }
+      }
+    }
+  }
+}

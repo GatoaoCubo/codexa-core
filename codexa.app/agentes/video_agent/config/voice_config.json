@@ -1,0 +1,101 @@
+{
+  "provider": "ElevenLabs",
+  "model": "eleven_multilingual_v2",
+  "language": "pt-BR",
+  "voices": {
+    "femininas": [
+      {
+        "id": "pMsXgVXv3BLzUgSXRplE",
+        "name": "Camila",
+        "tom": "energetico",
+        "caracteristicas": "Jovem, energética, moderna",
+        "uso_recomendado": "Moda, cosméticos, lifestyle"
+      },
+      {
+        "id": "EXAVITQu4vr4xnSDxMaL",
+        "name": "Bella",
+        "tom": "sofisticado",
+        "caracteristicas": "Suave, sofisticada, premium",
+        "uso_recomendado": "Luxo, joias, wellness"
+      },
+      {
+        "id": "XrExE9yKIg1WjnnlVkGX",
+        "name": "Laura",
+        "tom": "profissional",
+        "caracteristicas": "Profissional, confiável",
+        "uso_recomendado": "Tech, eletrônicos, serviços"
+      },
+      {
+        "id": "nPczCjzI2devNBz1zQrb",
+        "name": "Vitoria",
+        "tom": "acolhedor",
+        "caracteristicas": "Calorosa, acolhedora",
+        "uso_recomendado": "Casa, família, orgânicos"
+      }
+    ],
+    "masculinas": [
+      {
+        "id": "TX3LPaxmHKxFdv7VOQHJ",
+        "name": "Rafael",
+        "tom": "sofisticado",
+        "caracteristicas": "Grave, autoritativo",
+        "uso_recomendado": "Automotivo, premium, finanças"
+      },
+      {
+        "id": "ErXwobaYiN019PkySvjV",
+        "name": "Antoni",
+        "tom": "energetico",
+        "caracteristicas": "Dinâmico, jovem",
+        "uso_recomendado": "Esportes, fitness, energia"
+      },
+      {
+        "id": "VR6AewLTigWG4xSOukaG",
+        "name": "Eduardo",
+        "tom": "profissional",
+        "caracteristicas": "Equilibrado, versátil",
+        "uso_recomendado": "Uso geral, neutro"
+      },
+      {
+        "id": "pNInz6obpgDQGcFmaJgB",
+        "name": "Lucas",
+        "tom": "acolhedor",
+        "caracteristicas": "Entusiasmado, vendedor",
+        "uso_recomendado": "Promoções, ofertas, CTA forte"
+      }
+    ]
+  },
+  "auto_selection": {
+    "enabled": true,
+    "default_gender": "feminina",
+    "rules": {
+      "energetico": {
+        "feminina": "pMsXgVXv3BLzUgSXRplE",
+        "masculina": "ErXwobaYiN019PkySvjV"
+      },
+      "sofisticado": {
+        "feminina": "EXAVITQu4vr4xnSDxMaL",
+        "masculina": "TX3LPaxmHKxFdv7VOQHJ"
+      },
+      "profissional": {
+        "feminina": "XrExE9yKIg1WjnnlVkGX",
+        "masculina": "VR6AewLTigWG4xSOukaG"
+      },
+      "acolhedor": {
+        "feminina": "nPczCjzI2devNBz1zQrb",
+        "masculina": "pNInz6obpgDQGcFmaJgB"
+      }
+    }
+  },
+  "voice_settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.0,
+    "use_speaker_boost": true
+  },
+  "notes": {
+    "stability": "Menor = mais expressivo, Maior = mais consistente (0.0-1.0)",
+    "similarity_boost": "Fidelidade à voz original (0.0-1.0)",
+    "style": "Estilização adicional (0.0-1.0)",
+    "use_speaker_boost": "Melhora qualidade geral"
+  }
+}

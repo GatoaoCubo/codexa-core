@@ -1,0 +1,26 @@
+{
+  "fonte_id": "anthropic_docs",
+  "nome": "Anthropic Claude Documentation",
+  "url_oficial": "https://docs.anthropic.com",
+  "topics": [
+    "claude_api",
+    "prompt_engineering",
+    "context_windows",
+    "streaming",
+    "function_calling",
+    "vision",
+    "system_prompts",
+    "xml_tags",
+    "thinking",
+    "rate_limits"
+  ],
+  "last_refresh": null,
+  "arquivos": [
+    "api_reference.md",
+    "prompt_engineering.md",
+    "vision.md",
+    "tool_use.md",
+    "streaming.md",
+    "best_practices.md"
+  ]
+}

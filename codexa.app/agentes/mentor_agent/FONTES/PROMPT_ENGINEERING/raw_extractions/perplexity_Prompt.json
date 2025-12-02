@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "ferramenta": "perplexity",
+    "versao": "unknown",
+    "categoria": "platform",
+    "modelo_base": "unknown",
+    "data_extracao": "2025-12-01",
+    "tokens_original": 2345,
+    "linhas_original": 195,
+    "arquivo_fonte": "perplexity\\Prompt.txt"
+  },
+  "estrutura": {
+    "secoes_detectadas": [],
+    "formatacao": {
+      "usa_xml_tags": true,
+      "usa_markdown": false,
+      "usa_json_schemas": false,
+      "usa_typescript": false,
+      "usa_exemplos": false,
+      "usa_good_bad_examples": false
+    }
+  },
+  "patterns": [
+    {
+      "nome": "terminal_commands",
+      "descricao": "Padrão terminal_commands detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    }
+  ],
+  "techniques": [],
+  "insights_codexa": [
+    "Extração básica - requer análise manual",
+    "Prompt tem 2345 tokens",
+    "Categoria: platform"
+  ],
+  "diferenciais": [],
+  "metricas": {
+    "clareza": 0.5,
+    "completude": 0.5,
+    "reusabilidade": 0.5,
+    "inovacao": 0.5
+  },
+  "_extraction_method": "regex_fallback"
+}

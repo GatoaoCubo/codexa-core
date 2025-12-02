@@ -1,0 +1,22 @@
+# Video Agent - Outputs (não versionar)
+outputs/
+*.mp4
+*.mp3
+*.wav
+
+# Arquivos temporários
+temp/
+*.tmp
+clips/
+
+# Cache
+__pycache__/
+*.pyc
+.cache/
+
+# Ambiente
+.env
+.env.local
+
+# Logs
+*.log

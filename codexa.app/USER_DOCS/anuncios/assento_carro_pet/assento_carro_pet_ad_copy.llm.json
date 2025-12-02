@@ -1,0 +1,133 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Assento Carro Cao Pet Pequeno Medio Grande Lavavel Seguranca GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.87,
+  "execution_time_minutes": 3,
+
+  "titles": [
+    {
+      "text": "Assento Carro Pet Cachorro Gato Cadeirinha Seguranca Lavavel",
+      "char_count": 59,
+      "keyword_count": 8,
+      "density": 0.81,
+      "score": 0.88,
+      "variant": "A",
+      "focus": "equilibrado"
+    },
+    {
+      "text": "Cadeirinha Assento Carro Pet Cachorro Gato Viagem Seguro",
+      "char_count": 56,
+      "keyword_count": 8,
+      "density": 0.82,
+      "score": 0.86,
+      "variant": "B",
+      "focus": "emocional"
+    },
+    {
+      "text": "Assento Pet Carro Cadeirinha Cachorro Gato Cinto Seguranca",
+      "char_count": 58,
+      "keyword_count": 8,
+      "density": 0.79,
+      "score": 0.85,
+      "variant": "C",
+      "focus": "tecnico"
+    }
+  ],
+
+  "keywords": {
+    "block_a": {
+      "name": "Atributos e Variacoes",
+      "count": 117
+    },
+    "block_b": {
+      "name": "Beneficios e Uso",
+      "count": 116
+    },
+    "coverage_score": {
+      "head_terms": 0.92,
+      "longtails": 0.89,
+      "total_unique_keywords": 233
+    }
+  },
+
+  "description": {
+    "word_count": 3423,
+    "keyword_density": 0.036,
+    "readability_score": 68,
+    "sections": ["Hook", "Solucao", "Bordas", "Elevacao", "Tecido", "Conforto", "Instalacao", "Tamanho", "Veterinario", "Viagens", "CTA"],
+    "template": "mercado_livre_physical",
+    "storybrand_elements": 7
+  },
+
+  "bullets": {
+    "count": 10,
+    "avg_chars": 212,
+    "mental_triggers": ["scarcity", "social_proof", "authority", "reciprocity"]
+  },
+
+  "visual_assets": {
+    "status": "quick_mode_skipped",
+    "image_prompts": [],
+    "video_script": null,
+    "asset_count": 0
+  },
+
+  "qa_report": {
+    "title_validation": {
+      "passed": true,
+      "char_count_compliance": true,
+      "keyword_density_passed": true,
+      "forbidden_words": 0,
+      "issues": []
+    },
+    "keywords_validation": {
+      "passed": true,
+      "total_keywords": 233,
+      "minimum_required": 200,
+      "issues": []
+    },
+    "description_validation": {
+      "passed": true,
+      "word_count": 3423,
+      "compliance_passed": true,
+      "issues": []
+    },
+    "compliance_validation": {
+      "passed": true,
+      "no_html": true,
+      "no_emojis": true,
+      "no_prohibited_claims": true,
+      "no_therapeutic_claims": true,
+      "no_external_links": true,
+      "issues": []
+    },
+    "aggregate_score": 0.87,
+    "validation_checks_passed": 11,
+    "validation_checks_total": 11
+  },
+
+  "strategic_brief": {
+    "product_name": "Assento Carro Cao Pet Pequeno Medio Grande Lavavel Seguranca GATO3",
+    "product_type": "PHYSICAL_PRODUCT",
+    "marketplace_type": "MERCADO_LIVRE",
+    "category": "Transporte Pet / Assentos Automotivos",
+    "capacity": "Pets pequenos a grandes",
+    "material": "Tecido lavavel resistente",
+    "target_audience": "Tutores de caes e gatos que viajam de carro frequentemente",
+    "price_gato3": 79.90,
+    "competitor_price_range": "R$49-295",
+    "main_competitor": "Cadeirinha Pet (R$63,66, +10mil vendidos, 4.6 stars)",
+    "differentiation_strategy": "qualidade e seguranca"
+  },
+
+  "metadata": {
+    "workflow_version": "2.5.0",
+    "generator": "CodeXAnuncio v2.5.0",
+    "generated_at": "2025-11-29T11:40:00Z",
+    "plan": "quick_anuncio",
+    "mode": "ULTRATHINK_batch",
+    "status": "production_ready"
+  }
+}

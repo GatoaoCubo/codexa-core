@@ -1,0 +1,1 @@
+# Sample Document\n\nThis is a demonstration of CODEXA's CRUD capabilities.\n\n## Features\n- Auto-backup on create/update\n- Git integration\n- Metadata tracking\n\nCreated by CODEXA Meta-Agent.

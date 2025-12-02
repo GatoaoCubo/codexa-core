@@ -1,0 +1,94 @@
+{
+  "art_b1c46a4d": {
+    "id": "art_b1c46a4d",
+    "type": "plan",
+    "producer": "planning_231a83af",
+    "created_at": "2025-11-24T14:20:36.616010",
+    "path": "specs\\feature_plan.md",
+    "metadata": {
+      "feature": "user_auth"
+    },
+    "dependencies": []
+  },
+  "plan_planning": {
+    "id": "plan_planning",
+    "type": "plan",
+    "producer": "planning_27eea708",
+    "created_at": "2025-11-24T14:57:06.219450",
+    "path": "specs\\planning_plan.md",
+    "metadata": {
+      "phase": "planning"
+    },
+    "dependencies": []
+  },
+  "code_execution": {
+    "id": "code_execution",
+    "type": "code",
+    "producer": "execution_7d88e72b",
+    "created_at": "2025-11-24T14:57:06.731496",
+    "path": "src\\execution_implementation.py",
+    "metadata": {
+      "phase": "execution"
+    },
+    "dependencies": []
+  },
+  "report_verification": {
+    "id": "report_verification",
+    "type": "report",
+    "producer": "verification_c852c36d",
+    "created_at": "2025-11-24T14:57:07.234596",
+    "path": "docs\\verification_walkthrough.md",
+    "metadata": {
+      "phase": "verification",
+      "tests_passed": 10,
+      "tests_failed": 0
+    },
+    "dependencies": []
+  },
+  "code_frontend_development": {
+    "id": "code_frontend_development",
+    "type": "code",
+    "producer": "execution_138c54e7",
+    "created_at": "2025-11-24T14:57:07.739043",
+    "path": "src\\frontend_development_implementation.py",
+    "metadata": {
+      "phase": "frontend_development"
+    },
+    "dependencies": []
+  },
+  "code_backend_development": {
+    "id": "code_backend_development",
+    "type": "code",
+    "producer": "execution_5ac3494d",
+    "created_at": "2025-11-24T14:57:08.248165",
+    "path": "src\\backend_development_implementation.py",
+    "metadata": {
+      "phase": "backend_development"
+    },
+    "dependencies": []
+  },
+  "code_tests_development": {
+    "id": "code_tests_development",
+    "type": "code",
+    "producer": "execution_67e9ac6c",
+    "created_at": "2025-11-24T14:57:08.752331",
+    "path": "src\\tests_development_implementation.py",
+    "metadata": {
+      "phase": "tests_development"
+    },
+    "dependencies": []
+  },
+  "report_aggregation": {
+    "id": "report_aggregation",
+    "type": "report",
+    "producer": "verification_097640c9",
+    "created_at": "2025-11-24T14:57:09.261684",
+    "path": "docs\\aggregation_walkthrough.md",
+    "metadata": {
+      "phase": "aggregation",
+      "tests_passed": 10,
+      "tests_failed": 0
+    },
+    "dependencies": []
+  }
+}

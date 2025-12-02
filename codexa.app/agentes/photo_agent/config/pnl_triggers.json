@@ -1,0 +1,550 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "PNL Emotional Triggers",
+  "description": "Programação Neurolinguística (PNL) emotional anchors for visual storytelling",
+  "version": "1.0.0",
+
+  "triggers": {
+    "confiança": {
+      "key": "confiança",
+      "portuguese": "acabamento que inspira confiança durável",
+      "english": "finish that inspires lasting confidence",
+      "category": "trust_reliability",
+      "emotional_impact": "builds_credibility_perceived_quality",
+      "use_cases": [
+        "quality_products",
+        "durable_goods",
+        "professional_equipment",
+        "luxury_items",
+        "technical_products"
+      ],
+      "recommended_scenes": [3, 8],
+      "scene_3_context": "Macro detail showing craftsmanship and quality",
+      "scene_8_context": "Material quality close-up revealing premium finish",
+      "visual_cues": [
+        "sharp_texture_detail",
+        "premium_materials_visible",
+        "craftsmanship_evident",
+        "solid_construction",
+        "quality_finish_highlighted"
+      ],
+      "psychological_effect": "Viewer perceives durability and trustworthiness through visible quality indicators"
+    },
+
+    "conforto": {
+      "key": "conforto",
+      "portuguese": "toque seguro, superfície que convida",
+      "english": "secure touch, inviting surface",
+      "category": "comfort_tactile",
+      "emotional_impact": "creates_desire_to_touch_feel",
+      "use_cases": [
+        "textiles_fabrics",
+        "furniture_seating",
+        "skincare_beauty",
+        "comfort_products",
+        "soft_goods"
+      ],
+      "recommended_scenes": [2, 3],
+      "scene_2_context": "Lifestyle use showing comfort in real-world application",
+      "scene_3_context": "Macro on tactile surface inviting touch",
+      "visual_cues": [
+        "soft_textures_visible",
+        "inviting_surfaces",
+        "comfortable_interaction",
+        "gentle_contact",
+        "relaxed_user_expression"
+      ],
+      "psychological_effect": "Viewer imagines tactile satisfaction and physical comfort"
+    },
+
+    "clareza": {
+      "key": "clareza",
+      "portuguese": "visão total — nada escondido, decisão fácil",
+      "english": "total vision — nothing hidden, easy decision",
+      "category": "transparency_clarity",
+      "emotional_impact": "reduces_purchase_anxiety_builds_confidence",
+      "use_cases": [
+        "hero_shots",
+        "product_presentation",
+        "transparency_emphasis",
+        "ecommerce_listings",
+        "clear_value_communication"
+      ],
+      "recommended_scenes": [1, 9],
+      "scene_1_context": "Hero white background with total product visibility",
+      "scene_9_context": "Commercial hero shot showing product clearly",
+      "visual_cues": [
+        "full_product_visibility",
+        "no_hidden_areas",
+        "clean_presentation",
+        "transparent_materials_shown",
+        "complete_view"
+      ],
+      "psychological_effect": "Viewer feels informed and confident to make purchase decision without uncertainty"
+    },
+
+    "calma": {
+      "key": "calma",
+      "portuguese": "ambiente sereno, temperatura ideal",
+      "english": "serene environment, ideal temperature",
+      "category": "calm_peace",
+      "emotional_impact": "creates_relaxation_stress_relief",
+      "use_cases": [
+        "wellness_products",
+        "home_comfort",
+        "relaxation_items",
+        "spa_beauty",
+        "meditation_yoga"
+      ],
+      "recommended_scenes": [5, 7],
+      "scene_5_context": "Benefit moment showing peaceful relaxation",
+      "scene_7_context": "Life context in serene environment",
+      "visual_cues": [
+        "soft_lighting",
+        "cool_color_temperature",
+        "relaxed_expressions",
+        "peaceful_setting",
+        "minimal_visual_noise"
+      ],
+      "psychological_effect": "Viewer associates product with stress reduction and peaceful moments"
+    },
+
+    "desejo": {
+      "key": "desejo",
+      "portuguese": "brilho na medida, qualidade visível",
+      "english": "right amount of shine, visible quality",
+      "category": "desire_aspiration",
+      "emotional_impact": "creates_want_not_just_need",
+      "use_cases": [
+        "luxury_goods",
+        "beauty_products",
+        "aspirational_items",
+        "premium_electronics",
+        "jewelry_accessories"
+      ],
+      "recommended_scenes": [2, 5, 8],
+      "scene_2_context": "Lifestyle showing desirable lifestyle integration",
+      "scene_5_context": "Benefit moment highlighting transformation",
+      "scene_8_context": "Material quality revealing premium appeal",
+      "visual_cues": [
+        "controlled_shine_highlights",
+        "premium_appearance",
+        "luxurious_materials",
+        "aspirational_context",
+        "quality_visible_immediately"
+      ],
+      "psychological_effect": "Viewer desires product beyond functional need, emotional want triggered"
+    },
+
+    "urgência": {
+      "key": "urgência",
+      "portuguese": "momento certo, escolha agora",
+      "english": "right moment, choose now",
+      "category": "urgency_fomo",
+      "emotional_impact": "creates_action_impulse_immediate_decision",
+      "use_cases": [
+        "limited_offers",
+        "seasonal_products",
+        "trending_items",
+        "time_sensitive",
+        "fomo_marketing"
+      ],
+      "recommended_scenes": [5, 9],
+      "scene_5_context": "Benefit moment suggesting immediate gratification",
+      "scene_9_context": "Commercial hero prompting immediate purchase",
+      "visual_cues": [
+        "dynamic_composition",
+        "active_moment_captured",
+        "immediate_result_visible",
+        "decisive_framing",
+        "clear_call_to_action_visual"
+      ],
+      "psychological_effect": "Viewer feels compelled to act now rather than delay decision"
+    },
+
+    "pertencimento": {
+      "key": "pertencimento",
+      "portuguese": "encaixa na sua rotina sem atrito",
+      "english": "fits your routine without friction",
+      "category": "belonging_integration",
+      "emotional_impact": "creates_identity_alignment_lifestyle_fit",
+      "use_cases": [
+        "lifestyle_products",
+        "everyday_items",
+        "routine_integration",
+        "identity_products",
+        "community_goods"
+      ],
+      "recommended_scenes": [4, 7],
+      "scene_4_context": "User routine showing effortless integration",
+      "scene_7_context": "Life context demonstrating natural fit",
+      "visual_cues": [
+        "realistic_environments",
+        "natural_user_interaction",
+        "seamless_integration",
+        "relatable_contexts",
+        "everyday_moments"
+      ],
+      "psychological_effect": "Viewer sees themselves using product naturally in their existing life"
+    },
+
+    "transformação": {
+      "key": "transformação",
+      "portuguese": "antes cansado, agora descansado",
+      "english": "before tired, now rested",
+      "category": "transformation_improvement",
+      "emotional_impact": "shows_clear_before_after_benefit",
+      "use_cases": [
+        "wellness_products",
+        "fitness_equipment",
+        "beauty_treatments",
+        "problem_solving_products",
+        "improvement_services"
+      ],
+      "recommended_scenes": [5],
+      "scene_5_context": "Benefit moment showing visible transformation result",
+      "visual_cues": [
+        "visible_result_change",
+        "improved_state_shown",
+        "relief_expression",
+        "transformation_evident",
+        "problem_solved_visually"
+      ],
+      "psychological_effect": "Viewer imagines their own transformation through product use"
+    },
+
+    "segurança": {
+      "key": "segurança",
+      "portuguese": "sempre pronto, zero preocupação",
+      "english": "always ready, zero worry",
+      "category": "security_reliability",
+      "emotional_impact": "eliminates_anxiety_builds_trust",
+      "use_cases": [
+        "safety_products",
+        "reliable_tools",
+        "emergency_equipment",
+        "durable_goods",
+        "dependable_services"
+      ],
+      "recommended_scenes": [6],
+      "scene_6_context": "Top-down functional showing reliable operation",
+      "visual_cues": [
+        "functional_demonstration",
+        "secure_positioning",
+        "stable_setup",
+        "reliable_operation_visible",
+        "safety_features_highlighted"
+      ],
+      "psychological_effect": "Viewer feels reassured about product reliability and safety"
+    },
+
+    "prazer": {
+      "key": "prazer",
+      "portuguese": "satisfação imediata, resultado que se vê",
+      "english": "immediate satisfaction, visible result",
+      "category": "pleasure_gratification",
+      "emotional_impact": "creates_instant_reward_expectation",
+      "use_cases": [
+        "food_beverage",
+        "entertainment",
+        "instant_results",
+        "sensory_products",
+        "immediate_benefits"
+      ],
+      "recommended_scenes": [5],
+      "scene_5_context": "Benefit moment showing immediate satisfaction",
+      "visual_cues": [
+        "enjoyment_expression",
+        "immediate_result_visible",
+        "satisfaction_evident",
+        "pleasure_moment_captured",
+        "gratification_shown"
+      ],
+      "psychological_effect": "Viewer anticipates immediate positive experience from product"
+    },
+
+    "exclusividade": {
+      "key": "exclusividade",
+      "portuguese": "acesso especial, diferencial único",
+      "english": "special access, unique advantage",
+      "category": "exclusivity_status",
+      "emotional_impact": "creates_elite_feeling_status_elevation",
+      "use_cases": [
+        "luxury_brands",
+        "premium_services",
+        "limited_editions",
+        "member_exclusive",
+        "status_symbols"
+      ],
+      "recommended_scenes": [8, 9],
+      "scene_8_context": "Material quality showing premium exclusive details",
+      "scene_9_context": "Commercial hero emphasizing unique advantage",
+      "visual_cues": [
+        "premium_materials",
+        "unique_design_elements",
+        "exclusive_details",
+        "luxury_presentation",
+        "distinctive_features"
+      ],
+      "psychological_effect": "Viewer feels they're accessing something special and exclusive"
+    },
+
+    "controle": {
+      "key": "controle",
+      "portuguese": "você comanda, resultado exato",
+      "english": "you command, exact result",
+      "category": "control_mastery",
+      "emotional_impact": "empowers_user_mastery_feeling",
+      "use_cases": [
+        "professional_tools",
+        "precision_equipment",
+        "customizable_products",
+        "control_interfaces",
+        "adjustment_features"
+      ],
+      "recommended_scenes": [4, 6],
+      "scene_4_context": "User routine showing easy control and adjustment",
+      "scene_6_context": "Top-down functional demonstrating precise control",
+      "visual_cues": [
+        "user_control_evident",
+        "adjustment_shown",
+        "precise_interaction",
+        "customization_visible",
+        "mastery_demonstrated"
+      ],
+      "psychological_effect": "Viewer feels empowered and in control when using product"
+    },
+
+    "problema_compreendido": {
+      "key": "problema_compreendido",
+      "portuguese": "entendemos sua dor, não está sozinho",
+      "english": "we understand your pain, you're not alone",
+      "category": "empathy_understanding",
+      "emotional_impact": "creates_connection_through_empathy",
+      "use_cases": [
+        "problem_solving_products",
+        "health_wellness",
+        "pain_relief",
+        "customer_service",
+        "support_products"
+      ],
+      "recommended_scenes": [2, 4],
+      "scene_2_context": "Lifestyle showing relatable problem situation",
+      "scene_4_context": "User routine demonstrating understanding of struggle",
+      "visual_cues": [
+        "relatable_situation",
+        "empathetic_context",
+        "problem_acknowledgment",
+        "understanding_expression",
+        "shared_experience"
+      ],
+      "psychological_effect": "Viewer feels understood and validated, one of 4 key buying reasons"
+    },
+
+    "solução_lógica": {
+      "key": "solução_lógica",
+      "portuguese": "decisão racional, benefício claro",
+      "english": "rational decision, clear benefit",
+      "category": "logic_rationality",
+      "emotional_impact": "justifies_purchase_logically",
+      "use_cases": [
+        "technical_products",
+        "professional_equipment",
+        "efficiency_tools",
+        "cost_saving_products",
+        "productivity_solutions"
+      ],
+      "recommended_scenes": [6, 8],
+      "scene_6_context": "Top-down functional showing logical operation",
+      "scene_8_context": "Material quality proving rational value",
+      "visual_cues": [
+        "clear_functionality",
+        "measurable_benefits",
+        "logical_demonstration",
+        "efficiency_visible",
+        "rational_value_shown"
+      ],
+      "psychological_effect": "Viewer rationalizes purchase decision with concrete logic-driven benefits"
+    },
+
+    "emoção_positiva": {
+      "key": "emoção_positiva",
+      "portuguese": "sentir-se bem é o resultado",
+      "english": "feeling good is the result",
+      "category": "positive_emotion",
+      "emotional_impact": "creates_emotional_reward_anticipation",
+      "use_cases": [
+        "wellness_products",
+        "entertainment",
+        "lifestyle_enhancement",
+        "mood_boosters",
+        "joy_products"
+      ],
+      "recommended_scenes": [5, 7],
+      "scene_5_context": "Benefit moment showing emotional reward",
+      "scene_7_context": "Life context demonstrating positive feeling state",
+      "visual_cues": [
+        "joyful_expression",
+        "positive_emotion_visible",
+        "happiness_evident",
+        "emotional_uplift",
+        "feel_good_moment"
+      ],
+      "psychological_effect": "Viewer anticipates emotional reward and positive feeling from product use"
+    },
+
+    "prova_social": {
+      "key": "prova_social",
+      "portuguese": "outros amam, você também vai",
+      "english": "others love it, you will too",
+      "category": "social_proof",
+      "emotional_impact": "validates_through_others_approval",
+      "use_cases": [
+        "popular_products",
+        "trending_items",
+        "community_favorites",
+        "best_sellers",
+        "reviewed_products"
+      ],
+      "recommended_scenes": [2, 7],
+      "scene_2_context": "Lifestyle showing others using and enjoying",
+      "scene_7_context": "Life context with multiple users or social setting",
+      "visual_cues": [
+        "multiple_users_visible",
+        "social_interaction",
+        "group_enjoyment",
+        "shared_experience",
+        "community_use"
+      ],
+      "psychological_effect": "Viewer trusts product based on visible social validation and others' positive experience"
+    },
+
+    "autoridade": {
+      "key": "autoridade",
+      "portuguese": "expertise comprovada, confia na fonte",
+      "english": "proven expertise, trust the source",
+      "category": "authority_expertise",
+      "emotional_impact": "builds_trust_through_credibility",
+      "use_cases": [
+        "professional_products",
+        "expert_recommended",
+        "certified_items",
+        "technical_solutions",
+        "specialized_equipment"
+      ],
+      "recommended_scenes": [3, 8],
+      "scene_3_context": "Macro detail showing professional-grade quality",
+      "scene_8_context": "Material quality revealing expert-level construction",
+      "visual_cues": [
+        "professional_presentation",
+        "expert_quality_indicators",
+        "certification_visible",
+        "authority_symbols",
+        "credibility_markers"
+      ],
+      "psychological_effect": "Viewer trusts product based on perceived authority and expert validation"
+    },
+
+    "reciprocidade": {
+      "key": "reciprocidade",
+      "portuguese": "bônus incluso, mais do que esperava",
+      "english": "bonus included, more than expected",
+      "category": "reciprocity_value",
+      "emotional_impact": "creates_positive_obligation_value_perception",
+      "use_cases": [
+        "bundled_products",
+        "value_packages",
+        "bonus_offers",
+        "gift_sets",
+        "added_value_items"
+      ],
+      "recommended_scenes": [1, 9],
+      "scene_1_context": "Hero shot showing all included items clearly",
+      "scene_9_context": "Commercial hero emphasizing complete value package",
+      "visual_cues": [
+        "multiple_items_visible",
+        "bonus_components_shown",
+        "complete_package",
+        "added_value_evident",
+        "generous_offering"
+      ],
+      "psychological_effect": "Viewer feels compelled to reciprocate generosity and perceives higher value"
+    }
+  },
+
+  "scene_mapping_default": {
+    "scene_1": "clareza",
+    "scene_2": "conforto",
+    "scene_3": "confiança",
+    "scene_4": "pertencimento",
+    "scene_5": "prazer",
+    "scene_6": "segurança",
+    "scene_7": "pertencimento",
+    "scene_8": "confiança",
+    "scene_9": "clareza"
+  },
+
+  "category_groups": {
+    "trust_building": ["confiança", "segurança", "clareza"],
+    "emotional_connection": ["conforto", "calma", "prazer", "transformação"],
+    "aspirational": ["desejo", "exclusividade"],
+    "action_oriented": ["urgência", "controle"],
+    "lifestyle_integration": ["pertencimento"]
+  },
+
+  "brand_archetype_mapping": {
+    "Hero": ["urgência", "transformação", "controle"],
+    "Caregiver": ["conforto", "calma", "segurança"],
+    "Explorer": ["pertencimento", "desejo", "exclusividade"],
+    "Sage": ["clareza", "confiança"],
+    "Innocent": ["calma", "clareza", "conforto"],
+    "Magician": ["transformação", "desejo", "exclusividade"],
+    "Ruler": ["controle", "exclusividade", "confiança"],
+    "Creator": ["controle", "desejo", "pertencimento"],
+    "Jester": ["prazer", "pertencimento"],
+    "Everyman": ["pertencimento", "conforto"],
+    "Lover": ["desejo", "prazer", "conforto"],
+    "Rebel": ["urgência", "exclusividade", "controle"]
+  },
+
+  "storytelling_arcs": {
+    "problem_solution": {
+      "scenes": [1, 2, 5, 8, 9],
+      "triggers": ["clareza", "conforto", "transformação", "confiança", "clareza"],
+      "narrative": "Establish clarity → Show problem context → Demonstrate transformation → Prove quality → Convert with confidence"
+    },
+    "lifestyle_integration": {
+      "scenes": [1, 2, 4, 7, 9],
+      "triggers": ["clareza", "conforto", "pertencimento", "pertencimento", "clareza"],
+      "narrative": "Introduce product → Show use → Demonstrate ease → Prove versatility → Convert"
+    },
+    "luxury_aspiration": {
+      "scenes": [1, 2, 3, 8, 9],
+      "triggers": ["clareza", "desejo", "confiança", "exclusividade", "clareza"],
+      "narrative": "Establish premium → Create desire → Prove craftsmanship → Highlight exclusivity → Convert"
+    },
+    "trust_reliability": {
+      "scenes": [1, 3, 6, 8, 9],
+      "triggers": ["clareza", "confiança", "segurança", "confiança", "clareza"],
+      "narrative": "Show clearly → Prove quality → Demonstrate reliability → Confirm trust → Convert"
+    },
+    "pastor_emotional_arc": {
+      "scenes": [1, 2, 3, 5, 8, 9],
+      "triggers": ["clareza", "problema_compreendido", "confiança", "transformação", "prova_social", "urgência"],
+      "narrative": "Problem → Amplify → Solution → Testimonial → Offer → Response",
+      "description": "PASTOR framework for emotional storytelling: Problem (clareza), Amplify pain (problema_compreendido), Solution (confiança), Testimonial/Transformation (transformação), Offer (prova_social), Response (urgência)"
+    }
+  },
+
+  "metadata": {
+    "total_triggers": 18,
+    "core_triggers": 12,
+    "extended_triggers": 6,
+    "new_psychology_triggers": ["problema_compreendido", "solução_lógica", "emoção_positiva", "prova_social", "autoridade", "reciprocidade"],
+    "default_scene_1": "clareza",
+    "default_scene_9": "clareza",
+    "most_versatile": "confiança",
+    "most_emotional": "transformação",
+    "most_action_oriented": "urgência"
+  }
+}

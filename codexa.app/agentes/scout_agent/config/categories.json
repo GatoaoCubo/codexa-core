@@ -1,0 +1,317 @@
+{
+  "version": "1.4.0",
+  "description": "Category detection rules for Scout indexer with importance scores for LLM navigation",
+  "categories": {
+    "prime": {
+      "patterns": ["**/PRIME.md"],
+      "priority": 1.0,
+      "importance": 100,
+      "description": "Agent entry point documentation",
+      "llm_hint": "Start here - this is the main entry point for understanding an agent"
+    },
+    "instructions": {
+      "patterns": ["**/INSTRUCTIONS.md"],
+      "priority": 0.85,
+      "importance": 95,
+      "description": "AI assistant instructions",
+      "llm_hint": "Read this to understand how to interact with the agent"
+    },
+    "readme": {
+      "patterns": ["**/README.md", "**/README"],
+      "priority": 0.9,
+      "importance": 90,
+      "description": "Project/module documentation",
+      "llm_hint": "Overview documentation - good for understanding context"
+    },
+    "hop": {
+      "patterns": ["**/*_HOP.md", "**/*_hop.md"],
+      "priority": 0.8,
+      "importance": 85,
+      "description": "Higher-Order Prompt modules",
+      "llm_hint": "Executable prompt modules - the actual logic"
+    },
+    "adw": {
+      "patterns": ["**/*_ADW*.md", "**/ADW_*.md"],
+      "priority": 0.8,
+      "importance": 85,
+      "description": "Agentic Developer Workflows",
+      "llm_hint": "Workflow definitions for automated tasks"
+    },
+    "setup": {
+      "patterns": ["**/SETUP.md"],
+      "priority": 0.8,
+      "importance": 80,
+      "description": "Setup and installation guides",
+      "llm_hint": "Read for configuration and setup instructions"
+    },
+    "architecture": {
+      "patterns": ["**/ARCHITECTURE*.md", "**/ARQUITETURA*.md"],
+      "priority": 0.75,
+      "importance": 80,
+      "description": "System architecture documentation",
+      "llm_hint": "Understand the system structure and design decisions"
+    },
+    "schema": {
+      "patterns": ["**/schema*.json", "**/schemas/**/*.json", "**/*_schema.json", "**/input_schema.json"],
+      "priority": 0.6,
+      "importance": 75,
+      "description": "JSON schemas",
+      "llm_hint": "Data structure definitions - required for input/output understanding"
+    },
+    "changelog": {
+      "patterns": ["**/CHANGELOG*.md", "**/CHANGELOG.md"],
+      "priority": 0.75,
+      "importance": 70,
+      "description": "Version history and changes",
+      "llm_hint": "Recent changes and version history"
+    },
+    "vision": {
+      "patterns": ["**/VISION.md", "**/VISAO.md"],
+      "priority": 0.7,
+      "importance": 70,
+      "description": "Project vision and goals",
+      "llm_hint": "Strategic direction and long-term goals"
+    },
+    "guide": {
+      "patterns": ["**/GUIA*.md", "**/*_GUIDE.md", "**/GUIDE*.md"],
+      "priority": 0.7,
+      "importance": 70,
+      "description": "User and developer guides",
+      "llm_hint": "Step-by-step guides for specific tasks"
+    },
+    "command": {
+      "patterns": ["**/.claude/commands/**/*.md"],
+      "priority": 0.7,
+      "importance": 70,
+      "description": "Claude Code slash commands",
+      "llm_hint": "Custom slash commands for Claude Code"
+    },
+    "config": {
+      "patterns": ["**/config/**/*.json", "**/config.json"],
+      "priority": 0.7,
+      "importance": 65,
+      "description": "Configuration files",
+      "llm_hint": "System configuration - check for customizable settings"
+    },
+    "prompt": {
+      "patterns": ["**/prompts/**/*.md"],
+      "priority": 0.7,
+      "importance": 65,
+      "description": "Prompt templates",
+      "llm_hint": "Reusable prompt templates"
+    },
+    "iso_vectorstore": {
+      "patterns": ["**/iso_vectorstore/**/*"],
+      "priority": 0.7,
+      "importance": 65,
+      "description": "Agent knowledge vectorstore",
+      "llm_hint": "Agent's knowledge base - numbered files indicate reading order"
+    },
+    "builder": {
+      "patterns": ["**/builders/**/*.py", "**/builders/**/*.js"],
+      "priority": 0.6,
+      "importance": 60,
+      "description": "Builder scripts",
+      "llm_hint": "Code that generates or constructs outputs"
+    },
+    "validator": {
+      "patterns": ["**/validators/**/*.py", "**/validators/**/*.js"],
+      "priority": 0.6,
+      "importance": 60,
+      "description": "Validator scripts",
+      "llm_hint": "Code that validates inputs or outputs"
+    },
+    "workflow": {
+      "patterns": ["**/workflows/**/*.md"],
+      "priority": 0.6,
+      "importance": 60,
+      "description": "Workflow definitions",
+      "llm_hint": "Step-by-step workflow documentation"
+    },
+    "adw_code": {
+      "patterns": ["adws/**/*.py", "**/adws/**/*.py"],
+      "priority": 0.6,
+      "importance": 60,
+      "description": "ADW workflow Python code",
+      "llm_hint": "Executable ADW implementations"
+    },
+    "core": {
+      "patterns": ["**/core/**/*.py", "**/core/**/*.js"],
+      "priority": 0.6,
+      "importance": 60,
+      "description": "Core application modules",
+      "llm_hint": "Core business logic"
+    },
+    "api": {
+      "patterns": ["**/api/**/*.py", "**/api/**/*.js", "**/routes/**/*.py", "**/routes/**/*.js"],
+      "priority": 0.6,
+      "importance": 55,
+      "description": "API and route handlers",
+      "llm_hint": "API endpoints and route definitions"
+    },
+    "knowledge": {
+      "patterns": ["**/knowledge/**/*", "**/conhecimento/**/*"],
+      "priority": 0.65,
+      "importance": 55,
+      "description": "Knowledge base files",
+      "llm_hint": "Reference knowledge and documentation"
+    },
+    "voice": {
+      "patterns": ["**/voice/**/*.py", "**/voice/**/*.js"],
+      "priority": 0.55,
+      "importance": 55,
+      "description": "Voice module files",
+      "llm_hint": "Voice/audio processing code"
+    },
+    "mcp": {
+      "patterns": ["**/mcp-servers/**/*.js", "**/mcp-servers/**/*.ts", "**/mcp-servers/**/*.json"],
+      "priority": 0.55,
+      "importance": 55,
+      "description": "MCP server files",
+      "llm_hint": "Model Context Protocol server implementations"
+    },
+    "server": {
+      "patterns": ["**/server/**/*.py", "**/server/**/*.js"],
+      "priority": 0.55,
+      "importance": 55,
+      "description": "Server application files",
+      "llm_hint": "Server-side code"
+    },
+    "context": {
+      "patterns": ["**/context/**/*", "**/contexto/**/*"],
+      "priority": 0.55,
+      "importance": 50,
+      "description": "Context and memory files",
+      "llm_hint": "Session context and memory storage"
+    },
+    "planning": {
+      "patterns": ["**/planning/**/*", "**/planejamento/**/*"],
+      "priority": 0.55,
+      "importance": 50,
+      "description": "Planning and roadmap documents",
+      "llm_hint": "Future plans and roadmaps"
+    },
+    "processados": {
+      "patterns": ["**/processados/**/*", "**/processed/**/*"],
+      "priority": 0.6,
+      "importance": 50,
+      "description": "Processed knowledge files",
+      "llm_hint": "Pre-processed reference data"
+    },
+    "source": {
+      "patterns": ["**/src/**/*.py", "**/src/**/*.js", "**/src/**/*.ts"],
+      "priority": 0.5,
+      "importance": 50,
+      "description": "Source code",
+      "llm_hint": "Application source code"
+    },
+    "docs": {
+      "patterns": ["**/docs/**/*.md"],
+      "priority": 0.5,
+      "importance": 50,
+      "description": "Documentation",
+      "llm_hint": "General documentation"
+    },
+    "template": {
+      "patterns": ["**/templates/**/*"],
+      "priority": 0.5,
+      "importance": 50,
+      "description": "Template files",
+      "llm_hint": "Reusable templates"
+    },
+    "memory": {
+      "patterns": ["**/memory/**/*", "**/memoria/**/*"],
+      "priority": 0.5,
+      "importance": 45,
+      "description": "Memory storage files",
+      "llm_hint": "Persistent memory data"
+    },
+    "scripts": {
+      "patterns": ["python/**/*.py", "scripts/**/*", "**/scripts/**/*.py", "**/scripts/**/*.sh"],
+      "priority": 0.5,
+      "importance": 45,
+      "description": "Utility scripts",
+      "llm_hint": "Helper and utility scripts"
+    },
+    "fontes": {
+      "patterns": ["**/FONTES/**/*", "**/fontes/**/*", "**/sources/**/*"],
+      "priority": 0.5,
+      "importance": 40,
+      "description": "Source references and materials",
+      "llm_hint": "Reference materials and sources"
+    },
+    "user_output": {
+      "patterns": ["**/USER_DOCS/**/*", "**/user_docs/**/*"],
+      "priority": 0.5,
+      "importance": 40,
+      "description": "User-generated documentation",
+      "llm_hint": "User-created content"
+    },
+    "outputs": {
+      "patterns": ["**/outputs/**/*"],
+      "priority": 0.5,
+      "importance": 35,
+      "description": "Generated outputs",
+      "llm_hint": "Generated output files - usually not for reading"
+    },
+    "rascunho": {
+      "patterns": ["**/RASCUNHO/**/*", "**/rascunho/**/*", "**/drafts/**/*"],
+      "priority": 0.45,
+      "importance": 30,
+      "description": "Draft and work-in-progress files",
+      "llm_hint": "Work in progress - may be incomplete"
+    },
+    "test": {
+      "patterns": ["**/tests/**/*", "**/test_*.py", "**/*_test.py"],
+      "priority": 0.4,
+      "importance": 35,
+      "description": "Test files",
+      "llm_hint": "Test code - useful for understanding expected behavior"
+    },
+    "example": {
+      "patterns": ["**/examples/**/*", "**/EXAMPLE*.md", "**/EXEMPLO*.md"],
+      "priority": 0.4,
+      "importance": 40,
+      "description": "Example files",
+      "llm_hint": "Examples - great for understanding usage"
+    },
+    "asset": {
+      "patterns": ["**/assets/**/*", "**/images/**/*", "**/img/**/*"],
+      "priority": 0.4,
+      "importance": 20,
+      "description": "Static assets and images",
+      "llm_hint": "Binary assets - usually skip"
+    },
+    "landing": {
+      "patterns": ["**/landing-pages/**/*", "**/landings/**/*"],
+      "priority": 0.4,
+      "importance": 30,
+      "description": "Landing page files",
+      "llm_hint": "Landing page content"
+    },
+    "html": {
+      "patterns": ["**/*.html", "**/*.htm"],
+      "priority": 0.35,
+      "importance": 25,
+      "description": "HTML files",
+      "llm_hint": "HTML markup files"
+    },
+    "css": {
+      "patterns": ["**/*.css", "**/*.scss", "**/*.sass"],
+      "priority": 0.35,
+      "importance": 20,
+      "description": "Stylesheet files",
+      "llm_hint": "Style definitions - usually skip for logic"
+    }
+  },
+  "default_priority": 0.3,
+  "default_importance": 10,
+
+  "importance_tiers": {
+    "critical": { "min": 90, "max": 100, "description": "Must read - entry points and core docs" },
+    "high": { "min": 70, "max": 89, "description": "Should read - important for understanding" },
+    "medium": { "min": 50, "max": 69, "description": "Read if relevant - supporting files" },
+    "low": { "min": 30, "max": 49, "description": "Optional - reference materials" },
+    "skip": { "min": 0, "max": 29, "description": "Usually skip - assets and generated files" }
+  }
+}

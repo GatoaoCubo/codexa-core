@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Video Style Presets",
+  "description": "Pre-defined style configurations for video generation",
+  "styles": {
+    "energetic": {
+      "name": "Energetic",
+      "description": "High-energy, dynamic videos for active/sport products",
+      "camera": {
+        "movement": "dynamic",
+        "angles": ["low-angle", "tracking", "dutch-angle"],
+        "transitions": ["quick-cut", "whip-pan", "zoom"]
+      },
+      "lighting": {
+        "style": "high-contrast",
+        "color_temperature": "neutral",
+        "mood": "vibrant"
+      },
+      "pacing": {
+        "shot_duration": "3-5s",
+        "tempo": "fast",
+        "cuts_per_minute": 15
+      },
+      "music": {
+        "genre": "electronic",
+        "tempo": "fast",
+        "energy": "high"
+      },
+      "color_grading": {
+        "saturation": 1.2,
+        "contrast": 1.1,
+        "highlights": "warm"
+      },
+      "use_cases": ["sports products", "fitness gear", "energy drinks", "tech gadgets"]
+    },
+    "calm": {
+      "name": "Calm",
+      "description": "Relaxed, sophisticated videos for wellness/luxury products",
+      "camera": {
+        "movement": "slow",
+        "angles": ["eye-level", "slight-high-angle"],
+        "transitions": ["dissolve", "fade", "slow-zoom"]
+      },
+      "lighting": {
+        "style": "soft",
+        "color_temperature": "warm",
+        "mood": "serene"
+      },
+      "pacing": {
+        "shot_duration": "5-8s",
+        "tempo": "slow",
+        "cuts_per_minute": 8
+      },
+      "music": {
+        "genre": "acoustic",
+        "tempo": "slow",
+        "energy": "low"
+      },
+      "color_grading": {
+        "saturation": 0.9,
+        "contrast": 0.95,
+        "highlights": "soft"
+      },
+      "use_cases": ["skincare", "wellness", "home decor", "luxury items", "organic products"]
+    },
+    "dramatic": {
+      "name": "Dramatic",
+      "description": "Bold, impactful videos for premium/statement products",
+      "camera": {
+        "movement": "cinematic",
+        "angles": ["extreme-close-up", "low-angle", "silhouette"],
+        "transitions": ["hard-cut", "flash", "glitch"]
+      },
+      "lighting": {
+        "style": "low-key",
+        "color_temperature": "cool",
+        "mood": "intense"
+      },
+      "pacing": {
+        "shot_duration": "3-6s",
+        "tempo": "variable",
+        "cuts_per_minute": 12
+      },
+      "music": {
+        "genre": "orchestral",
+        "tempo": "building",
+        "energy": "intense"
+      },
+      "color_grading": {
+        "saturation": 0.8,
+        "contrast": 1.3,
+        "highlights": "cool"
+      },
+      "use_cases": ["premium tech", "automotive", "fashion", "watches", "jewelry"]
+    },
+    "minimal": {
+      "name": "Minimal",
+      "description": "Clean, simple videos for modern/design-focused products",
+      "camera": {
+        "movement": "static",
+        "angles": ["eye-level", "straight-on", "top-down"],
+        "transitions": ["cut", "simple-fade"]
+      },
+      "lighting": {
+        "style": "high-key",
+        "color_temperature": "neutral",
+        "mood": "clean"
+      },
+      "pacing": {
+        "shot_duration": "4-6s",
+        "tempo": "measured",
+        "cuts_per_minute": 10
+      },
+      "music": {
+        "genre": "ambient",
+        "tempo": "medium",
+        "energy": "subtle"
+      },
+      "color_grading": {
+        "saturation": 0.85,
+        "contrast": 1.0,
+        "highlights": "neutral"
+      },
+      "use_cases": ["furniture", "tech accessories", "stationery", "design products", "minimalist brands"]
+    },
+    "cinematic": {
+      "name": "Cinematic",
+      "description": "Film-quality videos for storytelling and brand campaigns",
+      "camera": {
+        "movement": "smooth",
+        "angles": ["wide-establishing", "medium", "close-up"],
+        "transitions": ["cross-dissolve", "match-cut", "j-cut"]
+      },
+      "lighting": {
+        "style": "natural",
+        "color_temperature": "golden-hour",
+        "mood": "atmospheric"
+      },
+      "pacing": {
+        "shot_duration": "4-7s",
+        "tempo": "narrative",
+        "cuts_per_minute": 10
+      },
+      "music": {
+        "genre": "orchestral",
+        "tempo": "medium",
+        "energy": "emotional"
+      },
+      "color_grading": {
+        "saturation": 1.0,
+        "contrast": 1.15,
+        "highlights": "filmic"
+      },
+      "use_cases": ["brand campaigns", "product launches", "lifestyle content", "aspirational products"]
+    }
+  },
+  "defaults": {
+    "resolution": "1080p",
+    "fps": 30,
+    "codec": "h264",
+    "audio_bitrate": "192k",
+    "video_bitrate": "8M"
+  }
+}

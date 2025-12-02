@@ -1,0 +1,20 @@
+{
+  "workflow_id": "wf_1328013e",
+  "status": "success",
+  "current_phase": null,
+  "phases_completed": [
+    "planning",
+    "execution",
+    "verification"
+  ],
+  "artifacts_created": [],
+  "agents_spawned": [
+    "planning_27eea708",
+    "execution_7d88e72b",
+    "verification_c852c36d"
+  ],
+  "started_at": "2025-11-24T14:57:05.710301",
+  "completed_at": "2025-11-24T14:57:07.235539",
+  "metadata": {},
+  "error_message": null
+}

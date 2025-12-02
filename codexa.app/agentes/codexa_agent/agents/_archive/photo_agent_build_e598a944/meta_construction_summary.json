@@ -1,0 +1,672 @@
+{
+  "adw_id": "e598a944",
+  "agent_description": "Specialized agent for professional AI image generation using advanced photography techniques, scene composition, lighting design, and programa\u00e7\u00e3o neurolingu\u00edstica (PNL). Extracts and enhances knowledge from anuncio_agent's 60_image_prompts.md. Supports 5+ photography styles (minimalist, dramatic, lifestyle, editorial, commercial). Integrates brand visual identity. Generates 9-scene professional photography prompts with technical specs (camera, lighting, composition). PNL emotional triggers for storytelling. Standalone operation. Trinity output (.md + .llm.json + .meta.json).",
+  "scout_context": {
+    "success": true,
+    "working_dir": "C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent",
+    "timestamp": "2025-11-14T19:37:36.538589",
+    "stats": {
+      "total_files": 74,
+      "indexed_files": 74,
+      "directories": 21,
+      "unique_extensions": 7,
+      "largest_extension_group": 41
+    },
+    "cache_enabled": true,
+    "index": {
+      "CLEANUP_QUICKSTART.md": {
+        "path": "CLEANUP_QUICKSTART.md",
+        "name": "CLEANUP_QUICKSTART.md",
+        "extension": ".md",
+        "size": 3921,
+        "modified": "2025-11-13T10:01:48.281589"
+      },
+      "INSTRUCTIONS.md": {
+        "path": "INSTRUCTIONS.md",
+        "name": "INSTRUCTIONS.md",
+        "extension": ".md",
+        "size": 8304,
+        "modified": "2025-11-13T12:26:47.561038"
+      },
+      "PRIME.md": {
+        "path": "PRIME.md",
+        "name": "PRIME.md",
+        "extension": ".md",
+        "size": 9961,
+        "modified": "2025-11-14T11:50:36.665684"
+      },
+      "PRIME.md.bak": {
+        "path": "PRIME.md.bak",
+        "name": "PRIME.md.bak",
+        "extension": ".bak",
+        "size": 9961,
+        "modified": "2025-11-14T09:52:06.731811"
+      },
+      "README.md": {
+        "path": "README.md",
+        "name": "README.md",
+        "extension": ".md",
+        "size": 6733,
+        "modified": "2025-11-13T12:29:39.868146"
+      },
+      "SETUP.md": {
+        "path": "SETUP.md",
+        "name": "SETUP.md",
+        "extension": ".md",
+        "size": 7728,
+        "modified": "2025-11-14T09:35:15.022045"
+      },
+      "agents\\.gitignore": {
+        "path": "agents\\.gitignore",
+        "name": ".gitignore",
+        "extension": "",
+        "size": 1888,
+        "modified": "2025-11-13T09:51:35.241372"
+      },
+      "agents\\README.md": {
+        "path": "agents\\README.md",
+        "name": "README.md",
+        "extension": ".md",
+        "size": 5954,
+        "modified": "2025-11-13T09:51:20.568235"
+      },
+      "builders\\01_agent_builder.py": {
+        "path": "builders\\01_agent_builder.py",
+        "name": "01_agent_builder.py",
+        "extension": ".py",
+        "size": 26870,
+        "modified": "2025-11-12T12:13:32.743233"
+      },
+      "builders\\02_agent_meta_constructor.py": {
+        "path": "builders\\02_agent_meta_constructor.py",
+        "name": "02_agent_meta_constructor.py",
+        "extension": ".py",
+        "size": 39548,
+        "modified": "2025-11-13T09:08:12.088338"
+      },
+      "builders\\03_build_task.py": {
+        "path": "builders\\03_build_task.py",
+        "name": "03_build_task.py",
+        "extension": ".py",
+        "size": 19373,
+        "modified": "2025-11-12T12:13:41.944625"
+      },
+      "builders\\04_chore_task.py": {
+        "path": "builders\\04_chore_task.py",
+        "name": "04_chore_task.py",
+        "extension": ".py",
+        "size": 17225,
+        "modified": "2025-11-12T12:13:42.005964"
+      },
+      "builders\\05_command_generator.py": {
+        "path": "builders\\05_command_generator.py",
+        "name": "05_command_generator.py",
+        "extension": ".py",
+        "size": 7440,
+        "modified": "2025-11-12T12:13:54.138782"
+      },
+      "builders\\06_cron_orchestrator.py": {
+        "path": "builders\\06_cron_orchestrator.py",
+        "name": "06_cron_orchestrator.py",
+        "extension": ".py",
+        "size": 23333,
+        "modified": "2025-11-12T12:13:54.204679"
+      },
+      "builders\\08_prompt_generator.py": {
+        "path": "builders\\08_prompt_generator.py",
+        "name": "08_prompt_generator.py",
+        "extension": ".py",
+        "size": 12659,
+        "modified": "2025-11-13T09:03:52.081804"
+      },
+      "builders\\11_doc_sync_builder.py": {
+        "path": "builders\\11_doc_sync_builder.py",
+        "name": "11_doc_sync_builder.py",
+        "extension": ".py",
+        "size": 46685,
+        "modified": "2025-11-14T09:34:57.026959"
+      },
+      "builders\\13_fractal_nav_sync.py": {
+        "path": "builders\\13_fractal_nav_sync.py",
+        "name": "13_fractal_nav_sync.py",
+        "extension": ".py",
+        "size": 16728,
+        "modified": "2025-11-14T09:59:24.578102"
+      },
+      "commands\\90_codexa_when_to_use.md": {
+        "path": "commands\\90_codexa_when_to_use.md",
+        "name": "90_codexa_when_to_use.md",
+        "extension": ".md",
+        "size": 2245,
+        "modified": "2025-11-13T12:52:09.405240"
+      },
+      "commands\\91_codexa_build_agent.md": {
+        "path": "commands\\91_codexa_build_agent.md",
+        "name": "91_codexa_build_agent.md",
+        "extension": ".md",
+        "size": 2498,
+        "modified": "2025-11-13T12:54:05.195388"
+      },
+      "commands\\92_codexa_build_command.md": {
+        "path": "commands\\92_codexa_build_command.md",
+        "name": "92_codexa_build_command.md",
+        "extension": ".md",
+        "size": 1816,
+        "modified": "2025-11-13T12:54:09.072659"
+      },
+      "commands\\93_codexa_build_mcp.md": {
+        "path": "commands\\93_codexa_build_mcp.md",
+        "name": "93_codexa_build_mcp.md",
+        "extension": ".md",
+        "size": 1832,
+        "modified": "2025-11-13T12:54:14.371779"
+      },
+      "commands\\94_codexa_build_prompt.md": {
+        "path": "commands\\94_codexa_build_prompt.md",
+        "name": "94_codexa_build_prompt.md",
+        "extension": ".md",
+        "size": 2399,
+        "modified": "2025-11-13T12:54:20.803271"
+      },
+      "commands\\95_codexa_build_schema.md": {
+        "path": "commands\\95_codexa_build_schema.md",
+        "name": "95_codexa_build_schema.md",
+        "extension": ".md",
+        "size": 1756,
+        "modified": "2025-11-13T12:54:28.156642"
+      },
+      "commands\\96_codexa_orchestrate.md": {
+        "path": "commands\\96_codexa_orchestrate.md",
+        "name": "96_codexa_orchestrate.md",
+        "extension": ".md",
+        "size": 2707,
+        "modified": "2025-11-13T12:54:42.084210"
+      },
+      "commands\\98_codexa_cleanup.md": {
+        "path": "commands\\98_codexa_cleanup.md",
+        "name": "98_codexa_cleanup.md",
+        "extension": ".md",
+        "size": 1533,
+        "modified": "2025-11-13T12:55:51.180523"
+      },
+      "commands\\codexa.md": {
+        "path": "commands\\codexa.md",
+        "name": "codexa.md",
+        "extension": ".md",
+        "size": 1977,
+        "modified": "2025-11-11T19:19:01.990531"
+      },
+      "commands\\codexa_quick.md": {
+        "path": "commands\\codexa_quick.md",
+        "name": "codexa_quick.md",
+        "extension": ".md",
+        "size": 1728,
+        "modified": "2025-11-12T10:09:48.622643"
+      },
+      "commands\\codexa_run.md": {
+        "path": "commands\\codexa_run.md",
+        "name": "codexa_run.md",
+        "extension": ".md",
+        "size": 668,
+        "modified": "2025-11-12T10:11:43.107566"
+      },
+      "commands\\orchestrator.md": {
+        "path": "commands\\orchestrator.md",
+        "name": "orchestrator.md",
+        "extension": ".md",
+        "size": 927,
+        "modified": "2025-11-13T12:55:55.524199"
+      },
+      "prompts\\91_meta_build_agent_HOP.md": {
+        "path": "prompts\\91_meta_build_agent_HOP.md",
+        "name": "91_meta_build_agent_HOP.md",
+        "extension": ".md",
+        "size": 10598,
+        "modified": "2025-11-14T08:51:28.858342"
+      },
+      "prompts\\94_meta_build_prompt_HOP.md": {
+        "path": "prompts\\94_meta_build_prompt_HOP.md",
+        "name": "94_meta_build_prompt_HOP.md",
+        "extension": ".md",
+        "size": 9870,
+        "modified": "2025-11-14T08:52:13.693965"
+      },
+      "prompts\\96_meta_orchestrate_HOP.md": {
+        "path": "prompts\\96_meta_orchestrate_HOP.md",
+        "name": "96_meta_orchestrate_HOP.md",
+        "extension": ".md",
+        "size": 9781,
+        "modified": "2025-11-14T08:53:00.113283"
+      },
+      "scripts\\validate_all_docs.sh": {
+        "path": "scripts\\validate_all_docs.sh",
+        "name": "validate_all_docs.sh",
+        "extension": ".sh",
+        "size": 3654,
+        "modified": "2025-11-14T09:50:27.517784"
+      },
+      "validators\\07_hop_sync_validator.py": {
+        "path": "validators\\07_hop_sync_validator.py",
+        "name": "07_hop_sync_validator.py",
+        "extension": ".py",
+        "size": 12893,
+        "modified": "2025-11-12T12:14:27.748417"
+      },
+      "validators\\09_readme_validator.py": {
+        "path": "validators\\09_readme_validator.py",
+        "name": "09_readme_validator.py",
+        "extension": ".py",
+        "size": 15505,
+        "modified": "2025-11-12T12:14:27.692590"
+      },
+      "validators\\10_taxonomy_validator.py": {
+        "path": "validators\\10_taxonomy_validator.py",
+        "name": "10_taxonomy_validator.py",
+        "extension": ".py",
+        "size": 11589,
+        "modified": "2025-11-12T12:14:27.634911"
+      },
+      "validators\\12_doc_sync_validator.py": {
+        "path": "validators\\12_doc_sync_validator.py",
+        "name": "12_doc_sync_validator.py",
+        "extension": ".py",
+        "size": 27183,
+        "modified": "2025-11-14T09:41:20.170922"
+      },
+      "workflows\\100_ADW_DOC_SYNC_WORKFLOW.md": {
+        "path": "workflows\\100_ADW_DOC_SYNC_WORKFLOW.md",
+        "name": "100_ADW_DOC_SYNC_WORKFLOW.md",
+        "extension": ".md",
+        "size": 22610,
+        "modified": "2025-11-14T08:54:08.526737"
+      },
+      "workflows\\97_ADW_NEW_AGENT_WORKFLOW.md": {
+        "path": "workflows\\97_ADW_NEW_AGENT_WORKFLOW.md",
+        "name": "97_ADW_NEW_AGENT_WORKFLOW.md",
+        "extension": ".md",
+        "size": 5009,
+        "modified": "2025-11-13T12:48:42.780803"
+      },
+      "workflows\\98_ADW_CONSOLIDATION_WORKFLOW.md": {
+        "path": "workflows\\98_ADW_CONSOLIDATION_WORKFLOW.md",
+        "name": "98_ADW_CONSOLIDATION_WORKFLOW.md",
+        "extension": ".md",
+        "size": 4439,
+        "modified": "2025-11-13T12:50:28.432966"
+      },
+      "workflows\\99_ADW_SYSTEM_UPGRADE_WORKFLOW.md": {
+        "path": "workflows\\99_ADW_SYSTEM_UPGRADE_WORKFLOW.md",
+        "name": "99_ADW_SYSTEM_UPGRADE_WORKFLOW.md",
+        "extension": ".md",
+        "size": 4933,
+        "modified": "2025-11-13T12:50:31.736482"
+      },
+      "workflows\\ADW_photo_agent_design.md": {
+        "path": "workflows\\ADW_photo_agent_design.md",
+        "name": "ADW_photo_agent_design.md",
+        "extension": ".md",
+        "size": 19171,
+        "modified": "2025-11-14T19:37:03.200793"
+      },
+      "workflows\\README_ADW_100.md": {
+        "path": "workflows\\README_ADW_100.md",
+        "name": "README_ADW_100.md",
+        "extension": ".md",
+        "size": 9996,
+        "modified": "2025-11-14T09:01:59.397079"
+      },
+      "workflows\\reports\\ADW_100_sync_20251114_093319.json": {
+        "path": "workflows\\reports\\ADW_100_sync_20251114_093319.json",
+        "name": "ADW_100_sync_20251114_093319.json",
+        "extension": ".json",
+        "size": 1063,
+        "modified": "2025-11-14T09:33:19.953498"
+      },
+      "workflows\\reports\\ADW_100_sync_20251114_093319.md": {
+        "path": "workflows\\reports\\ADW_100_sync_20251114_093319.md",
+        "name": "ADW_100_sync_20251114_093319.md",
+        "extension": ".md",
+        "size": 1176,
+        "modified": "2025-11-14T09:33:19.950978"
+      },
+      "workflows\\reports\\ADW_100_sync_20251114_093515.json": {
+        "path": "workflows\\reports\\ADW_100_sync_20251114_093515.json",
+        "name": "ADW_100_sync_20251114_093515.json",
+        "extension": ".json",
+        "size": 1192,
+        "modified": "2025-11-14T09:35:15.103330"
+      },
+      "workflows\\reports\\ADW_100_sync_20251114_093515.md": {
+        "path": "workflows\\reports\\ADW_100_sync_20251114_093515.md",
+        "name": "ADW_100_sync_20251114_093515.md",
+        "extension": ".md",
+        "size": 1290,
+        "modified": "2025-11-14T09:35:15.088566"
+      },
+      "workflows\\reports\\ADW_100_sync_20251114_115036.json": {
+        "path": "workflows\\reports\\ADW_100_sync_20251114_115036.json",
+        "name": "ADW_100_sync_20251114_115036.json",
+        "extension": ".json",
+        "size": 487,
+        "modified": "2025-11-14T11:50:36.679954"
+      },
+      "workflows\\reports\\ADW_100_sync_20251114_115036.md": {
+        "path": "workflows\\reports\\ADW_100_sync_20251114_115036.md",
+        "name": "ADW_100_sync_20251114_115036.md",
+        "extension": ".md",
+        "size": 688,
+        "modified": "2025-11-14T11:50:36.678835"
+      },
+      "workflows\\reports\\DOC_SYNC_AUDIT_20251114.md": {
+        "path": "workflows\\reports\\DOC_SYNC_AUDIT_20251114.md",
+        "name": "DOC_SYNC_AUDIT_20251114.md",
+        "extension": ".md",
+        "size": 9201,
+        "modified": "2025-11-14T09:00:54.696265"
+      },
+      "workflows\\reports\\FRACTAL_NAV_FINAL_REPORT.md": {
+        "path": "workflows\\reports\\FRACTAL_NAV_FINAL_REPORT.md",
+        "name": "FRACTAL_NAV_FINAL_REPORT.md",
+        "extension": ".md",
+        "size": 7825,
+        "modified": "2025-11-14T10:40:32.684529"
+      },
+      "workflows\\reports\\fractal_nav_sync_20251114_103838.json": {
+        "path": "workflows\\reports\\fractal_nav_sync_20251114_103838.json",
+        "name": "fractal_nav_sync_20251114_103838.json",
+        "extension": ".json",
+        "size": 7174,
+        "modified": "2025-11-14T10:38:38.587831"
+      },
+      "workflows\\reports\\fractal_nav_sync_20251114_103838.md": {
+        "path": "workflows\\reports\\fractal_nav_sync_20251114_103838.md",
+        "name": "fractal_nav_sync_20251114_103838.md",
+        "extension": ".md",
+        "size": 1322,
+        "modified": "2025-11-14T10:38:38.588792"
+      },
+      "workflows\\reports\\fractal_nav_sync_20251114_110515.json": {
+        "path": "workflows\\reports\\fractal_nav_sync_20251114_110515.json",
+        "name": "fractal_nav_sync_20251114_110515.json",
+        "extension": ".json",
+        "size": 7174,
+        "modified": "2025-11-14T11:05:15.779099"
+      },
+      "workflows\\reports\\fractal_nav_sync_20251114_110515.md": {
+        "path": "workflows\\reports\\fractal_nav_sync_20251114_110515.md",
+        "name": "fractal_nav_sync_20251114_110515.md",
+        "extension": ".md",
+        "size": 1322,
+        "modified": "2025-11-14T11:05:15.780118"
+      },
+      "templates\\docs\\INSTRUCTIONS_TEMPLATE.md": {
+        "path": "templates\\docs\\INSTRUCTIONS_TEMPLATE.md",
+        "name": "INSTRUCTIONS_TEMPLATE.md",
+        "extension": ".md",
+        "size": 5827,
+        "modified": "2025-11-14T08:55:08.895455"
+      },
+      "templates\\docs\\SETUP_TEMPLATE.md": {
+        "path": "templates\\docs\\SETUP_TEMPLATE.md",
+        "name": "SETUP_TEMPLATE.md",
+        "extension": ".md",
+        "size": 9023,
+        "modified": "2025-11-14T08:56:07.148508"
+      },
+      "templates\\docs\\fractal\\AGENTS_PRIME.md": {
+        "path": "templates\\docs\\fractal\\AGENTS_PRIME.md",
+        "name": "AGENTS_PRIME.md",
+        "extension": ".md",
+        "size": 12612,
+        "modified": "2025-11-14T09:54:45.141678"
+      },
+      "templates\\docs\\fractal\\AGENTS_README.md": {
+        "path": "templates\\docs\\fractal\\AGENTS_README.md",
+        "name": "AGENTS_README.md",
+        "extension": ".md",
+        "size": 13759,
+        "modified": "2025-11-14T09:55:49.521301"
+      },
+      "templates\\docs\\fractal\\ROOT_PRIME.md": {
+        "path": "templates\\docs\\fractal\\ROOT_PRIME.md",
+        "name": "ROOT_PRIME.md",
+        "extension": ".md",
+        "size": 10600,
+        "modified": "2025-11-14T09:53:39.023797"
+      },
+      "builders\\adw_modules\\agent.py": {
+        "path": "builders\\adw_modules\\agent.py",
+        "name": "agent.py",
+        "extension": ".py",
+        "size": 12929,
+        "modified": "2025-11-13T08:27:44.683441"
+      },
+      "builders\\adw_modules\\cleanup_manager.py": {
+        "path": "builders\\adw_modules\\cleanup_manager.py",
+        "name": "cleanup_manager.py",
+        "extension": ".py",
+        "size": 15601,
+        "modified": "2025-11-13T10:00:24.731976"
+      },
+      "builders\\adw_modules\\README.md": {
+        "path": "builders\\adw_modules\\README.md",
+        "name": "README.md",
+        "extension": ".md",
+        "size": 7829,
+        "modified": "2025-11-13T08:31:29.102638"
+      },
+      "builders\\adw_modules\\scout_integration.py": {
+        "path": "builders\\adw_modules\\scout_integration.py",
+        "name": "scout_integration.py",
+        "extension": ".py",
+        "size": 17523,
+        "modified": "2025-11-13T08:29:35.005113"
+      },
+      "builders\\adw_modules\\utils.py": {
+        "path": "builders\\adw_modules\\utils.py",
+        "name": "utils.py",
+        "extension": ".py",
+        "size": 8232,
+        "modified": "2025-11-13T08:08:43.689006"
+      },
+      "builders\\adw_modules\\__init__.py": {
+        "path": "builders\\adw_modules\\__init__.py",
+        "name": "__init__.py",
+        "extension": ".py",
+        "size": 3936,
+        "modified": "2025-11-13T08:30:17.397962"
+      },
+      "agents\\_examples\\example_meta_constructor_5_phases\\meta_construction_summary.json": {
+        "path": "agents\\_examples\\example_meta_constructor_5_phases\\meta_construction_summary.json",
+        "name": "meta_construction_summary.json",
+        "extension": ".json",
+        "size": 21836,
+        "modified": "2025-11-13T09:08:20.323614"
+      },
+      "agents\\_examples\\example_meta_constructor_5_phases\\README.md": {
+        "path": "agents\\_examples\\example_meta_constructor_5_phases\\README.md",
+        "name": "README.md",
+        "extension": ".md",
+        "size": 6531,
+        "modified": "2025-11-13T09:52:22.824014"
+      },
+      "agents\\_examples\\example_meta_constructor_5_phases\\meta-builder-dd2b59\\custom_summary_output.json": {
+        "path": "agents\\_examples\\example_meta_constructor_5_phases\\meta-builder-dd2b59\\custom_summary_output.json",
+        "name": "custom_summary_output.json",
+        "extension": ".json",
+        "size": 1060,
+        "modified": "2025-11-13T09:08:20.274148"
+      },
+      "agents\\_examples\\example_meta_constructor_5_phases\\meta-documenter-dd2b59\\custom_summary_output.json": {
+        "path": "agents\\_examples\\example_meta_constructor_5_phases\\meta-documenter-dd2b59\\custom_summary_output.json",
+        "name": "custom_summary_output.json",
+        "extension": ".json",
+        "size": 1061,
+        "modified": "2025-11-13T09:08:20.316616"
+      },
+      "agents\\_examples\\example_meta_constructor_5_phases\\meta-planner-dd2b59\\custom_summary_output.json": {
+        "path": "agents\\_examples\\example_meta_constructor_5_phases\\meta-planner-dd2b59\\custom_summary_output.json",
+        "name": "custom_summary_output.json",
+        "extension": ".json",
+        "size": 1139,
+        "modified": "2025-11-13T09:08:20.255608"
+      },
+      "agents\\_examples\\example_meta_constructor_5_phases\\meta-reviewer-dd2b59\\custom_summary_output.json": {
+        "path": "agents\\_examples\\example_meta_constructor_5_phases\\meta-reviewer-dd2b59\\custom_summary_output.json",
+        "name": "custom_summary_output.json",
+        "extension": ".json",
+        "size": 1127,
+        "modified": "2025-11-13T09:08:20.305154"
+      },
+      "agents\\_examples\\example_meta_constructor_5_phases\\meta-tester-dd2b59\\custom_summary_output.json": {
+        "path": "agents\\_examples\\example_meta_constructor_5_phases\\meta-tester-dd2b59\\custom_summary_output.json",
+        "name": "custom_summary_output.json",
+        "extension": ".json",
+        "size": 1118,
+        "modified": "2025-11-13T09:08:20.291154"
+      },
+      ".github\\workflows\\doc-validation.yml": {
+        "path": ".github\\workflows\\doc-validation.yml",
+        "name": "doc-validation.yml",
+        "extension": ".yml",
+        "size": 3917,
+        "modified": "2025-11-14T09:49:46.643324"
+      }
+    },
+    "files_by_extension": {
+      ".md": [
+        "CLEANUP_QUICKSTART.md",
+        "INSTRUCTIONS.md",
+        "PRIME.md",
+        "README.md",
+        "SETUP.md",
+        "agents\\README.md",
+        "commands\\90_codexa_when_to_use.md",
+        "commands\\91_codexa_build_agent.md",
+        "commands\\92_codexa_build_command.md",
+        "commands\\93_codexa_build_mcp.md",
+        "commands\\94_codexa_build_prompt.md",
+        "commands\\95_codexa_build_schema.md",
+        "commands\\96_codexa_orchestrate.md",
+        "commands\\98_codexa_cleanup.md",
+        "commands\\codexa.md",
+        "commands\\codexa_quick.md",
+        "commands\\codexa_run.md",
+        "commands\\orchestrator.md",
+        "prompts\\91_meta_build_agent_HOP.md",
+        "prompts\\94_meta_build_prompt_HOP.md",
+        "prompts\\96_meta_orchestrate_HOP.md",
+        "workflows\\100_ADW_DOC_SYNC_WORKFLOW.md",
+        "workflows\\97_ADW_NEW_AGENT_WORKFLOW.md",
+        "workflows\\98_ADW_CONSOLIDATION_WORKFLOW.md",
+        "workflows\\99_ADW_SYSTEM_UPGRADE_WORKFLOW.md",
+        "workflows\\ADW_photo_agent_design.md",
+        "workflows\\README_ADW_100.md",
+        "workflows\\reports\\ADW_100_sync_20251114_093319.md",
+        "workflows\\reports\\ADW_100_sync_20251114_093515.md",
+        "workflows\\reports\\ADW_100_sync_20251114_115036.md",
+        "workflows\\reports\\DOC_SYNC_AUDIT_20251114.md",
+        "workflows\\reports\\FRACTAL_NAV_FINAL_REPORT.md",
+        "workflows\\reports\\fractal_nav_sync_20251114_103838.md",
+        "workflows\\reports\\fractal_nav_sync_20251114_110515.md",
+        "templates\\docs\\INSTRUCTIONS_TEMPLATE.md",
+        "templates\\docs\\SETUP_TEMPLATE.md",
+        "templates\\docs\\fractal\\AGENTS_PRIME.md",
+        "templates\\docs\\fractal\\AGENTS_README.md",
+        "templates\\docs\\fractal\\ROOT_PRIME.md",
+        "builders\\adw_modules\\README.md",
+        "agents\\_examples\\example_meta_constructor_5_phases\\README.md"
+      ],
+      ".bak": [
+        "PRIME.md.bak"
+      ],
+      "": [
+        "agents\\.gitignore"
+      ],
+      ".py": [
+        "builders\\01_agent_builder.py",
+        "builders\\02_agent_meta_constructor.py",
+        "builders\\03_build_task.py",
+        "builders\\04_chore_task.py",
+        "builders\\05_command_generator.py",
+        "builders\\06_cron_orchestrator.py",
+        "builders\\08_prompt_generator.py",
+        "builders\\11_doc_sync_builder.py",
+        "builders\\13_fractal_nav_sync.py",
+        "validators\\07_hop_sync_validator.py",
+        "validators\\09_readme_validator.py",
+        "validators\\10_taxonomy_validator.py",
+        "validators\\12_doc_sync_validator.py",
+        "builders\\adw_modules\\agent.py",
+        "builders\\adw_modules\\cleanup_manager.py",
+        "builders\\adw_modules\\scout_integration.py",
+        "builders\\adw_modules\\utils.py",
+        "builders\\adw_modules\\__init__.py"
+      ],
+      ".sh": [
+        "scripts\\validate_all_docs.sh"
+      ],
+      ".json": [
+        "workflows\\reports\\ADW_100_sync_20251114_093319.json",
+        "workflows\\reports\\ADW_100_sync_20251114_093515.json",
+        "workflows\\reports\\ADW_100_sync_20251114_115036.json",
+        "workflows\\reports\\fractal_nav_sync_20251114_103838.json",
+        "workflows\\reports\\fractal_nav_sync_20251114_110515.json",
+        "agents\\_examples\\example_meta_constructor_5_phases\\meta_construction_summary.json",
+        "agents\\_examples\\example_meta_constructor_5_phases\\meta-builder-dd2b59\\custom_summary_output.json",
+        "agents\\_examples\\example_meta_constructor_5_phases\\meta-documenter-dd2b59\\custom_summary_output.json",
+        "agents\\_examples\\example_meta_constructor_5_phases\\meta-planner-dd2b59\\custom_summary_output.json",
+        "agents\\_examples\\example_meta_constructor_5_phases\\meta-reviewer-dd2b59\\custom_summary_output.json",
+        "agents\\_examples\\example_meta_constructor_5_phases\\meta-tester-dd2b59\\custom_summary_output.json"
+      ],
+      ".yml": [
+        ".github\\workflows\\doc-validation.yml"
+      ]
+    },
+    "from_cache": false
+  },
+  "model": "opus",
+  "target_dir": "../photo_agent",
+  "working_dir": "C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent",
+  "timestamp_start": "2025-11-14T19:37:36.540773",
+  "agent_files": [
+    "builders\\01_agent_builder.py",
+    "builders\\02_agent_meta_constructor.py",
+    "builders\\adw_modules\\agent.py"
+  ],
+  "$plan": "\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-planner-e598a9\n**ADW ID**: e598a944\n**Model**: opus\n\n## Prompt Details\n- Length: 2208 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR tasked with planning an ISOLATED agent for OpenAI Agent Builder.\n\nAGENT TO BUILD:\nSpecialized agent for professional AI image generation using advanced photography techniques, scene composition, lighting design, and programa\u00e7\u00e3o neurolingu\u00edstica (PNL). Extracts and enhances knowledge from anuncio_agent's 60_image_prompts.md. Supports 5+ photography styles (minimalist, dramatic, lifestyle, editorial, commercial). Integrates brand visual identity. Generates 9-scene profes...\n```\n\n## Execution Summary\nPrompt processed successfully with full context. Output includes:\n1. \u2705 Validated prompt structure\n2. \u2705 Resolved context files\n3. \u2705 Generated execution metadata\n4. \u2705 Structured output for $argument chaining\n\n## Metadata\n```json\n{\n  \"agent_name\": \"meta-planner-e598a9\",\n  \"adw_id\": \"e598a944\",\n  \"model\": \"opus\",\n  \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm.codexa\\\\codexa.app\\\\agentes\\\\codexa_agent\",\n  \"prompt_length\": 2208,\n  \"context_files\": [],\n  \"status\": \"completed\",\n  \"timestamp\": \"2025-11-14T19:37:36.699606\"\n}\n```\n\n## For Workflow Chaining\nThis output is ready to be passed as `$prompt_result` to subsequent phases.\nExtract specific fields using JSON parsing of the metadata section.\n",
+  "$agent_name": "[AGENT_NAME]",
+  "$artifacts": "\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-builder-e598a9\n**ADW ID**: e598a944\n**Model**: opus\n\n## Prompt Details\n- Length: 3132 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the BUILD phase.\n\nPREVIOUS PHASE OUTPUT ($plan):\n\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-planner-e598a9\n**ADW ID**: e598a944\n**Model**: opus\n\n## Prompt Details\n- Length: 2208 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR tasked with planning an ISOLATED agent f...\n```\n\n## Execution Summary\nPrompt processed successfully with full context. Output includes:\n1. \u2705 Validated prompt structure\n2. \u2705 Resolved context files\n3. \u2705 Generated execution metadata\n4. \u2705 Structured output for $argument chaining\n\n## Metadata\n```json\n{\n  \"agent_name\": \"meta-builder-e598a9\",\n  \"adw_id\": \"e598a944\",\n  \"model\": \"opus\",\n  \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm.codexa\\\\codexa.app\\\\agentes\\\\codexa_agent\",\n  \"prompt_length\": 3132,\n  \"context_files\": [],\n  \"status\": \"completed\",\n  \"timestamp\": \"2025-11-14T19:37:36.708065\"\n}\n```\n\n## For Workflow Chaining\nThis output is ready to be passed as `$prompt_result` to subsequent phases.\nExtract specific fields using JSON parsing of the metadata section.\n",
+  "$target_dir": "../photo_agent",
+  "$test_results": "\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-tester-e598a9\n**ADW ID**: e598a944\n**Model**: opus\n\n## Prompt Details\n- Length: 3325 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the TEST phase.\n\nARTIFACTS CREATED ($artifacts):\n\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-builder-e598a9\n**ADW ID**: e598a944\n**Model**: opus\n\n## Prompt Details\n- Length: 3132 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the BUILD phase.\n\nPREVIOUS PHASE OUTP...\n```\n\n## Execution Summary\nPrompt processed successfully with full context. Output includes:\n1. \u2705 Validated prompt structure\n2. \u2705 Resolved context files\n3. \u2705 Generated execution metadata\n4. \u2705 Structured output for $argument chaining\n\n## Metadata\n```json\n{\n  \"agent_name\": \"meta-tester-e598a9\",\n  \"adw_id\": \"e598a944\",\n  \"model\": \"opus\",\n  \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm.codexa\\\\codexa.app\\\\agentes\\\\codexa_agent\",\n  \"prompt_length\": 3325,\n  \"context_files\": [],\n  \"status\": \"completed\",\n  \"timestamp\": \"2025-11-14T19:37:36.713307\"\n}\n```\n\n## For Workflow Chaining\nThis output is ready to be passed as `$prompt_result` to subsequent phases.\nExtract specific fields using JSON parsing of the metadata section.\n",
+  "$test_score": "[UNKNOWN]",
+  "$review": "\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-reviewer-e598a9\n**ADW ID**: e598a944\n**Model**: opus\n\n## Prompt Details\n- Length: 3942 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the REVIEW phase.\n\nTEST RESULTS ($test_results):\n\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-tester-e598a9\n**ADW ID**: e598a944\n**Model**: opus\n\n## Prompt Details\n- Length: 3325 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the TEST phase.\n\nARTIFACTS CREATED ($a...\n```\n\n## Execution Summary\nPrompt processed successfully with full context. Output includes:\n1. \u2705 Validated prompt structure\n2. \u2705 Resolved context files\n3. \u2705 Generated execution metadata\n4. \u2705 Structured output for $argument chaining\n\n## Metadata\n```json\n{\n  \"agent_name\": \"meta-reviewer-e598a9\",\n  \"adw_id\": \"e598a944\",\n  \"model\": \"opus\",\n  \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm.codexa\\\\codexa.app\\\\agentes\\\\codexa_agent\",\n  \"prompt_length\": 3942,\n  \"context_files\": [],\n  \"status\": \"completed\",\n  \"timestamp\": \"2025-11-14T19:37:36.717309\"\n}\n```\n\n## For Workflow Chaining\nThis output is ready to be passed as `$prompt_result` to subsequent phases.\nExtract specific fields using JSON parsing of the metadata section.\n",
+  "$review_verdict": "[UNKNOWN]",
+  "$documentation": "\n# Prompt Execution Result\n\n**Status**: \u2705 Completed\n**Agent**: meta-documenter-e598a9\n**ADW ID**: e598a944\n**Model**: opus\n\n## Prompt Details\n- Length: 34987 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the DOCUMENTATION phase.\n\nCOMPLETE WORKFLOW CONTEXT:\n- Agent Description: Specialized agent for professional AI image generation using advanced photography techniques, scene composition, lighting design, and programa\u00e7\u00e3o neurolingu\u00edstica (PNL). Extracts and enhances knowledge from anuncio_agent's 60_image_prompts.md. Supports 5+ photography styles (minimalist, dramatic, lifestyle, editorial, commercial). Integrates brand visual identity. Generates 9-scene professiona...\n```\n\n## Execution Summary\nPrompt processed successfully with full context. Output includes:\n1. \u2705 Validated prompt structure\n2. \u2705 Resolved context files\n3. \u2705 Generated execution metadata\n4. \u2705 Structured output for $argument chaining\n\n## Metadata\n```json\n{\n  \"agent_name\": \"meta-documenter-e598a9\",\n  \"adw_id\": \"e598a944\",\n  \"model\": \"opus\",\n  \"working_dir\": \"C:\\\\Users\\\\Dell\\\\Documents\\\\GitHub\\\\ecomlm.codexa\\\\codexa.app\\\\agentes\\\\codexa_agent\",\n  \"prompt_length\": 34987,\n  \"context_files\": [],\n  \"status\": \"completed\",\n  \"timestamp\": \"2025-11-14T19:37:36.723668\"\n}\n```\n\n## For Workflow Chaining\nThis output is ready to be passed as `$prompt_result` to subsequent phases.\nExtract specific fields using JSON parsing of the metadata section.\n",
+  "phases": {
+    "plan": {
+      "success": true,
+      "output_dir": "./agents/e598a944/meta-planner-e598a9/"
+    },
+    "build": {
+      "success": true,
+      "output_dir": "./agents/e598a944/meta-builder-e598a9/"
+    },
+    "test": {
+      "success": true,
+      "output_dir": "./agents/e598a944/meta-tester-e598a9/",
+      "score": null
+    },
+    "review": {
+      "success": true,
+      "output_dir": "./agents/e598a944/meta-reviewer-e598a9/",
+      "verdict": null
+    },
+    "document": {
+      "success": true,
+      "output_dir": "./agents/e598a944/meta-documenter-e598a9/"
+    }
+  },
+  "overall_success": true,
+  "timestamp_end": "2025-11-14T19:37:36.733359"
+}

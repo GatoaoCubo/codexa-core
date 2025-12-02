@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Video Agent API Configuration",
+  "description": "API settings for video generation services",
+  "video_generation": {
+    "runway": {
+      "name": "Runway Gen-3",
+      "enabled": true,
+      "priority": 1,
+      "endpoint": "https://api.runwayml.com/v1",
+      "model": "gen-3-alpha",
+      "settings": {
+        "duration_range": [5, 10],
+        "resolution": "1080p",
+        "quality": "high",
+        "motion_bucket": 127,
+        "seed": null
+      },
+      "rate_limits": {
+        "requests_per_minute": 10,
+        "concurrent_requests": 5
+      },
+      "timeout_seconds": 300,
+      "retry": {
+        "max_attempts": 3,
+        "backoff_seconds": [10, 30, 60]
+      },
+      "cost_per_second_usd": 0.05
+    },
+    "pika": {
+      "name": "Pika 1.5",
+      "enabled": true,
+      "priority": 2,
+      "endpoint": "https://api.pika.art/v1",
+      "model": "pika-1.5",
+      "settings": {
+        "duration_range": [3, 8],
+        "resolution": "1080p",
+        "quality": "high",
+        "motion_strength": 0.8
+      },
+      "rate_limits": {
+        "requests_per_minute": 20,
+        "concurrent_requests": 10
+      },
+      "timeout_seconds": 180,
+      "retry": {
+        "max_attempts": 3,
+        "backoff_seconds": [5, 15, 30]
+      },
+      "cost_per_second_usd": 0.03
+    }
+  },
+  "text_to_speech": {
+    "elevenlabs": {
+      "name": "ElevenLabs",
+      "enabled": true,
+      "endpoint": "https://api.elevenlabs.io/v1",
+      "model": "eleven_multilingual_v2",
+      "voices": {
+        "default": "Rachel",
+        "male_br": "Antoni",
+        "female_br": "Rachel",
+        "male_us": "Adam",
+        "female_us": "Bella"
+      },
+      "settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "style": 0.0,
+        "use_speaker_boost": true
+      },
+      "rate_limits": {
+        "characters_per_month": 100000,
+        "requests_per_minute": 30
+      },
+      "cost_per_1k_chars_usd": 0.30
+    }
+  },
+  "storage": {
+    "s3": {
+      "enabled": true,
+      "region": "us-east-1",
+      "bucket": "video-agent-outputs",
+      "prefix": "videos/",
+      "public_access": false,
+      "presigned_url_expiry_seconds": 3600
+    },
+    "local": {
+      "enabled": true,
+      "output_dir": "outputs/",
+      "temp_dir": "temp/",
+      "cleanup_temp_after_seconds": 3600
+    }
+  },
+  "llm": {
+    "anthropic": {
+      "models": {
+        "reasoning": "claude-sonnet-4-20250514",
+        "fast": "claude-haiku-20250305"
+      },
+      "usage": {
+        "concept_agent": "reasoning",
+        "script_agent": "reasoning",
+        "visual_agent": "fast",
+        "validation": "fast"
+      },
+      "max_tokens": {
+        "concept": 2000,
+        "script": 1500,
+        "visual": 500
+      }
+    }
+  },
+  "ffmpeg": {
+    "path": "ffmpeg",
+    "presets": {
+      "quality": {
+        "high": "-c:v libx264 -preset slow -crf 18",
+        "medium": "-c:v libx264 -preset medium -crf 23",
+        "fast": "-c:v libx264 -preset fast -crf 28"
+      },
+      "audio": "-c:a aac -b:a 192k",
+      "format": "-f mp4 -movflags +faststart"
+    },
+    "font_paths": {
+      "windows": "C:/Windows/Fonts/arial.ttf",
+      "linux": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+      "macos": "/System/Library/Fonts/Helvetica.ttc"
+    }
+  },
+  "validation": {
+    "quality_thresholds": {
+      "min_resolution_height": 1080,
+      "min_fps": 24,
+      "max_file_size_mb": 100,
+      "min_quality_score": 7.0,
+      "audio_sync_tolerance_ms": 100
+    }
+  }
+}

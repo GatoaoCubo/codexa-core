@@ -1,0 +1,14 @@
+{
+  "workflow_version": "2.5.0",
+  "workflow_id": "adw_run_anuncio",
+  "generator": "CodeXAnuncio v2.5.0",
+  "generated_at": "2025-11-29T11:10:00Z",
+  "phases_executed": 6,
+  "total_duration_minutes": 3,
+  "mode": "quick_anuncio",
+  "quality_metrics": {"research_quality": 0.84, "final_output_quality": 0.86, "validation_checks_passed": 11, "component_scores": {"title": 0.86, "keywords": 0.85, "description": 0.86, "bullets": 0.85, "compliance": 1.0}},
+  "context": {"product_name": "Tapete Refrescante Pequeno GATO3", "marketplace_type": "MERCADO_LIVRE", "product_type": "PHYSICAL_PRODUCT", "dimensoes": "40x50cm"},
+  "output_files": {"markdown": "tapete_refrescante_40x50_ad_copy.md", "structured_data": "tapete_refrescante_40x50_ad_copy.llm.json", "metadata": "tapete_refrescante_40x50_ad_copy.meta.json"},
+  "validation_summary": {"all_phases_completed": true, "all_validations_passed": true, "production_ready": true},
+  "status": "production_ready"
+}

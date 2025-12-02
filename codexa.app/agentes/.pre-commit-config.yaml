@@ -1,0 +1,31 @@
+# Pre-commit hooks for CODEXA Agent Ecosystem
+# Install: pip install pre-commit && pre-commit install
+# Run manually: pre-commit run --all-files
+
+repos:
+  # Standard hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: '\.md$'
+      - id: end-of-file-fixer
+        exclude: '\.md$'
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+
+  # Local hooks for agent ecosystem
+  - repo: local
+    hooks:
+      # ISO Vectorstore Sync - auto-syncs source → iso_vectorstore on commit
+      - id: iso-vectorstore-sync
+        name: ISO Vectorstore Sync
+        entry: python codexa_agent/builders/18_iso_vectorstore_sync.py --pre-commit
+        language: python
+        pass_filenames: false
+        always_run: true
+        stages: [commit]
+        description: Sync agent source files to iso_vectorstore export packages

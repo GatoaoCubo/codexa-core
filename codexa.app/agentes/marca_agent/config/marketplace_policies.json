@@ -1,0 +1,1022 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-11-14",
+  "description": "Detailed marketplace policies for Brazilian e-commerce platforms",
+  "scope": "Mercado Livre, Shopee, Amazon BR, Magalu - Brand and listing requirements",
+  "compliance_note": "Policies change frequently - verify with official marketplace docs before publishing",
+
+  "mercado_livre": {
+    "platform_overview": {
+      "full_name": "Mercado Livre Brasil",
+      "market_share": "~60% of Brazilian e-commerce",
+      "audience": "Broad - all demographics, strong in C/D classes",
+      "trust_level": "High (MercadoPago, buyer protection)",
+      "seller_tiers": ["Free", "Classic", "Premium", "Platinum"]
+    },
+
+    "title_policies": {
+      "max_length": 60,
+      "encoding": "UTF-8",
+      "required_info": [
+        "Brand name (if branded product)",
+        "Product type/model",
+        "Key attributes (size, color, quantity)"
+      ],
+      "prohibited": [
+        {
+          "item": "Emojis",
+          "severity": "medium",
+          "action": "Listing rejected or hidden",
+          "alternative": "Use text descriptions: 'Promoção' instead of 🔥"
+        },
+        {
+          "item": "Special characters",
+          "pattern": "★ ♥ ® © ™ (in excess)",
+          "severity": "medium",
+          "action": "Listing quality downgraded",
+          "alternative": "Use plain text, ® only for registered trademarks"
+        },
+        {
+          "item": "Superlatives without proof",
+          "pattern": "#1, melhor do Brasil, o mais vendido",
+          "severity": "high",
+          "action": "Listing removal after complaint",
+          "alternative": "Use verifiable metrics: '10.000+ vendidos', 'Avaliação 4.9/5.0'"
+        },
+        {
+          "item": "Contact information",
+          "pattern": "Phone, email, WhatsApp, Instagram",
+          "severity": "critical",
+          "action": "Immediate listing removal + account warning",
+          "alternative": "Use Mercado Livre messaging system only"
+        },
+        {
+          "item": "External marketplace mentions",
+          "pattern": "Shopee, Amazon, OLX, etc.",
+          "severity": "critical",
+          "action": "Account suspension risk",
+          "alternative": "Never mention competitors"
+        },
+        {
+          "item": "Promotional phrases",
+          "pattern": "Frete grátis, Compre já, Promoção",
+          "severity": "low",
+          "action": "Reduced search visibility",
+          "alternative": "Let ML badges show benefits (auto-generated)"
+        },
+        {
+          "item": "All caps",
+          "severity": "low",
+          "action": "Lower search ranking",
+          "alternative": "Use sentence case: 'Produto Original' not 'PRODUTO ORIGINAL'"
+        },
+        {
+          "item": "Keyword stuffing",
+          "pattern": "Repetition of same words",
+          "severity": "medium",
+          "action": "Search penalty",
+          "alternative": "Natural language, each keyword once"
+        }
+      ],
+      "best_practices": [
+        "Start with brand name for branded products",
+        "Include model/reference number",
+        "Use exact product type (not generic 'produto')",
+        "Mention key specs (size, color, material)"
+      ],
+      "examples": {
+        "good": [
+          "Tênis Nike Air Max 90 Masculino Branco Tamanho 42",
+          "Panela de Pressão Rochedo Allegra 4,5L Antiaderente",
+          "Smartphone Samsung Galaxy A54 128GB 5G Preto"
+        ],
+        "bad": [
+          "🔥PROMOÇÃO🔥 MELHOR TÊNIS DO BRASIL #1 ★★★★★",
+          "PRODUTO ORIGINAL!!! FRETE GRÁTIS!!! COMPRE JÁ!!!",
+          "Tênis Nike Air Max Tênis Masculino Tênis Esportivo"
+        ]
+      }
+    },
+
+    "description_policies": {
+      "max_length": 50000,
+      "formatting": "HTML allowed (limited tags)",
+      "prohibited": [
+        {
+          "item": "External links",
+          "pattern": "Links to other marketplaces, websites, social media",
+          "severity": "critical",
+          "action": "Immediate removal + account suspension risk",
+          "alternative": "Use Mercado Livre's official store link only"
+        },
+        {
+          "item": "Contact info in description",
+          "severity": "critical",
+          "action": "Listing removal",
+          "alternative": "Use ML messaging, never WhatsApp/phone/email"
+        },
+        {
+          "item": "Promotional language",
+          "pattern": "Compre agora, Oferta imperdível, Última unidade",
+          "severity": "medium",
+          "action": "Lower quality score",
+          "alternative": "Focus on product benefits and specs"
+        },
+        {
+          "item": "Generic copy-paste descriptions",
+          "severity": "medium",
+          "action": "Lower search ranking",
+          "alternative": "Write unique, specific descriptions"
+        },
+        {
+          "item": "False scarcity",
+          "pattern": "Só hoje, Últimas unidades (when false)",
+          "severity": "high",
+          "action": "Consumer protection violation, account risk",
+          "alternative": "Honest availability info"
+        }
+      ],
+      "required_sections": [
+        "Product description (what it is)",
+        "Key features (specifications)",
+        "Dimensions and weight",
+        "What's included in the box",
+        "Usage instructions (if applicable)",
+        "Warranty information",
+        "Customer service contact (SAC)"
+      ],
+      "best_practices": [
+        "Use bullet points for readability",
+        "Include technical specifications table",
+        "Add FAQs for common questions",
+        "Mention certifications (INMETRO, ANVISA) if applicable",
+        "Use clear, objective language (no hyperbole)"
+      ]
+    },
+
+    "image_policies": {
+      "minimum_resolution": "500x500px",
+      "recommended_resolution": "1200x1200px",
+      "maximum_file_size": "10MB per image",
+      "max_images": 12,
+      "format": ["JPG", "PNG"],
+      "main_image_requirements": {
+        "background": "White or neutral preferred (better conversion)",
+        "product_visibility": "Product must occupy at least 75% of frame",
+        "prohibited": [
+          "Watermarks or logos (except brand logo on product itself)",
+          "Borders or frames",
+          "Text overlays (except product packaging text)",
+          "Collages of multiple angles (1 product per image)",
+          "Blurry or low-quality photos"
+        ],
+        "required": "Show actual product (not just mockups or stock photos)"
+      },
+      "secondary_images": {
+        "recommendations": [
+          "Product from different angles (front, back, sides)",
+          "Close-ups of key features",
+          "Product in use (lifestyle shots)",
+          "Size comparison or scale reference",
+          "Packaging (what customer will receive)",
+          "Infographic with specs (optional but effective)"
+        ]
+      },
+      "prohibited_content": [
+        "Images from other sellers (copyright violation)",
+        "Watermarks with competitor names",
+        "Misleading images (different product/color)",
+        "Sexually suggestive content",
+        "Violence or weapons (except permitted categories)"
+      ]
+    },
+
+    "brand_registry": {
+      "program_name": "Marca Própria ML",
+      "requirement": "Registered trademark with INPI (Instituto Nacional da Propriedade Industrial)",
+      "benefits": [
+        "Brand protection (prevents unauthorized use)",
+        "Access to Brand Store (custom storefront)",
+        "Enhanced analytics",
+        "Priority support",
+        "Higher trust score"
+      ],
+      "process": [
+        "1. Register trademark with INPI",
+        "2. Apply for Marca Própria on ML Seller Center",
+        "3. Submit proof of trademark registration",
+        "4. Wait 15-30 days for approval"
+      ]
+    },
+
+    "pricing_policies": {
+      "prohibited": [
+        {
+          "item": "False discounts",
+          "pattern": "Showing inflated 'original price' to fake discount",
+          "severity": "critical",
+          "action": "Consumer defense violation (CDC), legal risk",
+          "regulation": "Lei 13.543/2017 - Discount must be against real previous price (last 30 days)"
+        },
+        {
+          "item": "Price discrimination",
+          "pattern": "Different prices for same product without justification",
+          "severity": "high",
+          "action": "Marketplace complaint, customer churn"
+        }
+      ],
+      "best_practices": [
+        "Use ML's automatic pricing tools (Anuncios inteligentes)",
+        "Monitor competitor pricing",
+        "Offer combo deals instead of false discounts",
+        "Free shipping threshold: R$79+ (typical ML Full benefit)"
+      ]
+    },
+
+    "shipping_policies": {
+      "mercado_envios": "Mandatory for most categories",
+      "full_program": {
+        "name": "Mercado Envios Full",
+        "requirement": "Send inventory to ML warehouses",
+        "benefits": ["Free shipping badge", "Faster delivery", "Prime-like experience"]
+      },
+      "flex_program": {
+        "name": "Mercado Envios Flex",
+        "requirement": "Ship from own stock with ML logistics partners",
+        "benefits": ["Free shipping for buyers", "Lower fees than Full"]
+      },
+      "handling_time": {
+        "recommended": "1-2 business days",
+        "maximum": "Varies by category (typically 3-5 days)",
+        "penalty": "Late shipments reduce seller reputation score"
+      }
+    },
+
+    "prohibited_categories": [
+      "Weapons and ammunition (except permitted hunting gear with license)",
+      "Drugs and narcotics (including CBD without ANVISA approval)",
+      "Counterfeit goods",
+      "Tobacco products",
+      "Adult content (pornography)",
+      "Live animals (except specific permitted categories)",
+      "Prescription medications",
+      "Police/military items (uniforms, badges)",
+      "Lottery tickets and gambling"
+    ],
+
+    "seller_reputation": {
+      "metrics": [
+        "Sales volume",
+        "Customer satisfaction (ratings)",
+        "Claims and disputes",
+        "Cancellation rate",
+        "Late shipments",
+        "Response time to questions"
+      ],
+      "colors": {
+        "red": "0-499 points - New seller",
+        "orange": "500-999 points",
+        "yellow": "1000-4999 points",
+        "light_green": "5000-9999 points",
+        "green": "10000+ points - Top seller"
+      },
+      "importance": "Higher reputation = better search ranking + buyer trust"
+    }
+  },
+
+  "shopee": {
+    "platform_overview": {
+      "full_name": "Shopee Brasil",
+      "market_share": "~15-20% of Brazilian e-commerce",
+      "audience": "Younger demographics (18-35), C/D classes, mobile-first",
+      "trust_level": "Medium-high (growing fast)",
+      "seller_tiers": ["Standard", "Preferred Seller", "Shopee Mall"]
+    },
+
+    "title_policies": {
+      "max_length": 255,
+      "encoding": "UTF-8",
+      "emojis_allowed": true,
+      "emoji_limit": 3,
+      "prohibited": [
+        {
+          "item": "Excessive emojis",
+          "pattern": "More than 3 emojis",
+          "severity": "medium",
+          "action": "Listing hidden from search"
+        },
+        {
+          "item": "Keyword stuffing",
+          "severity": "high",
+          "action": "Search penalty + listing removal risk"
+        },
+        {
+          "item": "Contact information",
+          "severity": "critical",
+          "action": "Account suspension"
+        },
+        {
+          "item": "Misleading titles",
+          "pattern": "Wrong brand, fake specs",
+          "severity": "critical",
+          "action": "Listing removal + reputation damage"
+        }
+      ],
+      "best_practices": [
+        "Use 1-2 relevant emojis at start (attracts attention)",
+        "Include brand, model, key specs",
+        "Optimize for mobile viewing (first 50 chars most important)",
+        "Use keywords customers search for"
+      ],
+      "examples": {
+        "good": [
+          "🔥 Tênis Nike Air Max Masculino Original - Tam 38 ao 44",
+          "💄 Kit Maquiagem Completo Ruby Rose - 12 Itens Profissional",
+          "📱 Capinha Samsung Galaxy A54 Silicone Anti-Impacto"
+        ],
+        "bad": [
+          "🔥💥⚡✨🎉 SUPER MEGA PROMOÇÃO TÊNIS NIKE ★★★★★",
+          "Tênis Nike Tênis Esportivo Tênis Masculino Tênis Corrida",
+          "COMPRE JÁ!!! ZAPP 11-99999-9999"
+        ]
+      }
+    },
+
+    "description_policies": {
+      "max_length": 3000,
+      "formatting": "Plain text + limited HTML",
+      "prohibited": [
+        {
+          "item": "External links",
+          "severity": "critical",
+          "action": "Immediate listing removal"
+        },
+        {
+          "item": "Contact info",
+          "severity": "critical",
+          "action": "Account ban risk"
+        },
+        {
+          "item": "Competitor mentions",
+          "severity": "high",
+          "action": "Listing removal"
+        }
+      ],
+      "required_sections": [
+        "Product description",
+        "Specifications",
+        "What's included",
+        "Shipping info",
+        "Return policy"
+      ],
+      "shopee_specific": {
+        "hashtags": "Allowed and recommended for discoverability",
+        "hashtag_limit": 5,
+        "hashtag_examples": ["#FreteGratis", "#CashbackShopee", "#OfertaDoDia"]
+      }
+    },
+
+    "image_policies": {
+      "minimum_resolution": "800x800px",
+      "recommended_resolution": "1024x1024px",
+      "maximum_file_size": "2MB per image",
+      "max_images": 9,
+      "format": ["JPG", "PNG"],
+      "main_image_requirements": {
+        "background": "White background highly recommended",
+        "product_visibility": "75%+ of frame",
+        "prohibited": [
+          "Watermarks (except Shopee official or brand logo)",
+          "Excessive text overlays",
+          "Blurry images",
+          "Collages"
+        ]
+      },
+      "shopee_specific": {
+        "video": {
+          "allowed": true,
+          "max_duration": "60 seconds",
+          "recommended": "10-15 seconds",
+          "format": "MP4",
+          "note": "Videos increase conversion by ~30%"
+        },
+        "shopee_live": "Live streaming available for Preferred Sellers"
+      }
+    },
+
+    "brand_registry": {
+      "program_name": "Shopee Mall",
+      "requirement": "CNPJ + Brand owner or authorized distributor",
+      "benefits": [
+        "Shopee Mall badge (trust symbol)",
+        "Priority customer support",
+        "Marketing campaign inclusion",
+        "Higher search visibility",
+        "Access to Shopee Coins cashback program"
+      ],
+      "process": [
+        "1. Apply via Shopee Seller Center",
+        "2. Submit CNPJ, brand authorization, business license",
+        "3. Product quality review",
+        "4. Approval within 7-15 days"
+      ]
+    },
+
+    "pricing_policies": {
+      "shopee_coins": "Cashback program - sellers can offer 1-50% coins back",
+      "flash_sales": "Discounts required (min 20% off) for flash sale participation",
+      "free_shipping": {
+        "vouchers": "Shopee provides free shipping vouchers",
+        "seller_absorption": "Seller can choose to absorb shipping costs",
+        "recommendation": "Offer free shipping for orders R$50+"
+      },
+      "pricing_tips": [
+        "Use Shopee's pricing analytics",
+        "Participate in campaigns (9.9, 11.11, 12.12)",
+        "Bundle deals increase average order value"
+      ]
+    },
+
+    "shipping_policies": {
+      "shopee_garantida": {
+        "name": "Entrega Shopee Garantida",
+        "requirement": "Partner with Shopee logistics",
+        "benefits": ["Guaranteed delivery badge", "Higher search ranking"]
+      },
+      "handling_time": {
+        "recommended": "1-2 days",
+        "maximum": "3 days (penalty for late shipments)"
+      },
+      "tracking": "Mandatory tracking for all orders"
+    },
+
+    "prohibited_categories": [
+      "Sexually suggestive content (strict enforcement)",
+      "Violence, weapons, military items",
+      "Counterfeit or replica goods",
+      "Tobacco and alcohol",
+      "Prescription drugs",
+      "Live animals",
+      "Gambling items",
+      "Hate speech or offensive content"
+    ],
+
+    "shopee_specific_features": {
+      "chat_system": {
+        "response_time_target": "Within 12 hours",
+        "auto_replies": "Recommended for common questions",
+        "rating_impact": "Chat response time affects seller rating"
+      },
+      "vouchers": {
+        "shop_vouchers": "Seller creates own discount vouchers",
+        "shopee_vouchers": "Platform-wide vouchers (Shopee absorbs cost)",
+        "recommendation": "Use shop vouchers to boost sales during campaigns"
+      },
+      "shopee_live": {
+        "eligibility": "Preferred Sellers only",
+        "benefits": "Live product demos, real-time Q&A, flash sales",
+        "engagement": "Significantly boosts conversion"
+      }
+    },
+
+    "seller_reputation": {
+      "metrics": [
+        "Star rating (1-5 stars)",
+        "Response rate and time",
+        "Order completion rate",
+        "Return/refund rate",
+        "Product quality score",
+        "Logistics performance"
+      ],
+      "badges": [
+        "Preferred Seller (5-star sellers with high volume)",
+        "Shopee Mall (verified brands)",
+        "Fast Delivery (ships within 24h)"
+      ]
+    }
+  },
+
+  "amazon_br": {
+    "platform_overview": {
+      "full_name": "Amazon Brasil",
+      "market_share": "~10-15% of Brazilian e-commerce (growing)",
+      "audience": "Middle to upper class, tech-savvy, Prime members",
+      "trust_level": "Very high (global brand reputation)",
+      "seller_programs": ["Individual", "Professional", "Vendor Central (invite-only)"]
+    },
+
+    "title_policies": {
+      "max_length": 200,
+      "recommended_length": "80-100 characters (mobile optimization)",
+      "format": "Brand + Key Features + Product Type + Size/Model",
+      "prohibited": [
+        {
+          "item": "ALL CAPS",
+          "severity": "high",
+          "action": "Listing suppression (hidden from search)",
+          "alternative": "Use title case: 'Tênis Nike' not 'TÊNIS NIKE'"
+        },
+        {
+          "item": "Promotional language",
+          "pattern": "Promoção, Oferta, Desconto, Frete Grátis",
+          "severity": "high",
+          "action": "Listing suppression"
+        },
+        {
+          "item": "Seller information",
+          "pattern": "Company name, contact info",
+          "severity": "high",
+          "action": "Listing removed"
+        },
+        {
+          "item": "Subjective claims",
+          "pattern": "Melhor, Perfeito, Incrível",
+          "severity": "medium",
+          "action": "Quality score reduction"
+        },
+        {
+          "item": "Special characters",
+          "pattern": "★ ® © ™ (except ® for registered trademarks)",
+          "severity": "medium",
+          "action": "Listing quality downgrade"
+        },
+        {
+          "item": "HTML or special formatting",
+          "severity": "high",
+          "action": "Listing rejection"
+        }
+      ],
+      "required_structure": "Brand + Differentiator + Product Type + Size/Color/Model",
+      "examples": {
+        "good": [
+          "Nike Air Max 90 Tênis Masculino Corrida Branco Tamanho 42",
+          "Kindle 11ª Geração Leitor de E-books Tela 6\" 16GB Preto",
+          "Samsung Galaxy A54 5G Smartphone 128GB Câmera 50MP Violeta"
+        ],
+        "bad": [
+          "TÊNIS NIKE AIR MAX MELHOR PREÇO DO BRASIL!!!",
+          "Promoção Imperdível - Kindle - Frete Grátis - Compre Já",
+          "★★★★★ Samsung A54 Loja XYZ - Zap 11-99999"
+        ]
+      }
+    },
+
+    "description_policies": {
+      "max_length": 2000,
+      "formatting": "HTML allowed (specific tags only)",
+      "required_sections": [
+        "Product overview",
+        "Key features (bullet points)",
+        "Technical specifications",
+        "What's in the box",
+        "Warranty information"
+      ],
+      "bullet_points": {
+        "max_bullets": 5,
+        "max_length_per_bullet": 255,
+        "best_practices": [
+          "Start with key benefit, not feature",
+          "Include searchable keywords naturally",
+          "Mention compatibility if applicable",
+          "Highlight unique selling points",
+          "Use clear, concise language"
+        ],
+        "prohibited": [
+          "Promotional language",
+          "Pricing information",
+          "Shipping/warranty details (goes in separate fields)",
+          "Contact information",
+          "HTML formatting in bullets"
+        ]
+      },
+      "a_plus_content": {
+        "eligibility": "Brand Registry required",
+        "benefits": [
+          "Enhanced product descriptions with images",
+          "Comparison charts",
+          "Brand storytelling",
+          "Higher conversion rate (+5-10%)"
+        ]
+      }
+    },
+
+    "image_policies": {
+      "minimum_resolution": "1000x1000px",
+      "recommended_resolution": "2000x2000px or higher",
+      "maximum_file_size": "10MB per image",
+      "max_images": 9,
+      "format": ["JPG", "PNG"],
+      "main_image_requirements": {
+        "background": "Pure white (RGB 255, 255, 255) MANDATORY",
+        "product_coverage": "85%+ of frame",
+        "orientation": "Product centered",
+        "prohibited": [
+          "Any background other than pure white",
+          "Text, watermarks, logos (except product's own branding)",
+          "Borders, frames, or graphics",
+          "Multiple products (unless sold as set)",
+          "Mannequins or models (for main image only)",
+          "Props or accessories not included"
+        ],
+        "required": "Professional-quality photo of actual product"
+      },
+      "secondary_images": {
+        "allowed": [
+          "Product in use (lifestyle shots)",
+          "Different angles",
+          "Close-ups of features",
+          "Size/scale reference",
+          "Infographics with text (allowed in secondary only)"
+        ],
+        "recommendations": [
+          "Use all 9 image slots",
+          "Show product from every angle",
+          "Include dimension diagrams",
+          "Demonstrate key features visually"
+        ]
+      },
+      "image_requirements_strict": "Amazon is most strict about images - non-compliance = listing suppression"
+    },
+
+    "brand_registry": {
+      "program_name": "Amazon Brand Registry",
+      "requirement": "Active registered trademark with INPI (Instituto Nacional da Propriedade Industrial)",
+      "process": [
+        "1. Register trademark with INPI (takes 1-3 years)",
+        "2. Enroll in Brand Registry via Amazon Seller Central",
+        "3. Verify trademark ownership",
+        "4. Approval within 5-7 days"
+      ],
+      "benefits": [
+        "Brand protection (report violations)",
+        "A+ Content (Enhanced Brand Content)",
+        "Sponsored Brands ads",
+        "Amazon Stores (custom storefront)",
+        "Brand Analytics (search terms, demographics)",
+        "Increased control over listings"
+      ],
+      "critical": "HIGHLY RECOMMENDED - without it, you have limited control over your brand on Amazon"
+    },
+
+    "pricing_policies": {
+      "buy_box": {
+        "description": "Prime placement 'Adicionar ao carrinho' button",
+        "factors": [
+          "Price competitiveness",
+          "Fulfillment method (FBA preferred)",
+          "Seller performance metrics",
+          "Stock availability",
+          "Shipping speed"
+        ],
+        "importance": "~80% of sales go through Buy Box"
+      },
+      "pricing_rules": [
+        "Must be competitive with other Amazon sellers",
+        "Cannot list higher than your own website (Amazon monitors)",
+        "Use Amazon's automated pricing tools for Buy Box",
+        "Avoid frequent price changes (looks suspicious)"
+      ],
+      "prohibited": [
+        {
+          "item": "Reference prices without basis",
+          "pattern": "De: R$500 Por: R$100 (when R$500 never existed)",
+          "severity": "critical",
+          "action": "Account suspension risk"
+        }
+      ]
+    },
+
+    "shipping_policies": {
+      "fba": {
+        "name": "Fulfillment by Amazon (FBA)",
+        "requirement": "Send inventory to Amazon warehouses",
+        "benefits": [
+          "Prime eligibility (free 2-day shipping)",
+          "Higher Buy Box win rate",
+          "Amazon handles customer service and returns",
+          "Multi-channel fulfillment available"
+        ],
+        "costs": "Storage fees + fulfillment fees (higher than self-fulfillment but better conversion)"
+      },
+      "fbm": {
+        "name": "Fulfillment by Merchant (FBM)",
+        "requirement": "Ship from own inventory",
+        "challenges": "Lower Buy Box win rate, no Prime badge (unless Seller Fulfilled Prime)",
+        "when_to_use": "Large/heavy items, low-margin products, custom/made-to-order"
+      },
+      "handling_time": {
+        "recommended": "0-2 days",
+        "impact": "Directly affects Buy Box eligibility"
+      }
+    },
+
+    "prohibited_categories": [
+      "Counterfeit or replica goods (zero tolerance)",
+      "Weapons and ammunition",
+      "Drugs (including CBD without approval)",
+      "Tobacco and alcohol",
+      "Live animals",
+      "Medical devices without certification",
+      "Pesticides and hazardous materials",
+      "Items that violate intellectual property"
+    ],
+
+    "performance_metrics": {
+      "order_defect_rate": {
+        "target": "<1%",
+        "penalty": ">1% = account health risk",
+        "includes": ["Negative feedback", "A-to-Z claims", "Chargebacks"]
+      },
+      "cancellation_rate": {
+        "target": "<2.5%",
+        "penalty": ">2.5% = listing suppression or account suspension"
+      },
+      "late_shipment_rate": {
+        "target": "<4%",
+        "penalty": ">4% = performance warning"
+      },
+      "account_health": "Dashboard with green/yellow/red indicators - stay in green zone"
+    },
+
+    "amazon_specific": {
+      "variation_listings": {
+        "use_case": "Same product in different sizes/colors",
+        "requirement": "Parent-child relationship",
+        "benefits": "Consolidated reviews, better SEO",
+        "rules": "Variations must differ only in size, color, or style (not different products)"
+      },
+      "early_reviewer_program": {
+        "description": "Amazon incentivizes first reviews",
+        "cost": "$60 per ASIN (if available)",
+        "benefit": "Get initial reviews faster"
+      },
+      "vine_program": {
+        "description": "Amazon invites trusted reviewers to test products",
+        "eligibility": "Brand Registry + enrolled in program",
+        "benefit": "High-quality reviews from verified reviewers"
+      }
+    }
+  },
+
+  "magalu": {
+    "platform_overview": {
+      "full_name": "Magazine Luiza (Magalu)",
+      "market_share": "~10% of Brazilian e-commerce",
+      "audience": "Broad demographics, strong omnichannel (physical stores + online)",
+      "trust_level": "Very high (Brazilian brand, 60+ years history)",
+      "seller_program": "Parceiro Magalu (Marketplace)"
+    },
+
+    "title_policies": {
+      "max_length": 150,
+      "encoding": "UTF-8",
+      "required_info": [
+        "Brand name",
+        "Product type",
+        "Model/reference",
+        "Key attribute (size, color)"
+      ],
+      "prohibited": [
+        {
+          "item": "Promotional phrases",
+          "severity": "medium",
+          "action": "Listing quality downgrade"
+        },
+        {
+          "item": "Contact information",
+          "severity": "critical",
+          "action": "Listing removal"
+        },
+        {
+          "item": "Brand mismatch",
+          "pattern": "Title brand must match registered brand",
+          "severity": "high",
+          "action": "Listing rejection"
+        },
+        {
+          "item": "Special characters in excess",
+          "severity": "low",
+          "action": "Lower search ranking"
+        }
+      ],
+      "best_practices": [
+        "Clear, objective titles",
+        "Include brand + model + key spec",
+        "Family-friendly language (Magalu has strict content policy)"
+      ],
+      "examples": {
+        "good": [
+          "Notebook Dell Inspiron 15 Intel Core i5 8GB 256GB SSD 15.6\"",
+          "Geladeira Brastemp Frost Free 375L 2 Portas Inox",
+          "Smart TV LG 50\" 4K UHD ThinQ AI WebOS 6.0"
+        ],
+        "bad": [
+          "SUPER OFERTA!!! NOTEBOOK DELL MELHOR PREÇO!!!",
+          "Geladeira Brastemp - Loja XYZ - Zap 11-99999",
+          "TV LG Smart 4K Promoção Imperdível Compre Já"
+        ]
+      }
+    },
+
+    "description_policies": {
+      "max_length": 8000,
+      "formatting": "HTML allowed (limited tags)",
+      "required_sections": [
+        "Product description",
+        "Technical specifications",
+        "What's included",
+        "Dimensions and weight",
+        "Warranty information"
+      ],
+      "prohibited": [
+        {
+          "item": "External links",
+          "severity": "critical",
+          "action": "Immediate removal"
+        },
+        {
+          "item": "Contact information",
+          "severity": "critical",
+          "action": "Account warning"
+        },
+        {
+          "item": "Adult or offensive content",
+          "severity": "critical",
+          "action": "Account suspension (Magalu is very family-friendly)"
+        }
+      ],
+      "magalu_specific": {
+        "tone": "Family-friendly, inclusive, positive",
+        "values": "Align with Magalu's brand values (accessibility, diversity, innovation)"
+      }
+    },
+
+    "image_policies": {
+      "minimum_resolution": "800x800px",
+      "recommended_resolution": "1200x1200px",
+      "maximum_file_size": "5MB per image",
+      "max_images": 10,
+      "format": ["JPG", "PNG"],
+      "main_image_requirements": {
+        "background": "White or neutral recommended",
+        "product_visibility": "75%+ of frame",
+        "prohibited": [
+          "Watermarks (except brand logo)",
+          "Text overlays",
+          "Borders",
+          "Low quality or blurry images"
+        ]
+      },
+      "family_friendly": "NO adult, violent, or offensive imagery (strict enforcement)"
+    },
+
+    "brand_registry": {
+      "program_name": "Parceiro Magalu Verificado",
+      "requirement": "CNPJ + brand authorization or trademark",
+      "benefits": [
+        "Verified seller badge",
+        "Priority support",
+        "Marketing campaign participation",
+        "Better search placement"
+      ],
+      "application": "Via Magalu Seller Portal"
+    },
+
+    "pricing_policies": {
+      "price_matching": "Magalu monitors competitor prices",
+      "promotions": "Participate in Magalu campaigns (Aniversário Magalu, Black Friday)",
+      "free_shipping": {
+        "threshold": "Typically R$99+ (Magalu absorbs or seller contributes)",
+        "recommendation": "Offer competitive shipping to match Magalu's standards"
+      }
+    },
+
+    "shipping_policies": {
+      "magalu_entregas": {
+        "name": "Magalu Entregas",
+        "requirement": "Partner with Magalu logistics",
+        "benefits": ["Faster delivery", "Magalu branding on package"]
+      },
+      "handling_time": {
+        "recommended": "1-2 days",
+        "maximum": "3 days"
+      },
+      "tracking": "Mandatory for all shipments"
+    },
+
+    "prohibited_categories": [
+      "Adult content (strictly prohibited)",
+      "Alcohol and tobacco",
+      "Weapons",
+      "Counterfeit goods",
+      "Prescription medications",
+      "Live animals",
+      "Gambling items"
+    ],
+
+    "seller_reputation": {
+      "metrics": [
+        "Order fulfillment rate",
+        "Customer satisfaction (ratings)",
+        "Response time",
+        "Cancellation rate",
+        "Return rate",
+        "Late shipments"
+      ],
+      "seller_levels": [
+        "Bronze (new sellers)",
+        "Prata (consistent performance)",
+        "Ouro (top performers)",
+        "Diamante (elite sellers)"
+      ]
+    },
+
+    "magalu_specific": {
+      "lu_assistant": {
+        "description": "Lu (Magalu's virtual assistant) may showcase products",
+        "eligibility": "Top-rated sellers + high-quality listings",
+        "benefit": "Massive visibility boost"
+      },
+      "physical_stores": {
+        "integration": "Products may be eligible for 'Retire na Loja' (pick up in store)",
+        "benefit": "Omnichannel advantage - customer can see/touch product"
+      },
+      "magalu_ads": {
+        "description": "Sponsored product ads on Magalu platform",
+        "requirement": "Parceiro Magalu account",
+        "recommendation": "Use for high-margin products"
+      }
+    }
+  },
+
+  "cross_platform_best_practices": {
+    "title_optimization": {
+      "research_keywords": "Use each marketplace's search bar autocomplete to find popular terms",
+      "mobile_first": "First 50-60 characters are most important (mobile truncation)",
+      "brand_consistency": "Use same brand name across all platforms",
+      "avoid": "Copy-pasting same title everywhere - customize per platform (char limits vary)"
+    },
+    "description_optimization": {
+      "unique_content": "Write unique descriptions per platform (avoid duplicate content penalties)",
+      "bullet_points": "Use bullets for scannability",
+      "include_keywords": "Naturally include search terms customers use",
+      "answer_faqs": "Address common questions preemptively"
+    },
+    "image_optimization": {
+      "professional_photography": "Invest in high-quality photos - ROI is significant",
+      "white_background": "Works best across all platforms",
+      "show_scale": "Include size reference in at least one image",
+      "lifestyle_shots": "Show product in use (increases emotional connection)",
+      "infographics": "Highlight key features visually (increases conversion)"
+    },
+    "pricing_strategy": {
+      "competitive_research": "Monitor competitors on each platform",
+      "marketplace_fees": "Factor in: commission (10-16%), payment fees (2-4%), shipping",
+      "psychological_pricing": "R$99,90 converts better than R$100,00",
+      "bundle_deals": "Increase average order value"
+    },
+    "compliance_universal": {
+      "consumer_defense_code": "All platforms enforce CDC (Lei 8.078/1990)",
+      "return_policy": "7-day return right (mandatory by law)",
+      "warranty": "Clearly state warranty terms (legal requirement)",
+      "contact_info": "Provide SAC (customer service) contact"
+    }
+  },
+
+  "legal_requirements_brazil": {
+    "cdc": {
+      "name": "Código de Defesa do Consumidor (Lei 8.078/1990)",
+      "key_provisions": [
+        "7-day return right (direito de arrependimento) for online purchases",
+        "Clear product information (specs, origin, risks)",
+        "Transparent pricing (all fees disclosed upfront)",
+        "Warranty obligations (90 days essential goods, 30 days non-essential)"
+      ]
+    },
+    "ecommerce_law": {
+      "name": "Decreto 7.962/2013 (E-commerce Regulation)",
+      "requirements": [
+        "Clear product description before purchase",
+        "Summary of purchase (quantity, price, shipping, total) before checkout",
+        "Contact info (name, CNPJ, address, customer service)",
+        "Payment security information"
+      ]
+    },
+    "privacy": {
+      "name": "LGPD - Lei Geral de Proteção de Dados (Lei 13.709/2018)",
+      "requirements": [
+        "Customer data protection",
+        "Clear privacy policy",
+        "Consent for data usage",
+        "Right to data deletion"
+      ]
+    }
+  },
+
+  "notes": {
+    "update_frequency": "Marketplace policies change frequently - verify with official seller central docs quarterly",
+    "priority": "Focus on ML + Shopee first (80% of market share), then Amazon + Magalu",
+    "localization": "All content must be in Portuguese (BR) with correct grammar and cultural context",
+    "customer_service": "Fast response time is critical across all platforms (aim for <12h)"
+  }
+}

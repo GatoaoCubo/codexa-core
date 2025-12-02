@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "agent": "photo_agent_brand",
+    "version": "1.0.0",
+    "timestamp": "2025-11-15T15:00:00Z",
+    "input_hash": "def456abc789012345678901234567890123456789012345678901234567890",
+    "workflow_type": "brand_social_media"
+  },
+  "input": {
+    "subject": "Garrafa de água reutilizável ecológica - marca HeroWater",
+    "brand_name": "HeroWater",
+    "brand_archetype": "Hero",
+    "target_platforms": ["instagram_feed", "instagram_stories", "tiktok", "pinterest"],
+    "brand_strategy_path": "USER_DOCS/Marca/hero_water_brand_strategy.md"
+  },
+  "brand_identity": {
+    "name": "HeroWater",
+    "archetype": "Hero",
+    "colors": ["#FF5722", "#212121", "#FFFFFF", "#FFC107", "#4CAF50"],
+    "mood": "Enérgico, determinado, inspirador",
+    "values": ["Sustentabilidade", "Performance", "Coragem", "Inovação", "Autenticidade"]
+  },
+  "quality_metrics": {
+    "total_prompts": 9,
+    "validation_passed": 9,
+    "validation_failed": 0,
+    "avg_validation_score": 0.91,
+    "avg_character_count": 442,
+    "brand_consistency_status": "EXCELLENT",
+    "visual_consistency_score": 0.94
+  },
+  "brand_compliance": {
+    "colors_from_palette": true,
+    "mood_consistency": true,
+    "archetype_aligned": true,
+    "pnl_triggers_hero": true,
+    "8_point_checklist_pass": true
+  },
+  "platform_distribution": {
+    "instagram_feed": 7,
+    "instagram_stories": 2,
+    "tiktok": 2,
+    "pinterest": 2
+  },
+  "aspect_ratios": {
+    "1:1": 4,
+    "4:5": 3,
+    "9:16": 2
+  },
+  "performance": {
+    "generation_time_ms": 9200,
+    "validation_time_ms": 1500,
+    "total_time_ms": 10700,
+    "target_met": true
+  },
+  "integration": {
+    "marca_agent_integrated": true,
+    "ready_for_social": true,
+    "campaign_theme": "Hero's Journey - Transformação através da ação sustentável"
+  },
+  "trinity_files": {
+    "markdown": "brand_hero_water.md",
+    "llm_json": "brand_hero_water.llm.json",
+    "metadata_json": "brand_hero_water.meta.json"
+  }
+}

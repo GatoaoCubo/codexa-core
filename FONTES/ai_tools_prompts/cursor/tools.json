@@ -1,0 +1,227 @@
+{
+  "tools": [
+    {
+      "name": "codebase_search",
+      "description": "Semantic code search across directories using natural language queries",
+      "purpose": "Understand code behavior by meaning, not just text matching",
+      "parameters": {
+        "query": "Natural language description of what to find",
+        "directory": "Optional: Scope search to specific directory"
+      },
+      "best_practices": [
+        "Start with broad queries, then narrow",
+        "Use natural language descriptions",
+        "Try multiple phrasings",
+        "Trace symbols to definitions"
+      ]
+    },
+    {
+      "name": "read_file",
+      "description": "Read file contents with optional line range selection",
+      "purpose": "View and understand file contents",
+      "parameters": {
+        "file_path": "Path to file to read",
+        "start_line": "Optional: Starting line number",
+        "end_line": "Optional: Ending line number"
+      },
+      "constraints": {
+        "max_lines_per_call": 250
+      },
+      "best_practices": [
+        "Read files before editing",
+        "Use line ranges for large files",
+        "Check file completeness"
+      ]
+    },
+    {
+      "name": "grep_search",
+      "description": "Fast regex-based text matching with case sensitivity options",
+      "purpose": "Find exact text patterns quickly",
+      "parameters": {
+        "pattern": "Regex pattern to search",
+        "case_sensitive": "Boolean: Case-sensitive matching",
+        "directory": "Optional: Scope to specific directory"
+      },
+      "best_practices": [
+        "Use for exact text matching",
+        "Escape regex special characters",
+        "Combine with semantic search",
+        "Use case-insensitive for broader results"
+      ]
+    },
+    {
+      "name": "file_search",
+      "description": "Fuzzy filename matching returning up to 10 results",
+      "purpose": "Find files by name or pattern",
+      "parameters": {
+        "filename_pattern": "Fuzzy pattern to match filenames"
+      },
+      "constraints": {
+        "max_results": 10
+      },
+      "best_practices": [
+        "Use partial names for fuzzy matching",
+        "Start with broad patterns",
+        "Combine with directory listing"
+      ]
+    },
+    {
+      "name": "edit_file",
+      "description": "Modify or create files with context-aware editing",
+      "purpose": "Make code changes safely and precisely",
+      "parameters": {
+        "file_path": "Path to file to edit/create",
+        "edits": "Array of edit operations",
+        "explanation": "Mandatory: Describe changes and why"
+      },
+      "constraints": {
+        "must_be_runnable": true,
+        "include_imports": true,
+        "max_linter_attempts": 3
+      },
+      "best_practices": [
+        "Read file first",
+        "Make minimal focused changes",
+        "Include all necessary imports",
+        "Maintain code style",
+        "Verify syntax correctness",
+        "Fix linter errors"
+      ]
+    },
+    {
+      "name": "search_replace",
+      "description": "Single-instance find-and-replace with surrounding context",
+      "purpose": "Replace specific text occurrences",
+      "parameters": {
+        "file_path": "Path to file",
+        "search_text": "Exact text to find",
+        "replace_text": "Replacement text",
+        "context_lines": "Number of context lines to show"
+      },
+      "best_practices": [
+        "Provide sufficient context",
+        "Verify unique matches",
+        "Use for simple replacements"
+      ]
+    },
+    {
+      "name": "delete_file",
+      "description": "Remove files with graceful error handling",
+      "purpose": "Delete files safely",
+      "parameters": {
+        "file_path": "Path to file to delete",
+        "explanation": "Mandatory: Reason for deletion"
+      },
+      "best_practices": [
+        "Understand file purpose before deletion",
+        "Check for dependencies",
+        "Explain reasoning clearly"
+      ]
+    },
+    {
+      "name": "edit_notebook",
+      "description": "Jupyter notebook cell editing and creation",
+      "purpose": "Modify Jupyter notebooks",
+      "parameters": {
+        "notebook_path": "Path to .ipynb file",
+        "cell_operations": "Array of cell edit operations",
+        "explanation": "Mandatory: Describe changes"
+      },
+      "best_practices": [
+        "Preserve cell outputs when possible",
+        "Maintain notebook structure",
+        "Test cell execution order"
+      ]
+    },
+    {
+      "name": "run_terminal_cmd",
+      "description": "Execute shell commands with background job support",
+      "purpose": "Run commands, tests, build processes",
+      "parameters": {
+        "command": "Shell command to execute",
+        "background": "Boolean: Run in background",
+        "explanation": "Mandatory: Why running this command"
+      },
+      "best_practices": [
+        "Use for tests and builds",
+        "Run in background for long processes",
+        "Check command output",
+        "Handle errors gracefully"
+      ]
+    },
+    {
+      "name": "list_dir",
+      "description": "Directory exploration and file structure discovery",
+      "purpose": "Understand project structure",
+      "parameters": {
+        "directory_path": "Path to directory to list"
+      },
+      "best_practices": [
+        "Start at project root",
+        "Explore systematically",
+        "Note directory patterns",
+        "Identify key files"
+      ]
+    },
+    {
+      "name": "web_search",
+      "description": "Real-time information retrieval from the internet",
+      "purpose": "Get current information, documentation, examples",
+      "parameters": {
+        "query": "Search query",
+        "num_results": "Number of results to return"
+      },
+      "best_practices": [
+        "Use for current information",
+        "Search documentation",
+        "Find error solutions",
+        "Check latest best practices"
+      ]
+    },
+    {
+      "name": "create_diagram",
+      "description": "Generate Mermaid visualizations",
+      "purpose": "Create visual diagrams of architecture, flows, etc.",
+      "parameters": {
+        "diagram_code": "Mermaid diagram syntax",
+        "title": "Diagram title",
+        "explanation": "Mandatory: What diagram shows"
+      },
+      "best_practices": [
+        "Use for architecture visualization",
+        "Document complex flows",
+        "Show relationships",
+        "Keep diagrams focused"
+      ]
+    },
+    {
+      "name": "reapply",
+      "description": "Reapply failed edits using an enhanced model",
+      "purpose": "Retry complex edits with more powerful model",
+      "parameters": {
+        "failed_edit": "The edit that failed",
+        "error_message": "Error that occurred",
+        "explanation": "Why reapplying and expected outcome"
+      },
+      "best_practices": [
+        "Use after edit failures",
+        "Provide clear error context",
+        "Adjust approach if needed"
+      ]
+    }
+  ],
+  "tool_usage_principles": {
+    "explanation_required": "All tool calls must include explanation field describing usage and contribution to goals",
+    "proactive_usage": "Use tools to gather information instead of asking users",
+    "context_awareness": "Consider file states, cursor position, edit history, linter errors",
+    "thorough_exploration": "Use semantic search as main exploration tool, starting broad then narrowing",
+    "autonomous_operation": "Work until task completion without unnecessary interruptions"
+  },
+  "metadata": {
+    "version": "v1.0",
+    "platform": "Cursor IDE",
+    "model": "Claude (Anthropic)",
+    "source": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+    "total_tools": 13
+  }
+}

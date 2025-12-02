@@ -1,0 +1,197 @@
+{
+  "$schema": "../../schemas/video_input.json",
+  "template_id": "product_demo_v1",
+  "template_name": "Product Demo",
+  "template_description": "Demonstracao de produto focada em features e beneficios",
+  "version": "1.0.0",
+  "category": "conversion",
+  "recommended_duration": 30,
+  "recommended_format": "9:16",
+  "recommended_style": "energetic",
+  "recommended_video_mode": "overlay",
+
+  "narrative_arc": {
+    "structure": "problem_solution",
+    "phases": [
+      {
+        "name": "hook",
+        "purpose": "Capturar atencao com visual impactante do produto",
+        "duration_percent": 15,
+        "shots": 1,
+        "tone": "impactante"
+      },
+      {
+        "name": "introduce",
+        "purpose": "Apresentar produto e proposta de valor",
+        "duration_percent": 20,
+        "shots": 1,
+        "tone": "confiante"
+      },
+      {
+        "name": "demonstrate",
+        "purpose": "Mostrar produto em acao com features",
+        "duration_percent": 35,
+        "shots": 2,
+        "tone": "informativo"
+      },
+      {
+        "name": "benefit",
+        "purpose": "Destacar beneficio principal para usuario",
+        "duration_percent": 15,
+        "shots": 1,
+        "tone": "convincente"
+      },
+      {
+        "name": "cta",
+        "purpose": "Call to action com preco e urgencia",
+        "duration_percent": 15,
+        "shots": 1,
+        "tone": "urgente"
+      }
+    ]
+  },
+
+  "shots_template": [
+    {
+      "number": 1,
+      "narrative": "hook",
+      "duration": 4,
+      "description_template": "[PRODUTO] em hero shot dramatico com movimento",
+      "composition": "Product centered, dynamic angle",
+      "camera": {
+        "movement": "slow orbit 180 degrees",
+        "angle": "low angle (heroic)"
+      },
+      "lighting": "dramatic rim light, studio",
+      "text_overlay": {
+        "text_template": "[NOME_PRODUTO]",
+        "position": "bottom",
+        "style": "bold"
+      },
+      "narration_template": "Conheca o [PRODUTO]"
+    },
+    {
+      "number": 2,
+      "narrative": "introduce",
+      "duration": 6,
+      "description_template": "[PRODUTO] sendo revelado com detalhes visiveis",
+      "composition": "Medium shot, clean background",
+      "camera": {
+        "movement": "slow dolly in",
+        "angle": "eye level"
+      },
+      "lighting": "professional studio, even",
+      "text_overlay": null,
+      "narration_template": "[PROPOSTA_DE_VALOR_PRINCIPAL]"
+    },
+    {
+      "number": 3,
+      "narrative": "demonstrate",
+      "duration": 5,
+      "description_template": "Close-up de [FEATURE_1] do [PRODUTO] em destaque",
+      "composition": "Extreme close-up, detail shot",
+      "camera": {
+        "movement": "slow pan across feature",
+        "angle": "macro/detail"
+      },
+      "lighting": "focused spot on feature",
+      "text_overlay": {
+        "text_template": "[FEATURE_1_NOME]",
+        "position": "center",
+        "style": "normal"
+      },
+      "narration_template": "[DESCRICAO_FEATURE_1]"
+    },
+    {
+      "number": 4,
+      "narrative": "demonstrate",
+      "duration": 5,
+      "description_template": "[PRODUTO] sendo usado por pessoa, mostrando [FEATURE_2]",
+      "composition": "Medium shot with human hands",
+      "camera": {
+        "movement": "tracking hands using product",
+        "angle": "over shoulder or POV"
+      },
+      "lighting": "natural, lifestyle",
+      "text_overlay": {
+        "text_template": "[FEATURE_2_NOME]",
+        "position": "center",
+        "style": "normal"
+      },
+      "narration_template": "[DESCRICAO_FEATURE_2]"
+    },
+    {
+      "number": 5,
+      "narrative": "benefit",
+      "duration": 5,
+      "description_template": "Pessoa satisfeita usando [PRODUTO] com resultado visivel",
+      "composition": "Medium shot, happy user",
+      "camera": {
+        "movement": "subtle push in on face",
+        "angle": "eye level"
+      },
+      "lighting": "warm, inviting",
+      "text_overlay": {
+        "text_template": "[BENEFICIO_PRINCIPAL]",
+        "position": "center",
+        "style": "bold"
+      },
+      "narration_template": "[BENEFICIO_EMOCIONAL]"
+    },
+    {
+      "number": 6,
+      "narrative": "cta",
+      "duration": 5,
+      "description_template": "[PRODUTO] em pack shot final com logo",
+      "composition": "Product centered, logo visible",
+      "camera": {
+        "movement": "slow zoom in to product",
+        "angle": "slightly low (premium)"
+      },
+      "lighting": "premium studio, highlights",
+      "text_overlay": {
+        "text_template": "[PRECO] | [CTA_TEXT]",
+        "position": "center",
+        "style": "cta"
+      },
+      "narration_template": "Garanta o seu por apenas [PRECO]. [CTA_TEXT]!"
+    }
+  ],
+
+  "voice_recommendation": {
+    "gender": "feminina",
+    "tone": "energetico",
+    "pace": "dynamic, confident",
+    "suggested_voices": {
+      "feminina": "pMsXgVXv3BLzUgSXRplE",
+      "masculina": "ErXwobaYiN019PkySvjV"
+    }
+  },
+
+  "music_recommendation": {
+    "genre": "electronic",
+    "mood": "upbeat",
+    "tempo": "fast",
+    "volume": 0.3,
+    "notes": "Energia consistente, beat marcante no CTA"
+  },
+
+  "text_overlays_required": true,
+  "platform_targets": ["instagram_reels", "tiktok", "facebook"],
+
+  "example_brief": {
+    "produto": "Samsung Galaxy S24 Ultra",
+    "duracao": 30,
+    "formato": "9:16",
+    "tom": "energetico",
+    "objetivo": "Demonstrar as principais features do S24 Ultra: camera, IA, e bateria",
+    "preco": "R$ 7.999",
+    "cta_text": "Compre Agora",
+    "video_mode": "overlay",
+    "features": [
+      {"nome": "Camera 200MP", "descricao": "Fotos com detalhes incriveis"},
+      {"nome": "Galaxy AI", "descricao": "Inteligencia que entende voce"}
+    ],
+    "beneficio_principal": "Produtividade sem limites"
+  }
+}

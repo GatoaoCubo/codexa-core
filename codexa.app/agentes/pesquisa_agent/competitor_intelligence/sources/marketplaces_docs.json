@@ -1,0 +1,252 @@
+{
+  "metadata": {
+    "category": "Marketplaces Official Documentation",
+    "market": "Brazil",
+    "last_updated": "2025-11-23",
+    "total_sources": 9,
+    "update_frequency": "daily"
+  },
+  "marketplaces": {
+    "mercado_livre": {
+      "name": "Mercado Livre",
+      "priority": 1,
+      "urls": {
+        "seller_help": "https://www.mercadolivre.com.br/ajuda",
+        "seller_university": "https://partners.mercadolivre.com.br/voce-vendeu",
+        "policies_image": "https://www.mercadopago.com.br/ajuda/apropriacao-de-imagem-ou-de-descricao_1421",
+        "developer_docs": "https://developers.mercadolivre.com.br/pt_br",
+        "seller_portal": "https://www.mercadolivre.com.br/para-vender",
+        "reputation_system": "https://www.mercadolivre.com.br/ajuda/Reputacao_2887"
+      },
+      "monitoring": {
+        "policy_changes": true,
+        "api_updates": true,
+        "new_features": true,
+        "educational_content": true,
+        "ai_tools_launch": true
+      },
+      "key_topics": [
+        "image_policies",
+        "description_guidelines",
+        "ads_best_practices",
+        "catalog_seo",
+        "reputation_management",
+        "ml_ads_platform"
+      ]
+    },
+    "shopee": {
+      "name": "Shopee",
+      "priority": 2,
+      "urls": {
+        "seller_center": "https://seller.shopee.com.br/edu/",
+        "help": "https://help.shopee.com.br/s/",
+        "education_news": "https://ia.mercadoeconsumo.com.br/tag/shopee/",
+        "policies": "https://ajuda.uoou.com.br/solutions/article/shopee-regras-de-anuncios"
+      },
+      "monitoring": {
+        "policy_changes": true,
+        "training_events": true,
+        "seasonal_campaigns": true,
+        "ai_moderation_changes": true,
+        "live_commerce_updates": true
+      },
+      "key_topics": [
+        "ad_policies",
+        "moderation_ai",
+        "live_commerce",
+        "shopee_ads",
+        "training_programs",
+        "seasonal_events"
+      ]
+    },
+    "amazon_br": {
+      "name": "Amazon Brasil",
+      "priority": 4,
+      "urls": {
+        "seller_central": "https://venda.amazon.com.br/",
+        "seller_university": "https://venda.amazon.com.br/seller-university",
+        "help": "https://venda.amazon.com.br/ajuda",
+        "developer": "https://developer.amazonservices.com.br/",
+        "advertising": "https://advertising.amazon.com.br/"
+      },
+      "monitoring": {
+        "policy_updates": true,
+        "fba_changes": true,
+        "advertising_features": true,
+        "educational_content": true,
+        "ai_tools_launch": true
+      },
+      "key_topics": [
+        "seller_university",
+        "fba_logistics",
+        "amazon_ads",
+        "catalog_quality",
+        "a_content",
+        "brand_registry"
+      ]
+    },
+    "magazine_luiza": {
+      "name": "Magazine Luiza",
+      "priority": 3,
+      "urls": {
+        "seller_portal": "https://www.parceiromagalu.com.br/",
+        "company_info": "https://www.parceiromagalu.com.br/empresa.html",
+        "help": "https://www.parceiromagalu.com.br/ajuda/",
+        "expo_magalu": "https://expomagalu.com.br/"
+      },
+      "monitoring": {
+        "partnership_updates": true,
+        "training_events": true,
+        "expo_announcements": true,
+        "new_tools": true
+      },
+      "key_topics": [
+        "marketplace_integration",
+        "comschool_partnership",
+        "expo_magalu_events",
+        "seller_benefits",
+        "logistics_options"
+      ]
+    },
+    "tiktok_shop": {
+      "name": "TikTok Shop",
+      "priority": 5,
+      "urls": {
+        "seller_br": "https://seller.tiktokglobalshop.com/university/home",
+        "news_tiktok_world": "https://newsroom.tiktok.com/pt-BR/tiktok-world-brasil-2025",
+        "b9_coverage": "https://www.b9.com.br/172869/tiktok-world-brasil-ia/",
+        "launch_news": "https://www.contabilsaojoao.com.br/noticias/empresariais/2025/05/23/tiktok-shop-estreia-no-brasil.html"
+      },
+      "monitoring": {
+        "gmv_max_updates": true,
+        "search_ads_features": true,
+        "creative_ai_tools": true,
+        "live_commerce": true,
+        "tiktok_world_events": true,
+        "policy_changes": true
+      },
+      "key_topics": [
+        "gmv_max",
+        "search_ads",
+        "creative_ai",
+        "live_commerce",
+        "social_commerce",
+        "seller_education",
+        "tiktok_world_brasil"
+      ]
+    },
+    "shopify": {
+      "name": "Shopify",
+      "priority": 6,
+      "urls": {
+        "help_pt": "https://help.shopify.com/pt-BR",
+        "shopify_magic": "https://help.shopify.com/pt-BR/manual/shopify-admin/productivity-tools/shopify-magic",
+        "sidekick": "https://help.shopify.com/pt-BR/manual/shopify-admin/productivity-tools/shopify-sidekick",
+        "academy": "https://help.shopify.com/pt-BR/partners/grow-your-business/shopify-academy",
+        "blog": "https://www.shopify.com/br/blog"
+      },
+      "monitoring": {
+        "ai_features": true,
+        "magic_updates": true,
+        "sidekick_rollout": true,
+        "academy_pt_content": true,
+        "new_apps": true
+      },
+      "key_topics": [
+        "shopify_magic",
+        "shopify_sidekick",
+        "ai_content_generation",
+        "productivity_tools",
+        "app_ecosystem",
+        "academy_courses"
+      ]
+    },
+    "americanas": {
+      "name": "Americanas Marketplace",
+      "priority": 7,
+      "urls": {
+        "seller": "https://marketplace.americanas.com/",
+        "help": "https://ajuda.americanas.com/"
+      },
+      "monitoring": {
+        "platform_stability": true,
+        "policy_changes": true,
+        "new_features": false
+      },
+      "key_topics": [
+        "marketplace_policies",
+        "seller_guidelines"
+      ]
+    },
+    "casas_bahia": {
+      "name": "Casas Bahia Marketplace",
+      "priority": 8,
+      "urls": {
+        "seller": "https://marketplace.casasbahia.com.br/",
+        "help": "https://ajuda.casasbahia.com.br/"
+      },
+      "monitoring": {
+        "platform_updates": true,
+        "via_integration": true
+      },
+      "key_topics": [
+        "marketplace_integration",
+        "via_group_synergy"
+      ]
+    },
+    "shein": {
+      "name": "Shein",
+      "priority": 9,
+      "urls": {
+        "main": "https://br.shein.com/",
+        "seller_info": "https://seller.shein.com/"
+      },
+      "monitoring": {
+        "br_expansion": true,
+        "local_sellers": true
+      },
+      "key_topics": [
+        "fast_fashion",
+        "marketplace_expansion"
+      ]
+    }
+  },
+  "cross_platform_monitoring": {
+    "ai_tools_comparison": [
+      "content_generation",
+      "image_enhancement",
+      "seo_optimization",
+      "ad_automation",
+      "chatbot_integration"
+    ],
+    "policy_alignment": [
+      "image_rights",
+      "description_originality",
+      "pricing_rules",
+      "shipping_requirements",
+      "customer_service_standards"
+    ],
+    "feature_parity": [
+      "live_commerce",
+      "social_integration",
+      "ai_powered_search",
+      "personalization",
+      "analytics_dashboards"
+    ]
+  },
+  "tracking": {
+    "kpis": [
+      "new_ai_features",
+      "policy_changes",
+      "educational_content",
+      "api_updates",
+      "marketplace_events"
+    ],
+    "alerts": {
+      "major_policy_change": true,
+      "new_ai_tool_launch": true,
+      "educational_event": true,
+      "api_deprecation": true
+    }
+  }
+}

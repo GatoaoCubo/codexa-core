@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "ferramenta": "qoder",
+    "versao": "unknown",
+    "categoria": "enterprise",
+    "modelo_base": "unknown",
+    "data_extracao": "2025-12-01",
+    "tokens_original": 4654,
+    "linhas_original": 377,
+    "arquivo_fonte": "qoder\\prompt.txt"
+  },
+  "estrutura": {
+    "secoes_detectadas": [
+      {
+        "nome": "tools",
+        "tokens_aprox": 0,
+        "proposito": "Seção de tools",
+        "exemplo_conteudo": ""
+      },
+      {
+        "nome": "code_handling",
+        "tokens_aprox": 0,
+        "proposito": "Seção de code_handling",
+        "exemplo_conteudo": ""
+      }
+    ],
+    "formatacao": {
+      "usa_xml_tags": true,
+      "usa_markdown": true,
+      "usa_json_schemas": false,
+      "usa_typescript": false,
+      "usa_exemplos": true,
+      "usa_good_bad_examples": false
+    }
+  },
+  "patterns": [
+    {
+      "nome": "tool_calling",
+      "descricao": "Padrão tool_calling detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "task_management",
+      "descricao": "Padrão task_management detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "file_operations",
+      "descricao": "Padrão file_operations detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "terminal_commands",
+      "descricao": "Padrão terminal_commands detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    },
+    {
+      "nome": "security_constraints",
+      "descricao": "Padrão security_constraints detectado",
+      "implementacao": "Detectado via regex",
+      "exemplo": "",
+      "qualidade": 0.5
+    }
+  ],
+  "techniques": [],
+  "insights_codexa": [
+    "Extração básica - requer análise manual",
+    "Prompt tem 4654 tokens",
+    "Categoria: enterprise"
+  ],
+  "diferenciais": [],
+  "metricas": {
+    "clareza": 0.5,
+    "completude": 0.5,
+    "reusabilidade": 0.5,
+    "inovacao": 0.5
+  },
+  "_extraction_method": "regex_fallback"
+}

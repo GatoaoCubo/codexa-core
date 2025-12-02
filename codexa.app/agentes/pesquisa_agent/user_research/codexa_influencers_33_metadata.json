@@ -1,0 +1,133 @@
+{
+  "research_id": "codexa_influencers_2025-11-30",
+  "research_type": "influencer_outreach",
+  "objective": "Identificar 33 candidatos para parceria CODEXA",
+  "execution_date": "2025-11-30",
+  "agent_version": "pesquisa_agent v3.1.0",
+
+  "metrics": {
+    "total_candidates": 33,
+    "categories": 6,
+    "web_queries": 15,
+    "sources_analyzed": 20,
+    "confidence_score": 0.88
+  },
+
+  "categories": {
+    "automacao_nocode_ia": {
+      "count": 7,
+      "candidates": [
+        "Boss Nerd - Evandro Fuzari",
+        "Danilo Gato - Papo de IA",
+        "Neto Castelo - NoCodeStartup",
+        "Matheus Battisti - Hora de Codar",
+        "Hugo - Autotic",
+        "Ninja das Automações",
+        "TrevizoTecnologia"
+      ]
+    },
+    "programacao_dev": {
+      "count": 9,
+      "candidates": [
+        "Filipe Deschamps",
+        "Fábio Akita",
+        "Lucas Montano",
+        "Gabriel Fróes e Vanessa Weber - Código Fonte TV",
+        "Diego Fernandes - Rocketseat",
+        "Mayk Brito - Rocketseat",
+        "Gustavo Guanabara - Curso em Vídeo",
+        "Programador BR",
+        "Gabriel Pato"
+      ]
+    },
+    "data_science_ml": {
+      "count": 7,
+      "candidates": [
+        "Mario Filho",
+        "Carlos Melo - Sigmoidal",
+        "Rodrigo Tadewald - Asimov Academy",
+        "Adriano Soares - Asimov Academy",
+        "Programação Dinâmica",
+        "Didática Tech",
+        "ML4U - Rodrigo Mello"
+      ]
+    },
+    "tech_nerd": {
+      "count": 4,
+      "candidates": [
+        "Leon e Nilce - Coisa de Nerd",
+        "Peter Jordan - Ei Nerd",
+        "Atila Iamarino - Nerdologia",
+        "Filipe Figueiredo - Nerdologia"
+      ]
+    },
+    "marketing_ecommerce": {
+      "count": 4,
+      "candidates": [
+        "André Siqueira - RD Station",
+        "Thiago Reis - Growth Machine",
+        "Conrado Adolpho",
+        "Rafael Kiso - mLabs"
+      ]
+    },
+    "linkedin_produtividade": {
+      "count": 2,
+      "candidates": [
+        "Gustavo Pagotto - PipeLovers",
+        "Murillo Leal"
+      ]
+    }
+  },
+
+  "prioritization": {
+    "tier_1_alta_prioridade": [
+      "Danilo Gato - Podcast IA #1, entrevistou fundador CrewAI",
+      "Neto Castelo - Foco em Agentes IA + n8n",
+      "Hugo Autotic - Embaixador n8n",
+      "Asimov Academy - Curso Agentes IA",
+      "Boss Nerd - Referência do usuário"
+    ],
+    "tier_2_alta_relevancia": [
+      "Código Fonte TV",
+      "Filipe Deschamps",
+      "Mario Filho",
+      "Matheus Battisti",
+      "Ninja das Automações"
+    ],
+    "tier_3_alcance_massivo": [
+      "Coisa de Nerd - 14M inscritos",
+      "Ei Nerd - 8.5M inscritos",
+      "Rocketseat - 200K+ alunos"
+    ]
+  },
+
+  "top_reach_numbers": {
+    "coisa_de_nerd_youtube": "14M+ inscritos",
+    "ei_nerd_youtube": "8.5M inscritos",
+    "danilo_gato_instagram": "795K seguidores",
+    "codigo_fonte_tv_youtube": "736K inscritos",
+    "asimov_academy_social": "550K+ seguidores"
+  },
+
+  "alignment_scores": {
+    "danilo_gato": 0.95,
+    "neto_castelo": 0.93,
+    "hugo_autotic": 0.92,
+    "asimov_academy": 0.90,
+    "mario_filho": 0.88,
+    "codigo_fonte_tv": 0.85
+  },
+
+  "contact_channels": {
+    "instagram": 12,
+    "youtube": 20,
+    "linkedin": 8,
+    "site_proprio": 15,
+    "twitter": 5
+  },
+
+  "output_files": [
+    "codexa_influencers_33_candidates.md",
+    "codexa_influencers_33_metadata.json"
+  ]
+}

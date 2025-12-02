@@ -1,0 +1,28 @@
+{
+  "name": "scout-mcp",
+  "version": "1.0.0",
+  "description": "Scout MCP Server - Path Discovery & Navigation for CODEXA",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "mcp",
+    "scout",
+    "codexa",
+    "path-discovery",
+    "file-index"
+  ],
+  "author": "CODEXA",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "glob": "^10.3.10",
+    "minimatch": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

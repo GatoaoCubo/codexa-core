@@ -1,0 +1,405 @@
+{
+  "$schema": "../../config/hop_framework/execution_plan_schema.json",
+  "plan_id": "full_anuncio",
+  "plan_name": "Full Anúncio Generation - Complete Workflow",
+  "agent_type": "codex_anuncio",
+  "plan_version": "1.0.0",
+  "description": "Workflow completo de geração de anúncio otimizado para marketplace. Inclui títulos, keywords, bullet points magnéticos, descrição longa, prompts de imagem/vídeo, SEO metadata, 3 variações S5 e QA validation. Duração: 10-15 min. Completeness: 100%.",
+  "metadata": {
+    "author": "TAC-7 Team",
+    "created": "2025-11-10T00:00:00Z",
+    "tags": ["full", "complete", "production-ready", "roi-optimized"],
+    "complexity": "complex",
+    "estimated_duration_minutes": 12
+  },
+  "execution_steps": [
+    {
+      "step_id": "step_1_parse_input",
+      "step_name": "Parse Research Notes Input",
+      "step_type": "prompt_execution",
+      "prompt_module": "10_main_agent_hop.md",
+      "parameters": {
+        "validate_schema": true,
+        "extract_strategic_brief": true
+      },
+      "inputs": {
+        "from_brief": [
+          "research_notes_path",
+          "marketplace"
+        ]
+      },
+      "outputs": {
+        "target_blocks": [
+          "IDENTIDADE_DO_PRODUTO",
+          "PROPOSTA_DE_VALOR"
+        ],
+        "export_variables": {
+          "head_terms": "Top 3 head terms (confidence ≥0.85)",
+          "diferenciais": "Top 3 diferenciais mensuráveis",
+          "dores": "Top 3 dores do público",
+          "ganhos": "Top 3 ganhos desejados",
+          "provas": "Provas e evidências disponíveis",
+          "confidence_score": "Research confidence score"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 5,
+        "quality_gate": {
+          "mode": "warn",
+          "confidence_threshold": 0.60,
+          "completeness_threshold": 75
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_2_titulos",
+      "step_name": "Generate 3 Optimized Titles",
+      "step_type": "prompt_execution",
+      "prompt_module": "20_titulo_generator.md",
+      "inputs": {
+        "from_step": {
+          "step_1_parse_input": "head_terms",
+          "step_1_parse_input": "diferenciais"
+        },
+        "from_brief": [
+          "marketplace"
+        ]
+      },
+      "outputs": {
+        "target_blocks": [
+          "BLOCOS_DE_TITULOS"
+        ],
+        "export_variables": {
+          "titulos_list": "Lista dos 3 títulos gerados (58-60 chars cada)",
+          "keywords_density": "Densidade de keywords (0-1)"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 3,
+        "quality_gate": {
+          "mode": "warn",
+          "completeness_threshold": 100
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_3_keywords",
+      "step_name": "Expand Keywords (2 Blocks)",
+      "step_type": "prompt_execution",
+      "prompt_module": "30_keywords_expander.md",
+      "inputs": {
+        "from_step": {
+          "step_1_parse_input": "head_terms",
+          "step_2_titulos": "titulos_list"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "BLOCO_PALAVRAS_1",
+          "BLOCO_PALAVRAS_2"
+        ],
+        "export_variables": {
+          "keywords_blocks": "2 blocos de 115-120 termos cada",
+          "keywords_total": "Total de termos gerados"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 2,
+        "quality_gate": {
+          "mode": "warn",
+          "completeness_threshold": 100
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_4_bullets",
+      "step_name": "Generate 10 Strategic Bullet Points",
+      "step_type": "prompt_execution",
+      "prompt_module": "40_bullet_points.md",
+      "inputs": {
+        "from_step": {
+          "step_1_parse_input": "diferenciais",
+          "step_1_parse_input": "dores",
+          "step_1_parse_input": "ganhos",
+          "step_1_parse_input": "provas"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "BULLET_POINTS_ESTRATEGICOS"
+        ],
+        "export_variables": {
+          "bullets_list": "10 bullet points magnéticos (250-299 chars cada)",
+          "gatilhos_mentais": "Gatilhos aplicados em cada bullet"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 10,
+        "quality_gate": {
+          "mode": "warn",
+          "completeness_threshold": 100
+        }
+      },
+      "timeout_minutes": 3
+    },
+    {
+      "step_id": "step_5_descricao",
+      "step_name": "Build Long Description (≥3.300 chars)",
+      "step_type": "prompt_execution",
+      "prompt_module": "50_descricao_builder.md",
+      "inputs": {
+        "from_step": {
+          "step_4_bullets": "bullets_list",
+          "step_3_keywords": "keywords_blocks",
+          "step_1_parse_input": "dores",
+          "step_1_parse_input": "ganhos"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "DESCRICAO_LONGA"
+        ],
+        "export_variables": {
+          "descricao_text": "Descrição longa completa (≥3.300 chars)",
+          "descricao_chars": "Total de caracteres",
+          "storybrand_applied": "Elementos StoryBrand usados"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 1,
+        "quality_gate": {
+          "mode": "warn",
+          "confidence_threshold": 0.75,
+          "completeness_threshold": 100
+        }
+      },
+      "timeout_minutes": 3
+    },
+    {
+      "step_id": "step_6_image_prompts",
+      "step_name": "Generate 9 Image Prompts (Grid 3x3)",
+      "step_type": "prompt_execution",
+      "prompt_module": "60_image_prompts.md",
+      "parallel_execution": true,
+      "inputs": {
+        "from_step": {
+          "step_1_parse_input": "diferenciais"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "PROMPTS_IMAGENS"
+        ],
+        "export_variables": {
+          "image_prompts_grid": "9 prompts para geração de imagens"
+        }
+      },
+      "validation": {
+        "required": false,
+        "min_outputs": 9,
+        "quality_gate": {
+          "mode": "warn"
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_7_video_script",
+      "step_name": "Generate VEO3 Video Script (6-9 cenas)",
+      "step_type": "prompt_execution",
+      "prompt_module": "70_video_script.md",
+      "parallel_execution": true,
+      "inputs": {
+        "from_step": {
+          "step_4_bullets": "bullets_list"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "PROMPT_VEO3"
+        ],
+        "export_variables": {
+          "video_roteiro": "Roteiro de vídeo 30-60s vertical 9:16"
+        }
+      },
+      "validation": {
+        "required": false,
+        "quality_gate": {
+          "mode": "warn"
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_8_seo_metadata",
+      "step_name": "Generate SEO Metadata",
+      "step_type": "prompt_execution",
+      "prompt_module": "80_seo_metadata.md",
+      "parallel_execution": true,
+      "inputs": {
+        "from_step": {
+          "step_3_keywords": "keywords_blocks",
+          "step_2_titulos": "titulos_list"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "METADADOS_SEO"
+        ],
+        "export_variables": {
+          "seo_data": "Keywords primary/secondary/tertiary + competitors"
+        }
+      },
+      "validation": {
+        "required": false,
+        "quality_gate": {
+          "mode": "warn"
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_9_variacoes",
+      "step_name": "Generate 3 S5 Variations (A/B/C Testing)",
+      "step_type": "prompt_execution",
+      "prompt_module": "85_variacoes_s5.md",
+      "inputs": {
+        "from_step": {
+          "step_2_titulos": "titulos_list",
+          "step_4_bullets": "bullets_list",
+          "step_5_descricao": "descricao_text"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "VARIACOES_S5"
+        ],
+        "export_variables": {
+          "variacoes_abc": "3 variações (A: equilibrada, B: emocional, C: técnica)"
+        }
+      },
+      "validation": {
+        "required": true,
+        "min_outputs": 3,
+        "quality_gate": {
+          "mode": "warn"
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_10_qa_validation",
+      "step_name": "QA & Compliance Validation",
+      "step_type": "validation",
+      "prompt_module": "90_qa_validation.md",
+      "inputs": {
+        "from_step": {
+          "step_2_titulos": "titulos_list",
+          "step_3_keywords": "keywords_blocks",
+          "step_4_bullets": "bullets_list",
+          "step_5_descricao": "descricao_text"
+        },
+        "from_brief": [
+          "marketplace"
+        ]
+      },
+      "outputs": {
+        "target_blocks": [
+          "AUDITORIA_QA"
+        ],
+        "export_variables": {
+          "qa_report": "Relatório completo de QA",
+          "compliance_score": "Score de compliance (0-100)",
+          "proibicoes_count": "Número de proibições detectadas",
+          "persuasion_score": "Score de persuasão (0-1)"
+        }
+      },
+      "validation": {
+        "required": true,
+        "quality_gate": {
+          "mode": "warn",
+          "completeness_threshold": 100
+        }
+      },
+      "timeout_minutes": 2
+    },
+    {
+      "step_id": "step_11_output_assembly",
+      "step_name": "Assemble Final Output",
+      "step_type": "data_transform",
+      "prompt_module": "output_assembly.md",
+      "inputs": {
+        "from_step": {
+          "step_1_parse_input": "*",
+          "step_2_titulos": "*",
+          "step_3_keywords": "*",
+          "step_4_bullets": "*",
+          "step_5_descricao": "*",
+          "step_6_image_prompts": "*",
+          "step_7_video_script": "*",
+          "step_8_seo_metadata": "*",
+          "step_9_variacoes": "*",
+          "step_10_qa_validation": "*"
+        }
+      },
+      "outputs": {
+        "target_blocks": [
+          "NOTAS_DE_FALLBACK"
+        ],
+        "export_variables": {
+          "final_output": "anuncio_output.md completo"
+        }
+      },
+      "validation": {
+        "required": true,
+        "quality_gate": {
+          "mode": "warn",
+          "completeness_threshold": 90
+        }
+      },
+      "timeout_minutes": 1
+    }
+  ],
+  "output_schema": {
+    "format": "anuncio_output",
+    "template_path": "output_template.md",
+    "required_blocks": [
+      "IDENTIDADE_DO_PRODUTO",
+      "PROPOSTA_DE_VALOR",
+      "BLOCOS_DE_TITULOS",
+      "BLOCO_PALAVRAS_1",
+      "BLOCO_PALAVRAS_2",
+      "BULLET_POINTS_ESTRATEGICOS",
+      "DESCRICAO_LONGA",
+      "VARIACOES_S5",
+      "AUDITORIA_QA"
+    ],
+    "optional_blocks": [
+      "PROMPTS_IMAGENS",
+      "PROMPT_VEO3",
+      "METADADOS_SEO",
+      "NOTAS_DE_FALLBACK"
+    ],
+    "quality_thresholds": {
+      "min_completeness_percent": 90,
+      "mode": "flexible"
+    }
+  },
+  "error_handling": {
+    "on_step_failure": "continue",
+    "max_retries": 1,
+    "fallback_plan": "quick_anuncio"
+  },
+  "context_management": {
+    "context_strategy": "minimal",
+    "context_limit_tokens": 15000
+  }
+}

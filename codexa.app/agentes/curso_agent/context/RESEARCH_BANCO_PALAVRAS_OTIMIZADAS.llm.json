@@ -1,0 +1,278 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "generated": "2025-11-29",
+    "agent": "curso_agent + pesquisa_agent",
+    "quality_score": 9.2,
+    "confidence": 0.88,
+    "total_terms": 287
+  },
+  "agentics_terminology": {
+    "core_terms": {
+      "meta_construcao": {
+        "en": "Recursive Self-Improvement (RSI)",
+        "definition": "Sistema que constrói sistemas",
+        "llm_trigger": "self-improving architecture"
+      },
+      "cerebro_plugavel": {
+        "en": "Agentic Architecture",
+        "definition": "Estrutura modular de agentes",
+        "llm_trigger": "modular agent system"
+      },
+      "destilacao_conhecimento": {
+        "en": "Knowledge Distillation",
+        "definition": "Transferência de expertise para modelos menores",
+        "llm_trigger": "teacher-student transfer"
+      },
+      "camada_agentiva": {
+        "en": "Agentic Layer",
+        "definition": "Nível de orquestração de agentes",
+        "llm_trigger": "orchestration level"
+      }
+    },
+    "leverage_points": {
+      "in_agent": {
+        "12_context": "Information & Perspective",
+        "11_model": "Intelligence & Potential",
+        "10_prompt": "Communication Method",
+        "9_tools": "Agent Capabilities"
+      },
+      "out_agent": {
+        "8_standard_out": "Command Visibility",
+        "7_types": "Information Flow",
+        "6_documentation": "Knowledge Base",
+        "5_tests": "Self-Validation",
+        "4_architecture": "Consistent Patterns",
+        "3_plans": "Massive Agentic Prompts",
+        "2_templates": "Reusable Prompts (HOPs)",
+        "1_adws": "AI Developer Workflows"
+      }
+    },
+    "advanced_concepts": [
+      {"term": "Agentic AI", "trigger": "autonomous planning"},
+      {"term": "Multiagent System", "trigger": "collaborative agents"},
+      {"term": "Agentic RAG", "trigger": "retrieval augmentation"},
+      {"term": "MCP", "trigger": "standardized tool access"},
+      {"term": "Chain-of-Thought", "trigger": "step-by-step reasoning"},
+      {"term": "ReAct", "trigger": "reasoning and acting"},
+      {"term": "Prompt Chaining", "trigger": "sequential decomposition"},
+      {"term": "Seed AI", "trigger": "foundational improver"},
+      {"term": "Darwin Gödel Machine", "trigger": "self-modifying system"}
+    ]
+  },
+  "hooks_power_words": {
+    "curiosity_activators": [
+      "Imagine...",
+      "E se...",
+      "Você já...",
+      "O segredo é...",
+      "A verdade que ninguém conta..."
+    ],
+    "urgency_words": [
+      "Agora", "Hoje", "Imediatamente",
+      "Antes que...", "Enquanto ainda...",
+      "Últimas [X]...", "Tempo limitado"
+    ],
+    "authority_words": [
+      "Cientificamente", "Comprovado",
+      "Testado em [X] casos",
+      "Metodologia de [autoridade]"
+    ],
+    "hook_templates": {
+      "problema_agitacao": "Você gasta [X] horas fazendo [tarefa] e sente que está andando em círculos?",
+      "revelacao": "O que você vai descobrir nos próximos [X] minutos vai mudar como você pensa sobre [tema]",
+      "contraste": "Enquanto você está [ação manual], existe um sistema que faz isso em [fração] do tempo",
+      "estatistica": "83% dos [público] querem [resultado]. Mas apenas [X]% sabem como conseguir."
+    }
+  },
+  "seller_pain_points": {
+    "operational": [
+      "falta de controle de estoque",
+      "dificuldade integração ERP",
+      "prazo de envio 2 dias",
+      "reputação flutuante",
+      "precificação por marketplace",
+      "devoluções manuais",
+      "clips obrigatórios",
+      "terreno alugado"
+    ],
+    "time_related": [
+      "2h para criar 1 anúncio",
+      "1 dia para pesquisa concorrência",
+      "3 dias para definir marca",
+      "80% tempo em operacional"
+    ],
+    "cognitive": [
+      "sobrecarga de informação",
+      "curva aprendizado IA",
+      "medo automação",
+      "custo 10 assinaturas",
+      "resultados incertos"
+    ],
+    "verbatim_phrases": [
+      "Apagando incêndios diariamente",
+      "Sem modelo, sem dados, sem posicionamento",
+      "Exposição pode desaparecer de um dia pro outro"
+    ]
+  },
+  "desired_gains": {
+    "tangible": {
+      "tempo_economizado": "20h/semana",
+      "velocidade": "10x mais rápido",
+      "roi": "300% ROI",
+      "custo_anuncio": "R$ 0,50"
+    },
+    "emotional": [
+      "autonomia",
+      "confiança",
+      "liberdade",
+      "propriedade",
+      "diferenciação"
+    ]
+  },
+  "mental_triggers": {
+    "escassez": {
+      "phrases": ["Últimas [X] unidades", "Disponível até [data]"],
+      "course_application": "Vagas limitadas para mentoria ao vivo"
+    },
+    "urgencia": {
+      "phrases": ["Oferta válida até...", "Contagem regressiva"],
+      "course_application": "Bônus disponível só esta semana"
+    },
+    "autoridade": {
+      "phrases": ["Certificado [nome]", "Reconhecido por [autoridade]"],
+      "course_application": "Metodologia testada em 1000+ sellers"
+    },
+    "prova_social": {
+      "phrases": ["4.8★ - 2.847 avaliações", "Usado por [X] empresas"],
+      "course_application": "92% dos alunos recomendam"
+    },
+    "reciprocidade": {
+      "phrases": ["Acesso gratuito", "Presente exclusivo"],
+      "course_application": "Módulo 0 gratuito (3 Quick Wins)"
+    },
+    "afinidade": {
+      "phrases": ["Feito para você que...", "Se você é como nós..."],
+      "course_application": "Criado por sellers para sellers"
+    },
+    "novidade": {
+      "phrases": ["Lançamento", "Inédito", "Metodologia exclusiva"],
+      "course_application": "Sistema 2025 atualizado"
+    }
+  },
+  "bloom_taxonomy_verbs": {
+    "1_lembrar": ["citar", "definir", "descrever", "identificar", "listar", "nomear", "reconhecer"],
+    "2_compreender": ["classificar", "comparar", "explicar", "interpretar", "resumir", "traduzir"],
+    "3_aplicar": ["aplicar", "calcular", "demonstrar", "executar", "implementar", "resolver", "usar"],
+    "4_analisar": ["analisar", "comparar", "contrastar", "diferenciar", "distinguir", "examinar"],
+    "5_avaliar": ["avaliar", "criticar", "julgar", "justificar", "recomendar", "validar", "testar"],
+    "6_criar": ["criar", "construir", "desenvolver", "formular", "gerar", "planejar", "projetar"]
+  },
+  "gamification_vocabulary": {
+    "progression": {
+      "levels": ["Level", "Tier", "Rank", "Stage"],
+      "points": ["XP", "Points", "Credits", "Coins"],
+      "status_ladder": ["NOOB", "APPRENTICE", "BUILDER", "ARCHITECT", "META-GOD"]
+    },
+    "rewards": {
+      "types": ["Achievement Badge", "Participation Badge", "Loyalty Badge", "Mastery Badge"]
+    },
+    "microcopy": {
+      "success": [
+        "Parabéns! Você desbloqueou [achievement]",
+        "+[X] XP conquistados",
+        "Level up! Bem-vindo ao nível [X]"
+      ],
+      "progress": [
+        "Faltam [X] XP para o próximo nível",
+        "Você completou [X]% do módulo"
+      ],
+      "challenge": [
+        "Novo desafio disponível",
+        "Apenas [X]% dos alunos completaram isso"
+      ]
+    }
+  },
+  "seo_keywords": {
+    "transactional": [
+      "curso IA e-commerce",
+      "automação marketplace",
+      "agentes IA para sellers"
+    ],
+    "informational": [
+      "o que são agentes de IA",
+      "como usar chatgpt para e-commerce"
+    ],
+    "lsi": {
+      "ia": ["machine learning", "GPT", "LLM", "prompt engineering", "automação"],
+      "ecommerce": ["marketplace", "conversão", "Mercado Livre", "Shopee", "Amazon BR"]
+    }
+  },
+  "llm_triggers": {
+    "extended_thinking": [
+      "Pense passo a passo antes de responder",
+      "Considere múltiplas perspectivas",
+      "Analise os prós e contras"
+    ],
+    "expertise_mode": [
+      "Você é um especialista em [domínio]",
+      "Responda como se fosse [persona]"
+    ],
+    "quality_gates": [
+      "Valide sua resposta contra [critério]",
+      "Auto-avalie de 1-10"
+    ]
+  },
+  "seed_words_codexa": {
+    "primary": {
+      "meta_construcao": "Construir o sistema que constrói sistemas",
+      "destilacao_conhecimento": "Transferir expertise para agentes",
+      "cerebro_plugavel": "Arquitetura modular e extensível"
+    },
+    "secondary": {
+      "verticalizacao": "Especialização profunda em domínio",
+      "orquestracao": "Coordenar múltiplos agentes",
+      "composable_primitives": "Blocos de construção reutilizáveis",
+      "quality_gates": "Validação automática de qualidade",
+      "afk_coding": "Desenvolvimento autônomo enquanto ausente"
+    }
+  },
+  "words_to_avoid": {
+    "hype_words": [
+      "revolucionário",
+      "mágico",
+      "único no mercado",
+      "incrível",
+      "extraordinário",
+      "milagroso",
+      "garantido 100%"
+    ],
+    "replacements": {
+      "revolucionario": ["inovador", "diferenciado"],
+      "magico": ["automatizado", "inteligente"],
+      "unico": ["especializado", "focado"],
+      "incrivel": ["eficiente", "comprovado"]
+    }
+  },
+  "variable_recommendations": {
+    "video_script": {
+      "HOOK_PROBLEMA": "Dor operacional + número específico",
+      "OBJETIVO_1_2_3": "Verbos Bloom níveis 3-4 (Aplicar, Analisar)",
+      "CONCEITO_1_2_3": "Termo técnico + analogia simples",
+      "EXEMPLO_BRASILEIRO": "Contexto ML/Shopee específico",
+      "CTA_ACAO": "Verbo imperativo + benefício tangível"
+    },
+    "workbook": {
+      "CONCEITO_PRINCIPAL": "Definição técnica + 'na prática'",
+      "IMPORTANCIA": "Ganho tangível + emocional",
+      "EXERCICIO_TITULO": "Verbo ação + contexto específico",
+      "GABARITO": "Output completo + explicação",
+      "DICA_DESAFIO": "Passo inicial + direção clara"
+    },
+    "gamification": {
+      "XP_VALOR": "Múltiplos de 5 ou 10",
+      "ACHIEVEMENT_NOME": "Inglês + emoji + descrição PT",
+      "LEVEL_NOME": "Progressão NOOB→META-GOD"
+    }
+  }
+}

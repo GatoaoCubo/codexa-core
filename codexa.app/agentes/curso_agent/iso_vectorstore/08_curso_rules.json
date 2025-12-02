@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Curso Agent Rules - Educational Methodology",
+  "description": "Domain rules and constraints for educational content generation",
+  "version": "2.5.0",
+  "pedagogical_framework": {
+    "layer_progression": {
+      "layer_1": {
+        "name": "Conceito",
+        "description": "Analogias, GUI instructions, 'what is possible' mindset",
+        "target_audience": "Beginners with no technical background",
+        "techniques": ["analogies", "visual_guides", "step_by_step", "real_world_examples"],
+        "content_ratio": { "theory": 40, "practice": 40, "reflection": 20 },
+        "duration_per_module": "1-2 hours"
+      },
+      "layer_2": {
+        "name": "Pratica",
+        "description": "Conceptual bridges, system thinking, agent architecture",
+        "target_audience": "Intermediate users with basic understanding",
+        "techniques": ["system_diagrams", "workflow_mapping", "integration_patterns"],
+        "content_ratio": { "theory": 30, "practice": 50, "reflection": 20 },
+        "duration_per_module": "2-3 hours"
+      },
+      "layer_3": {
+        "name": "Mestria",
+        "description": "Meta-construction, code examples, deployment workflows",
+        "target_audience": "Advanced users ready for implementation",
+        "techniques": ["code_snippets", "api_integration", "custom_builders", "automation"],
+        "content_ratio": { "theory": 20, "practice": 60, "reflection": 20 },
+        "duration_per_module": "3-4 hours"
+      }
+    },
+    "blooms_taxonomy": {
+      "levels": [
+        { "level": 1, "name": "Conhecimento", "verbs": ["listar", "definir", "identificar", "nomear"] },
+        { "level": 2, "name": "Compreensao", "verbs": ["explicar", "descrever", "interpretar", "resumir"] },
+        { "level": 3, "name": "Aplicacao", "verbs": ["aplicar", "demonstrar", "executar", "implementar"] },
+        { "level": 4, "name": "Analise", "verbs": ["analisar", "comparar", "contrastar", "diferenciar"] },
+        { "level": 5, "name": "Sintese", "verbs": ["criar", "projetar", "desenvolver", "construir"] },
+        { "level": 6, "name": "Avaliacao", "verbs": ["avaliar", "julgar", "criticar", "recomendar"] }
+      ],
+      "mapping_to_layers": {
+        "layer_1": [1, 2, 3],
+        "layer_2": [3, 4, 5],
+        "layer_3": [4, 5, 6]
+      }
+    }
+  },
+  "content_rules": {
+    "video_scripts": {
+      "duration_limits": { "min": 8, "max": 30, "optimal": "12-15" },
+      "hook_max_seconds": 90,
+      "timing_mark_interval": "2-3 minutes",
+      "required_sections": ["hook", "objectives", "core_content", "demo", "recap", "cta"],
+      "open_variables_min": 2
+    },
+    "workbooks": {
+      "pages_min": 8,
+      "pages_max": 15,
+      "sections": ["cover", "objectives", "theory", "exercises", "reflection", "resources"],
+      "exercises_per_module": { "min": 3, "max": 5 },
+      "difficulty_progression": ["easy", "medium", "hard"]
+    },
+    "sales_copy": {
+      "sections": ["hero", "problem", "solution", "proof", "faq", "cta"],
+      "seed_words_required": ["Meta-Construcao", "Destilacao de Conhecimento", "Cerebro Plugavel"],
+      "forbidden_words": ["revolucionario", "magico", "unico no mercado", "garantido"],
+      "faq_questions_min": 5
+    }
+  },
+  "brand_voice": {
+    "tone": "disruptivo-sofisticado",
+    "formality": 60,
+    "technicality": 90,
+    "anti_establishment": 80,
+    "seed_words": [
+      "Meta-Construcao",
+      "Destilacao de Conhecimento",
+      "Cerebro Plugavel",
+      "Sistema Auto-Construtor",
+      "Camada 3"
+    ],
+    "attacks": [
+      "Banalizacao do conhecimento",
+      "Lock-in tecnologico",
+      "Commodity knowledge",
+      "Dependencia de plataformas"
+    ],
+    "avoid": [
+      "revolucionario",
+      "magico",
+      "unico no mercado",
+      "hack",
+      "segredo"
+    ]
+  },
+  "quality_thresholds": {
+    "content_quality": 7.0,
+    "brand_voice": 7.0,
+    "pedagogical": 7.0,
+    "technical": 7.0,
+    "hotmart_compliance": 8.0
+  },
+  "market_context": {
+    "region": "Brazil",
+    "language": "pt-BR",
+    "currency": "BRL",
+    "platform": "Hotmart",
+    "compliance": ["LGPD", "CDC", "Marco Civil"],
+    "examples_source": "Brazilian e-commerce only"
+  }
+}

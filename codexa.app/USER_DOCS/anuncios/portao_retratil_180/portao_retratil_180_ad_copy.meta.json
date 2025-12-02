@@ -1,0 +1,14 @@
+{
+  "workflow_version": "2.5.0",
+  "workflow_id": "adw_run_anuncio",
+  "generator": "CodeXAnuncio v2.5.0",
+  "generated_at": "2025-11-29T11:25:00Z",
+  "phases_executed": 6,
+  "total_duration_minutes": 3,
+  "mode": "quick_anuncio",
+  "quality_metrics": {"research_quality": 0.86, "final_output_quality": 0.88, "validation_checks_passed": 11, "component_scores": {"title": 0.87, "keywords": 0.88, "description": 0.88, "bullets": 0.87, "compliance": 1.0}},
+  "context": {"product_name": "Portao Retratil GATO3", "marketplace_type": "MERCADO_LIVRE", "product_type": "PHYSICAL_PRODUCT", "dimensions": "1.80m x 89cm"},
+  "output_files": {"markdown": "portao_retratil_180_ad_copy.md", "structured_data": "portao_retratil_180_ad_copy.llm.json", "metadata": "portao_retratil_180_ad_copy.meta.json"},
+  "validation_summary": {"all_phases_completed": true, "all_validations_passed": true, "production_ready": true},
+  "status": "production_ready"
+}

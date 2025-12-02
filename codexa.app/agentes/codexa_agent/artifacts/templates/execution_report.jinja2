@@ -1,0 +1,289 @@
+{# Execution Report Template #}
+{# Used by: execution_agent #}
+{# Output: execution_report.md #}
+{# Version: 1.0.0 #}
+# Execution Report: {{ feature_name }}
+
+**Execution ID**: {{ execution_id }}
+**Started**: {{ started_at }}
+**Completed**: {{ completed_at }}
+**Duration**: {{ duration }}
+**Status**: {% if status == "success" %}✅ Success{% elif status == "partial" %}⚠️ Partial Success{% else %}❌ Failed{% endif %}
+
+---
+
+## Executive Summary
+
+{{ summary }}
+
+**Key Metrics**:
+- Total tasks: {{ metrics.total_tasks }}
+- Completed: {{ metrics.completed_tasks }} ({{ metrics.completion_percentage }}%)
+- Files created: {{ metrics.files_created }}
+- Files modified: {{ metrics.files_modified }}
+- Total lines added: {{ metrics.lines_added }}
+- Tests created: {{ metrics.tests_created }} ({% if metrics.tests_passing == metrics.tests_created %}✅ All passing{% else %}⚠️ {{ metrics.tests_passing }}/{{ metrics.tests_created }} passing{% endif %})
+
+---
+
+## Implementation Details
+
+### Plan Followed
+**Plan File**: `{{ plan_file }}`
+**Task Checklist**: `{{ task_file }}`
+
+**Plan Adherence**: {{ plan_adherence }}%
+
+{% if plan_deviations %}
+**Deviations from Plan**:
+{% for deviation in plan_deviations %}
+- **{{ deviation.location }}**: {{ deviation.description }}
+  - **Rationale**: {{ deviation.rationale }}
+  - **Impact**: {{ deviation.impact }}
+{% endfor %}
+{% endif %}
+
+---
+
+## Files Changed
+
+### Created ({{ files.created | length }} files)
+{% for file in files.created %}
+{{ loop.index }}. **`{{ file.path }}`** ({{ file.lines }} lines)
+   - Purpose: {{ file.purpose }}
+   - Complexity: {{ file.complexity }}
+   {% if file.tests_created %}
+   - Tests: `{{ file.tests_created }}`
+   {% endif %}
+{% endfor %}
+
+### Modified ({{ files.modified | length }} files)
+{% for file in files.modified %}
+{{ loop.index }}. **`{{ file.path }}`** (+{{ file.lines_added }} lines, -{{ file.lines_removed }} lines)
+   - Changes: {{ file.changes_description }}
+   - Impact: {{ file.impact }}
+{% endfor %}
+
+{% if files.deleted %}
+### Deleted ({{ files.deleted | length }} files)
+{% for file in files.deleted %}
+{{ loop.index }}. **`{{ file.path }}`**
+   - Reason: {{ file.reason }}
+{% endfor %}
+{% endif %}
+
+---
+
+## Task Execution Timeline
+
+{% for task in tasks %}
+### Task {{ task.id }}/{{ metrics.total_tasks }}: {{ task.content }}
+
+**Status**: {% if task.status == "completed" %}✅ Completed{% elif task.status == "failed" %}❌ Failed{% elif task.status == "in_progress" %}🔄 In Progress{% else %}⏳ Pending{% endif %}
+
+**Duration**: {{ task.duration }} minutes
+
+{% if task.status == "completed" %}
+**Completed Actions**:
+{% for action in task.actions %}
+- {{ action }}
+{% endfor %}
+
+**Files Affected**:
+{% for file in task.files_affected %}
+- `{{ file }}`
+{% endfor %}
+
+**Tests Added**: {{ task.tests_added }}
+{% endif %}
+
+{% if task.status == "failed" %}
+**Error**: {{ task.error_message }}
+
+**Attempted Fixes**:
+{% for fix in task.fix_attempts %}
+- {{ fix }}
+{% endfor %}
+{% endif %}
+
+---
+
+{% endfor %}
+
+## Progress Summary
+
+```
+Timeline:
+{% for checkpoint in progress_checkpoints %}
+[{{ checkpoint.time }}] {{ checkpoint.description }}
+{% endfor %}
+```
+
+**Phases Completed**:
+{% for phase in phases %}
+- **Phase {{ loop.index }}: {{ phase.name }}**
+  - Duration: {{ phase.duration }}
+  - Tasks: {{ phase.tasks_completed }}/{{ phase.tasks_total }}
+  - Status: {% if phase.status == "completed" %}✅{% elif phase.status == "partial" %}⚠️{% else %}❌{% endif %}
+{% endfor %}
+
+---
+
+## Code Quality
+
+### Conventions Followed
+{% for convention in code_quality.conventions %}
+- ✅ {{ convention }}
+{% endfor %}
+
+### Testing
+- **Unit Tests**: {{ code_quality.testing.unit_tests }} ({{ code_quality.testing.unit_coverage }}% coverage)
+- **Integration Tests**: {{ code_quality.testing.integration_tests }}
+- **E2E Tests**: {{ code_quality.testing.e2e_tests }}
+- **Total Coverage**: {{ code_quality.testing.total_coverage }}%
+
+### Documentation
+- **Inline Comments**: {% if code_quality.documentation.inline_comments %}✅ Added{% else %}⚠️ Missing{% endif %}
+- **Function Docstrings**: {% if code_quality.documentation.docstrings %}✅ Complete{% else %}⚠️ Incomplete{% endif %}
+- **README Updated**: {% if code_quality.documentation.readme_updated %}✅ Yes{% else %}❌ No{% endif %}
+
+---
+
+## Issues Encountered
+
+{% if issues %}
+{% for issue in issues %}
+### Issue {{ loop.index }}: {{ issue.title }}
+
+**Severity**: {{ issue.severity }}
+**Encountered At**: Task {{ issue.task_id }}
+
+**Description**: {{ issue.description }}
+
+**Resolution**: {{ issue.resolution }}
+
+**Time Spent**: {{ issue.time_spent }} minutes
+
+---
+
+{% endfor %}
+{% else %}
+No issues encountered during execution. ✅
+{% endif %}
+
+---
+
+## Dependencies
+
+### Installed
+{% for dep in dependencies.installed %}
+- **{{ dep.name }}** ({{ dep.version }})
+  - Install command: `{{ dep.install_command }}`
+  - Purpose: {{ dep.purpose }}
+{% endfor %}
+
+### Updated
+{% for dep in dependencies.updated %}
+- **{{ dep.name }}**: {{ dep.old_version }} → {{ dep.new_version }}
+  - Reason: {{ dep.reason }}
+{% endfor %}
+
+---
+
+## Git Changes
+
+**Branch**: {{ git.branch }}
+**Commits**: {{ git.commits_made }}
+
+{% if git.commit_messages %}
+**Commit Messages**:
+{% for commit in git.commit_messages %}
+- `{{ commit.hash }}`: {{ commit.message }}
+{% endfor %}
+{% endif %}
+
+**Diff Statistics**:
+- Files changed: {{ git.diff_stats.files_changed }}
+- Insertions: +{{ git.diff_stats.insertions }}
+- Deletions: -{{ git.diff_stats.deletions }}
+
+---
+
+## Performance Metrics
+
+### Execution Efficiency
+- **Tasks per Hour**: {{ performance.tasks_per_hour | round(1) }}
+- **Lines per Hour**: {{ performance.lines_per_hour | round(0) }}
+- **Average Task Duration**: {{ performance.avg_task_duration }} minutes
+
+### Resource Usage
+- **API Calls**: {{ performance.api_calls }}
+- **Estimated Cost**: ${{ performance.estimated_cost | round(2) }}
+
+---
+
+## Next Steps
+
+{% if status == "success" %}
+**Recommendation**: ✅ Ready for verification
+
+Implementation complete. All tasks executed successfully.
+
+**Next Phase**: Verification
+- Run verification_agent to validate implementation
+- Expected duration: {{ next_steps.verification_duration }}
+- Quality gates: {{ next_steps.quality_gates | join(', ') }}
+
+{% elif status == "partial" %}
+**Recommendation**: ⚠️ Needs attention
+
+Partial success. Some tasks completed, some failed.
+
+**Action Required**:
+{% for action in next_steps.actions_required %}
+- {{ action }}
+{% endfor %}
+
+**Estimated Fix Time**: {{ next_steps.estimated_fix_time }}
+
+{% else %}
+**Recommendation**: ❌ Requires rework
+
+Execution failed. Need to revisit planning or fix blocking issues.
+
+**Blockers**:
+{% for blocker in next_steps.blockers %}
+- {{ blocker }}
+{% endfor %}
+
+**Recommended Action**: {{ next_steps.recommended_action }}
+{% endif %}
+
+---
+
+## Artifacts Generated
+
+{% for artifact in artifacts %}
+- **{{ artifact.name }}**: `{{ artifact.path }}`
+  - Type: {{ artifact.type }}
+  - Size: {{ artifact.size }}
+{% endfor %}
+
+---
+
+## Execution Metadata
+
+- **Execution ID**: {{ execution_id }}
+- **Agent**: Execution Agent {{ agent_version }}
+- **Mode**: EXECUTION ⚙️
+- **Pattern**: {{ execution_pattern }}
+- **ADW**: {{ adw_path }}
+- **Started**: {{ started_at }}
+- **Completed**: {{ completed_at }}
+- **Total Duration**: {{ duration }}
+
+---
+
+**Generated By**: Execution Agent {{ agent_version }}
+**Generated At**: {{ generated_at }}
+**Methodology**: Cursor's task boundary system + systematic execution

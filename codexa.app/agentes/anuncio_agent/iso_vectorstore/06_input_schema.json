@@ -1,0 +1,262 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Anuncio Agent Input Schema v3.2.0",
+  "description": "Validation schema for anuncio_agent input (TEXT-ONLY Brazilian e-commerce listings). Supports autonomous end-to-end execution with {{input.output_text}} from pesquisa_agent/mentor_agent.",
+  "version": "3.2.0",
+  "type": "object",
+  "required": [
+    "product_name",
+    "category",
+    "marketplace"
+  ],
+  "properties": {
+    "product_name": {
+      "type": "string",
+      "description": "Product name or identifier",
+      "minLength": 3,
+      "maxLength": 100,
+      "examples": ["Cama de Janela para Gatos com Ventosas Reforçadas"]
+    },
+    "category": {
+      "type": "string",
+      "description": "Product category (for marketplace classification)",
+      "enum": [
+        "Casa e Jardim",
+        "Eletrônicos",
+        "Moda",
+        "Beleza e Saúde",
+        "Esportes e Lazer",
+        "Automotivo",
+        "Pet",
+        "Bebês",
+        "Alimentos e Bebidas",
+        "Livros e Papelaria",
+        "Brinquedos",
+        "Ferramentas",
+        "Outros"
+      ],
+      "examples": ["Pet"]
+    },
+    "marketplace": {
+      "type": "string",
+      "description": "Target marketplace platform",
+      "enum": [
+        "mercado_livre",
+        "shopee",
+        "magalu",
+        "amazon_br",
+        "multi"
+      ],
+      "examples": ["mercado_livre"]
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "Target audience description (optional but recommended)",
+      "minLength": 10,
+      "maxLength": 500,
+      "examples": ["Tutores de gatos que moram em apartamentos urbanos"]
+    },
+    "usp": {
+      "type": "string",
+      "description": "Unique Selling Proposition - main differentiator",
+      "minLength": 10,
+      "maxLength": 300,
+      "examples": ["Ventosas reforçadas que suportam até 15kg, instalação sem furos"]
+    },
+    "product_specs": {
+      "type": "object",
+      "description": "Technical specifications (optional)",
+      "properties": {
+        "dimensions": {
+          "type": "string",
+          "description": "Product dimensions (L x W x H)",
+          "examples": ["60cm x 30cm x 15cm"]
+        },
+        "weight": {
+          "type": "string",
+          "description": "Product weight",
+          "examples": ["2.5kg"]
+        },
+        "materials": {
+          "type": "string",
+          "description": "Materials used",
+          "examples": ["MDF revestido, ventosas de silicone industrial"]
+        },
+        "colors": {
+          "type": "array",
+          "description": "Available colors",
+          "items": {
+            "type": "string"
+          },
+          "examples": [["Branco", "Cinza", "Marrom"]]
+        },
+        "warranty": {
+          "type": "string",
+          "description": "Warranty period",
+          "examples": ["12 meses"]
+        }
+      }
+    },
+    "pricing": {
+      "type": "object",
+      "description": "Pricing information (optional)",
+      "properties": {
+        "price": {
+          "type": "number",
+          "description": "Product price in BRL",
+          "minimum": 0,
+          "examples": [159.90]
+        },
+        "original_price": {
+          "type": "number",
+          "description": "Original price (for discount display)",
+          "minimum": 0,
+          "examples": [199.90]
+        },
+        "discount_percentage": {
+          "type": "number",
+          "description": "Discount percentage",
+          "minimum": 0,
+          "maximum": 100,
+          "examples": [20]
+        }
+      }
+    },
+    "research_notes": {
+      "type": "string",
+      "description": "Additional research notes (competitive intelligence, customer pain points, etc.)",
+      "maxLength": 5000,
+      "examples": ["Pesquisa mostra que 78% dos tutores de gatos em apartamentos querem soluções que não danifiquem paredes..."]
+    },
+    "brand_voice": {
+      "type": "object",
+      "description": "Brand voice guidelines (optional)",
+      "properties": {
+        "tone": {
+          "type": "string",
+          "enum": ["professional", "friendly", "technical", "casual", "luxury"],
+          "examples": ["friendly"]
+        },
+        "archetype": {
+          "type": "string",
+          "enum": [
+            "hero",
+            "caregiver",
+            "sage",
+            "innocent",
+            "explorer",
+            "rebel",
+            "magician",
+            "lover",
+            "jester",
+            "everyperson",
+            "ruler",
+            "creator"
+          ],
+          "examples": ["caregiver"]
+        }
+      }
+    },
+    "execution_mode": {
+      "type": "string",
+      "description": "Execution workflow mode (v3.1.0: FULL only for maximum conversion)",
+      "enum": ["full"],
+      "default": "full",
+      "examples": ["full"]
+    },
+    "input_source": {
+      "type": "string",
+      "description": "Source of input data for autonomous execution",
+      "enum": ["user_input", "pesquisa_agent", "mentor_agent", "combined"],
+      "default": "user_input",
+      "examples": ["pesquisa_agent"]
+    },
+    "head_terms": {
+      "type": "array",
+      "description": "Primary search terms (3+ recommended for high confidence)",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "examples": [["whey protein", "proteina isolada", "suplemento proteico"]]
+    },
+    "diferenciais": {
+      "type": "array",
+      "description": "Product differentiators (3+ recommended)",
+      "items": {
+        "type": "string"
+      },
+      "examples": [["90% proteina isolada", "zero lactose", "absorção rápida"]]
+    },
+    "dores": {
+      "type": "array",
+      "description": "Customer pain points (3+ recommended)",
+      "items": {
+        "type": "string"
+      },
+      "examples": [["digestão difícil", "sabor ruim", "preço alto"]]
+    },
+    "ganhos": {
+      "type": "array",
+      "description": "Customer desired gains",
+      "items": {
+        "type": "string"
+      },
+      "examples": [["ganho de massa", "recuperação rápida", "energia"]]
+    },
+    "provas": {
+      "type": "array",
+      "description": "Proof points and evidence",
+      "items": {
+        "type": "string"
+      },
+      "examples": [["1000+ avaliações 5 estrelas", "marca líder", "laboratório certificado"]]
+    },
+    "compliance_requirements": {
+      "type": "object",
+      "description": "Specific compliance requirements (optional)",
+      "properties": {
+        "anvisa_regulated": {
+          "type": "boolean",
+          "description": "Product requires ANVISA compliance",
+          "default": false
+        },
+        "inmetro_regulated": {
+          "type": "boolean",
+          "description": "Product requires INMETRO certification",
+          "default": false
+        },
+        "prohibited_claims": {
+          "type": "array",
+          "description": "Specific claims to avoid",
+          "items": {
+            "type": "string"
+          },
+          "examples": [["milagroso", "cura", "100% eficaz"]]
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "product_name": "Cama de Janela para Gatos com Ventosas Reforçadas",
+      "category": "Pet",
+      "marketplace": "mercado_livre",
+      "target_audience": "Tutores de gatos que moram em apartamentos urbanos",
+      "usp": "Ventosas reforçadas que suportam até 15kg, instalação sem furos na parede",
+      "product_specs": {
+        "dimensions": "60cm x 30cm x 15cm",
+        "weight": "2.5kg",
+        "materials": "MDF revestido, ventosas de silicone industrial",
+        "colors": ["Branco", "Cinza"],
+        "warranty": "12 meses"
+      },
+      "pricing": {
+        "price": 159.90,
+        "original_price": 199.90,
+        "discount_percentage": 20
+      },
+      "execution_mode": "full"
+    }
+  ]
+}

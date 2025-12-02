@@ -1,0 +1,390 @@
+{
+  "version": "2.5.0",
+  "last_updated": "2025-11-25",
+  "description": "Execution plans for mentor_agent - Full and Quick modes",
+  "agent": "mentor_agent",
+
+  "plans": {
+    "full": {
+      "id": "mentor_full_execution",
+      "name": "Full Mentor Execution",
+      "description": "Complete 6-phase mentoring workflow with all validations",
+      "duration_estimate": "16-31 min",
+      "phases": [
+        {
+          "phase": 1,
+          "name": "Discovery & Scout",
+          "duration": "2-5min",
+          "actions": [
+            "Parse seller question/context",
+            "Search PROCESSADOS/catalogo.json",
+            "Rank results by relevance (≥0.60)",
+            "Read top 3-5 knowledge files",
+            "Identify knowledge gaps"
+          ],
+          "hop": "09_HOP_orchestrator.md",
+          "validation": {
+            "min_results": 3,
+            "relevance_threshold": 0.60
+          },
+          "output": "$discovery_results"
+        },
+        {
+          "phase": 2,
+          "name": "Knowledge Synthesis",
+          "duration": "3-7min",
+          "actions": [
+            "Extract actionable insights (WHEN/HOW/WHAT)",
+            "Translate to seller language",
+            "Structure by priority",
+            "Add context examples",
+            "Validate synthesis (≥3 insights)"
+          ],
+          "hop": "10_HOP_processor.md",
+          "validation": {
+            "min_insights": 3,
+            "jargon_check": true,
+            "when_how_what_complete": true
+          },
+          "output": "$synthesized_knowledge"
+        },
+        {
+          "phase": 3,
+          "name": "Assessment",
+          "duration": "3-7min",
+          "actions": [
+            "Evaluate seller current state",
+            "Identify skill gaps (≥2)",
+            "Map opportunities by priority",
+            "Assess risks",
+            "Prioritize by ROI"
+          ],
+          "hop": "11_HOP_scout_navigator.md",
+          "validation": {
+            "min_skill_gaps": 2,
+            "opportunities_mapped": true,
+            "risks_assessed": true
+          },
+          "output": "$assessment_report"
+        },
+        {
+          "phase": 4,
+          "name": "Action Planning",
+          "duration": "3-7min",
+          "actions": [
+            "Create step-by-step plan (≥5 steps)",
+            "Structure by timeframe (immediate/short/long)",
+            "Add prerequisites per step",
+            "Include success checkpoints",
+            "Provide alternatives (Plan A + Plan B)"
+          ],
+          "hop": "09_HOP_orchestrator.md",
+          "validation": {
+            "min_steps": 5,
+            "timeframes_present": true,
+            "prerequisites_listed": true
+          },
+          "output": "$action_plan"
+        },
+        {
+          "phase": 5,
+          "name": "Guidance & Resources",
+          "duration": "3-7min",
+          "actions": [
+            "Recommend tools (≥3)",
+            "Provide templates",
+            "Link resources",
+            "Add expert tips (≥2)",
+            "Suggest next learning"
+          ],
+          "hop": "09_HOP_orchestrator.md",
+          "validation": {
+            "min_resources": 3,
+            "min_expert_tips": 2
+          },
+          "output": "$guidance_resources"
+        },
+        {
+          "phase": 6,
+          "name": "Output Assembly",
+          "duration": "2-5min",
+          "actions": [
+            "Structure response (summary + plan + resources + next)",
+            "Format for readability",
+            "Add metadata",
+            "Validate completeness",
+            "Save conversation log"
+          ],
+          "hop": "09_HOP_orchestrator.md",
+          "validation": {
+            "structure_complete": true,
+            "metadata_present": true
+          },
+          "output": "$final_response"
+        }
+      ],
+      "success_criteria": {
+        "all_phases_completed": true,
+        "duration_within_target": true,
+        "quality_score": "≥0.87",
+        "validation_failures": 0
+      }
+    },
+
+    "quick": {
+      "id": "mentor_quick_execution",
+      "name": "Quick Mentor Response",
+      "description": "Fast 3-phase response for simple questions",
+      "duration_estimate": "3-8 min",
+      "phases": [
+        {
+          "phase": 1,
+          "name": "Quick Discovery",
+          "duration": "1-2min",
+          "actions": [
+            "Parse question keywords",
+            "Search catalog (top 3)",
+            "Read best match"
+          ],
+          "hop": "09_HOP_orchestrator.md",
+          "validation": {
+            "min_results": 1
+          },
+          "output": "$quick_discovery"
+        },
+        {
+          "phase": 2,
+          "name": "Quick Synthesis",
+          "duration": "1-3min",
+          "actions": [
+            "Extract key insight",
+            "Translate to seller language",
+            "Add one practical example"
+          ],
+          "hop": "10_HOP_processor.md",
+          "validation": {
+            "insight_present": true,
+            "example_present": true
+          },
+          "output": "$quick_synthesis"
+        },
+        {
+          "phase": 3,
+          "name": "Quick Response",
+          "duration": "1-3min",
+          "actions": [
+            "Format concise response (50-200 words)",
+            "Include metric",
+            "Add next step"
+          ],
+          "hop": "09_HOP_orchestrator.md",
+          "validation": {
+            "word_count": "50-200",
+            "next_step_present": true
+          },
+          "output": "$quick_response"
+        }
+      ],
+      "success_criteria": {
+        "all_phases_completed": true,
+        "duration_within_target": true,
+        "response_actionable": true
+      }
+    },
+
+    "processing": {
+      "id": "mentor_file_processing",
+      "name": "File Processing Pipeline",
+      "description": "Process new files from RASCUNHO/ to PROCESSADOS/",
+      "duration_estimate": "2-5 min per file",
+      "phases": [
+        {
+          "phase": 1,
+          "name": "Extract",
+          "duration": "0.5-2min",
+          "actions": [
+            "Detect file format",
+            "Extract raw content",
+            "Clean text",
+            "Assess extraction quality"
+          ],
+          "module": "14_module.md",
+          "validation": {
+            "min_chars": 100,
+            "encoding": "utf-8"
+          },
+          "output": "$extracted_content"
+        },
+        {
+          "phase": 2,
+          "name": "Classify",
+          "duration": "0.5-1min",
+          "actions": [
+            "Detect categoria (1 of 10)",
+            "Identify assunto",
+            "Determine nivel",
+            "Extract tags (max 5)",
+            "Detect aplicacao"
+          ],
+          "module": "15_module.md",
+          "validation": {
+            "categoria_valid": true,
+            "tags_count": "1-5"
+          },
+          "output": "$classification"
+        },
+        {
+          "phase": 3,
+          "name": "Synthesize",
+          "duration": "1-2min",
+          "actions": [
+            "Create structured markdown",
+            "Follow template",
+            "Target 800-1200 tokens",
+            "Use seller language"
+          ],
+          "module": "17_module.md",
+          "validation": {
+            "token_count": "800-1200",
+            "template_followed": true
+          },
+          "output": "$synthesized_md"
+        },
+        {
+          "phase": 4,
+          "name": "Validate",
+          "duration": "0.5-1min",
+          "actions": [
+            "Check 5 dimensions",
+            "Calculate quality score",
+            "Improve if <0.75",
+            "Re-validate after improvement"
+          ],
+          "module": "16_module.md",
+          "validation": {
+            "quality_threshold": 0.75,
+            "all_dimensions_checked": true
+          },
+          "output": "$validation_result"
+        },
+        {
+          "phase": 5,
+          "name": "Catalog",
+          "duration": "0.5min",
+          "actions": [
+            "Generate filename ({categoria}_{assunto}_{date}.md)",
+            "Save to PROCESSADOS/",
+            "Update catalogo.json",
+            "Report to seller"
+          ],
+          "module": "19_module.md",
+          "validation": {
+            "file_saved": true,
+            "catalog_updated": true
+          },
+          "output": "$catalog_entry"
+        }
+      ],
+      "success_criteria": {
+        "file_processed": true,
+        "quality_score": "≥0.75",
+        "catalog_updated": true,
+        "flat_structure": true
+      }
+    },
+
+    "lesson": {
+      "id": "mentor_lesson_building",
+      "name": "Aula ao Vivo Builder",
+      "description": "Build comprehensive lesson from multiple sources",
+      "duration_estimate": "5-12 min",
+      "phases": [
+        {
+          "phase": 1,
+          "name": "Search All",
+          "duration": "1-2min",
+          "actions": [
+            "Search catalog for topic",
+            "Get all related files (up to 5)",
+            "Read all matches"
+          ],
+          "module": "11_HOP_scout_navigator.md",
+          "output": "$lesson_sources"
+        },
+        {
+          "phase": 2,
+          "name": "Synthesize Lesson",
+          "duration": "3-7min",
+          "actions": [
+            "Extract common concepts",
+            "Identify best examples",
+            "Build lesson structure",
+            "Adapt to seller level"
+          ],
+          "module": "17_module.md",
+          "output": "$lesson_draft"
+        },
+        {
+          "phase": 3,
+          "name": "Format & Deliver",
+          "duration": "1-3min",
+          "actions": [
+            "Apply lesson template",
+            "Add emojis for structure",
+            "Include exercise",
+            "Suggest next topics"
+          ],
+          "module": "09_HOP_orchestrator.md",
+          "output": "$final_lesson"
+        }
+      ],
+      "success_criteria": {
+        "sources_found": "≥2",
+        "lesson_complete": true,
+        "exercise_included": true,
+        "word_count": "800-1200"
+      }
+    }
+  },
+
+  "quality_dimensions": {
+    "completeness": {
+      "description": "All required sections present",
+      "weight": 0.20,
+      "threshold": 0.60
+    },
+    "clarity": {
+      "description": "Clear language, no jargon",
+      "weight": 0.20,
+      "threshold": 0.60
+    },
+    "accuracy": {
+      "description": "Factually correct, Brazil-specific",
+      "weight": 0.20,
+      "threshold": 0.60
+    },
+    "relevance": {
+      "description": "Useful for seller daily work",
+      "weight": 0.20,
+      "threshold": 0.60
+    },
+    "actionability": {
+      "description": "Concrete steps, executable",
+      "weight": 0.20,
+      "threshold": 0.60
+    }
+  },
+
+  "task_boundaries": {
+    "enabled": true,
+    "report_phases": true,
+    "report_format": "## [PHASE {n}] {name}\nStatus: {status}\nDuration: {duration}\nOutput: {summary}"
+  },
+
+  "metadata": {
+    "created": "2025-11-25",
+    "framework": "12 Leverage Points",
+    "leverage_point": "10_Plans",
+    "generator": "CODEXA Meta-Constructor v2.5.0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "platform": "Hotmart",
+  "version": "2.0.0",
+  "generated_at": "2025-11-24T01:39:37.967049",
+  "content_inventory": {
+    "video_scripts": [],
+    "workbooks": [],
+    "sales": []
+  },
+  "drm_enabled": true,
+  "compliance": {
+    "lgpd": true,
+    "claims_sensíveis": "reviewed",
+    "garantia": "7-30 days"
+  },
+  "deployment_checklist": [
+    "Upload videos (MP4, H.264, 1080p)",
+    "Configure DRM (anti-download, watermark)",
+    "Set up gotejamento (drip schedule)",
+    "Configure checkout page",
+    "Test purchase flow",
+    "Launch"
+  ]
+}

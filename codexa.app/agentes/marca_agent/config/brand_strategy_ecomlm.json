@@ -1,0 +1,250 @@
+{
+  "brand": {
+    "name": "E-COM Large Model",
+    "code": "codexa.ecomlm",
+    "category": "E-commerce Automation Platform",
+    "created_date": "2025-11-12"
+  },
+
+  "positioning": {
+    "essence": "A plataforma de inteligência artificial que democratiza o poder dos gigantes do e-commerce",
+    "purpose": "Libertar empreendedores do operacional para focar no estratégico",
+    "mission": "Tornar a excelência em e-commerce acessível a todo empreendedor brasileiro através de IA",
+    "vision": "Ser o sistema nervoso central de 100.000 e-commerces brasileiros até 2028",
+    "values": [
+      "Democratização Tecnológica",
+      "Resultados Mensuráveis",
+      "Brasilidade Inteligente",
+      "Simplicidade Poderosa",
+      "Crescimento Compartilhado"
+    ]
+  },
+
+  "archetype": {
+    "primary": {
+      "name": "O Mago",
+      "description": "Transformamos realidades através do poder da inteligência",
+      "traits": [
+        "Transformação",
+        "Conhecimento Oculto",
+        "Catalisador de Mudança",
+        "Domínio do Complexo",
+        "Visão do Futuro"
+      ]
+    },
+    "secondary": {
+      "name": "O Herói",
+      "description": "Sua jornada para o topo do e-commerce começa aqui",
+      "traits": [
+        "Coragem",
+        "Determinação",
+        "Proteção",
+        "Vitória"
+      ]
+    }
+  },
+
+  "voice": {
+    "tone": "Profissional-Inovador",
+    "personality": {
+      "we_are": [
+        "Confiantes sem ser arrogantes",
+        "Inovadores sem ser inacessíveis",
+        "Precisos sem ser frios",
+        "Brasileiros sem ser informais demais",
+        "Resultados-driven sem ser insensíveis"
+      ],
+      "we_are_not": [
+        "Genéricos ou commoditizados",
+        "Excessivamente técnicos",
+        "Promessas vazias",
+        "Distantes ou impessoais",
+        "Complicados desnecessariamente"
+      ]
+    },
+    "communication_pillars": [
+      "Clareza Cristalina",
+      "Autoridade Acessível",
+      "Brasilidade Inteligente",
+      "Urgência Estratégica"
+    ]
+  },
+
+  "messaging": {
+    "tagline_primary": "IA que transforma sellers em gigantes do e-commerce",
+    "taglines_alternative": [
+      "7 agentes IA. 300% ROI. 0% complicação.",
+      "O futuro do e-commerce brasileiro já chegou",
+      "Venda mais, trabalhe menos, cresça sempre",
+      "Sua equipe de IA especializada em vendas",
+      "Do manual ao exponencial em 24 horas"
+    ],
+    "elevator_pitch": "E-COM Large Model é a única plataforma com 7 agentes de IA especializados que automatiza 100% da operação de e-commerce brasileiro. Integramos nativamente com Mercado Livre, Shopee e Magalu, garantimos compliance ANVISA automático e entregamos ROI médio de 300% em 3 meses.",
+    "value_props": [
+      "7 Agentes Especializados de IA",
+      "ROI de 300% comprovado",
+      "Compliance ANVISA automático",
+      "Integração nativa com marketplaces",
+      "20 horas/semana economizadas"
+    ]
+  },
+
+  "visual_identity": {
+    "colors": {
+      "primary": [
+        {"name": "Deep Tech Blue", "hex": "#0A1628", "usage": "Confiança e tecnologia"},
+        {"name": "AI Purple", "hex": "#7209B7", "usage": "Inovação e magia"},
+        {"name": "Success Green", "hex": "#06FFA5", "usage": "Crescimento e ROI"}
+      ],
+      "secondary": [
+        {"name": "Smart Grey", "hex": "#4A5568", "usage": "Profissionalismo"},
+        {"name": "Alert Orange", "hex": "#FF6B35", "usage": "CTAs e urgência"},
+        {"name": "Pure White", "hex": "#FFFFFF", "usage": "Clareza e espaço"}
+      ]
+    },
+    "typography": {
+      "headlines": "Inter Black / Montserrat Bold",
+      "body": "Inter Regular / Open Sans",
+      "cta": "Inter Bold",
+      "data": "Roboto Mono"
+    },
+    "style": [
+      "Clean Tech",
+      "Data Visualization",
+      "Brazilian Touch",
+      "AI Elements",
+      "Trust Signals"
+    ]
+  },
+
+  "personas": [
+    {
+      "name": "Carlos, O Escalador",
+      "age": "28-35",
+      "business_size": "50-200 vendas/mês",
+      "main_pain": "Não consegue escalar sozinho",
+      "motivation": "Multiplicar vendas sem contratar",
+      "ideal_plan": "Professional",
+      "price": 597
+    },
+    {
+      "name": "Marina, A Profissional",
+      "age": "35-45",
+      "business_size": "200-1000 vendas/mês",
+      "main_pain": "Compliance e gestão multi-marketplace",
+      "motivation": "Profissionalizar operação",
+      "ideal_plan": "Enterprise",
+      "price": 997
+    },
+    {
+      "name": "João, O Iniciante Ambicioso",
+      "age": "22-30",
+      "business_size": "<50 vendas/mês",
+      "main_pain": "Não sabe otimizar anúncios",
+      "motivation": "Aprender e crescer rápido",
+      "ideal_plan": "Starter",
+      "price": 297
+    }
+  ],
+
+  "touchpoints": {
+    "digital": [
+      "Website",
+      "Dashboard",
+      "Email Marketing",
+      "WhatsApp Business",
+      "LinkedIn",
+      "Instagram",
+      "YouTube"
+    ],
+    "content": [
+      "Blog",
+      "E-books",
+      "Webinars",
+      "Case Studies",
+      "Podcast"
+    ],
+    "experience": [
+      "Onboarding",
+      "Suporte",
+      "Comunidade",
+      "Academy",
+      "Awards"
+    ]
+  },
+
+  "brand_metrics": {
+    "kpis": [
+      {"metric": "Brand Awareness", "target": "30% do mercado em 12 meses"},
+      {"metric": "Brand Consideration", "target": "Top 3 em categoria"},
+      {"metric": "NPS", "target": ">70"},
+      {"metric": "Share of Voice", "target": "25% nas conversas"},
+      {"metric": "Brand Love", "target": "40% promotores ativos"}
+    ]
+  },
+
+  "activation_roadmap": {
+    "phase_1": {
+      "name": "Lançamento",
+      "duration": "Meses 1-3",
+      "initiatives": [
+        "7 Days of Magic Campaign",
+        "Early Adopter Program",
+        "Webinar Series",
+        "PR Push"
+      ]
+    },
+    "phase_2": {
+      "name": "Crescimento",
+      "duration": "Meses 4-9",
+      "initiatives": [
+        "Success Stories Campaign",
+        "Referral Program",
+        "Partnership Program",
+        "E-commerce Summit"
+      ]
+    },
+    "phase_3": {
+      "name": "Consolidação",
+      "duration": "Meses 10-12",
+      "initiatives": [
+        "Brand Evolution",
+        "Premium Offerings",
+        "International Expansion",
+        "IPO Readiness"
+      ]
+    }
+  },
+
+  "brand_mantra": {
+    "internal": "Simplificamos o complexo, automatizamos o impossível, entregamos o extraordinário",
+    "external": "IA que transforma sellers em gigantes",
+    "philosophical": "Democratizando o futuro do comércio brasileiro"
+  },
+
+  "guidelines": {
+    "dos": [
+      "Sempre liderar com benefícios (ROI 300%)",
+      "Mencionar os 7 agentes como diferencial",
+      "Usar casos reais e números concretos",
+      "Manter tom profissional mas acessível",
+      "Enfatizar brasilidade e compreensão local"
+    ],
+    "donts": [
+      "Nunca prometer o impossível",
+      "Evitar jargões técnicos desnecessários",
+      "Não menosprezar concorrência",
+      "Jamais usar fear mongering excessivo",
+      "Não ser genérico ou commodity"
+    ]
+  },
+
+  "metadata": {
+    "version": "1.0",
+    "agent": "Brand Agent",
+    "framework": "HOP",
+    "system": "TAC-7",
+    "archetype_score": 0.92,
+    "consistency_score": 0.89
+  }
+}

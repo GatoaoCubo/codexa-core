@@ -1,0 +1,370 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "marca_agent_archetype_specs",
+  "description": "12 Brand Archetypes with voice, visual, and behavioral specifications",
+  "version": "2.5.0",
+  "archetypes": {
+    "hero": {
+      "id": "hero",
+      "name_pt": "Heroi",
+      "core_desire": "Prove worth through courageous action",
+      "goal": "Expert mastery in a way that improves the world",
+      "fear": "Weakness, vulnerability, being a coward",
+      "strategy": "Be as strong and competent as possible",
+      "gift": "Competence and courage",
+      "voice": {
+        "tone_dimensions": {"formality": 3, "enthusiasm": 4, "respect": 4, "humor": 4},
+        "adjectives": ["Determinado", "Corajoso", "Forte", "Inspirador", "Vencedor"],
+        "vocabulary": "Achievement-oriented, challenge language, victory metaphors",
+        "sentence_style": "Direct, confident, action-oriented"
+      },
+      "visual": {
+        "colors": ["#DC2626", "#1E40AF", "#F59E0B"],
+        "color_names": ["Vermelho Coragem", "Azul Vitoria", "Dourado Conquista"],
+        "typography": "Bold, strong sans-serif (Montserrat Bold, Impact)",
+        "imagery": "Athletic achievements, mountain summits, breakthrough moments"
+      },
+      "messaging": {
+        "themes": ["Superacao", "Conquista", "Forca", "Determinacao"],
+        "cta_style": "Imperative, action verbs (Conquiste, Supere, Alcance)",
+        "avoid": ["Weakness language", "Uncertainty", "Passive voice"]
+      },
+      "examples": ["Nike", "FedEx", "Red Bull", "BMW"],
+      "best_for": ["Sports", "Fitness", "Security", "Performance products"]
+    },
+    "sage": {
+      "id": "sage",
+      "name_pt": "Sabio",
+      "core_desire": "Discover the truth and share knowledge",
+      "goal": "Use intelligence and analysis to understand the world",
+      "fear": "Being duped, misled, or ignorant",
+      "strategy": "Seek information and knowledge",
+      "gift": "Wisdom and intelligence",
+      "voice": {
+        "tone_dimensions": {"formality": 4, "enthusiasm": 3, "respect": 5, "humor": 4},
+        "adjectives": ["Inteligente", "Confiavel", "Especialista", "Educativo", "Analitico"],
+        "vocabulary": "Educational, data-driven, research-backed",
+        "sentence_style": "Well-structured, informative, evidence-based"
+      },
+      "visual": {
+        "colors": ["#1E3A5F", "#6B7280", "#F3F4F6"],
+        "color_names": ["Azul Profundo", "Cinza Sabedoria", "Branco Clareza"],
+        "typography": "Serif or refined sans-serif (Merriweather, Source Sans)",
+        "imagery": "Books, research, thought leaders, clean spaces"
+      },
+      "messaging": {
+        "themes": ["Conhecimento", "Expertise", "Confianca", "Educacao"],
+        "cta_style": "Informative (Descubra, Aprenda, Entenda)",
+        "avoid": ["Emotional manipulation", "Hype", "Unsubstantiated claims"]
+      },
+      "examples": ["Google", "Harvard", "TED", "The Economist"],
+      "best_for": ["Education", "Consulting", "Technology", "Finance"]
+    },
+    "innocent": {
+      "id": "innocent",
+      "name_pt": "Inocente",
+      "core_desire": "Experience paradise and happiness",
+      "goal": "Be happy",
+      "fear": "Doing something wrong that will provoke punishment",
+      "strategy": "Do things right",
+      "gift": "Faith and optimism",
+      "voice": {
+        "tone_dimensions": {"formality": 2, "enthusiasm": 4, "respect": 4, "humor": 3},
+        "adjectives": ["Puro", "Simples", "Alegre", "Otimista", "Genuino"],
+        "vocabulary": "Simple, positive, wholesome language",
+        "sentence_style": "Short, clear, uplifting"
+      },
+      "visual": {
+        "colors": ["#FBBF24", "#10B981", "#FEFCE8"],
+        "color_names": ["Amarelo Alegria", "Verde Natureza", "Branco Puro"],
+        "typography": "Rounded, friendly fonts (Nunito, Poppins)",
+        "imagery": "Nature, families, smiling faces, pastoral scenes"
+      },
+      "messaging": {
+        "themes": ["Simplicidade", "Pureza", "Felicidade", "Naturalidade"],
+        "cta_style": "Inviting (Experimente, Descubra a felicidade)",
+        "avoid": ["Complexity", "Darkness", "Cynicism"]
+      },
+      "examples": ["Dove", "Coca-Cola", "Disney", "Whole Foods"],
+      "best_for": ["Natural products", "Children's brands", "Organic foods"]
+    },
+    "explorer": {
+      "id": "explorer",
+      "name_pt": "Explorador",
+      "core_desire": "Freedom to find out who you are through exploration",
+      "goal": "Experience a more authentic, fulfilling life",
+      "fear": "Getting trapped, conformity, inner emptiness",
+      "strategy": "Journey, seek new experiences, escape boredom",
+      "gift": "Autonomy, ambition, being true to one's soul",
+      "voice": {
+        "tone_dimensions": {"formality": 2, "enthusiasm": 5, "respect": 3, "humor": 3},
+        "adjectives": ["Aventureiro", "Livre", "Autentico", "Curioso", "Independente"],
+        "vocabulary": "Adventure, discovery, journey metaphors",
+        "sentence_style": "Energetic, questioning, inspiring wanderlust"
+      },
+      "visual": {
+        "colors": ["#059669", "#D97706", "#1E293B"],
+        "color_names": ["Verde Aventura", "Laranja Descoberta", "Azul Noite"],
+        "typography": "Rugged, outdoor fonts (Oswald, Barlow)",
+        "imagery": "Landscapes, paths, horizons, camping, travel"
+      },
+      "messaging": {
+        "themes": ["Liberdade", "Descoberta", "Aventura", "Autenticidade"],
+        "cta_style": "Inviting adventure (Explore, Descubra, Viva)",
+        "avoid": ["Routine", "Conformity", "Limitations"]
+      },
+      "examples": ["Jeep", "Patagonia", "REI", "Airbnb"],
+      "best_for": ["Outdoor", "Travel", "Adventure sports", "Camping"]
+    },
+    "creator": {
+      "id": "creator",
+      "name_pt": "Criador",
+      "core_desire": "Create things of enduring value",
+      "goal": "Realize a vision",
+      "fear": "Mediocre vision or execution",
+      "strategy": "Develop artistic control and skill",
+      "gift": "Creativity and imagination",
+      "voice": {
+        "tone_dimensions": {"formality": 3, "enthusiasm": 4, "respect": 3, "humor": 3},
+        "adjectives": ["Criativo", "Inovador", "Visionario", "Artistico", "Original"],
+        "vocabulary": "Creative, design-focused, innovative",
+        "sentence_style": "Inspiring, visionary, craft-focused"
+      },
+      "visual": {
+        "colors": ["#7C3AED", "#EC4899", "#F9FAFB"],
+        "color_names": ["Roxo Criativo", "Rosa Inovacao", "Branco Canvas"],
+        "typography": "Modern, creative fonts (Playfair Display, Space Grotesk)",
+        "imagery": "Art, design process, creative spaces, handmade"
+      },
+      "messaging": {
+        "themes": ["Criatividade", "Inovacao", "Design", "Expressao"],
+        "cta_style": "Empowering creation (Crie, Imagine, Transforme)",
+        "avoid": ["Generic", "Mass-produced feeling", "Cookie-cutter"]
+      },
+      "examples": ["Apple", "LEGO", "Adobe", "Crayola"],
+      "best_for": ["Design", "Art supplies", "Creative tools", "DIY"]
+    },
+    "ruler": {
+      "id": "ruler",
+      "name_pt": "Governante",
+      "core_desire": "Control, create order from chaos",
+      "goal": "Create a prosperous, successful family or community",
+      "fear": "Chaos, being overthrown",
+      "strategy": "Exercise power",
+      "gift": "Responsibility, leadership",
+      "voice": {
+        "tone_dimensions": {"formality": 5, "enthusiasm": 3, "respect": 5, "humor": 5},
+        "adjectives": ["Premium", "Exclusivo", "Sofisticado", "Prestigioso", "Elite"],
+        "vocabulary": "Luxury, excellence, prestige, exclusive",
+        "sentence_style": "Authoritative, refined, commanding"
+      },
+      "visual": {
+        "colors": ["#1F2937", "#D4AF37", "#FFFFFF"],
+        "color_names": ["Preto Premium", "Dourado Luxo", "Branco Elegante"],
+        "typography": "Elegant serif fonts (Playfair Display, Cormorant)",
+        "imagery": "Luxury materials, exclusive settings, refined details"
+      },
+      "messaging": {
+        "themes": ["Exclusividade", "Prestigio", "Excelencia", "Lideranca"],
+        "cta_style": "Exclusive invitation (Acesse, Experimente o melhor)",
+        "avoid": ["Discount language", "Mass market feeling", "Casual tone"]
+      },
+      "examples": ["Mercedes-Benz", "Rolex", "American Express", "Louis Vuitton"],
+      "best_for": ["Luxury goods", "Premium services", "Executive products"]
+    },
+    "magician": {
+      "id": "magician",
+      "name_pt": "Mago",
+      "core_desire": "Understanding fundamental laws of universe",
+      "goal": "Make dreams come true, transform reality",
+      "fear": "Unintended negative consequences",
+      "strategy": "Develop a vision and live by it",
+      "gift": "Finding win-win solutions",
+      "voice": {
+        "tone_dimensions": {"formality": 3, "enthusiasm": 5, "respect": 3, "humor": 3},
+        "adjectives": ["Transformador", "Magico", "Visionario", "Revolucionario", "Extraordinario"],
+        "vocabulary": "Transformation, magic, wonder, possibility",
+        "sentence_style": "Visionary, inspiring, wonder-inducing"
+      },
+      "visual": {
+        "colors": ["#6D28D9", "#0EA5E9", "#1E1B4B"],
+        "color_names": ["Roxo Magico", "Azul Possibilidade", "Indigo Profundo"],
+        "typography": "Mystical yet modern (Cinzel, Prata)",
+        "imagery": "Transformation, before/after, magic moments"
+      },
+      "messaging": {
+        "themes": ["Transformacao", "Possibilidade", "Magia", "Mudanca"],
+        "cta_style": "Transformative (Transforme, Descubra a magia)",
+        "avoid": ["Mundane", "Ordinary", "Skeptical tone"]
+      },
+      "examples": ["Disney", "Tesla", "Polaroid", "Mastercard"],
+      "best_for": ["Technology", "Cosmetics", "Entertainment", "Transformation services"]
+    },
+    "lover": {
+      "id": "lover",
+      "name_pt": "Amante",
+      "core_desire": "Intimacy and sensory experience",
+      "goal": "Being in relationship with people, work, surroundings they love",
+      "fear": "Being alone, unwanted, unloved",
+      "strategy": "Become more attractive physically and emotionally",
+      "gift": "Passion, gratitude, appreciation, commitment",
+      "voice": {
+        "tone_dimensions": {"formality": 2, "enthusiasm": 5, "respect": 3, "humor": 3},
+        "adjectives": ["Sensual", "Apaixonado", "Sedutor", "Intimo", "Desejavel"],
+        "vocabulary": "Sensory, romantic, intimate, passionate",
+        "sentence_style": "Evocative, sensual, emotionally rich"
+      },
+      "visual": {
+        "colors": ["#BE185D", "#831843", "#FDF2F8"],
+        "color_names": ["Rosa Paixao", "Vinho Seducao", "Rosa Suave"],
+        "typography": "Elegant, flowing fonts (Cormorant Garamond, Dancing Script)",
+        "imagery": "Intimate moments, textures, sensory details, beauty"
+      },
+      "messaging": {
+        "themes": ["Paixao", "Beleza", "Intimidade", "Desejo"],
+        "cta_style": "Seductive invitation (Sinta, Experimente, Entregue-se)",
+        "avoid": ["Clinical language", "Detachment", "Coldness"]
+      },
+      "examples": ["Chanel", "Victoria's Secret", "Godiva", "Alfa Romeo"],
+      "best_for": ["Fashion", "Beauty", "Chocolates", "Perfumes", "Jewelry"]
+    },
+    "caregiver": {
+      "id": "caregiver",
+      "name_pt": "Cuidador",
+      "core_desire": "Protect and care for others",
+      "goal": "Help others",
+      "fear": "Selfishness and ingratitude",
+      "strategy": "Do things for others",
+      "gift": "Compassion, generosity",
+      "voice": {
+        "tone_dimensions": {"formality": 3, "enthusiasm": 3, "respect": 5, "humor": 4},
+        "adjectives": ["Cuidadoso", "Protetor", "Confiavel", "Acolhedor", "Gentil"],
+        "vocabulary": "Caring, protective, nurturing, supportive",
+        "sentence_style": "Warm, reassuring, empathetic"
+      },
+      "visual": {
+        "colors": ["#0D9488", "#FEF3C7", "#ECFDF5"],
+        "color_names": ["Verde Cuidado", "Amarelo Acolhedor", "Verde Suave"],
+        "typography": "Warm, approachable fonts (Lato, Open Sans)",
+        "imagery": "Families, protection, nurturing moments, safety"
+      },
+      "messaging": {
+        "themes": ["Cuidado", "Protecao", "Confianca", "Seguranca"],
+        "cta_style": "Caring invitation (Cuide, Proteja, Confie)",
+        "avoid": ["Aggressive language", "Risk emphasis", "Selfishness"]
+      },
+      "examples": ["Johnson & Johnson", "Volvo", "UNICEF", "Pampers"],
+      "best_for": ["Healthcare", "Insurance", "Childcare", "Safety products"]
+    },
+    "jester": {
+      "id": "jester",
+      "name_pt": "Bobo da Corte",
+      "core_desire": "Live in the moment with full enjoyment",
+      "goal": "Have a great time and lighten up the world",
+      "fear": "Being bored or boring others",
+      "strategy": "Play, make jokes, be funny",
+      "gift": "Joy",
+      "voice": {
+        "tone_dimensions": {"formality": 1, "enthusiasm": 5, "respect": 2, "humor": 1},
+        "adjectives": ["Divertido", "Irreverente", "Espontaneo", "Alegre", "Descontraido"],
+        "vocabulary": "Playful, humorous, casual, fun",
+        "sentence_style": "Light, witty, entertaining"
+      },
+      "visual": {
+        "colors": ["#F59E0B", "#EF4444", "#8B5CF6"],
+        "color_names": ["Amarelo Diversao", "Vermelho Energia", "Roxo Surpresa"],
+        "typography": "Fun, playful fonts (Fredoka One, Baloo)",
+        "imagery": "Fun moments, laughter, playful situations"
+      },
+      "messaging": {
+        "themes": ["Diversao", "Alegria", "Leveza", "Espontaneidade"],
+        "cta_style": "Playful invitation (Divirta-se, Surpreenda-se)",
+        "avoid": ["Seriousness", "Formality", "Boring language"]
+      },
+      "examples": ["M&M's", "Old Spice", "Fanta", "Dollar Shave Club"],
+      "best_for": ["Snacks", "Entertainment", "Casual products", "Youth brands"]
+    },
+    "everyman": {
+      "id": "everyman",
+      "name_pt": "Cara Comum",
+      "core_desire": "Belonging and connection",
+      "goal": "Belong and fit in",
+      "fear": "Being left out, standing out",
+      "strategy": "Develop ordinary solid virtues, blend in",
+      "gift": "Realism, empathy, lack of pretense",
+      "voice": {
+        "tone_dimensions": {"formality": 2, "enthusiasm": 3, "respect": 4, "humor": 3},
+        "adjectives": ["Acessivel", "Autentico", "Confiavel", "Simples", "Honesto"],
+        "vocabulary": "Down-to-earth, relatable, practical",
+        "sentence_style": "Conversational, friendly, unpretentious"
+      },
+      "visual": {
+        "colors": ["#2563EB", "#EAB308", "#F3F4F6"],
+        "color_names": ["Azul Confianca", "Amarelo Amigavel", "Cinza Neutro"],
+        "typography": "Clean, readable fonts (Roboto, Inter)",
+        "imagery": "Real people, everyday situations, community"
+      },
+      "messaging": {
+        "themes": ["Acessibilidade", "Comunidade", "Praticidade", "Honestidade"],
+        "cta_style": "Friendly invitation (Venha, Junte-se, Faca parte)",
+        "avoid": ["Elitism", "Complexity", "Exclusivity"]
+      },
+      "examples": ["IKEA", "Target", "Budweiser", "Havaianas"],
+      "best_for": ["Retail", "Everyday products", "Affordable goods"]
+    },
+    "rebel": {
+      "id": "rebel",
+      "name_pt": "Rebelde",
+      "core_desire": "Revolution, revenge, break rules",
+      "goal": "Overturn what isn't working",
+      "fear": "Being powerless or ineffectual",
+      "strategy": "Disrupt, destroy, shock",
+      "gift": "Outrageousness, radical freedom",
+      "voice": {
+        "tone_dimensions": {"formality": 1, "enthusiasm": 5, "respect": 1, "humor": 2},
+        "adjectives": ["Rebelde", "Ousado", "Revolucionario", "Independente", "Provocador"],
+        "vocabulary": "Bold, challenging, disruptive, edgy",
+        "sentence_style": "Direct, provocative, rule-breaking"
+      },
+      "visual": {
+        "colors": ["#000000", "#DC2626", "#FBBF24"],
+        "color_names": ["Preto Rebelde", "Vermelho Revolucao", "Amarelo Alerta"],
+        "typography": "Bold, edgy fonts (Bebas Neue, Anton)",
+        "imagery": "Breaking rules, alternative culture, bold statements"
+      },
+      "messaging": {
+        "themes": ["Revolucao", "Liberdade", "Ruptura", "Autenticidade"],
+        "cta_style": "Challenging (Quebre as regras, Seja diferente)",
+        "avoid": ["Conformity", "Traditional values", "Safe choices"]
+      },
+      "examples": ["Harley-Davidson", "Virgin", "Diesel", "Jack Daniel's"],
+      "best_for": ["Alternative brands", "Streetwear", "Motorcycles", "Counter-culture"]
+    }
+  },
+  "selection_guide": {
+    "by_product_category": {
+      "sports_fitness": ["hero", "explorer", "rebel"],
+      "beauty_skincare": ["lover", "caregiver", "creator"],
+      "technology": ["magician", "sage", "creator"],
+      "food_beverage": ["everyman", "caregiver", "jester"],
+      "fashion_apparel": ["lover", "creator", "rebel"],
+      "home_living": ["caregiver", "creator", "everyman"],
+      "health_wellness": ["caregiver", "sage", "innocent"],
+      "finance_business": ["sage", "ruler", "hero"],
+      "entertainment": ["jester", "magician", "explorer"],
+      "sustainability": ["innocent", "explorer", "caregiver"]
+    },
+    "by_price_segment": {
+      "budget": ["everyman", "jester", "innocent"],
+      "mid_range": ["hero", "explorer", "caregiver", "creator"],
+      "premium": ["sage", "magician", "lover"],
+      "luxury": ["ruler", "creator", "lover"]
+    },
+    "by_target_age": {
+      "gen_z": ["rebel", "creator", "jester"],
+      "millennials": ["explorer", "creator", "hero"],
+      "gen_x": ["sage", "caregiver", "ruler"],
+      "boomers": ["caregiver", "sage", "everyman"]
+    }
+  }
+}

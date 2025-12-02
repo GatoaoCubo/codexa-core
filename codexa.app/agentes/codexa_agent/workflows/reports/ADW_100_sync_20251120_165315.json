@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-11-20T16:53:15.916212",
+  "execution_mode": "auto_fix",
+  "agents_processed": 1,
+  "agents_synced": 0,
+  "files_created": 2,
+  "files_updated": 0,
+  "files_deleted": 0,
+  "validation_errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Average quality score (0.55) below threshold (0.85)",
+    "Consider running in auto_fix mode to create missing documentation",
+    "curso_agent: Improve quality score from 0.55 to >=0.85"
+  ],
+  "agent_scores": {
+    "curso_agent": 0.55
+  },
+  "changes_made": [
+    "Created INSTRUCTIONS_curso_agent.md for curso_agent",
+    "Created SETUP.md for curso_agent"
+  ]
+}

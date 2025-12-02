@@ -1,0 +1,242 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Tool Prompt Extraction Schema",
+  "description": "Schema for extracting knowledge from AI coding tool system prompts",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["metadata", "estrutura", "patterns", "techniques", "insights_codexa"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["ferramenta", "categoria", "arquivo_fonte"],
+      "properties": {
+        "ferramenta": {
+          "type": "string",
+          "description": "Nome da ferramenta (ex: cursor, claude_code, devin)"
+        },
+        "versao": {
+          "type": "string",
+          "description": "Versão do prompt (ex: Agent Prompt 2.0)"
+        },
+        "categoria": {
+          "type": "string",
+          "enum": ["coding_ide", "ai_agent", "open_source", "platform", "enterprise"],
+          "description": "Categoria principal da ferramenta"
+        },
+        "modelo_base": {
+          "type": "string",
+          "description": "Modelo LLM usado (ex: claude-4-sonnet, gpt-4.1)"
+        },
+        "data_extracao": {
+          "type": "string",
+          "format": "date",
+          "description": "Data da extração (YYYY-MM-DD)"
+        },
+        "tokens_original": {
+          "type": "integer",
+          "description": "Contagem aproximada de tokens do prompt original"
+        },
+        "linhas_original": {
+          "type": "integer",
+          "description": "Número de linhas do arquivo original"
+        },
+        "arquivo_fonte": {
+          "type": "string",
+          "description": "Caminho relativo do arquivo fonte"
+        }
+      }
+    },
+    "estrutura": {
+      "type": "object",
+      "properties": {
+        "secoes_detectadas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["nome", "proposito"],
+            "properties": {
+              "nome": {
+                "type": "string",
+                "description": "Nome da seção (ex: identity, tools, constraints)"
+              },
+              "tokens_aprox": {
+                "type": "integer",
+                "description": "Tokens aproximados desta seção"
+              },
+              "proposito": {
+                "type": "string",
+                "description": "O que esta seção faz"
+              },
+              "exemplo_conteudo": {
+                "type": "string",
+                "description": "Trecho representativo (max 200 chars)"
+              }
+            }
+          }
+        },
+        "formatacao": {
+          "type": "object",
+          "properties": {
+            "usa_xml_tags": {
+              "type": "boolean",
+              "description": "Usa tags XML para estruturar (<example>, <tool_calling>)"
+            },
+            "usa_markdown": {
+              "type": "boolean",
+              "description": "Usa markdown para headings e formatação"
+            },
+            "usa_json_schemas": {
+              "type": "boolean",
+              "description": "Define tools via JSON schemas"
+            },
+            "usa_typescript": {
+              "type": "boolean",
+              "description": "Usa TypeScript-like syntax para tools"
+            },
+            "usa_exemplos": {
+              "type": "boolean",
+              "description": "Inclui exemplos de uso"
+            },
+            "usa_good_bad_examples": {
+              "type": "boolean",
+              "description": "Diferencia bons vs maus exemplos explicitamente"
+            }
+          }
+        }
+      }
+    },
+    "patterns": {
+      "type": "array",
+      "description": "Padrões de design identificados no prompt",
+      "items": {
+        "type": "object",
+        "required": ["nome", "descricao", "implementacao"],
+        "properties": {
+          "nome": {
+            "type": "string",
+            "enum": [
+              "tool_calling",
+              "agent_loop",
+              "error_handling",
+              "context_management",
+              "code_generation",
+              "code_editing",
+              "search_strategy",
+              "task_management",
+              "memory_persistence",
+              "web_search",
+              "file_operations",
+              "terminal_commands",
+              "linting_validation",
+              "security_constraints",
+              "output_formatting",
+              "communication_style",
+              "proactiveness_level",
+              "planning_mode",
+              "multi_tool_parallel",
+              "citation_format"
+            ]
+          },
+          "descricao": {
+            "type": "string",
+            "description": "O que este padrão faz"
+          },
+          "implementacao": {
+            "type": "string",
+            "description": "Como é implementado neste prompt"
+          },
+          "exemplo": {
+            "type": "string",
+            "description": "Trecho de código/texto exemplificando"
+          },
+          "qualidade": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Score de qualidade da implementação (0-1)"
+          }
+        }
+      }
+    },
+    "techniques": {
+      "type": "array",
+      "description": "Técnicas específicas de prompt engineering",
+      "items": {
+        "type": "object",
+        "required": ["nome", "descricao"],
+        "properties": {
+          "nome": {
+            "type": "string",
+            "description": "Nome da técnica"
+          },
+          "descricao": {
+            "type": "string",
+            "description": "O que a técnica faz"
+          },
+          "como_funciona": {
+            "type": "string",
+            "description": "Explicação detalhada"
+          },
+          "exemplo_uso": {
+            "type": "string",
+            "description": "Exemplo concreto do prompt"
+          },
+          "aplicavel_codexa": {
+            "type": "boolean",
+            "description": "Se é aplicável aos agentes CODEXA"
+          },
+          "prioridade": {
+            "type": "string",
+            "enum": ["critica", "alta", "media", "baixa"],
+            "description": "Prioridade de implementação"
+          }
+        }
+      }
+    },
+    "insights_codexa": {
+      "type": "array",
+      "description": "Insights específicos para melhorar agentes CODEXA",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "maxItems": 10
+    },
+    "diferenciais": {
+      "type": "array",
+      "description": "O que esta ferramenta faz diferente/melhor que outras",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metricas": {
+      "type": "object",
+      "properties": {
+        "clareza": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Quão claro é o prompt (0-1)"
+        },
+        "completude": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Cobre todos os casos de uso? (0-1)"
+        },
+        "reusabilidade": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Fácil de adaptar para CODEXA? (0-1)"
+        },
+        "inovacao": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Apresenta técnicas inovadoras? (0-1)"
+        }
+      }
+    }
+  }
+}

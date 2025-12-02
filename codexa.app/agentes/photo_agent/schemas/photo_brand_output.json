@@ -1,0 +1,989 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codexa.app/schemas/photo_agent/brand_output/v1.0.0",
+  "title": "Photo Agent Brand Social Media Output Schema",
+  "description": "Output schema for photo_agent specialized in brand social media photography with marca_agent integration (Instagram, Facebook, TikTok, Pinterest)",
+  "version": "1.0.0",
+  "type": "object",
+
+  "required": [
+    "metadata",
+    "prompts_social_grid",
+    "brand_integration",
+    "quality_report",
+    "social_media_specs",
+    "trinity_output"
+  ],
+
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Output metadata and generation information",
+      "required": [
+        "agent",
+        "version",
+        "timestamp",
+        "input_hash",
+        "workflow_type"
+      ],
+      "properties": {
+        "agent": {
+          "type": "string",
+          "const": "photo_agent_brand",
+          "description": "Agent identifier for brand social media workflow"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "workflow_type": {
+          "type": "string",
+          "const": "brand_social_media",
+          "description": "Workflow type identifier"
+        },
+        "generation_time_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "input_subject": {
+          "type": "string",
+          "description": "Original brand/product subject"
+        },
+        "brand_name": {
+          "type": "string",
+          "description": "Brand name from brand_strategy.md"
+        },
+        "brand_archetype": {
+          "type": "string",
+          "description": "Primary brand archetype (Hero, Sage, Creator, etc.)"
+        },
+        "target_platforms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["instagram_feed", "instagram_stories", "facebook", "tiktok", "pinterest", "linkedin"]
+          },
+          "description": "Target social media platforms"
+        },
+        "marca_agent_integration": {
+          "type": "boolean",
+          "default": true,
+          "description": "Indicates if output is integrated with marca_agent brand_strategy.md"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "prompts_social_grid": {
+      "type": "array",
+      "description": "9 photography prompts optimized for brand social media (NO mandatory white backgrounds)",
+      "minItems": 1,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_number",
+          "scene_name",
+          "scene_role",
+          "prompt_brand_aligned",
+          "aspect_ratio",
+          "technical_specs",
+          "brand_elements",
+          "pnl_trigger_archetype",
+          "platform_optimization",
+          "validation_score"
+        ],
+        "properties": {
+          "scene_number": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9
+          },
+          "scene_name": {
+            "type": "string",
+            "description": "Human-readable scene name aligned with brand narrative",
+            "examples": [
+              "Brand Hero Lifestyle Shot",
+              "Product in Branded Environment",
+              "User Experience Moment",
+              "Brand Values Visualization",
+              "Storytelling Close-up",
+              "Social Proof Scene",
+              "Brand Atmosphere Shot",
+              "Transformation Moment",
+              "Call-to-Action Visual"
+            ]
+          },
+          "scene_role": {
+            "type": "string",
+            "enum": [
+              "brand_hero",
+              "product_context",
+              "user_experience",
+              "values_visualization",
+              "storytelling",
+              "social_proof",
+              "atmosphere",
+              "transformation",
+              "cta_visual"
+            ],
+            "description": "Scene role in brand narrative arc"
+          },
+          "prompt_brand_aligned": {
+            "type": "string",
+            "minLength": 120,
+            "maxLength": 500,
+            "description": "Full prompt with brand colors, mood, archetype personality, and optional reference image placeholder. NO white background compliance required.",
+            "examples": [
+              "Professional lifestyle photography in {BRAND_ARCHETYPE: Hero} style, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa de água reutilizável sendo usada por atleta em ambiente urbano dinâmico, background ambiente urbano com cores {BRAND_COLORS: #FF5722, #212121, #FFFFFF}, mood enérgico e determinado, lighting golden hour natural warm 5500K, camera 85mm f/4 1/160s ISO 400, composition diagonal bold asymmetric, shallow depth of field bokeh clean, PNL archetype: coragem que prova valor através da ação, aspect ratio 4:5 Instagram feed, no watermarks, 8K quality --ar 4:5"
+            ]
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": ["1:1", "4:5", "9:16", "16:9", "2:3", "3:4"],
+            "description": "Aspect ratio optimized for target platform"
+          },
+          "aspect_ratio_notes": {
+            "type": "object",
+            "description": "Platform-specific aspect ratio recommendations",
+            "properties": {
+              "instagram_feed": {
+                "type": "string",
+                "enum": ["1:1", "4:5"],
+                "description": "Square 1:1 or portrait 4:5"
+              },
+              "instagram_stories": {
+                "type": "string",
+                "const": "9:16",
+                "description": "Vertical 9:16 (1080x1920)"
+              },
+              "facebook": {
+                "type": "string",
+                "enum": ["1:1", "16:9"],
+                "description": "Square or landscape"
+              },
+              "tiktok": {
+                "type": "string",
+                "const": "9:16",
+                "description": "Vertical 9:16"
+              },
+              "pinterest": {
+                "type": "string",
+                "enum": ["2:3", "1:2.1"],
+                "description": "Vertical 2:3 ideal"
+              }
+            }
+          },
+          "technical_specs": {
+            "type": "object",
+            "required": [
+              "camera",
+              "lighting",
+              "background",
+              "composition"
+            ],
+            "properties": {
+              "camera": {
+                "type": "string",
+                "examples": ["85mm f/4 1/160s ISO 400"]
+              },
+              "focal_length": {
+                "type": "string",
+                "pattern": "^\\d{2,3}mm$"
+              },
+              "aperture": {
+                "type": "string",
+                "pattern": "^f/\\d+(\\.\\d+)?$"
+              },
+              "shutter_speed": {
+                "type": "string",
+                "pattern": "^1/\\d+s$"
+              },
+              "iso": {
+                "type": "integer",
+                "enum": [100, 200, 400, 800, 1600]
+              },
+              "lighting": {
+                "type": "string",
+                "description": "Lighting setup aligned with brand mood",
+                "examples": [
+                  "Natural golden hour warm 5500K directional",
+                  "Dramatic low-key lateral shadows bold contrast",
+                  "Soft diffused window light serene calm"
+                ]
+              },
+              "background": {
+                "type": "string",
+                "description": "Background FLEXIBLE (branded environments, atmospheric, contextual - NO white bg compliance)",
+                "examples": [
+                  "Urban environment with brand colors #FF5722 accents",
+                  "Minimalist apartment interior soft pastels",
+                  "Bokeh atmospheric brand mood",
+                  "Real-world lifestyle context authentic"
+                ]
+              },
+              "composition": {
+                "type": "string",
+                "examples": [
+                  "Diagonal bold asymmetric dynamic",
+                  "Centered serene balanced calm",
+                  "Candid authentic storytelling"
+                ]
+              },
+              "depth_of_field": {
+                "type": "string",
+                "enum": ["ultra_shallow", "shallow", "moderate", "deep", "full_focus"]
+              }
+            },
+            "additionalProperties": false
+          },
+          "brand_elements": {
+            "type": "object",
+            "description": "Brand identity elements applied to this scene (from brand_strategy.md)",
+            "required": [
+              "brand_colors_applied",
+              "brand_mood",
+              "brand_archetype_personality"
+            ],
+            "properties": {
+              "brand_colors_applied": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                },
+                "minItems": 1,
+                "maxItems": 5,
+                "description": "Hex codes from brand color palette used in this scene"
+              },
+              "brand_mood": {
+                "type": "string",
+                "description": "Brand mood/tone applied (from brand_strategy.md)",
+                "examples": [
+                  "Enérgico e determinado",
+                  "Sereno e minimalista",
+                  "Luxuoso e exclusivo",
+                  "Divertido e irreverente"
+                ]
+              },
+              "brand_archetype_personality": {
+                "type": "string",
+                "description": "Brand archetype personality traits manifested in scene",
+                "examples": [
+                  "Hero: coragem, determinação, superação",
+                  "Sage: conhecimento, verdade, sabedoria",
+                  "Creator: inovação, expressão, originalidade",
+                  "Caregiver: proteção, cuidado, empatia"
+                ]
+              },
+              "brand_tone_of_voice": {
+                "type": "string",
+                "description": "How brand personality translates to visual tone",
+                "examples": [
+                  "Confiante e inspirador (Hero)",
+                  "Educativo e confiável (Sage)",
+                  "Criativo e inovador (Creator)"
+                ]
+              },
+              "brand_values_visual": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Brand core values visualized in this scene",
+                "examples": [
+                  ["Sustentabilidade", "Performance", "Inovação"],
+                  ["Simplicidade", "Autenticidade", "Qualidade"]
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "pnl_trigger_archetype": {
+            "type": "string",
+            "description": "PNL emotional trigger ALIGNED with brand archetype (Brazilian Portuguese)",
+            "examples": [
+              "Hero: coragem que prova seu valor através da ação decisiva",
+              "Sage: clareza que ilumina verdades essenciais",
+              "Creator: liberdade de expressar sua originalidade única",
+              "Caregiver: conforto de proteger quem você ama",
+              "Lover: prazer sensorial que desperta desejo profundo",
+              "Jester: alegria espontânea que libera do cotidiano",
+              "Everyman: pertencimento autêntico sem pretensões"
+            ]
+          },
+          "pnl_trigger_key": {
+            "type": "string",
+            "enum": [
+              "confiança",
+              "conforto",
+              "clareza",
+              "calma",
+              "desejo",
+              "urgência",
+              "pertencimento",
+              "transformação",
+              "segurança",
+              "prazer",
+              "exclusividade",
+              "controle",
+              "coragem",
+              "liberdade",
+              "alegria"
+            ],
+            "description": "Primary PNL trigger key for this archetype"
+          },
+          "archetype_pnl_mapping": {
+            "type": "object",
+            "description": "Archetype-to-PNL trigger mapping reference",
+            "properties": {
+              "Hero": {
+                "type": "array",
+                "items": {"type": "string"},
+                "examples": [["confiança", "coragem", "transformação"]]
+              },
+              "Sage": {
+                "type": "array",
+                "examples": [["clareza", "confiança", "controle"]]
+              },
+              "Creator": {
+                "type": "array",
+                "examples": [["liberdade", "exclusividade", "transformação"]]
+              },
+              "Caregiver": {
+                "type": "array",
+                "examples": [["conforto", "segurança", "pertencimento"]]
+              },
+              "Lover": {
+                "type": "array",
+                "examples": [["desejo", "prazer", "exclusividade"]]
+              },
+              "Jester": {
+                "type": "array",
+                "examples": [["alegria", "liberdade", "pertencimento"]]
+              },
+              "Everyman": {
+                "type": "array",
+                "examples": [["pertencimento", "conforto", "confiança"]]
+              }
+            }
+          },
+          "platform_optimization": {
+            "type": "object",
+            "description": "Platform-specific optimization notes",
+            "properties": {
+              "primary_platform": {
+                "type": "string",
+                "enum": ["instagram_feed", "instagram_stories", "facebook", "tiktok", "pinterest", "linkedin"]
+              },
+              "secondary_platforms": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["instagram_feed", "instagram_stories", "facebook", "tiktok", "pinterest", "linkedin"]
+                }
+              },
+              "caption_suggestion": {
+                "type": "string",
+                "maxLength": 150,
+                "description": "Suggested caption aligned with brand tone (optional)",
+                "examples": [
+                  "💪 Prove seu valor. Cada gole é um passo rumo à sua melhor versão. #HeroJourney #SustentabilidadeAtiva"
+                ]
+              },
+              "hashtag_strategy": {
+                "type": "array",
+                "items": {"type": "string"},
+                "maxItems": 10,
+                "description": "Branded + category hashtags"
+              }
+            }
+          },
+          "validation_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Validation score (0.0-1.0, ≥0.85 = PASS for brand)"
+          },
+          "character_count": {
+            "type": "integer",
+            "minimum": 120,
+            "maximum": 500
+          },
+          "validation_status": {
+            "type": "string",
+            "enum": ["PASS", "FAIL"]
+          },
+          "file_name_suggestion": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+_cena_0[1-9]_[a-z_]+_(1x1|4x5|9x16)\\.png$",
+            "examples": [
+              "hero_water_cena_01_brand_hero_4x5.png",
+              "hero_water_cena_02_lifestyle_9x16.png"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "brand_integration": {
+      "type": "object",
+      "description": "Integration with marca_agent brand_strategy.md",
+      "required": [
+        "brand_strategy_loaded",
+        "brand_identity",
+        "visual_consistency_score"
+      ],
+      "properties": {
+        "brand_strategy_loaded": {
+          "type": "boolean",
+          "description": "TRUE if brand_strategy.md was successfully loaded and applied"
+        },
+        "brand_strategy_path": {
+          "type": "string",
+          "description": "Path to brand_strategy.md file used",
+          "examples": ["USER_DOCS/Marca/hero_water_brand_strategy.md"]
+        },
+        "brand_identity": {
+          "type": "object",
+          "description": "Core brand identity extracted from brand_strategy.md",
+          "required": [
+            "brand_name",
+            "primary_archetype",
+            "color_palette",
+            "mood_tone"
+          ],
+          "properties": {
+            "brand_name": {
+              "type": "string",
+              "examples": ["HeroWater", "ZenFlow", "VitalEco"]
+            },
+            "tagline": {
+              "type": "string",
+              "maxLength": 60,
+              "examples": ["Prove seu valor a cada gole"]
+            },
+            "primary_archetype": {
+              "type": "string",
+              "enum": [
+                "Hero",
+                "Sage",
+                "Innocent",
+                "Explorer",
+                "Creator",
+                "Ruler",
+                "Magician",
+                "Lover",
+                "Caregiver",
+                "Jester",
+                "Everyman",
+                "Rebel"
+              ]
+            },
+            "secondary_archetype": {
+              "type": "string",
+              "enum": [
+                "Hero",
+                "Sage",
+                "Innocent",
+                "Explorer",
+                "Creator",
+                "Ruler",
+                "Magician",
+                "Lover",
+                "Caregiver",
+                "Jester",
+                "Everyman",
+                "Rebel"
+              ]
+            },
+            "color_palette": {
+              "type": "object",
+              "properties": {
+                "primary": {
+                  "type": "string",
+                  "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                },
+                "secondary": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                  },
+                  "maxItems": 4
+                },
+                "accent": {
+                  "type": "string",
+                  "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                }
+              }
+            },
+            "mood_tone": {
+              "type": "string",
+              "description": "Brand mood from brand_strategy.md",
+              "examples": [
+                "Enérgico, determinado, inspirador",
+                "Sereno, minimalista, zen",
+                "Luxuoso, exclusivo, sofisticado"
+              ]
+            },
+            "core_values": {
+              "type": "array",
+              "items": {"type": "string"},
+              "maxItems": 5,
+              "description": "5 core brand values from brand_strategy.md"
+            }
+          }
+        },
+        "visual_consistency_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Visual consistency with brand identity (target ≥0.90)"
+        },
+        "brand_alignment_checks": {
+          "type": "object",
+          "description": "8-point brand alignment validation",
+          "properties": {
+            "colors_from_palette": {
+              "type": "boolean",
+              "description": "All scenes use colors from brand palette"
+            },
+            "mood_consistency": {
+              "type": "boolean",
+              "description": "Mood/lighting aligned with brand tone"
+            },
+            "archetype_personality": {
+              "type": "boolean",
+              "description": "Visual style matches archetype personality"
+            },
+            "pnl_triggers_aligned": {
+              "type": "boolean",
+              "description": "PNL triggers match archetype emotional core"
+            },
+            "composition_style": {
+              "type": "boolean",
+              "description": "Composition reflects brand positioning (bold vs serene)"
+            },
+            "values_visualization": {
+              "type": "boolean",
+              "description": "Core values visible in scenes"
+            },
+            "tone_of_voice_visual": {
+              "type": "boolean",
+              "description": "Visual tone reflects brand voice"
+            },
+            "target_audience_appeal": {
+              "type": "boolean",
+              "description": "Scenes appeal to target audience psychographics"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "quality_report": {
+      "type": "object",
+      "description": "Quality assurance and brand consistency validation",
+      "required": [
+        "total_prompts",
+        "validation_passed",
+        "avg_validation_score",
+        "brand_consistency_status",
+        "warnings",
+        "errors"
+      ],
+      "properties": {
+        "total_prompts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9
+        },
+        "validation_passed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9
+        },
+        "validation_failed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9
+        },
+        "avg_validation_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Average validation score (target ≥0.88 for brand)"
+        },
+        "avg_character_count": {
+          "type": "number"
+        },
+        "brand_consistency_status": {
+          "type": "string",
+          "enum": ["EXCELLENT", "GOOD", "NEEDS_REFINEMENT"],
+          "description": "Overall brand consistency (EXCELLENT ≥0.90, GOOD ≥0.85, else NEEDS_REFINEMENT)"
+        },
+        "aspect_ratio_distribution": {
+          "type": "object",
+          "description": "Distribution of aspect ratios in grid",
+          "properties": {
+            "1:1": {"type": "integer"},
+            "4:5": {"type": "integer"},
+            "9:16": {"type": "integer"},
+            "16:9": {"type": "integer"}
+          }
+        },
+        "compliance_details": {
+          "type": "object",
+          "description": "11-point brand social media validation",
+          "properties": {
+            "all_lengths_valid": {"type": "boolean"},
+            "all_camera_specified": {"type": "boolean"},
+            "all_lighting_described": {"type": "boolean"},
+            "all_background_mentioned": {"type": "boolean"},
+            "all_composition_defined": {"type": "boolean"},
+            "all_aspect_ratios_valid": {"type": "boolean"},
+            "all_brand_colors_applied": {"type": "boolean"},
+            "all_pnl_aligned_archetype": {"type": "boolean"},
+            "all_8k_stated": {"type": "boolean"},
+            "all_no_watermarks": {"type": "boolean"},
+            "platform_optimized": {"type": "boolean"}
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "scene": {"type": "integer"},
+              "code": {"type": "string"},
+              "message": {"type": "string"},
+              "severity": {"type": "string", "enum": ["low", "medium", "high"]}
+            }
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "scene": {"type": "integer"},
+              "code": {"type": "string"},
+              "message": {"type": "string"},
+              "auto_corrected": {"type": "boolean"}
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "social_media_specs": {
+      "type": "object",
+      "description": "Social media platform-specific specifications and recommendations",
+      "required": [
+        "platform_breakdown",
+        "recommended_posting_strategy"
+      ],
+      "properties": {
+        "platform_breakdown": {
+          "type": "object",
+          "description": "Which scenes are optimized for which platforms",
+          "properties": {
+            "instagram_feed": {
+              "type": "object",
+              "properties": {
+                "scenes": {
+                  "type": "array",
+                  "items": {"type": "integer", "minimum": 1, "maximum": 9}
+                },
+                "aspect_ratios": {
+                  "type": "array",
+                  "items": {"type": "string", "enum": ["1:1", "4:5"]}
+                }
+              }
+            },
+            "instagram_stories": {
+              "type": "object",
+              "properties": {
+                "scenes": {"type": "array", "items": {"type": "integer"}},
+                "aspect_ratio": {"type": "string", "const": "9:16"}
+              }
+            },
+            "tiktok": {
+              "type": "object",
+              "properties": {
+                "scenes": {"type": "array", "items": {"type": "integer"}},
+                "aspect_ratio": {"type": "string", "const": "9:16"}
+              }
+            },
+            "pinterest": {
+              "type": "object",
+              "properties": {
+                "scenes": {"type": "array", "items": {"type": "integer"}},
+                "aspect_ratios": {"type": "array", "items": {"type": "string", "enum": ["2:3", "1:2.1"]}}
+              }
+            }
+          }
+        },
+        "recommended_posting_strategy": {
+          "type": "object",
+          "description": "Strategic posting recommendations",
+          "properties": {
+            "carousel_posts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "scenes": {"type": "array", "items": {"type": "integer"}},
+                  "narrative": {"type": "string"},
+                  "platform": {"type": "string"}
+                }
+              },
+              "description": "Suggested carousel post combinations (scenes 1-3-5-7-9 for storytelling arc)"
+            },
+            "hero_singles": {
+              "type": "array",
+              "items": {"type": "integer"},
+              "description": "Scenes that work best as standalone hero posts"
+            },
+            "stories_sequence": {
+              "type": "array",
+              "items": {"type": "integer"},
+              "description": "Recommended sequence for Instagram/Facebook Stories"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "trinity_output": {
+      "type": "object",
+      "required": ["markdown", "llm_json", "metadata_json"],
+      "properties": {
+        "markdown": {
+          "type": "string",
+          "pattern": "\\.md$",
+          "examples": ["brand_social_hero_water.md"]
+        },
+        "llm_json": {
+          "type": "string",
+          "pattern": "\\.llm\\.json$",
+          "examples": ["brand_social_hero_water.llm.json"]
+        },
+        "metadata_json": {
+          "type": "string",
+          "pattern": "\\.meta\\.json$",
+          "examples": ["brand_social_hero_water.meta.json"]
+        }
+      }
+    },
+
+    "marca_integration": {
+      "type": "object",
+      "description": "Integration notes for marca_agent workflow",
+      "properties": {
+        "ready_for_social": {
+          "type": "boolean",
+          "description": "TRUE if output is ready for social media posting"
+        },
+        "brand_guidelines_followed": {
+          "type": "boolean",
+          "description": "TRUE if all brand guidelines from marca_agent were followed"
+        },
+        "recommended_campaign_theme": {
+          "type": "string",
+          "description": "Suggested campaign theme based on scenes",
+          "examples": [
+            "Hero's Journey - Transformação através da ação",
+            "Zen Simplicity - Encontre sua calma",
+            "Creative Freedom - Expresse sua originalidade"
+          ]
+        }
+      }
+    },
+
+    "input_echo": {
+      "type": "object",
+      "description": "Echo of original input",
+      "properties": {
+        "subject": {"type": "string"},
+        "brand_strategy_path": {"type": "string"},
+        "target_platforms": {"type": "array"}
+      }
+    }
+  },
+
+  "additionalProperties": false,
+
+  "examples": [
+    {
+      "metadata": {
+        "agent": "photo_agent_brand",
+        "version": "1.0.0",
+        "timestamp": "2025-11-15T11:00:00Z",
+        "input_hash": "def456...",
+        "workflow_type": "brand_social_media",
+        "generation_time_ms": 9200,
+        "input_subject": "Garrafa de água reutilizável ecológica - marca HeroWater",
+        "brand_name": "HeroWater",
+        "brand_archetype": "Hero",
+        "target_platforms": ["instagram_feed", "instagram_stories", "tiktok"],
+        "marca_agent_integration": true
+      },
+      "prompts_social_grid": [
+        {
+          "scene_number": 1,
+          "scene_name": "Brand Hero Lifestyle Shot",
+          "scene_role": "brand_hero",
+          "prompt_brand_aligned": "Professional lifestyle photography in Hero archetype style, {INSERIR_IMAGEM_PRODUTO_AQUI} garrafa HeroWater sendo usada por atleta em ambiente urbano dinâmico ao amanhecer, background ambiente urbano com cores da marca #FF5722 laranja vibrante e #212121 cinza carvão acentos arquitetônicos, mood enérgico determinado inspirador, lighting golden hour natural warm 5500K directional com sombras longas dramáticas, camera 85mm f/4 1/160s ISO 400, composition diagonal bold asymmetric movimento implícito, shallow depth of field bokeh urbano clean, PNL Hero archetype: coragem que prova seu valor através da ação decisiva e persistente, aspect ratio 4:5 Instagram feed vertical, no watermarks, 8K quality --ar 4:5",
+          "aspect_ratio": "4:5",
+          "aspect_ratio_notes": {
+            "instagram_feed": "4:5"
+          },
+          "technical_specs": {
+            "camera": "85mm f/4 1/160s ISO 400",
+            "focal_length": "85mm",
+            "aperture": "f/4",
+            "shutter_speed": "1/160s",
+            "iso": 400,
+            "lighting": "Golden hour natural warm 5500K directional com sombras longas",
+            "background": "Ambiente urbano dinâmico com cores da marca #FF5722 e #212121",
+            "composition": "Diagonal bold asymmetric movimento implícito",
+            "depth_of_field": "shallow"
+          },
+          "brand_elements": {
+            "brand_colors_applied": ["#FF5722", "#212121", "#FFFFFF"],
+            "brand_mood": "Enérgico, determinado, inspirador",
+            "brand_archetype_personality": "Hero: coragem, determinação, superação de obstáculos",
+            "brand_tone_of_voice": "Confiante e inspirador, convoca para ação",
+            "brand_values_visual": ["Sustentabilidade", "Performance", "Coragem"]
+          },
+          "pnl_trigger_archetype": "Hero: coragem que prova seu valor através da ação decisiva e persistente",
+          "pnl_trigger_key": "coragem",
+          "archetype_pnl_mapping": {
+            "Hero": ["confiança", "coragem", "transformação"]
+          },
+          "platform_optimization": {
+            "primary_platform": "instagram_feed",
+            "secondary_platforms": ["facebook"],
+            "caption_suggestion": "💪 Prove seu valor. Cada gole é um passo rumo à sua melhor versão. #HeroWater #SustentabilidadeAtiva",
+            "hashtag_strategy": [
+              "#HeroWater",
+              "#SustentabilidadeAtiva",
+              "#VivaComCoragem",
+              "#ZeroPlastico",
+              "#PerformanceSustentavel"
+            ]
+          },
+          "validation_score": 0.93,
+          "character_count": 447,
+          "validation_status": "PASS",
+          "file_name_suggestion": "hero_water_cena_01_brand_hero_4x5.png"
+        }
+      ],
+      "brand_integration": {
+        "brand_strategy_loaded": true,
+        "brand_strategy_path": "USER_DOCS/Marca/hero_water_brand_strategy.md",
+        "brand_identity": {
+          "brand_name": "HeroWater",
+          "tagline": "Prove seu valor a cada gole",
+          "primary_archetype": "Hero",
+          "secondary_archetype": "Explorer",
+          "color_palette": {
+            "primary": "#FF5722",
+            "secondary": ["#212121", "#FFFFFF", "#FFC107"],
+            "accent": "#4CAF50"
+          },
+          "mood_tone": "Enérgico, determinado, inspirador",
+          "core_values": ["Sustentabilidade", "Performance", "Coragem", "Inovação", "Autenticidade"]
+        },
+        "visual_consistency_score": 0.94,
+        "brand_alignment_checks": {
+          "colors_from_palette": true,
+          "mood_consistency": true,
+          "archetype_personality": true,
+          "pnl_triggers_aligned": true,
+          "composition_style": true,
+          "values_visualization": true,
+          "tone_of_voice_visual": true,
+          "target_audience_appeal": true
+        }
+      },
+      "quality_report": {
+        "total_prompts": 9,
+        "validation_passed": 9,
+        "validation_failed": 0,
+        "avg_validation_score": 0.91,
+        "avg_character_count": 425,
+        "brand_consistency_status": "EXCELLENT",
+        "aspect_ratio_distribution": {
+          "1:1": 2,
+          "4:5": 4,
+          "9:16": 3
+        },
+        "compliance_details": {
+          "all_lengths_valid": true,
+          "all_camera_specified": true,
+          "all_lighting_described": true,
+          "all_background_mentioned": true,
+          "all_composition_defined": true,
+          "all_aspect_ratios_valid": true,
+          "all_brand_colors_applied": true,
+          "all_pnl_aligned_archetype": true,
+          "all_8k_stated": true,
+          "all_no_watermarks": true,
+          "platform_optimized": true
+        },
+        "warnings": [],
+        "errors": []
+      },
+      "social_media_specs": {
+        "platform_breakdown": {
+          "instagram_feed": {
+            "scenes": [1, 2, 4, 7],
+            "aspect_ratios": ["4:5", "1:1"]
+          },
+          "instagram_stories": {
+            "scenes": [3, 5, 8],
+            "aspect_ratio": "9:16"
+          },
+          "tiktok": {
+            "scenes": [3, 5, 8],
+            "aspect_ratio": "9:16"
+          }
+        },
+        "recommended_posting_strategy": {
+          "carousel_posts": [
+            {
+              "scenes": [1, 3, 5, 7, 9],
+              "narrative": "Hero's Journey: Amanhecer → Desafio → Ação → Transformação → Vitória",
+              "platform": "instagram_feed"
+            }
+          ],
+          "hero_singles": [1, 4, 9],
+          "stories_sequence": [3, 5, 6, 8]
+        }
+      },
+      "trinity_output": {
+        "markdown": "brand_social_hero_water.md",
+        "llm_json": "brand_social_hero_water.llm.json",
+        "metadata_json": "brand_social_hero_water.meta.json"
+      },
+      "marca_integration": {
+        "ready_for_social": true,
+        "brand_guidelines_followed": true,
+        "recommended_campaign_theme": "Hero's Journey - Transformação através da ação sustentável"
+      }
+    }
+  ]
+}

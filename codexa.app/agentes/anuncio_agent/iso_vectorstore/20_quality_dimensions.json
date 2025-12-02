@@ -1,0 +1,218 @@
+{
+  "_meta": {
+    "file": "20_quality_dimensions.json",
+    "agent": "anuncio_agent",
+    "version": "3.2.0",
+    "scope": "TEXT-ONLY",
+    "created": "2025-11-30",
+    "purpose": "5-dimension quality scoring with open weights for LLM autonomy"
+  },
+  "scoring_system": {
+    "philosophy": "Weights are SUGGESTIONS. LLM has autonomy to adjust based on task context and conversion goals.",
+    "threshold_per_dimension": 0.75,
+    "threshold_overall": 0.85,
+    "scoring_mode": "autonomous"
+  },
+  "dimensions": {
+    "titulo_score": {
+      "description": "Quality of 3 title variations (58-60 chars each)",
+      "suggested_weight": 0.30,
+      "weight_rationale": "Titles drive CTR - most visible element, decides the click",
+      "criteria": {
+        "char_count": "Each title 58-60 chars (HARD requirement)",
+        "keyword_density": "Head terms present in all 3 titles",
+        "differentiation": "A=balanced, B=emotional, C=technical (distinct angles)",
+        "no_connectors": "Zero articles/prepositions at start",
+        "persuasion_hooks": "Benefit-first language, urgency triggers"
+      },
+      "scoring_formula": {
+        "char_compliance": "0.4 (all 3 within range = 1.0, partial = 0.5, none = 0)",
+        "keyword_presence": "0.3 (head terms found / expected)",
+        "differentiation": "0.2 (3 distinct angles = 1.0)",
+        "hooks_quality": "0.1 (persuasion elements present)"
+      },
+      "fallback_behavior": {
+        "low_score": "auto_retry with adjusted prompt",
+        "missing_input": "generate with [SUGESTAO] placeholders"
+      }
+    },
+    "keywords_score": {
+      "description": "Quality of 2 keyword blocks (115-120 terms each)",
+      "suggested_weight": 0.25,
+      "weight_rationale": "Keywords drive SEO discovery - findability in marketplace search",
+      "criteria": {
+        "term_count": "115-120 terms per block (HARD requirement)",
+        "relevance": "Terms match product category and features",
+        "long_tail": "Mix of head terms + long-tail variations",
+        "no_duplicates": "Zero repeated terms across blocks",
+        "semantic_coverage": "Covers synonyms, misspellings, regional terms"
+      },
+      "scoring_formula": {
+        "count_compliance": "0.4 (both blocks in range = 1.0)",
+        "relevance": "0.3 (relevant terms / total terms)",
+        "diversity": "0.2 (unique terms / total terms)",
+        "coverage": "0.1 (semantic categories covered)"
+      },
+      "fallback_behavior": {
+        "low_count": "expand with semantic variations",
+        "high_count": "prune lowest relevance terms"
+      }
+    },
+    "descricao_score": {
+      "description": "Quality of long description (>=3300 chars, StoryBrand)",
+      "suggested_weight": 0.20,
+      "weight_rationale": "Description converts after click - convinces buyer to purchase",
+      "criteria": {
+        "char_count": ">=3300 chars (HARD requirement)",
+        "storybrand_elements": "Problem, Solution, Success, CTA present",
+        "readability": "Short paragraphs, scannable structure",
+        "keyword_integration": "Natural keyword placement (not stuffed)",
+        "compliance": "Zero prohibited claims"
+      },
+      "scoring_formula": {
+        "char_compliance": "0.3 (>=3300 = 1.0, 3000-3299 = 0.7, <3000 = 0)",
+        "storybrand": "0.3 (elements present / 4)",
+        "readability": "0.2 (avg paragraph <150 chars)",
+        "compliance": "0.2 (no prohibited terms = 1.0)"
+      },
+      "fallback_behavior": {
+        "short_description": "expand with benefit elaboration",
+        "missing_storybrand": "inject framework elements"
+      }
+    },
+    "bullets_score": {
+      "description": "Quality of 10 bullet points (250-299 chars each)",
+      "suggested_weight": 0.15,
+      "weight_rationale": "Bullets are scannable decision points - quick conversion triggers",
+      "criteria": {
+        "char_count": "250-299 chars each (HARD requirement)",
+        "quantity": "Exactly 10 bullets (HARD requirement)",
+        "benefit_first": "Each bullet starts with benefit, not feature",
+        "gatilhos_mentais": "Persuasion triggers (urgency, scarcity, proof)",
+        "specificity": "Numbers, percentages, measurable claims"
+      },
+      "scoring_formula": {
+        "char_compliance": "0.4 (bullets in range / 10)",
+        "benefit_first": "0.3 (benefit-led bullets / 10)",
+        "gatilhos": "0.2 (bullets with triggers / 10)",
+        "specificity": "0.1 (bullets with numbers / 10)"
+      },
+      "fallback_behavior": {
+        "short_bullets": "expand with proof points",
+        "long_bullets": "condense to core benefit"
+      }
+    },
+    "compliance_score": {
+      "description": "Regulatory and platform compliance",
+      "suggested_weight": 0.10,
+      "weight_rationale": "Compliance is binary gate - fail = listing rejected",
+      "criteria": {
+        "no_html": "Zero HTML/CSS/JS tags",
+        "no_emojis": "Zero decorative emojis",
+        "no_prohibited_claims": "Zero '#1', 'melhor do Brasil', therapeutic claims",
+        "no_external_links": "Zero URLs/links",
+        "anvisa_inmetro": "Compliant with Brazilian regulations"
+      },
+      "scoring_formula": {
+        "html_check": "0.25 (no HTML = 1.0, any HTML = 0)",
+        "emoji_check": "0.25 (no emojis = 1.0, any = 0)",
+        "claims_check": "0.25 (no prohibited = 1.0, any = 0)",
+        "links_check": "0.25 (no links = 1.0, any = 0)"
+      },
+      "fallback_behavior": {
+        "violation_detected": "auto_remove and flag for review"
+      }
+    }
+  },
+  "overall_calculation": {
+    "method": "weighted_average",
+    "formula": "SUM(dimension_score * suggested_weight)",
+    "llm_autonomy": {
+      "description": "LLM can adjust weights based on context",
+      "examples": [
+        "High-competition category: titulo_weight += 0.10",
+        "Technical product: descricao_weight += 0.10",
+        "Regulated category: compliance_weight += 0.15"
+      ],
+      "constraints": {
+        "sum_weights": "Must equal 1.0",
+        "min_weight": 0.05,
+        "max_weight": 0.40
+      }
+    }
+  },
+  "source_attribution": {
+    "format": "hybrid",
+    "visual_output": "[Fonte: {source_block}]",
+    "structured_output": {
+      "section": "source_block",
+      "confidence": "0.0-1.0",
+      "research_origin": "pesquisa_agent | mentor_agent | user_input"
+    },
+    "example": {
+      "titulo_a": {
+        "source": "head_terms",
+        "confidence": 0.92,
+        "origin": "pesquisa_agent"
+      },
+      "descricao": {
+        "sources": ["dores", "ganhos", "provas"],
+        "confidence": 0.87,
+        "origin": "mentor_agent"
+      }
+    }
+  },
+  "intelligent_fallback": {
+    "description": "Autonomous decision-making for incomplete inputs",
+    "levels": [
+      {
+        "confidence": ">=0.8",
+        "action": "generate_full",
+        "note": "High confidence - proceed with full generation"
+      },
+      {
+        "confidence": "0.6-0.79",
+        "action": "generate_with_suggestions",
+        "note": "Medium confidence - generate but mark uncertain sections with [VERIFICAR]"
+      },
+      {
+        "confidence": "0.4-0.59",
+        "action": "generate_partial_with_placeholders",
+        "note": "Low confidence - generate what's possible, use [COMPLETAR: motivo] for rest"
+      },
+      {
+        "confidence": "<0.4",
+        "action": "request_enrichment",
+        "note": "Very low confidence - request additional input from user/pesquisa_agent",
+        "message_template": "Input insuficiente. Necessario: {missing_fields}. Execute pesquisa_agent ou forneça: {minimum_data}"
+      }
+    ],
+    "minimum_viable_input": {
+      "required": ["product_name", "category"],
+      "recommended": ["head_terms", "diferenciais", "dores"],
+      "optional": ["provas", "ganhos", "competitor_analysis"]
+    }
+  },
+  "report_format": {
+    "visual": {
+      "header": "## QUALITY REPORT | anuncio_agent v3.1.0",
+      "sections": [
+        "DIMENSION SCORES (5 dimensions)",
+        "OVERALL SCORE (weighted)",
+        "SOURCE ATTRIBUTION (per section)",
+        "ISSUES DETECTED",
+        "AUTO-FIXES APPLIED",
+        "RECOMMENDATIONS"
+      ]
+    },
+    "json": {
+      "timestamp": "ISO8601",
+      "version": "3.2.0",
+      "scores": {},
+      "attribution": {},
+      "issues": [],
+      "fixes": [],
+      "overall": {}
+    }
+  }
+}

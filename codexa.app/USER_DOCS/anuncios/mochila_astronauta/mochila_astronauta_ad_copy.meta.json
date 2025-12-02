@@ -1,0 +1,14 @@
+{
+  "workflow_version": "2.5.0",
+  "workflow_id": "adw_run_anuncio",
+  "generator": "CodeXAnuncio v2.5.0",
+  "generated_at": "2025-11-29T11:40:00Z",
+  "phases_executed": 6,
+  "total_duration_minutes": 3,
+  "mode": "quick_anuncio",
+  "quality_metrics": {"research_quality": 0.85, "final_output_quality": 0.87, "validation_checks_passed": 11, "component_scores": {"title": 0.85, "keywords": 0.87, "description": 0.87, "bullets": 0.86, "compliance": 1.0}},
+  "context": {"product_name": "Mochila Astronauta GATO3", "marketplace_type": "MERCADO_LIVRE", "product_type": "PHYSICAL_PRODUCT", "capacity": "6.5kg"},
+  "output_files": {"markdown": "mochila_astronauta_ad_copy.md", "structured_data": "mochila_astronauta_ad_copy.llm.json", "metadata": "mochila_astronauta_ad_copy.meta.json"},
+  "validation_summary": {"all_phases_completed": true, "all_validations_passed": true, "production_ready": true},
+  "status": "production_ready"
+}

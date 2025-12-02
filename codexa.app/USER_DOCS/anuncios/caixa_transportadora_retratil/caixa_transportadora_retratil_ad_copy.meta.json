@@ -1,0 +1,14 @@
+{
+  "workflow_version": "2.5.0",
+  "workflow_id": "adw_run_anuncio",
+  "generator": "CodeXAnuncio v2.5.0",
+  "generated_at": "2025-11-29T11:35:00Z",
+  "phases_executed": 6,
+  "total_duration_minutes": 3,
+  "mode": "quick_anuncio",
+  "quality_metrics": {"research_quality": 0.88, "final_output_quality": 0.91, "validation_checks_passed": 11, "component_scores": {"title": 0.90, "keywords": 0.92, "description": 0.90, "bullets": 0.89, "compliance": 1.0}},
+  "context": {"product_name": "Caixa Retratil GATO3", "marketplace_type": "MERCADO_LIVRE", "product_type": "PHYSICAL_PRODUCT"},
+  "output_files": {"markdown": "caixa_transportadora_retratil_ad_copy.md", "structured_data": "caixa_transportadora_retratil_ad_copy.llm.json", "metadata": "caixa_transportadora_retratil_ad_copy.meta.json"},
+  "validation_summary": {"all_phases_completed": true, "all_validations_passed": true, "production_ready": true},
+  "status": "production_ready"
+}

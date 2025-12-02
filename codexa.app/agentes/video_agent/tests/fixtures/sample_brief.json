@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/video_input.json",
+  "produto": "Nike Air Max 2024",
+  "duracao": 30,
+  "formato": "9:16",
+  "tom": "energetico",
+  "objetivo": "Mostrar conforto e estilo do novo Air Max para jovens urbanos de 18-35 anos",
+  "preco": "R$ 599",
+  "cta_text": "Compre Agora",
+  "video_mode": "overlay",
+  "voice": {
+    "voice_id": "pMsXgVXv3BLzUgSXRplE",
+    "voice_name": "Camila",
+    "gender": "feminina",
+    "stability": 0.5,
+    "similarity_boost": 0.75
+  },
+  "brand_profile": {
+    "nome": "Nike",
+    "cores": {
+      "primaria": "#000000",
+      "secundaria": "#FFFFFF",
+      "acento": "#FF5722"
+    },
+    "tom": "inspirador",
+    "personalidade": "atletico",
+    "valores": ["superacao", "determinacao", "inovacao"]
+  },
+  "platform_target": "instagram_reels",
+  "features": [
+    {
+      "nome": "Air Cushioning",
+      "descricao": "Amortecimento de ar para maximo conforto"
+    },
+    {
+      "nome": "Flyknit Upper",
+      "descricao": "Material leve e respiravel"
+    }
+  ],
+  "beneficio_principal": "Conforto o dia todo",
+  "target_audience": {
+    "idade": "18-35",
+    "genero": "unissex",
+    "interesses": ["esportes", "moda", "lifestyle urbano"]
+  }
+}

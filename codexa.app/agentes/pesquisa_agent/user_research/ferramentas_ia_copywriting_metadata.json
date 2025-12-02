@@ -1,0 +1,87 @@
+{
+  "product": "Ferramentas de IA para Copywriting E-commerce",
+  "category": "Software/SaaS > Marketing Technology > Content Creation",
+  "execution_date": "2025-11-24T00:00:00Z",
+  "duration_minutes": 25,
+  "quality_score": 0.78,
+  "completeness": 85,
+  "confidence_score": 0.78,
+  "confidence_level": "GOOD",
+  "capabilities_used": {
+    "web_search": true,
+    "vision": false,
+    "file_search": false,
+    "code_interpreter": false
+  },
+  "stats": {
+    "competitors_analyzed": 5,
+    "queries_logged": 16,
+    "marketplaces_searched": 0,
+    "digital_platforms_analyzed": 5,
+    "blocks_filled": 22,
+    "suggestion_placeholders": 8,
+    "suggestion_ratio": 0.10
+  },
+  "brief_completeness": {
+    "product_name": "provided",
+    "category": "inferred",
+    "target_audience": "provided",
+    "price_range": "provided",
+    "competitors": "researched",
+    "marketplace_target": "adapted (digital platforms)"
+  },
+  "block_confidence_scores": {
+    "lacunas_do_brief": 0.85,
+    "head_terms": 0.90,
+    "longtails": 0.90,
+    "sinonimos": 0.85,
+    "termo_contextual": 0.80,
+    "dores_publico": 0.85,
+    "ganhos_desejados": 0.85,
+    "objecoes_respostas": 0.80,
+    "provas_evidencias": 0.95,
+    "seo_inbound": 0.85,
+    "seo_outbound": 0.85,
+    "analise_concorrentes": 0.90,
+    "benchmark_agregado": 0.75,
+    "gaps_competitivos": 0.80,
+    "diferenciais_competitivos": 0.75,
+    "taxonomia_categorias": 0.90,
+    "padroes_linguagem": 0.80,
+    "riscos_alertas": 0.85,
+    "regras_marketplace": 0.70,
+    "oportunidades_acionaveis": 0.80,
+    "argumentos_venda": 0.85,
+    "gatilhos_mentais": 0.85,
+    "decisoes_copy": 0.80
+  },
+  "validation_results": {
+    "all_22_blocks_present": true,
+    "min_competitors_3": true,
+    "min_queries_15": true,
+    "prices_in_brl": true,
+    "urls_logged": true,
+    "reclame_aqui_checked": true
+  },
+  "warnings": [
+    "Produto é SaaS digital, não vendido em marketplaces físicos tradicionais BR - adaptado para plataformas digitais",
+    "Alguns valores de pricing inferidos (não publicamente disponíveis)",
+    "Falta de reviews detalhados de usuários (Reclame Aqui sem resultados específicos)",
+    "Regras de marketplace menos aplicáveis (produto B2B SaaS, não B2C marketplace)"
+  ],
+  "recommendations": [
+    "Realizar entrevistas qualitativas com 20-30 sellers de marketplace",
+    "Análise hands-on de cada ferramenta concorrente (trial grátis)",
+    "Pesquisa de price sensitivity com público-alvo",
+    "Atualizar pesquisa em 60-90 dias (mercado IA evolui rápido)"
+  ],
+  "next_steps": [
+    "Passar research_notes.md para anuncio_agent (geração de copy)",
+    "Validar MVP com 50 beta testers (sellers ML/Shopee)",
+    "Desenvolver extensão browser para Mercado Livre",
+    "Criar 100 templates verticais prioritários"
+  ],
+  "agent_version": "pesquisa_agent v2.0.0",
+  "workflow_version": "100_ADW_RUN_PESQUISA v2.0.0",
+  "architecture": "Dual-Layer (ADW + HOP)"
+}

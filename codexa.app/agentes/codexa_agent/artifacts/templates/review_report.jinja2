@@ -1,0 +1,372 @@
+{# Review Report Template #}
+{# Used by: review_agent #}
+{# Output: review_report.md #}
+{# Version: 1.0.0 #}
+# Review Report: {{ feature_name }}
+
+**Review ID**: {{ review_id }}
+**Reviewer**: Review Agent {{ agent_version }}
+**Date**: {{ review_date }}
+**Spec File**: `{{ spec_file }}`
+**Implementation**: `{{ execution_report }}`
+**Status**: {% if decision == "APPROVE" %}✅ APPROVED{% elif decision == "REVISE" %}⚠️ REVISE{% else %}❌ REJECT{% endif %}
+
+---
+
+## Executive Summary
+
+**Recommendation**: {% if decision == "APPROVE" %}✅ APPROVE{% elif decision == "REVISE" %}⚠️ REVISE{% else %}❌ REJECT{% endif %} for deployment
+
+{{ summary }}
+
+**Compliance Score**: {{ compliance_score }}% ({{ requirements_met }}/{{ total_requirements }} requirements met)
+**Quality Score**: {{ quality_score }}/100 (Grade: {{ quality_grade }})
+
+---
+
+## Specification Compliance
+
+### Requirements Analysis
+
+| ID | Requirement | Status | Evidence | Notes |
+|----|-------------|--------|----------|-------|
+{% for req in requirements %}
+| {{ req.id }} | {{ req.description }} | {% if req.status == "complete" %}✅ Complete{% elif req.status == "partial" %}⚠️ Partial{% else %}❌ Missing{% endif %} | {{ req.evidence }} | {{ req.notes }} |
+{% endfor %}
+
+**Compliance Score**: {{ compliance_score }}% ({{ requirements_met }}/{{ total_requirements }} complete, {{ requirements_partial }} partial, {{ requirements_missing }} missing)
+
+{% if extra_features %}
+### Extra Features (Not in Spec)
+
+| Feature | Added By | Justification | Assessment |
+|---------|----------|---------------|------------|
+{% for feature in extra_features %}
+| {{ feature.name }} | {{ feature.added_by }} | {{ feature.justification }} | {% if feature.acceptable %}✅ Acceptable enhancement{% else %}⚠️ Out of scope{% endif %} |
+{% endfor %}
+{% endif %}
+
+---
+
+## Quality Assessment
+
+### 1. Code Structure ({{ scores.code_structure }}/20)
+
+**Assessment**: {% if scores.code_structure >= 18 %}✅ Excellent{% elif scores.code_structure >= 15 %}✅ Very Good{% elif scores.code_structure >= 12 %}⚠️ Good{% else %}❌ Needs Improvement{% endif %}
+
+**Strengths**:
+{% for strength in code_structure.strengths %}
+- {{ strength }}
+{% endfor %}
+
+{% if code_structure.areas_for_improvement %}
+**Areas for Improvement**:
+{% for area in code_structure.areas_for_improvement %}
+- {{ area.description }} ({{ area.severity }})
+{% endfor %}
+{% endif %}
+
+**Evidence**:
+```
+{{ code_structure.evidence }}
+```
+
+---
+
+### 2. Code Quality ({{ scores.code_quality }}/20)
+
+**Assessment**: {% if scores.code_quality >= 18 %}✅ Excellent{% elif scores.code_quality >= 15 %}✅ Very Good{% elif scores.code_quality >= 12 %}⚠️ Good{% else %}❌ Needs Improvement{% endif %}
+
+**Strengths**:
+{% for strength in code_quality.strengths %}
+- {{ strength }}
+{% endfor %}
+
+{% if code_quality.areas_for_improvement %}
+**Areas for Improvement**:
+{% for area in code_quality.areas_for_improvement %}
+- {{ area.description }} ({{ area.severity }})
+  - Example: {{ area.example }}
+{% endfor %}
+{% endif %}
+
+**Evidence**:
+```{{ code_quality.evidence_language }}
+{{ code_quality.evidence }}
+```
+
+---
+
+### 3. Testing ({{ scores.testing }}/20)
+
+**Assessment**: {% if scores.testing >= 18 %}✅ Excellent{% elif scores.testing >= 15 %}✅ Very Good{% elif scores.testing >= 12 %}⚠️ Adequate{% else %}❌ Insufficient{% endif %}
+
+**Strengths**:
+{% for strength in testing.strengths %}
+- {{ strength }}
+{% endfor %}
+
+{% if testing.areas_for_improvement %}
+**Areas for Improvement**:
+{% for area in testing.areas_for_improvement %}
+- {{ area.description }}
+  - Impact: {{ area.impact }}
+{% endfor %}
+{% endif %}
+
+**Evidence**:
+```
+{{ testing.evidence }}
+```
+
+---
+
+### 4. Documentation ({{ scores.documentation }}/20)
+
+**Assessment**: {% if scores.documentation >= 18 %}✅ Excellent{% elif scores.documentation >= 15 %}✅ Very Good{% elif scores.documentation >= 12 %}⚠️ Good{% else %}❌ Poor{% endif %}
+
+**Strengths**:
+{% for strength in documentation.strengths %}
+- {{ strength }}
+{% endfor %}
+
+{% if documentation.areas_for_improvement %}
+**Areas for Improvement**:
+{% for area in documentation.areas_for_improvement %}
+- {{ area.description }}
+  - Suggestion: {{ area.suggestion }}
+{% endfor %}
+{% endif %}
+
+**Evidence**:
+```{{ documentation.evidence_language }}
+{{ documentation.evidence }}
+```
+
+---
+
+### 5. Spec Compliance ({{ scores.spec_compliance }}/20)
+
+**Assessment**: {% if scores.spec_compliance == 20 %}✅ Perfect{% elif scores.spec_compliance >= 18 %}✅ Excellent{% elif scores.spec_compliance >= 15 %}⚠️ Good{% else %}❌ Needs Work{% endif %}
+
+**Strengths**:
+{% for strength in spec_compliance.strengths %}
+- {{ strength }}
+{% endfor %}
+
+{% if spec_compliance.areas_for_improvement %}
+**Issues**:
+{% for area in spec_compliance.areas_for_improvement %}
+- {{ area.description }}
+  - Missing: {{ area.missing }}
+{% endfor %}
+{% endif %}
+
+**Evidence**:
+- See "Requirements Analysis" table above ({{ requirements_met }}/{{ total_requirements }} complete)
+
+---
+
+## Overall Scores
+
+| Category | Score | Weight | Weighted | Assessment |
+|----------|-------|--------|----------|------------|
+| Code Structure | {{ scores.code_structure }}/20 | 20% | {{ weighted_scores.code_structure | round(1) }} | {% if scores.code_structure >= 18 %}Excellent{% elif scores.code_structure >= 15 %}Very Good{% elif scores.code_structure >= 12 %}Good{% else %}Poor{% endif %} |
+| Code Quality | {{ scores.code_quality }}/20 | 20% | {{ weighted_scores.code_quality | round(1) }} | {% if scores.code_quality >= 18 %}Excellent{% elif scores.code_quality >= 15 %}Very Good{% elif scores.code_quality >= 12 %}Good{% else %}Poor{% endif %} |
+| Testing | {{ scores.testing }}/20 | 20% | {{ weighted_scores.testing | round(1) }} | {% if scores.testing >= 18 %}Excellent{% elif scores.testing >= 15 %}Very Good{% elif scores.testing >= 12 %}Adequate{% else %}Insufficient{% endif %} |
+| Documentation | {{ scores.documentation }}/20 | 20% | {{ weighted_scores.documentation | round(1) }} | {% if scores.documentation >= 18 %}Excellent{% elif scores.documentation >= 15 %}Very Good{% elif scores.documentation >= 12 %}Good{% else %}Poor{% endif %} |
+| Spec Compliance | {{ scores.spec_compliance }}/20 | 20% | {{ weighted_scores.spec_compliance | round(1) }} | {% if scores.spec_compliance == 20 %}Perfect{% elif scores.spec_compliance >= 18 %}Excellent{% elif scores.spec_compliance >= 15 %}Good{% else %}Needs Work{% endif %} |
+| **Total** | **{{ total_score }}/100** | | **{{ quality_score }}/100** | **{{ quality_grade }}** |
+
+**Quality Grade**: {{ quality_grade }} ({% if quality_grade == "A" %}Excellent{% elif quality_grade == "B" %}Good{% elif quality_grade == "C" %}Fair{% elif quality_grade == "D" %}Poor{% else %}Fail{% endif %})
+
+**Grade Scale**:
+- 90-100: A (Excellent) → APPROVE
+- 80-89: B (Good) → APPROVE with minor fixes
+- 70-79: C (Fair) → REVISE
+- 60-69: D (Poor) → REVISE significantly
+- <60: F (Fail) → REJECT
+
+---
+
+{% if visual_verification %}
+## Visual Verification (UI Features)
+
+### Screenshot Analysis
+
+{% for screenshot in visual_verification.screenshots %}
+#### Screenshot {{ loop.index }}: {{ screenshot.title }}
+![{{ screenshot.title }}]({{ screenshot.path }})
+
+**Spec Requirement**: "{{ screenshot.spec_requirement }}"
+
+**Assessment**: {% if screenshot.assessment == "matches" %}✅ Matches spec{% elif screenshot.assessment == "exceeds" %}🌟 Exceeds spec{% else %}⚠️ Deviates from spec{% endif %}
+
+**Observations**:
+{% for observation in screenshot.observations %}
+- {{ observation }}
+{% endfor %}
+
+---
+
+{% endfor %}
+{% endif %}
+
+---
+
+## Strengths
+
+{% for strength in strengths %}
+{{ loop.index }}. **{{ strength.title }}**: {{ strength.description }}
+{% endfor %}
+
+---
+
+## Areas for Improvement
+
+{% if areas_for_improvement %}
+{% for area in areas_for_improvement %}
+### {{ loop.index }}. {{ area.title }} ({{ area.severity }})
+
+**Category**: {{ area.category }}
+
+**Description**: {{ area.description }}
+
+**Current State**: {{ area.current_state }}
+
+**Recommended Fix**: {{ area.recommended_fix }}
+
+**Estimated Fix Time**: {{ area.estimated_fix_time }}
+
+---
+
+{% endfor %}
+
+**Total Estimated Fix Time**: {{ total_estimated_fix_time }}
+
+{% else %}
+No areas for improvement identified. ✅
+
+{% endif %}
+
+---
+
+## Recommendations
+
+### Deployment Decision: {% if decision == "APPROVE" %}✅ APPROVE{% elif decision == "REVISE" %}⚠️ REVISE{% else %}❌ REJECT{% endif %}
+
+{% if decision == "APPROVE" %}
+**Rationale**:
+- All specified requirements met ({{ compliance_score }}% compliance)
+- High quality score ({{ quality_score }}/100)
+- No blocking issues
+- Code review positive
+
+**Conditions for Approval**: {% if approval_conditions %}{{ approval_conditions }}{% else %}None (ready to deploy as-is){% endif %}
+
+{% if optional_improvements %}
+**Optional Improvements** (can be done post-deployment):
+{% for improvement in optional_improvements %}
+{{ loop.index }}. {{ improvement.description }} (Est: {{ improvement.estimated_time }})
+{% endfor %}
+{% endif %}
+
+{% elif decision == "REVISE" %}
+**Rationale**:
+- Compliance: {{ compliance_score }}% ({% if compliance_score < 90 %}below 90% threshold{% else %}acceptable{% endif %})
+- Quality: {{ quality_score }}/100 (Grade: {{ quality_grade }})
+- {{ issues_count }} issue(s) need addressing
+
+**Issues to Fix**:
+{% for issue in issues_to_fix %}
+{{ loop.index }}. [{{ issue.severity }}] {{ issue.title }} (Est: {{ issue.estimated_fix_time }})
+   - {{ issue.description }}
+{% endfor %}
+
+**Total Estimated Fix Time**: {{ total_estimated_fix_time }}
+
+**Next Steps**:
+1. Address issues listed above
+2. Re-test affected areas
+3. Re-submit for review
+
+{% else %}
+**Rationale**:
+- Compliance: {{ compliance_score }}% (significantly below 90% threshold)
+- Quality: {{ quality_score }}/100 (Grade: {{ quality_grade }})
+- {{ issues_count }} major issue(s) identified
+- Implementation does not meet minimum quality standards
+
+**Critical Issues**:
+{% for issue in critical_issues %}
+- **{{ issue.title }}**: {{ issue.description }}
+{% endfor %}
+
+**Recommended Action**: {{ recommended_action }}
+
+{% endif %}
+
+---
+
+## Comparison to Similar Implementations
+
+**Compared to industry standards**:
+{% for comparison in industry_comparison %}
+- {% if comparison.rating == "better" %}✅ Better than average{% elif comparison.rating == "matches" %}➡️ Matches best practices{% else %}⚠️ Could improve{% endif %}: {{ comparison.description }}
+{% endfor %}
+
+**Compared to spec expectations**:
+{% for comparison in spec_comparison %}
+- {% if comparison.rating == "meets" %}✅ Meets{% elif comparison.rating == "exceeds" %}🌟 Exceeds{% else %}⚠️ Below{% endif %} requirements: {{ comparison.description }}
+{% endfor %}
+
+---
+
+## Review Metadata
+
+- **Review Duration**: {{ review_duration }} minutes
+- **Files Reviewed**: {{ files_reviewed }}
+- **Lines Reviewed**: {{ lines_reviewed }}
+{% if visual_verification %}
+- **Screenshots Captured**: {{ visual_verification.screenshots | length }}
+{% endif %}
+- **Tests Analyzed**: {{ tests_analyzed }}
+- **Requirements Checked**: {{ total_requirements }}
+- **Quality Checks Performed**: 5
+
+**Review Complete**: {% if decision == "APPROVE" %}✅{% elif decision == "REVISE" %}⚠️{% else %}❌{% endif %}
+
+---
+
+## Appendix A: Files Reviewed
+
+### Created ({{ files.created | length }} files)
+{% for file in files.created %}
+{{ loop.index }}. ✅ `{{ file.path }}` ({{ file.lines }} lines) - Reviewed
+{% endfor %}
+
+### Modified ({{ files.modified | length }} files)
+{% for file in files.modified %}
+{{ loop.index }}. ✅ `{{ file.path }}` (+{{ file.lines_added }} lines) - Reviewed
+{% endfor %}
+
+**Total**: {{ files.total }} files, {{ lines_reviewed }} lines added/modified
+
+---
+
+## Appendix B: Requirement Traceability Matrix
+
+| Spec Location | Requirement | Implementation | Test Coverage |
+|---------------|-------------|----------------|---------------|
+{% for trace in traceability_matrix %}
+| {{ trace.spec_location }} | {{ trace.requirement }} | {{ trace.implementation }} | {{ trace.test_coverage }} |
+{% endfor %}
+
+**Traceability**: {{ traceability_percentage }}% (all requirements traced to implementation and tests)
+
+---
+
+**Generated By**: Review Agent {{ agent_version }}
+**Generated At**: {{ generated_at }}
+**Review Methodology**: 93_meta_review_HOP.md (objective assessment with evidence)
+**ADW**: {{ adw_path }}

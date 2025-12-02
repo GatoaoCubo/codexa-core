@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "ferramenta": "poke",
+    "versao": "unknown",
+    "categoria": "enterprise",
+    "modelo_base": "unknown",
+    "data_extracao": "2025-12-01",
+    "tokens_original": 445,
+    "linhas_original": 20,
+    "arquivo_fonte": "poke\\Poke_p6.txt"
+  },
+  "estrutura": {
+    "secoes_detectadas": [],
+    "formatacao": {
+      "usa_xml_tags": false,
+      "usa_markdown": false,
+      "usa_json_schemas": false,
+      "usa_typescript": false,
+      "usa_exemplos": false,
+      "usa_good_bad_examples": false
+    }
+  },
+  "patterns": [],
+  "techniques": [],
+  "insights_codexa": [
+    "Extração básica - requer análise manual",
+    "Prompt tem 445 tokens",
+    "Categoria: enterprise"
+  ],
+  "diferenciais": [],
+  "metricas": {
+    "clareza": 0.5,
+    "completude": 0.5,
+    "reusabilidade": 0.5,
+    "inovacao": 0.5
+  },
+  "_extraction_method": "regex_fallback"
+}

@@ -1,0 +1,648 @@
+# CODEXA Prompt Layer Configuration
+# Version: 2.5.0
+# Created: 2025-11-24
+# Updated: 2025-11-25
+# Purpose: Define composable prompt layers and composition rules
+
+# ============================================================================
+# 12 LEVERAGE POINTS OF AGENTIC CODING
+# ============================================================================
+# From Agentic Engineering axioms - prioritize these in all constructions
+
+leverage_points:
+  1_context:
+    name: "Context"
+    description: "Information & Perspective - Build complete mental model"
+    axiom: "Context should be curated, minimal and relevant to the current task"
+    avoid: ["CONTEXT POLLUTION", "CONTEXT OVERLOAD", "CONTEXT ROT", "CONTEXT CONFUSION"]
+
+  2_model:
+    name: "Model"
+    description: "Intelligence & Potential - Choose model per task"
+    recommendations:
+      planning: "claude-sonnet-4-5-20250929"
+      execution: "claude-sonnet-4-5-20250929"
+      orchestration: "claude-opus-4-5-20251101"
+      verification: "claude-sonnet-4-5-20250929"
+
+  3_prompt:
+    name: "Prompt"
+    description: "Communication Method - One Prompt, One Purpose"
+    axiom: "Each prompt should correspond to one clear goal"
+
+  4_tools:
+    name: "Tools"
+    description: "Agent Capabilities - Full toolkit per mode"
+    per_mode:
+      PLANNING: [Read, Glob, Grep, WebSearch, AskUserQuestion]
+      EXECUTION: [Read, Write, Edit, Bash, Glob, Grep]
+      VERIFICATION: [Read, Bash, Glob, Grep]
+
+  5_standard_out:
+    name: "Standard Out"
+    description: "Command Visibility - Task boundaries for progress"
+    pattern: "═══ MODE: X | TASK: N/M | PROGRESS: X% ═══"
+
+  6_types:
+    name: "Types"
+    description: "Information Flow - Structured output schemas"
+    formats: [".md", ".json", ".yaml"]
+
+  7_documentation:
+    name: "Documentation"
+    description: "Knowledge Base - Generate for all operations"
+    outputs: ["implementation_plan.md", "task.md", "walkthrough.md"]
+
+  8_tests:
+    name: "Tests"
+    description: "Self-Validation - Feedback loops for all work"
+    axiom: "No work is complete until it has been tested and validated"
+    coverage_target: "80%"
+
+  9_architecture:
+    name: "Architecture"
+    description: "Consistent Patterns - Follow established patterns"
+    patterns: ["Two-Phase Planning", "Task Boundaries", "ADW 5-Phase"]
+
+  10_plans:
+    name: "Plans"
+    description: "Massive Agentic Prompts - Detailed implementation plans"
+    output: "implementation_plan.md"
+
+  11_templates:
+    name: "Templates"
+    description: "Reusable Prompts - 1x Template → 5x Plans → 10x Results"
+    axiom: "Templating your engineering turns workflows into scalable units"
+
+  12_adws:
+    name: "ADWs"
+    description: "AI Developer Workflows - Plan→Build→Test→Review→Document"
+    phases: ["PLAN", "BUILD", "TEST", "REVIEW", "DOCUMENT"]
+
+# ============================================================================
+# LAYER DEFINITIONS
+# ============================================================================
+
+layers:
+  # Foundation Layer - Core Identity
+  identity:
+    id: "01_identity_layer"
+    file: "prompts/layers/01_identity_layer.md"
+    version: "1.0.0"
+    category: "foundation"
+    description: "Core identity, role, capabilities, and principles of CODEXA"
+    size_lines: 276
+    dependencies: []
+    required_for:
+      - "All agents"
+      - "All workflows"
+      - "All prompts"
+    exports:
+      - "Role definition"
+      - "Core capabilities catalog"
+      - "Interaction principles"
+      - "Decision-making framework"
+      - "Quality standards"
+      - "Platform pattern integration"
+
+  # Behavior Layer - Operating Modes
+  operating_modes:
+    id: "02_operating_modes"
+    file: "prompts/layers/02_operating_modes.md"
+    version: "1.0.0"
+    category: "behavior"
+    description: "Operating modes, mode transitions, task boundary system"
+    size_lines: 560
+    dependencies:
+      - "01_identity_layer"
+    required_for:
+      - "Planning agents"
+      - "Execution agents"
+      - "Verification agents"
+      - "Multi-agent workflows"
+    exports:
+      - "3 primary modes (Planning/Execution/Verification)"
+      - "3 special modes (Fix/Research/Orchestration)"
+      - "Mode transition rules"
+      - "Task boundary messages"
+
+  # Execution Layer - Tool Usage
+  tool_usage:
+    id: "03_tool_usage_layer"
+    file: "prompts/layers/03_tool_usage_layer.md"
+    version: "1.0.0"
+    category: "execution"
+    description: "Tool selection patterns, usage rules, optimization strategies"
+    size_lines: 635
+    dependencies:
+      - "02_operating_modes"
+    required_for:
+      - "All agents using tools"
+      - "Execution mode operations"
+      - "Orchestration mode"
+    exports:
+      - "Complete tool catalog"
+      - "Tool selection rules"
+      - "Parallel execution patterns"
+      - "Mode-aware tool usage"
+      - "Safety constraints"
+
+  # Interaction Layer - Communication Style
+  communication:
+    id: "04_communication_layer"
+    file: "prompts/layers/04_communication_layer.md"
+    version: "1.0.0"
+    category: "interaction"
+    description: "User interaction patterns, tone, style, communication protocols"
+    size_lines: 710
+    dependencies:
+      - "01_identity_layer"
+      - "02_operating_modes"
+    required_for:
+      - "All user-facing interactions"
+      - "Error messages"
+      - "Progress updates"
+    exports:
+      - "Tone and style guidelines"
+      - "Response structure patterns"
+      - "Progress communication"
+      - "Error communication"
+      - "Question asking protocols"
+
+  # Standards Layer - Code Conventions
+  code_conventions:
+    id: "05_code_conventions"
+    file: "prompts/layers/05_code_conventions.md"
+    version: "1.0.0"
+    category: "standards"
+    description: "Code style, naming conventions, and best practices from 30+ platforms"
+    size_lines: 745
+    dependencies:
+      - "01_identity_layer"
+    required_for:
+      - "All code generation"
+      - "Execution agents"
+      - "Code review"
+    exports:
+      - "Naming conventions (variables, functions, classes)"
+      - "Code structure guidelines"
+      - "Documentation standards"
+      - "Error handling patterns"
+      - "Testing conventions"
+      - "Platform-specific patterns"
+
+  # Standards Layer - Design System
+  design_system:
+    id: "06_design_system"
+    file: "prompts/layers/06_design_system.md"
+    version: "1.0.0"
+    category: "standards"
+    description: "Design tokens, semantic naming, UI conventions, and component patterns"
+    size_lines: 625
+    dependencies:
+      - "05_code_conventions"
+    required_for:
+      - "UI component generation"
+      - "Frontend agents"
+      - "Design-related workflows"
+    exports:
+      - "Color system (HSL, semantic tokens)"
+      - "Spacing system (8px base)"
+      - "Typography system"
+      - "Component patterns (Button, Card, Input)"
+      - "Responsive design breakpoints"
+      - "Accessibility standards"
+      - "Animation & transitions"
+
+  # Advanced Layer - Steering Hooks
+  steering_hooks:
+    id: "07_steering_hooks"
+    file: "prompts/layers/07_steering_hooks.md"
+    version: "1.0.0"
+    category: "advanced"
+    description: "User-configurable behavior modifications, hooks, and customization system"
+    size_lines: 685
+    dependencies:
+      - "02_operating_modes"
+      - "03_tool_usage_layer"
+    required_for:
+      - "Customizable agents"
+      - "Project-specific rules"
+      - "Team standards enforcement"
+    exports:
+      - "Pre-execution hooks"
+      - "Post-execution hooks"
+      - "Validation hooks"
+      - "Tool override hooks"
+      - "Steering configurations"
+      - "Environment-specific hooks"
+
+  # Orchestration Layer - Workflows
+  workflows:
+    id: "08_workflows"
+    file: "prompts/layers/08_workflows.md"
+    version: "1.0.0"
+    category: "orchestration"
+    description: "Common workflow patterns, recipes, and orchestration strategies"
+    size_lines: 660
+    dependencies:
+      - "02_operating_modes"
+      - "03_tool_usage_layer"
+    required_for:
+      - "Multi-agent orchestration"
+      - "Complex task execution"
+      - "ADW creation"
+    exports:
+      - "Two-phase planning workflow"
+      - "Artifact-based development"
+      - "Parallel orchestration"
+      - "Common recipes (feature dev, bug fixing, etc.)"
+      - "Orchestration patterns"
+      - "Workflow composition"
+
+# ============================================================================
+# COMPOSITION PRESETS
+# ============================================================================
+
+presets:
+  # Minimal Agent - Only identity
+  minimal:
+    name: "Minimal Agent"
+    description: "Bare minimum for any CODEXA component"
+    layers:
+      - "01_identity_layer"
+    use_cases:
+      - "Simple validators"
+      - "Utility scripts"
+      - "Read-only analyzers"
+    total_lines: 276
+
+  # Planning Agent - Read-only exploration
+  planning:
+    name: "Planning Agent"
+    description: "Agent for planning phase (read-only, no execution)"
+    layers:
+      - "01_identity_layer"
+      - "02_operating_modes"
+      - "03_tool_usage_layer"
+      - "04_communication_layer"
+    mode_restrictions:
+      allowed_modes:
+        - "PLANNING"
+        - "RESEARCH"
+      forbidden_modes:
+        - "EXECUTION"
+        - "FIX"
+    use_cases:
+      - "Codebase discovery"
+      - "Requirement analysis"
+      - "Task planning"
+      - "Design decisions"
+    total_lines: 1954
+
+  # Execution Agent - Write access implementation
+  execution:
+    name: "Execution Agent"
+    description: "Agent for execution phase (write access)"
+    layers:
+      - "01_identity_layer"
+      - "02_operating_modes"
+      - "03_tool_usage_layer"
+      - "04_communication_layer"
+    mode_restrictions:
+      allowed_modes:
+        - "EXECUTION"
+        - "FIX"
+      primary_mode: "EXECUTION"
+    use_cases:
+      - "Code implementation"
+      - "File modifications"
+      - "Configuration updates"
+      - "Test creation"
+    total_lines: 1954
+
+  # Verification Agent - Testing and validation
+  verification:
+    name: "Verification Agent"
+    description: "Agent for verification phase (read + test execution)"
+    layers:
+      - "01_identity_layer"
+      - "02_operating_modes"
+      - "03_tool_usage_layer"
+      - "04_communication_layer"
+    mode_restrictions:
+      allowed_modes:
+        - "VERIFICATION"
+        - "FIX"
+      primary_mode: "VERIFICATION"
+    use_cases:
+      - "Running tests"
+      - "Code quality checks"
+      - "Validation against spec"
+      - "Report generation"
+    total_lines: 1954
+
+  # Full Agent - All capabilities
+  full:
+    name: "Full Agent"
+    description: "Complete agent with all layers and capabilities"
+    layers:
+      - "01_identity_layer"
+      - "02_operating_modes"
+      - "03_tool_usage_layer"
+      - "04_communication_layer"
+    mode_restrictions:
+      allowed_modes:
+        - "PLANNING"
+        - "EXECUTION"
+        - "VERIFICATION"
+        - "FIX"
+        - "RESEARCH"
+        - "ORCHESTRATION"
+    use_cases:
+      - "Complex workflows"
+      - "Multi-phase tasks"
+      - "Full development cycles"
+      - "Self-improvement tasks"
+    total_lines: 1954
+
+  # Orchestrator - Multi-agent coordination
+  orchestrator:
+    name: "Orchestrator Agent"
+    description: "Agent for coordinating multiple specialized agents"
+    layers:
+      - "01_identity_layer"
+      - "02_operating_modes"
+      - "03_tool_usage_layer"
+      - "04_communication_layer"
+    mode_restrictions:
+      allowed_modes:
+        - "ORCHESTRATION"
+      primary_mode: "ORCHESTRATION"
+    use_cases:
+      - "Parallel task distribution"
+      - "Multi-agent coordination"
+      - "Complex workflow orchestration"
+      - "Result aggregation"
+    total_lines: 1954
+
+# ============================================================================
+# COMPOSITION RULES
+# ============================================================================
+
+composition_rules:
+  # Dependency validation
+  dependency_validation:
+    enabled: true
+    description: "Ensure all layer dependencies are satisfied"
+    rule: "If layer X requires layer Y, Y must be included before X"
+
+  # Order enforcement
+  order_enforcement:
+    enabled: true
+    description: "Layers must be composed in correct order"
+    order:
+      - "foundation"  # 01_identity_layer
+      - "behavior"    # 02_operating_modes
+      - "execution"   # 03_tool_usage_layer
+      - "interaction" # 04_communication_layer
+
+  # Mode restrictions
+  mode_restrictions:
+    enabled: true
+    description: "Enforce mode restrictions defined in presets"
+    validation: "Check allowed_modes before tool execution"
+
+  # Size limits
+  size_limits:
+    max_total_lines: 10000
+    warning_threshold: 5000
+    description: "Warn if composed prompt exceeds thresholds"
+
+# ============================================================================
+# USAGE PATTERNS
+# ============================================================================
+
+usage_patterns:
+  # Pattern 1: Two-Phase Workflow (Devin pattern)
+  two_phase_workflow:
+    description: "Planning Agent → Execution Agent pattern"
+    phases:
+      - phase: "planning"
+        agent_preset: "planning"
+        mode: "PLANNING"
+        output: "implementation_plan.md + task.md"
+
+      - phase: "execution"
+        agent_preset: "execution"
+        mode: "EXECUTION"
+        input: "$planning_output"
+        output: "code files + tests"
+
+      - phase: "verification"
+        agent_preset: "verification"
+        mode: "VERIFICATION"
+        input: "$execution_output"
+        output: "walkthrough.md + ##report"
+
+  # Pattern 2: Parallel Orchestration (Poke pattern)
+  parallel_orchestration:
+    description: "Orchestrator spawns multiple agents in parallel"
+    structure:
+      orchestrator:
+        preset: "orchestrator"
+        mode: "ORCHESTRATION"
+
+      parallel_agents:
+        - agent: "frontend_agent"
+          preset: "execution"
+          task: "Build UI components"
+
+        - agent: "backend_agent"
+          preset: "execution"
+          task: "Build API endpoints"
+
+        - agent: "test_agent"
+          preset: "execution"
+          task: "Write E2E tests"
+
+      aggregation:
+        agent: "verification_agent"
+        preset: "verification"
+        input: "All parallel agent outputs"
+
+  # Pattern 3: Simple Execution (Skip Planning)
+  simple_execution:
+    description: "Single-file, low-risk tasks (skip planning)"
+    conditions:
+      - "Single file modification"
+      - "Exact location known"
+      - "Low risk of side effects"
+    agent_preset: "execution"
+    mode: "EXECUTION"
+
+# ============================================================================
+# LAYER COMPOSITION API
+# ============================================================================
+
+composition_api:
+  # Python example
+  python_usage: |
+    from codexa.layers import LayerComposer
+
+    # Load preset
+    composer = LayerComposer()
+    prompt = composer.load_preset("planning")
+
+    # Or custom composition
+    prompt = composer.compose([
+        "01_identity_layer",
+        "02_operating_modes",
+        "04_communication_layer"
+    ])
+
+    # Validate composition
+    composer.validate(prompt)
+
+    # Generate final prompt
+    final_prompt = composer.render(prompt, context={"task": "Build feature X"})
+
+  # CLI usage
+  cli_usage: |
+    # Generate agent with preset
+    codexa layers compose --preset planning --output agents/planning_agent.md
+
+    # Custom composition
+    codexa layers compose --layers 01,02,03,04 --output custom_agent.md
+
+    # Validate composition
+    codexa layers validate --file agents/custom_agent.md
+
+  # YAML template usage
+  yaml_usage: |
+    # In agent definition YAML
+    agent:
+      name: "feature_builder_agent"
+      layers:
+        preset: "execution"
+      mode: "EXECUTION"
+      context:
+        task: "Build feature X"
+        spec_file: "specs/feature_x.md"
+
+# ============================================================================
+# EXTENSION POINTS
+# ============================================================================
+
+extensions:
+  # All 8 core layers now implemented (v1.0.0)
+  # Future extensions can be added as custom layers
+
+  # Custom layer support
+  custom_layers:
+    enabled: true
+    location: "prompts/layers/custom/"
+    validation_required: true
+    description: "Users can add custom layers following the standard format"
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+metadata:
+  version: "2.5.0"
+  created: "2025-11-24"
+  updated: "2025-11-25"
+  maintainer: "CODEXA Team"
+  schema_version: "2.0"
+  compatible_with: "CODEXA v2.5.0+"
+  leverage_points_integrated: true
+
+  # Statistics
+  stats:
+    total_layers_defined: 8
+    total_presets_defined: 6
+    total_patterns_defined: 3
+    total_lines_all_layers: 5360
+
+  # Documentation
+  documentation:
+    main_doc: "docs/PROMPT_LAYERS_GUIDE.md"
+    examples: "docs/examples/layer_composition/"
+    api_reference: "docs/api/layer_composer.md"
+
+# ============================================================================
+# VALIDATION SCHEMA
+# ============================================================================
+
+validation_schema:
+  layer_file_requirements:
+    - "Must be valid Markdown"
+    - "Must include metadata header (version, created, purpose, category)"
+    - "Must define clear exports"
+    - "Must document dependencies"
+    - "Must stay under 1000 lines (recommended)"
+
+  composition_requirements:
+    - "All dependencies must be satisfied"
+    - "Layers must be in correct order (foundation → behavior → execution → interaction)"
+    - "Total composed size should not exceed 10,000 lines"
+    - "No circular dependencies"
+
+  preset_requirements:
+    - "Must define name and description"
+    - "Must list all included layers"
+    - "Must specify use cases"
+    - "Must define mode restrictions (if applicable)"
+
+# ============================================================================
+# EXAMPLES
+# ============================================================================
+
+examples:
+  # Example 1: Simple validator (minimal preset)
+  simple_validator:
+    description: "Validator that only needs identity layer"
+    preset: "minimal"
+    composition:
+      - "01_identity_layer"
+    use_case: "Validate file naming conventions"
+
+  # Example 2: Feature builder (two-phase workflow)
+  feature_builder:
+    description: "Build feature using two-phase planning"
+    phases:
+      planning:
+        preset: "planning"
+        task: "Analyze codebase and plan feature"
+      execution:
+        preset: "execution"
+        task: "Implement feature from plan"
+      verification:
+        preset: "verification"
+        task: "Test and validate feature"
+
+  # Example 3: Parallel development (orchestration)
+  parallel_development:
+    description: "Build frontend, backend, and tests in parallel"
+    orchestrator:
+      preset: "orchestrator"
+      parallel_agents:
+        - name: "frontend"
+          preset: "execution"
+        - name: "backend"
+          preset: "execution"
+        - name: "tests"
+          preset: "execution"
+
+# ============================================================================
+# NOTES
+# ============================================================================
+
+notes:
+  - "Layers are composable and reusable across all CODEXA components"
+  - "Use presets for common agent types, custom composition for specialized needs"
+  - "Always validate composition before deployment"
+  - "Layer order matters: foundation → behavior → execution → interaction"
+  - "Future layers (05-08) will extend capabilities without breaking existing compositions"
+  - "Custom layers must follow the same format and validation rules"

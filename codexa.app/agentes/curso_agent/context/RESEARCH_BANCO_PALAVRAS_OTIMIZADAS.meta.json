@@ -1,0 +1,61 @@
+{
+  "file_type": "research_notes",
+  "version": "1.0.0",
+  "created": "2025-11-29T00:00:00Z",
+  "agent": {
+    "primary": "curso_agent",
+    "secondary": "pesquisa_agent",
+    "adw": "semantic_variable_optimization"
+  },
+  "execution": {
+    "duration_minutes": 25,
+    "web_queries": 12,
+    "sources_analyzed": 35,
+    "terms_extracted": 287
+  },
+  "quality_metrics": {
+    "overall_score": 9.2,
+    "confidence": 0.88,
+    "completeness": 0.95,
+    "academic_sources": 8,
+    "marketplace_sources": 9
+  },
+  "categories": {
+    "agentics_terminology": 45,
+    "hooks_power_words": 28,
+    "seller_pain_points": 32,
+    "desired_gains": 18,
+    "mental_triggers": 35,
+    "bloom_verbs": 42,
+    "gamification": 38,
+    "seo_keywords": 25,
+    "llm_triggers": 12,
+    "words_to_avoid": 12
+  },
+  "outputs": {
+    "primary": "RESEARCH_BANCO_PALAVRAS_OTIMIZADAS.md",
+    "structured": "RESEARCH_BANCO_PALAVRAS_OTIMIZADAS.llm.json",
+    "metadata": "RESEARCH_BANCO_PALAVRAS_OTIMIZADAS.meta.json"
+  },
+  "usage": {
+    "consumers": [
+      "curso_agent/builders/02_video_script_builder.py",
+      "curso_agent/builders/03_workbook_builder.py",
+      "curso_agent/templates/TEMPLATE_VIDEO_SCRIPT.md",
+      "curso_agent/templates/TEMPLATE_WORKBOOK.md"
+    ],
+    "recommended_actions": [
+      "Importar .llm.json em builders para auto-fill de variáveis",
+      "Usar seed_words_codexa em todos os outputs",
+      "Validar contra words_to_avoid antes de publicar",
+      "Aplicar mental_triggers em sales materials"
+    ]
+  },
+  "validation": {
+    "brand_voice_compliant": true,
+    "academic_backed": true,
+    "marketplace_validated": true,
+    "llm_optimized": true
+  },
+  "next_refresh": "2025-12-29"
+}

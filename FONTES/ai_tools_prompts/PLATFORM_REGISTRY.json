@@ -1,0 +1,201 @@
+{
+  "platforms": {
+    "cursor": {
+      "name": "Cursor",
+      "category": "code_assistant",
+      "description": "AI-powered code editor with context-aware assistance",
+      "capabilities": ["code_completion", "chat", "multi_file_editing", "agent_mode", "composer"],
+      "version": "latest",
+      "status": "active",
+      "use_cases": [
+        "Full-stack development",
+        "Refactoring",
+        "Multi-file changes",
+        "Codebase understanding"
+      ],
+      "unique_patterns": [
+        "Multi-agent orchestration",
+        "Composer mode for complex tasks",
+        "Advanced context management"
+      ]
+    },
+    "claude_code": {
+      "name": "Claude Code",
+      "category": "code_assistant",
+      "description": "Anthropic's official CLI tool for Claude",
+      "capabilities": ["terminal_integration", "file_operations", "git_integration", "tool_calling"],
+      "version": "latest",
+      "status": "active",
+      "use_cases": [
+        "CLI workflows",
+        "Automated tasks",
+        "Git operations",
+        "File manipulation"
+      ],
+      "unique_patterns": [
+        "Tool-centric architecture",
+        "Bash integration patterns",
+        "Safety protocols"
+      ]
+    },
+    "devin": {
+      "name": "Devin AI",
+      "category": "autonomous_agent",
+      "description": "Autonomous AI software engineer",
+      "capabilities": ["autonomous_coding", "planning", "debugging", "deployment"],
+      "version": "latest",
+      "status": "active",
+      "use_cases": [
+        "End-to-end project development",
+        "Complex debugging",
+        "System design",
+        "Deployment automation"
+      ],
+      "unique_patterns": [
+        "Long-running autonomous tasks",
+        "Complex planning and decomposition",
+        "Self-directed debugging"
+      ]
+    },
+    "v0": {
+      "name": "v0 by Vercel",
+      "category": "ui_builder",
+      "description": "AI-powered UI component generator",
+      "capabilities": ["ui_generation", "react_components", "shadcn", "responsive_design"],
+      "version": "latest",
+      "status": "active",
+      "use_cases": [
+        "UI prototyping",
+        "Component generation",
+        "Landing pages",
+        "Design to code"
+      ],
+      "unique_patterns": [
+        "UI-specific prompt engineering",
+        "Component composition",
+        "Design system integration"
+      ]
+    },
+    "windsurf": {
+      "name": "Windsurf",
+      "category": "code_assistant",
+      "description": "AI coding assistant with flow state focus",
+      "capabilities": ["code_completion", "chat", "context_awareness"],
+      "version": "latest",
+      "status": "active",
+      "use_cases": [
+        "Focused coding sessions",
+        "Flow state maintenance",
+        "Context-aware assistance"
+      ],
+      "unique_patterns": [
+        "Flow state optimization",
+        "Minimal interruption design"
+      ]
+    },
+    "replit": {
+      "name": "Replit Agent",
+      "category": "code_assistant",
+      "description": "Replit's integrated AI coding assistant",
+      "capabilities": ["code_completion", "project_setup", "debugging", "deployment"],
+      "version": "latest",
+      "status": "active",
+      "use_cases": [
+        "Quick prototyping",
+        "Learning and education",
+        "Full-stack development",
+        "Instant deployment"
+      ],
+      "unique_patterns": [
+        "Integrated environment patterns",
+        "Educational scaffolding"
+      ]
+    },
+    "lovable": {
+      "name": "Lovable",
+      "category": "app_builder",
+      "description": "AI app builder for full applications",
+      "capabilities": ["full_app_generation", "frontend", "backend", "database"],
+      "version": "latest",
+      "status": "active",
+      "use_cases": [
+        "MVP development",
+        "Full-stack apps",
+        "Rapid prototyping"
+      ],
+      "unique_patterns": [
+        "Full-stack orchestration",
+        "Integrated architecture decisions"
+      ]
+    },
+    "perplexity": {
+      "name": "Perplexity AI",
+      "category": "research_agent",
+      "description": "AI-powered research and answer engine",
+      "capabilities": ["web_search", "citation", "summarization", "research"],
+      "version": "latest",
+      "status": "active",
+      "use_cases": [
+        "Research tasks",
+        "Information synthesis",
+        "Cited answers",
+        "Deep dives"
+      ],
+      "unique_patterns": [
+        "Source attribution",
+        "Multi-source synthesis",
+        "Citation management"
+      ]
+    },
+    "cursor_composer": {
+      "name": "Cursor Composer",
+      "category": "orchestration",
+      "description": "Cursor's advanced multi-step task orchestrator",
+      "capabilities": ["task_planning", "multi_step_execution", "orchestration"],
+      "version": "latest",
+      "status": "active",
+      "use_cases": [
+        "Complex refactoring",
+        "Multi-file changes",
+        "Feature implementation"
+      ],
+      "unique_patterns": [
+        "Advanced task decomposition",
+        "Multi-agent coordination"
+      ]
+    }
+  },
+  "categories": {
+    "code_assistant": {
+      "description": "AI assistants integrated into code editors",
+      "platforms": ["cursor", "claude_code", "windsurf", "replit"]
+    },
+    "autonomous_agent": {
+      "description": "Self-directed AI agents that complete tasks independently",
+      "platforms": ["devin"]
+    },
+    "ui_builder": {
+      "description": "AI tools specialized in UI/component generation",
+      "platforms": ["v0"]
+    },
+    "app_builder": {
+      "description": "AI tools that build complete applications",
+      "platforms": ["lovable"]
+    },
+    "research_agent": {
+      "description": "AI agents specialized in research and information synthesis",
+      "platforms": ["perplexity"]
+    },
+    "orchestration": {
+      "description": "Tools focused on multi-step task orchestration",
+      "platforms": ["cursor_composer"]
+    }
+  },
+  "metadata": {
+    "total_platforms": 9,
+    "last_updated": "2025-11-24",
+    "source": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+    "license": "GPL-3.0 (reference only)",
+    "maintained_by": "CODEXA System"
+  }
+}

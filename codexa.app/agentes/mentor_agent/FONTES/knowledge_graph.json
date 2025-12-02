@@ -1,0 +1,255 @@
+{
+  "version": "1.0.0",
+  "description": "Knowledge routing graph for cross-agent knowledge discovery",
+  "created": "2025-12-02",
+  "last_updated": "2025-12-02",
+
+  "task_types": {
+    "create_subagent": {
+      "description": "Criar subagent type para Claude Code",
+      "primary_agent": "codexa_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/codexa_agent/iso_vectorstore/23_subagent_patterns.md",
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/playbook_prompt_engineering_20251201.md"
+      ],
+      "recommended_knowledge": [
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/patterns/pattern_tool_calling_20251201.md",
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/patterns/pattern_task_management_20251201.md",
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/patterns/pattern_advanced_techniques_20251202.md"
+      ],
+      "triggers": ["subagent", "criar agente", "build agent", "Task tool", "spawn agent"],
+      "estimated_tokens": 15000
+    },
+
+    "create_agent": {
+      "description": "Criar novo agente CODEXA completo",
+      "primary_agent": "codexa_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/codexa_agent/workflows/97_ADW_NEW_AGENT_WORKFLOW.md",
+        "codexa.app/agentes/codexa_agent/iso_vectorstore/22_agent_builder_patterns.md",
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/playbook_prompt_engineering_20251201.md"
+      ],
+      "recommended_knowledge": [
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/patterns/pattern_tool_calling_20251201.md",
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/patterns/pattern_security_constraints_20251201.md"
+      ],
+      "triggers": ["novo agente", "new agent", "criar agente completo", "agent from scratch"],
+      "estimated_tokens": 20000
+    },
+
+    "create_hop": {
+      "description": "Criar Higher-Order Prompt (HOP)",
+      "primary_agent": "codexa_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/codexa_agent/iso_vectorstore/17_tac7_spec.md",
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/patterns/pattern_task_management_20251201.md"
+      ],
+      "recommended_knowledge": [
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/patterns/pattern_advanced_techniques_20251202.md"
+      ],
+      "triggers": ["HOP", "Higher-Order Prompt", "criar prompt", "meta-prompt", "TAC-7"],
+      "estimated_tokens": 8000
+    },
+
+    "create_adw": {
+      "description": "Criar Agentic Developer Workflow (ADW)",
+      "primary_agent": "codexa_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/codexa_agent/builders/adw_modules/README.md",
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/patterns/pattern_task_management_20251201.md"
+      ],
+      "recommended_knowledge": [
+        "codexa.app/agentes/codexa_agent/workflows/206_ADW_SUBAGENT_CONSTRUCTION.md"
+      ],
+      "triggers": ["ADW", "workflow", "Agentic Developer Workflow", "criar workflow"],
+      "estimated_tokens": 10000
+    },
+
+    "create_anuncio": {
+      "description": "Criar anuncio para marketplace",
+      "primary_agent": "anuncio_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/anuncio_agent/PRIME.md"
+      ],
+      "recommended_knowledge": [
+        "codexa.app/agentes/mentor_agent/FONTES/ECOMMERCE/README.md"
+      ],
+      "triggers": ["anuncio", "listing", "produto", "marketplace", "Mercado Livre"],
+      "estimated_tokens": 12000
+    },
+
+    "market_research": {
+      "description": "Pesquisa de mercado e analise de concorrencia",
+      "primary_agent": "pesquisa_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/pesquisa_agent/PRIME.md"
+      ],
+      "recommended_knowledge": [
+        "codexa.app/agentes/mentor_agent/FONTES/ECOMMERCE/README.md"
+      ],
+      "triggers": ["pesquisa", "research", "mercado", "concorrencia", "analise"],
+      "estimated_tokens": 10000
+    },
+
+    "brand_strategy": {
+      "description": "Estrategia de marca e identidade visual",
+      "primary_agent": "marca_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/marca_agent/PRIME.md"
+      ],
+      "recommended_knowledge": [],
+      "triggers": ["marca", "brand", "identidade", "arquetipo", "posicionamento"],
+      "estimated_tokens": 15000
+    },
+
+    "photo_prompt": {
+      "description": "Criar prompts de fotografia de produto",
+      "primary_agent": "photo_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/photo_agent/PRIME.md"
+      ],
+      "recommended_knowledge": [
+        "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/patterns/pattern_advanced_techniques_20251202.md"
+      ],
+      "triggers": ["foto", "photo", "imagem", "produto", "Midjourney", "DALL-E"],
+      "estimated_tokens": 12000
+    },
+
+    "video_creation": {
+      "description": "Criar video ou script para video",
+      "primary_agent": "video_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/video_agent/PRIME.md"
+      ],
+      "recommended_knowledge": [],
+      "triggers": ["video", "script", "storyboard", "Runway", "Pika"],
+      "estimated_tokens": 15000
+    },
+
+    "course_creation": {
+      "description": "Criar curso ou material educacional",
+      "primary_agent": "curso_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/curso_agent/PRIME.md"
+      ],
+      "recommended_knowledge": [],
+      "triggers": ["curso", "aula", "tutorial", "Hotmart", "workbook"],
+      "estimated_tokens": 18000
+    },
+
+    "quality_validation": {
+      "description": "Validacao de qualidade e QA",
+      "primary_agent": "qa_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/mentor_agent/prompts/quality_validator_5d_HOP.md"
+      ],
+      "recommended_knowledge": [],
+      "triggers": ["QA", "qualidade", "validacao", "review", "check"],
+      "estimated_tokens": 5000
+    },
+
+    "knowledge_processing": {
+      "description": "Processar e estruturar conhecimento",
+      "primary_agent": "mentor_agent",
+      "required_knowledge": [
+        "codexa.app/agentes/mentor_agent/PRIME.md",
+        "codexa.app/agentes/mentor_agent/prompts/knowledge_processor_HOP.md"
+      ],
+      "recommended_knowledge": [],
+      "triggers": ["conhecimento", "processar", "estruturar", "RASCUNHO", "FONTES"],
+      "estimated_tokens": 12000
+    }
+  },
+
+  "knowledge_categories": {
+    "prompt_engineering": {
+      "description": "Padroes e melhores praticas de prompt engineering",
+      "source_agent": "mentor_agent",
+      "base_path": "codexa.app/agentes/mentor_agent/FONTES/PROMPT_ENGINEERING/",
+      "files": [
+        "patterns/pattern_tool_calling_20251201.md",
+        "patterns/pattern_task_management_20251201.md",
+        "patterns/pattern_file_operations_20251201.md",
+        "patterns/pattern_terminal_commands_20251201.md",
+        "patterns/pattern_security_constraints_20251201.md",
+        "patterns/pattern_advanced_techniques_20251202.md",
+        "playbook_prompt_engineering_20251201.md"
+      ],
+      "consumers": ["codexa_agent", "ALL"],
+      "tags": ["prompt", "subagent", "HOP", "tool", "task", "security", "patterns"]
+    },
+
+    "subagent_construction": {
+      "description": "Padroes de construcao de subagents Claude Code",
+      "source_agent": "codexa_agent",
+      "base_path": "codexa.app/agentes/codexa_agent/iso_vectorstore/",
+      "files": [
+        "23_subagent_patterns.md",
+        "22_agent_builder_patterns.md"
+      ],
+      "consumers": ["codexa_agent"],
+      "tags": ["subagent", "construction", "meta", "builder", "Task"]
+    },
+
+    "ecommerce": {
+      "description": "Conhecimento de e-commerce e marketplaces",
+      "source_agent": "mentor_agent",
+      "base_path": "codexa.app/agentes/mentor_agent/FONTES/ECOMMERCE/",
+      "files": [],
+      "consumers": ["anuncio_agent", "pesquisa_agent"],
+      "tags": ["seo", "copy", "ecommerce", "listing", "marketplace"]
+    },
+
+    "quality_standards": {
+      "description": "Padroes de qualidade e validacao",
+      "source_agent": "mentor_agent",
+      "base_path": "codexa.app/agentes/mentor_agent/prompts/",
+      "files": [
+        "quality_validator_5d_HOP.md"
+      ],
+      "consumers": ["ALL"],
+      "tags": ["quality", "validation", "QA", "standards"]
+    }
+  },
+
+  "cross_references": {
+    "codexa_agent": {
+      "depends_on": ["mentor_agent"],
+      "knowledge_needed": ["prompt_engineering", "quality_standards"]
+    },
+    "anuncio_agent": {
+      "depends_on": ["pesquisa_agent", "mentor_agent"],
+      "knowledge_needed": ["ecommerce"]
+    },
+    "photo_agent": {
+      "depends_on": ["marca_agent", "mentor_agent"],
+      "knowledge_needed": ["prompt_engineering"]
+    },
+    "video_agent": {
+      "depends_on": ["marca_agent", "photo_agent"],
+      "knowledge_needed": []
+    },
+    "curso_agent": {
+      "depends_on": ["mentor_agent"],
+      "knowledge_needed": ["quality_standards"]
+    }
+  },
+
+  "auto_inject_rules": [
+    {
+      "condition": "task_type == 'create_subagent' OR task_type == 'create_agent'",
+      "inject": "prompt_engineering",
+      "priority": "required"
+    },
+    {
+      "condition": "task_type == 'create_hop'",
+      "inject": "prompt_engineering.patterns.pattern_task_management",
+      "priority": "required"
+    },
+    {
+      "condition": "primary_agent IN ['anuncio_agent', 'pesquisa_agent']",
+      "inject": "ecommerce",
+      "priority": "recommended"
+    }
+  ]
+}

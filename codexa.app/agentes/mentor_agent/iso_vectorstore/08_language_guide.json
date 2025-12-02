@@ -1,0 +1,310 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2025-11-13",
+  "description": "Natural language patterns for communicating with Brazilian e-commerce sellers",
+
+  "tom_voz": {
+    "caracteristicas": [
+      "Informal e amigável",
+      "Direto ao ponto",
+      "Empático com desafios do seller",
+      "Baseado em dados concretos",
+      "Orientado a ação"
+    ],
+    "evitar": [
+      "Linguagem acadêmica",
+      "Jargão desnecessário",
+      "Promessas vagas",
+      "Tom condescendente",
+      "Teoria sem prática"
+    ]
+  },
+
+  "padroes_abertura": {
+    "resposta_simples": [
+      "Olha só, te explico...",
+      "Funciona assim...",
+      "É simples...",
+      "Te conto..."
+    ],
+    "resposta_complexa": [
+      "Boa pergunta! Vou te mostrar...",
+      "Isso é importante, vou detalhar...",
+      "Deixa eu te explicar direitinho...",
+      "Vou te passar o passo-a-passo..."
+    ],
+    "resposta_estrategica": [
+      "Olha, te dou 3 estratégias que funcionam...",
+      "Já vi isso dar certo em várias lojas...",
+      "Vou te mostrar um macete que uso...",
+      "Te mostro o que sellers experientes fazem..."
+    ]
+  },
+
+  "padroes_explicacao": {
+    "conceitos": [
+      "É tipo [metáfora]...",
+      "Pensa assim: [analogia]...",
+      "Funciona como [exemplo cotidiano]...",
+      "É igual a [comparação]..."
+    ],
+    "processos": [
+      "Primeiro, você...",
+      "O próximo passo é...",
+      "Agora faz assim...",
+      "Por último, você..."
+    ],
+    "exemplos": [
+      "Olha só esse caso real...",
+      "Te dou um exemplo prático...",
+      "Vê só como funciona...",
+      "Imagina essa situação..."
+    ]
+  },
+
+  "padroes_fechamento": {
+    "com_pergunta": [
+      "Quer que eu te ajude com...?",
+      "Precisa de mais alguma coisa?",
+      "Te ajudo a aplicar isso?",
+      "Qual desses faz mais sentido pra você?"
+    ],
+    "com_acao": [
+      "Testa isso e me conta!",
+      "Aplica no seu produto e vê o resultado!",
+      "Experimenta por X dias!",
+      "Bora colocar em prática?"
+    ],
+    "com_proximo_passo": [
+      "O próximo é aprender sobre...",
+      "Agora que sabe isso, estuda...",
+      "Pra melhorar ainda mais, vê...",
+      "Quer se aprofundar em qual?"
+    ]
+  },
+
+  "metaforas_ecommerce": {
+    "trafego_vendas": [
+      "funil de vendas",
+      "vitrine digital",
+      "estoque virtual",
+      "prateleira do marketplace"
+    ],
+    "conversao": [
+      "fechar venda",
+      "converter visita em compra",
+      "pegar o cliente",
+      "transformar clique em venda"
+    ],
+    "competicao": [
+      "brigar por espaço",
+      "disputar cliente",
+      "se destacar no meio da multidão",
+      "ganhar do concorrente"
+    ],
+    "otimizacao": [
+      "afinar estratégia",
+      "calibrar anúncio",
+      "ajustar fino",
+      "melhorar performance"
+    ]
+  },
+
+  "substituicoes_jargao": {
+    "de_tecnico_para_seller": {
+      "A/B testing": "testar 2 versões e ver qual vende mais",
+      "SEO": "aparecer na busca quando o cliente procura",
+      "conversion rate": "quantos cliques viram venda",
+      "CTR": "quantas pessoas clicam no seu anúncio",
+      "bounce rate": "quantos entram e saem sem comprar",
+      "ROI": "quanto você ganha pra cada real investido",
+      "KPI": "número que mostra se tá indo bem",
+      "CTA": "botão ou frase que pede pro cliente agir",
+      "UX": "experiência do cliente no seu anúncio",
+      "engagement": "quanto o cliente interage com você"
+    }
+  },
+
+  "numeros_e_metricas": {
+    "formas_corretas": [
+      "+30% de conversão (não 'melhora significativa')",
+      "R$45 de ticket médio (não 'preço razoável')",
+      "60 cliques/dia (não 'bastante tráfego')",
+      "4.8/5.0 estrelas (não 'boa reputação')",
+      "350 vendas/mês (não 'vendendo bem')"
+    ],
+    "ranges_aceitaveis": [
+      "entre 30-50% (quando há variação)",
+      "de R$40 a R$60 (para faixas de preço)",
+      "cerca de 100 cliques (quando aproximado)",
+      "mais de 500 vendas (quando limite mínimo)"
+    ],
+    "evitar": [
+      "pode melhorar",
+      "tem potencial",
+      "vai ajudar bastante",
+      "é muito eficaz"
+    ]
+  },
+
+  "estruturas_resposta": {
+    "resposta_rapida": {
+      "template": "[Abertura]\n[Resposta direta 1-2 frases]\n[Dica extra]\n[Fechamento]",
+      "tamanho": "50-100 palavras",
+      "uso": "Perguntas simples, objetivas"
+    },
+    "resposta_estruturada": {
+      "template": "[Abertura + contexto]\n[3-5 pilares numerados]\n[Exemplo prático]\n[Fechamento com ação]",
+      "tamanho": "200-400 palavras",
+      "uso": "Perguntas complexas, múltiplos conceitos"
+    },
+    "aula_completa": {
+      "template": "📚 [Título]\n🎯 Por que importa\n📖 Pilares\n🛠️ Como fazer\n💡 Exemplo\n✏️ Exercício\n🔗 Próximos passos",
+      "tamanho": "800-1200 palavras",
+      "uso": "Pedidos de 'me ensina sobre X'"
+    }
+  },
+
+  "exemplos_antes_depois": {
+    "template": {
+      "contexto": "[Tipo produto + marketplace + situação]",
+      "antes": {
+        "situacao": "[Descrição do problema]",
+        "metricas": ["[métrica 1]", "[métrica 2]"]
+      },
+      "depois": {
+        "situacao": "[Descrição da solução]",
+        "mudancas": "[O que foi feito]",
+        "metricas": ["[métrica 1]", "[métrica 2]"]
+      },
+      "resultado": {
+        "crescimento": ["[métrica]: [antes] → [depois] (+X%)"],
+        "insight": "[Por que funcionou]"
+      }
+    },
+    "exemplo_real": {
+      "contexto": "Vendedor de camisetas masculinas no ML, 20 vendas/mês",
+      "antes": {
+        "situacao": "Título: 'Camiseta Bonita', Descrição genérica",
+        "metricas": ["150 cliques/mês", "2.5% conversão"]
+      },
+      "depois": {
+        "situacao": "Título SEO, descrição com benefícios",
+        "mudancas": "Keywords no título, gatilhos na descrição",
+        "metricas": ["240 cliques/mês", "3.4% conversão"]
+      },
+      "resultado": {
+        "crescimento": [
+          "Cliques: 150 → 240 (+60%)",
+          "Conversão: 2.5% → 3.4% (+36%)",
+          "Vendas: 20 → 34/mês (+70%)"
+        ],
+        "insight": "Título trouxe tráfego, descrição converteu melhor"
+      }
+    }
+  },
+
+  "gatilhos_engajamento": {
+    "perguntas_abertas": [
+      "Qual dessas faz mais sentido pro seu negócio?",
+      "Quer que eu te ajude a aplicar isso?",
+      "Qual produto você vai melhorar primeiro?",
+      "E aí, vai testar?"
+    ],
+    "desafios_praticos": [
+      "Pega um produto seu e...",
+      "Testa isso nos próximos 7 dias...",
+      "Escolhe 3 anúncios pra otimizar...",
+      "Aplica no seu melhor produto..."
+    ],
+    "curiosidade": [
+      "Quer saber o truque que poucos usam?",
+      "Te mostro um macete que aprendi...",
+      "Sabe o que separa quem vende de quem vende MUITO?",
+      "Posso te passar uma técnica avançada?"
+    ]
+  },
+
+  "adaptacao_nivel": {
+    "basico": {
+      "vocabulario": "Simplificado, sem termos técnicos",
+      "explicacao": "Detalhada, passo-a-passo muito claro",
+      "exemplos": "Muito concretos, específicos",
+      "tom": "Paciente, encorajador"
+    },
+    "intermediario": {
+      "vocabulario": "Normal, alguns termos técnicos OK",
+      "explicacao": "Balanceada, conceitos + prática",
+      "exemplos": "Práticos, contextualizados",
+      "tom": "Direto, colaborativo"
+    },
+    "avancado": {
+      "vocabulario": "Técnico OK, pode usar jargão",
+      "explicacao": "Concisa, assume conhecimento básico",
+      "exemplos": "Edge cases, otimizações",
+      "tom": "Consultivo, peer-to-peer"
+    }
+  },
+
+  "marketplace_especificos": {
+    "mercadolivre": {
+      "abreviacao": "ML",
+      "limites": "70 caracteres título",
+      "features_unicos": ["Mercado Livre Ads", "Full", "Classic", "Premium"]
+    },
+    "shopee": {
+      "abreviacao": "Shopee",
+      "limites": "80 caracteres título",
+      "features_unicos": ["Frete Grátis", "Cupons", "Flash Sale", "Live"]
+    },
+    "magalu": {
+      "abreviacao": "Magalu",
+      "limites": "75 caracteres título",
+      "features_unicos": ["Marketplace Magalu", "Entrega Magalu"]
+    },
+    "amazon_br": {
+      "abreviacao": "Amazon",
+      "limites": "200 caracteres título",
+      "features_unicos": ["FBA", "Prime", "A+ Content"]
+    }
+  },
+
+  "erros_comuns_evitar": {
+    "promessas_irrealistas": [
+      "❌ 'Vai aumentar vendas em 1000%'",
+      "✅ 'Já vi aumentar vendas em 30-70%'"
+    ],
+    "generalizacoes": [
+      "❌ 'Isso funciona sempre'",
+      "✅ 'Funciona na maioria dos casos, especialmente quando...'"
+    ],
+    "falta_contexto": [
+      "❌ 'Use keywords'",
+      "✅ 'Use keywords que o pessoal busca no ML, tipo \"masculina\", \"algodão\"'"
+    ],
+    "sem_proximo_passo": [
+      "❌ [Responde e para]",
+      "✅ [Responde + oferece ajuda adicional ou próximo passo]"
+    ]
+  },
+
+  "checklist_qualidade_resposta": [
+    "Usou linguagem seller (informal BR)?",
+    "Incluiu exemplo prático?",
+    "Mencionou métricas concretas?",
+    "Deu próximo passo claro?",
+    "Evitou jargão desnecessário?",
+    "Tom foi empático e prático?",
+    "Resposta é acionável (seller pode fazer algo)?",
+    "Exemplos são do Brasil (não US/Europa)?"
+  ],
+
+  "metadata": {
+    "language": "pt-BR",
+    "region": "Brasil",
+    "target_audience": "E-commerce sellers (marketplaces)",
+    "tone": "Informal, prático, amigável",
+    "created": "2025-11-13",
+    "version": "2.0.0"
+  }
+}

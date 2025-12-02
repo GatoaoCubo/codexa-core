@@ -1,0 +1,517 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0",
+  "description": "Technical specifications and requirements for each marketplace",
+
+  "mercadolivre": {
+    "nome_oficial": "Mercado Livre Brasil",
+    "codigo": "mercadolivre",
+    "url_base": "https://www.mercadolivre.com.br",
+
+    "limites_tecnicos": {
+      "titulo": {
+        "min_caracteres": 10,
+        "max_caracteres": 60,
+        "recomendado": "58-60 para SEO otimizado",
+        "caracteres_permitidos": "Letras, números, espaços, hífens, vírgulas",
+        "caracteres_proibidos": "Símbolos especiais, emojis, HTML"
+      },
+      "descricao": {
+        "min_caracteres": 100,
+        "max_caracteres": 50000,
+        "recomendado": "3000-5000 para engajamento",
+        "formato": "Texto puro ou HTML básico permitido",
+        "html_permitido": ["<b>", "<i>", "<u>", "<br>", "<p>"],
+        "html_proibido": ["<script>", "<iframe>", "<style>", "JavaScript"]
+      },
+      "imagens": {
+        "min_imagens": 1,
+        "max_imagens": 12,
+        "recomendado": "8-12 imagens",
+        "dimensoes_min": "800x800px",
+        "dimensoes_recomendadas": "1200x1200px ou superior",
+        "formato": ["JPG", "PNG"],
+        "tamanho_max_mb": 10,
+        "background_recomendado": "Branco ou neutro para primeira imagem"
+      },
+      "video": {
+        "max_videos": 1,
+        "duracao_max_segundos": 60,
+        "formato": ["MP4"],
+        "tamanho_max_mb": 100
+      }
+    },
+
+    "campos_obrigatorios": [
+      "titulo",
+      "categoria_id",
+      "preco",
+      "moeda",
+      "quantidade_estoque",
+      "condicao",
+      "imagens"
+    ],
+
+    "campos_recomendados": [
+      "ean",
+      "gtin",
+      "marca",
+      "modelo",
+      "garantia",
+      "peso",
+      "dimensoes",
+      "atributos_tecnicos"
+    ],
+
+    "politicas_especificas": {
+      "proibicoes": [
+        "Links externos (redes sociais, sites próprios)",
+        "Informações de contato (email, telefone, WhatsApp)",
+        "Claims médicos sem comprovação",
+        "Preços desatualizados ou incorretos",
+        "Produtos proibidos ou restritos sem autorização",
+        "Réplicas ou falsificações",
+        "Violação de direitos autorais"
+      ],
+      "restricoes_linguagem": [
+        "Não usar 'original' sem ser fabricante autorizado",
+        "Não fazer comparações diretas com concorrentes",
+        "Não usar superlativos absolutos sem prova",
+        "Não prometer prazos de entrega que não pode cumprir"
+      ]
+    },
+
+    "seo_interno": {
+      "ranqueamento_fatores": [
+        "Reputação do vendedor (5-10% peso)",
+        "Histórico de vendas (10-15% peso)",
+        "Qualidade do anúncio (15-20% peso)",
+        "Preço competitivo (10-15% peso)",
+        "Frete grátis / Mercado Envio (15-20% peso)",
+        "Taxa de conversão (10-15% peso)"
+      ],
+      "otimizacoes": [
+        "Usar keywords principais no título",
+        "Preencher todos os atributos técnicos",
+        "Usar Mercado Envio Full para melhor ranqueamento",
+        "Manter estoque sempre disponível",
+        "Responder perguntas em até 24h",
+        "Fotos de alta qualidade profissionais"
+      ]
+    },
+
+    "categorias_especiais": {
+      "alimentos": {
+        "exige_registro_anvisa": true,
+        "validade_obrigatoria": true
+      },
+      "eletronicos": {
+        "garantia_obrigatoria": true,
+        "nota_fiscal": "recomendado"
+      },
+      "automotivo": {
+        "compatibilidade": "obrigatório especificar",
+        "ano_modelo": true
+      }
+    }
+  },
+
+  "shopee": {
+    "nome_oficial": "Shopee Brasil",
+    "codigo": "shopee",
+    "url_base": "https://shopee.com.br",
+
+    "limites_tecnicos": {
+      "titulo": {
+        "min_caracteres": 10,
+        "max_caracteres": 120,
+        "recomendado": "80-120 para mobile",
+        "caracteres_permitidos": "Letras, números, espaços, alguns símbolos",
+        "caracteres_proibidos": "Emojis excessivos, HTML, spam de keywords"
+      },
+      "descricao": {
+        "min_caracteres": 100,
+        "max_caracteres": 3000,
+        "recomendado": "1500-2500 otimizado para mobile",
+        "formato": "Texto puro",
+        "html_permitido": [],
+        "html_proibido": ["Qualquer HTML"]
+      },
+      "imagens": {
+        "min_imagens": 3,
+        "max_imagens": 9,
+        "recomendado": "9 imagens sempre",
+        "dimensoes_min": "800x800px",
+        "dimensoes_recomendadas": "1000x1000px",
+        "formato": ["JPG", "PNG"],
+        "tamanho_max_mb": 5,
+        "background_recomendado": "Branco ou lifestyle",
+        "restricoes": [
+          "Não usar texto em imagens excessivamente",
+          "Não usar imagens de outros sellers",
+          "Não usar watermarks de outras plataformas"
+        ]
+      },
+      "video": {
+        "max_videos": 1,
+        "duracao_max_segundos": 60,
+        "formato": ["MP4"],
+        "tamanho_max_mb": 30,
+        "recomendado": "15-30s vertical (9:16) para mobile"
+      }
+    },
+
+    "campos_obrigatorios": [
+      "titulo",
+      "categoria",
+      "preco",
+      "estoque",
+      "variacao"
+    ],
+
+    "campos_recomendados": [
+      "marca",
+      "modelo",
+      "peso",
+      "dimensoes_embalagem",
+      "video_demonstracao"
+    ],
+
+    "politicas_especificas": {
+      "proibicoes": [
+        "Spam de keywords repetitivas no título",
+        "Reenvio de anúncios removidos sem correção",
+        "Uso de imagens de outros vendedores",
+        "Produtos falsificados ou réplicas não autorizadas",
+        "Claims de desconto falsos",
+        "Direcionamento para outras plataformas"
+      ],
+      "restricoes_linguagem": [
+        "Não repetir mesma keyword >2 vezes no título",
+        "Não usar 'frete grátis' se não for verdadeiro",
+        "Não fazer claims de desconto sem base real",
+        "Não usar termos enganosos"
+      ]
+    },
+
+    "seo_interno": {
+      "ranqueamento_fatores": [
+        "Performance do vendedor (10-15% peso)",
+        "Taxa de resposta e envio (15-20% peso)",
+        "Qualidade das imagens (10-15% peso)",
+        "Preço competitivo (15-20% peso)",
+        "Participação em campanhas (10-15% peso)",
+        "Taxa de conversão (10-15% peso)"
+      ],
+      "otimizacoes": [
+        "Participar de Shopee Flash Sale e campanhas",
+        "Usar Shopee Garantia quando possível",
+        "Responder mensagens em <12h",
+        "Upload de 9 imagens sempre",
+        "Vídeo de demonstração (aumenta conversão 30%)",
+        "Manter rating >4.8"
+      ]
+    },
+
+    "otimizacao_mobile": {
+      "prioridade": "ALTA - 90% dos usuários são mobile",
+      "recomendacoes": [
+        "Títulos devem ser legíveis em telas pequenas",
+        "Primeira imagem deve mostrar produto claramente",
+        "Descrição em parágrafos curtos",
+        "Vídeo vertical (9:16) preferencial",
+        "CTAs claros e visíveis"
+      ]
+    }
+  },
+
+  "magalu": {
+    "nome_oficial": "Magazine Luiza",
+    "codigo": "magalu",
+    "url_base": "https://www.magazineluiza.com.br",
+
+    "limites_tecnicos": {
+      "titulo": {
+        "min_caracteres": 10,
+        "max_caracteres": 256,
+        "recomendado": "Formato: Marca + Modelo + Características principais",
+        "caracteres_permitidos": "Letras, números, espaços, hífens",
+        "caracteres_proibidos": "Símbolos especiais, emojis, CAIXA ALTA excessiva"
+      },
+      "descricao": {
+        "min_caracteres": 200,
+        "max_caracteres": 4000,
+        "recomendado": "2500-3500 com especificações técnicas detalhadas",
+        "formato": "Texto puro estruturado",
+        "html_permitido": [],
+        "html_proibido": ["Qualquer HTML"]
+      },
+      "imagens": {
+        "min_imagens": 1,
+        "max_imagens": 20,
+        "recomendado": "10-15 imagens",
+        "dimensoes_min": "1000x1000px",
+        "dimensoes_recomendadas": "1500x1500px",
+        "formato": ["JPG", "PNG"],
+        "tamanho_max_mb": 5,
+        "background_recomendado": "Branco puro para imagem principal",
+        "restricoes": [
+          "PROIBIDO texto em imagens",
+          "PROIBIDO logomarcas de outros sellers",
+          "PROIBIDO links ou informações de contato",
+          "PROIBIDO imagens de baixa qualidade"
+        ]
+      },
+      "video": {
+        "max_videos": 1,
+        "duracao_max_segundos": 120,
+        "formato": ["MP4"],
+        "tamanho_max_mb": 50
+      }
+    },
+
+    "campos_obrigatorios": [
+      "titulo",
+      "marca",
+      "modelo",
+      "ean",
+      "ncm",
+      "categoria",
+      "preco",
+      "estoque",
+      "garantia"
+    ],
+
+    "campos_recomendados": [
+      "ficha_tecnica_completa",
+      "voltagem",
+      "peso_produto",
+      "dimensoes_produto",
+      "dimensoes_embalagem",
+      "peso_embalagem",
+      "conteudo_embalagem",
+      "manual_instrucoes"
+    ],
+
+    "politicas_especificas": {
+      "proibicoes": [
+        "Texto em imagens (exceto informações do produto no próprio produto)",
+        "Logomarcas de concorrentes",
+        "CAIXA ALTA excessiva",
+        "Links externos",
+        "Produtos sem EAN (exceto casos específicos)",
+        "Claims não documentados"
+      ],
+      "restricoes_linguagem": [
+        "Não usar 'original' ou 'importado' sem comprovação",
+        "Não fazer claims técnicos sem ficha técnica",
+        "Seguir nomenclatura padrão: Marca + Modelo + Specs"
+      ]
+    },
+
+    "requisitos_documentacao": {
+      "ean_obrigatorio": true,
+      "nota_fiscal": "Obrigatório para eletroeletrônicos",
+      "certificacoes": "Obrigatório INMETRO quando aplicável",
+      "ficha_tecnica": "Altamente recomendado para todos os produtos"
+    },
+
+    "seo_interno": {
+      "ranqueamento_fatores": [
+        "Completude do cadastro (20-25% peso)",
+        "EAN correto (10-15% peso)",
+        "Qualidade das imagens (10-15% peso)",
+        "Ficha técnica completa (15-20% peso)",
+        "Preço competitivo (15-20% peso)",
+        "Disponibilidade e estoque (10-15% peso)"
+      ],
+      "otimizacoes": [
+        "Preencher 100% dos atributos técnicos",
+        "EAN validado e correto",
+        "Mínimo 10 imagens de alta qualidade",
+        "Ficha técnica completa",
+        "Título seguindo padrão Magalu",
+        "Garantia estendida quando disponível"
+      ]
+    }
+  },
+
+  "amazon": {
+    "nome_oficial": "Amazon Brasil",
+    "codigo": "amazon",
+    "url_base": "https://www.amazon.com.br",
+
+    "limites_tecnicos": {
+      "titulo": {
+        "min_caracteres": 10,
+        "max_caracteres": 200,
+        "recomendado": "150-200 para máximo SEO",
+        "formato_recomendado": "Marca + Modelo + Características-chave + Especificações",
+        "caracteres_permitidos": "Letras, números, espaços, hífens, vírgulas",
+        "caracteres_proibidos": "Símbolos especiais (!@#$%), emojis, HTML, ALL CAPS",
+        "restricoes": [
+          "Não incluir informações promocionais",
+          "Não usar 'Amazon' ou 'Prime' no título",
+          "Não usar seller name no título"
+        ]
+      },
+      "bullet_points": {
+        "min_bullets": 3,
+        "max_bullets": 5,
+        "recomendado": "5 bullets sempre",
+        "max_caracteres_por_bullet": 500,
+        "recomendado_por_bullet": "150-250 caracteres",
+        "formato": "Iniciar com maiúscula, sem ponto final se frase única"
+      },
+      "descricao": {
+        "min_caracteres": 100,
+        "max_caracteres": 2000,
+        "recomendado": "1500-2000 para SEO",
+        "formato": "Texto puro",
+        "html_permitido": [],
+        "html_proibido": ["Qualquer HTML - usar A+ Content"]
+      },
+      "imagens": {
+        "min_imagens": 1,
+        "max_imagens": 9,
+        "recomendado": "7-9 imagens sempre",
+        "dimensoes_min": "1000x1000px",
+        "dimensoes_recomendadas": "1500x1500px ou superior",
+        "formato": ["JPG", "PNG"],
+        "tamanho_max_mb": 10,
+        "imagem_principal": {
+          "background": "Branco puro (RGB 255,255,255)",
+          "produto_area": "Produto deve ocupar 85% da imagem",
+          "restricoes": [
+            "Sem texto ou gráficos promocionais",
+            "Sem acessórios não incluídos",
+            "Produto completo e em foco"
+          ]
+        }
+      },
+      "video": {
+        "max_videos": 1,
+        "duracao_max_segundos": 120,
+        "formato": ["MP4"],
+        "tamanho_max_mb": 500
+      }
+    },
+
+    "campos_obrigatorios": [
+      "titulo",
+      "marca",
+      "bullet_points",
+      "descricao",
+      "imagens",
+      "preco",
+      "estoque",
+      "categoria",
+      "keywords_backend"
+    ],
+
+    "campos_recomendados": [
+      "ean",
+      "asin",
+      "dimensoes",
+      "peso",
+      "cor",
+      "tamanho",
+      "a_plus_content",
+      "video_demonstracao"
+    ],
+
+    "politicas_especificas": {
+      "proibicoes": [
+        "Claims não comprovados de qualidade ou performance",
+        "Linguagem sensacionalista ou superlativa sem base",
+        "Informações promocionais (desconto, frete grátis) no título ou bullets",
+        "Símbolos ou caracteres especiais no título",
+        "Referência a Amazon, Prime ou outros sellers",
+        "Comparações diretas com concorrentes",
+        "Violação de propriedade intelectual"
+      ],
+      "restricoes_linguagem": [
+        "Seguir Amazon Style Guide rigorosamente",
+        "Não usar 'melhor', 'top', '#1' sem comprovação",
+        "Não fazer claims médicos ou de saúde sem aprovação",
+        "Manter tom profissional e factual"
+      ]
+    },
+
+    "seo_interno_amazon": {
+      "keywords_backend": {
+        "max_bytes": 250,
+        "formato": "Keywords separadas por espaço (não repetir, não usar vírgulas)",
+        "estrategia": [
+          "Incluir sinônimos não usados no título",
+          "Incluir erros comuns de digitação",
+          "Incluir variações regionais",
+          "NÃO repetir keywords do título/bullets"
+        ]
+      },
+      "ranqueamento_fatores": [
+        "Taxa de conversão (25-30% peso)",
+        "Sales history (20-25% peso)",
+        "Preço competitivo (10-15% peso)",
+        "Disponibilidade (10-15% peso)",
+        "Reviews e ratings (15-20% peso)",
+        "Completude do listing (5-10% peso)"
+      ],
+      "otimizacoes": [
+        "5 bullets sempre preenchidos",
+        "9 imagens de alta qualidade",
+        "A+ Content quando Brand Registered",
+        "Vídeo de demonstração",
+        "Keywords backend otimizadas (250 bytes)",
+        "Título seguindo Style Guide",
+        "FBA (Fulfillment by Amazon) quando possível"
+      ]
+    },
+
+    "a_plus_content": {
+      "disponivel_para": "Sellers Brand Registered",
+      "beneficios": "Aumenta conversão em média 5-10%",
+      "modulos_disponiveis": [
+        "Comparison table",
+        "Image with text",
+        "Product description",
+        "Feature focus",
+        "Image carousel"
+      ],
+      "recomendacao": "Usar sempre que disponível para diferenciação"
+    }
+  },
+
+  "comparacao_marketplaces": {
+    "titulo_max_chars": {
+      "mercadolivre": 60,
+      "shopee": 120,
+      "magalu": 256,
+      "amazon": 200
+    },
+    "descricao_max_chars": {
+      "mercadolivre": 50000,
+      "shopee": 3000,
+      "magalu": 4000,
+      "amazon": 2000
+    },
+    "imagens_max": {
+      "mercadolivre": 12,
+      "shopee": 9,
+      "magalu": 20,
+      "amazon": 9
+    },
+    "ean_obrigatorio": {
+      "mercadolivre": false,
+      "shopee": false,
+      "magalu": true,
+      "amazon": false
+    },
+    "html_permitido": {
+      "mercadolivre": "parcial",
+      "shopee": false,
+      "magalu": false,
+      "amazon": false
+    }
+  }
+}

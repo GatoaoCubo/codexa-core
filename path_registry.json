@@ -1,0 +1,309 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CODEXA Path Registry",
+  "version": "1.0.0",
+  "description": "Central registry for all dynamic paths in CODEXA project - Single source of truth",
+
+  "metadata": {
+    "created": "2025-12-02T00:00:00Z",
+    "last_updated": "2025-12-02T00:00:00Z",
+    "schema_version": "1.0.0",
+    "platform": "auto-detect",
+    "git_root_strategy": "auto-detect",
+    "maintainer": "CODEXA Meta Agent",
+    "documentation": "codexa.app/agentes/scout_agent/specs/PATH_REGISTRY_SYSTEM_SPEC.md"
+  },
+
+  "root_anchors": {
+    "PROJECT_ROOT": {
+      "description": "Absolute root of entire project (git root)",
+      "detection_strategy": "git_root",
+      "fallback": "env:PROJECT_ROOT",
+      "windows_example": "C:\\Users\\Dell\\Documents\\GitHub\\connect-my-github\\codexa.gato",
+      "unix_example": "/home/user/projects/codexa.gato",
+      "validation": "must_contain: [.git, codexa.app, path_registry.json]"
+    },
+    "CODEXA_APP": {
+      "description": "Main application directory",
+      "relative_to": "PROJECT_ROOT",
+      "path": "codexa.app",
+      "validation": "must_contain: [agentes, mcp-servers, voice]"
+    },
+    "AGENTES": {
+      "description": "All agents directory",
+      "relative_to": "CODEXA_APP",
+      "path": "agentes",
+      "validation": "must_contain: [51_AGENT_REGISTRY.json]"
+    },
+    "MCP_SERVERS": {
+      "description": "MCP server implementations",
+      "relative_to": "CODEXA_APP",
+      "path": "mcp-servers",
+      "validation": "must_contain: [scout-mcp]"
+    },
+    "CLAUDE_DIR": {
+      "description": "Claude Code configuration",
+      "relative_to": "PROJECT_ROOT",
+      "path": ".claude",
+      "validation": "must_contain: [commands, hooks]"
+    }
+  },
+
+  "standard_placeholders": {
+    "system_level": {
+      "{{PROJECT_ROOT}}": {
+        "resolves_to": "root_anchors.PROJECT_ROOT",
+        "usage": "Absolute root - use sparingly",
+        "example": "{{PROJECT_ROOT}}/codexa.app/agentes"
+      },
+      "{{CODEXA_APP}}": {
+        "resolves_to": "root_anchors.CODEXA_APP",
+        "usage": "Main application paths",
+        "example": "{{CODEXA_APP}}/agentes/scout_agent"
+      },
+      "{{AGENTES}}": {
+        "resolves_to": "root_anchors.AGENTES",
+        "usage": "Agent directories",
+        "example": "{{AGENTES}}/codexa_agent"
+      },
+      "{{MCP_SERVERS}}": {
+        "resolves_to": "root_anchors.MCP_SERVERS",
+        "usage": "MCP server implementations",
+        "example": "{{MCP_SERVERS}}/scout-mcp"
+      },
+      "{{CLAUDE_DIR}}": {
+        "resolves_to": "root_anchors.CLAUDE_DIR",
+        "usage": "Claude Code configuration",
+        "example": "{{CLAUDE_DIR}}/commands/prime.md"
+      }
+    },
+    "agent_level": {
+      "{{AGENT_DIR}}": {
+        "resolves_to": "context-dependent",
+        "usage": "Current agent directory (dynamic)",
+        "example": "{{AGENT_DIR}}/config/paths.json",
+        "note": "Must be provided in context parameter"
+      },
+      "{{AGENT_CONFIG}}": {
+        "resolves_to": "{{AGENT_DIR}}/config",
+        "usage": "Agent configuration files",
+        "example": "{{AGENT_CONFIG}}/categories.json"
+      },
+      "{{AGENT_ISO}}": {
+        "resolves_to": "{{AGENT_DIR}}/iso_vectorstore",
+        "usage": "Agent knowledge base",
+        "example": "{{AGENT_ISO}}/04_README.md"
+      },
+      "{{AGENT_WORKFLOWS}}": {
+        "resolves_to": "{{AGENT_DIR}}/workflows",
+        "usage": "Agent ADW workflows",
+        "example": "{{AGENT_WORKFLOWS}}/100_ADW_DISCOVERY.md"
+      },
+      "{{AGENT_PROMPTS}}": {
+        "resolves_to": "{{AGENT_DIR}}/prompts",
+        "usage": "Agent HOP prompts",
+        "example": "{{AGENT_PROMPTS}}/10_scene_planner_HOP.md"
+      },
+      "{{AGENT_BUILDERS}}": {
+        "resolves_to": "{{AGENT_DIR}}/builders",
+        "usage": "Agent builder scripts",
+        "example": "{{AGENT_BUILDERS}}/02_agent_meta_constructor.py"
+      },
+      "{{AGENT_VALIDATORS}}": {
+        "resolves_to": "{{AGENT_DIR}}/validators",
+        "usage": "Agent validator scripts",
+        "example": "{{AGENT_VALIDATORS}}/07_hop_sync_validator.py"
+      }
+    },
+    "cross_platform": {
+      "path_separator": {
+        "windows": "\\",
+        "unix": "/",
+        "resolution": "os.path.sep (Python) | path.sep (Node)"
+      },
+      "line_endings": {
+        "windows": "CRLF",
+        "unix": "LF",
+        "resolution": "git config core.autocrlf"
+      }
+    }
+  },
+
+  "agent_paths": {
+    "scout_agent": {
+      "prime": "{{AGENTES}}/scout_agent/PRIME.md",
+      "readme": "{{AGENTES}}/scout_agent/README.md",
+      "instructions": "{{AGENTES}}/scout_agent/INSTRUCTIONS.md",
+      "setup": "{{AGENTES}}/scout_agent/SETUP.md",
+      "config": "{{AGENTES}}/scout_agent/config",
+      "mcp_server": "{{MCP_SERVERS}}/scout-mcp/index.js",
+      "categories": "{{AGENTES}}/scout_agent/config/categories.json",
+      "relevance_weights": "{{AGENTES}}/scout_agent/config/relevance_weights.json",
+      "semantic_aliases": "{{AGENTES}}/scout_agent/config/semantic_aliases.json",
+      "ignore_patterns": "{{AGENTES}}/scout_agent/config/ignore_patterns.json",
+      "iso_vectorstore": "{{AGENTES}}/scout_agent/iso_vectorstore",
+      "workflows": "{{AGENTES}}/scout_agent/workflows"
+    },
+    "codexa_agent": {
+      "prime": "{{AGENTES}}/codexa_agent/PRIME.md",
+      "readme": "{{AGENTES}}/codexa_agent/README.md",
+      "instructions": "{{AGENTES}}/codexa_agent/INSTRUCTIONS.md",
+      "builders": "{{AGENTES}}/codexa_agent/builders",
+      "validators": "{{AGENTES}}/codexa_agent/validators",
+      "workflows": "{{AGENTES}}/codexa_agent/workflows",
+      "prompts": "{{AGENTES}}/codexa_agent/prompts",
+      "iso_vectorstore": "{{AGENTES}}/codexa_agent/iso_vectorstore",
+      "agent_meta_constructor": "{{AGENTES}}/codexa_agent/builders/02_agent_meta_constructor.py",
+      "doc_sync_builder": "{{AGENTES}}/codexa_agent/builders/11_doc_sync_builder.py",
+      "hop_sync_validator": "{{AGENTES}}/codexa_agent/validators/07_hop_sync_validator.py"
+    },
+    "mentor_agent": {
+      "prime": "{{AGENTES}}/mentor_agent/PRIME.md",
+      "readme": "{{AGENTES}}/mentor_agent/README.md",
+      "instructions": "{{AGENTES}}/mentor_agent/INSTRUCTIONS.md",
+      "fontes": "{{AGENTES}}/mentor_agent/FONTES",
+      "knowledge_graph": "{{AGENTES}}/mentor_agent/FONTES/knowledge_graph.json",
+      "prompt_engineering": "{{AGENTES}}/mentor_agent/FONTES/PROMPT_ENGINEERING",
+      "playbook": "{{AGENTES}}/mentor_agent/FONTES/PROMPT_ENGINEERING/playbook_prompt_engineering_20251201.md",
+      "patterns": "{{AGENTES}}/mentor_agent/FONTES/PROMPT_ENGINEERING/patterns",
+      "embedding_pipeline": "{{AGENTES}}/mentor_agent/scripts/embedding_pipeline.py",
+      "keyword_search": "{{AGENTES}}/mentor_agent/scripts/keyword_search.py",
+      "iso_vectorstore": "{{AGENTES}}/mentor_agent/iso_vectorstore"
+    },
+    "anuncio_agent": {
+      "prime": "{{AGENTES}}/anuncio_agent/PRIME.md",
+      "readme": "{{AGENTES}}/anuncio_agent/README.md",
+      "instructions": "{{AGENTES}}/anuncio_agent/INSTRUCTIONS.md",
+      "config": "{{AGENTES}}/anuncio_agent/config",
+      "marketplace_specs": "{{AGENTES}}/anuncio_agent/config/marketplace_specs.json",
+      "persuasion_patterns": "{{AGENTES}}/anuncio_agent/config/persuasion_patterns.json",
+      "copy_rules": "{{AGENTES}}/anuncio_agent/config/copy_rules.json",
+      "iso_vectorstore": "{{AGENTES}}/anuncio_agent/iso_vectorstore"
+    },
+    "pesquisa_agent": {
+      "prime": "{{AGENTES}}/pesquisa_agent/PRIME.md",
+      "readme": "{{AGENTES}}/pesquisa_agent/README.md",
+      "instructions": "{{AGENTES}}/pesquisa_agent/INSTRUCTIONS.md",
+      "config": "{{AGENTES}}/pesquisa_agent/config",
+      "agent_config": "{{AGENTES}}/pesquisa_agent/config/agent.json",
+      "brief_schema": "{{AGENTES}}/pesquisa_agent/config/brief_schema.json",
+      "execution_plan_schema": "{{AGENTES}}/pesquisa_agent/config/execution_plan_schema.json",
+      "marketplaces": "{{AGENTES}}/pesquisa_agent/config/marketplaces.json",
+      "iso_vectorstore": "{{AGENTES}}/pesquisa_agent/iso_vectorstore"
+    },
+    "marca_agent": {
+      "prime": "{{AGENTES}}/marca_agent/PRIME.md",
+      "readme": "{{AGENTES}}/marca_agent/README.md",
+      "instructions": "{{AGENTES}}/marca_agent/INSTRUCTIONS.md",
+      "config": "{{AGENTES}}/marca_agent/config",
+      "archetype_specs": "{{AGENTES}}/marca_agent/config/12_archetype_specs.json",
+      "identity_patterns": "{{AGENTES}}/marca_agent/config/15_identity_patterns.json",
+      "brand_strategy": "{{AGENTES}}/marca_agent/config/brand_strategy_ecomlm.json",
+      "color_psychology": "{{AGENTES}}/marca_agent/config/color_psychology.json",
+      "iso_vectorstore": "{{AGENTES}}/marca_agent/iso_vectorstore"
+    },
+    "photo_agent": {
+      "prime": "{{AGENTES}}/photo_agent/PRIME.md",
+      "readme": "{{AGENTES}}/photo_agent/README.md",
+      "instructions": "{{AGENTES}}/photo_agent/INSTRUCTIONS.md",
+      "prompts": "{{AGENTES}}/photo_agent/prompts",
+      "workflows": "{{AGENTES}}/photo_agent/workflows",
+      "config": "{{AGENTES}}/photo_agent/config",
+      "schemas": "{{AGENTES}}/photo_agent/schemas",
+      "validators": "{{AGENTES}}/photo_agent/validators",
+      "iso_vectorstore": "{{AGENTES}}/photo_agent/iso_vectorstore"
+    },
+    "video_agent": {
+      "prime": "{{AGENTES}}/video_agent/PRIME.md",
+      "readme": "{{AGENTES}}/video_agent/README.md",
+      "instructions": "{{AGENTES}}/video_agent/INSTRUCTIONS.md",
+      "prompts": "{{AGENTES}}/video_agent/prompts",
+      "builders": "{{AGENTES}}/video_agent/builders",
+      "validators": "{{AGENTES}}/video_agent/validators",
+      "workflows": "{{AGENTES}}/video_agent/workflows",
+      "config": "{{AGENTES}}/video_agent/config",
+      "schemas": "{{AGENTES}}/video_agent/schemas",
+      "examples": "{{AGENTES}}/video_agent/examples",
+      "iso_vectorstore": "{{AGENTES}}/video_agent/iso_vectorstore"
+    },
+    "curso_agent": {
+      "prime": "{{AGENTES}}/curso_agent/PRIME.md",
+      "readme": "{{AGENTES}}/curso_agent/README.md",
+      "instructions": "{{AGENTES}}/curso_agent/INSTRUCTIONS.md",
+      "setup": "{{AGENTES}}/curso_agent/SETUP.md",
+      "config": "{{AGENTES}}/curso_agent/config",
+      "paths_py": "{{AGENTES}}/curso_agent/config/paths.py",
+      "context": "{{AGENTES}}/curso_agent/context",
+      "artifacts": "{{AGENTES}}/curso_agent/artifacts",
+      "templates": "{{AGENTES}}/curso_agent/templates",
+      "iso_vectorstore": "{{AGENTES}}/curso_agent/iso_vectorstore"
+    }
+  },
+
+  "common_paths": {
+    "registry": "{{AGENTES}}/51_AGENT_REGISTRY.json",
+    "claude_md": "{{PROJECT_ROOT}}/CLAUDE.md",
+    "scout_integration": "{{AGENTES}}/SCOUT_INTEGRATION.md",
+    "orchestration": "{{CODEXA_APP}}/ORCHESTRATION.md",
+    "supabase_config": "{{PROJECT_ROOT}}/supabase/config.toml",
+    "git_root": "{{PROJECT_ROOT}}/.git",
+    "gitignore": "{{PROJECT_ROOT}}/.gitignore"
+  },
+
+  "output_paths": {
+    "agent_outputs": "{{AGENT_DIR}}/outputs",
+    "artifacts": "{{AGENT_DIR}}/artifacts",
+    "logs": "{{PROJECT_ROOT}}/logs",
+    "cache": "{{PROJECT_ROOT}}/.cache",
+    "temp": "{{PROJECT_ROOT}}/.temp"
+  },
+
+  "environment_variables": {
+    "PROJECT_ROOT": {
+      "description": "Override for PROJECT_ROOT detection",
+      "required": false,
+      "default": "auto-detect from git root"
+    },
+    "CODEXA_ENV": {
+      "description": "Environment (dev/staging/production)",
+      "required": false,
+      "default": "dev",
+      "values": ["dev", "staging", "production"]
+    },
+    "PATH_RESOLUTION_STRATEGY": {
+      "description": "Path resolution strategy",
+      "required": false,
+      "default": "auto-detect",
+      "values": ["auto-detect", "git-root", "env-var"]
+    }
+  },
+
+  "validation_rules": {
+    "no_hardcoded_paths": {
+      "description": "No hardcoded absolute paths in code",
+      "regex": "[A-Z]:\\\\Users\\\\|/home/|/Users/",
+      "severity": "error",
+      "exclude_patterns": ["*.test.py", "*.test.js", "**/test/**"]
+    },
+    "placeholder_format": {
+      "description": "Placeholders must use {{UPPER_CASE}} format",
+      "regex": "\\{\\{[A-Z_]+\\}\\}",
+      "severity": "warning"
+    },
+    "path_exists": {
+      "description": "All resolved paths must exist",
+      "severity": "error",
+      "skip_for": ["output_paths", "logs", "cache", "temp"]
+    }
+  },
+
+  "migration_status": {
+    "phase": "design",
+    "started": "2025-12-02",
+    "agents_migrated": 0,
+    "total_agents": 9,
+    "files_updated": 0,
+    "validation_passing": false,
+    "notes": "Initial registry created. See specs/PATH_REGISTRY_SYSTEM_SPEC.md for migration plan."
+  }
+}

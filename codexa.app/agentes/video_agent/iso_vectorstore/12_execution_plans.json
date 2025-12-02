@@ -1,0 +1,264 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "execution_plans.json",
+  "title": "Video Agent Execution Plans",
+  "description": "Pre-defined execution plans for different use cases",
+  "version": "2.5.0",
+
+  "plans": {
+    "full": {
+      "name": "Full Production",
+      "description": "Complete 7-phase workflow with all validations",
+      "phases": ["preflight", "concept", "script", "visual", "production", "editing", "validation"],
+      "duration_estimate": "3-7 minutes",
+      "cost_estimate": "$0.50-$2.00",
+      "quality_target": 8.5,
+      "use_cases": ["final production", "client delivery", "ad campaigns"],
+
+      "phase_config": {
+        "preflight": {
+          "enabled": true,
+          "auto_select_mode": true,
+          "auto_select_voice": true,
+          "load_context": true
+        },
+        "concept": {
+          "enabled": true,
+          "model": "sonnet",
+          "validate_narrative_arc": true,
+          "min_shots": 3,
+          "max_shots": 8
+        },
+        "script": {
+          "enabled": true,
+          "model": "sonnet",
+          "mode_aware": true,
+          "generate_overlays": "auto",
+          "select_music": true
+        },
+        "visual": {
+          "enabled": true,
+          "model": "haiku",
+          "platform_optimize": true,
+          "brand_align": true,
+          "composition_aware": true
+        },
+        "production": {
+          "enabled": true,
+          "parallel_generation": true,
+          "max_concurrent": 5,
+          "retry_attempts": 3,
+          "fallback_enabled": true,
+          "quality_check_clips": true
+        },
+        "editing": {
+          "enabled": true,
+          "generate_tts": true,
+          "mix_audio": true,
+          "add_transitions": true,
+          "add_text_overlays": "mode_aware",
+          "trinity_output": true
+        },
+        "validation": {
+          "enabled": true,
+          "checklist_11_points": true,
+          "quality_threshold": 7.0,
+          "catalog_threshold": 8.0,
+          "update_processados": true
+        }
+      }
+    },
+
+    "quick": {
+      "name": "Quick Draft",
+      "description": "Fast 5-phase workflow for rapid iteration",
+      "phases": ["preflight", "concept", "script", "visual", "mock_editing"],
+      "duration_estimate": "30-60 seconds",
+      "cost_estimate": "$0.05-$0.10 (LLM only)",
+      "quality_target": 6.0,
+      "use_cases": ["concept testing", "client approval", "rapid iteration"],
+
+      "phase_config": {
+        "preflight": {
+          "enabled": true,
+          "auto_select_mode": true,
+          "auto_select_voice": false,
+          "load_context": false
+        },
+        "concept": {
+          "enabled": true,
+          "model": "haiku",
+          "validate_narrative_arc": false,
+          "min_shots": 3,
+          "max_shots": 6
+        },
+        "script": {
+          "enabled": true,
+          "model": "haiku",
+          "mode_aware": true,
+          "generate_overlays": "auto",
+          "select_music": false
+        },
+        "visual": {
+          "enabled": true,
+          "model": "haiku",
+          "platform_optimize": false,
+          "brand_align": false,
+          "composition_aware": true
+        },
+        "mock_editing": {
+          "enabled": true,
+          "generate_tts": false,
+          "create_storyboard_pdf": true,
+          "prompt_export": true,
+          "trinity_output": false
+        }
+      },
+
+      "outputs": {
+        "storyboard_pdf": true,
+        "prompts_copyable": true,
+        "script_preview": true,
+        "video": false
+      }
+    },
+
+    "batch": {
+      "name": "Batch Production",
+      "description": "Process multiple briefs in parallel",
+      "phases": ["batch_preflight", "parallel_concept", "parallel_script", "parallel_visual", "sequential_production", "parallel_editing", "batch_validation"],
+      "duration_estimate": "10-20 minutes per 5 videos",
+      "cost_estimate": "$3-$8 per batch",
+      "quality_target": 8.0,
+      "use_cases": ["product catalog", "seasonal campaigns", "multi-product launches"],
+
+      "batch_config": {
+        "max_parallel_briefs": 5,
+        "shared_brand_profile": true,
+        "consistent_style": true,
+        "sequential_production": true,
+        "parallel_editing": true,
+        "batch_validation": true
+      },
+
+      "phase_config": {
+        "batch_preflight": {
+          "enabled": true,
+          "validate_all_briefs": true,
+          "shared_config": true
+        },
+        "parallel_concept": {
+          "enabled": true,
+          "max_parallel": 5,
+          "model": "sonnet"
+        },
+        "parallel_script": {
+          "enabled": true,
+          "max_parallel": 5,
+          "model": "sonnet"
+        },
+        "parallel_visual": {
+          "enabled": true,
+          "max_parallel": 5,
+          "model": "haiku"
+        },
+        "sequential_production": {
+          "enabled": true,
+          "reason": "API rate limits",
+          "clips_per_batch": 6
+        },
+        "parallel_editing": {
+          "enabled": true,
+          "max_parallel": 3,
+          "reason": "FFmpeg CPU intensive"
+        },
+        "batch_validation": {
+          "enabled": true,
+          "aggregate_report": true,
+          "fail_threshold": 0.2
+        }
+      }
+    },
+
+    "brand_campaign": {
+      "name": "Brand Campaign",
+      "description": "Multi-format video set from single brief",
+      "phases": ["preflight", "concept", "script", "visual", "production", "multi_format_editing", "validation"],
+      "duration_estimate": "10-15 minutes",
+      "cost_estimate": "$2-$5",
+      "quality_target": 9.0,
+      "use_cases": ["brand launches", "multi-platform campaigns", "premium content"],
+
+      "outputs": {
+        "formats": ["9:16", "16:9", "1:1"],
+        "durations": [15, 30, 60],
+        "modes": ["overlay", "clean"],
+        "total_videos": 6
+      },
+
+      "phase_config": {
+        "concept": {
+          "master_storyboard": true,
+          "format_adaptations": true
+        },
+        "script": {
+          "overlay_version": true,
+          "clean_version": true,
+          "multi_language_ready": true
+        },
+        "production": {
+          "premium_platform": "sora2",
+          "quality_priority": true
+        },
+        "multi_format_editing": {
+          "auto_reframe": true,
+          "duration_variants": true,
+          "mode_variants": true
+        }
+      }
+    }
+  },
+
+  "plan_selection_logic": {
+    "by_use_case": {
+      "testing": "quick",
+      "production": "full",
+      "catalog": "batch",
+      "campaign": "brand_campaign"
+    },
+    "by_urgency": {
+      "asap": "quick",
+      "standard": "full",
+      "scheduled": "batch"
+    },
+    "by_budget": {
+      "low": "quick",
+      "medium": "full",
+      "high": "brand_campaign"
+    },
+    "default": "full"
+  },
+
+  "task_boundaries": {
+    "pattern": "PHASE [N]: [NAME] | [STATUS]",
+    "statuses": ["STARTING", "IN_PROGRESS", "VALIDATING", "COMPLETE", "FAILED"],
+    "example": "PHASE 2: CONCEPT | IN_PROGRESS - Generating 6-shot storyboard",
+
+    "progress_format": {
+      "preflight": "PHASE 0: PRE-FLIGHT | {status} - {detail}",
+      "concept": "PHASE 1: CONCEPT | {status} - {detail}",
+      "script": "PHASE 2: SCRIPT | {status} - {detail}",
+      "visual": "PHASE 3: VISUAL | {status} - {detail}",
+      "production": "PHASE 4: PRODUCTION | {status} - Clip {current}/{total}",
+      "editing": "PHASE 5: EDITING | {status} - {detail}",
+      "validation": "PHASE 6: VALIDATION | {status} - Score: {score}/10"
+    }
+  },
+
+  "validation_commands": {
+    "full_pipeline": "python src/video_agent.py --brief brief.json --plan full",
+    "quick_draft": "python src/video_agent.py --brief brief.json --plan quick",
+    "batch_run": "python src/video_agent.py --briefs briefs/ --plan batch",
+    "mock_mode": "VIDEO_AGENT_MOCK_API=true python src/video_agent.py --brief brief.json"
+  }
+}

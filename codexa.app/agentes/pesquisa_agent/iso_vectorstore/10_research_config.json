@@ -1,0 +1,37 @@
+{
+  "agent": {
+    "id": "pesquisa_agent",
+    "version": "3.0.0",
+    "scope": "RESEARCH",
+    "model": "claude-opus-4.5 / gpt-4o"
+  },
+  "capabilities": {
+    "web_search": { "required": true, "purpose": "marketplace + SERP research" },
+    "vision": { "required": false, "purpose": "screenshot analysis" },
+    "file_search": { "required": false, "purpose": "compliance rules lookup" },
+    "code_interpreter": { "required": false, "purpose": "metrics calculation" }
+  },
+  "output": {
+    "primary": "research_notes.md",
+    "format": "22 structured blocks",
+    "location": "user_research/",
+    "secondary": ["metadata.json", "queries.json"]
+  },
+  "quality_gates": {
+    "min_competitors": 3,
+    "min_web_queries": 15,
+    "min_confidence": 0.75,
+    "max_placeholders": 0.10,
+    "all_blocks_present": true
+  },
+  "execution": {
+    "duration": "20-30 min",
+    "phases": 9,
+    "plan": "08_execution_plan.json"
+  },
+  "marketplaces": {
+    "primary": ["mercadolivre", "shopee", "magazineluiza", "amazon_br"],
+    "secondary": ["americanas", "casasbahia", "submarino", "tiktokshop", "shein"],
+    "config": "09_marketplaces.json"
+  }
+}

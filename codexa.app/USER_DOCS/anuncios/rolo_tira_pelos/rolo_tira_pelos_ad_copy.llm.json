@@ -1,0 +1,20 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "ROLO TIRA PELOS 20 FOLHAS GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.84,
+  "execution_time_minutes": 3,
+  "titles": [
+    {"text": "Rolo Tira Pelos 20 Folhas Adesivo Roupa Sofa Pet Removedor", "char_count": 58, "keyword_count": 8, "density": 0.80, "score": 0.85, "variant": "A", "focus": "equilibrado"},
+    {"text": "Rolo Adesivo Tira Pelos Pet 20 Folhas Roupa Sofa Limpeza", "char_count": 56, "keyword_count": 8, "density": 0.78, "score": 0.84, "variant": "B", "focus": "emocional"},
+    {"text": "Rolo Removedor Pelos Pet 20 Folhas Adesivo Roupa Sofa Casa", "char_count": 58, "keyword_count": 8, "density": 0.78, "score": 0.83, "variant": "C", "focus": "tecnico"}
+  ],
+  "keywords": {"block_a": {"name": "Atributos", "count": 116}, "block_b": {"name": "Beneficios", "count": 115}, "coverage_score": {"head_terms": 0.88, "longtails": 0.84, "total_unique_keywords": 231}},
+  "description": {"word_count": 3189, "keyword_density": 0.039, "readability_score": 71, "sections": ["Hook", "Solucao", "Rendimento", "Adesivo", "Versatilidade", "Operacao", "Trabalho", "Visitas", "Tamanho", "Preco", "Refis", "Garantia", "CTA"], "storybrand_elements": 7},
+  "bullets": {"count": 10, "avg_chars": 185},
+  "visual_assets": {"status": "quick_mode_skipped"},
+  "qa_report": {"aggregate_score": 0.84, "validation_checks_passed": 11, "validation_checks_total": 11, "compliance_validation": {"passed": true}},
+  "strategic_brief": {"product_name": "Rolo Tira Pelos GATO3", "specs": "20 folhas adesivas", "price_gato3": 6.30, "competitor_range": "R$14-60", "main_competitor": "Kit 2 Rolos Flash Limp (R$36,10, +10mil vendidos, 4.8 stars)", "differentiation": "preco agressivo"},
+  "metadata": {"workflow_version": "2.5.0", "generator": "CodeXAnuncio v2.5.0", "generated_at": "2025-11-29T12:00:00Z", "plan": "quick_anuncio", "status": "production_ready"}
+}

@@ -1,0 +1,198 @@
+{
+  "$schema": "../schemas/workflow.schema.json",
+  "workflow_id": "quick_update",
+  "version": "1.0.0",
+  "description": "Quick update workflow - fetches high priority sources only",
+
+  "metadata": {
+    "estimated_duration_minutes": 15,
+    "recommended_frequency": "daily",
+    "resource_intensity": "low"
+  },
+
+  "parameters": {
+    "priority_filter": {
+      "type": "string",
+      "default": "high",
+      "allowed_values": ["critical", "high", "medium", "low"],
+      "description": "Filter sources by priority level"
+    },
+    "categories": {
+      "type": "array",
+      "default": null,
+      "description": "Specific categories to update (null = all)"
+    },
+    "max_sources": {
+      "type": "number",
+      "default": null,
+      "description": "Maximum number of sources to process (null = unlimited)"
+    },
+    "fetch_method": {
+      "type": "string",
+      "default": "webfetch",
+      "allowed_values": ["webfetch", "scraping", "api", "auto"],
+      "description": "Method to use for fetching content"
+    },
+    "generate_report": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to generate summary report"
+    }
+  },
+
+  "steps": [
+    {
+      "id": "init",
+      "action": "initialize",
+      "description": "Load configuration and validate environment",
+      "params": {
+        "load_meta_config": true,
+        "validate_directories": true,
+        "check_dependencies": false
+      },
+      "on_failure": "abort"
+    },
+
+    {
+      "id": "load_sources",
+      "action": "load_sources",
+      "description": "Load sources filtered by priority",
+      "params": {
+        "filter": {
+          "priority": "{{parameters.priority_filter}}",
+          "categories": "{{parameters.categories}}",
+          "enabled": true
+        },
+        "max_count": "{{parameters.max_sources}}"
+      },
+      "outputs": ["sources_list"],
+      "on_failure": "abort"
+    },
+
+    {
+      "id": "fetch_content",
+      "action": "fetch_content",
+      "description": "Fetch content from each source",
+      "for_each": "{{sources_list}}",
+      "params": {
+        "method": "{{parameters.fetch_method}}",
+        "timeout": 30,
+        "rate_limit_seconds": 2,
+        "retry_attempts": 3,
+        "webfetch_prompt_template": "system/templates/webfetch_prompt.template.txt"
+      },
+      "outputs": ["fetched_content"],
+      "on_failure": "continue",
+      "error_handling": {
+        "log_failures": true,
+        "collect_errors": true
+      }
+    },
+
+    {
+      "id": "extract_insights",
+      "action": "extract_insights",
+      "description": "Extract insights from fetched content using AI",
+      "for_each": "{{fetched_content}}",
+      "params": {
+        "engine": "claude",
+        "prompt_template": "system/templates/insight_extraction.prompt.txt",
+        "structured_output": true,
+        "max_insights": 10
+      },
+      "outputs": ["insights_list"],
+      "on_failure": "continue"
+    },
+
+    {
+      "id": "save_docs",
+      "action": "generate_documentation",
+      "description": "Generate and save documentation for each source",
+      "for_each": "{{fetched_content}}",
+      "params": {
+        "template": "system/templates/doc.template.md",
+        "output_pattern": "docs/{{category}}/{{source_id}}/",
+        "create_latest_link": true,
+        "create_timestamped": true,
+        "save_metadata": true
+      },
+      "outputs": ["doc_files"],
+      "on_failure": "log_and_continue"
+    },
+
+    {
+      "id": "generate_report",
+      "action": "generate_report",
+      "description": "Generate summary report of the update",
+      "condition": "{{parameters.generate_report}}",
+      "params": {
+        "template": "system/templates/report.template.md",
+        "output_path": "snapshots/{{date}}/update_report_quick_{{timestamp}}.md",
+        "include_insights": true,
+        "include_metrics": true,
+        "include_failures": true
+      },
+      "outputs": ["report_file"],
+      "on_failure": "log_and_continue"
+    },
+
+    {
+      "id": "update_index",
+      "action": "update_index",
+      "description": "Update documentation index",
+      "params": {
+        "index_path": "docs_index_latest.json",
+        "include_hash": true,
+        "include_metadata": true
+      },
+      "on_failure": "log_and_continue"
+    },
+
+    {
+      "id": "create_snapshot",
+      "action": "create_snapshot",
+      "description": "Create snapshot of source files",
+      "params": {
+        "snapshot_dir": "snapshots/{{date}}/",
+        "include_sources": true,
+        "include_metadata": true
+      },
+      "on_failure": "log_and_continue"
+    },
+
+    {
+      "id": "cleanup",
+      "action": "cleanup",
+      "description": "Cleanup temporary files and finalize",
+      "params": {
+        "remove_temp_files": true,
+        "compress_old_snapshots": false
+      },
+      "on_failure": "log"
+    }
+  ],
+
+  "outputs": {
+    "summary": {
+      "sources_attempted": "{{sources_list.length}}",
+      "sources_succeeded": "{{fetched_content.length}}",
+      "insights_extracted": "{{insights_list.length}}",
+      "docs_generated": "{{doc_files.length}}",
+      "report_path": "{{report_file}}",
+      "execution_time": "{{execution_time}}"
+    }
+  },
+
+  "notifications": {
+    "on_complete": {
+      "enabled": null,
+      "channels": [],
+      "message_template": "Quick update completed: {{sources_succeeded}}/{{sources_attempted}} sources successful"
+    },
+    "on_failure": {
+      "enabled": null,
+      "channels": [],
+      "message_template": "Quick update failed at step: {{failed_step}}"
+    }
+  }
+}

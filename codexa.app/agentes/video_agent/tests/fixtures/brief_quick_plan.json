@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/video_input.json",
+  "execution_plan": "quick",
+  "produto": "Smartwatch Fit Pro",
+  "duracao": 15,
+  "formato": "9:16",
+  "tom": "energetico",
+  "objetivo": "Testar conceito de video rapido para aprovacao",
+  "video_mode": "overlay",
+  "platform_target": "tiktok",
+  "features": [
+    {
+      "nome": "Heart Rate Monitor",
+      "descricao": "Monitoramento continuo de batimentos"
+    }
+  ],
+  "test_metadata": {
+    "plan": "quick",
+    "expected_phases": 5,
+    "expected_outputs": ["config.json", "concept.json", "script.json", "visual_prompts.json", "storyboard.pdf"],
+    "expected_duration_min": 30,
+    "expected_duration_max": 60,
+    "no_video_generation": true,
+    "cost_estimate_max_usd": 0.10
+  }
+}

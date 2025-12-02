@@ -1,0 +1,577 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://codexa.app/schemas/photo_agent/output/v1.0.0",
+  "title": "Photo Agent Output Schema",
+  "description": "Output structure schema for photo_agent AI photography prompt generation",
+  "version": "1.0.0",
+  "type": "object",
+
+  "required": [
+    "metadata",
+    "prompts",
+    "quality_report",
+    "trinity_output"
+  ],
+
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Output metadata and generation information",
+      "required": [
+        "agent",
+        "version",
+        "timestamp",
+        "input_hash"
+      ],
+      "properties": {
+        "agent": {
+          "type": "string",
+          "const": "photo_agent",
+          "description": "Agent identifier"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Agent version (semantic versioning)",
+          "examples": ["1.0.0", "1.2.3"]
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Generation timestamp (ISO 8601)",
+          "examples": ["2025-11-14T15:30:00Z"]
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA256 hash of input data for traceability",
+          "examples": ["a3b2c1d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2"]
+        },
+        "generation_time_ms": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Total generation time in milliseconds",
+          "examples": [12345, 8765]
+        },
+        "input_subject": {
+          "type": "string",
+          "description": "Original subject from input",
+          "examples": ["Ceramic coffee mug with matte white glaze"]
+        },
+        "input_style": {
+          "type": "string",
+          "description": "Applied photography style",
+          "examples": ["minimalist", "editorial"]
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "prompts": {
+      "type": "array",
+      "description": "Array of generated photography prompts",
+      "minItems": 1,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_number",
+          "scene_name",
+          "prompt",
+          "technical_specs",
+          "pnl_trigger",
+          "validation_score"
+        ],
+        "properties": {
+          "scene_number": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9,
+            "description": "Scene number in sequence (1-9)"
+          },
+          "scene_name": {
+            "type": "string",
+            "description": "Human-readable scene name",
+            "examples": [
+              "Hero White Background",
+              "Lifestyle Use",
+              "Macro Detail",
+              "User Routine",
+              "Benefit Moment",
+              "Top-down Functional",
+              "Life Context",
+              "Material Quality",
+              "Commercial Hero"
+            ]
+          },
+          "scene_role": {
+            "type": "string",
+            "enum": [
+              "hero",
+              "lifestyle",
+              "macro",
+              "routine",
+              "benefit",
+              "functional",
+              "context",
+              "material",
+              "commercial"
+            ],
+            "description": "Scene role in narrative arc"
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 80,
+            "maxLength": 350,
+            "description": "Full AI-ready photography prompt (copy-paste ready)",
+            "examples": [
+              "Professional minimalist photography, ceramic coffee mug with matte white glaze, pure white background #FFFFFF, centered composition rule of thirds, camera 50mm f/8 1/160s ISO 100, high-key lighting soft uniform shadows, full sharp focus texture visible, PNL: 'immediate clarity simple decision', no watermarks, no text, brand/style lock, 8K"
+            ]
+          },
+          "technical_specs": {
+            "type": "object",
+            "description": "Detailed technical specifications for the scene",
+            "required": [
+              "camera",
+              "lighting",
+              "background",
+              "composition"
+            ],
+            "properties": {
+              "camera": {
+                "type": "string",
+                "description": "Complete camera specification (focal aperture shutter ISO)",
+                "examples": [
+                  "50mm f/8 1/160s ISO 100",
+                  "85mm f/4 1/160s ISO 400",
+                  "100mm macro f/2.8 1/160s ISO 100"
+                ]
+              },
+              "focal_length": {
+                "type": "string",
+                "pattern": "^\\d{2,3}mm$",
+                "examples": ["50mm", "85mm", "100mm"]
+              },
+              "aperture": {
+                "type": "string",
+                "pattern": "^f/\\d+(\\.\\d+)?$",
+                "examples": ["f/2.8", "f/4", "f/5.6", "f/8"]
+              },
+              "shutter_speed": {
+                "type": "string",
+                "pattern": "^1/\\d+s$",
+                "examples": ["1/60s", "1/160s", "1/500s"]
+              },
+              "iso": {
+                "type": "integer",
+                "enum": [100, 200, 400, 800, 1600, 3200],
+                "examples": [100, 400]
+              },
+              "lighting": {
+                "type": "string",
+                "description": "Lighting setup description",
+                "examples": [
+                  "High-key clean, soft uniform shadows",
+                  "Low-key dramatic, strong lateral shadows",
+                  "Natural golden hour window light",
+                  "3-point studio (key 45° fill -1.5EV rim subtle)"
+                ]
+              },
+              "background": {
+                "type": "string",
+                "description": "Background specification",
+                "examples": [
+                  "#FFFFFF pure white",
+                  "Dark textured atmospheric",
+                  "Real environment minimalist apartment",
+                  "Bokeh clean low saturation"
+                ]
+              },
+              "composition": {
+                "type": "string",
+                "description": "Composition rule or technique",
+                "examples": [
+                  "Centered, rule of thirds",
+                  "Diagonal asymmetric bold",
+                  "Candid authentic storytelling",
+                  "Magazine-quality balanced"
+                ]
+              },
+              "depth_of_field": {
+                "type": "string",
+                "enum": [
+                  "ultra_shallow",
+                  "shallow",
+                  "moderate",
+                  "deep",
+                  "full_focus"
+                ],
+                "description": "Depth of field characteristic"
+              }
+            },
+            "additionalProperties": false
+          },
+          "pnl_trigger": {
+            "type": "string",
+            "description": "Programação neurolinguística emotional anchor",
+            "examples": [
+              "clareza imediata, decisão simples",
+              "toque seguro, superfície que convida",
+              "acabamento que inspira confiança durável",
+              "encaixa na rotina sem atrito"
+            ]
+          },
+          "pnl_trigger_key": {
+            "type": "string",
+            "enum": [
+              "confiança",
+              "conforto",
+              "clareza",
+              "calma",
+              "desejo",
+              "urgência",
+              "pertencimento",
+              "transformação",
+              "segurança",
+              "prazer",
+              "exclusividade",
+              "controle"
+            ],
+            "description": "PNL trigger key identifier"
+          },
+          "validation_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Validation score (0.0-1.0, ≥0.85 = PASS)",
+            "examples": [0.95, 0.88, 1.0]
+          },
+          "character_count": {
+            "type": "integer",
+            "minimum": 80,
+            "maximum": 350,
+            "description": "Prompt character count"
+          },
+          "validation_status": {
+            "type": "string",
+            "enum": ["PASS", "FAIL"],
+            "description": "Validation result (PASS if score ≥0.85)"
+          },
+          "file_name": {
+            "type": "string",
+            "description": "Suggested output file name (for sequential_9 format)",
+            "pattern": "^[a-z0-9_]+_scene_0[1-9]_[a-z_]+\\.png$",
+            "examples": [
+              "ceramic_mug_scene_01_hero_white.png",
+              "ceramic_mug_scene_02_lifestyle_use.png"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "quality_report": {
+      "type": "object",
+      "description": "Quality assurance and validation summary",
+      "required": [
+        "total_prompts",
+        "validation_passed",
+        "validation_failed",
+        "avg_validation_score",
+        "avg_character_count",
+        "compliance_status",
+        "compliance_checks_passed",
+        "warnings",
+        "errors"
+      ],
+      "properties": {
+        "total_prompts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9,
+          "description": "Total number of prompts generated"
+        },
+        "validation_passed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Number of prompts that passed validation (score ≥0.85)"
+        },
+        "validation_failed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Number of prompts that failed validation (score <0.85)"
+        },
+        "avg_validation_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Average validation score across all prompts"
+        },
+        "avg_character_count": {
+          "type": "number",
+          "minimum": 80,
+          "maximum": 350,
+          "description": "Average character count across all prompts"
+        },
+        "compliance_status": {
+          "type": "string",
+          "enum": ["PASS", "PARTIAL", "FAIL"],
+          "description": "Overall compliance status (PASS=100%, PARTIAL=some passed, FAIL=none passed)"
+        },
+        "compliance_checks_passed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 11,
+          "description": "Number of compliance checks passed (out of 11)"
+        },
+        "compliance_details": {
+          "type": "object",
+          "description": "Detailed 11-point validation checklist results",
+          "properties": {
+            "length_valid": {
+              "type": "boolean",
+              "description": "All prompts 80-350 characters"
+            },
+            "camera_specified": {
+              "type": "boolean",
+              "description": "All prompts contain camera specs (focal + aperture)"
+            },
+            "lighting_described": {
+              "type": "boolean",
+              "description": "All prompts describe lighting (type + direction)"
+            },
+            "background_mentioned": {
+              "type": "boolean",
+              "description": "All prompts mention background"
+            },
+            "composition_defined": {
+              "type": "boolean",
+              "description": "All prompts define composition rule"
+            },
+            "resolution_stated": {
+              "type": "boolean",
+              "description": "All prompts state '8K high quality'"
+            },
+            "no_watermarks": {
+              "type": "boolean",
+              "description": "All prompts include 'no watermarks'"
+            },
+            "no_text": {
+              "type": "boolean",
+              "description": "All prompts include 'no text'"
+            },
+            "brand_lock": {
+              "type": "boolean",
+              "description": "All prompts include 'brand/style lock' or 'no third-party logos'"
+            },
+            "pnl_included": {
+              "type": "boolean",
+              "description": "All prompts include PNL trigger"
+            },
+            "no_impossible_instructions": {
+              "type": "boolean",
+              "description": "No prompts contain impossible instructions"
+            }
+          },
+          "additionalProperties": false
+        },
+        "warnings": {
+          "type": "array",
+          "description": "Non-critical warnings (proceed with caution)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "scene": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9
+              },
+              "code": {
+                "type": "string",
+                "examples": ["SCORE_LOW", "LENGTH_SUBOPTIMAL", "STYLE_CONFLICT"]
+              },
+              "message": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["low", "medium", "high"]
+              }
+            }
+          }
+        },
+        "errors": {
+          "type": "array",
+          "description": "Critical errors (requires attention)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "scene": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9
+              },
+              "code": {
+                "type": "string",
+                "examples": ["VALIDATION_FAIL", "IMPOSSIBLE_INSTRUCTION", "MISSING_REQUIRED"]
+              },
+              "message": {
+                "type": "string"
+              },
+              "auto_corrected": {
+                "type": "boolean",
+                "description": "Whether error was auto-corrected"
+              }
+            }
+          }
+        },
+        "performance_metrics": {
+          "type": "object",
+          "description": "Performance timing metrics",
+          "properties": {
+            "generation_time_ms": {
+              "type": "number",
+              "description": "Prompt generation time (milliseconds)"
+            },
+            "validation_time_ms": {
+              "type": "number",
+              "description": "Validation time (milliseconds)"
+            },
+            "total_time_ms": {
+              "type": "number",
+              "description": "Total processing time (milliseconds)"
+            },
+            "target_met": {
+              "type": "boolean",
+              "description": "Whether performance target (<20s) was met"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "trinity_output": {
+      "type": "object",
+      "description": "Trinity output pattern file references",
+      "required": [
+        "markdown",
+        "llm_json",
+        "metadata_json"
+      ],
+      "properties": {
+        "markdown": {
+          "type": "string",
+          "description": "Human-readable markdown file path",
+          "pattern": "\\.md$",
+          "examples": ["photo_prompts_ceramic_mug.md"]
+        },
+        "llm_json": {
+          "type": "string",
+          "description": "LLM-consumable JSON file path",
+          "pattern": "\\.llm\\.json$",
+          "examples": ["photo_prompts_ceramic_mug.llm.json"]
+        },
+        "metadata_json": {
+          "type": "string",
+          "description": "Metadata JSON file path",
+          "pattern": "\\.meta\\.json$",
+          "examples": ["photo_prompts_ceramic_mug.meta.json"]
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "input_echo": {
+      "type": "object",
+      "description": "Echo of original input for reference (optional)",
+      "properties": {
+        "subject": {"type": "string"},
+        "style": {"type": "string"},
+        "scenes": {"type": "integer"},
+        "brand_profile": {"type": "object"},
+        "pnl_triggers": {"type": "array"},
+        "technical_overrides": {"type": "object"}
+      }
+    }
+  },
+
+  "additionalProperties": false,
+
+  "examples": [
+    {
+      "metadata": {
+        "agent": "photo_agent",
+        "version": "1.0.0",
+        "timestamp": "2025-11-14T15:30:00Z",
+        "input_hash": "a3b2c1d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2",
+        "generation_time_ms": 12345,
+        "input_subject": "Ceramic coffee mug with matte white glaze",
+        "input_style": "minimalist"
+      },
+      "prompts": [
+        {
+          "scene_number": 1,
+          "scene_name": "Hero White Background",
+          "scene_role": "hero",
+          "prompt": "Professional minimalist photography, ceramic coffee mug with matte white glaze, pure white background #FFFFFF, centered composition rule of thirds, camera 50mm f/8 1/160s ISO 100, high-key lighting soft uniform shadows, full sharp focus texture visible, PNL: 'immediate clarity simple decision', no watermarks, no text, brand/style lock, 8K",
+          "technical_specs": {
+            "camera": "50mm f/8 1/160s ISO 100",
+            "focal_length": "50mm",
+            "aperture": "f/8",
+            "shutter_speed": "1/160s",
+            "iso": 100,
+            "lighting": "High-key clean, soft uniform shadows",
+            "background": "#FFFFFF pure white",
+            "composition": "Centered, rule of thirds",
+            "depth_of_field": "full_focus"
+          },
+          "pnl_trigger": "clareza imediata, decisão simples",
+          "pnl_trigger_key": "clareza",
+          "validation_score": 0.95,
+          "character_count": 142,
+          "validation_status": "PASS",
+          "file_name": "ceramic_mug_scene_01_hero_white.png"
+        }
+      ],
+      "quality_report": {
+        "total_prompts": 9,
+        "validation_passed": 9,
+        "validation_failed": 0,
+        "avg_validation_score": 0.94,
+        "avg_character_count": 156,
+        "compliance_status": "PASS",
+        "compliance_checks_passed": 11,
+        "compliance_details": {
+          "length_valid": true,
+          "camera_specified": true,
+          "lighting_described": true,
+          "background_mentioned": true,
+          "composition_defined": true,
+          "resolution_stated": true,
+          "no_watermarks": true,
+          "no_text": true,
+          "brand_lock": true,
+          "pnl_included": true,
+          "no_impossible_instructions": true
+        },
+        "warnings": [],
+        "errors": [],
+        "performance_metrics": {
+          "generation_time_ms": 8500,
+          "validation_time_ms": 2100,
+          "total_time_ms": 12345,
+          "target_met": true
+        }
+      },
+      "trinity_output": {
+        "markdown": "photo_prompts_ceramic_mug.md",
+        "llm_json": "photo_prompts_ceramic_mug.llm.json",
+        "metadata_json": "photo_prompts_ceramic_mug.meta.json"
+      }
+    }
+  ]
+}

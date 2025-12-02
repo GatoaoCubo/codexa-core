@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "video_rules.json",
+  "title": "Video Production Rules",
+  "description": "Core rules and methodology for AI video production",
+  "version": "2.5.0",
+
+  "production_methodology": {
+    "pipeline_stages": ["preflight", "concept", "script", "visual", "production", "editing", "validation"],
+    "stage_dependencies": {
+      "concept": ["preflight"],
+      "script": ["concept"],
+      "visual": ["script"],
+      "production": ["visual"],
+      "editing": ["production"],
+      "validation": ["editing"]
+    }
+  },
+
+  "timing_rules": {
+    "shot_count_formula": {
+      "15s": 3,
+      "30s": 6,
+      "45s": 7,
+      "60s": 8
+    },
+    "shot_duration": {
+      "min": 3,
+      "max": 8,
+      "default": 5
+    },
+    "narrative_arc_timing": {
+      "hook": {"position": "0-10%", "purpose": "Capture attention"},
+      "build": {"position": "10-40%", "purpose": "Introduce product/problem"},
+      "benefit": {"position": "40-70%", "purpose": "Show value proposition"},
+      "proof": {"position": "70-85%", "purpose": "Provide evidence"},
+      "cta": {"position": "85-100%", "purpose": "Call to action"}
+    }
+  },
+
+  "composition_rules": {
+    "overlay_mode": {
+      "safe_zone": "top_80_percent",
+      "text_zone": "bottom_20_percent",
+      "subject_position": ["center", "upper_third"],
+      "avoid_zones": ["bottom_20_percent"]
+    },
+    "clean_mode": {
+      "safe_zone": "full_frame",
+      "text_zone": null,
+      "subject_position": ["center", "rule_of_thirds", "golden_ratio"],
+      "avoid_zones": []
+    }
+  },
+
+  "audio_rules": {
+    "layers": {
+      "narration": {"volume": 1.0, "priority": 1},
+      "music": {"volume": 0.3, "priority": 2},
+      "sfx": {"volume": 0.5, "priority": 3}
+    },
+    "sync_tolerance_ms": 100,
+    "normalization": true,
+    "fade_in_ms": 500,
+    "fade_out_ms": 500
+  },
+
+  "text_overlay_rules": {
+    "required_in_overlay_mode": true,
+    "forbidden_in_clean_mode": true,
+    "min_count_overlay": 1,
+    "required_types": ["product_name", "cta"],
+    "positioning": {
+      "zone": "bottom_20_percent",
+      "alignment": "center",
+      "safe_margin_px": 40
+    },
+    "typography": {
+      "font_family": "Arial Bold",
+      "font_size": 48,
+      "color": "#FFFFFF",
+      "stroke_color": "#000000",
+      "stroke_width": 2
+    },
+    "timing": {
+      "min_duration_s": 2,
+      "max_duration_s": 6,
+      "fade_in_ms": 200,
+      "fade_out_ms": 200
+    }
+  },
+
+  "quality_thresholds": {
+    "overall_score": {"min": 7.0, "excellent": 9.0},
+    "brand_compliance": {"min": 8.0},
+    "clip_success_rate": {"min": 0.8},
+    "resolution": {"min": "720p", "target": "1080p"},
+    "duration_tolerance": {"percent": 10},
+    "cost_limit_usd": 2.0
+  },
+
+  "validation_checklist": {
+    "11_points": [
+      {"id": 1, "check": "Video file exists and is playable"},
+      {"id": 2, "check": "Duration matches brief +/-10%"},
+      {"id": 3, "check": "Resolution meets minimum (720p+)"},
+      {"id": 4, "check": "Format matches brief (9:16, 16:9, 1:1)"},
+      {"id": 5, "check": "Audio present and properly mixed"},
+      {"id": 6, "check": "Narration synced with video"},
+      {"id": 7, "check": "No visual artifacts or glitches"},
+      {"id": 8, "check": "Transitions smooth and appropriate"},
+      {"id": 9, "check": "IF overlay: text overlays visible and readable"},
+      {"id": 10, "check": "IF clean: zero text present in video"},
+      {"id": 11, "check": "Trinity output complete (3 files)"}
+    ]
+  },
+
+  "never_rules": [
+    "Skip storyboard validation",
+    "Hardcode API keys in code",
+    "Ignore brand guidelines",
+    "Proceed with failed quality gates",
+    "Generate without brief validation",
+    "Use text overlays in clean mode",
+    "Skip narration in clean mode"
+  ],
+
+  "always_rules": [
+    "Generate storyboard first (concept before production)",
+    "Validate each clip before assembly",
+    "Mix audio layers (narration + music)",
+    "Save Trinity output (.mp4, .llm.json, .meta.json)",
+    "Log costs and timing",
+    "Respect video_mode composition rules",
+    "Auto-select voice based on tom/gender"
+  ]
+}

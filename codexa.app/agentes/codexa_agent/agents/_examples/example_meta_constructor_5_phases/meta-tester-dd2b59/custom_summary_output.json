@@ -1,0 +1,21 @@
+{
+  "phase": "test",
+  "adw_id": "dd2b5962",
+  "agent_name": "meta-tester-dd2b59",
+  "command": "direct_prompt",
+  "args": [
+    "agents/dd2b5962/agent-artifacts"
+  ],
+  "model": "sonnet",
+  "working_dir": "C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent",
+  "success": true,
+  "session_id": "cfd71d57",
+  "retry_code": 0,
+  "execution_time": 7.605552673339844e-05,
+  "timestamp": "2025-11-13T09:08:20.289908",
+  "output_preview": "\n# Prompt Execution Result\n\n**Status**: ✅ Completed\n**Agent**: meta-tester-dd2b59\n**ADW ID**: dd2b5962\n**Model**: sonnet\n\n## Prompt Details\n- Length: 3346 characters\n- Working Directory: C:\\Users\\Dell\\Documents\\GitHub\\ecomlm.codexa\\codexa.app\\agentes\\codexa_agent\n- Context Files: 0 file(s)\n\n## Context Files Included\n- None\n\n## Prompt Content\n```\nYou are a META-CONSTRUCTOR in the TEST phase.\n\nARTIFACTS CREATED ($artifacts):\n\n# Prompt Execution Result\n\n**Status**: ✅ Completed\n**Agent**: met",
+  "output_length": 1602,
+  "extracted_data": {
+    "test_score": "[UNKNOWN]"
+  }
+}

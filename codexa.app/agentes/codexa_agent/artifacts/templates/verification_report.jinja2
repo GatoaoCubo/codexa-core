@@ -1,0 +1,353 @@
+{# Verification Report Template #}
+{# Used by: verification_agent #}
+{# Output: verification_report.md #}
+{# Version: 1.0.0 #}
+# Verification Report: {{ feature_name }}
+
+**Verification ID**: {{ verification_id }}
+**Feature**: {{ feature_name }}
+**Spec File**: `{{ spec_file }}`
+**Execution Report**: `{{ execution_report }}`
+**Status**: {% if status == "approved" %}✅ APPROVED{% elif status == "revise" %}⚠️ REVISE{% else %}❌ REJECT{% endif %}
+
+---
+
+## Executive Summary
+
+**Recommendation**: {% if status == "approved" %}✅ APPROVE{% elif status == "revise" %}⚠️ REVISE{% else %}❌ REJECT{% endif %}
+
+{{ summary }}
+
+{% if status == "approved" %}
+All quality gates passed. Implementation meets specification with {{ compliance_score }}% compliance.
+Tests comprehensive ({{ coverage_percentage }}% coverage). Feature works correctly in all tested scenarios.
+{% elif status == "revise" %}
+Implementation mostly successful but needs fixes before approval.
+{{ gates_failed }} quality gate(s) failed. {{ issues_count }} issue(s) identified.
+Estimated fix time: {{ estimated_fix_time }}.
+{% else %}
+Implementation has major issues preventing approval.
+{{ gates_failed }} quality gate(s) failed. {{ issues_count }} critical issue(s) identified.
+Requires major rework or return to planning phase.
+{% endif %}
+
+---
+
+## Quality Gates
+
+### 1. Unit Tests: {% if gates.unit_tests.status == "passed" %}✅ PASSED{% else %}❌ FAILED{% endif %}
+
+**Command**: `{{ gates.unit_tests.command }}`
+
+**Results**:
+- Tests run: {{ gates.unit_tests.tests_run }}
+- Tests passed: {{ gates.unit_tests.tests_passed }} ({{ gates.unit_tests.pass_rate }}%)
+- Duration: {{ gates.unit_tests.duration }}s
+
+{% if gates.unit_tests.status == "passed" %}
+**Output**: All tests passed ✅
+{% else %}
+**Failures**:
+{% for failure in gates.unit_tests.failures %}
+- `{{ failure.test_name }}` ({{ failure.file }}:{{ failure.line }})
+  - Error: {{ failure.error_message }}
+{% endfor %}
+{% endif %}
+
+---
+
+### 2. Integration Tests: {% if gates.integration_tests.status == "passed" %}✅ PASSED{% else %}❌ FAILED{% endif %}
+
+**Command**: `{{ gates.integration_tests.command }}`
+
+**Results**:
+- Tests run: {{ gates.integration_tests.tests_run }}
+- Tests passed: {{ gates.integration_tests.tests_passed }} ({{ gates.integration_tests.pass_rate }}%)
+- Duration: {{ gates.integration_tests.duration }}s
+
+{% if gates.integration_tests.status == "failed" %}
+**Failures**:
+{% for failure in gates.integration_tests.failures %}
+- `{{ failure.test_name }}`: {{ failure.error_message }}
+{% endfor %}
+{% endif %}
+
+---
+
+### 3. E2E Tests: {% if gates.e2e_tests.status == "passed" %}✅ PASSED{% else %}❌ FAILED{% endif %}
+
+**Command**: `{{ gates.e2e_tests.command }}`
+
+**Results**:
+- Tests run: {{ gates.e2e_tests.tests_run }}
+- Tests passed: {{ gates.e2e_tests.tests_passed }} ({{ gates.e2e_tests.pass_rate }}%)
+- Duration: {{ gates.e2e_tests.duration }}s
+- Flows tested: {{ gates.e2e_tests.flows_tested | join(', ') }}
+
+{% if gates.e2e_tests.status == "failed" %}
+**Failures**:
+{% for failure in gates.e2e_tests.failures %}
+- Flow: {{ failure.flow_name }}
+  - Step failed: {{ failure.step_failed }}
+  - Error: {{ failure.error_message }}
+{% endfor %}
+{% endif %}
+
+---
+
+### 4. Type Check: {% if gates.type_check.status == "passed" %}✅ PASSED{% else %}❌ FAILED{% endif %}
+
+**Command**: `{{ gates.type_check.command }}`
+
+**Results**:
+- Errors: {{ gates.type_check.errors }}
+- Warnings: {{ gates.type_check.warnings }}
+
+{% if gates.type_check.status == "failed" %}
+**Errors Found**:
+{% for error in gates.type_check.error_list %}
+- `{{ error.file }}:{{ error.line }}`: {{ error.message }}
+{% endfor %}
+{% endif %}
+
+---
+
+### 5. Lint: {% if gates.lint.status == "passed" %}✅ PASSED{% else %}❌ FAILED{% endif %}
+
+**Command**: `{{ gates.lint.command }}`
+
+**Results**:
+- Errors: {{ gates.lint.errors }}
+- Warnings: {{ gates.lint.warnings }}{% if gates.lint.warnings > 0 %} (acceptable){% endif %}
+
+{% if gates.lint.status == "failed" %}
+**Errors Found**:
+{% for error in gates.lint.error_list %}
+- `{{ error.file }}:{{ error.line }}`: {{ error.rule }} - {{ error.message }}
+{% endfor %}
+{% endif %}
+
+---
+
+### 6. Test Coverage: {% if gates.coverage.status == "passed" %}✅ PASSED ({{ gates.coverage.percentage }}%){% else %}❌ FAILED ({{ gates.coverage.percentage }}%){% endif %}
+
+**Command**: `{{ gates.coverage.command }}`
+
+**Results**:
+- Coverage: {{ gates.coverage.percentage }}%
+- Threshold: {{ gates.coverage.threshold }}%
+- Status: {% if gates.coverage.percentage >= gates.coverage.threshold %}EXCEEDS{% else %}BELOW{% endif %}
+
+**Coverage Breakdown**:
+- Statements: {{ gates.coverage.statements }}%
+- Branches: {{ gates.coverage.branches }}%
+- Functions: {{ gates.coverage.functions }}%
+- Lines: {{ gates.coverage.lines }}%
+
+{% if gates.coverage.uncovered_files %}
+**Uncovered Files**:
+{% for file in gates.coverage.uncovered_files %}
+- `{{ file.path }}`: {{ file.coverage }}% (need {{ file.missing }}% more)
+{% endfor %}
+{% endif %}
+
+---
+
+### 7. Spec Compliance: {% if gates.spec_compliance.status == "passed" %}✅ PASSED ({{ gates.spec_compliance.percentage }}%){% else %}⚠️ FAILED ({{ gates.spec_compliance.percentage }}%){% endif %}
+
+**Method**: Manual review against specification
+
+**Results**:
+- Total requirements: {{ gates.spec_compliance.total_requirements }}
+- Met: {{ gates.spec_compliance.met }} ({{ gates.spec_compliance.percentage }}%)
+- Partial: {{ gates.spec_compliance.partial }}
+- Missing: {{ gates.spec_compliance.missing }}
+
+---
+
+## Spec Compliance Matrix
+
+| Requirement | Status | Evidence | Notes |
+|-------------|--------|----------|-------|
+{% for req in spec_compliance_matrix %}
+| {{ req.id }}: {{ req.description }} | {% if req.status == "complete" %}✅ Complete{% elif req.status == "partial" %}⚠️ Partial{% else %}❌ Missing{% endif %} | {{ req.evidence }} | {{ req.notes }} |
+{% endfor %}
+
+{% if extra_features %}
+
+### Extra Features (Not in Spec)
+
+| Feature | Added By | Justification | Assessment |
+|---------|----------|---------------|------------|
+{% for feature in extra_features %}
+| {{ feature.name }} | {{ feature.added_by }} | {{ feature.justification }} | {% if feature.acceptable %}✅ Acceptable{% else %}⚠️ Questionable{% endif %} |
+{% endfor %}
+{% endif %}
+
+---
+
+## Manual Verification
+
+### Visual Testing
+- Screenshots captured: {{ manual_verification.screenshots_captured }}
+- Critical paths tested: {{ manual_verification.critical_paths_tested }}
+- Edge cases tested: {{ manual_verification.edge_cases_tested }}
+- All scenarios: {% if manual_verification.all_passed %}✅ PASSED{% else %}❌ SOME FAILED{% endif %}
+
+**Details**: See walkthrough.md for visual proof and screenshots
+
+{% if manual_verification.issues %}
+**Issues Found**:
+{% for issue in manual_verification.issues %}
+- **{{ issue.title }}**: {{ issue.description }}
+  - Severity: {{ issue.severity }}
+  - Screenshot: `{{ issue.screenshot }}`
+{% endfor %}
+{% endif %}
+
+---
+
+## Files Verified
+
+### Created ({{ files_verified.created | length }} files)
+{% for file in files_verified.created %}
+{{ loop.index }}. ✅ `{{ file.path }}` ({{ file.lines }} lines) - Reviewed
+{% endfor %}
+
+### Modified ({{ files_verified.modified | length }} files)
+{% for file in files_verified.modified %}
+{{ loop.index }}. ✅ `{{ file.path }}` (+{{ file.lines_added }} lines) - Reviewed
+{% endfor %}
+
+**Total**: {{ files_verified.total }} files, {{ files_verified.total_lines }} lines added/modified
+
+---
+
+## Issues Found
+
+{% if issues %}
+{% for issue in issues %}
+### {{ loop.index }}. [{{ issue.severity }}] {{ issue.title }}
+
+**Location**: {{ issue.location }}
+
+**Description**: {{ issue.description }}
+
+**Impact**: {{ issue.impact }}
+
+**Recommendation**: {{ issue.recommendation }}
+
+**Estimated Fix Time**: {{ issue.estimated_fix_time }}
+
+---
+
+{% endfor %}
+{% else %}
+None. ✅
+{% endif %}
+
+---
+
+## Recommendations
+
+{% if status == "approved" %}
+### Deployment Decision: ✅ APPROVE
+
+**Rationale**:
+- All specified requirements met ({{ compliance_score }}% compliance)
+- High quality score (all gates passed)
+- No blocking issues
+- Code review positive
+
+**Conditions for Approval**: None (ready to deploy as-is)
+
+{% if optional_improvements %}
+**Optional Improvements** (can be done post-deployment):
+{% for improvement in optional_improvements %}
+{{ loop.index }}. {{ improvement.description }} (Est: {{ improvement.estimated_time }})
+{% endfor %}
+{% endif %}
+
+{% elif status == "revise" %}
+### Deployment Decision: ⚠️ REVISE
+
+**Rationale**:
+- Compliance score: {{ compliance_score }}% (need ≥90%)
+- {{ gates_failed }} quality gate(s) failed
+- {{ issues_count }} issue(s) need fixing
+
+**Issues to Fix**:
+{% for issue in issues_to_fix %}
+{{ loop.index }}. [{{ issue.severity }}] {{ issue.title }} (Est: {{ issue.estimated_fix_time }})
+{% endfor %}
+
+**Total Estimated Fix Time**: {{ total_fix_time }}
+
+**Next Steps**:
+1. Transition to FIX MODE
+2. Address all issues listed above
+3. Re-run verification after fixes
+
+{% else %}
+### Deployment Decision: ❌ REJECT
+
+**Rationale**:
+- Compliance score: {{ compliance_score }}% (need ≥90%)
+- {{ gates_failed }} quality gate(s) failed (including critical gates)
+- {{ issues_count }} major issue(s) identified
+- Implementation does not meet minimum quality standards
+
+**Critical Issues**:
+{% for issue in critical_issues %}
+- {{ issue.title }}: {{ issue.description }}
+{% endfor %}
+
+**Recommendation**: Return to planning phase or major rework needed.
+{% endif %}
+
+---
+
+## Comparison to Similar Implementations
+
+**Compared to industry standards**:
+{% for comparison in industry_comparison %}
+- {% if comparison.status == "better" %}✅{% elif comparison.status == "same" %}➡️{% else %}⚠️{% endif %} {{ comparison.aspect }}: {{ comparison.description }}
+{% endfor %}
+
+**Compared to spec expectations**:
+{% for comparison in spec_comparison %}
+- {% if comparison.status == "meets" %}✅{% elif comparison.status == "exceeds" %}🌟{% else %}⚠️{% endif %} {{ comparison.aspect }}: {{ comparison.description }}
+{% endfor %}
+
+---
+
+## Verification Metadata
+
+- **Review Duration**: {{ verification_duration }} minutes
+- **Files Reviewed**: {{ files_verified.total }}
+- **Lines Reviewed**: {{ files_verified.total_lines }}
+- **Screenshots Captured**: {{ manual_verification.screenshots_captured }}
+- **Tests Analyzed**: {{ total_tests_analyzed }}
+- **Requirements Checked**: {{ gates.spec_compliance.total_requirements }}
+- **Quality Checks Performed**: 7
+
+**Verification Complete**: {% if status == "approved" %}✅{% elif status == "revise" %}⚠️{% else %}❌{% endif %}
+
+---
+
+## Appendix: Requirement Traceability Matrix
+
+| Spec Location | Requirement | Implementation | Test Coverage |
+|---------------|-------------|----------------|---------------|
+{% for trace in traceability_matrix %}
+| {{ trace.spec_location }} | {{ trace.requirement }} | {{ trace.implementation }} | {{ trace.test_coverage }} |
+{% endfor %}
+
+**Traceability**: {{ traceability_percentage }}% (all requirements traced to implementation and tests)
+
+---
+
+**Generated By**: Verification Agent {{ agent_version }}
+**Generated At**: {{ generated_at }}
+**Verification Methodology**: 7-gate quality system
+**ADW**: {{ adw_path }}

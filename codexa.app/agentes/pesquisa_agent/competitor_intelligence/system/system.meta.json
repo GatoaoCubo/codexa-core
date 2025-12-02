@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "meta_version": "1.0.0",
+  "description": "Meta-configuration system for flexible competitor intelligence tracking",
+
+  "project": {
+    "name": null,
+    "description": null,
+    "domain": null,
+    "market": null,
+    "language": null,
+    "version": "1.0.0",
+    "created": null,
+    "updated": null
+  },
+
+  "context": {
+    "user_defined": true,
+    "flexible_schema": true,
+    "runtime_configuration": true,
+    "notes": "All NULL values are intentionally blank - to be filled by user based on specific context and needs"
+  },
+
+  "categories": {
+    "_template": {
+      "id": "{CATEGORY_ID}",
+      "name": "{CATEGORY_NAME}",
+      "description": "{CATEGORY_DESCRIPTION}",
+      "schema_path": "system/schemas/source.schema.json",
+      "update_frequency": null,
+      "priority_default": "medium",
+      "enabled": true,
+      "custom_fields": {}
+    },
+    "_instructions": "Add categories dynamically. Each category inherits from _template."
+  },
+
+  "sources": {
+    "_global_defaults": {
+      "priority": "medium",
+      "monitoring": {
+        "enabled": true,
+        "change_detection": true,
+        "alert_threshold": null
+      },
+      "fetch": {
+        "method": null,
+        "rate_limit_seconds": 2,
+        "timeout_seconds": 30,
+        "retry_attempts": 3
+      }
+    },
+    "_instructions": "Sources defined per category in user_context/"
+  },
+
+  "workflows": {
+    "_available": [
+      "quick_update",
+      "full_refresh",
+      "category_update",
+      "source_update",
+      "monitor_changes",
+      "generate_report"
+    ],
+    "_custom": "Users can define custom workflows in workflows/ directory"
+  },
+
+  "integrations": {
+    "claude_code": {
+      "enabled": true,
+      "slash_commands": [
+        "/update_competitor_docs"
+      ]
+    },
+    "webfetch": {
+      "enabled": true,
+      "default_prompt_template": "system/templates/webfetch_prompt.template.txt"
+    },
+    "mcp_servers": {
+      "enabled": null,
+      "servers": []
+    },
+    "external_apis": {
+      "enabled": null,
+      "apis": []
+    }
+  },
+
+  "user_preferences": {
+    "update_frequency": null,
+    "alert_channels": null,
+    "output_format": null,
+    "documentation_style": null,
+    "report_detail_level": null,
+    "auto_index_generation": true,
+    "snapshot_retention_days": 90,
+    "compression_enabled": false
+  },
+
+  "templates": {
+    "doc_template": "system/templates/doc.template.md",
+    "report_template": "system/templates/report.template.md",
+    "insight_template": "system/templates/insight.template.md",
+    "index_template": "system/templates/index.template.md",
+    "custom_templates_dir": "system/templates/custom/"
+  },
+
+  "quality_gates": {
+    "min_sources_active": null,
+    "max_fetch_failures_percent": 20,
+    "min_content_length": 100,
+    "required_metadata_fields": [
+      "source_name",
+      "fetched_at",
+      "urls"
+    ]
+  },
+
+  "ai_config": {
+    "insight_extraction": {
+      "enabled": true,
+      "model": null,
+      "temperature": null,
+      "max_tokens": null,
+      "prompt_template": "system/templates/insight_extraction.prompt.txt"
+    },
+    "summary_generation": {
+      "enabled": true,
+      "style": null,
+      "length": null
+    }
+  },
+
+  "init_wizard": {
+    "enabled": true,
+    "config_path": "system/user_context/init.json",
+    "questions": []
+  },
+
+  "metadata": {
+    "created_by": "CODEXA Meta-Constructor",
+    "architecture": "user-driven meta-configurable system",
+    "philosophy": "flexibility over determinism, context over assumptions",
+    "documentation": "system/README.md"
+  }
+}

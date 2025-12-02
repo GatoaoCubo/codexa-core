@@ -1,0 +1,554 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CodeXAnuncio Structured Output Schema",
+  "description": "Comprehensive schema for marketplace ad output with strategic mapping traceability",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["metadata", "product_identity", "titulos", "keywords", "descricao", "prompts_visuais", "validacao_qa", "strategic_mapping"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["version", "marketplace_target", "confidence_score", "generated_at"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Schema version",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "marketplace_target": {
+          "type": "string",
+          "description": "Target marketplace",
+          "enum": ["Mercado Livre", "Shopee", "Amazon", "Magalu", "Multi-marketplace"]
+        },
+        "confidence_score": {
+          "type": "number",
+          "description": "Overall confidence score (0-1) based on research quality",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of generation"
+        },
+        "research_notes_version": {
+          "type": "string",
+          "description": "Version/ID of research_notes used"
+        }
+      }
+    },
+    "product_identity": {
+      "type": "object",
+      "required": ["nome_produto", "categoria"],
+      "properties": {
+        "nome_produto": {
+          "type": "string",
+          "description": "Product name",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "description": "Product category",
+          "examples": ["Pet Shop", "Eletrônicos", "Casa e Decoração"]
+        },
+        "marca": {
+          "type": "string",
+          "description": "Brand name (if applicable)"
+        },
+        "modelo": {
+          "type": "string",
+          "description": "Model/version identifier"
+        },
+        "sku": {
+          "type": "string",
+          "description": "Stock keeping unit / product code"
+        }
+      }
+    },
+    "titulos": {
+      "type": "array",
+      "description": "Generated title variations (minimum 3)",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["variacao", "titulo", "caracteres", "seo_chunks_used", "validation_status"],
+        "properties": {
+          "variacao": {
+            "type": "string",
+            "description": "Title variation identifier",
+            "examples": ["A - Spec-Heavy", "B - Modifier-Enhanced", "C - Use-Case Focused"]
+          },
+          "titulo": {
+            "type": "string",
+            "description": "The actual title text",
+            "minLength": 57,
+            "maxLength": 60
+          },
+          "caracteres": {
+            "type": "integer",
+            "description": "Character count (must be 57-60)",
+            "minimum": 57,
+            "maximum": 60
+          },
+          "seo_chunks_used": {
+            "type": "array",
+            "description": "List of SEO chunks extracted from research and used in title",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 3
+          },
+          "chunk_percentage": {
+            "type": "number",
+            "description": "Percentage of title composed of research chunks (target: ≥60%)",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "validation_status": {
+            "type": "string",
+            "enum": ["PASS", "FAIL", "WARNING"],
+            "description": "Overall validation status for this title"
+          },
+          "validacoes": {
+            "type": "object",
+            "description": "Detailed validation results",
+            "properties": {
+              "comprimento": {
+                "type": "string",
+                "examples": ["PASS (58 chars)", "FAIL (52 chars - too short)"]
+              },
+              "seo": {
+                "type": "string",
+                "description": "SEO optimization check (head term position, etc.)"
+              },
+              "chunk_validation": {
+                "type": "string",
+                "description": "Validates chunk usage percentage"
+              },
+              "no_sentences": {
+                "type": "string",
+                "description": "Validates no full sentences present (only chunks)"
+              },
+              "claims_proibidos": {
+                "type": "string",
+                "description": "Checks for prohibited claims"
+              }
+            }
+          },
+          "strategic_mapping": {
+            "type": "object",
+            "description": "Traceability to research blocks",
+            "properties": {
+              "source_blocks": {
+                "type": "array",
+                "description": "Research blocks consulted for this title",
+                "items": {
+                  "type": "string",
+                  "examples": ["HEAD_TERMS", "DIFERENCIAIS", "LONGTAILS"]
+                }
+              },
+              "confidence": {
+                "type": "number",
+                "description": "Confidence score for this title based on research confidence",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "keywords": {
+      "type": "object",
+      "description": "Keyword blocks for marketplace backend",
+      "required": ["bloco_1", "bloco_2"],
+      "properties": {
+        "bloco_1": {
+          "type": "object",
+          "description": "Primary keyword block (usually from HEAD_TERMS)",
+          "required": ["termos", "count"],
+          "properties": {
+            "termos": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 15,
+              "description": "Primary keywords"
+            },
+            "count": {
+              "type": "integer",
+              "description": "Number of keywords in block"
+            },
+            "source_head_terms": {
+              "type": "array",
+              "description": "Source head terms from research",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "bloco_2": {
+          "type": "object",
+          "description": "Secondary/longtail keyword block",
+          "required": ["termos", "count"],
+          "properties": {
+            "termos": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Secondary/longtail keywords"
+            },
+            "count": {
+              "type": "integer",
+              "description": "Number of keywords in block"
+            },
+            "source_longtails": {
+              "type": "array",
+              "description": "Source longtail terms from research",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "descricao": {
+      "type": "object",
+      "description": "Product description with StoryBrand structure",
+      "required": ["texto_completo", "caracteres", "estrutura_storybrand"],
+      "properties": {
+        "texto_completo": {
+          "type": "string",
+          "description": "Complete description text",
+          "minLength": 100
+        },
+        "caracteres": {
+          "type": "integer",
+          "description": "Character count of description"
+        },
+        "estrutura_storybrand": {
+          "type": "object",
+          "description": "StoryBrand framework structure",
+          "required": ["problema", "solucao"],
+          "properties": {
+            "problema": {
+              "type": "string",
+              "description": "Customer pain point (from research DORES)"
+            },
+            "solucao": {
+              "type": "string",
+              "description": "Product as solution"
+            },
+            "beneficios_funcionais": {
+              "type": "array",
+              "description": "Functional benefits (from research GANHOS)",
+              "items": {
+                "type": "string"
+              }
+            },
+            "beneficios_emocionais": {
+              "type": "array",
+              "description": "Emotional benefits (from research GANHOS)",
+              "items": {
+                "type": "string"
+              }
+            },
+            "provas": {
+              "type": "array",
+              "description": "Social proof / evidence (from research PROVAS)",
+              "items": {
+                "type": "string"
+              }
+            },
+            "faq": {
+              "type": "array",
+              "description": "Frequently asked questions (addressing OBJECOES)",
+              "items": {
+                "type": "object",
+                "required": ["pergunta", "resposta"],
+                "properties": {
+                  "pergunta": {
+                    "type": "string"
+                  },
+                  "resposta": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "especificacoes_tecnicas": {
+      "type": "object",
+      "description": "Technical specifications section",
+      "properties": {
+        "dimensoes": {
+          "type": "string",
+          "description": "Product dimensions",
+          "examples": ["55x39x8 cm", "150 x 80 x 60 cm"]
+        },
+        "peso": {
+          "type": "string",
+          "description": "Product weight",
+          "examples": ["1.2kg", "500g"]
+        },
+        "materiais": {
+          "type": "array",
+          "description": "Materials list (from research MATERIAIS)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cores_disponiveis": {
+          "type": "array",
+          "description": "Available colors (from research CORES)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "capacidade": {
+          "type": "string",
+          "description": "Capacity/load specs",
+          "examples": ["Suporta até 15kg", "Capacidade 2L"]
+        },
+        "garantia": {
+          "type": "string",
+          "description": "Warranty information"
+        },
+        "conteudo_embalagem": {
+          "type": "array",
+          "description": "Package contents",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "prompts_visuais": {
+      "type": "object",
+      "description": "Visual content prompts",
+      "required": ["imagens"],
+      "properties": {
+        "imagens": {
+          "type": "array",
+          "description": "Image generation prompts (9 images in 3x3 grid)",
+          "minItems": 6,
+          "maxItems": 9,
+          "items": {
+            "type": "object",
+            "required": ["numero", "tipo", "prompt", "brand_lock_applied", "fidelity_validated"],
+            "properties": {
+              "numero": {
+                "type": "integer",
+                "description": "Image number (1-9)",
+                "minimum": 1,
+                "maximum": 9
+              },
+              "tipo": {
+                "type": "string",
+                "description": "Shot type",
+                "examples": ["Frontal Fundo Branco", "Hero 45°", "Macro Detalhe", "Lifestyle em Uso"]
+              },
+              "prompt": {
+                "type": "string",
+                "description": "Complete image generation prompt",
+                "minLength": 50
+              },
+              "brand_lock_applied": {
+                "type": "boolean",
+                "description": "Confirms brand lock specifications were applied"
+              },
+              "fidelity_validated": {
+                "type": "boolean",
+                "description": "Confirms product fidelity validated against research"
+              },
+              "no_watermarks": {
+                "type": "boolean",
+                "description": "Confirms 'sem watermarks' instruction present"
+              },
+              "no_text_overlay": {
+                "type": "boolean",
+                "description": "Confirms 'sem texto sobreposto' instruction present"
+              },
+              "research_specs_used": {
+                "type": "array",
+                "description": "Which research specs were incorporated (CORES, MATERIAIS, etc.)",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "video": {
+          "type": "object",
+          "description": "Video script (if applicable)",
+          "properties": {
+            "cenas": {
+              "type": "array",
+              "description": "Scene descriptions",
+              "items": {
+                "type": "string"
+              }
+            },
+            "duracao_total": {
+              "type": "number",
+              "description": "Total duration in seconds"
+            },
+            "script_completo": {
+              "type": "string",
+              "description": "Complete video script"
+            }
+          }
+        }
+      }
+    },
+    "validacao_qa": {
+      "type": "object",
+      "description": "Quality assurance validation results",
+      "required": ["status", "score", "checks"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["PASS", "FAIL", "WARNING"],
+          "description": "Overall QA status"
+        },
+        "score": {
+          "type": "number",
+          "description": "QA score (0-100)",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "checks": {
+          "type": "array",
+          "description": "Individual validation checks",
+          "items": {
+            "type": "object",
+            "required": ["check_name", "status"],
+            "properties": {
+              "check_name": {
+                "type": "string",
+                "description": "Name of the validation check"
+              },
+              "status": {
+                "type": "string",
+                "enum": ["PASS", "FAIL", "WARNING", "SKIP"],
+                "description": "Check result"
+              },
+              "details": {
+                "type": "string",
+                "description": "Additional details about check result"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["critical", "high", "medium", "low"],
+                "description": "Issue severity if check failed"
+              }
+            }
+          }
+        },
+        "marketplace_compliance": {
+          "type": "object",
+          "description": "Marketplace-specific compliance checks",
+          "properties": {
+            "title_length_compliant": {
+              "type": "boolean"
+            },
+            "image_specs_compliant": {
+              "type": "boolean"
+            },
+            "prohibited_terms_absent": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "strategic_mapping": {
+      "type": "object",
+      "description": "Strategic consultation traceability - proves research blocks were consulted",
+      "required": ["research_consulted", "consultation_applied"],
+      "properties": {
+        "research_consulted": {
+          "type": "array",
+          "description": "List of research blocks consulted during generation",
+          "items": {
+            "type": "string",
+            "examples": ["HEAD_TERMS", "DIFERENCIAIS", "DORES", "GANHOS", "PROVAS", "OBJECOES"]
+          },
+          "minItems": 3
+        },
+        "pain_points_addressed": {
+          "type": "array",
+          "description": "Pain points from DORES block addressed in copy",
+          "items": {
+            "type": "string"
+          }
+        },
+        "objections_handled": {
+          "type": "array",
+          "description": "Objections from OBJECOES block handled in FAQ/copy",
+          "items": {
+            "type": "string"
+          }
+        },
+        "proofs_used": {
+          "type": "array",
+          "description": "Social proofs from PROVAS block used",
+          "items": {
+            "type": "string"
+          }
+        },
+        "consultation_applied": {
+          "type": "boolean",
+          "description": "Confirms strategic consultation framework was applied"
+        },
+        "research_utilization_rate": {
+          "type": "number",
+          "description": "Percentage of high-confidence research insights utilized (target: 90%+)",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "orphan_claims": {
+          "type": "array",
+          "description": "Claims made in ad without research backing (should be empty)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contradiction_checks": {
+          "type": "array",
+          "description": "Any contradictions between research and generated copy",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "performance_metrics": {
+      "type": "object",
+      "description": "Generation performance metrics (optional)",
+      "properties": {
+        "generation_time_seconds": {
+          "type": "number",
+          "description": "Total time to generate ad"
+        },
+        "tokens_used": {
+          "type": "integer",
+          "description": "Total tokens consumed"
+        },
+        "cost_estimate_usd": {
+          "type": "number",
+          "description": "Estimated cost in USD"
+        }
+      }
+    }
+  }
+}

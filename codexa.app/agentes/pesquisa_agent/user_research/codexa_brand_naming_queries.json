@@ -1,0 +1,195 @@
+{
+  "research_id": "codexa_brand_naming_2025-11-30",
+  "total_queries": 11,
+  "queries": [
+    {
+      "id": 1,
+      "timestamp": "2025-11-30T00:00:00Z",
+      "query": "AI agent platform naming trends 2024 2025 branding technology",
+      "source": "WebSearch",
+      "purpose": "Identificar tendências de naming em plataformas de agentes IA",
+      "key_insights": [
+        "Agentic AI é top tech trend Gartner 2025",
+        "Mercado de AI Agents: USD 3.7B (2023) → USD 103.6B (2032)",
+        "Padrões: LangChain, CrewAI, AutoGen, Swarm"
+      ],
+      "sources_found": [
+        "analyticsvidhya.com",
+        "writesonic.com",
+        "ibm.com",
+        "cbinsights.com"
+      ]
+    },
+    {
+      "id": 2,
+      "timestamp": "2025-11-30T00:00:01Z",
+      "query": "famous tech acronyms meaning NVIDIA AMD ASML origin story",
+      "source": "WebSearch",
+      "purpose": "Analisar etimologia de marcas tech de sucesso",
+      "key_insights": [
+        "NVIDIA = NV (next version) + invidia (inveja em latim)",
+        "AMD = Advanced Micro Devices",
+        "ASML = Advanced Semiconductor Materials Lithography (origem, não mais usado)"
+      ],
+      "sources_found": [
+        "britannica.com",
+        "wikipedia.org",
+        "asml.com"
+      ]
+    },
+    {
+      "id": 3,
+      "timestamp": "2025-11-30T00:00:02Z",
+      "query": "LangChain CrewAI AutoGPT naming strategy brand identity AI agents",
+      "source": "WebSearch",
+      "purpose": "Analisar estratégia de naming de concorrentes",
+      "key_insights": [
+        "LangChain = corrente/cadeia de LLMs",
+        "CrewAI = tripulação/equipe de agentes",
+        "AutoGen = auto-geração",
+        "Cada nome reflete arquitetura core"
+      ],
+      "sources_found": [
+        "instinctools.com",
+        "medium.com",
+        "datacamp.com"
+      ]
+    },
+    {
+      "id": 4,
+      "timestamp": "2025-11-30T00:00:03Z",
+      "query": "orchestration automation platform branding keywords 2024",
+      "source": "WebSearch",
+      "purpose": "Identificar keywords de branding para orquestração",
+      "key_insights": [
+        "SOAP = Service Orchestration and Automation Platforms (Gartner)",
+        "BOAT = Business Orchestration and Automation Technologies",
+        "AI-powered decision making em alta"
+      ],
+      "sources_found": [
+        "gartner.com",
+        "devopsschool.com",
+        "camunda.com"
+      ]
+    },
+    {
+      "id": 5,
+      "timestamp": "2025-11-30T00:00:04Z",
+      "query": "Zapier Make n8n brand messaging tagline value proposition automation",
+      "source": "WebSearch",
+      "purpose": "Analisar posicionamento de concorrentes de automação",
+      "key_insights": [
+        "Zapier: simplicidade, 8000+ apps, no-code",
+        "n8n: flexibilidade, open-source, controle",
+        "Make: equilíbrio entre simplicidade e poder"
+      ],
+      "sources_found": [
+        "contabo.com",
+        "digidop.com",
+        "dev.to"
+      ]
+    },
+    {
+      "id": 6,
+      "timestamp": "2025-11-30T00:00:05Z",
+      "query": "startups brasileiras tecnologia IA branding naming tendencias 2024",
+      "source": "WebSearch",
+      "purpose": "Analisar ecossistema de startups brasileiras",
+      "key_insights": [
+        "504 startups BR em tecnologias emergentes",
+        "111 startups de IA mapeadas",
+        "Take Blip, Kunumi, NeuralMed como referências"
+      ],
+      "sources_found": [
+        "liga.ventures",
+        "distrito.me",
+        "startups.com.br"
+      ]
+    },
+    {
+      "id": 7,
+      "timestamp": "2025-11-30T00:00:06Z",
+      "query": "\"agentic AI\" terminology glossary key terms definitions 2025",
+      "source": "WebSearch",
+      "purpose": "Mapear terminologia oficial de Agentic AI",
+      "key_insights": [
+        "60+ termos definidos",
+        "Autonomy, Agency, Orchestration são core",
+        "7 arquétipos de agentes identificados"
+      ],
+      "sources_found": [
+        "salesforce.com",
+        "aws.amazon.com",
+        "analyticsvidhya.com"
+      ]
+    },
+    {
+      "id": 8,
+      "timestamp": "2025-11-30T00:00:07Z",
+      "query": "best tech company names etymology meaning successful branding",
+      "source": "WebSearch",
+      "purpose": "Analisar padrões de sucesso em naming tech",
+      "key_insights": [
+        "10% das startups sobrevivem 3 anos - nome importa",
+        "Portmanteau, latim, som/fonética são padrões",
+        "Amazon escolhido por começar com A e representar escala"
+      ],
+      "sources_found": [
+        "thenextweb.com",
+        "rd.com",
+        "brandsnag.com"
+      ]
+    },
+    {
+      "id": 9,
+      "timestamp": "2025-11-30T00:00:08Z",
+      "query": "cognition emergence complexity systems artificial intelligence philosophy",
+      "source": "WebSearch",
+      "purpose": "Explorar conceitos filosóficos para naming",
+      "key_insights": [
+        "Inteligência emerge de sistemas complexos dinâmicos",
+        "Emergência = informação em uma escala que não existe em outra",
+        "Cognição como propriedade emergente, não localizada"
+      ],
+      "sources_found": [
+        "direct.mit.edu",
+        "researchgate.net",
+        "frontiersin.org"
+      ]
+    },
+    {
+      "id": 10,
+      "timestamp": "2025-11-30T00:00:09Z",
+      "query": "\"exponential growth\" \"network effects\" platform ecosystem terminology",
+      "source": "WebSearch",
+      "purpose": "Analisar terminologia de plataformas e crescimento",
+      "key_insights": [
+        "Network effects = 70% do valor tech desde 1994",
+        "Lei de Metcalfe: crescimento exponencial de conexões",
+        "Platform Owner, Producers, Consumers como atores"
+      ],
+      "sources_found": [
+        "nfx.com",
+        "wikipedia.org",
+        "applicoinc.com"
+      ]
+    },
+    {
+      "id": 11,
+      "timestamp": "2025-11-30T00:00:10Z",
+      "query": "autonomy agency self-organization distributed systems AI terminology",
+      "source": "WebSearch",
+      "purpose": "Definir conceitos de autonomia e agência",
+      "key_insights": [
+        "Agency = capacidade de agir, Agent = entidade que age",
+        "Autonomia = operar sem orientação constante step-by-step",
+        "MAS = Multi-Agent Systems = self-organized systems"
+      ],
+      "sources_found": [
+        "aws.amazon.com",
+        "salesforce.com",
+        "wikipedia.org"
+      ]
+    }
+  ]
+}

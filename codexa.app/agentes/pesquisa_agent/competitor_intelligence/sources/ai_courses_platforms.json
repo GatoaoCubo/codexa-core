@@ -1,0 +1,240 @@
+{
+  "metadata": {
+    "category": "AI Courses & Training Platforms",
+    "market": "Brazil",
+    "last_updated": "2025-11-23",
+    "total_sources": 10,
+    "update_frequency": "weekly"
+  },
+  "platforms": {
+    "sebrae": {
+      "name": "Sebrae - IA na Prática",
+      "tier": "free",
+      "priority": "high",
+      "urls": {
+        "main_course": "https://sebrae.com.br/sites/PortalSebrae/cursosonline/ia-na-pratica-para-pequenos-negocios",
+        "news": "https://agenciasebrae.com.br/inovacao-e-tecnologia/",
+        "catalog": "https://sebrae.com.br/sites/PortalSebrae/cursosonline"
+      },
+      "monitoring": {
+        "price_changes": true,
+        "new_courses": true,
+        "partnerships": true
+      },
+      "metrics": {
+        "duration_hours": 3,
+        "price_brl": 0,
+        "certification": true,
+        "rating": "institutional"
+      }
+    },
+    "rd_university": {
+      "name": "RD University (TOTVS)",
+      "tier": "paid",
+      "priority": "high",
+      "urls": {
+        "ia_marketing": "https://university.rdstation.com/course/curso-ia-marketing",
+        "ia_vendas": "https://university.rdstation.com/course/curso-ia-vendas",
+        "catalog": "https://university.rdstation.com/",
+        "reputation": "https://www.reclameaqui.com.br/empresa/resultados-digitais/"
+      },
+      "monitoring": {
+        "price_changes": true,
+        "new_courses": true,
+        "content_updates": true,
+        "reputation_score": true
+      },
+      "metrics": {
+        "duration_hours": 1,
+        "price_brl": 1997,
+        "price_model": "annual_subscription",
+        "rating_reclameaqui": 6.9
+      }
+    },
+    "g4_educacao": {
+      "name": "G4 Educação",
+      "tier": "premium",
+      "priority": "high",
+      "urls": {
+        "g4_pass": "https://g4educacao.com/g4-pass-d-ia",
+        "main_site": "https://g4educacao.com/",
+        "reputation": "https://www.reclameaqui.com.br/empresa/g4-educacao/"
+      },
+      "monitoring": {
+        "price_changes": true,
+        "new_programs": true,
+        "events": true,
+        "reputation_score": true
+      },
+      "metrics": {
+        "price_brl": 2997,
+        "price_model": "one_time",
+        "rating_reclameaqui": 8.9,
+        "reputation_level": "RA1000"
+      }
+    },
+    "ecommerce_na_pratica": {
+      "name": "Ecommerce na Prática",
+      "tier": "membership",
+      "priority": "high",
+      "urls": {
+        "membership": "https://ecommercenapratica.com/enp/",
+        "vender_online": "https://ecommercenapratica.com/vender-online/",
+        "blog": "https://ecommercenapratica.com/blog/",
+        "reputation": "https://www.reclameaqui.com.br/empresa/ecommerce-na-pratica/"
+      },
+      "monitoring": {
+        "price_changes": true,
+        "new_courses": true,
+        "promo_campaigns": true,
+        "reputation_score": true
+      },
+      "metrics": {
+        "price_brl": 990,
+        "price_promo_brl": 690,
+        "price_model": "annual_subscription",
+        "duration_hours": "250+",
+        "rating_reclameaqui": 9.0,
+        "reputation_level": "Ótimo"
+      }
+    },
+    "live_university_ml": {
+      "name": "Live University / ML Ensina",
+      "tier": "marketplace_official",
+      "priority": "high",
+      "urls": {
+        "prepare": "https://mlensina.liveuniversity.com/prepare",
+        "main": "https://mlensina.liveuniversity.com/"
+      },
+      "monitoring": {
+        "price_changes": true,
+        "new_programs": true,
+        "ml_integration": true
+      },
+      "metrics": {
+        "duration_hours": 12,
+        "price_brl": 425,
+        "price_model": "installments_12x",
+        "official_ml": true
+      }
+    },
+    "dmi_brasil": {
+      "name": "DMI Brasil",
+      "tier": "certification",
+      "priority": "medium",
+      "urls": {
+        "main": "https://www.dmibrasil.com.br/",
+        "ia_marketing": "https://www.dmibrasil.com.br/cursos/ia-marketing"
+      },
+      "monitoring": {
+        "price_changes": true,
+        "certification_updates": true,
+        "international_standards": true
+      },
+      "metrics": {
+        "duration_hours": 8,
+        "price_brl": 2248,
+        "price_model": "installments_10x",
+        "certification_level": "international"
+      }
+    },
+    "senac": {
+      "name": "Senac",
+      "tier": "institutional",
+      "priority": "medium",
+      "urls": {
+        "ia_vendas_am": "https://am.senac.br/curso/intelignciaartificialaplicadaavendas-171513/",
+        "portal": "https://www.senac.br/"
+      },
+      "monitoring": {
+        "regional_variations": true,
+        "price_changes": true,
+        "new_courses": true
+      },
+      "metrics": {
+        "duration_hours": 20,
+        "price_brl_example": 60,
+        "regional_pricing": true,
+        "format": "presential"
+      }
+    },
+    "niara": {
+      "name": "Niara AI",
+      "tier": "specialized",
+      "priority": "high",
+      "urls": {
+        "treinamento_ecommerce": "https://niara.ai/treinamento-ecommerce-ia/",
+        "main": "https://niara.ai/"
+      },
+      "monitoring": {
+        "price_changes": true,
+        "content_focus": true,
+        "seo_trends": true
+      },
+      "metrics": {
+        "duration_hours": 12,
+        "price_brl": 1800,
+        "format": "live_online",
+        "focus": "content_seo_catalog"
+      }
+    },
+    "microsoft_enap": {
+      "name": "Microsoft + ENAP",
+      "tier": "free_institutional",
+      "priority": "high",
+      "urls": {
+        "fluencia": "https://www.escolavirtual.gov.br/curso/1400",
+        "copilot": "https://www.escolavirtual.gov.br/curso/1167",
+        "azure": "https://www.escolavirtual.gov.br/",
+        "news": "https://news.microsoft.com/pt-br/"
+      },
+      "monitoring": {
+        "new_courses": true,
+        "partnership_updates": true,
+        "certification_changes": true
+      },
+      "metrics": {
+        "duration_hours_range": "2-4",
+        "price_brl": 0,
+        "certification": true,
+        "ecosystem": "microsoft"
+      }
+    },
+    "aws_ai_ready": {
+      "name": "AWS AI Ready",
+      "tier": "free_corporate",
+      "priority": "medium",
+      "urls": {
+        "announcement": "https://www.aboutamazon.com.br/noticias/aws/estudo-indica-que-talentos-qualificados-em-ia-podem-ganhar-ate-47-mais-veja-cursos-gratuitos-da-amazon",
+        "main": "https://aws.amazon.com/pt/ai/",
+        "training": "https://aws.amazon.com/pt/training/"
+      },
+      "monitoring": {
+        "new_courses": true,
+        "certification_updates": true,
+        "b2b_focus": true
+      },
+      "metrics": {
+        "courses_count": 8,
+        "price_brl": 0,
+        "focus": "genai_technical",
+        "certification": true
+      }
+    }
+  },
+  "tracking": {
+    "kpis": [
+      "price_changes",
+      "new_course_launches",
+      "reputation_scores",
+      "certification_updates",
+      "partnership_announcements",
+      "promotional_campaigns"
+    ],
+    "alerts": {
+      "price_drop_threshold": 15,
+      "new_competitor_entry": true,
+      "reputation_drop_threshold": 0.5
+    }
+  }
+}

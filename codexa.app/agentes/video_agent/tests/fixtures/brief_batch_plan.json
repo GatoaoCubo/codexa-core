@@ -1,0 +1,66 @@
+{
+  "$schema": "../../schemas/video_input.json",
+  "execution_plan": "batch",
+  "batch_config": {
+    "max_parallel": 5,
+    "shared_brand_profile": true,
+    "consistent_style": true
+  },
+  "briefs": [
+    {
+      "produto": "Tenis Running Pro",
+      "duracao": 30,
+      "formato": "9:16",
+      "tom": "energetico",
+      "objetivo": "Destacar performance para corrida"
+    },
+    {
+      "produto": "Tenis Casual Urban",
+      "duracao": 30,
+      "formato": "9:16",
+      "tom": "energetico",
+      "objetivo": "Estilo urbano para o dia a dia"
+    },
+    {
+      "produto": "Tenis Training Max",
+      "duracao": 30,
+      "formato": "9:16",
+      "tom": "energetico",
+      "objetivo": "Treino intenso na academia"
+    },
+    {
+      "produto": "Tenis Kids Sport",
+      "duracao": 15,
+      "formato": "9:16",
+      "tom": "energetico",
+      "objetivo": "Conforto para criancas ativas"
+    },
+    {
+      "produto": "Tenis Slip-On Comfort",
+      "duracao": 15,
+      "formato": "9:16",
+      "tom": "calmo",
+      "objetivo": "Praticidade e conforto"
+    }
+  ],
+  "brand_profile": {
+    "nome": "SportMax",
+    "cores": {
+      "primaria": "#FF5722",
+      "secundaria": "#212121",
+      "acento": "#FFFFFF"
+    },
+    "tom": "esportivo",
+    "personalidade": "dinamico"
+  },
+  "platform_target": "instagram_reels",
+  "video_mode": "overlay",
+  "test_metadata": {
+    "plan": "batch",
+    "expected_videos": 5,
+    "expected_duration_min": 600,
+    "expected_duration_max": 1200,
+    "cost_estimate_max_usd": 8.00,
+    "parallel_processing": true
+  }
+}

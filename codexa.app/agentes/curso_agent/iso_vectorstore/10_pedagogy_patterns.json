@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pedagogy Patterns - Learning Design Framework",
+  "description": "Educational design patterns for course creation",
+  "version": "2.5.0",
+  "learning_objectives": {
+    "blooms_taxonomy": {
+      "description": "Hierarchical classification of learning objectives",
+      "levels": [
+        {
+          "level": 1,
+          "name": "Conhecimento",
+          "description": "Recall facts and basic concepts",
+          "verbs_pt": ["listar", "definir", "identificar", "nomear", "reconhecer", "relembrar"],
+          "verbs_en": ["list", "define", "identify", "name", "recognize", "recall"],
+          "assessment": ["quizzes", "flashcards", "matching"],
+          "layer_mapping": "layer_1"
+        },
+        {
+          "level": 2,
+          "name": "Compreensao",
+          "description": "Explain ideas or concepts",
+          "verbs_pt": ["explicar", "descrever", "interpretar", "resumir", "classificar", "comparar"],
+          "verbs_en": ["explain", "describe", "interpret", "summarize", "classify", "compare"],
+          "assessment": ["short_answers", "summaries", "paraphrasing"],
+          "layer_mapping": "layer_1"
+        },
+        {
+          "level": 3,
+          "name": "Aplicacao",
+          "description": "Use information in new situations",
+          "verbs_pt": ["aplicar", "demonstrar", "executar", "implementar", "resolver", "usar"],
+          "verbs_en": ["apply", "demonstrate", "execute", "implement", "solve", "use"],
+          "assessment": ["hands_on_exercises", "simulations", "case_studies"],
+          "layer_mapping": "layer_2"
+        },
+        {
+          "level": 4,
+          "name": "Analise",
+          "description": "Draw connections among ideas",
+          "verbs_pt": ["analisar", "comparar", "contrastar", "diferenciar", "organizar", "questionar"],
+          "verbs_en": ["analyze", "compare", "contrast", "differentiate", "organize", "question"],
+          "assessment": ["case_analysis", "debugging", "root_cause"],
+          "layer_mapping": "layer_2"
+        },
+        {
+          "level": 5,
+          "name": "Sintese",
+          "description": "Produce new or original work",
+          "verbs_pt": ["criar", "projetar", "desenvolver", "construir", "formular", "inventar"],
+          "verbs_en": ["create", "design", "develop", "build", "formulate", "invent"],
+          "assessment": ["projects", "portfolios", "original_solutions"],
+          "layer_mapping": "layer_3"
+        },
+        {
+          "level": 6,
+          "name": "Avaliacao",
+          "description": "Justify a stand or decision",
+          "verbs_pt": ["avaliar", "julgar", "criticar", "recomendar", "justificar", "priorizar"],
+          "verbs_en": ["evaluate", "judge", "critique", "recommend", "justify", "prioritize"],
+          "assessment": ["peer_review", "critique", "decision_making"],
+          "layer_mapping": "layer_3"
+        }
+      ]
+    },
+    "smart_objectives": {
+      "description": "Framework for writing measurable objectives",
+      "criteria": {
+        "specific": "Clear and well-defined",
+        "measurable": "Can be quantified or assessed",
+        "achievable": "Realistic within course constraints",
+        "relevant": "Aligned with course goals",
+        "time_bound": "Has a deadline or duration"
+      },
+      "template": "Ao final deste [modulo/aula], o aluno sera capaz de [VERBO] [OBJETO] [CRITERIO_MENSURAVEL]",
+      "examples": [
+        "Ao final deste modulo, o aluno sera capaz de CRIAR um prompt TAC-7 com todos os 7 elementos obrigatorios",
+        "Ao final desta aula, o aluno sera capaz de CONFIGURAR o checkout Hotmart com 3 metodos de pagamento",
+        "Ao final do curso, o aluno sera capaz de IMPLEMENTAR um agente completo usando o framework CODEXA"
+      ]
+    }
+  },
+  "instructional_design_models": {
+    "addie": {
+      "name": "ADDIE",
+      "description": "Classic instructional design model",
+      "phases": [
+        { "name": "Analysis", "activities": ["audience_analysis", "needs_assessment", "task_analysis"] },
+        { "name": "Design", "activities": ["learning_objectives", "content_outline", "assessment_strategy"] },
+        { "name": "Development", "activities": ["content_creation", "materials_production", "pilot_testing"] },
+        { "name": "Implementation", "activities": ["delivery", "facilitation", "learner_support"] },
+        { "name": "Evaluation", "activities": ["formative_assessment", "summative_assessment", "iteration"] }
+      ]
+    },
+    "backwards_design": {
+      "name": "Backwards Design (Understanding by Design)",
+      "description": "Start with desired outcomes, then design assessment and learning activities",
+      "stages": [
+        { "stage": 1, "name": "Identify Desired Results", "question": "What should students know and be able to do?" },
+        { "stage": 2, "name": "Determine Assessment Evidence", "question": "How will we know if students have achieved the desired results?" },
+        { "stage": 3, "name": "Plan Learning Experiences", "question": "What activities will help students achieve the desired results?" }
+      ]
+    },
+    "gagne_nine_events": {
+      "name": "Gagne's Nine Events of Instruction",
+      "events": [
+        { "event": 1, "name": "Gain Attention", "codexa_mapping": "Hook (<=90s)" },
+        { "event": 2, "name": "Inform Objectives", "codexa_mapping": "Learning objectives section" },
+        { "event": 3, "name": "Stimulate Recall", "codexa_mapping": "Prerequisites review" },
+        { "event": 4, "name": "Present Content", "codexa_mapping": "Core content with timing" },
+        { "event": 5, "name": "Provide Guidance", "codexa_mapping": "Step-by-step instructions" },
+        { "event": 6, "name": "Elicit Performance", "codexa_mapping": "Hands-on exercises" },
+        { "event": 7, "name": "Provide Feedback", "codexa_mapping": "Solution guides" },
+        { "event": 8, "name": "Assess Performance", "codexa_mapping": "Validation checklist" },
+        { "event": 9, "name": "Enhance Retention", "codexa_mapping": "Recap and CTA" }
+      ]
+    }
+  },
+  "content_patterns": {
+    "video_structure": {
+      "hook_pattern": {
+        "duration": "0:00-1:30",
+        "elements": [
+          { "time": "0:00-0:15", "element": "problem_statement", "description": "Pain point or provocative question" },
+          { "time": "0:15-0:45", "element": "transformation_promise", "description": "What they'll learn" },
+          { "time": "0:45-1:30", "element": "demo_teaser", "description": "Quick preview of result" }
+        ]
+      },
+      "core_pattern": {
+        "technique": "chunking",
+        "chunk_duration": "3-5 minutes",
+        "elements": ["concept_intro", "example", "application", "recap"],
+        "pattern_interrupt": "Every 3-4 minutes change visual (screen, camera, B-roll)"
+      },
+      "recap_pattern": {
+        "duration": "2-3 minutes",
+        "elements": ["key_points_summary", "action_item", "next_lesson_teaser"]
+      }
+    },
+    "exercise_types": {
+      "guided": {
+        "description": "Step-by-step with scaffolding",
+        "difficulty": "easy",
+        "layer": "layer_1",
+        "time": "10-15 minutes"
+      },
+      "semi_guided": {
+        "description": "Partial instructions, learner fills gaps",
+        "difficulty": "medium",
+        "layer": "layer_2",
+        "time": "15-25 minutes"
+      },
+      "independent": {
+        "description": "Problem statement only, learner designs solution",
+        "difficulty": "hard",
+        "layer": "layer_3",
+        "time": "30-45 minutes"
+      },
+      "challenge": {
+        "description": "Real-world scenario with constraints",
+        "difficulty": "expert",
+        "layer": "layer_3",
+        "time": "60+ minutes"
+      }
+    }
+  },
+  "assessment_patterns": {
+    "formative": {
+      "description": "During learning, for feedback",
+      "types": ["quizzes", "self_checks", "reflection_questions", "peer_discussion"]
+    },
+    "summative": {
+      "description": "End of module/course, for evaluation",
+      "types": ["final_project", "comprehensive_test", "portfolio", "certification_exam"]
+    },
+    "rubrics": {
+      "description": "Scoring criteria for assessments",
+      "template": {
+        "criteria": ["completeness", "accuracy", "application", "creativity"],
+        "levels": ["needs_improvement", "satisfactory", "proficient", "exemplary"],
+        "scores": [1, 2, 3, 4]
+      }
+    }
+  }
+}

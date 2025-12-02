@@ -1,0 +1,63 @@
+# CODEXA Agents Output Directory - Git Ignore Rules
+# Purpose: Track example outputs, ignore temporary test outputs
+
+# ==============================================================================
+# IGNORE: Temporary Test Outputs (ADW IDs)
+# ==============================================================================
+
+# Ignore all 8-char hex directories (ADW IDs like dd2b5962/, a1b2c3d4/, etc.)
+# These are temporary outputs generated during testing
+[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]/
+
+# Ignore loose output files in root
+/*.json
+/*.jsonl
+/*.txt
+/*.log
+
+# ==============================================================================
+# TRACK: Reference Examples
+# ==============================================================================
+
+# Force-track _examples directory (overrides patterns above)
+!_examples/
+!_examples/**
+
+# Track documentation
+!README.md
+!.gitignore
+
+# ==============================================================================
+# IGNORE: Editor/OS Files
+# ==============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ==============================================================================
+# Pattern Explanation
+# ==============================================================================
+#
+# This config ensures:
+# 1. Temporary ADW outputs (8-char hex IDs) are NOT committed
+# 2. Reference examples in _examples/ ARE committed
+# 3. Documentation (README.md) IS committed
+# 4. Loose files in root are NOT committed
+# 5. Editor/OS cruft is NOT committed
+#
+# Result:
+# - git status shows: agents/_examples/, agents/README.md, agents/.gitignore
+# - git status ignores: agents/dd2b5962/, agents/a1b2c3d4/, etc.

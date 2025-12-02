@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Curso Agent Input Schema",
+  "description": "Validation schema for curso_agent inputs - ensures all required parameters are provided",
+  "version": "2.5.0",
+  "type": "object",
+  "definitions": {
+    "layer_level": {
+      "type": "string",
+      "enum": ["layer_1", "layer_2", "layer_3", "layer_1_2", "layer_2_3", "layer_1_2_3"],
+      "description": "Pedagogical layer: 1=Conceito, 2=Pratica, 3=Mestria"
+    },
+    "output_format": {
+      "type": "string",
+      "enum": ["video_script", "workbook", "sales_copy", "email_sequence", "landing_page", "hotmart_package"],
+      "description": "Type of content to generate"
+    },
+    "duration_target": {
+      "type": "object",
+      "properties": {
+        "hours": { "type": "number", "minimum": 1, "maximum": 100 },
+        "mode": { "type": "string", "enum": ["compact", "standard", "comprehensive"] }
+      },
+      "required": ["hours"]
+    }
+  },
+  "properties": {
+    "command": {
+      "type": "string",
+      "enum": ["curso_outline", "curso_script", "curso_workbook", "curso_sales", "curso_validate", "curso_package"],
+      "description": "Slash command to execute"
+    },
+    "module_id": {
+      "type": "string",
+      "pattern": "^[0-6]$|^M[0-6]$",
+      "description": "Module identifier (0-6 or M0-M6)"
+    },
+    "layer": { "$ref": "#/definitions/layer_level" },
+    "output_format": { "$ref": "#/definitions/output_format" },
+    "duration": { "$ref": "#/definitions/duration_target" },
+    "audience": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced", "mixed"],
+      "default": "mixed"
+    },
+    "priority_outputs": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/output_format" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "open_variables": {
+      "type": "object",
+      "description": "Custom [OPEN_VARIABLE] values for template filling",
+      "additionalProperties": { "type": "string" }
+    },
+    "options": {
+      "type": "object",
+      "properties": {
+        "verbose": { "type": "boolean", "default": false },
+        "dry_run": { "type": "boolean", "default": false },
+        "validate": { "type": "boolean", "default": true },
+        "trinity_output": { "type": "boolean", "default": true }
+      }
+    }
+  },
+  "required": ["command"],
+  "allOf": [
+    {
+      "if": { "properties": { "command": { "const": "curso_script" } } },
+      "then": { "required": ["module_id"] }
+    },
+    {
+      "if": { "properties": { "command": { "const": "curso_workbook" } } },
+      "then": { "required": ["module_id"] }
+    },
+    {
+      "if": { "properties": { "command": { "const": "curso_outline" } } },
+      "then": { "required": ["layer", "duration"] }
+    }
+  ],
+  "examples": [
+    {
+      "command": "curso_outline",
+      "layer": "layer_1_2",
+      "duration": { "hours": 20, "mode": "standard" },
+      "audience": "beginner",
+      "priority_outputs": ["video_script", "workbook"]
+    },
+    {
+      "command": "curso_script",
+      "module_id": "01",
+      "layer": "layer_1",
+      "options": { "verbose": true, "trinity_output": true }
+    },
+    {
+      "command": "curso_sales",
+      "open_variables": {
+        "PRECO": "497",
+        "GARANTIA_DIAS": "30",
+        "TARGET_PERSONA": "Empreendedores digitais"
+      }
+    }
+  ]
+}

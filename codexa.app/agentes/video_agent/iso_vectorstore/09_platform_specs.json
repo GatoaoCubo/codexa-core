@@ -1,0 +1,210 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "platform_specs.json",
+  "title": "Video Platform Specifications",
+  "description": "Consolidated specs for all AI video generation platforms",
+  "version": "2.5.0",
+
+  "platforms": {
+    "veo3": {
+      "name": "Google Veo 3",
+      "provider": "Google",
+      "max_duration_s": 8,
+      "resolution": "1080p",
+      "native_audio": true,
+      "strengths": ["photorealism", "dialogue", "audio"],
+      "prompt_structure": "[Camera movement]: [Scene]. [Subject]. [Action]. [Lighting]. [Style]. [Audio].",
+      "special_features": {
+        "json_prompting": true,
+        "dialogue": "Character says: \"[text]\" (no subtitles)",
+        "audio_generation": true
+      },
+      "cost_per_second_usd": "variable",
+      "best_for": ["dialogue scenes", "realistic content", "audio-first videos"],
+      "detailed_docs": "knowledge/platforms/veo3.md"
+    },
+
+    "sora2": {
+      "name": "OpenAI Sora 2",
+      "provider": "OpenAI",
+      "max_duration_s": 20,
+      "resolution": "1080p",
+      "native_audio": true,
+      "strengths": ["cinematography", "narrative", "physics"],
+      "prompt_structure": "LOOK: [style]\nCAMERA: [lens, movement]\nLIGHTING: [setup]\nSOUNDSCAPE: [audio]\nACTION: [subject]",
+      "special_features": {
+        "storyboard_mode": true,
+        "physics_descriptions": "improve realism",
+        "long_form": true
+      },
+      "cost_per_second_usd": "variable",
+      "best_for": ["cinematic content", "complex motion", "narrative videos"],
+      "detailed_docs": "knowledge/platforms/sora2.md"
+    },
+
+    "kling": {
+      "name": "Kling 1.6",
+      "provider": "Kuaishou",
+      "max_duration_s": 5,
+      "resolution": "1080p",
+      "native_audio": false,
+      "strengths": ["cost-efficiency", "human animation", "fast"],
+      "prompt_structure": "[Subject], [description], [movement], [scene]. [Camera, lighting, atmosphere].",
+      "special_features": {
+        "motion_blur": true,
+        "fps_60": true,
+        "cfg_scale": 0.75
+      },
+      "cost_per_second_usd": "variable",
+      "best_for": ["budget-conscious", "human animation", "quick iterations"],
+      "detailed_docs": "knowledge/platforms/kling.md"
+    },
+
+    "hailuo": {
+      "name": "Hailuo MiniMax-01",
+      "provider": "MiniMax",
+      "max_duration_s": 6,
+      "resolution": "768p",
+      "native_audio": false,
+      "strengths": ["speed", "VFX", "dynamic movement"],
+      "prompt_structure": "[Camera Shot + Motion] + [Subject] + [Action] + [Scene] + [Lighting] + [Style/Mood]",
+      "special_features": {
+        "emphasis_markers": "((element)) for priority",
+        "vfx_support": true,
+        "fast_generation": true
+      },
+      "cost_per_second_usd": "variable",
+      "best_for": ["VFX-heavy", "dynamic movement", "quick turnaround"],
+      "detailed_docs": "knowledge/platforms/hailuo.md"
+    },
+
+    "runway": {
+      "name": "Runway Gen-3 Alpha Turbo",
+      "provider": "Runway",
+      "max_duration_s": 10,
+      "resolution": "1080p",
+      "native_audio": false,
+      "strengths": ["iteration", "camera control", "reliability"],
+      "prompt_structure": "[camera movement]: [establishing scene]. [additional details].",
+      "special_features": {
+        "camera_control": true,
+        "turbo_mode": true,
+        "simple_structure": true
+      },
+      "cost_per_second_usd": 0.05,
+      "best_for": ["fast iteration", "camera control", "reliable output"],
+      "detailed_docs": "knowledge/platforms/runway.md"
+    },
+
+    "pika": {
+      "name": "Pika 2.0",
+      "provider": "Pika Labs",
+      "max_duration_s": 8,
+      "resolution": "1080p",
+      "native_audio": false,
+      "strengths": ["effects", "transformations", "cost-effective"],
+      "prompt_structure": "[Style] + [Subject] + [Action] + [Environment] + [Lighting] + [Camera]",
+      "special_features": {
+        "pikadditions": true,
+        "pikaswaps": true,
+        "camera_flag": "--camera [movement]"
+      },
+      "cost_per_second_usd": 0.03,
+      "best_for": ["effects", "transformations", "fallback option"],
+      "detailed_docs": "knowledge/platforms/pika.md"
+    }
+  },
+
+  "social_platforms": {
+    "instagram_reels": {
+      "format": "9:16",
+      "resolution": "1080x1920",
+      "max_duration_s": 90,
+      "optimal_duration_s": [15, 30, 60],
+      "safe_zones": {
+        "top": "5%",
+        "bottom": "20%",
+        "sides": "5%"
+      },
+      "auto_captions": true,
+      "sound_on_default": false
+    },
+
+    "tiktok": {
+      "format": "9:16",
+      "resolution": "1080x1920",
+      "max_duration_s": 180,
+      "optimal_duration_s": [15, 30, 60],
+      "safe_zones": {
+        "top": "10%",
+        "bottom": "25%",
+        "sides": "5%"
+      },
+      "auto_captions": true,
+      "sound_on_default": true
+    },
+
+    "youtube_shorts": {
+      "format": "9:16",
+      "resolution": "1080x1920",
+      "max_duration_s": 60,
+      "optimal_duration_s": [15, 30, 60],
+      "safe_zones": {
+        "top": "5%",
+        "bottom": "15%",
+        "sides": "5%"
+      },
+      "auto_captions": true,
+      "sound_on_default": true
+    },
+
+    "youtube": {
+      "format": "16:9",
+      "resolution": "1920x1080",
+      "max_duration_s": null,
+      "optimal_duration_s": [30, 60, 120],
+      "safe_zones": {
+        "all": "5%"
+      },
+      "auto_captions": true,
+      "sound_on_default": true
+    },
+
+    "facebook_feed": {
+      "format": "1:1",
+      "resolution": "1080x1080",
+      "max_duration_s": 240,
+      "optimal_duration_s": [15, 30],
+      "safe_zones": {
+        "all": "5%"
+      },
+      "auto_captions": true,
+      "sound_on_default": false
+    }
+  },
+
+  "platform_selection_logic": {
+    "by_requirement": {
+      "dialogue": "veo3",
+      "cinematographic": "sora2",
+      "budget_conscious": "kling",
+      "vfx_heavy": "hailuo",
+      "needs_iteration": "runway",
+      "transformations": "pika"
+    },
+    "fallback_chain": ["runway", "pika", "templates"],
+    "default": "runway"
+  },
+
+  "comparison_matrix": {
+    "headers": ["Platform", "Max Duration", "Audio", "Best For", "Cost"],
+    "rows": [
+      ["Veo 3", "8s", "Yes", "Dialogue", "Variable"],
+      ["Sora 2", "20s", "Yes", "Cinema", "Variable"],
+      ["Kling", "5s", "No", "Value", "Low"],
+      ["Hailuo", "6s", "No", "VFX", "Low"],
+      ["Runway", "10s", "No", "Iteration", "$0.05/s"],
+      ["Pika", "8s", "No", "Effects", "$0.03/s"]
+    ]
+  }
+}

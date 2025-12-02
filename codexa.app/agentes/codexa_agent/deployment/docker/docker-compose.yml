@@ -1,0 +1,93 @@
+# CODEXA Agent - Docker Compose Configuration
+# Version: 3.1.0
+
+version: '3.8'
+
+services:
+  # Main CODEXA Agent service
+  codexa-agent:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+      target: production
+    container_name: codexa-agent
+    restart: unless-stopped
+    env_file:
+      - ../../.env
+    environment:
+      - CODEXA_ENV=production
+      - CODEXA_LOG_LEVEL=INFO
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    volumes:
+      - codexa-logs:/app/logs
+      - codexa-outputs:/app/outputs
+      - codexa-artifacts:/app/artifacts
+    networks:
+      - codexa-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Development service
+  codexa-dev:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+      target: development
+    container_name: codexa-dev
+    profiles:
+      - dev
+    env_file:
+      - ../../.env
+    environment:
+      - CODEXA_ENV=development
+      - CODEXA_LOG_LEVEL=DEBUG
+    volumes:
+      - ../../src:/app/src:ro
+      - ../../tests:/app/tests:ro
+      - ../../agents:/app/agents:ro
+      - ../../prompts:/app/prompts:ro
+      - codexa-dev-outputs:/app/outputs
+    networks:
+      - codexa-network
+
+  # Test runner service
+  codexa-test:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+      target: development
+    container_name: codexa-test
+    profiles:
+      - test
+    command: ["python", "-m", "pytest", "tests/", "-v", "--cov=src", "--cov-report=term-missing"]
+    environment:
+      - CODEXA_ENV=test
+      - CODEXA_LOG_LEVEL=DEBUG
+    volumes:
+      - ../../src:/app/src:ro
+      - ../../tests:/app/tests:ro
+      - test-results:/app/test-results
+    networks:
+      - codexa-network
+
+volumes:
+  codexa-logs:
+    driver: local
+  codexa-outputs:
+    driver: local
+  codexa-artifacts:
+    driver: local
+  codexa-dev-outputs:
+    driver: local
+  test-results:
+    driver: local
+
+networks:
+  codexa-network:
+    driver: bridge

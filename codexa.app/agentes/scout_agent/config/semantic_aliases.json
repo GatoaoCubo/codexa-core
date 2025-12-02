@@ -1,0 +1,139 @@
+{
+  "version": "1.0.0",
+  "description": "Semantic aliases for intelligent query expansion and intent detection",
+
+  "agent_aliases": {
+    "anuncio_agent": {
+      "pt": ["anúncio", "anuncio", "produto", "marketplace", "listagem", "venda", "mercado livre", "shopee", "amazon"],
+      "en": ["ad", "advertisement", "listing", "product", "sell", "marketplace"],
+      "keywords": ["título", "title", "descrição", "description", "preço", "price", "ficha técnica"]
+    },
+    "pesquisa_agent": {
+      "pt": ["pesquisa", "pesquisar", "investigar", "análise", "mercado", "concorrência", "benchmark"],
+      "en": ["research", "investigate", "analysis", "market", "competition", "benchmark"],
+      "keywords": ["dados", "data", "insights", "tendências", "trends"]
+    },
+    "codexa_agent": {
+      "pt": ["código", "programar", "desenvolver", "criar agente", "construir", "meta"],
+      "en": ["code", "program", "develop", "build", "agent", "meta", "constructor"],
+      "keywords": ["python", "javascript", "prompt", "hop", "adw"]
+    },
+    "photo_agent": {
+      "pt": ["foto", "fotografia", "imagem", "visual", "editar foto", "mockup"],
+      "en": ["photo", "photography", "image", "visual", "edit", "mockup"],
+      "keywords": ["fundo", "background", "composição", "lifestyle"]
+    },
+    "video_agent": {
+      "pt": ["vídeo", "video", "gravar", "editar vídeo", "cortar", "montar"],
+      "en": ["video", "record", "edit", "cut", "montage"],
+      "keywords": ["shorts", "reels", "tiktok", "youtube"]
+    },
+    "voice_agent": {
+      "pt": ["voz", "áudio", "falar", "ouvir", "transcrever", "narrar"],
+      "en": ["voice", "audio", "speak", "listen", "transcribe", "narrate"],
+      "keywords": ["tts", "stt", "speech", "microfone"]
+    },
+    "mentor_agent": {
+      "pt": ["mentor", "ensinar", "aprender", "curso", "aula", "tutorial"],
+      "en": ["mentor", "teach", "learn", "course", "lesson", "tutorial"],
+      "keywords": ["didática", "explicar", "exemplo"]
+    },
+    "curso_agent": {
+      "pt": ["curso", "aula", "módulo", "lição", "treinamento"],
+      "en": ["course", "class", "module", "lesson", "training"],
+      "keywords": ["conteúdo", "educação", "ensino"]
+    },
+    "marca_agent": {
+      "pt": ["marca", "branding", "identidade", "logo", "visual"],
+      "en": ["brand", "branding", "identity", "logo", "visual"],
+      "keywords": ["cores", "tipografia", "estilo"]
+    },
+    "scout_agent": {
+      "pt": ["scout", "buscar", "encontrar", "navegar", "índice", "arquivos"],
+      "en": ["scout", "search", "find", "navigate", "index", "files"],
+      "keywords": ["path", "discover", "caminhos"]
+    },
+    "qa_gato3_agent": {
+      "pt": ["qa", "teste", "qualidade", "verificar", "validar"],
+      "en": ["qa", "test", "quality", "verify", "validate"],
+      "keywords": ["bug", "erro", "correção"]
+    },
+    "ronronalda_agent": {
+      "pt": ["ronronalda", "gato", "mascote", "personagem"],
+      "en": ["ronronalda", "cat", "mascot", "character"],
+      "keywords": ["personalidade", "tom", "voz"]
+    }
+  },
+
+  "intent_patterns": {
+    "create": {
+      "pt": ["criar", "gerar", "fazer", "produzir", "construir", "montar", "elaborar", "desenvolver"],
+      "en": ["create", "generate", "make", "produce", "build", "construct", "develop"],
+      "priority": 1.0
+    },
+    "edit": {
+      "pt": ["editar", "modificar", "alterar", "mudar", "atualizar", "corrigir", "ajustar"],
+      "en": ["edit", "modify", "change", "update", "fix", "adjust"],
+      "priority": 0.9
+    },
+    "analyze": {
+      "pt": ["analisar", "avaliar", "examinar", "investigar", "estudar", "revisar"],
+      "en": ["analyze", "evaluate", "examine", "investigate", "study", "review"],
+      "priority": 0.8
+    },
+    "find": {
+      "pt": ["encontrar", "buscar", "procurar", "localizar", "achar", "onde"],
+      "en": ["find", "search", "look", "locate", "where"],
+      "priority": 0.7
+    },
+    "understand": {
+      "pt": ["entender", "compreender", "explicar", "como", "o que", "por que"],
+      "en": ["understand", "comprehend", "explain", "how", "what", "why"],
+      "priority": 0.6
+    },
+    "configure": {
+      "pt": ["configurar", "setup", "instalar", "preparar", "inicializar"],
+      "en": ["configure", "setup", "install", "prepare", "initialize"],
+      "priority": 0.7
+    },
+    "debug": {
+      "pt": ["debug", "debugar", "erro", "bug", "problema", "falha", "não funciona"],
+      "en": ["debug", "error", "bug", "problem", "fail", "not working", "broken"],
+      "priority": 0.9
+    },
+    "optimize": {
+      "pt": ["otimizar", "melhorar", "aprimorar", "acelerar", "performance"],
+      "en": ["optimize", "improve", "enhance", "speed", "performance"],
+      "priority": 0.8
+    }
+  },
+
+  "category_aliases": {
+    "prime": ["entrada", "entry", "início", "start", "principal", "main"],
+    "hop": ["prompt", "higher order", "módulo", "module"],
+    "adw": ["workflow", "fluxo", "automação", "automation"],
+    "config": ["configuração", "settings", "parâmetros", "parameters"],
+    "schema": ["esquema", "validação", "validation", "estrutura", "structure"],
+    "builder": ["construtor", "gerador", "generator"],
+    "validator": ["validador", "checagem", "check", "verificação"],
+    "template": ["modelo", "padrão", "pattern"]
+  },
+
+  "task_to_files": {
+    "criar anúncio": {
+      "must_read": ["anuncio_agent/PRIME.md", "anuncio_agent/INSTRUCTIONS.md"],
+      "then_read": ["anuncio_agent/iso_vectorstore/06_input_schema.json"],
+      "execute": ["anuncio_agent/iso_vectorstore/13_HOP_main_agent.md"]
+    },
+    "pesquisar produto": {
+      "must_read": ["pesquisa_agent/PRIME.md"],
+      "then_read": ["pesquisa_agent/iso_vectorstore/06_input_schema.json"],
+      "execute": ["pesquisa_agent/iso_vectorstore/13_HOP_main_agent.md"]
+    },
+    "criar agente": {
+      "must_read": ["codexa_agent/PRIME.md", "_templates/"],
+      "then_read": ["codexa_agent/ARCHITECTURE.md"],
+      "execute": ["codexa_agent/builders/"]
+    }
+  }
+}

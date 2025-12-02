@@ -1,0 +1,301 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Photography Style Presets",
+  "description": "Professional photography style configurations for photo_agent",
+  "version": "1.0.0",
+
+  "styles": {
+    "minimalist": {
+      "name": "Minimalist",
+      "description": "Clean backgrounds, soft lighting, muted colors, negative space emphasis",
+      "default_camera": "50mm_f8",
+      "default_lighting": "high-key",
+      "background_preference": "white_light_gray_pastels",
+      "color_palette": "muted_desaturated_monochromatic",
+      "composition_style": "centered_rule_of_thirds_negative_space",
+      "mood": "clean_simple_elegant",
+      "typical_use_cases": [
+        "skincare_products",
+        "home_decor",
+        "stationery",
+        "minimal_tech",
+        "wellness"
+      ],
+      "lighting_details": {
+        "key_light": "softbox_diffused_frontal",
+        "fill_light": "-0.5EV_subtle",
+        "rim_light": "minimal_or_none",
+        "temperature": "5200K_neutral",
+        "shadows": "soft_minimal"
+      },
+      "background_colors": [
+        "#FFFFFF",
+        "#F5F5F5",
+        "#F0F0F0",
+        "#E8E8E8",
+        "#FAF9F6",
+        "#F5F5DC"
+      ],
+      "aperture_range": "f/8_to_f/11",
+      "depth_of_field": "deep_full_focus",
+      "pnl_trigger_affinity": ["clareza", "calma", "conforto"]
+    },
+
+    "dramatic": {
+      "name": "Dramatic",
+      "description": "Low-key lighting, high contrast, bold compositions, atmospheric effects",
+      "default_camera": "85mm_f4",
+      "default_lighting": "low-key",
+      "background_preference": "dark_textured_atmospheric",
+      "color_palette": "rich_saturated_cinematic",
+      "composition_style": "diagonal_asymmetric_bold",
+      "mood": "intense_moody_powerful",
+      "typical_use_cases": [
+        "luxury_goods",
+        "automotive",
+        "fashion_editorial",
+        "spirits_alcohol",
+        "watches_jewelry"
+      ],
+      "lighting_details": {
+        "key_light": "hard_focused_lateral_60_90_degrees",
+        "fill_light": "none_or_minus_3EV",
+        "rim_light": "strong_separation",
+        "temperature": "variable_2800K_to_6500K",
+        "shadows": "deep_dramatic_high_contrast"
+      },
+      "background_colors": [
+        "#000000",
+        "#1A1A1A",
+        "#2C2C2C",
+        "#3D3D3D",
+        "#4A4A4A"
+      ],
+      "aperture_range": "f/2.8_to_f/5.6",
+      "depth_of_field": "shallow_to_moderate",
+      "atmospheric_effects": [
+        "fog",
+        "smoke",
+        "volumetric_light",
+        "lens_flare_controlled"
+      ],
+      "pnl_trigger_affinity": ["desejo", "exclusividade", "urgência"]
+    },
+
+    "lifestyle": {
+      "name": "Lifestyle",
+      "description": "Natural light, real-world contexts, warm tones, candid moments",
+      "default_camera": "85mm_f4",
+      "default_lighting": "natural_golden_hour",
+      "background_preference": "real_world_contexts",
+      "color_palette": "warm_natural_authentic",
+      "composition_style": "candid_authentic_storytelling",
+      "mood": "warm_relatable_human",
+      "typical_use_cases": [
+        "consumer_products",
+        "food_beverage",
+        "wellness_fitness",
+        "apparel_fashion",
+        "home_living"
+      ],
+      "lighting_details": {
+        "key_light": "window_natural_soft_directional",
+        "fill_light": "ambient_bounce_natural",
+        "rim_light": "natural_backlight_optional",
+        "temperature": "2800K_to_4000K_warm",
+        "shadows": "soft_natural_golden_hour"
+      },
+      "background_contexts": [
+        "modern_apartment",
+        "rustic_kitchen",
+        "outdoor_park",
+        "cozy_bedroom",
+        "minimalist_office",
+        "cafe_setting"
+      ],
+      "aperture_range": "f/2.8_to_f/5.6",
+      "depth_of_field": "shallow_bokeh_background",
+      "color_grading": "warm_film_like_natural",
+      "pnl_trigger_affinity": ["pertencimento", "conforto", "prazer"]
+    },
+
+    "editorial": {
+      "name": "Editorial",
+      "description": "Studio precision, magazine-quality, neutral grading, balanced composition",
+      "default_camera": "85mm_f56",
+      "default_lighting": "3-point_classic",
+      "background_preference": "studio_controlled_neutral",
+      "color_palette": "neutral_accurate_balanced",
+      "composition_style": "magazine_quality_balanced_professional",
+      "mood": "professional_polished_refined",
+      "typical_use_cases": [
+        "fashion_magazine",
+        "beauty_cosmetics",
+        "professional_gear",
+        "portrait_headshots",
+        "product_catalog"
+      ],
+      "lighting_details": {
+        "key_light": "45_degrees_main_source",
+        "fill_light": "-1.5EV_shadow_recovery",
+        "rim_light": "subtle_edge_separation",
+        "temperature": "5200K_neutral_daylight",
+        "shadows": "controlled_gradient_smooth"
+      },
+      "background_colors": [
+        "#FFFFFF",
+        "#F0F0F0",
+        "#C0C0C0",
+        "#808080",
+        "#E5E5E5"
+      ],
+      "aperture_range": "f/5.6_to_f/8",
+      "depth_of_field": "moderate_balanced",
+      "quality_standards": "magazine_print_ready",
+      "pnl_trigger_affinity": ["confiança", "clareza"]
+    },
+
+    "commercial": {
+      "name": "Commercial",
+      "description": "Product hero focus, high-key lighting, brand integration, marketplace compliant",
+      "default_camera": "50mm_f8",
+      "default_lighting": "high-key_commercial",
+      "background_preference": "pure_white_brand_colors",
+      "color_palette": "brand_palette_optimized",
+      "composition_style": "hero_centered_product_dominant",
+      "mood": "clean_optimistic_trustworthy",
+      "typical_use_cases": [
+        "ecommerce_listings",
+        "marketplace_ads",
+        "product_catalog",
+        "brand_campaigns",
+        "advertising"
+      ],
+      "lighting_details": {
+        "key_light": "softbox_frontal_even",
+        "fill_light": "-1EV_shadow_elimination",
+        "rim_light": "subtle_clean_separation",
+        "temperature": "5400K_neutral_bright",
+        "shadows": "minimal_soft_uniform"
+      },
+      "background_colors": [
+        "#FFFFFF",
+        "#FFFEF9",
+        "#F8F8F8"
+      ],
+      "aperture_range": "f/8_to_f/11",
+      "depth_of_field": "deep_full_product_focus",
+      "compliance": {
+        "marketplace_ready": true,
+        "white_background_scenes": [1, 9],
+        "no_watermarks": true,
+        "no_text_overlay": true,
+        "no_third_party_logos": true
+      },
+      "marketplace_compliance_defaults": {
+        "mercadolivre": {
+          "min_resolution": "2000x2000px",
+          "recommended_resolution": "2400x2400px",
+          "format": "jpg_or_png",
+          "background_scenes_1_9": "#FFFFFF",
+          "fidelity_weight": 5,
+          "no_text_overlay": true,
+          "no_watermarks": true,
+          "no_third_party_logos": true
+        },
+        "shopee": {
+          "min_resolution": "1800x1800px",
+          "aspect_ratios": ["1:1", "3:4"],
+          "background_preference": "#FFFFFF",
+          "fidelity_weight": 5
+        }
+      },
+      "pnl_trigger_affinity": ["clareza", "segurança", "confiança"]
+    },
+
+    "cinematic": {
+      "name": "Cinematic",
+      "description": "Film-like quality, widescreen composition, color grading, narrative feel",
+      "default_camera": "35mm_f28",
+      "default_lighting": "natural_motivated",
+      "background_preference": "environmental_storytelling",
+      "color_palette": "film_graded_teal_orange",
+      "composition_style": "widescreen_narrative_dynamic",
+      "mood": "cinematic_epic_emotional",
+      "typical_use_cases": [
+        "brand_storytelling",
+        "video_stills",
+        "campaigns",
+        "concept_art",
+        "hero_shots"
+      ],
+      "lighting_details": {
+        "key_light": "motivated_source_natural_direction",
+        "fill_light": "ambient_bounce_realistic",
+        "rim_light": "strong_edge_light_separation",
+        "temperature": "variable_mood_dependent",
+        "shadows": "natural_motivated_dramatic"
+      },
+      "color_grading": {
+        "highlights": "warm_orange_2800K",
+        "shadows": "cool_teal_7000K",
+        "midtones": "balanced_5500K",
+        "saturation": "moderate_film_like",
+        "contrast": "S_curve_filmic"
+      },
+      "aperture_range": "f/2.8_to_f/4",
+      "depth_of_field": "shallow_cinematic_bokeh",
+      "aspect_ratio_preference": "2.39:1_widescreen",
+      "pnl_trigger_affinity": ["transformação", "desejo"]
+    },
+
+    "vintage": {
+      "name": "Vintage",
+      "description": "Retro aesthetic, film grain, warm nostalgic tones, classic composition",
+      "default_camera": "50mm_f4",
+      "default_lighting": "soft_natural_vintage",
+      "background_preference": "textured_aged_nostalgic",
+      "color_palette": "warm_faded_nostalgic",
+      "composition_style": "classic_centered_balanced",
+      "mood": "nostalgic_warm_timeless",
+      "typical_use_cases": [
+        "heritage_brands",
+        "artisanal_products",
+        "retro_campaigns",
+        "analog_aesthetic",
+        "vintage_fashion"
+      ],
+      "lighting_details": {
+        "key_light": "soft_window_natural",
+        "fill_light": "ambient_gentle",
+        "rim_light": "minimal_soft_halo",
+        "temperature": "3200K_to_4000K_warm",
+        "shadows": "soft_lifted_low_contrast"
+      },
+      "color_grading": {
+        "highlights": "slightly_blown_dreamy",
+        "shadows": "lifted_faded",
+        "saturation": "desaturated_pastel",
+        "tint": "warm_sepia_or_cool_cyan"
+      },
+      "texture_effects": [
+        "film_grain_medium",
+        "vignette_subtle",
+        "light_leaks_optional",
+        "halation_glow"
+      ],
+      "aperture_range": "f/2.8_to_f/5.6",
+      "depth_of_field": "moderate_dreamy",
+      "pnl_trigger_affinity": ["pertencimento", "calma"]
+    }
+  },
+
+  "metadata": {
+    "total_styles": 7,
+    "default_style": "editorial",
+    "recommended_for_beginners": "editorial",
+    "most_versatile": "lifestyle",
+    "marketplace_optimized": "commercial",
+    "artistic_freedom": "dramatic"
+  }
+}

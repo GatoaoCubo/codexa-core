@@ -1,0 +1,20 @@
+{
+  "workflow_id": "adw_run_anuncio_20251129",
+  "product_name": "Cama Suspensa Janela para Gatos Ventosas 55x39cm Bege 15kg GATO3",
+  "marketplace_type": "MERCADO_LIVRE",
+  "product_type": "PHYSICAL_PRODUCT",
+  "quality_score": 0.88,
+  "execution_time_minutes": 3,
+  "titles": [
+    {"text": "Cama Janela Gato Suspensa Ventosas 15kg Rede Pet Descanso", "char_count": 57, "keyword_count": 8, "density": 0.82, "score": 0.87, "variant": "A", "focus": "equilibrado"},
+    {"text": "Cama Suspensa Janela Gato Ventosas Rede Observacao GATO3", "char_count": 56, "keyword_count": 8, "density": 0.80, "score": 0.86, "variant": "B", "focus": "emocional"},
+    {"text": "Cama Gato Janela Ventosas 55x39cm Suspensa 15kg Resistente", "char_count": 58, "keyword_count": 8, "density": 0.78, "score": 0.85, "variant": "C", "focus": "tecnico"}
+  ],
+  "keywords": {"block_a": {"name": "Atributos", "count": 117}, "block_b": {"name": "Beneficios", "count": 116}, "coverage_score": {"head_terms": 0.92, "longtails": 0.88, "total_unique_keywords": 233}},
+  "description": {"word_count": 3378, "keyword_density": 0.040, "readability_score": 69, "sections": ["Hook", "Solucao", "Ventosas", "Observacao", "Altura", "Instalacao", "Tecido", "Espaco", "Descanso", "Estrutura", "Comportamento", "Garantia", "CTA"], "storybrand_elements": 7},
+  "bullets": {"count": 10, "avg_chars": 195},
+  "visual_assets": {"status": "quick_mode_skipped"},
+  "qa_report": {"aggregate_score": 0.88, "validation_checks_passed": 11, "validation_checks_total": 11, "compliance_validation": {"passed": true}},
+  "strategic_brief": {"product_name": "Cama Janela GATO3", "dimensions": "55x39cm", "capacity": "15kg", "price_gato3": 43.90, "competitor_range": "R$42-319", "main_competitor": "Cama Janela Pet (R$42,90, +5mil vendidos, 4.2 stars)", "differentiation": "capacidade 15kg"},
+  "metadata": {"workflow_version": "2.5.0", "generator": "CodeXAnuncio v2.5.0", "generated_at": "2025-11-29T11:55:00Z", "plan": "quick_anuncio", "status": "production_ready"}
+}

@@ -1,0 +1,34 @@
+{
+  "plans": {
+    "standard_research": {
+      "id": "standard_research",
+      "name": "Complete Market Research",
+      "duration": "20-30 min",
+      "phases": [
+        { "id": 1, "name": "Discovery", "doc": "14_HOP_intake_validation.md", "duration": "2min" },
+        { "id": 2, "name": "Query Bank", "doc": "13_HOP_main_agent.md", "duration": "3min" },
+        { "id": 3, "name": "Inbound Search", "doc": "15_HOP_competitor_analysis.md", "duration": "8min" },
+        { "id": 4, "name": "Outbound Search", "doc": "19_HOP_sentiment_analysis.md", "duration": "8min" },
+        { "id": 5, "name": "Competitor Analysis", "doc": "15_HOP_competitor_analysis.md", "duration": "6min" },
+        { "id": 6, "name": "SEO Taxonomy", "doc": "16_HOP_gap_identification.md", "duration": "4min" },
+        { "id": 7, "name": "Compliance", "doc": "17_HOP_image_analysis.md", "duration": "3min" },
+        { "id": 8, "name": "Synthesis", "doc": "18_HOP_price_comparison.md", "duration": "3min" },
+        { "id": 9, "name": "Validation", "doc": "20_HOP_qa_validation.md", "duration": "2min" }
+      ],
+      "output_blocks": 22
+    },
+    "quick_competitor": {
+      "id": "quick_competitor",
+      "name": "Quick Competitor Benchmark",
+      "duration": "10-15 min",
+      "phases": [
+        { "id": 1, "name": "Discovery", "doc": "14_HOP_intake_validation.md", "duration": "2min" },
+        { "id": 2, "name": "Competitor Search", "doc": "15_HOP_competitor_analysis.md", "duration": "5min" },
+        { "id": 3, "name": "Price Analysis", "doc": "18_HOP_price_comparison.md", "duration": "3min" },
+        { "id": 4, "name": "Validation", "doc": "20_HOP_qa_validation.md", "duration": "2min" }
+      ],
+      "output_blocks": 8
+    }
+  },
+  "default_plan": "standard_research"
+}

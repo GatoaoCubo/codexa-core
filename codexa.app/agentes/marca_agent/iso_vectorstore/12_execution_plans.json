@@ -1,0 +1,339 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "marca_agent_execution_plans",
+  "description": "Execution plans for marca_agent workflows",
+  "version": "3.0.0",
+  "plans": {
+    "full_brand_strategy": {
+      "plan_id": "full_brand_strategy_v250",
+      "name": "Full Brand Strategy",
+      "description": "Complete 5-phase brand strategy creation",
+      "duration_estimate": "15-20 minutes",
+      "output_completeness": "100%",
+      "phases": 5,
+      "output_blocks": 32,
+      "recommended_for": [
+        "New brand from scratch",
+        "Complete brand identity needed",
+        "Production-ready brand strategy"
+      ],
+      "execution": {
+        "phase_1_plan": {
+          "duration": "2-3 min",
+          "actions": [
+            "Load context (01-03 files)",
+            "Validate brief (06_input_schema.json)",
+            "Configure thresholds",
+            "Load methodology (08-10 files)"
+          ],
+          "output": "$validated_brief",
+          "gate": "Brief complete, mode selected"
+        },
+        "phase_2_build": {
+          "duration": "8-12 min",
+          "actions": [
+            "Generate brand identity (blocks 1-5)",
+            "Create positioning (blocks 6-10)",
+            "Define tone of voice (blocks 11-15)",
+            "Design visual identity (blocks 16-19)",
+            "Write brand narrative (blocks 20-24)",
+            "Create guidelines (blocks 25-28)"
+          ],
+          "output": "$brand_elements (28 blocks)",
+          "gate": "All blocks generated, constraints met"
+        },
+        "phase_3_test": {
+          "duration": "2-3 min",
+          "actions": [
+            "Run Brand Fingerprint System",
+            "Calculate consistency score",
+            "Validate WCAG compliance",
+            "Check archetype alignment",
+            "Verify seed words"
+          ],
+          "output": "$validation_results",
+          "gate": "Consistency >= 0.85, Uniqueness >= 8.0"
+        },
+        "phase_4_review": {
+          "duration": "1-2 min",
+          "actions": [
+            "Run 8 quality gates",
+            "Validate compliance",
+            "Generate competitive audit (blocks 29-32)"
+          ],
+          "output": "$review_results",
+          "gate": "8/8 gates PASS"
+        },
+        "phase_5_document": {
+          "duration": "1-2 min",
+          "actions": [
+            "Format using 07_output_template.md",
+            "Generate Trinity output",
+            "Save to USER_DOCS/Marca/"
+          ],
+          "output": "Trinity files (.md + .llm.json + .meta.json)",
+          "gate": "All files valid"
+        }
+      },
+      "quality_thresholds": {
+        "consistency_score": 0.85,
+        "uniqueness_score": 8.0,
+        "wcag_level": "AA",
+        "wcag_pairs_min": 2,
+        "seed_words_min": 2,
+        "tone_consistency_percent": 95,
+        "gates_required": 8
+      },
+      "output_structure": {
+        "section_1_identity": ["names", "taglines", "archetype", "traits", "essence"],
+        "section_2_positioning": ["uvp", "target", "differentiation", "promise", "statement"],
+        "section_3_tone": ["dimensions", "style", "dos", "donts", "phrases"],
+        "section_4_visual": ["colors", "typography", "mood_prompts", "guidelines"],
+        "section_5_narrative": ["origin", "mission", "vision", "values", "manifesto"],
+        "section_6_guidelines": ["dos_extended", "donts_extended", "compliance", "checklist"],
+        "section_7_validation": ["consistency", "uniqueness", "audit", "integration"]
+      }
+    },
+    "quick_positioning": {
+      "plan_id": "quick_positioning_v250",
+      "name": "Quick Positioning",
+      "description": "Fast 3-phase positioning and identity creation",
+      "duration_estimate": "8-12 minutes",
+      "output_completeness": "60%",
+      "phases": 3,
+      "output_blocks": 19,
+      "recommended_for": [
+        "Initial brand exploration",
+        "Quick positioning validation",
+        "Iterative brand development",
+        "Client presentation drafts"
+      ],
+      "execution": {
+        "phase_1_plan": {
+          "duration": "1-2 min",
+          "actions": [
+            "Load essential context (02_PRIME.md)",
+            "Quick brief validation",
+            "Set basic thresholds"
+          ],
+          "output": "$validated_brief",
+          "gate": "Required fields present"
+        },
+        "phase_2_build": {
+          "duration": "5-8 min",
+          "actions": [
+            "Generate brand identity (blocks 1-5)",
+            "Create positioning (blocks 6-10)",
+            "Define tone of voice (blocks 11-15)",
+            "Basic visual identity (blocks 16-19)"
+          ],
+          "output": "$brand_elements (19 blocks)",
+          "gate": "Core blocks generated"
+        },
+        "phase_3_validate": {
+          "duration": "2-3 min",
+          "actions": [
+            "Quick consistency check",
+            "Basic compliance validation",
+            "Output formatting"
+          ],
+          "output": "brand_strategy.md (core)",
+          "gate": "Basic validation passed"
+        }
+      },
+      "quality_thresholds": {
+        "consistency_score": 0.75,
+        "uniqueness_score": 7.0,
+        "wcag_level": "A",
+        "gates_required": 5
+      },
+      "output_structure": {
+        "section_1_identity": ["names", "taglines", "archetype", "traits", "essence"],
+        "section_2_positioning": ["uvp", "target", "differentiation", "promise", "statement"],
+        "section_3_tone": ["dimensions", "style", "dos", "donts", "phrases"],
+        "section_4_visual": ["colors", "typography", "mood_prompts", "guidelines"]
+      },
+      "skipped_sections": [
+        "section_5_narrative (simplified)",
+        "section_6_guidelines (basic)",
+        "section_7_validation (minimal)"
+      ]
+    },
+    "archetype_focused": {
+      "plan_id": "archetype_focused_v250",
+      "name": "Archetype-Focused Strategy",
+      "description": "Deep dive into archetype selection and expression",
+      "duration_estimate": "10-15 minutes",
+      "output_completeness": "70%",
+      "phases": 4,
+      "output_blocks": 22,
+      "recommended_for": [
+        "Archetype exploration",
+        "Brand personality definition",
+        "Tone of voice development",
+        "Creative direction"
+      ],
+      "execution": {
+        "phase_1_discovery": {
+          "duration": "2-3 min",
+          "actions": [
+            "Load archetype specs (09_archetype_specs.json)",
+            "Analyze brief for archetype signals",
+            "Recommend top 3 archetypes"
+          ],
+          "output": "$archetype_candidates",
+          "gate": "3 candidates identified"
+        },
+        "phase_2_selection": {
+          "duration": "3-5 min",
+          "actions": [
+            "Deep dive each candidate",
+            "Compare against category norms",
+            "Select primary + secondary",
+            "Define expression"
+          ],
+          "output": "$archetype_selection",
+          "gate": "Primary + secondary selected"
+        },
+        "phase_3_expression": {
+          "duration": "3-5 min",
+          "actions": [
+            "Map archetype to tone (dimensions)",
+            "Map archetype to visual (colors, typography)",
+            "Map archetype to messaging (vocabulary)",
+            "Generate example expressions"
+          ],
+          "output": "$archetype_expression",
+          "gate": "Full expression mapped"
+        },
+        "phase_4_output": {
+          "duration": "2-3 min",
+          "actions": [
+            "Generate identity blocks (1-5)",
+            "Generate tone blocks (11-15)",
+            "Generate visual blocks (16-19)",
+            "Format output"
+          ],
+          "output": "archetype_strategy.md",
+          "gate": "Expression documented"
+        }
+      },
+      "quality_thresholds": {
+        "archetype_confidence": 0.8,
+        "expression_completeness": 0.9,
+        "tone_alignment": 0.85
+      },
+      "output_structure": {
+        "archetype_analysis": ["candidates", "comparison", "selection", "rationale"],
+        "section_1_identity": ["names", "taglines", "archetype", "traits", "essence"],
+        "section_3_tone": ["dimensions", "style", "dos", "donts", "phrases"],
+        "section_4_visual": ["colors", "typography", "mood_prompts", "guidelines"]
+      }
+    },
+    "competitive_positioning": {
+      "plan_id": "competitive_positioning_v250",
+      "name": "Competitive Positioning Focus",
+      "description": "Strategy focused on competitive differentiation",
+      "duration_estimate": "12-18 minutes",
+      "output_completeness": "75%",
+      "phases": 4,
+      "output_blocks": 24,
+      "recommended_for": [
+        "Crowded markets",
+        "Competitor analysis needed",
+        "Differentiation strategy",
+        "Repositioning"
+      ],
+      "execution": {
+        "phase_1_analysis": {
+          "duration": "3-5 min",
+          "actions": [
+            "Analyze 3-5 competitors",
+            "Map competitor positioning",
+            "Identify gaps",
+            "Find opportunities"
+          ],
+          "output": "$competitive_analysis",
+          "gate": "3+ competitors analyzed"
+        },
+        "phase_2_positioning": {
+          "duration": "4-6 min",
+          "actions": [
+            "Define differentiation strategy",
+            "Craft unique value proposition",
+            "Create positioning statement",
+            "Map competitive advantages"
+          ],
+          "output": "$positioning_strategy",
+          "gate": "Clear differentiation defined"
+        },
+        "phase_3_identity": {
+          "duration": "3-5 min",
+          "actions": [
+            "Generate names that differentiate",
+            "Create taglines that stand out",
+            "Select archetype for uniqueness",
+            "Define tone for distinction"
+          ],
+          "output": "$brand_identity",
+          "gate": "Identity supports differentiation"
+        },
+        "phase_4_output": {
+          "duration": "2-3 min",
+          "actions": [
+            "Format competitive strategy",
+            "Generate brand elements",
+            "Create positioning map"
+          ],
+          "output": "competitive_strategy.md",
+          "gate": "Strategy documented"
+        }
+      },
+      "quality_thresholds": {
+        "differentiation_score": 0.8,
+        "competitive_clarity": 0.85,
+        "positioning_strength": 0.8
+      },
+      "output_structure": {
+        "competitive_analysis": ["competitors", "positioning_map", "gaps", "opportunities"],
+        "section_2_positioning": ["uvp", "target", "differentiation", "promise", "statement"],
+        "section_1_identity": ["names", "taglines", "archetype", "traits", "essence"],
+        "section_3_tone": ["dimensions", "style", "dos", "donts", "phrases"]
+      }
+    }
+  },
+  "plan_selection_guide": {
+    "by_time_available": {
+      "less_than_10_min": "quick_positioning",
+      "10_to_15_min": "archetype_focused OR competitive_positioning",
+      "15_to_20_min": "full_brand_strategy",
+      "more_than_20_min": "full_brand_strategy (with iterations)"
+    },
+    "by_objective": {
+      "complete_brand": "full_brand_strategy",
+      "quick_exploration": "quick_positioning",
+      "personality_focus": "archetype_focused",
+      "differentiation_focus": "competitive_positioning"
+    },
+    "by_brief_quality": {
+      "minimal_brief": "quick_positioning (then iterate)",
+      "standard_brief": "any plan works",
+      "rich_brief": "full_brand_strategy (best results)"
+    }
+  },
+  "common_sequences": {
+    "iterative_development": [
+      "1. quick_positioning (initial direction)",
+      "2. archetype_focused (refine personality)",
+      "3. full_brand_strategy (complete output)"
+    ],
+    "competitive_entry": [
+      "1. competitive_positioning (understand market)",
+      "2. full_brand_strategy (differentiated brand)"
+    ],
+    "brand_refresh": [
+      "1. archetype_focused (reassess personality)",
+      "2. full_brand_strategy (updated identity)"
+    ]
+  }
+}
