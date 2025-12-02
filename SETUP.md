@@ -2,7 +2,23 @@
 
 > **Universal installer for new PCs, new users, and maintenance**
 
-## Quick Start (TL;DR)
+---
+
+## FRESH WINDOWS PC? ONE COMMAND!
+
+If you're on a **brand new Windows PC** with nothing installed, run this in PowerShell (as Administrator):
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; irm https://raw.githubusercontent.com/GatoaoCubo/codexa-core/main/bootstrap-codexa.ps1 | iex
+```
+
+This automatically installs: Node.js, Python, Git, uv, Claude Code CLI, clones the repository, and runs the setup.
+
+**After installation, restart PowerShell and type:** `cc`
+
+---
+
+## Quick Start (Already have Node.js & Git?)
 
 ```bash
 # 1. Clone
