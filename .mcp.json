@@ -1,0 +1,35 @@
+{
+  "mcpServers": {
+    "scout": {
+      "command": "node",
+      "args": ["codexa.app/mcp-servers/scout-mcp/dist/index.js"],
+      "env": {
+        "CODEXA_ROOT": "${workspaceFolder}",
+        "NAVIGATION_MAP": "codexa.app/agentes/scout_agent/NAVIGATION_MAP.json"
+      }
+    },
+    "codexa-commands": {
+      "command": "node",
+      "args": ["codexa.app/mcp-servers/codexa-commands/dist/index.js"],
+      "env": {
+        "COMMANDS_DIR": ".claude/commands"
+      }
+    },
+    "browser": {
+      "command": "npx",
+      "args": ["@anthropic-ai/mcp-server-puppeteer"],
+      "env": {
+        "PUPPETEER_HEADLESS": "true"
+      }
+    },
+    "voice": {
+      "command": "uv",
+      "args": ["run", "codexa.app/voice/server.py"],
+      "env": {
+        "ELEVENLABS_API_KEY": "${ELEVENLABS_API_KEY}",
+        "VOICE_PORT": "5000",
+        "VOICE_LANGUAGE": "pt-BR"
+      }
+    }
+  }
+}
