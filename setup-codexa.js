@@ -481,8 +481,14 @@ async function installPythonPackages(repair = false) {
 async function configureMcpServers() {
   console.log(`\n${c.cyan}${c.bright}[4/5] Configuring MCP Servers${c.reset}\n`);
 
-  const settingsPath = path.join(__dirname, '.claude', 'settings.json');
+  const claudeDir = path.join(__dirname, '.claude');
+  const settingsPath = path.join(claudeDir, 'settings.json');
   const root = __dirname.replace(/\\/g, '/');
+
+  // Ensure .claude directory exists
+  if (!fs.existsSync(claudeDir)) {
+    fs.mkdirSync(claudeDir, { recursive: true });
+  }
 
   let settings = {};
   if (fs.existsSync(settingsPath)) {

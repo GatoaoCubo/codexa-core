@@ -258,5 +258,5 @@ codexa-core/
 ## Version
 
 - **Setup Script**: v2.0
-- **Last Updated**: 2024-12-02
+- **Last Updated**: 2025-12-02
 - **Tested On**: Windows 11, Node.js 24.x, Python 3.14
