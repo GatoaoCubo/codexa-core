@@ -1,19 +1,33 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "generated_at": "2025-12-02T00:00:00Z",
-  "generator": "SCOUT Commander (10 Parallel Scouts)",
+  "generator": "CODEXA.app Primary Orchestrator",
   "repository": "codexa-core",
+  "primary_orchestrator": {
+    "name": "CODEXA.app",
+    "path": "codexa.app/PRIME.md",
+    "identity": "Primary orchestrator that receives NL, spawns agents, collects reports",
+    "workflow": "codexa.app/workflows/100_ADW_CODEXA_ORCHESTRATION.md",
+    "prompts": [
+      "codexa.app/prompts/10_listener_HOP.md",
+      "codexa.app/prompts/20_planner_HOP.md",
+      "codexa.app/prompts/30_spawner_HOP.md",
+      "codexa.app/prompts/40_collector_HOP.md"
+    ],
+    "integrations": ["scout", "voice", "task_tool"],
+    "command": "/codexa"
+  },
   "stats": {
-    "total_files_indexed": 503,
-    "agents": 13,
-    "commands": 24,
-    "workflows": 18,
-    "prompts": 30,
+    "total_files_indexed": 510,
+    "agents": 12,
+    "commands": 25,
+    "workflows": 19,
+    "prompts": 34,
     "schemas": 36,
     "templates": 32,
     "knowledge_files": 243,
     "mcp_servers": 4,
-    "context_files": 407,
+    "context_files": 410,
     "output_artifacts": 92
   },
   "navigation": {
@@ -34,16 +48,16 @@
         {"name": "scout_agent", "domain": "Path Discovery", "keywords": ["navigation", "indexing", "MCP", "search"]},
         {"name": "voice_agent", "domain": "Voice Interface", "keywords": ["STT", "TTS", "accessibility", "hands-free"]},
         {"name": "qa_gato3_agent", "domain": "Quality Assurance", "keywords": ["testing", "SEO", "a11y", "checkout"]},
-        {"name": "ronronalda_agent", "domain": "Cat Behavior Consulting", "keywords": ["chatbot", "persona", "recommendations"]},
-        {"name": "maestro_agent", "domain": "Meta-Orchestrator", "keywords": ["orchestration", "autonomous", "spawn", "pipeline", "batch"]}
+        {"name": "ronronalda_agent", "domain": "Cat Behavior Consulting", "keywords": ["chatbot", "persona", "recommendations"]}
       ]
     },
     "prompts": {
       "path_pattern": "codexa.app/agentes/{agent}/prompts/*_HOP.md",
       "keywords": ["prompt", "HOP", "TAC-7", "instructions"],
       "importance": 85,
-      "count": 30,
+      "count": 34,
       "by_agent": {
+        "CODEXA.app": 4,
         "codexa_agent": 7,
         "video_agent": 5,
         "photo_agent": 5,
@@ -61,8 +75,9 @@
       "path_pattern": "codexa.app/agentes/{agent}/workflows/*_ADW*.md",
       "keywords": ["workflow", "ADW", "phases", "orchestration"],
       "importance": 85,
-      "count": 18,
+      "count": 19,
       "key_workflows": [
+        {"name": "100_ADW_CODEXA_ORCHESTRATION", "agent": "CODEXA.app", "phases": 4, "path": "codexa.app/workflows/100_ADW_CODEXA_ORCHESTRATION.md"},
         {"name": "100_ADW_RUN_ANUNCIO", "agent": "anuncio_agent", "phases": 8},
         {"name": "100_ADW_DOC_SYNC_WORKFLOW", "agent": "codexa_agent", "phases": 11},
         {"name": "201_ADW_FEATURE_DEVELOPMENT", "agent": "codexa_agent", "phases": 5},
@@ -75,13 +90,13 @@
       "path_pattern": ".claude/commands/*.md",
       "keywords": ["slash", "command", "CLI", "execute"],
       "importance": 70,
-      "count": 23,
+      "count": 25,
       "categories": {
+        "orchestration": ["/codexa"],
         "prime_domain_specialists": ["/prime-anuncio", "/prime-pesquisa", "/prime-marca", "/prime-photo", "/prime-video", "/prime-codexa", "/prime-scout", "/prime-mentor"],
         "meta_builders": ["/codexa-build-agent", "/codexa-build-command", "/codexa-build-mcp", "/codexa-build-prompt", "/codexa-build-schema", "/codexa-orchestrate"],
         "voice_interface": ["/v", "/vstart", "/vstop", "/vstatus", "/vgui"],
-        "utilities": ["/prime", "/adw-list", "/codexa-when-to-use", "/codexa-cleanup", "/video"],
-        "orchestration": ["/maestro"]
+        "utilities": ["/prime", "/adw-list", "/codexa-when-to-use", "/codexa-cleanup", "/video"]
       }
     },
     "knowledge": {
@@ -89,7 +104,7 @@
       "keywords": ["knowledge", "vectorstore", "reference", "docs"],
       "importance": 65,
       "count": 243,
-      "agents_with_vectorstore": 13
+      "agents_with_vectorstore": 12
     },
     "schemas": {
       "path_pattern": "codexa.app/agentes/{agent}/**/schema*.json",
@@ -124,11 +139,12 @@
         {"name": "scout", "tools": 14, "purpose": "Path discovery and navigation"},
         {"name": "codexa-commands", "tools": 5, "purpose": "Slash command discovery"},
         {"name": "browser-mcp", "tools": 7, "purpose": "Web scraping and screenshots"},
-        {"name": "voice", "tools": 7, "purpose": "Speech-to-text and TTS"}
+        {"name": "voice", "tools": 7, "purpose": "Speech-to-text and TTS", "path": "codexa.app/voice/"}
       ]
     }
   },
   "quick_paths": {
+    "orquestrar tudo": "codexa.app/PRIME.md",
     "criar agente": "codexa.app/agentes/codexa_agent/prompts/91_meta_build_agent_HOP.md",
     "criar anuncio": "codexa.app/agentes/anuncio_agent/prompts/10_main_agent_HOP.md",
     "criar curso": "codexa.app/agentes/curso_agent/PRIME.md",
@@ -138,24 +154,24 @@
     "editar video": "codexa.app/agentes/video_agent/PRIME.md",
     "validar qualidade": "codexa.app/agentes/qa_gato3_agent/PRIME.md",
     "usar voz": "codexa.app/agentes/voice_agent/PRIME.md",
-    "navegar projeto": "codexa.app/agentes/scout_agent/PRIME.md",
-    "orquestrar tudo": "codexa.app/agentes/maestro_agent/PRIME.md"
+    "navegar projeto": "codexa.app/agentes/scout_agent/PRIME.md"
   },
   "llm_dense_index": {
+    "orquestrar autonomo batch pipeline spawn": ["CODEXA.app"],
     "copywriting produto e-commerce marketplace": ["anuncio_agent", "ronronalda_agent"],
     "video educacao tutorial curso hotmart": ["curso_agent", "video_agent"],
     "branding identidade visual posicionamento": ["marca_agent", "photo_agent"],
     "meta-construction agent builder prompt": ["codexa_agent", "scout_agent"],
     "research analise dados competitivo": ["pesquisa_agent", "qa_gato3_agent"],
     "voz audio acessibilidade hands-free": ["voice_agent"],
-    "mentor coaching ensino conhecimento": ["mentor_agent", "curso_agent"],
-    "orquestrar autonomo batch pipeline spawn": ["maestro_agent"]
+    "mentor coaching ensino conhecimento": ["mentor_agent", "curso_agent"]
   },
   "agent_categories": {
+    "primary_orchestrator": ["CODEXA.app"],
     "e_commerce_creation": ["anuncio_agent", "pesquisa_agent", "marca_agent", "photo_agent", "video_agent"],
     "platform_specific": ["qa_gato3_agent", "ronronalda_agent", "curso_agent"],
     "infrastructure": ["scout_agent", "voice_agent"],
-    "meta_system": ["codexa_agent", "mentor_agent", "maestro_agent"]
+    "meta_system": ["codexa_agent", "mentor_agent"]
   },
   "integrations": {
     "supabase": {
@@ -173,6 +189,10 @@
     "elevenlabs": {
       "purpose": "Text-to-speech",
       "used_by": ["voice_agent", "video_agent"]
+    },
+    "claude_task_tool": {
+      "purpose": "Spawn sub-agents",
+      "used_by": ["CODEXA.app"]
     }
   },
   "project_laws": {
@@ -180,6 +200,7 @@
     "LAW_2": "Fractal Navigation - PRIME.md → INSTRUCTIONS.md → README.md",
     "LAW_3": "Meta-Construction - Build the thing that builds the thing",
     "LAW_4": "Agentic Design - Agents are autonomous specialists",
-    "LAW_5": "Auto-Publish - Anuncios → Supabase → Shopify"
+    "LAW_5": "Auto-Publish - Anuncios → Supabase → Shopify",
+    "LAW_6": "CODEXA.app Orchestration - NL → Plan → Spawn → Collect → Report"
   }
 }

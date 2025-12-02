@@ -1,530 +1,377 @@
-# PRIME | Instruções Primárias para CODEXA.APP
+# CODEXA.app | Primary Orchestrator
 
-> **PRIME** = **P**rimary **R**ules for **I**nteraction and **M**eta-construction **E**xecution
+> **"Eu recebo. Eu orquestro. Eu reporto."**
+
+**Version**: 2.0.0
+**Type**: Primary Orchestrator Agent
+**Status**: ACTIVE
 
 ---
 
-## 🧭 VERTICALIZAÇÃO DE COMANDOS (v3.0)
+## IDENTIDADE
 
-### `/prime` vs `/prime-codexa` - Separação Clara
-
-**`/prime`** - **System Navigator** (Pure Status & Routing)
 ```
-🎯 Purpose: Show where you are and where you can go
-📊 Output: ~30-40 lines, pure navigation
-✅ Shows: Status, agent list, command list, docs links
-❌ Does NOT: Load context, explain philosophy, teach frameworks
-🔧 Use when: Starting session, checking health, routing to specialists
-```
-
-**`/prime-codexa`** - **Meta-Construction Specialist** (Deep Context)
-```
-🎯 Purpose: Load full meta-construction knowledge for building
-📊 Output: Heavy context load (PRIME.md + builders + validators)
-✅ Shows: 5-phase ADW, TAC-7 HOPs, builder workflows, principles
-❌ Does NOT: Show system-wide status, list all agents, general nav
-🔧 Use when: Building agents, creating HOPs, meta-construction tasks
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              CODEXA.app                                      │
+│                         Primary Orchestrator                                 │
+│                                                                              │
+│  RECEBE:   Natural language do usuário                                      │
+│  PLANEJA:  Decompõe em sub-tarefas + seleciona agents                       │
+│  SPAWNA:   Task tool → sub-agents paralelos                                 │
+│  COLETA:   Reports dos agents → documentos reutilizáveis                    │
+│  REPORTA:  Voice + texto → usuário (fecha o ciclo)                          │
+│                                                                              │
+│  INTEGRA:  Scout (discovery) + Voice (I/O) + todos os 12 agents             │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Other `/prime-*`** - **Domain Specialists**
+---
+
+## CICLO DE OPERAÇÃO
+
+```
+                    ┌─────────────────────┐
+                    │     USER (NL)       │
+                    │  "Quero lançar 10   │
+                    │  produtos novos"    │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                              CODEXA.app                                       │
+│                                                                               │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐   │
+│  │  LISTENER   │───▶│   PLANNER   │───▶│  SPAWNER    │───▶│  COLLECTOR  │   │
+│  │             │    │             │    │             │    │             │   │
+│  │ Parse NL    │    │ Scout ctx   │    │ Task()      │    │ Aggregate   │   │
+│  │ Voice→Text  │    │ Select ADWs │    │ Parallel    │    │ Voice report│   │
+│  └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘   │
+│         │                  │                  │                  │           │
+│         ▼                  ▼                  │                  │           │
+│  ┌─────────────┐    ┌─────────────────────┐  │                  │           │
+│  │ voice/stt   │    │  NAVIGATION_MAP.json │  │                  │           │
+│  │ (input)     │    │  (memória central)   │  │                  │           │
+│  └─────────────┘    └─────────────────────┘  │                  │           │
+│                                               │                  ▼           │
+│                                               │         ┌─────────────┐      │
+│                                               │         │ voice/tts   │      │
+│                                               │         │ (output)    │      │
+│                                               │         └─────────────┘      │
+└───────────────────────────────────────────────┼──────────────────────────────┘
+                                                │
+                                                ▼
+              ┌──────────────────────────────────────────────────┐
+              │               SPAWN LAYER (Task tool)             │
+              │                                                   │
+              │  ┌─────────┐  ┌─────────┐  ┌─────────┐           │
+              │  │Task #1  │  │Task #2  │  │Task #N  │           │
+              │  │pesquisa │  │anuncio  │  │photo    │           │
+              │  │_agent   │  │_agent   │  │_agent   │           │
+              │  └────┬────┘  └────┬────┘  └────┬────┘           │
+              └───────┼────────────┼───────────┼─────────────────┘
+                      │            │           │
+                      ▼            ▼           ▼
+              ┌─────────────────────────────────────────┐
+              │           REPORTS (JSON + MD)            │
+              │  research_notes.json → CODEXA.app        │
+              │  anuncio_output.md → CODEXA.app          │
+              │  photo_prompts.json → CODEXA.app         │
+              └────────────────┬────────────────────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   USER (Report)     │
+                    │  Voice + Texto      │
+                    └─────────────────────┘
+```
+
+---
+
+## INTEGRATIONS
+
+### Scout MCP (Discovery)
+```javascript
+// Antes de spawnar, CODEXA.app consulta Scout
+const context = await mcp__scout__smart_context({
+  agent: "anuncio_agent",
+  task: "ad_generation"
+});
+
+// Injeta contexto descoberto no spawn
+Task({
+  prompt: `Context: ${context.must_read}\n\nExecute: ...`
+});
+```
+
+### Voice (I/O)
+```javascript
+// Input: Voice → Text
+const userIntent = await voice.stt.transcribe(audioInput);
+
+// Output: Text → Voice
+await voice.tts.speak(finalReport);
+```
+
+### Sub-Agents (via Task tool)
+```javascript
+// Spawn parallel agents
+Task({
+  subagent_type: "general-purpose",
+  description: "pesquisa_agent - Market research",
+  prompt: loadAgentContext("pesquisa_agent") + taskDescription
+});
+```
+
+---
+
+## AGENT REGISTRY
+
+| Agent | Domain | Keywords | When to Spawn |
+|-------|--------|----------|---------------|
+| `pesquisa_agent` | Market Research | market, research, competitor | Análise de mercado |
+| `anuncio_agent` | E-commerce Ads | ad, copy, listing | Gerar anúncios |
+| `marca_agent` | Brand Strategy | brand, identity, positioning | Criar marca |
+| `photo_agent` | AI Photography | photo, image, prompts | Gerar fotos |
+| `video_agent` | Video Production | video, script, editing | Produzir vídeos |
+| `curso_agent` | Educational Content | course, Hotmart, tutorial | Criar cursos |
+| `codexa_agent` | Meta-Construction | meta, builder, agent | Construir agents |
+| `mentor_agent` | Knowledge Processing | teaching, onboarding | Processar conhecimento |
+| `scout_agent` | Path Discovery | navigation, find, search | Descobrir paths |
+| `voice_agent` | Voice Interface | STT, TTS, audio | Interface voz |
+| `qa_gato3_agent` | Quality Assurance | testing, validation | Validar qualidade |
+| `ronronalda_agent` | Cat Behavior | chat, persona, cats | Chatbot especializado |
+
+---
+
+## REPORT SYSTEM
+
+Sub-agents reportam em formato **JSON + MD** reutilizável:
+
+```json
+{
+  "agent": "pesquisa_agent",
+  "task_id": "uuid",
+  "status": "completed",
+  "metrics": {
+    "quality_score": 8.5,
+    "execution_time_ms": 45000
+  },
+  "output": {
+    "file": "outputs/research/product_X.md",
+    "summary": "Mercado pet shop: R$2.5B, 15% growth..."
+  }
+}
+```
+
+Reports são salvos em:
+```
+outputs/
+├── reports/           # JSON reports agregados
+├── research/          # Pesquisas de mercado
+├── anuncios/          # Anúncios gerados
+├── photos/            # Prompts de fotos
+└── videos/            # Scripts de vídeo
+```
+
+---
+
+## SPAWN PATTERNS
+
+### Pattern A: Sequential Pipeline
+```
+User: "Crie uma marca completa para pet shop"
+
+CODEXA.app Plan:
+  1. Task(pesquisa_agent) → market_research.json
+  2. Task(marca_agent, { input: market_research }) → brand_strategy.md
+  3. Task(photo_agent, { brand: brand_strategy }) → visual_prompts.json
+  4. Aggregate → Report to user via voice
+```
+
+### Pattern B: Parallel Batch
+```
+User: "Gere anúncios para todos os 22 produtos"
+
+CODEXA.app Plan:
+  1. Load products_cache.json → 22 products
+  2. Task.parallel([
+       anuncio_agent(product_1),
+       anuncio_agent(product_2),
+       ...
+       anuncio_agent(product_22)
+     ], { max_concurrent: 5 })
+  3. Collect → outputs/anuncios/batch_YYYY-MM-DD/
+  4. Voice report: "22 anúncios gerados com média 8.5/10"
+```
+
+### Pattern C: Fan-out / Fan-in
+```
+User: "Lance produto com pesquisa, marca, fotos e vídeo"
+
+CODEXA.app Plan:
+  Phase 1 (parallel):
+    - Task(pesquisa_agent)
+    - Task(marca_agent)
+
+  Phase 2 (depends on both):
+    - Task(anuncio_agent, { research + brand })
+
+  Phase 3 (parallel):
+    - Task(photo_agent, { anuncio_context })
+    - Task(video_agent, { anuncio_context })
+
+  Phase 4:
+    - Aggregate all outputs
+    - Voice + text report to user
+```
+
+---
+
+## HYBRID AUTONOMY
+
+### AUTO Mode (Known Patterns)
+- Tarefas com ADW mapeado
+- Quantidade ≤ 10 items
+- Custo estimado < $5.00
+
+### CONFIRM Mode (New/Risky)
+- Tarefas sem ADW mapeado
+- Quantidade > 10 items
+- Custo estimado > $5.00
+- Operações destrutivas
+
+---
+
+## QUALITY GATES
+
+| Metric | Threshold | Action if Fail |
+|--------|-----------|----------------|
+| Content Quality | ≥7.0/10 | Retry 1x |
+| Compliance | PASS | Block + Alert |
+| Format | Valid JSON/MD | Auto-fix |
+
+---
+
+## SLASH COMMAND
+
+```
+/codexa <natural_language_task>
+
+Examples:
+/codexa "Lance os 10 produtos do catálogo com pesquisa e fotos"
+/codexa "Crie uma marca completa para loja de eletrônicos"
+/codexa "Gere vídeos de 30s para os 5 produtos mais vendidos"
+
+Flags:
+--dry-run    Mostra o plano sem executar
+--auto       Executa sem confirmação
+--verbose    Mostra progresso detalhado
+--voice      Habilita report por voz
+```
+
+---
+
+## VERTICALIZAÇÃO DE COMANDOS
+
+### `/prime` vs `/codexa` - Separação Clara
+
+**`/prime`** - **System Navigator** (Status & Routing)
+```
+Purpose: Show where you are and where you can go
+Output: ~30-40 lines, pure navigation
+Shows: Status, agent list, command list
+Does NOT: Execute tasks, spawn agents
+```
+
+**`/codexa`** - **Primary Orchestrator** (Execute Tasks)
+```
+Purpose: Receive NL → Orchestrate → Report
+Output: Task execution + results
+Shows: Plan, spawns, reports
+Does NOT: Just show info, needs action
+```
+
+**`/prime-*`** - **Domain Specialists** (Deep Context)
 ```
 /prime-anuncio    → E-commerce ads specialist
 /prime-pesquisa   → Market research specialist
 /prime-marca      → Brand strategy specialist
-/prime-mentor     → Knowledge & mentoring specialist (consolidated scout + knowledge)
-```
-
-### Princípios de Verticalização
-
-1. **One Purpose Per Command** - Cada comando = UM domínio claro
-2. **No Overlap** - Contexto não se repete entre comandos
-3. **Deep Not Wide** - Profundidade no domínio, não amplitude
-4. **Load Only What Needed** - Carrega apenas arquivos do seu domínio
-5. **Clear Entry Points** - Humano/LLM sabe exatamente quando usar
-
----
-
-## 🚨 REGRA #1: NÃO EXECUTAR SCRIPTS PYTHON
-
-### ❌ NUNCA FAZER
-
-```bash
-# ❌ PROIBIDO - NÃO EXECUTAR DIRETAMENTE:
-python agentes/codexa_agent/builders/02_agent_meta_constructor.py
-python agentes/codexa_agent/validators/07_hop_sync_validator.py
-uv run agentes/codexa_agent/builders/01_agent_builder.py
-./agentes/codexa_agent/builders/03_build_task.py
-
-# ❌ PROIBIDO - NÃO IMPORTAR EM SCRIPTS EXTERNOS:
-from agentes.codexa_agent.builders import agent_builder
-import agentes.codexa_agent.validators.hop_sync_validator
-
-# ❌ PROIBIDO - NÃO MODIFICAR SCRIPTS:
-# Não edite os arquivos .py diretamente
-```
-
-### ✅ PERMITIDO
-
-```bash
-# ✅ LER para entender como funcionam:
-cat agentes/codexa_agent/builders/02_agent_meta_constructor.py
-less agentes/codexa_agent/validators/07_hop_sync_validator.py
-
-# ✅ USAR comandos slash que executam de forma segura:
-/codexa-build_agent
-/codexa-build_command
-/codexa-build_prompt
-
-# ✅ VER documentação:
-cat agentes/codexa_agent/README.md
-cat 42_HOP_FRAMEWORK.md
+/prime-photo      → AI photography specialist
+/prime-video      → Video production specialist
+/prime-codexa     → Meta-construction specialist
+/prime-scout      → Path discovery specialist
+/prime-mentor     → Knowledge processing specialist
 ```
 
 ---
 
-## 📖 COMO USAR SCRIPTS PYTHON (Modo Leitura)
-
-### Propósito da Leitura
-
-Os scripts Python são **código de referência**. Leia-os para:
-
-1. **Entender a lógica** de construção de agentes
-2. **Ver padrões** de meta-construção
-3. **Aprender** como o sistema funciona
-4. **Inspirar-se** para criar seus próprios sistemas
-
-### O Que Procurar ao Ler
-
-#### `builders/` - Scripts de Construção
-
-**`02_agent_meta_constructor.py`** (Principal):
-```python
-# O que observar:
-# 1. 5-PHASE WORKFLOW
-#    - Phase 1: Planning com [OPEN_VARIABLES]
-#    - Phase 2: Construction
-#    - Phase 3: Testing
-#    - Phase 4: Review
-#    - Phase 5: Documentation
-#
-# 2. $ARGUMENTS CHAINING
-#    - Como output de fase N vira input de fase N+1
-#    - workflow_context = {"$plan": ..., "$artifacts": ...}
-#
-# 3. VALIDATION GATES
-#    - Como valida cada fase antes de continuar
-#    - Quality gates e retry logic
-```
-
-**`08_prompt_generator.py`**:
-```python
-# O que observar:
-# - Como gera HOPs seguindo TAC-7
-# - Estrutura de 7 componentes
-# - INPUT_CONTRACT e OUTPUT_CONTRACT
-# - Validation rules
-```
-
-**`05_command_generator.py`**:
-```python
-# O que observar:
-# - Template de commands
-# - Identity → Task → Steps → Output
-# - Como adiciona exemplos
-```
-
-#### `validators/` - Scripts de Validação
-
-**`07_hop_sync_validator.py`**:
-```python
-# O que observar:
-# - Como valida TAC-7 framework
-# - Checks de completeness
-# - Variable consistency (sem orphaned $vars)
-# - Type specifications
-```
-
-**`09_readme_validator.py`**:
-```python
-# O que observar:
-# - Estrutura esperada de READMEs
-# - Required sections
-# - Format validation
-```
-
-### Exemplo de Leitura Produtiva
-
-```bash
-# 1. Leia o header do script
-head -50 agentes/codexa_agent/builders/02_agent_meta_constructor.py
-
-# Você verá:
-# - Docstring explicando o propósito
-# - Dependencies necessárias
-# - Usage examples
-# - Meta-construction philosophy
-
-# 2. Leia as funções principais
-grep -A 20 "def execute_phase" agentes/codexa_agent/builders/02_agent_meta_constructor.py
-
-# Você verá:
-# - Como cada fase é executada
-# - Inputs e outputs
-# - Validation logic
-
-# 3. Leia os comentários
-grep "^#" agentes/codexa_agent/builders/02_agent_meta_constructor.py
-
-# Você verá:
-# - Explicações da lógica
-# - TODOs e FIXMEs
-# - Design decisions
-```
-
----
-
-## ✅ MODO DE USO CORRETO
-
-### Uso via Comandos Slash
-
-Os comandos `/codexa-*` são wrappers seguros que:
-
-1. **Validam inputs** antes de executar
-2. **Gerenciam contexto** corretamente
-3. **Tratam erros** gracefully
-4. **Logam operações** para rastreabilidade
-5. **Aplicam quality gates**
-
-### Fluxo Recomendado
+## ESTRUTURA DE ARQUIVOS
 
 ```
-┌─────────────────────────────────────────────────┐
-│ 1. DESCOBERTA                                   │
-│    /codexa-when_to_use                          │
-│    ↓                                            │
-│    Sistema mostra decision tree                 │
-│    ↓                                            │
-│    Recomenda comando apropriado                 │
-└─────────────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────────────┐
-│ 2. EXECUÇÃO                                     │
-│    /codexa-[comando_recomendado]                │
-│    ↓                                            │
-│    Sistema executa builders/validators          │
-│    de forma segura e controlada                 │
-└─────────────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────────────┐
-│ 3. VALIDAÇÃO                                    │
-│    Sistema valida automaticamente               │
-│    ↓                                            │
-│    - Checks de completeness                     │
-│    - Validation rules                           │
-│    - Quality gates                              │
-└─────────────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────────────┐
-│ 4. RESULTADO                                    │
-│    Output organizado e validado                 │
-│    ↓                                            │
-│    - Arquivos criados em local correto          │
-│    - Logs disponíveis                           │
-│    - Próximos passos sugeridos                  │
-└─────────────────────────────────────────────────┘
-```
-
----
-
-## 🎯 COMANDOS DISPONÍVEIS
-
-### Decision Tree (Começe Aqui)
-
-```bash
-/codexa-when_to_use
-```
-
-**O que faz**:
-- Pergunta o que você quer construir
-- Mostra opções disponíveis
-- Recomenda comando certo
-- Explica quando usar cada um
-
-**Quando usar**: Sempre que não souber qual comando usar.
-
----
-
-### Construção de Agentes
-
-```bash
-/codexa-build_agent
-```
-
-**O que faz**:
-- Executa 5-phase meta-constructor
-- Cria agente completo e isolado
-- Gera MASTER_INSTRUCTIONS, config, docs
-- Ready para OpenAI Agent Builder
-
-**Quando usar**: Quer criar agente novo do zero.
-
-**Exemplo**:
-```
-Você: /codexa-build_agent
-Sistema: Descreva o agente (1-3 frases)
-Você: Agente de análise de sentimentos para reviews
-Sistema: [Executa 5 fases - 20-40 min]
-Resultado: agents/sentiment-v1/ com tudo pronto
-```
-
----
-
-### Construção de Commands
-
-```bash
-/codexa-build_command
-```
-
-**O que faz**:
-- Cria novo comando slash
-- Segue template padrão
-- Adiciona exemplos e validação
-- Salva em commands/
-
-**Quando usar**: Quer criar `/novo_comando`.
-
-**Exemplo**:
-```
-Você: /codexa-build_command
-Sistema: Nome do comando?
-Você: analyze_logs
-Sistema: O que faz?
-Você: Analisa logs e encontra erros
-Sistema: [Cria commands/XX_analyze_logs.md]
-```
-
----
-
-### Construção de HOPs
-
-```bash
-/codexa-build_prompt
-```
-
-**O que faz**:
-- Cria HOP module TAC-7
-- Define INPUT/OUTPUT contracts
-- Adiciona validation rules
-- Valida com hop_sync_validator
-
-**Quando usar**: Quer prompt reutilizável.
-
-**Exemplo**:
-```
-Você: /codexa-build_prompt
-Sistema: ID do módulo?
-Você: sentiment_analyzer
-Sistema: [Guia por 7 componentes TAC-7]
-Resultado: prompts/sentiment_analyzer_HOP.md
-```
-
----
-
-### Construção de Schemas
-
-```bash
-/codexa-build_schema
-```
-
-**O que faz**:
-- Cria JSON Schema v7 ou Execution Plan
-- Define validation rules
-- Estrutura para workflows
-
-**Quando usar**: Precisa validar outputs estruturados.
-
----
-
-### Construção de MCP
-
-```bash
-/codexa-build_mcp
-```
-
-**O que faz**:
-- Cria MCP server
-- Define tools customizadas
-- Integra com Claude Desktop
-
-**Quando usar**: Quer integrar API externa.
-
----
-
-### Orquestração de Workflows
-
-```bash
-/codexa-orchestrate
-```
-
-**O que faz**:
-- Define workflow multi-fase
-- Configura $arguments chaining
-- Adiciona validation gates
-- Executa com rastreabilidade
-
-**Quando usar**: Workflow complexo ≥3 fases.
-
----
-
-## 📁 ESTRUTURA DE ARQUIVOS
-
-### O Que Está Onde
-
-```
-codexa.app/
+codexa.app/                    ← CODEXA.app Primary Orchestrator
 │
-├── 📚 DOCS CORE
-│   ├── PRIME.md                        # Este arquivo (entry point)
-│   ├── README.md                       # Visão geral do sistema
-│   ├── 42_HOP_FRAMEWORK.md             # TAC-7 framework
-│   ├── QUICK_START_ADW.md              # Guia rápido ADW
-│   └── ORCHESTRATION.md                # Orquestração multi-agente
+├── PRIME.md                   # Este arquivo (identidade)
+├── INSTRUCTIONS.md            # Como usar o orquestrador
+├── README.md                  # Documentação
 │
-├── 📂 agentes/                         # ⭐ FRACTAL ARCHITECTURE
-│   ├── PRIME.md                        # Registry de todos agentes
-│   ├── DOCUMENTATION_INDEX.md          # Índice de documentação
-│   ├── 51_AGENT_REGISTRY.json          # Registry JSON
-│   │
-│   ├── 🤖 codexa_agent/                # Meta-constructor
-│   │   ├── builders/                   # Scripts .py (LER, não executar)
-│   │   ├── validators/                 # Scripts .py (LER, não executar)
-│   │   ├── prompts/                    # HOPs .md
-│   │   ├── workflows/                  # ADW workflows .md
-│   │   └── README.md                   # Docs do agente
-│   │
-│   ├── 🛍️ anuncio_agent/               # Anúncios de produtos
-│   ├── 🎨 marca_agent/                 # Estratégia marca
-│   ├── 🔍 pesquisa_agent/              # Pesquisa mercado
-│   ├── 👨‍🏫 mentor_agent/                # Orientação e-commerce
-│   ├── 📸 photo_agent/                 # Fotografia IA
-│   ├── 🎬 video_agent/                 # Produção de vídeo
-│   ├── 📚 curso_agent/                 # Construtor de cursos
-│   ├── 🔭 scout_agent/                 # Descoberta de paths (MCP)
-│   ├── 🎤 voice_agent/                 # Interface de voz (MCP)
-│   ├── 🐱 ronronalda_agent/            # Assistente GATO3
-│   └── 🧪 qa_gato3_agent/              # QA para GATO3
+├── prompts/                   # HOPs do orquestrador
+│   ├── 10_listener_HOP.md     # Parse NL + Voice→Text
+│   ├── 20_planner_HOP.md      # Decompose + Select agents
+│   ├── 30_spawner_HOP.md      # Task() parallel execution
+│   └── 40_collector_HOP.md    # Aggregate + Report
 │
-├── 📂 mcp-servers/                     # MCP Servers
-│   ├── browser-mcp/                    # Browser automation
-│   ├── voice-mcp/                      # Voice interface
-│   └── scout-mcp/                      # Path discovery
+├── workflows/                 # ADWs de orquestração
+│   ├── 100_ADW_CODEXA_ORCHESTRATION.md
+│   └── MULTI_AGENT_ORCHESTRATION.md
 │
-└── 📂 USER_DOCS/                       # Outputs do usuário
-    ├── anuncios/                       # Anúncios gerados
-    ├── produtos/                       # Research notes
-    └── Marca/                          # Brand strategies
+├── config/                    # Configurações
+│   ├── paths.py
+│   ├── secrets.py
+│   └── integrations.json      # Voice + Scout config
+│
+├── voice/                     # Voice I/O implementation
+│   ├── stt.py                 # Speech-to-text
+│   ├── tts.py                 # Text-to-speech
+│   └── server.py              # Voice daemon
+│
+├── agentes/                   # Sub-agents (12 specialists)
+│   ├── scout_agent/
+│   │   └── NAVIGATION_MAP.json  # Memória central
+│   ├── anuncio_agent/
+│   ├── pesquisa_agent/
+│   └── ...
+│
+├── mcp-servers/               # MCP integrations
+│   ├── scout-mcp/             # Discovery
+│   ├── codexa-commands/       # Command discovery
+│   └── browser-mcp/           # Web automation
+│
+└── outputs/                   # Results from agents
+    ├── reports/
+    ├── research/
+    ├── anuncios/
+    └── ...
 ```
 
-**Fractal Principle**: Commands live WITH their agents, not in root.
-
-### Como Navegar
-
-1. **Começar**: Leia `README.md` (este diretório)
-2. **Referência**: Use `agentes/DOCUMENTATION_INDEX.md`
-3. **Aprender**: Leia scripts em `agentes/codexa_agent/builders/`
-4. **Usar**: Execute comandos via `/prime-*` e `/codexa-*`
-
 ---
 
-## 🛡️ REGRAS DE SEGURANÇA
+## PRÓXIMOS PASSOS
 
-### Não Fazer
-
-1. ❌ Executar scripts .py diretamente
-2. ❌ Modificar arquivos core (41-47, 51, 90)
-3. ❌ Criar arquivos na raiz
-4. ❌ Importar módulos Python deste diretório
-5. ❌ Executar comandos sem entender o que fazem
-
-### Fazer
-
-1. ✅ Ler scripts para aprender
-2. ✅ Usar comandos `/codexa-*`
-3. ✅ Consultar documentação
-4. ✅ Validar com sistema
-5. ✅ Organizar novos arquivos corretamente
-
----
-
-## 🎓 APRENDIZADO
-
-### Para Iniciantes
-
-1. Leia `README.md` (este diretório)
-2. Execute `/codexa-when_to_use`
-3. Experimente `/codexa-build_command` (mais simples)
-4. Leia `42_HOP_FRAMEWORK.md` para entender HOPs
-5. Tente `/codexa-build_prompt`
-
-### Para Avançados
-
-1. Leia `agentes/codexa_agent/PRIME.md` para meta-construção
-2. Estude `agentes/codexa_agent/builders/02_agent_meta_constructor.py`
-3. Entenda workflows em `agentes/codexa_agent/workflows/`
-4. Use `/codexa-orchestrate` para workflows complexos
-5. Leia `agentes/codexa_agent/docs/` para documentação técnica
-
----
-
-## ❓ FAQ
-
-**P: Por que não posso executar os .py?**
-R: Scripts são código de **referência e aprendizado**. Comandos `/codexa-*` executam de forma controlada e segura.
-
-**P: Como sei se posso modificar um arquivo?**
-R:
-- ❌ Não modificar: Core docs (41-47, 51, 90), scripts .py
-- ✅ Pode adicionar: Novos commands, HOPs, workflows (em locais corretos)
-
-**P: E se eu quiser melhorar um script?**
-R: Use `/codexa-build_agent` ou `/codexa-build_prompt` para criar **nova versão**. Não modifique originais.
-
-**P: Posso criar meu próprio agente?**
-R: ✅ Sim! Use `/codexa-build_agent` - sistema cria tudo para você.
-
-**P: Como valido meus HOPs?**
-R: Sistema valida automaticamente com `07_hop_sync_validator.py` quando usa `/codexa-build_prompt`.
-
----
-
-## 🚀 QUICK START
+Para usar CODEXA.app como orquestrador:
 
 ```bash
-# 1. Descubra features
-/codexa-when_to_use
+# 1. Carregar identidade
+/codexa
 
-# 2. Crie seu primeiro comando
-/codexa-build_command
+# 2. Ver plano para tarefa
+/codexa --dry-run "Sua tarefa aqui"
 
-# 3. Teste o comando
-/[seu_comando]
-
-# 4. Leia código para entender como funciona
-cat agentes/codexa_agent/builders/05_command_generator.py
-
-# 5. Crie seu primeiro agente
-/codexa-build_agent
+# 3. Executar com voice report
+/codexa --voice "Lance 5 produtos com pesquisa"
 ```
 
 ---
 
-**LEMBRE-SE**:
-- 📖 **LER** scripts .py para aprender
-- ⚙️ **EXECUTAR** via comandos `/codexa-*`
-- 🎯 **COMEÇAR** com `/codexa-when_to_use`
-
----
-
-**Versão**: 1.0.0
-**Data**: 2025-11-13
-**Status**: ✅ Sistema Pronto para Uso Seguro
+**Created**: 2025-12-02
+**Type**: Primary Orchestrator
+**Dependencies**: NAVIGATION_MAP.json, Scout MCP, Voice, all 12 agents

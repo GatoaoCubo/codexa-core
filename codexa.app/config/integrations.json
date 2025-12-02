@@ -1,0 +1,85 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2025-12-02T00:00:00Z",
+  "description": "CODEXA.app integration configuration for Voice and Scout",
+
+  "voice": {
+    "enabled": true,
+    "stt": {
+      "provider": "whisper",
+      "model": "whisper-1",
+      "language": "pt-BR",
+      "endpoint": "local",
+      "config_path": "voice/config/stt_config.json"
+    },
+    "tts": {
+      "provider": "elevenlabs",
+      "voice_id": "codexa_narrator",
+      "model": "eleven_multilingual_v2",
+      "language": "pt-BR",
+      "config_path": "voice/config/tts_config.json"
+    },
+    "daemon": {
+      "host": "localhost",
+      "port": 5000,
+      "auto_start": false
+    }
+  },
+
+  "scout": {
+    "enabled": true,
+    "mcp_server": "scout-mcp",
+    "navigation_map": "agentes/scout_agent/NAVIGATION_MAP.json",
+    "tools": {
+      "smart_context": {
+        "enabled": true,
+        "cache_ttl_seconds": 300
+      },
+      "discover": {
+        "enabled": true,
+        "max_results": 20
+      },
+      "search": {
+        "enabled": true,
+        "fuzzy_match": true
+      }
+    }
+  },
+
+  "task_tool": {
+    "default_subagent_type": "general-purpose",
+    "max_concurrent": 5,
+    "timeout_ms": 600000,
+    "retry": {
+      "max_attempts": 2,
+      "quality_threshold": 7.0
+    }
+  },
+
+  "quality_gates": {
+    "minimum_score": 7.0,
+    "retry_on_fail": true,
+    "max_retries": 1,
+    "fail_threshold_percent": 50
+  },
+
+  "reporting": {
+    "output_dir": "outputs/reports",
+    "formats": ["md", "json"],
+    "voice_summary": true,
+    "archive_outputs": true,
+    "archive_dir": "outputs/batch_{date}"
+  },
+
+  "confirmation": {
+    "auto_confirm_below_items": 10,
+    "auto_confirm_below_cost_usd": 5.00,
+    "always_confirm_unknown_actions": true
+  },
+
+  "agents": {
+    "context_loader": "scout",
+    "prompt_builder": "prompts/{agent}_context.md",
+    "fallback_context": "agentes/{agent}/PRIME.md"
+  }
+}
