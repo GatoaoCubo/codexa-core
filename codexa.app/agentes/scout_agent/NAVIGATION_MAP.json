@@ -1,0 +1,185 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2025-12-02T00:00:00Z",
+  "generator": "SCOUT Commander (10 Parallel Scouts)",
+  "repository": "codexa-core",
+  "stats": {
+    "total_files_indexed": 503,
+    "agents": 13,
+    "commands": 24,
+    "workflows": 18,
+    "prompts": 30,
+    "schemas": 36,
+    "templates": 32,
+    "knowledge_files": 243,
+    "mcp_servers": 4,
+    "context_files": 407,
+    "output_artifacts": 92
+  },
+  "navigation": {
+    "agents": {
+      "path_pattern": "codexa.app/agentes/{name}/PRIME.md",
+      "keywords": ["agent", "domain", "capabilities", "workflow"],
+      "importance": 100,
+      "count": 12,
+      "items": [
+        {"name": "anuncio_agent", "domain": "E-commerce Copywriting", "keywords": ["marketplace", "listings", "SEO", "compliance"]},
+        {"name": "pesquisa_agent", "domain": "Market Research", "keywords": ["competitive-analysis", "pricing", "trends"]},
+        {"name": "marca_agent", "domain": "Brand Strategy", "keywords": ["branding", "positioning", "identity", "archetypes"]},
+        {"name": "photo_agent", "domain": "AI Photography", "keywords": ["product-photos", "prompts", "lighting", "composition"]},
+        {"name": "video_agent", "domain": "Video Production", "keywords": ["video", "scripts", "AI-generation", "editing"]},
+        {"name": "curso_agent", "domain": "Educational Content", "keywords": ["courses", "Hotmart", "pedagogical", "video-scripts"]},
+        {"name": "codexa_agent", "domain": "Meta-Construction", "keywords": ["agent-builder", "HOPs", "ADWs", "validation"]},
+        {"name": "mentor_agent", "domain": "Knowledge Processing", "keywords": ["teaching", "onboarding", "validation"]},
+        {"name": "scout_agent", "domain": "Path Discovery", "keywords": ["navigation", "indexing", "MCP", "search"]},
+        {"name": "voice_agent", "domain": "Voice Interface", "keywords": ["STT", "TTS", "accessibility", "hands-free"]},
+        {"name": "qa_gato3_agent", "domain": "Quality Assurance", "keywords": ["testing", "SEO", "a11y", "checkout"]},
+        {"name": "ronronalda_agent", "domain": "Cat Behavior Consulting", "keywords": ["chatbot", "persona", "recommendations"]},
+        {"name": "maestro_agent", "domain": "Meta-Orchestrator", "keywords": ["orchestration", "autonomous", "spawn", "pipeline", "batch"]}
+      ]
+    },
+    "prompts": {
+      "path_pattern": "codexa.app/agentes/{agent}/prompts/*_HOP.md",
+      "keywords": ["prompt", "HOP", "TAC-7", "instructions"],
+      "importance": 85,
+      "count": 30,
+      "by_agent": {
+        "codexa_agent": 7,
+        "video_agent": 5,
+        "photo_agent": 5,
+        "curso_agent": 5,
+        "qa_gato3_agent": 4,
+        "mentor_agent": 4,
+        "marca_agent": 2,
+        "anuncio_agent": 1,
+        "pesquisa_agent": 1,
+        "voice_agent": 1,
+        "ronronalda_agent": 1
+      }
+    },
+    "workflows": {
+      "path_pattern": "codexa.app/agentes/{agent}/workflows/*_ADW*.md",
+      "keywords": ["workflow", "ADW", "phases", "orchestration"],
+      "importance": 85,
+      "count": 18,
+      "key_workflows": [
+        {"name": "100_ADW_RUN_ANUNCIO", "agent": "anuncio_agent", "phases": 8},
+        {"name": "100_ADW_DOC_SYNC_WORKFLOW", "agent": "codexa_agent", "phases": 11},
+        {"name": "201_ADW_FEATURE_DEVELOPMENT", "agent": "codexa_agent", "phases": 5},
+        {"name": "203_ADW_PARALLEL_ORCHESTRATION", "agent": "codexa_agent", "phases": 6},
+        {"name": "204_ADW_INTEGRATED_PRODUCT_REFORM", "agent": "codexa_agent", "phases": 5},
+        {"name": "100_ADW_DISCOVERY_WORKFLOW", "agent": "scout_agent", "phases": 6}
+      ]
+    },
+    "commands": {
+      "path_pattern": ".claude/commands/*.md",
+      "keywords": ["slash", "command", "CLI", "execute"],
+      "importance": 70,
+      "count": 23,
+      "categories": {
+        "prime_domain_specialists": ["/prime-anuncio", "/prime-pesquisa", "/prime-marca", "/prime-photo", "/prime-video", "/prime-codexa", "/prime-scout", "/prime-mentor"],
+        "meta_builders": ["/codexa-build-agent", "/codexa-build-command", "/codexa-build-mcp", "/codexa-build-prompt", "/codexa-build-schema", "/codexa-orchestrate"],
+        "voice_interface": ["/v", "/vstart", "/vstop", "/vstatus", "/vgui"],
+        "utilities": ["/prime", "/adw-list", "/codexa-when-to-use", "/codexa-cleanup", "/video"],
+        "orchestration": ["/maestro"]
+      }
+    },
+    "knowledge": {
+      "path_pattern": "codexa.app/agentes/{agent}/iso_vectorstore/*.md",
+      "keywords": ["knowledge", "vectorstore", "reference", "docs"],
+      "importance": 65,
+      "count": 243,
+      "agents_with_vectorstore": 13
+    },
+    "schemas": {
+      "path_pattern": "codexa.app/agentes/{agent}/**/schema*.json",
+      "keywords": ["schema", "validation", "input", "output", "config"],
+      "importance": 60,
+      "count": 36,
+      "types": {
+        "input": 13,
+        "output": 8,
+        "config": 12,
+        "other": 3
+      }
+    },
+    "templates": {
+      "path_pattern": "codexa.app/agentes/{agent}/templates/**/*",
+      "keywords": ["template", "reusable", "distillable", "placeholders"],
+      "importance": 55,
+      "count": 32,
+      "categories": {
+        "output": 18,
+        "prompt": 4,
+        "doc": 8,
+        "other": 2
+      }
+    },
+    "mcp_servers": {
+      "path_pattern": "codexa.app/mcp-servers/{name}",
+      "keywords": ["MCP", "tools", "integration", "API"],
+      "importance": 75,
+      "count": 4,
+      "servers": [
+        {"name": "scout", "tools": 14, "purpose": "Path discovery and navigation"},
+        {"name": "codexa-commands", "tools": 5, "purpose": "Slash command discovery"},
+        {"name": "browser-mcp", "tools": 7, "purpose": "Web scraping and screenshots"},
+        {"name": "voice", "tools": 7, "purpose": "Speech-to-text and TTS"}
+      ]
+    }
+  },
+  "quick_paths": {
+    "criar agente": "codexa.app/agentes/codexa_agent/prompts/91_meta_build_agent_HOP.md",
+    "criar anuncio": "codexa.app/agentes/anuncio_agent/prompts/10_main_agent_HOP.md",
+    "criar curso": "codexa.app/agentes/curso_agent/PRIME.md",
+    "pesquisar mercado": "codexa.app/agentes/pesquisa_agent/PRIME.md",
+    "criar marca": "codexa.app/agentes/marca_agent/prompts/01_brand_identity_HOP.md",
+    "gerar fotos": "codexa.app/agentes/photo_agent/prompts/10_scene_planner_HOP.md",
+    "editar video": "codexa.app/agentes/video_agent/PRIME.md",
+    "validar qualidade": "codexa.app/agentes/qa_gato3_agent/PRIME.md",
+    "usar voz": "codexa.app/agentes/voice_agent/PRIME.md",
+    "navegar projeto": "codexa.app/agentes/scout_agent/PRIME.md",
+    "orquestrar tudo": "codexa.app/agentes/maestro_agent/PRIME.md"
+  },
+  "llm_dense_index": {
+    "copywriting produto e-commerce marketplace": ["anuncio_agent", "ronronalda_agent"],
+    "video educacao tutorial curso hotmart": ["curso_agent", "video_agent"],
+    "branding identidade visual posicionamento": ["marca_agent", "photo_agent"],
+    "meta-construction agent builder prompt": ["codexa_agent", "scout_agent"],
+    "research analise dados competitivo": ["pesquisa_agent", "qa_gato3_agent"],
+    "voz audio acessibilidade hands-free": ["voice_agent"],
+    "mentor coaching ensino conhecimento": ["mentor_agent", "curso_agent"],
+    "orquestrar autonomo batch pipeline spawn": ["maestro_agent"]
+  },
+  "agent_categories": {
+    "e_commerce_creation": ["anuncio_agent", "pesquisa_agent", "marca_agent", "photo_agent", "video_agent"],
+    "platform_specific": ["qa_gato3_agent", "ronronalda_agent", "curso_agent"],
+    "infrastructure": ["scout_agent", "voice_agent"],
+    "meta_system": ["codexa_agent", "mentor_agent", "maestro_agent"]
+  },
+  "integrations": {
+    "supabase": {
+      "purpose": "Primary database backend",
+      "used_by": ["anuncio_agent", "auto_publish"]
+    },
+    "shopify": {
+      "purpose": "E-commerce platform sync",
+      "used_by": ["anuncio_agent", "ronronalda_agent"]
+    },
+    "openai": {
+      "purpose": "AI/LLM provider",
+      "used_by": ["anuncio_agent", "pesquisa_agent", "video_agent"]
+    },
+    "elevenlabs": {
+      "purpose": "Text-to-speech",
+      "used_by": ["voice_agent", "video_agent"]
+    }
+  },
+  "project_laws": {
+    "LAW_1": "Distillation Principle - Documents must be templates with {{PLACEHOLDERS}}",
+    "LAW_2": "Fractal Navigation - PRIME.md → INSTRUCTIONS.md → README.md",
+    "LAW_3": "Meta-Construction - Build the thing that builds the thing",
+    "LAW_4": "Agentic Design - Agents are autonomous specialists",
+    "LAW_5": "Auto-Publish - Anuncios → Supabase → Shopify"
+  }
+}
