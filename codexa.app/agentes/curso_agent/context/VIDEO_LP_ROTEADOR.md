@@ -378,6 +378,105 @@ e com autonomia, executá-los.
 
 ---
 
+## 🎬 DIREÇÃO VISUAL
+
+### Câmera por Seção
+
+| Seção | Tempo | Câmera | Mood |
+|-------|-------|--------|------|
+| **Hook** | 0:00-0:40 | `slow zoom in` no output | Impacto, prova |
+| **Problema** | 0:45-2:30 | `handheld shake` + `slow pan` | Caos, frustração |
+| **Solução** | 2:30-4:30 | `dolly in` → `zoom out` | Clareza, alívio |
+| **Demo** | 4:30-7:00 | `slow pan` nas listas | Transparência |
+| **Especialistas** | 7:00-8:30 | `orbit` + `dolly in` | Expertise |
+| **Diferencial** | 8:30-10:00 | `handheld` → `static` | Dor → Alívio |
+| **Cat Coding** | 9:45-10:00 | `medium shot, casual` | Humor 😼 |
+| **CTA** | 10:00-11:00 | `slow zoom in` no botão | Ação |
+
+### Arco de Iluminação
+
+```
+COLD (problema) ──→ WARM (solução) ──→ GOLDEN (CTA)
+   harsh, blue        soft, neutral       success glow
+```
+
+### Detalhamento por Bloco
+
+#### [00:00-00:40] HOOK
+```
+0:00-0:05  Tela preta, cursor     → static, low key
+0:05-0:10  Texto letra por letra  → static, spotlight
+0:10-0:20  Split: input → output  → static, clean
+0:20-0:30  Checkmarks aparecendo  → slow zoom in, warm
+0:30-0:40  "47min / 1 frase"      → static, high contrast
+```
+
+#### [00:45-02:30] PROBLEMA
+```
+0:45-1:00  8 abas navegador       → slow pan right, cold blue
+1:00-1:20  Ícones girando         → handheld shake, flickering
+1:20-1:40  Copiar/colar           → medium shot, desaturated
+1:40-2:00  Relógio acelerando     → zoom out, red warning
+2:00-2:30  "Escravidão digital"   → static, dark dramatic
+```
+
+#### [02:30-04:30] SOLUÇÃO
+```
+2:30-2:45  Interface limpa        → slow dolly in, bright
+2:45-3:30  4 cards (um a um)      → static, soft highlight
+3:30-3:45  Cursor digitando       → close-up, warm
+3:45-4:30  4 cards lado a lado    → slow zoom out, balanced
+```
+
+#### [04:30-07:00] DEMO
+```
+4:30-5:00  Screencast real        → static, neutral
+5:00-5:40  Fases 1-2 executando   → slow pan down, green progress
+5:40-6:00  Bridge (seta)          → zoom on arrow, pulse
+6:00-6:40  Fases 4-5 executando   → slow pan down, green progress
+6:40-7:00  Score 0.87             → slow zoom in, golden glow
+```
+
+#### [07:00-08:30] ESPECIALISTAS
+```
+7:00-7:15  Diagrama orbital       → slow orbit, warm
+7:15-7:30  Ícones conhecimento    → pan across, subtle glow
+7:30-7:45  Funil destilação       → slow dolly in, gradient
+7:45-8:15  3 cards agentes        → static reveal, accent colors
+8:15-8:30  "Você no centro"       → slow zoom out, spotlight
+```
+
+#### [08:30-10:00] DIFERENCIAL
+```
+8:30-8:45  Treinando funcionário  → handheld, harsh light
+8:45-9:00  Reclamação + $         → close-up, red warning
+9:00-9:15  Ciclo vicioso          → slow orbit, desaturated
+9:15-9:30  "CODEXA quebra"        → static, transition to warm
+9:30-9:45  Família usando         → wide shot, golden happy
+9:45-10:00 CAT CODING 😼          → medium casual, cozy warm
+```
+
+#### [10:00-11:00] CTA
+```
+10:00-10:15  4 comandos recap     → static, clean bright
+10:15-10:30  Botão pulsando       → slow zoom in, CTA green
+10:30-10:45  "Teste grátis"       → static, trust blue
+10:45-10:55  Fade to black        → fade, dim
+10:55-11:00  Logo + Tagline       → static, subtle golden rim
+```
+
+### Regras de Ouro
+
+```
+✓ Um movimento principal por shot
+✓ Movimentos lentos = maior qualidade
+✓ Transição de cor: COLD → WARM → GOLDEN
+✓ Cat Coding: quebra de tom (humor)
+✓ Tagline final: épico, sutil
+```
+
+---
+
 ## 🔗 CONEXÕES COM OUTROS MÓDULOS
 
 | Módulo | Conexão |
@@ -436,7 +535,7 @@ Exemplo: "Quero anunciar fone bluetooth esportivo"
 
 ---
 
-**Versão**: 2.1.0
+**Versão**: 2.2.0
 **Criado**: 2025-12-03
 **Atualizado**: 2025-12-03
 **Autor**: curso_agent
@@ -445,3 +544,4 @@ Exemplo: "Quero anunciar fone bluetooth esportivo"
 - Conhecimento destilado (cursos, mentorias, experiência)
 - Cat Coding 😼 (Pirulita)
 - "Escale sem risco" (equipe/família sem treinamento)
+- Direção visual completa (câmera + iluminação)
