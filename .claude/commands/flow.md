@@ -1,8 +1,8 @@
 # /flow - Task Execution Pipeline
 
-## PURPOSE
-
 Unified command for planning, executing, and templatizing tasks.
+
+## PURPOSE
 
 **Modes**: `plan` | `do` | `distill`
 

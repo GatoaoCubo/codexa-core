@@ -1,8 +1,8 @@
 # /spawn - Parallel Agent Launcher
 
-## PURPOSE
-
 Lança múltiplos sub-agents em paralelo a partir de uma lista simples.
+
+## PURPOSE
 
 **Uso**: Humano escreve lista → LLM converte para Task tools paralelos
 

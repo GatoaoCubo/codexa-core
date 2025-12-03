@@ -1,8 +1,8 @@
 # /handoff - Cross-Chat Transfer Protocol
 
-## PURPOSE
-
 Prepara saída estruturada para continuar trabalho em outro chat (sem contexto).
+
+## PURPOSE
 
 **Uso**: Final de sessão | Transferência para outro LLM | Documentação de progresso
 
