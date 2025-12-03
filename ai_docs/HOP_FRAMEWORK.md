@@ -1001,7 +1001,7 @@ Use this checklist before committing a HOP:
 
 **CODEXA Framework**:
 - [42_HOP_FRAMEWORK.md](../codexa.app/42_HOP_FRAMEWORK.md) - Original HOP framework specification
-- [PRIME.md](../codexa.app/agentes_codexa/codexa-agent/PRIME.md) - CODEXA meta-construction system
+- [PRIME.md](../codexa.app/agentes/codexa_agent/PRIME.md) - CODEXA meta-construction system
 
 **External Resources**:
 - [Prompt Engineering Best Practices](https://platform.openai.com/docs/guides/prompt-engineering)

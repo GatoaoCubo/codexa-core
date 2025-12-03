@@ -350,11 +350,11 @@ confidence_score = avg(block_confidence_scores)  # Target: ≥0.75
 **Generate Trinity Output**:
 ```bash
 # After creating research_notes.md:
-python ../codexa-agent/builders/15_trinity_output_generator.py user_research/produto_research_notes.md
+python ../codexa_agent/builders/15_trinity_output_generator.py user_research/produto_research_notes.md
 # → Generates produto_research_notes.llm.json automatically
 
 # Or from codexa.app root:
-python agentes/codexa-agent/builders/15_trinity_output_generator.py \
+python agentes/codexa_agent/builders/15_trinity_output_generator.py \
   agentes/pesquisa_agent/user_research/produto_research_notes.md
 ```
 

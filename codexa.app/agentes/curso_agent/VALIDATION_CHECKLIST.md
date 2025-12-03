@@ -10,7 +10,7 @@ Execute todos os itens antes de fazer commit do agente.
 
 ### 1.1 README Validation
 ```bash
-uv run codexa.app/agentes/codexa-agent/validators/09_readme_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/09_readme_validator.py \
   agents/hotmart_course_builder_agent/artifacts/README.md
 ```
 
@@ -27,7 +27,7 @@ uv run codexa.app/agentes/codexa-agent/validators/09_readme_validator.py \
 
 ### 1.2 Path Consistency Validation
 ```bash
-uv run codexa.app/agentes/codexa-agent/validators/16_path_consistency_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/16_path_consistency_validator.py \
   agents/hotmart_course_builder_agent/
 ```
 
@@ -42,7 +42,7 @@ uv run codexa.app/agentes/codexa-agent/validators/16_path_consistency_validator.
 
 ### 1.3 HOP/TAC-7 Validation (if applicable)
 ```bash
-uv run codexa.app/agentes/codexa-agent/validators/07_hop_sync_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/07_hop_sync_validator.py \
   agents/hotmart_course_builder_agent/artifacts/*.md
 ```
 
@@ -243,7 +243,7 @@ Agent self-validates and reports:
 
 **Validation**:
 ```bash
-uv run codexa.app/agentes/codexa-agent/validators/10_taxonomy_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/10_taxonomy_validator.py \
   codexa.app/agentes/51_AGENT_REGISTRY.json
 ```
 
@@ -301,7 +301,7 @@ Lists correctly: anuncio_agent, pesquisa_agent, marca_agent, photo_agent, mentor
 
 **Action**:
 ```bash
-uv run codexa.app/agentes/codexa-agent/validators/12_doc_sync_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/12_doc_sync_validator.py \
   --agent hotmart_course_builder_agent
 ```
 

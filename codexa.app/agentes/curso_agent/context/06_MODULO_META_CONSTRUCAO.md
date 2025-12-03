@@ -2753,7 +2753,7 @@ agentes/photo_agent/
 #### 🔴 **CODEXA AGENT** (Módulo 6 - Meta-Construção)
 
 ```
-agentes/codexa-agent/
+agentes/codexa_agent/
 ├── PRIME.md                        ← 🧠 O CÉREBRO META
 ├── README.md                       ← Como usar CODEXA
 │
@@ -2894,14 +2894,14 @@ agentes/photo_agent/context/styles.md
 
 **→ Meta-construção:**
 ```
-agentes/codexa-agent/PRIME.md
-agentes/codexa-agent/builders/
+agentes/codexa_agent/PRIME.md
+agentes/codexa_agent/builders/
 ```
 
 **→ Como criar agentes:**
 ```
-agentes/codexa-agent/workflows/97_ADW_NEW_AGENT_WORKFLOW.md
-agentes/codexa-agent/agents/_examples/
+agentes/codexa_agent/workflows/97_ADW_NEW_AGENT_WORKFLOW.md
+agentes/codexa_agent/agents/_examples/
 ```
 
 ---
@@ -2924,7 +2924,7 @@ agentes/codexa-agent/agents/_examples/
 **Por quê é valioso:** Todo conhecimento de e-commerce BR em um lugar
 
 #### 🥚 **Tesouro #4: Agente Exemplo Completo**
-**Localização:** `agentes/codexa-agent/agents/_examples/example_meta_constructor_5_phases/`
+**Localização:** `agentes/codexa_agent/agents/_examples/example_meta_constructor_5_phases/`
 **O que é:** Agente funcional completo (código + docs)
 **Por quê é valioso:** Copie e adapte para criar seus agentes
 

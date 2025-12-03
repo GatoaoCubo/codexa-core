@@ -161,7 +161,7 @@ Write a good product listing based on the research.
 ### Adding a New Agent
 ```bash
 # 1. Create agent structure
-codexa/agentes_codexa/NEW_AGENT/
+codexa/agentes/NEW_AGENT/
 ├── README.md              # Agent documentation
 ├── new_agent.md          # Main command entry
 ├── prompts/              # Prompt templates
@@ -178,7 +178,7 @@ codexa/agentes_codexa/NEW_AGENT/
 {
   "commands": {
     "new_agent": {
-      "path": "codexa/agentes_codexa/new_agent/new_agent.md"
+      "path": "codexa/agentes/new_agent/new_agent.md"
     }
   }
 }

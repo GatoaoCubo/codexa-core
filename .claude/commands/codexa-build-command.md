@@ -12,7 +12,7 @@
 /codexa-build-command
 
 # Or direct execution
-uv run builders/05_command_generator.py
+uv run codexa.app/agentes/codexa_agent/builders/05_command_generator.py
 ```
 
 ---
@@ -87,4 +87,4 @@ Usage examples
 
 ---
 
-**Related**: Existing commands (examples) | 05_command_generator.py (implementation)
+**Related**: Existing commands (examples) | codexa.app/agentes/codexa_agent/builders/05_command_generator.py (implementation)

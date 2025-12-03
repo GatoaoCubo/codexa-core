@@ -204,7 +204,7 @@ O comando detecta o input e escolhe o modo:
 /flow do "listar arquivos do curso_agent"
 
 # Transformar em template
-/flow distill curso_agent/outputs/VIDEO_LP_CODEXA.md
+/flow distill curso_agent/outputs/VIDEO_LP_CODEXA_10MIN_V2_REMIX.md
 
 # Loop completo automático
 /flow auto "criar landing page para produto X"

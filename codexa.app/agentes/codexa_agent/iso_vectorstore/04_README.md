@@ -48,10 +48,10 @@ python codexa.py validate hop prompts/91_meta_build_agent_HOP.md
 
 | Document | Purpose |
 |----------|---------|
-| **[PRIME.md](PRIME.md)** | Philosophy & principles [READ FIRST] |
-| **[STRUCTURE.md](STRUCTURE.md)** | Complete system map |
-| **[INSTRUCTIONS.md](INSTRUCTIONS.md)** | AI operations guide |
-| **[codexa.py](codexa.py)** | CLI entry point |
+| **[PRIME.md](../PRIME.md)** | Philosophy & principles [READ FIRST] |
+| **[STRUCTURE.md](../STRUCTURE.md)** | Complete system map |
+| **[INSTRUCTIONS.md](../INSTRUCTIONS.md)** | AI operations guide |
+| **[codexa.py](../codexa.py)** | CLI entry point |
 
 ---
 
@@ -73,7 +73,7 @@ codexa_agent/
 └── deployment/        # Docker + scripts
 ```
 
-**Full map**: [STRUCTURE.md](STRUCTURE.md)
+**Full map**: [STRUCTURE.md](../STRUCTURE.md)
 
 ---
 
@@ -220,7 +220,7 @@ OPENAI_API_KEY=sk-...
 ./deployment/scripts/healthcheck.sh
 ```
 
-**Full guide**: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
+**Full guide**: [docs/DEPLOYMENT.md](../docs/DEPLOYMENT.md)
 
 ---
 
@@ -253,9 +253,9 @@ OPENAI_API_KEY=sk-...
 
 ## Related
 
-- **Entry Points**: [PRIME.md](PRIME.md) | [STRUCTURE.md](STRUCTURE.md) | [codexa.py](codexa.py)
-- **Docs**: [docs/](docs/) | [specs/](specs/)
-- **Source**: [src/](src/) | [builders/](builders/)
+- **Entry Points**: [PRIME.md](../PRIME.md) | [STRUCTURE.md](../STRUCTURE.md) | [codexa.py](../codexa.py)
+- **Docs**: [docs/](../docs/) | [specs/](../specs/)
+- **Source**: [src/](../src/) | [builders/](../builders/)
 
 ---
 

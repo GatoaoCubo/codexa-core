@@ -65,7 +65,7 @@ agentes/
 └── scout_agent/           Exploração de código
 ```
 
-#### `agentes/codexa-agent/` ⭐ (Principal)
+#### `agentes/codexa_agent/` ⭐ (Principal)
 
 **Propósito**: Agente que constrói outros agentes e componentes do sistema.
 
@@ -99,14 +99,14 @@ codexa_agent/
 - `10_taxonomy_validator.py` - Valida taxonomia
 
 **HOPs (prompts/)** - Prompt Modules TAC-7:
-- `agentes/codexa-agent/prompts/91_meta_build_agent_HOP.md` - HOP para construir agentes
-- `agentes/codexa-agent/prompts/94_meta_build_prompt_HOP.md` - HOP para construir HOPs
-- `agentes/codexa-agent/prompts/96_meta_orchestrate_HOP.md` - HOP para orquestrar workflows
+- `agentes/codexa_agent/prompts/91_meta_build_agent_HOP.md` - HOP para construir agentes
+- `agentes/codexa_agent/prompts/94_meta_build_prompt_HOP.md` - HOP para construir HOPs
+- `agentes/codexa_agent/prompts/96_meta_orchestrate_HOP.md` - HOP para orquestrar workflows
 
 **Workflows ADW** (workflows/):
-- `agentes/codexa-agent/workflows/97_ADW_NEW_AGENT_WORKFLOW.md` - Criar agente completo (5 fases)
-- `agentes/codexa-agent/workflows/98_ADW_CONSOLIDATION_WORKFLOW.md` - Consolidar sistema (5 fases)
-- `agentes/codexa-agent/workflows/99_ADW_SYSTEM_UPGRADE_WORKFLOW.md` - Upgrade seguro (5 fases)
+- `agentes/codexa_agent/workflows/97_ADW_NEW_AGENT_WORKFLOW.md` - Criar agente completo (5 fases)
+- `agentes/codexa_agent/workflows/98_ADW_CONSOLIDATION_WORKFLOW.md` - Consolidar sistema (5 fases)
+- `agentes/codexa_agent/workflows/99_ADW_SYSTEM_UPGRADE_WORKFLOW.md` - Upgrade seguro (5 fases)
 
 ---
 
@@ -116,7 +116,7 @@ codexa_agent/
 
 **Locations**:
 
-**CODEXA Meta-Commands** (`agentes/codexa-agent/commands/`):
+**CODEXA Meta-Commands** (`agentes/codexa_agent/commands/`):
 | Comando | Descrição | Quando Usar |
 |---------|-----------|-------------|
 | `/codexa-when_to_use` | Decision tree - escolhe ferramenta certa | Não sabe qual tool usar |
@@ -229,7 +229,7 @@ docs_consolidados/
 1. **NÃO executar arquivos .py diretamente**
    ```bash
    # ❌ ERRADO:
-   python agentes/codexa-agent/builders/02_agent_meta_constructor.py
+   python agentes/codexa_agent/builders/02_agent_meta_constructor.py
 
    # ✅ CORRETO:
    /codexa-build_agent
@@ -315,7 +315,7 @@ O agente `codexa_agent` é especial:
    - `/codexa-build_agent` - Para criar seu primeiro agente
 
 3. **Explore agentes**:
-   - Veja `agentes/codexa-agent/README.md`
+   - Veja `agentes/codexa_agent/README.md`
    - Leia (não execute!) os scripts em `builders/`
 
 4. **Consulte registry**:

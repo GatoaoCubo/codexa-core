@@ -8,7 +8,7 @@ Display all available ADW (Agentic Developer Workflow) workflows with their spec
 # 📋 Available ADW Workflows
 
 ## 1. PESQUISA_AGENT - Market Research
-**File**: agentes/pesquisa_agent/workflows/100_ADW_RUN_PESQUISA.md
+**File**: codexa.app/agentes/pesquisa_agent/workflows/100_ADW_RUN_PESQUISA.md
 **Phases**: 9 phases (20-30min total)
 **Output**: research_notes.md (22 blocks) + metadata.json + queries.json
 **Architecture**: Dual-Layer (12 HOP prompts, ~260KB)
@@ -29,7 +29,7 @@ Display all available ADW (Agentic Developer Workflow) workflows with their spec
 ---
 
 ## 2. ANUNCIO_AGENT - Ad Generation
-**File**: agentes/anuncio_agent/workflows/100_ADW_RUN_ANUNCIO.md
+**File**: codexa.app/agentes/anuncio_agent/workflows/100_ADW_RUN_ANUNCIO.md
 **Phases**: 7 phases (23-38min total)
 **Output**: Trinity format (.md + .llm.json + .meta.json)
 **Architecture**: Dual-Layer (10 HOP prompts, 466KB)
@@ -47,7 +47,7 @@ Display all available ADW (Agentic Developer Workflow) workflows with their spec
 ---
 
 ## 3. MENTOR_AGENT - E-commerce Mentoring
-**File**: agentes/mentor_agent/workflows/100_ADW_RUN_MENTOR.md
+**File**: codexa.app/agentes/mentor_agent/workflows/100_ADW_RUN_MENTOR.md
 **Phases**: 6 phases (16-31min total)
 **Output**: .md files (mentoring response)
 **Architecture**: Dual-Layer (8 HOP prompts, ~100KB)
@@ -65,7 +65,7 @@ Display all available ADW (Agentic Developer Workflow) workflows with their spec
 ---
 
 ## 4. MARCA_AGENT - Brand Strategy
-**File**: agentes/marca_agent/workflows/100_ADW_RUN_MARCA.md
+**File**: codexa.app/agentes/marca_agent/workflows/100_ADW_RUN_MARCA.md
 **Phases**: 7 phases (21-36min total)
 **Output**: brand_strategy.md (30+ blocks) + validation_report.txt
 **Architecture**: Dual-Layer (2 HOP prompts, ~46KB)
@@ -83,7 +83,7 @@ Display all available ADW (Agentic Developer Workflow) workflows with their spec
 ---
 
 ## 5. PHOTO_AGENT - AI Photography Prompts
-**File**: agentes/photo_agent/workflows/100_ADW_RUN_PHOTO.md
+**File**: codexa.app/agentes/photo_agent/workflows/100_ADW_RUN_PHOTO.md
 **Phases**: 5 phases (15-30min total)
 **Output**: Trinity format (grid 3x3: 9 individual + 1 batch)
 **Architecture**: Dual-Layer (5 HOP prompts, ~110KB)
@@ -102,7 +102,7 @@ Display all available ADW (Agentic Developer Workflow) workflows with their spec
 ---
 
 ## 6. CODEXA_AGENT - Integrated Product Reform (Orchestration)
-**File**: agentes/codexa_agent/workflows/204_ADW_INTEGRATED_PRODUCT_REFORM.md
+**File**: codexa.app/agentes/codexa_agent/workflows/204_ADW_INTEGRATED_PRODUCT_REFORM.md
 **Phases**: 5 phases (15min/product batch, 45-60min/product single)
 **Output**: research_notes.md + Trinity format + Shopify sync + batch report
 **Architecture**: Orchestration Layer (coordinates pesquisa + anuncio + sync)

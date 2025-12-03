@@ -160,7 +160,7 @@ What do you need?
 - **PRIME.md** (root) - System navigator
 - **Agent Registry**: `51_AGENT_REGISTRY.json`
 - **HOP Framework**: `42_HOP_FRAMEWORK.md`
-- **Workflows**: `agentes/*/workflows/100_ADW_RUN_*.md`
+- **Workflows**: `codexa.app/agentes/*/workflows/100_ADW_RUN_*.md`
 
 ---
 

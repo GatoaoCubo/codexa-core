@@ -161,7 +161,7 @@ create_all_indexes(db_path: str) -> None
 
 ---
 
-## 🤖 Agent API (codexa.app/agentes_codexa)
+## 🤖 Agent API (codexa.app/agentes/)
 
 ### Agent Registry
 

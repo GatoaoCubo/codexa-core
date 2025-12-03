@@ -22,9 +22,9 @@ Execute um workflow ADW (Agentic Developer Workflow) completo de ponta a ponta.
 
 Read the following files in order:
 
-1. **PRIME.md**: `agentes/{agent_name}_agent/PRIME.md`
-2. **ADW Workflow**: `agentes/{agent_name}_agent/workflows/100_ADW_RUN_{AGENT}.md`
-3. **Config Files**: `agentes/{agent_name}_agent/config/*.json` (all)
+1. **PRIME.md**: `codexa.app/agentes/{agent_name}_agent/PRIME.md`
+2. **ADW Workflow**: `codexa.app/agentes/{agent_name}_agent/workflows/100_ADW_RUN_{AGENT}.md`
+3. **Config Files**: `codexa.app/agentes/{agent_name}_agent/config/*.json` (all)
 
 ### Step 2: Parse User Input
 

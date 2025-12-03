@@ -396,6 +396,108 @@
       "specialty": "Educational content, course architecture, video scripts, Hotmart optimization, pedagogical design",
       "quality_score": 9.5,
       "documentation_status": "excellent"
+    },
+    "voice_agent": {
+      "name": "Voice Agent (Accessibility Interface)",
+      "description": "Accessibility-first voice interface controller - enables hands-free interaction with Claude Code via audio",
+      "version": "3.0.0",
+      "prime_command": "/prime-voice",
+      "entry_command": "/v",
+      "location": "codexa.app/agentes/voice_agent",
+      "iso_vectorstore_files": 9,
+      "prompts_count": 1,
+      "hop_enabled": true,
+      "dependencies": [],
+      "status": "active",
+      "created": "2025-11-27",
+      "updated": "2025-11-28",
+      "architecture": "daemon_ipc",
+      "components": {
+        "prime": "codexa.app/agentes/voice_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/voice_agent/iso_vectorstore/",
+        "prompts": "codexa.app/agentes/voice_agent/prompts/",
+        "workflows": "codexa.app/agentes/voice_agent/workflows/",
+        "config": "codexa.app/agentes/voice_agent/config/",
+        "commands": {
+          "prime": ".claude/commands/prime-voice.md"
+        }
+      },
+      "capabilities": [
+        "Voice-to-text transcription (Whisper)",
+        "Text-to-speech synthesis (ElevenLabs/Edge/pyttsx3)",
+        "Background daemon for continuous listening",
+        "VAD (Voice Activity Detection)",
+        "Support for Portuguese (pt-BR)",
+        "Hands-free command execution"
+      ],
+      "specialty": "Voice interface, accessibility, hands-free control, audio I/O"
+    },
+    "qa_gato3_agent": {
+      "name": "QA Agent (GATO3 Quality Assurance)",
+      "description": "Quality assurance specialist for GATO3 e-commerce - validates UI, user flows, SEO, accessibility",
+      "version": "1.0.0",
+      "prime_command": "/prime-qa-gato3",
+      "entry_command": "/qa-run-all",
+      "location": "codexa.app/agentes/qa_gato3_agent",
+      "iso_vectorstore_files": 11,
+      "prompts_count": 4,
+      "hop_enabled": true,
+      "dependencies": [],
+      "status": "active",
+      "created": "2025-11-28",
+      "updated": "2025-11-28",
+      "components": {
+        "prime": "codexa.app/agentes/qa_gato3_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/qa_gato3_agent/iso_vectorstore/",
+        "prompts": "codexa.app/agentes/qa_gato3_agent/prompts/",
+        "workflows": "codexa.app/agentes/qa_gato3_agent/workflows/"
+      },
+      "hop_prompts": [
+        "qa_pages_HOP.md",
+        "qa_checkout_HOP.md",
+        "qa_seo_HOP.md",
+        "qa_a11y_HOP.md"
+      ],
+      "capabilities": [
+        "Page load validation",
+        "Checkout flow testing",
+        "SEO validation",
+        "WCAG accessibility audit",
+        "Broken link detection",
+        "Markdown + JSON reports"
+      ],
+      "specialty": "E-commerce QA, accessibility audit, SEO testing"
+    },
+    "ronronalda_agent": {
+      "name": "Ronronalda (GATO3 Brand Persona)",
+      "description": "The voice of GATO3 brand - feline mentoring persona for customer interaction",
+      "version": "0.1.0",
+      "prime_command": "/prime-ronronalda",
+      "entry_command": "/ro-status",
+      "location": "codexa.app/agentes/ronronalda_agent",
+      "iso_vectorstore_files": 8,
+      "prompts_count": 1,
+      "hop_enabled": true,
+      "dependencies": ["pesquisa_agent", "marca_agent", "anuncio_agent"],
+      "status": "active",
+      "created": "2025-11-25",
+      "updated": "2025-11-28",
+      "architecture": "persona_driven",
+      "components": {
+        "prime": "codexa.app/agentes/ronronalda_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/ronronalda_agent/iso_vectorstore/",
+        "prompts": "codexa.app/agentes/ronronalda_agent/prompts/",
+        "workflows": "codexa.app/agentes/ronronalda_agent/workflows/",
+        "knowledge": "codexa.app/agentes/ronronalda_agent/knowledge/"
+      },
+      "capabilities": [
+        "Cat behavior consultation",
+        "Product recommendations",
+        "Multi-channel persona (chat, WhatsApp, social)",
+        "AI-powered responses (Gemini 2.5 Flash)",
+        "Text-to-speech narration"
+      ],
+      "specialty": "Brand persona, customer service, cat behavior consulting"
     }
   },
   "navigation_system": {

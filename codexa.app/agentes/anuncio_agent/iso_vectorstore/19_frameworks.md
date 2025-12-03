@@ -163,7 +163,7 @@ Phase 5: DOCUMENT
 
 ## 📚 REFERENCE
 
-**Full CODEXA Docs**: agentes/codexa-agent/
+**Full CODEXA Docs**: agentes/codexa_agent/
 **HOP Examples**: All HOPs in this vectorstore (13-18)
 **Meta-Constructor**: builders/02_agent_meta_constructor.py (outside vectorstore)
 

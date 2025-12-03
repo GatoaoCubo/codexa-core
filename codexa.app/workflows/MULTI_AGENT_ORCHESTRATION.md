@@ -95,7 +95,7 @@ for agent in get_all_agents():
 Found agent: anuncio_agent
   Outputs: C:/.../agentes/anuncio_agent/outputs
 Found agent: codexa_agent
-  Outputs: C:/.../agentes/codexa-agent/outputs
+  Outputs: C:/.../agentes/codexa_agent/outputs
 Found agent: marca_agent
   Outputs: C:/.../agentes/marca_agent/outputs
 ...
@@ -161,7 +161,7 @@ research_file = get_agent_output('pesquisa', 'market_research.json')
 ```python
 # List all agent directories
 agents = get_all_agents()
-# Returns: [Path('.../anuncio_agent'), Path('.../codexa-agent'), ...]
+# Returns: [Path('.../anuncio_agent'), Path('.../codexa_agent'), ...]
 ```
 
 ---

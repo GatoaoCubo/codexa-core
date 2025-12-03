@@ -456,8 +456,8 @@ pesquisa_agent/
 ### For System Context
 
 **Root**: `agentes/PRIME.md` - System philosophy
-**Meta**: `agentes/codexa-agent/PRIME.md` - Meta-construction principles
-**HOP**: `agentes/codexa-agent/prompts/91_meta_build_agent_HOP.md` - TAC-7 framework
+**Meta**: `agentes/codexa_agent/PRIME.md` - Meta-construction principles
+**HOP**: `agentes/codexa_agent/prompts/91_meta_build_agent_HOP.md` - TAC-7 framework
 
 ---
 

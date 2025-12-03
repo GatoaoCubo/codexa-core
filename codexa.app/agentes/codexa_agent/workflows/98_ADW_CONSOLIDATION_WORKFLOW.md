@@ -191,7 +191,7 @@ Regenerate documentation
 **Categories & Metrics**:
 1. **Temp files** (26 found): .backup_* files (20), .bak files (2), __pycache__ (1), old reports (2), NUL files (2)
 2. **Obsolete refs** (27 found): References to `scout_agent`/`conhecimento_agent` after consolidation into `mentor_agent`
-3. **Broken paths** (9 found): Links to moved files (agentes_codexa/ → agentes/, commands/ → */commands/)
+3. **Broken paths** (9 found): Links to moved files (commands/ → */commands/)
 4. **Python organization** (21+ files): Flat root .py files → hierarchical builders/validators/
 5. **Empty folders** (4 found): commands/git/, commands/e2e/, orphaned data folders
 6. **Migration docs** (5 found): Executed reports with no future value

@@ -218,7 +218,7 @@ runtime = AgentRuntime(config=config)
 ## Validation Commands
 Execute all commands to validate that the chore is complete with zero regressions.
 
-- `cd agentes/codexa-agent && python validators/09_readme_validator.py README.md` – Validate README structure and completeness (exit code 0)
+- `cd agentes/codexa_agent && python validators/09_readme_validator.py README.md` – Validate README structure and completeness (exit code 0)
 - `git diff --check` – Ensure no trailing whitespace or merge conflicts (no output = success)
 - `grep -r "FIXME\|TODO" agentes/*/README.md` – No new TODO markers added (empty output = success)
 - **Manual**: Open each README.md in browser/viewer, verify new "Deployment" section renders correctly

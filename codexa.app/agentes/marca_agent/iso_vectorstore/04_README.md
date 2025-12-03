@@ -50,7 +50,7 @@ Transform simple product briefs into complete brand identities in 10-20 minutes.
 
 ## 🚀 Quick Start
 
-**For detailed setup instructions, see [QUICK_START.md](QUICK_START.md)**
+**For detailed setup instructions, see [QUICK_START.md](../QUICK_START.md)**
 
 **TL;DR:**
 1. Run `export_standalone.sh` (or `.bat` on Windows)

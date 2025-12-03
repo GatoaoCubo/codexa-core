@@ -117,7 +117,7 @@ security:
 cd deployment/docker
 
 # Production
-docker-compose up -d codexa-agent
+docker-compose up -d codexa_agent
 
 # Development
 docker-compose --profile dev up -d
@@ -161,10 +161,10 @@ pytest tests/ -v
 
 ```bash
 # Check container health
-docker inspect --format='{{.State.Health.Status}}' codexa-agent
+docker inspect --format='{{.State.Health.Status}}' codexa_agent
 
 # View health check logs
-docker inspect --format='{{json .State.Health}}' codexa-agent | jq
+docker inspect --format='{{json .State.Health}}' codexa_agent | jq
 ```
 
 ---
@@ -178,7 +178,7 @@ docker inspect --format='{{json .State.Health}}' codexa-agent | jq
 docker-compose logs -f
 
 # View specific service
-docker-compose logs -f codexa-agent
+docker-compose logs -f codexa_agent
 
 # Local logs
 tail -f logs/codexa.log
@@ -248,19 +248,19 @@ cat logs/audit/audit_$(date +%Y-%m-%d).jsonl | jq
 **Container won't start**
 ```bash
 # Check logs
-docker-compose logs codexa-agent
+docker-compose logs codexa_agent
 
 # Verify .env file
 cat .env | grep -v '^#' | grep -v '^$'
 
 # Rebuild image
-docker-compose build --no-cache codexa-agent
+docker-compose build --no-cache codexa_agent
 ```
 
 **API key errors**
 ```bash
 # Verify keys are loaded
-docker exec codexa-agent env | grep API_KEY
+docker exec codexa_agent env | grep API_KEY
 
 # Test API key directly
 curl -H "x-api-key: $ANTHROPIC_API_KEY" https://api.anthropic.com/v1/messages
@@ -269,7 +269,7 @@ curl -H "x-api-key: $ANTHROPIC_API_KEY" https://api.anthropic.com/v1/messages
 **Rate limit errors**
 ```bash
 # Check current rate limit status
-docker exec codexa-agent python -c "
+docker exec codexa_agent python -c "
 from src.auth import get_rate_limiter
 limiter = get_rate_limiter()
 print(limiter.get_stats())
@@ -293,7 +293,7 @@ docker system prune -a
 
 # Or manually
 docker-compose down
-docker-compose up -d --force-recreate codexa-agent
+docker-compose up -d --force-recreate codexa_agent
 ```
 
 ---
@@ -305,7 +305,7 @@ docker-compose up -d --force-recreate codexa-agent
 ```yaml
 # docker-compose.yml
 services:
-  codexa-agent:
+  codexa_agent:
     deploy:
       replicas: 3
       resources:
@@ -320,9 +320,9 @@ For production, use a reverse proxy (nginx, traefik):
 
 ```nginx
 upstream codexa {
-    server codexa-agent-1:8000;
-    server codexa-agent-2:8000;
-    server codexa-agent-3:8000;
+    server codexa_agent-1:8000;
+    server codexa_agent-2:8000;
+    server codexa_agent-3:8000;
 }
 
 server {

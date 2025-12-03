@@ -210,7 +210,7 @@ This guide provides detailed workflow documentation for ECOMLM.CODEXA, covering 
 
 - [ ] Python 3.12+ installed
 - [ ] UV package manager installed (`pip install uv`)
-- [ ] API key configured (`.env` file in `codexa.app/agentes_codexa/`)
+- [ ] API key configured (`.env` file in `codexa.app/agentes/`)
   ```
   ANTHROPIC_API_KEY=sk-ant-...
   ```
@@ -1001,7 +1001,7 @@ Level 1: ROOT (codexa/)
             │
             ├── /prime-codexa → Meta-construction specialist
             │
-            └── Level 3: AGENTS (agentes_codexa/)
+            └── Level 3: AGENTS (agentes/)
                     │
                     ├── /prime-anuncio → E-commerce ads
                     ├── /prime-pesquisa → Market research
@@ -1165,7 +1165,7 @@ What do you want to do?
 
 **Solutions**:
 1. Check `.env` file exists in correct directory:
-   - For agents: `codexa.app/agentes_codexa/.env`
+   - For agents: `codexa.app/agentes/.env`
    - For server: `app/server/.env`
 
 2. Verify `.env` format:
@@ -1281,7 +1281,7 @@ What do you want to do?
 - [HOP Framework](./HOP_FRAMEWORK.md) - TAC-7 framework guide
 - [Agent Registry](../codexa.app/51_AGENT_REGISTRY.json) - All agent specifications
 - [PRIME.md](../PRIME.md) - System navigator
-- [CODEXA Agent](../codexa.app/agentes_codexa/codexa-agent/README.md) - Meta-constructor documentation
+- [CODEXA Agent](../codexa.app/agentes/codexa_agent/README.md) - Meta-constructor documentation
 
 ---
 

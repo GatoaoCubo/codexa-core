@@ -12,7 +12,7 @@
 /codexa-build-prompt
 
 # Or direct execution
-uv run builders/08_prompt_generator.py
+uv run codexa.app/agentes/codexa_agent/builders/08_prompt_generator.py
 ```
 
 ---
@@ -80,4 +80,4 @@ uv run builders/08_prompt_generator.py
 
 ---
 
-**Related**: 94_meta_build_prompt_HOP.md (execution logic) | 08_prompt_generator.py (implementation) | 07_hop_sync_validator.py (validation)
+**Related**: 94_meta_build_prompt_HOP.md (execution logic) | codexa.app/agentes/codexa_agent/builders/08_prompt_generator.py (implementation) | codexa.app/agentes/codexa_agent/validators/07_hop_sync_validator.py (validation)

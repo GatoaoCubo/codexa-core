@@ -21,7 +21,7 @@ Quick reference for all available testing, validation, and review commands.
 
 ### 1. README Validator
 ```bash
-uv run codexa.app/agentes/codexa-agent/validators/09_readme_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/09_readme_validator.py \
   agents/hotmart_course_builder_agent/artifacts/README.md
 ```
 **Checks**: Structure, links, formatting, version, quality score
@@ -31,7 +31,7 @@ uv run codexa.app/agentes/codexa-agent/validators/09_readme_validator.py \
 
 ### 2. Path Consistency Validator
 ```bash
-uv run codexa.app/agentes/codexa-agent/validators/16_path_consistency_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/16_path_consistency_validator.py \
   agents/hotmart_course_builder_agent/
 ```
 **Checks**: File references, broken paths, directory structure
@@ -41,7 +41,7 @@ uv run codexa.app/agentes/codexa-agent/validators/16_path_consistency_validator.
 
 ### 3. HOP/TAC-7 Validator (if using HOPs)
 ```bash
-uv run codexa.app/agentes/codexa-agent/validators/07_hop_sync_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/07_hop_sync_validator.py \
   agents/hotmart_course_builder_agent/artifacts/*.md
 ```
 **Checks**: TAC-7 structure, [OPEN_VARIABLES] marking
@@ -51,7 +51,7 @@ uv run codexa.app/agentes/codexa-agent/validators/07_hop_sync_validator.py \
 
 ### 4. Taxonomy Validator (after registering agent)
 ```bash
-uv run codexa.app/agentes/codexa-agent/validators/10_taxonomy_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/10_taxonomy_validator.py \
   codexa.app/agentes/51_AGENT_REGISTRY.json
 ```
 **Checks**: JSON valid, agent entry complete, no duplicates
@@ -61,7 +61,7 @@ uv run codexa.app/agentes/codexa-agent/validators/10_taxonomy_validator.py \
 
 ### 5. Doc Sync Validator (CODEXA system integration)
 ```bash
-uv run codexa.app/agentes/codexa-agent/validators/12_doc_sync_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/12_doc_sync_validator.py \
   --agent hotmart_course_builder_agent
 ```
 **Checks**: All docs present, version consistency, quality score
@@ -221,7 +221,7 @@ Use this checklist alongside automated validators:
 ### Issue: "README validator fails"
 ```bash
 # Check what specifically failed
-uv run codexa.app/agentes/codexa-agent/validators/09_readme_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/09_readme_validator.py \
   agents/hotmart_course_builder_agent/artifacts/README.md --verbose
 
 # Common fixes:
@@ -236,7 +236,7 @@ uv run codexa.app/agentes/codexa-agent/validators/09_readme_validator.py \
 ### Issue: "Path consistency fails"
 ```bash
 # Find broken paths
-uv run codexa.app/agentes/codexa-agent/validators/16_path_consistency_validator.py \
+uv run codexa.app/agentes/codexa_agent/validators/16_path_consistency_validator.py \
   agents/hotmart_course_builder_agent/ --verbose
 
 # Common fixes:
@@ -328,7 +328,7 @@ git commit -m "feat(agents): Add Hotmart Course Builder Agent v1.0.0"
 ### Documentation
 - **VALIDATION_CHECKLIST.md**: Complete manual checklist (this directory)
 - **CODEXA Agent SDK**: https://docs.codexa.app/agents
-- **Validator Docs**: `codexa.app/agentes/codexa-agent/validators/README.md`
+- **Validator Docs**: `codexa.app/agentes/codexa_agent/validators/README.md`
 
 ### Support
 - **GitHub Issues**: https://github.com/codexa/agents/issues

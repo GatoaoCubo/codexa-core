@@ -183,9 +183,9 @@ downstream: knowledge_processor_HOP.md
   - Catalog management (catalogo.json patterns)
   - HOP composition (TAC-7 framework)
 - Scan meta-construction files:
-  - `/codexa-agent/builders/*.py`
-  - `/codexa-agent/workflows/*.md`
-  - `/codexa-agent/prompts/*_HOP.md`
+  - `/codexa_agent/builders/*.py`
+  - `/codexa_agent/workflows/*.md`
+  - `/codexa_agent/prompts/*_HOP.md`
 - Add to `$context_map.relevant_documents[]`
 
 **Pattern Detection**:
@@ -339,15 +339,15 @@ $agent_filter = ["pesquisa"]
 /codexa.app/agentes/conhecimento_agent/
 /codexa.app/agentes/mentor_agent/
 /codexa.app/agentes/scout_agent/
-/codexa.app/agentes/codexa-agent/
+/codexa.app/agentes/codexa_agent/
 ```
 
 **Key Meta-Construction Paths**:
 ```
-/codexa.app/agentes/codexa-agent/builders/
-/codexa.app/agentes/codexa-agent/validators/
-/codexa.app/agentes/codexa-agent/workflows/
-/codexa.app/agentes/codexa-agent/prompts/
+/codexa.app/agentes/codexa_agent/builders/
+/codexa.app/agentes/codexa_agent/validators/
+/codexa.app/agentes/codexa_agent/workflows/
+/codexa.app/agentes/codexa_agent/prompts/
 ```
 
 ### Assumptions

@@ -42,7 +42,7 @@ commands/
 ├── anuncio.md          # Root copy
 └── brand.md            # Root copy
 
-agentes_codexa/
+agentes/
 ├── anuncio_agent/
 │   └── commands/anuncio.md    # Agent copy (IDENTICAL)
 └── marca_agent/
@@ -75,7 +75,7 @@ commands/
 ├── 92_codexa_build_command.md
 └── ... (7 meta-commands)
 
-agentes_codexa/
+agentes/
 └── codexa_agent/
     └── commands/
         └── ... (mesmos 7 arquivos)
@@ -239,7 +239,7 @@ grep -r "scout_agent\|conhecimento_agent" \
 
 ### Antes de Deletar
 - [ ] Criar backup: `cp -r commands/ _archived/commands_backup_$(date +%Y%m%d)/`
-- [ ] Verificar identidade: `diff -r commands/ agentes_codexa/*/commands/`
+- [ ] Verificar identidade: `diff -r commands/ agentes/*/commands/`
 - [ ] Git add backup: `git add _archived/`
 - [ ] Commit backup: `git commit -m "chore: backup before fractal migration"`
 

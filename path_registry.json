@@ -245,7 +245,6 @@
     "claude_md": "{{PROJECT_ROOT}}/CLAUDE.md",
     "scout_integration": "{{AGENTES}}/SCOUT_INTEGRATION.md",
     "orchestration": "{{CODEXA_APP}}/ORCHESTRATION.md",
-    "supabase_config": "{{PROJECT_ROOT}}/supabase/config.toml",
     "git_root": "{{PROJECT_ROOT}}/.git",
     "gitignore": "{{PROJECT_ROOT}}/.gitignore"
   },

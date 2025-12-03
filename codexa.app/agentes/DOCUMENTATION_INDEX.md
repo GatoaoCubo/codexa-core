@@ -17,7 +17,7 @@ Located in: `.claude/commands/`
 | `.claude/commands/docs/` | Documentation & guides | 7 |
 | `.claude/commands/utils/` | Utility commands | 8 |
 | `.claude/commands/_archived/` | Historical files (cleaned) | 0 |
-| `agentes_codexa/*/commands/` | Agent-specific commands | 13 |
+| `agentes/*/commands/` | Agent-specific commands | 13 |
 | `tests/e2e_commands/` | E2E test commands | 6 |
 
 **Key Documentation:**

@@ -28,7 +28,7 @@ IF user needs:
   - Strategic planning → USE /mentor
   - Code navigation → USE /scout
 ELSE:
-  - Refer to COMMANDS.md for complete list
+  - See .claude/commands/ directory for all available commands
 ```
 
 ### Core Workflow Pattern
@@ -61,10 +61,7 @@ ELSE:
 ```
 lm.codexa/
 ├── README.md                    # This file - Main documentation
-├── ARCHITECTURE.md              # System architecture and design
-├── COMMANDS.md                  # All available commands reference
-├── WORKFLOW.md                  # Detailed workflow examples
-├── CONTRIBUTING.md              # Development guidelines
+├── CLAUDE.md                    # Project laws and guidelines
 │
 ├── .claude/                     # Claude Code Integration
 │   ├── settings.json           # Global settings
@@ -79,7 +76,7 @@ lm.codexa/
 │   └── client/                 # Vite frontend
 │
 ├── codexa.app/                 # Agent System
-│   └── agentes_codexa/
+│   └── agentes/
 │       ├── pesquisa_agent/     # Market Research v1.1
 │       ├── anuncio_agent/      # Ad Generation v1.2
 │       ├── marca_agent/        # Brand Strategy v1.0
@@ -88,14 +85,10 @@ lm.codexa/
 │       └── scout_agent/        # Repository Intel v1.0
 │
 ├── ai_docs/                    # AI Documentation
-│   ├── AGENT_SPECS.md         # Agent specifications
 │   ├── HOP_FRAMEWORK.md       # HOP documentation
-│   └── PROMPT_LIBRARY.md      # Prompt templates
-│
-├── configs/                    # Configuration Files
-│   ├── marketplace_specs.json # Marketplace rules
-│   ├── execution_plans.json   # HOP execution plans
-│   └── quality_thresholds.yaml# Quality metrics
+│   ├── WORKFLOWS.md           # ADW workflow catalog
+│   ├── API_REFERENCE.md       # API documentation
+│   └── ARCHITECTURE.md        # System architecture
 │
 └── data/                       # Data Storage
     ├── knowledge_cards/        # Knowledge base
@@ -205,13 +198,10 @@ cat research_notes.md
 | Document | Description | Location |
 |----------|-------------|----------|
 | **README.md** | Main documentation (this file) | `/` |
-| **ARCHITECTURE.md** | System design and architecture | `/` |
-| **COMMANDS.md** | Complete command reference | `/` |
-| **WORKFLOW.md** | Detailed workflow examples | `/` |
-| **CONTRIBUTING.md** | Development guidelines | `/` |
-| **Agent Docs** | Individual agent documentation | `codexa.app/agentes_codexa/*/README.md` |
-| **API Docs** | API endpoint reference | `ai_docs/API_REFERENCE.md` |
-| **HOP Framework** | HOP implementation guide | `codexa.app/42_HOP_FRAMEWORK.md` |
+| **CLAUDE.md** | Project laws and guidelines | `/` |
+| **Agent Docs** | Individual agent documentation | `codexa.app/agentes/*/PRIME.md` |
+| **Commands** | Slash commands reference | `.claude/commands/` |
+| **Workflows** | ADW workflow catalog | `docs/WORKFLOWS.md` |
 
 ---
 
@@ -244,12 +234,10 @@ uv run mypy .
 ```
 
 ### Contributing
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
-- Code style and standards
-- Commit message format
-- Pull request process
-- Testing requirements
-- Documentation standards
+For development guidelines, see:
+- CLAUDE.md for project laws and conventions
+- Individual agent PRIME.md files for agent-specific standards
+- .claude/commands/ for command development patterns
 
 ---
 

@@ -34,6 +34,7 @@ arquivos_gerados:
 arquivos_modificados:
   - path/arquivo3.md (o que mudou)
 proximo: [próxima ação recomendada]
+proximo_command: /flow do "exact command to execute"
 dados:
   - [info relevante 1]
   - [info relevante 2]
@@ -163,11 +164,12 @@ Cole este bloco inteiro no início do novo chat.
 ```handoff
 contexto: Criado roteiro de vídeo LP CODEXA 10min com 5 seções
 arquivos_gerados:
-  - curso_agent/outputs/VIDEO_LP_CODEXA_10MIN_V2.md
-  - curso_agent/outputs/TIMELINE_MASTER.md
+  - curso_agent/outputs/VIDEO_LP_CODEXA_10MIN_V2_REMIX.md
+  - curso_agent/outputs/TIMELINE_MASTER_VIDEO_10MIN.md
 arquivos_modificados:
   - nenhum
 proximo: Gerar visual prompts para Midjourney de cada seção
+proximo_command: /flow do "gerar visual prompts Midjourney para VIDEO_LP_CODEXA_10MIN_V2_REMIX.md"
 dados:
   - 5 seções: hook, problema, solução, prova, cta
   - duração total: 10min
@@ -187,8 +189,8 @@ da Landing Page CODEXA. O vídeo tem 10 minutos divididos em
 
 | Arquivo | Propósito | Status |
 |---------|-----------|--------|
-| VIDEO_LP_CODEXA_10MIN_V2.md | Roteiro completo | Completo |
-| TIMELINE_MASTER.md | Breakdown por segundo | Completo |
+| VIDEO_LP_CODEXA_10MIN_V2_REMIX.md | Roteiro completo | Completo |
+| TIMELINE_MASTER_VIDEO_10MIN.md | Breakdown por segundo | Completo |
 
 ### Próximos Passos Sugeridos
 
@@ -200,6 +202,62 @@ da Landing Page CODEXA. O vídeo tem 10 minutos divididos em
 **Gerado por**: /handoff
 **Data**: 2025-12-03
 **Sessão**: Roteiro vídeo LP 10min
+```
+
+---
+
+## AUTO-RESUME
+
+When a handoff block is detected with multiple pendencias:
+
+### Single Task
+If 1 pendencia → Suggest: `/flow do "[pendencia]"`
+
+### Multiple Tasks
+If 2+ pendencias → Suggest parallel execution:
+```
+/spawn
+1. do: [pendencia 1]
+2. do: [pendencia 2]
+3. do: [pendencia 3]
+```
+
+### With proximo_command
+If proximo_command is present → Execute directly without asking
+
+---
+
+## /handoff resume
+
+When user types `/handoff resume` after pasting a handoff block:
+
+1. Parse the handoff block from context
+2. If proximo_command exists → Execute it
+3. Else if pendencias.length == 1 → /flow do pendencias[0]
+4. Else if pendencias.length > 1 → /spawn with each pendencia
+5. Else → Ask user what to do next
+
+**Usage:**
+```
+Usuário:
+[cola handoff block]
+
+Usuário: /handoff resume
+
+LLM:
+- Detecta proximo_command: /flow do "..."
+- Executa automaticamente
+```
+
+**Exemplo:**
+```
+[handoff com proximo_command: /flow do "gerar prompts"]
+
+Usuário: /handoff resume
+
+LLM: Detectei o comando sugerido. Executando:
+     /flow do "gerar prompts"
+     [executa automaticamente]
 ```
 
 ---
@@ -216,6 +274,7 @@ Task(
 
 ---
 
-**Version**: 1.0.0
+**Version**: 1.1.0
 **Created**: 2025-12-03
+**Updated**: 2025-12-03
 **Type**: Cross-Chat Transfer Protocol

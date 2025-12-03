@@ -7,6 +7,32 @@
 
 ---
 
+## WORKFLOW SPECIFICATION
+
+```json
+{
+  "workflow_id": "adw_pesquisa_bridge",
+  "workflow_name": "Research to Anuncio Bridge",
+  "agent": "anuncio_agent",
+  "version": "1.0.0",
+  "type": "bridge",
+  "chain": "pesquisa_agent → anuncio_agent",
+  "context_strategy": "isolated",
+  "failure_handling": "stop_and_report",
+  "min_llm_model": "claude-sonnet-4-20250514",
+  "required_capabilities": {
+    "scout_mcp": true,
+    "file_parsing": true,
+    "yaml_extraction": true
+  },
+  "quality_threshold": 7.0,
+  "estimated_duration": "2-3 minutes",
+  "phases": ["LOCATE", "EXTRACT", "VALIDATE", "HANDOFF"]
+}
+```
+
+---
+
 ## PURPOSE
 
 Bridges research output from `pesquisa_agent` to `anuncio_agent` input, ensuring data flows correctly between agents.
@@ -204,6 +230,6 @@ Quality gate (≥7.0/10):
 
 ---
 
-**Version**: 1.0.0
+**Version**: 1.1.0
 **Created**: 2025-12-03
 **Type**: Bridge Workflow (pesquisa → anuncio)

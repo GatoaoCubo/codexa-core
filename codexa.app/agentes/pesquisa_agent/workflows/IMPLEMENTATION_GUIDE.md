@@ -904,7 +904,7 @@ Use this checklist when implementing ADW for any agent:
 
 **Questions?**
 - See `codexa.app/agentes/README.md` for system navigation
-- See `codexa.app/agentes/codexa-agent/PRIME.md` for meta-construction principles
+- See `codexa.app/agentes/codexa_agent/PRIME.md` for meta-construction principles
 - Use `/codexa-when_to_use` for decision trees
 
 **Improvements?**

@@ -43,7 +43,7 @@ Com Scout Internal:
 **Categoria 1A: Backups de Prompts** (20 files)
 ```bash
 # Padrão de detecção
-find agentes_codexa/*/prompts -name "*.backup_*"
+find agentes/*/prompts -name "*.backup_*"
 
 # Encontrados
 anuncio_agent/prompts/20_titulo_generator.backup_* (5 versões)
@@ -69,8 +69,8 @@ echo "*.backup_*" >> .gitignore
 find . -name "*.bak"
 
 # Deletar
-git rm agentes_codexa/anuncio_agent/SETUP.md.bak
-git rm agentes_codexa/mentor_agent/SETUP.md.bak
+git rm agentes/anuncio_agent/SETUP.md.bak
+git rm agentes/mentor_agent/SETUP.md.bak
 ```
 
 **Categoria 1C: Python Cache** (1 directory)
@@ -79,7 +79,7 @@ git rm agentes_codexa/mentor_agent/SETUP.md.bak
 find . -type d -name "__pycache__"
 
 # Deletar
-rm -rf agentes_codexa/mentor_agent/DISTRIBUICAO/__pycache__/
+rm -rf agentes/mentor_agent/DISTRIBUICAO/__pycache__/
 
 # .gitignore (should exist)
 __pycache__/
@@ -104,8 +104,8 @@ git rm workflow_report_20251114_081153.txt
 find . -name "nul" -o -name "NUL"
 
 # Deletar
-git rm agentes_codexa/NUL
-git rm agentes_codexa/codexa-agent/nul
+git rm agentes/NUL
+git rm agentes/codexa_agent/nul
 ```
 
 ### FASE 2: Referências Obsoletas (11 files)
@@ -173,8 +173,8 @@ grep -r "\[.*\](\.\./\|\./" --include="*.md" | \
 
 **Padrões Comuns**:
 ```diff
-# Padrão 1: Agente movido de agentes_codexa/ → agentes/
-- [Setup](../agentes_codexa/anuncio_agent/SETUP.md)
+# Padrão 1: Agente path references
+- [Setup](../agentes_old/anuncio_agent/SETUP.md)
 + [Setup](../agentes/anuncio_agent/SETUP.md)
 
 # Padrão 2: Command movido para fractal
@@ -198,7 +198,7 @@ codexa.app/
 
 **Depois** (Hierárquico):
 ```
-agentes/codexa-agent/
+agentes/codexa_agent/
 ├── builders/
 │   ├── 01_agent_builder.py
 │   ├── 02_agent_meta_constructor.py
@@ -213,16 +213,16 @@ agentes/codexa-agent/
 **Script de Migração**:
 ```bash
 # Criar estrutura
-mkdir -p agentes/codexa-agent/{builders,validators}
+mkdir -p agentes/codexa_agent/{builders,validators}
 
 # Mover builders (01-06, 08)
 for i in 01 02 03 04 05 06 08; do
-  git mv ${i}_*.py agentes/codexa-agent/builders/
+  git mv ${i}_*.py agentes/codexa_agent/builders/
 done
 
 # Mover validators (07, 09, 10)
 for i in 07 09 10; do
-  git mv ${i}_*.py agentes/codexa-agent/validators/
+  git mv ${i}_*.py agentes/codexa_agent/validators/
 done
 ```
 

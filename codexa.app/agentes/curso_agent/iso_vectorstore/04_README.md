@@ -273,4 +273,4 @@ User → Command → Builder → META-PROMPT → LLM → Final Content → Valid
 
 ---
 
-**Quality Score**: 9.3/10 | **Status**: Production-ready (12 Leverage Points) | **Last Updated**: 2025-11-25 | **See**: [CHANGELOG.md](CHANGELOG.md) for full details
+**Quality Score**: 9.3/10 | **Status**: Production-ready (12 Leverage Points) | **Last Updated**: 2025-11-25 | **See**: [CHANGELOG.md](../CHANGELOG.md) for full details

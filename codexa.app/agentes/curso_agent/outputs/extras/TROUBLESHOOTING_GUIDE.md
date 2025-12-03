@@ -11,7 +11,7 @@
 3. [Pesquisa Agent](#3-pesquisa-agent)
 4. [Marca Agent](#4-marca-agent)
 5. [Photo Agent](#5-photo-agent)
-6. [CODEXA Agent](#6-codexa-agent)
+6. [CODEXA Agent](#6-codexa_agent)
 7. [Quando Pedir Ajuda ao Mentor](#7-quando-pedir-ajuda-ao-mentor)
 
 ---

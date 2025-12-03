@@ -96,7 +96,7 @@ These don't affect functionality and can be cleaned up in a future maintenance p
 git push origin main
 
 # Run validation
-python codexa.app/agentes/codexa-agent/validators/12_doc_sync_validator.py --all
+python codexa.app/agentes/codexa_agent/validators/12_doc_sync_validator.py --all
 ```
 
 ### Short-term (Next session)

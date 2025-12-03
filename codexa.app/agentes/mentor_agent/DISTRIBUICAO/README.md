@@ -171,7 +171,7 @@ grep -r "CAPITULO_marketplace_01" knowledge_map.json
 python enrich_agents.py --agent anuncio_agent
 
 # Passo 4: Valide prompts enriquecidos
-python ../../codexa-agent/validators/07_hop_sync_validator.py ../../anuncio_agent/prompts/20_titulo_generator.md
+python ../../codexa_agent/validators/07_hop_sync_validator.py ../../anuncio_agent/prompts/20_titulo_generator.md
 ```
 
 ### 2. Adicionar Novo Mapping (Enriquecer Novo Prompt)
@@ -187,7 +187,7 @@ python ../../codexa-agent/validators/07_hop_sync_validator.py ../../anuncio_agen
 python enrich_agents.py --mapping novo_mapping_id
 
 # Passo 4: Valide resultado
-python ../../codexa-agent/validators/07_hop_sync_validator.py [prompt_path]
+python ../../codexa_agent/validators/07_hop_sync_validator.py [prompt_path]
 ```
 
 ### 3. Criar Novo Agente (Distribuir Conhecimento para Novo Agente)

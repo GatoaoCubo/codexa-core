@@ -400,13 +400,13 @@ pytest tests/test_models.py::TestConfidenceScore -v
 
 | File | Purpose | For |
 |------|---------|-----|
-| [SETUP.md](SETUP.md) | Universal setup (all platforms) | Everyone |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | Detailed technical architecture | Developers |
-| [PRIME.md](PRIME.md) | Entry point (TAC-7 format) | AI Assistants |
-| [prompts/10_main_agent_hop.md](prompts/10_main_agent_hop.md) | HOP Orchestrator | Configuration |
-| [config/copy_rules.json](config/copy_rules.json) | Compliance rules | DevOps |
-| [plans/full_anuncio.json](plans/full_anuncio.json) | Execution plan (7 phases) | Automation |
-| [sample_data/](sample_data/) | Examples & reference outputs | Learning |
+| [SETUP.md](../SETUP.md) | Universal setup (all platforms) | Everyone |
+| [ARCHITECTURE.md](../ARCHITECTURE.md) | Detailed technical architecture | Developers |
+| [PRIME.md](../PRIME.md) | Entry point (TAC-7 format) | AI Assistants |
+| [prompts/10_main_agent_hop.md](../prompts/10_main_agent_hop.md) | HOP Orchestrator | Configuration |
+| [config/copy_rules.json](../config/copy_rules.json) | Compliance rules | DevOps |
+| [plans/full_anuncio.json](../plans/full_anuncio.json) | Execution plan (7 phases) | Automation |
+| [sample_data/](../sample_data/) | Examples & reference outputs | Learning |
 
 ---
 

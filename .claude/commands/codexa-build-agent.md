@@ -12,10 +12,10 @@
 /codexa-build-agent
 
 # Or direct execution
-uv run builders/02_agent_meta_constructor.py "Your agent description here"
+uv run codexa.app/agentes/codexa_agent/builders/02_agent_meta_constructor.py "Your agent description here"
 
 # Example
-uv run builders/02_agent_meta_constructor.py "Sentiment analysis agent for product reviews that generates scores (positive/neutral/negative) with detailed justifications"
+uv run codexa.app/agentes/codexa_agent/builders/02_agent_meta_constructor.py "Sentiment analysis agent for product reviews that generates scores (positive/neutral/negative) with detailed justifications"
 ```
 
 ---
@@ -76,4 +76,4 @@ uv run builders/02_agent_meta_constructor.py "Sentiment analysis agent for produ
 
 ---
 
-**Related**: 91_meta_build_agent_HOP.md (execution logic) | 97_ADW_NEW_AGENT_WORKFLOW.md (workflow) | 02_agent_meta_constructor.py (implementation)
+**Related**: 91_meta_build_agent_HOP.md (execution logic) | 97_ADW_NEW_AGENT_WORKFLOW.md (workflow) | codexa.app/agentes/codexa_agent/builders/02_agent_meta_constructor.py (implementation)
