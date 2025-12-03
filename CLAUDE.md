@@ -209,6 +209,77 @@ python auto_publish_anuncios.py --list
 
 ---
 
+## LAW 6: EXECUTION INTELLIGENCE
+
+> **"A LLM decide o melhor ambiente de execução."**
+
+### Filosofia
+
+A LLM tem **autonomia** para escolher entre Windows e WSL/Ubuntu baseado em heurísticas, não regras rígidas. O objetivo é **menor fricção, maior compatibilidade**.
+
+### Ambientes Disponíveis
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  WINDOWS (default)          │  WSL/UBUNTU (via wsl cmd)    │
+│  ├── Node.js / npm          │  ├── Python com deps Linux   │
+│  ├── PowerShell scripts     │  ├── Docker containers       │
+│  ├── Git operations         │  ├── Shell scripts (.sh)     │
+│  └── MCP servers            │  └── Ferramentas GNU         │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Heurísticas para Decisão (LLM usa como guia)
+
+| Sinal | Ambiente | Razão |
+|-------|----------|-------|
+| Arquivo `.py` com deps complexas | WSL | numpy, torch, etc. funcionam melhor |
+| Arquivo `.sh` | WSL | Bash nativo |
+| Comando `docker` | WSL | Docker Desktop WSL backend |
+| Arquivo `.ps1` | Windows | PowerShell nativo |
+| Node.js / npm | Windows | Mais rápido, menos overhead |
+| Git operations | Windows | Funciona bem, evita overhead |
+| `curl`, `jq`, `grep` pesado | WSL | Ferramentas GNU mais robustas |
+| Qualquer MCP server | Windows | Configurado para Windows |
+
+### Como Executar
+
+```bash
+# Windows (default)
+node script.js
+python script.py
+
+# WSL/Ubuntu (quando decidir que é melhor)
+wsl python script.py
+wsl bash deploy.sh
+wsl docker compose up
+```
+
+### Decisão Autônoma
+
+A LLM deve considerar:
+1. **Dependências** - O script precisa de libs que só funcionam bem no Linux?
+2. **Performance** - WSL adiciona overhead, vale a pena?
+3. **Contexto** - O usuário está trabalhando em qual ambiente?
+4. **Erro anterior** - Se falhou no Windows, tentar WSL
+
+### Exemplo de Raciocínio
+
+```
+Tarefa: rodar auto_publish_anuncios.py
+
+Análise:
+- É Python ✓
+- Usa requests, json (funcionam em ambos) ✓
+- Não precisa de deps Linux-only ✓
+- Usuário está no Windows ✓
+
+Decisão: Windows (menor overhead)
+Comando: python codexa.app/agentes/anuncio_agent/scripts/auto_publish_anuncios.py
+```
+
+---
+
 ## NEVER
 
 - Create documents with hardcoded brand content (distill first)
@@ -225,6 +296,7 @@ python auto_publish_anuncios.py --list
 
 ---
 
-**Version**: 1.0.0
+**Version**: 1.1.0
 **Created**: 2025-12-01
+**Updated**: 2025-12-03
 **Type**: Project Laws (Auto-loaded)

@@ -2,7 +2,7 @@
   "mcpServers": {
     "scout": {
       "command": "node",
-      "args": ["codexa.app/mcp-servers/scout-mcp/dist/index.js"],
+      "args": ["codexa.app/mcp-servers/scout-mcp/index.js"],
       "env": {
         "CODEXA_ROOT": "${workspaceFolder}",
         "NAVIGATION_MAP": "codexa.app/agentes/scout_agent/NAVIGATION_MAP.json"
@@ -10,7 +10,7 @@
     },
     "codexa-commands": {
       "command": "node",
-      "args": ["codexa.app/mcp-servers/codexa-commands/dist/index.js"],
+      "args": ["codexa.app/mcp-servers/codexa-commands/index.js"],
       "env": {
         "COMMANDS_DIR": ".claude/commands"
       }
