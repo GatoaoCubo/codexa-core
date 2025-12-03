@@ -1,6 +1,6 @@
 {
-  "version": "2.5.0",
-  "last_updated": "2025-11-25",
+  "version": "3.0.0",
+  "last_updated": "2025-12-03",
   "description": "Central registry for all agents in the CODEXA system - Verticalized architecture with /prime_* specialization commands",
   "agents": {
     "anuncio_agent": {
@@ -516,7 +516,10 @@
         ".claude/commands/prime_photo.md",
         ".claude/commands/prime_video.md",
         ".claude/commands/prime_curso.md",
-        ".claude/commands/prime_scout.md"
+        ".claude/commands/prime_scout.md",
+        ".claude/commands/prime-voice.md",
+        ".claude/commands/prime-qa-gato3.md",
+        ".claude/commands/prime-ronronalda.md"
       ],
       "build_commands": [
         ".claude/commands/codexa_when_to_use.md",
@@ -538,14 +541,14 @@
     ]
   },
   "system_stats": {
-    "total_agents": 9,
-    "active_agents": 9,
+    "total_agents": 12,
+    "active_agents": 12,
     "archived_agents": 1,
-    "total_iso_vectorstore_files": 144,
-    "total_prime_commands": 10,
+    "total_iso_vectorstore_files": 172,
+    "total_prime_commands": 12,
     "total_build_commands": 7,
     "total_mcp_servers": 3,
-    "last_updated": "2025-11-28",
-    "architecture_version": "3.1.0 (Scout MCP Integration)"
+    "last_updated": "2025-12-03",
+    "architecture_version": "3.2.0 (Agent Chains + Bridge Workflows)"
   }
 }
