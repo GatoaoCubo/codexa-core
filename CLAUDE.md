@@ -1,12 +1,12 @@
 # CLAUDE.md - Project Laws
 
-**Auto-loaded by Claude Code** | v2.0.0 | 2025-12-03
+**Auto-loaded by Claude Code** | v2.1.0 | 2025-12-03
 
 ---
 
 ## IDENTITY
 
-Meta-construction framework for building AI agent systems. Creates templates, agents, and workflows that build other artifacts.
+Meta-construction framework for building AI agent systems. Creates templates, agents, and workflows that build other artifacts. **LLM-first**: Laws are guidelines for autonomous execution, not rigid rules.
 
 ---
 
@@ -14,50 +14,46 @@ Meta-construction framework for building AI agent systems. Creates templates, ag
 
 ### LAW 1: DISTILLATION
 
-> "Every document must be a universal template."
+> "Documents for external use should work for any brand."
 
-**Principle**: Remove brand-specific content, create reusable templates.
+**Guideline**: When creating deliverables, distill to `{{PLACEHOLDERS}}` for reusability.
 
 ```
-SPECIFIC → TEMPLATE
 "codexa.app"  → {{BRAND_URL}}
 #0D9488       → {{PRIMARY_COLOR}}
 ```
 
-**Process**: CREATE → DISTILL → HYDRATE → DEPLOY
+**Decision Heuristics**:
+| Distill | Skip |
+|---------|------|
+| Marketing/sales materials | Internal workflows (ADWs, HOPs) |
+| Course/content templates | System config (MCP, paths) |
+| Multi-brand deliverables | Drafts/prototypes |
 
-**Trigger**: `/codexa-distill <path>`
+**Trigger**: `/codexa-distill path/to/file.md`
 
-**Validation**: No hardcoded brands, URLs, or colors. Only `{{PLACEHOLDERS}}`.
-
-See: [docs/PLACEHOLDERS.md](docs/PLACEHOLDERS.md)
+**Reference**: [docs/PLACEHOLDERS.md](docs/PLACEHOLDERS.md)
 
 ---
 
 ### LAW 2: FRACTAL NAVIGATION
 
-> "Each level reflects the structure below."
+> "Start with PRIME, drill down as needed."
 
-Every directory follows the trinity pattern:
+**Trinity Pattern** (at every level):
+```
+PRIME.md        → Entry point (what/when/why) ← READ FIRST
+INSTRUCTIONS.md → Operations (how to execute)
+README.md       → Reference (architecture, details)
+```
 
-```
-PRIME.md        → Entry point (what)
-INSTRUCTIONS.md → Operations (how)
-README.md       → Details (reference)
-```
+**Decision Tree**:
+1. New to domain? → Read `PRIME.md` (2min context)
+2. Need to execute? → Read `INSTRUCTIONS.md`
+3. Need deep details? → Read `README.md`
+4. Files missing? → `mcp__scout__smart_context`
 
-**Navigate**: `/prime` (root), `/prime-{agent}` (domain)
-
-**Example**:
-```
-codexa.app/
-├── PRIME.md              ← System entry
-├── agentes/
-│   └── anuncio_agent/
-│       ├── PRIME.md      ← Agent entry
-│       ├── INSTRUCTIONS.md
-│       └── README.md
-```
+**Commands**: `/prime` (root), `/prime-{agent}` (domain)
 
 ---
 
@@ -65,109 +61,142 @@ codexa.app/
 
 > "Build the thing that builds the thing."
 
-1. **Meta > Instance** - Build builders, not artifacts
-2. **Templates > One-offs** - Reusable patterns
-3. **Discovery-First** - Find before building
-4. **Quality Gates** - Validate every phase (≥7.0/10.0)
+**Decision Heuristics** (when to go meta):
+
+| Signal | Go Meta | Do Direct |
+|--------|---------|-----------|
+| Repetition | Task repeats 3+ times | One-off task |
+| Scale | 5+ similar items | 1-2 items |
+| Similarity | 80%+ overlap | Unique requirements |
+
+**Pattern**: `1 Template → N Plans → M Results`
+
+**Standards**:
+- **Discovery-First**: Find existing templates before building new
+- **Quality Gate**: Validate outputs ≥7.0/10.0
+- **$arguments**: Chain outputs between phases
+
+**Triggers**: `/codexa-build-agent`, `/codexa-build-prompt`
 
 ---
 
 ### LAW 4: AGENTIC DESIGN
 
-> "Agents are autonomous specialists."
+> "Agents are specialists. Choose by task, compose by outcome."
 
-**Structure**:
-- **Domain** - What it knows (iso_vectorstore/)
-- **Workflows (ADWs)** - What it does (workflows/)
-- **Prompts (HOPs)** - How it thinks (prompts/)
-- **Outputs** - What it produces (USER_DOCS/)
+**Quick Selection**:
+| Need | Agent | Trigger |
+|------|-------|---------|
+| Product copy (BR) | anuncio_agent | `/anuncio` |
+| Market research | pesquisa_agent | `/pesquisa` |
+| Brand strategy | marca_agent | `/marca` |
+| Images | photo_agent | `/photo` |
+| Videos | video_agent | `/video` |
+| Courses | curso_agent | `/curso` |
+| System building | codexa_agent | `/codexa-*` |
+| File discovery | scout_agent | `mcp__scout__*` |
 
-**Composition**: Agents can invoke other agents via MCP or slash commands.
+**Agent Structure**:
+- `PRIME.md` - Identity (read first)
+- `iso_vectorstore/` - Knowledge base
+- `workflows/` - ADWs (what it does)
+- `prompts/` - HOPs (how it thinks)
 
-See: [docs/WORKFLOWS.md](docs/WORKFLOWS.md)
+**Composition**: Sequential (`/pesquisa → /anuncio → /photo`) or parallel (`/codexa-orchestrate`)
+
+**Discovery**: `mcp__scout__discover("task description")` when uncertain.
 
 ---
 
 ### LAW 5: ORDINAL SEQUENCING
 
-> "Numbers encode purpose."
+> "Numbers signal intent, not rules."
 
-File numbering convention:
+**Quick Lookup**:
+```
+00-09 → Foundation (PRIME, QUICKSTART) ← Read first
+10-19 → Core HOPs (domain prompts)
+20-49 → Context (changelog, reference)
+100+  → Workflows (ADWs, production)
+200+  → Advanced (parallel, multi-phase)
+```
 
-| Range | Category | Purpose |
-|-------|----------|---------|
-| 00-09 | Foundation | Entry points, PRIME, README |
-| 10-49 | Execution | Core modules, HOPs |
-| 50-99 | Meta | System-level, cross-agent |
-| 100+ | Production | Main workflows (ADWs) |
-| 200+ | Advanced | Parallel, multi-agent |
+**Examples**:
+- `04_README.md` = Foundation doc
+- `11_ADW_orchestrator.md` = Core orchestrator
+- `100_ADW_RUN_PHOTO.md` = Production workflow
 
-**Example**: `11_ADW_orchestrator.md` = Foundation orchestrator
+**Not following convention?** Read anyway. Use Scout to find by intent.
 
 ---
 
 ### LAW 6: EXECUTION INTELLIGENCE
 
-> "LLM chooses the optimal execution environment."
+> "Try Windows first. WSL when needed. Let errors guide you."
 
 **Environments**:
 ```
-Windows (default)     │  WSL/Ubuntu (when needed)
-├── Node.js / npm     │  ├── Complex Python deps
-├── Git operations    │  ├── Docker containers
-├── MCP servers       │  ├── Shell scripts (.sh)
-└── PowerShell        │  └── GNU tools
+WINDOWS (default)          WSL (when needed)
+├── Python (simple)        ├── Python (numpy, torch)
+├── Node.js / npm          ├── Bash scripts (.sh)
+├── Git, PowerShell        ├── Docker
+└── MCP servers            └── GNU tools
 ```
 
-**Decision heuristics**:
-- `.sh` files → WSL
-- Docker → WSL
-- Simple Python → Windows
-- MCP servers → Windows
+**Decision** (3-second rule):
+1. Default to Windows (faster)
+2. Switch to WSL if: `.sh` file, Docker, complex Python deps, Linux tools
+3. Fallback: `cmd` → `wsl cmd` → ask user
 
-**Execution**: `python script.py` (Windows) or `wsl python script.py` (WSL)
+**Execution**: `python script.py` (Win) or `wsl python script.py` (WSL)
 
 ---
 
 ### LAW 7: ERROR RECOVERY
 
-> "Anticipate, handle, recover."
+> "Retry, fallback, fail fast, or degrade gracefully."
 
-**Patterns**:
-
-1. **Retry with backoff**: API failures, network issues
-2. **Fallback**: Alternative paths when primary fails
-3. **Graceful degradation**: Partial success > total failure
-4. **Explicit errors**: Clear messages, actionable fixes
-
-**Quality gate failure**:
+**Error Categories**:
 ```
-IF score < 7.0:
-  → Identify weak dimensions
-  → Retry (max 2 attempts)
-  → IF still failing → Flag for manual review
+RECOVERABLE (retry)        FATAL (fail fast)
+├── API timeout            ├── Missing env var
+├── Rate limit (429)       ├── Invalid config
+├── Network hiccup         ├── Auth failure
+└── File lock              └── Corrupt data
 ```
+
+**Strategies**:
+1. **Retry**: Transient errors → backoff 1-3x
+2. **Fallback**: Alternative path exists
+3. **Fail Fast**: Unrecoverable → exit with clear message
+4. **Degrade**: Partial success > total failure (18/22 OK → continue)
+
+**Quality Gate**:
+```
+IF score < 7.0 → Retry once → IF still < 7.0 → Flag for review
+```
+
+**Logging**: Always log errors with context. Never fail silently.
 
 ---
 
 ## TOOLS
 
-### Navigation Commands
+### Navigation
 - `/prime` - System navigator
-- `/prime-{agent}` - Domain specialist (e.g., `/prime-anuncio`)
+- `/prime-{agent}` - Domain specialist
 
-### Meta-Construction Commands
-- `/codexa-distill` - Distill docs to templates
-- `/codexa-build-agent` - Create new agent
+### Meta-Construction
+- `/codexa-distill` - Distill to templates
+- `/codexa-build-agent` - Create agent
 - `/codexa-build-prompt` - Create HOP
 - `/codexa-orchestrate` - Multi-phase workflows
 
 ### MCP Servers
-
 | Server | Purpose | Key Functions |
 |--------|---------|---------------|
 | scout | File discovery | `discover`, `smart_context`, `search` |
-| codexa-commands | Slash commands | `list_commands`, `get_command`, `execute_prompt` |
+| codexa-commands | Slash commands | `list_commands`, `execute_prompt` |
 | browser | Web interaction | Screenshots, extraction |
 | voice | Audio I/O | Speech recognition, TTS |
 
@@ -176,16 +205,16 @@ IF score < 7.0:
 ## CONSTRAINTS
 
 ### NEVER
-- Create documents with hardcoded brand content
-- Skip quality validation (≥7.0/10.0)
-- Modify core files without reading first
-- Guess file paths - use Scout to discover
+- Hardcode brand content in deliverables
+- Skip quality validation (≥7.0)
+- Guess file paths (use Scout)
+- Fail silently (always log)
 
 ### ALWAYS
-- Distill documents to templates before delivery
-- Use `{{PLACEHOLDER}}` syntax (mustache format)
-- Validate outputs against quality gates
-- Follow fractal navigation patterns
+- Start with PRIME.md for new domains
+- Distill deliverables to templates
+- Use `{{PLACEHOLDER}}` syntax
+- Log errors with context
 
 ---
 
@@ -193,19 +222,16 @@ IF score < 7.0:
 
 | Document | Purpose |
 |----------|---------|
-| [docs/PLACEHOLDERS.md](docs/PLACEHOLDERS.md) | Complete placeholder table |
+| [docs/PLACEHOLDERS.md](docs/PLACEHOLDERS.md) | Placeholder definitions |
 | [docs/WORKFLOWS.md](docs/WORKFLOWS.md) | ADW catalog (41 workflows) |
-| [docs/API_KEYS_REFERENCE.md](docs/API_KEYS_REFERENCE.md) | External services config |
-| [path_registry.json](path_registry.json) | Path placeholder definitions |
+| [docs/API_KEYS_REFERENCE.md](docs/API_KEYS_REFERENCE.md) | External services |
+| [path_registry.json](path_registry.json) | Path placeholders |
 
 ---
 
-**Version**: 2.0.0 | **Type**: Project Laws (Auto-loaded)
-
----
+**Version**: 2.1.0 | **Type**: Project Laws (Auto-loaded)
 
 ## Changelog
-
-- **v2.0.0** (2025-12-03): Redesign - added LAW 5/7, externalized tables, fixed contradictions
-- **v1.1.0** (2025-12-01): Added LAW 6 (Execution Intelligence)
+- **v2.1.0** (2025-12-03): LLM-optimized LAWs with decision heuristics, non-rigid guidelines
+- **v2.0.0** (2025-12-03): Redesign - added LAW 5/7, externalized tables
 - **v1.0.0** (2025-11-20): Initial laws
