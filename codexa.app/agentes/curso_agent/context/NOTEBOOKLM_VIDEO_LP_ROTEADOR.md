@@ -4,31 +4,59 @@
 
 ---
 
+## TRINITY STRUCTURE
+
+This file is part of a 3-file production system:
+
+```
+VIDEO_LP_ROTEADOR.md               → Script (what to say)
+DIRECAO_VISUAL_LP_ROTEADOR.md      → Visual Direction (how it looks)
+NOTEBOOKLM_VIDEO_LP_ROTEADOR.md    → NotebookLM Prompt (how to generate)
+                                     ↑ YOU ARE HERE
+```
+
+**Separation of Concerns**:
+- **Script**: Timecodes, narration, messaging, copy
+- **Visual Direction**: Camera movements, lighting, mood, transitions
+- **NotebookLM Prompt**: Instructions for AI to consume both files and generate production guidance
+
+**Why separate?**
+1. **Clarity**: Each file has one job
+2. **Reusability**: Script can be read standalone, visuals can be referenced independently
+3. **Iteration**: Update narration without touching camera specs, or vice versa
+
+**Usage**: Upload script + visual direction + context files to NotebookLM. Use prompt below to iterate.
+
+---
+
 ## PARTE 1: ARQUIVOS PARA UPLOAD NO NOTEBOOKLM
 
 ### Arquivos Core (Upload obrigatório)
 
 ```
 1. VIDEO_LP_ROTEADOR.md
-   → Roteiro completo com timecodes, script, gatilhos
+   → Script completo com timecodes, narração, gatilhos
 
-2. RESEARCH_BANCO_PALAVRAS_OTIMIZADAS.md
+2. DIRECAO_VISUAL_LP_ROTEADOR.md
+   → Direção visual: câmera, iluminação, movimento, mood
+
+3. RESEARCH_BANCO_PALAVRAS_OTIMIZADAS.md
    → Hooks, triggers, terminologia validada
 
-3. GLOSSARIO.md
+4. GLOSSARIO.md
    → Termos técnicos (agente, pipeline, orquestração)
 ```
 
 ### Arquivos de Suporte (Enriquecem contexto)
 
 ```
-4. ../anuncio_agent/PRIME.md
+5. ../anuncio_agent/PRIME.md
    → O que o anuncio_agent faz
 
-5. ../pesquisa_agent/PRIME.md
+6. ../pesquisa_agent/PRIME.md
    → O que o pesquisa_agent faz
 
-6. ../photo_agent/PRIME.md
+7. ../photo_agent/PRIME.md
    → O que o photo_agent faz
 ```
 
@@ -36,6 +64,7 @@
 
 ```
 codexa.app/agentes/curso_agent/context/VIDEO_LP_ROTEADOR.md
+codexa.app/agentes/curso_agent/context/DIRECAO_VISUAL_LP_ROTEADOR.md
 codexa.app/agentes/curso_agent/context/RESEARCH_BANCO_PALAVRAS_OTIMIZADAS.md
 codexa.app/agentes/curso_agent/context/GLOSSARIO.md
 codexa.app/agentes/anuncio_agent/PRIME.md
@@ -51,7 +80,7 @@ codexa.app/agentes/photo_agent/PRIME.md
 Você é um Video Production Specialist especializado em vídeos de conversão para SaaS.
 
 ## TAREFA
-Usando os documentos carregados, ajude-me a produzir um vídeo de 11 minutos para a landing page do codexa.app sobre o Roteador em Linguagem Natural.
+Usando os documentos carregados (especialmente VIDEO_LP_ROTEADOR.md e DIRECAO_VISUAL_LP_ROTEADOR.md), ajude-me a produzir um vídeo de 11 minutos para a landing page do codexa.app sobre o Roteador em Linguagem Natural.
 
 ## CONTEXTO
 - Duração: 11 minutos
@@ -59,6 +88,10 @@ Usando os documentos carregados, ajude-me a produzir um vídeo de 11 minutos par
 - Público: Sellers e-commerce BR que usam IA de forma fragmentada
 - Tom: Direto, prático, com humor sutil (Cat Coding)
 - Objetivo: Converter visitante em usuário (codexa.app)
+
+## INPUTS PRIMÁRIOS
+1. **VIDEO_LP_ROTEADOR.md**: Script completo com narração, timecodes, mensagens-chave
+2. **DIRECAO_VISUAL_LP_ROTEADOR.md**: Especificações de câmera, iluminação, movimento, mood
 
 ## ESTRUTURA DO VÍDEO
 
@@ -326,7 +359,14 @@ Gere 5 variações de thumbnail text:
 
 ---
 
-**Versão**: 1.0.0
+**Versão**: 1.1.0
 **Criado**: 2025-12-03
-**Integração**: VIDEO_LP_ROTEADOR.md v2.1.0
-**Uso**: Upload no NotebookLM → Cole prompt → Itere
+**Atualizado**: 2025-12-03
+**Integração**:
+- VIDEO_LP_ROTEADOR.md v2.1.0
+- DIRECAO_VISUAL_LP_ROTEADOR.md v1.0.0
+**Uso**: Upload script + visual direction + context → Cole prompt → Itere
+
+## Changelog
+- **v1.1.0** (2025-12-03): Added TRINITY STRUCTURE section, included DIRECAO_VISUAL_LP_ROTEADOR.md as core file, clarified dual-input consumption
+- **v1.0.0** (2025-12-03): Initial NotebookLM prompt with embedded visual direction
