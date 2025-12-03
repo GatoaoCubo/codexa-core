@@ -1,378 +1,280 @@
 # 📺 ROTEIRO: CODEXA Roteador - Linguagem Natural
 
-**Versão**: 1.1.0 | **Duração**: 8-10 minutos
-**Posição no Curso**: Módulo 1.5 (após Introdução, antes de Anúncios)
-**Objetivo**: Mostrar como comandar agentes especialistas com português simples
+**Versão**: 2.0.0 | **Duração**: 6-8 minutos
+**Tipo**: Vídeo de Conversão (Landing Page codexa.app)
+**Objetivo**: Converter visitante em usuário com demonstração de valor imediato
 
 ---
 
 ## 🎯 CONCEITO CENTRAL
 
-O CODEXA não é "vários sistemas separados". É **um cérebro** com especialistas internos que você acessa com **linguagem natural**.
+**Promessa única**: Uma frase em português → resultado profissional automático.
 
-Você fala o que quer. O sistema entende, roteia, executa.
+**Diferencial**: Não é chatbot. É sistema de agentes especialistas que trabalham em pipeline.
+
+**Prova**: Demo real mostrando input → output em tempo acelerado.
 
 ---
 
 ## 📺 ROTEIRO COMPLETO
 
-### [00:00-00:40] HOOK - Uma Frase, Tudo Pronto
+### [00:00-00:30] HOOK - O Resultado Primeiro
 
 ```
-[VISUAL: Tela preta, texto aparecendo letra por letra]
+[VISUAL: Tela dividida - esquerda vazia, direita vazia]
 
+[VISUAL: Esquerda - texto aparece]
 "Quero pesquisar e anunciar fone bluetooth esportivo"
 
-[VISUAL: Barra de progresso, sistema trabalhando]
+[VISUAL: Direita - output aparece instantâneo (time-lapse)]
+✓ Pesquisa: 22 blocos de inteligência
+✓ Título: 3 variações SEO (score 0.92)
+✓ Keywords: 70+ organizadas
+✓ Descrição: 600 palavras persuasivas
+✓ Bullets: 5 pontos de venda
 
-Uma frase.
-Em português.
-Sem comandos técnicos.
+[VISUAL: Contador no canto]
+Tempo real: 47 minutos
+Seu esforço: 1 frase
 
-[VISUAL: Output aparecendo - pesquisa completa + anúncio pronto]
+[PAUSA 2s]
 
-50 minutos depois:
-- Pesquisa de mercado completa
-- Anúncio otimizado pra SEO
-- 3 variações de título
-- 70 keywords organizadas
-- Score de qualidade: 0.87
-
-Tudo automático.
-Enquanto você fazia outra coisa.
-
-Vou te mostrar como funciona.
+Isso é CODEXA.
 ```
 
-**Gatilhos**: Prova imediata, Simplicidade, Resultado tangível
+**Gatilhos**: Prova visual imediata, Contraste tempo/esforço, Curiosidade
 
 ---
 
-### [00:45-02:30] O PROBLEMA - Ferramentas Fragmentadas
+### [00:30-01:30] O PROBLEMA - 2 Horas vs 1 Frase
 
 ```
-[VISUAL: Split screen mostrando 8 abas abertas]
+[VISUAL: Cronômetro começando]
 
-Hoje você provavelmente usa:
-- ChatGPT pra uma coisa
-- Canva pra outra
-- Google Trends pra pesquisar
-- Planilha pra organizar
-- Midjourney ou DALL-E pra fotos
-- Mais 3 ferramentas que você nem lembra
+Sem CODEXA, pra criar UM anúncio otimizado:
 
-[VISUAL: Ícones de ferramentas girando caoticamente]
+[VISUAL: Lista aparecendo com tempo ao lado]
+Google Trends.............. 15 min
+ChatGPT (prompt genérico).. 10 min
+Ajustar resultado.......... 20 min
+Pesquisar concorrentes..... 30 min
+Organizar keywords......... 20 min
+Escrever descrição......... 25 min
+Criar bullets.............. 10 min
 
-Cada uma com:
-- Login diferente
-- Interface diferente
-- Forma de falar diferente
-- Resultados que não conversam entre si
+[VISUAL: TOTAL pisca vermelho]
+TOTAL: 2h 10min
+RESULTADO: Mediano. Genérico. Igual ao concorrente.
 
-Você pesquisa no Google Trends.
-Depois copia pro ChatGPT.
-Depois copia pro Canva.
-Depois ajusta manualmente.
-Depois perde tudo quando fecha o navegador.
+[VISUAL: Tela limpa, só uma linha]
 
-[VISUAL: Relógio acelerando, mostrando horas perdidas]
+Com CODEXA:
+"Quero pesquisar e anunciar [produto]"
 
-Isso não é automação.
-É escravidão digital com mais passos.
+[VISUAL: TOTAL pisca verde]
+TOTAL: 47 min (automático)
+RESULTADO: Otimizado. Específico. Validado.
 
-[PAUSA DRAMÁTICA]
-
-Agora imagina outra coisa...
+[VISUAL: Texto grande]
+Você escolhe.
 ```
 
-**Gatilhos**: Dor reconhecível, Frustração validada, Contraste
+**Gatilhos**: Números concretos, Contraste visual, Escolha binária
 
 ---
 
-### [02:30-04:30] A SOLUÇÃO - O Roteador em Linguagem Natural
+### [01:30-02:30] A SOLUÇÃO - 4 Comandos, Tudo Resolvido
 
 ```
-[VISUAL: Interface limpa do CODEXA, menu de 4 opções]
+[VISUAL: Interface limpa, 4 cards]
 
-Quando você abre o CODEXA, isso é o que você vê:
+CODEXA funciona com 4 comandos em português:
 
-🎯 "Você tem 4 armas que seus concorrentes não têm"
+[VISUAL: Cards aparecem um a um]
 
-[VISUAL: Menu aparecendo uma opção por vez]
+┌─────────────────────────────────────┐
+│ 🔍 "Quero pesquisar [produto]"      │
+│    → Mercado, concorrentes, gaps    │
+└─────────────────────────────────────┘
 
-**ARMA 1: PESQUISA DE MERCADO**
-Descobre preços, demanda e o que a concorrência faz errado.
-Você fala: "Quero pesquisar fone bluetooth esportivo"
+┌─────────────────────────────────────┐
+│ 📝 "Quero anunciar [produto]"       │
+│    → Título, descrição, keywords    │
+└─────────────────────────────────────┘
 
-**ARMA 2: ANÚNCIO QUE VENDE**
-Título, descrição e bullets que aparecem no topo e convertem.
-Você fala: "Quero anunciar fone bluetooth esportivo"
+┌─────────────────────────────────────┐
+│ ⚡ "Quero pesquisar e anunciar..."  │
+│    → Pipeline completa automática   │
+└─────────────────────────────────────┘
 
-**ARMA 3: COMBO COMPLETO**
-Pesquisa + anúncio numa tacada só. Máxima vantagem.
-Você fala: "Quero pesquisar e anunciar fone bluetooth esportivo"
+┌─────────────────────────────────────┐
+│ 📸 "Quero foto de [produto]"        │
+│    → 9 prompts profissionais        │
+└─────────────────────────────────────┘
 
-**ARMA 4: FOTO PROFISSIONAL**
-Imagem que para o scroll e destaca no feed.
-Você fala: "Quero foto de fone bluetooth esportivo"
-
-[VISUAL: Cursor digitando uma frase simples]
-
-Percebeu o padrão?
-
-Você não precisa:
-- Decorar comandos técnicos
-- Aprender sintaxe especial
-- Navegar por menus infinitos
-
-Você literalmente fala o que quer.
-Em português.
-Como se tivesse conversando com alguém.
-
-"Quero pesquisar [produto]"
-"Quero anunciar [produto]"
-"Quero foto de [produto]"
-
-O sistema entende.
-Roteia pro agente especialista.
-E executa.
-
-Sem você fazer mais nada.
+[VISUAL: Cursor digitando]
+Só isso. Português normal.
+O sistema faz o resto.
 ```
 
-**Gatilhos**: Simplicidade extrema, Linguagem natural, Empoderamento
+**Gatilhos**: Clareza visual, Baixa barreira, Ação imediata
 
 ---
 
-### [04:30-07:00] O FLUXO - Demonstração Real
+### [02:30-04:00] O FLUXO - Por Dentro da Pipeline
 
 ```
-[VISUAL: Gravação de tela real do sistema]
+[VISUAL: Gravação de tela - time-lapse acelerado]
 
-Deixa eu te mostrar na prática.
-
-Vou digitar: "Quero pesquisar e anunciar kit skincare coreano"
-
-[VISUAL: Sistema recebendo input, barra de progresso]
-
-Olha o que acontece por baixo dos panos:
-
-**FASE 1: O Roteador entende** (2 segundos)
-[VISUAL: Highlight no "pesquisar e anunciar"]
-- Detectou: Combo completo
-- Produto: kit skincare coreano
-- Agentes necessários: pesquisa_agent → anuncio_agent
-
-**FASE 2: Pesquisa executa** (20-30 minutos no fundo)
-[VISUAL: Lista de tarefas sendo completadas]
-O pesquisa_agent sai caçando informação:
-- 9 marketplaces brasileiros escaneados
-- Top 5 concorrentes analisados
-- 22 blocos de inteligência coletados:
-  - Head terms (palavras-chave principais)
-  - Longtails (palavras específicas)
-  - Dores do público
-  - Objeções comuns
-  - Provas sociais
-  - Gap de mercado
-
-**FASE 3: Bridge automático** (instantâneo)
-[VISUAL: Seta conectando pesquisa → anuncio]
-A pesquisa termina.
-O sistema automaticamente passa os dados pro próximo agente.
-Você não faz NADA.
-
-**FASE 4: Anúncio executa** (23-38 minutos no fundo)
-[VISUAL: Checklist de 7 fases sendo completadas]
-O anuncio_agent usa a pesquisa pra criar:
-- 3 variações de título (SEO otimizado)
-- 70+ keywords em 4 blocos semânticos
-- Descrição persuasiva (400-800 palavras)
-- Bullet points matadores
-- Prompts de imagem pra IA
-- Score de qualidade automático
-
-**FASE 5: Entrega** (você recebe)
-[VISUAL: Arquivo final abrindo]
-Você recebe:
-- anuncio.md (copy pronto pra usar)
-- anuncio.llm.json (dados estruturados)
-- anuncio.meta.json (métricas do processo)
-
-[VISUAL: Zoom no score de qualidade]
-Score: 0.87/1.00
-Status: Pronto pra publicar
-
-E tudo isso porque você digitou UMA frase:
+Veja o que acontece quando você digita:
 "Quero pesquisar e anunciar kit skincare coreano"
+
+[VISUAL: Timeline horizontal, fases aparecendo]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FASE 1 (2s)      │ Roteador detecta: combo
+─────────────────┼────────────────────────────────
+FASE 2 (20min)   │ pesquisa_agent executa
+                 │ → 9 marketplaces escaneados
+                 │ → 22 blocos de inteligência
+─────────────────┼────────────────────────────────
+FASE 3 (auto)    │ Bridge passa dados
+─────────────────┼────────────────────────────────
+FASE 4 (25min)   │ anuncio_agent executa
+                 │ → 3 títulos SEO
+                 │ → 70 keywords
+                 │ → Descrição completa
+─────────────────┼────────────────────────────────
+FASE 5           │ ENTREGA
+                 │ Score: 0.87 ✓
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[VISUAL: Output final aparece]
+
+Você digitou 1 frase.
+O sistema trabalhou 47 minutos.
+Você recebeu resultado validado.
 ```
 
-**Gatilhos**: Prova real, Transparência do processo, Resultado tangível
+**Gatilhos**: Transparência, Automação visível, Validação automática
 
 ---
 
-### [07:00-09:00] OS ESPECIALISTAS - Cada Agente é um Expert
+### [04:00-05:00] OS ESPECIALISTAS - Não é ChatGPT
 
 ```
-[VISUAL: Diagrama orbital - CODEXA no centro, agentes orbitando]
+[VISUAL: Três cards lado a lado]
 
-O que faz isso funcionar não é mágica.
-São ESPECIALISTAS.
+Por que funciona? Agentes especializados.
 
-[VISUAL: Zoom no pesquisa_agent]
-**PESQUISA_AGENT**
-- 9 fases de análise
-- 22 blocos de inteligência
-- Compliance automático (ANVISA, INMETRO)
-- 20-30 minutos de trabalho
+┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐
+│  PESQUISA_AGENT  │ │  ANUNCIO_AGENT   │ │   PHOTO_AGENT    │
+│                  │ │                  │ │                  │
+│ 9 fases          │ │ 7 fases          │ │ 5 fases          │
+│ 22 blocos intel  │ │ 466KB conhecim.  │ │ Grid 3x3         │
+│ 9 marketplaces   │ │ ML/Shopee/TikTok │ │ Specs câmera     │
+│                  │ │                  │ │                  │
+│ Sabe pesquisar   │ │ Sabe converter   │ │ Sabe vender      │
+│ mercado BR       │ │ em cada platafor.│ │ com imagem       │
+└──────────────────┘ └──────────────────┘ └──────────────────┘
 
-Ele sabe EXATAMENTE como pesquisar mercado brasileiro.
+[VISUAL: Setas conectando os três]
+
+E eles conversam entre si.
+Pesquisa → Anúncio → Foto
+Pipeline automática.
+
+[VISUAL: Texto destaque]
 Não é GPT genérico.
-É um agente TREINADO pra isso.
-
-[VISUAL: Zoom no anuncio_agent]
-**ANUNCIO_AGENT**
-- 7 fases de criação
-- 466KB de conhecimento especializado
-- 10 HOPs (Higher-Order Prompts)
-- Validação de qualidade integrada
-
-Ele sabe as regras do Mercado Livre.
-Sabe o limite de caracteres do Shopee.
-Sabe o que funciona no TikTok Shop.
-
-[VISUAL: Zoom no photo_agent]
-**PHOTO_AGENT**
-- 5 fases de geração
-- Grid 3x3 (9 prompts otimizados)
-- Specs de câmera profissional
-- Gatilhos psicológicos nas imagens
-
-Ele sabe criar prompt que gera VENDA.
-Não foto bonita.
-Foto que converte.
-
-[VISUAL: Diagrama mostrando fluxo entre agentes]
-
-E o mais importante:
-ELES CONVERSAM ENTRE SI.
-
-A pesquisa alimenta o anúncio.
-O anúncio alimenta a foto.
-O ciclo se completa.
-
-Você fica no centro.
-Dando ordens em português.
-Recebendo resultados de especialistas.
+São especialistas treinados.
 ```
 
-**Gatilhos**: Expertise validada, Integração, Pipeline automática
+**Gatilhos**: Diferenciação, Expertise, Integração
 
 ---
 
-### [09:00-10:30] COMPARAÇÃO - Com vs Sem CODEXA
+### [05:00-06:00] PROVA SOCIAL - Quem Já Usa
 
 ```
-[VISUAL: Split screen - Caos vs Ordem]
+[VISUAL: Números aparecendo]
 
-**SEM CODEXA:**
-[VISUAL: Lado esquerdo, pessoa estressada]
+CODEXA em números:
 
-1. Abre Google Trends (5 min)
-2. Pesquisa keywords manualmente (30 min)
-3. Copia pra planilha (10 min)
-4. Abre ChatGPT, digita prompt genérico (5 min)
-5. Recebe resultado mediano, ajusta (20 min)
-6. Copia pra Canva (10 min)
-7. Cria foto no Midjourney (30 min)
-8. Ajusta tudo no marketplace (20 min)
+┌─────────────────────────────────────┐
+│  466KB    conhecimento destilado    │
+│  22       blocos de inteligência    │
+│  9        marketplaces cobertos     │
+│  <7.0     = não passa (quality gate)│
+└─────────────────────────────────────┘
 
-TOTAL: 2 horas e 10 minutos
-RESULTADO: Mediano, genérico, igual ao concorrente
+[VISUAL: Logos de marketplaces]
+Otimizado para:
+Mercado Livre • Shopee • Amazon BR • TikTok Shop
 
-[VISUAL: Pessoa exausta, pilha de trabalho]
-
-**COM CODEXA:**
-[VISUAL: Lado direito, pessoa tranquila]
-
-1. Digita: "Quero pesquisar e anunciar [produto]"
-2. Toma um café
-3. Recebe tudo pronto
-
-TOTAL: 50-60 minutos (automático)
-RESULTADO: Otimizado, específico, diferenciado
-
-[VISUAL: Pessoa fazendo outra coisa enquanto espera]
-
-A diferença não é só tempo.
-É QUALIDADE.
-
-O CODEXA usa 466KB de conhecimento especializado.
-Você usa... sua memória cansada.
-
-O CODEXA valida automaticamente.
-Você valida... quando lembra.
-
-O CODEXA é consistente.
-Você é humano.
-
-E humanos cansam.
-Sistemas não.
+[VISUAL: Output real scrollando]
+Cada output é validado automaticamente.
+Se score < 7.0, o sistema refaz.
+Você só recebe o que funciona.
 ```
 
-**Gatilhos**: Contraste brutal, Economia de tempo, Qualidade superior
+**Gatilhos**: Números concretos, Abrangência, Qualidade garantida
 
 ---
 
-### [10:30-11:30] CTA - Sua Vez
+### [06:00-07:00] CTA - Comece Agora
 
 ```
-[VISUAL: Tela mostrando o menu de 4 armas]
+[VISUAL: Tela limpa, foco total]
 
-Agora é com você.
+Duas opções:
 
-Testa com seu produto:
-- "Quero pesquisar [seu produto]"
-- "Quero anunciar [seu produto]"
-- "Quero foto de [seu produto]"
+[VISUAL: Lado esquerdo - cinza]
+Continuar gastando 2h por anúncio
+Resultado genérico
+Competindo igual
 
-Ou vai direto pro combo:
-- "Quero pesquisar e anunciar [seu produto]"
+[VISUAL: Lado direito - verde, highlight]
+Uma frase no CODEXA
+47 minutos automáticos
+Resultado validado
 
-[VISUAL: Cursor digitando, sistema respondendo]
+[VISUAL: Botão pulsando]
 
-Uma frase.
-Especialistas trabalhando.
-Resultado pronto.
+         ┌─────────────────────────┐
+         │   COMEÇAR AGORA         │
+         │   codexa.app            │
+         └─────────────────────────┘
 
-[VISUAL: Fade to black, logo CODEXA aparece]
+[VISUAL: Texto abaixo do botão]
+Teste grátis. Sem cartão.
 
-[VISUAL: Tagline aparece embaixo do logo, sutil]
+[VISUAL: Fade to black, logo]
 
 CODEXA.
 Um agente para todos governar,
 e com autonomia, executá-los.
 ```
 
-**Gatilhos**: Ação imediata, Simplicidade reforçada, Easter egg sutil
+**Gatilhos**: Escolha binária, Urgência, Baixo risco (grátis), Easter egg
 
 ---
 
 ## 📊 MÉTRICAS DO ROTEIRO
 
-| Elemento | Target | Status |
-|----------|--------|--------|
-| Hook ≤45s | 40s | ✅ |
-| Problema claro | 2min | ✅ |
-| Solução demonstrada | 2min | ✅ |
-| Demo real | 2.5min | ✅ |
-| Especialistas | 2min | ✅ |
-| Comparação | 1.5min | ✅ |
-| CTA | 1min | ✅ |
+| Seção | Tempo | Objetivo |
+|-------|-------|----------|
+| Hook | 0:00-0:30 | Resultado primeiro (prova imediata) |
+| Problema | 0:30-1:30 | Contraste 2h vs 1 frase |
+| Solução | 1:30-2:30 | 4 comandos visuais |
+| Demo | 2:30-4:00 | Pipeline transparente |
+| Especialistas | 4:00-5:00 | Diferenciação (não é ChatGPT) |
+| Prova | 5:00-6:00 | Números + marketplaces |
+| CTA | 6:00-7:00 | Escolha binária + link |
 
-**Duração Total**: ~10 minutos
-**Densidade de Valor**: Alta (conceito + demo + comparação)
-**Easter Egg**: Tagline final (quem conhece LOTR, pega)
+**Duração Total**: 7 minutos (otimizado para atenção)
+**Estrutura**: AIDA (Atenção → Interesse → Desejo → Ação)
+**CTA**: codexa.app + "Teste grátis. Sem cartão."
+**Easter Egg**: Tagline final (LOTR sutil)
 
 ---
 
@@ -430,11 +332,29 @@ Exemplo: "Quero anunciar fone bluetooth esportivo"
 - Bônus (combo pesquisa+anuncio): +10 XP
 
 **Achievement**: 🎯 **"Orchestrator"**
-**Microcopy**: "Você comandou os especialistas. Eles obedecem. +10 XP"
+**Microcopy**: "Você comandou os especialistas. Eles obedecem."
 
 ---
 
-**Versão**: 1.1.0
+## 📋 CHECKLIST DE CONVERSÃO
+
+| Elemento | Status | Notas |
+|----------|--------|-------|
+| Hook < 30s | ✅ | Resultado primeiro, sem enrolação |
+| Problema quantificado | ✅ | 2h10min vs 47min |
+| Solução visual | ✅ | 4 cards claros |
+| Demo real | ✅ | Timeline com fases |
+| Diferenciação | ✅ | "Não é ChatGPT" |
+| Prova numérica | ✅ | 466KB, 22 blocos, 9 marketplaces |
+| CTA com link | ✅ | codexa.app |
+| Baixo risco | ✅ | "Teste grátis. Sem cartão." |
+| Easter egg | ✅ | Tagline LOTR sutil |
+
+---
+
+**Versão**: 2.0.0
 **Criado**: 2025-12-03
+**Atualizado**: 2025-12-03
 **Autor**: curso_agent
+**Tipo**: Landing Page Video (Conversão)
 **Status**: Pronto para gravação
