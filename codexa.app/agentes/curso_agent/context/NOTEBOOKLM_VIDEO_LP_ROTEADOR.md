@@ -131,7 +131,7 @@ Usando os documentos carregados (especialmente VIDEO_LP_ROTEADOR.md e DIRECAO_VI
 ### Bloco 7: CTA [10:00-11:00]
 - 4 comandos recap
 - codexa.app
-- "Teste grátis. Sem cartão."
+- "Teste grátis. 
 - Tagline: "Um agente para todos governar, e com autonomia, executá-los."
 
 ## REGRAS
