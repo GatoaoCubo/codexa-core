@@ -30,7 +30,7 @@ Meta-construction framework for building AI agent systems. Creates templates, ag
 | Course/content templates | System config (MCP, paths) |
 | Multi-brand deliverables | Drafts/prototypes |
 
-**Trigger**: `/codexa-distill path/to/file.md`
+**Trigger**: `/flow distill path/to/file.md`
 
 **Reference**: [docs/PLACEHOLDERS.md](docs/PLACEHOLDERS.md)
 
@@ -87,12 +87,12 @@ README.md       → Reference (architecture, details)
 **Quick Selection**:
 | Need | Agent | Trigger |
 |------|-------|---------|
-| Product copy (BR) | anuncio_agent | `/anuncio` |
-| Market research | pesquisa_agent | `/pesquisa` |
-| Brand strategy | marca_agent | `/marca` |
-| Images | photo_agent | `/photo` |
-| Videos | video_agent | `/video` |
-| Courses | curso_agent | `/curso` |
+| Product copy (BR) | anuncio_agent | `/prime-anuncio` |
+| Market research | pesquisa_agent | `/prime-pesquisa` |
+| Brand strategy | marca_agent | `/prime-marca` |
+| Images | photo_agent | `/prime-photo` |
+| Videos | video_agent | `/prime-video` |
+| Courses | curso_agent | `/prime-curso` |
 | System building | codexa_agent | `/codexa-*` |
 | File discovery | scout_agent | `mcp__scout__*` |
 
@@ -102,7 +102,7 @@ README.md       → Reference (architecture, details)
 - `workflows/` - ADWs (what it does)
 - `prompts/` - HOPs (how it thinks)
 
-**Composition**: Sequential (`/pesquisa → /anuncio → /photo`) or parallel (`/codexa-orchestrate`)
+**Composition**: Sequential (`/prime-pesquisa → /prime-anuncio → /prime-photo`) or parallel (`/spawn`)
 
 **Discovery**: `mcp__scout__discover("task description")` when uncertain.
 
@@ -187,10 +187,15 @@ IF score < 7.0 → Retry once → IF still < 7.0 → Flag for review
 - `/prime-{agent}` - Domain specialist
 
 ### Meta-Construction
-- `/codexa-distill` - Distill to templates
 - `/codexa-build-agent` - Create agent
 - `/codexa-build-prompt` - Create HOP
 - `/codexa-orchestrate` - Multi-phase workflows
+
+### Task Pipeline
+- `/flow plan "task"` - Create execution plan
+- `/flow do` - Execute approved plan
+- `/flow distill file.md` - Convert to template
+- `/handoff` - Generate cross-chat transfer block
 
 ### Parallel Execution
 - `/spawn` - Launch N agents in parallel (max 10)
@@ -258,9 +263,10 @@ curso → video → voice
 
 ---
 
-**Version**: 2.3.0 | **Type**: Project Laws (Auto-loaded)
+**Version**: 2.4.0 | **Type**: Project Laws (Auto-loaded)
 
 ## Changelog
+- **v2.4.0** (2025-12-03): Fixed trigger references (`/prime-*`), added Task Pipeline section
 - **v2.3.0** (2025-12-03): Added Agent Chains section and AGENT_CHAINS.md reference
 - **v2.2.0** (2025-12-03): Added /spawn parallel execution tool with presets
 - **v2.1.0** (2025-12-03): LLM-optimized LAWs with decision heuristics, non-rigid guidelines
