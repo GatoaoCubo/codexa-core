@@ -5,17 +5,23 @@ Provides centralized configuration for multi-agent orchestration.
 
 Main exports:
     - paths: Global path configuration for all agents
+    - env_loader: Centralized environment variable management
 
 Usage:
     from config.paths import AGENTS_ROOT, get_agent_paths, get_all_agents
+    from config.env_loader import env, supabase, llm, voice
 
     # Get paths for any agent
     anuncio_paths = get_agent_paths('anuncio')
 
-    # List all agents
-    all_agents = get_all_agents()
+    # Access environment config
+    api_key = llm.anthropic_key
+    db_url = supabase.url
 
-Version: 2.0.0
+    # Check configuration status
+    env.print_status()
+
+Version: 2.1.0
 """
 
 # Re-export main path utilities for convenience
@@ -45,6 +51,19 @@ from .paths import (
     validate_global_paths,
 )
 
+# Re-export environment loader for convenience
+from .env_loader import (
+    env,
+    llm,
+    supabase,
+    voice,
+    video,
+    google,
+    storage,
+    automation,
+    pesquisa,
+)
+
 __all__ = [
     # Hierarchy
     'PROJECT_ROOT',
@@ -69,6 +88,17 @@ __all__ = [
     'get_agent_output',
     'get_agent_count',
     'validate_global_paths',
+
+    # Environment config
+    'env',
+    'llm',
+    'supabase',
+    'voice',
+    'video',
+    'google',
+    'storage',
+    'automation',
+    'pesquisa',
 ]
 
-__version__ = '2.0.0'
+__version__ = '2.1.0'

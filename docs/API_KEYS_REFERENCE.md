@@ -182,29 +182,41 @@ Used by: Code execution sandbox
 
 ## Storage Locations
 
-### Primary (Recommended)
+### Centralized Configuration (NEW)
+
+All environment variables are now managed from a **single location**:
+
+```
+codexa-core/
+├── .env.example         # Master template (ALL variables documented)
+├── .env                 # Your actual config (gitignored)
+└── codexa.app/config/
+    └── env_loader.py    # Centralized loader module
+```
+
+### User-Level (Optional)
 
 ```
 ~/.codexa/
 ├── config.json          # Global settings
-└── credentials.json     # API keys (persistent)
+└── credentials.json     # API keys (persistent across projects)
 ```
 
-### Project-Level
+### Python Usage
 
-```
-codexa-core/
-├── codexa.app/.env      # Project environment (gitignored)
-└── app/server/.env      # Backend environment (gitignored)
-```
+```python
+# Import the centralized config
+from config.env_loader import env, supabase, llm, voice
 
-### Templates (Reference Only)
+# Access LLM keys
+api_key = llm.anthropic_key
 
-```
-codexa.app/.env.example
-codexa.app/agentes/video_agent/.env.example
-codexa.app/agentes/pesquisa_agent/.env.example
-app/server/.env.sample
+# Access Supabase config
+url = supabase.url
+headers = supabase.get_headers(admin=True)
+
+# Check configuration status
+env.print_status()
 ```
 
 ---
@@ -234,15 +246,21 @@ $env:ANTHROPIC_API_KEY = "sk-ant-..."
 export ANTHROPIC_API_KEY="sk-ant-..."
 ```
 
-### Method 3: .env File
+### Method 3: .env File (Recommended)
 
 ```bash
-# Copy template
-cp codexa.app/.env.example codexa.app/.env
+# Copy the master template from project root
+cp .env.example .env
 
 # Edit with your keys
-notepad codexa.app/.env
+notepad .env    # Windows
+# or
+code .env       # VS Code
+# or
+nano .env       # Linux/WSL
 ```
+
+**Important**: The `.env` file should be in the project root (`codexa-core/`), NOT inside `codexa.app/`.
 
 ---
 
@@ -265,16 +283,20 @@ Keys are loaded in this order (first found wins):
 node setup-codexa.js --check
 ```
 
+### Check via Python (Recommended)
+
+```bash
+# Run the env_loader status check
+python -c "from codexa.app.config.env_loader import env; env.print_status()"
+
+# Or run directly
+python codexa.app/config/env_loader.py
+```
+
 ### Check via Claude Code
 
 ```
 /codexa-init --apis
-```
-
-### Check via Python
-
-```python
-python codexa.app/config/secrets.py
 ```
 
 ---
@@ -343,4 +365,11 @@ echo $SUPABASE_SERVICE_ROLE_KEY
 
 ---
 
-**Version**: 1.0.0 | **Updated**: 2025-12-02
+**Version**: 2.0.0 | **Updated**: 2025-12-03
+
+---
+
+## Changelog
+
+- **v2.0.0** (2025-12-03): Centralized all config in single `.env.example` at project root. Added `env_loader.py` module. Removed individual agent .env files.
+- **v1.0.0** (2025-12-02): Initial documentation

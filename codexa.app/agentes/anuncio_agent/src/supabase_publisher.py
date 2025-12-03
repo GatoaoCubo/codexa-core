@@ -4,9 +4,7 @@ Supabase Publisher - Integração para publicação autônoma de anúncios.
 Este módulo permite ao anuncio_agent publicar produtos diretamente no site
 GATO3 via Edge Functions do Supabase.
 
-Requisitos:
-- SUPABASE_URL: URL do projeto Supabase
-- SUPABASE_SERVICE_ROLE_KEY: Chave service_role para autenticação admin
+Configuracao centralizada em: codexa-core/.env
 
 Uso:
     from supabase_publisher import SupabasePublisher
@@ -16,25 +14,26 @@ Uso:
 """
 
 import json
-import os
+import sys
 from dataclasses import dataclass
 from datetime import datetime
+from pathlib import Path
 from typing import Any, Optional
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
+# Add codexa.app to path for config imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
+
+from config.env_loader import supabase as supabase_config
+
 
 # ============================================================================
-# CONFIGURATION
+# CONFIGURATION (from centralized env_loader)
 # ============================================================================
 
-SUPABASE_URL = os.getenv(
-    "SUPABASE_URL",
-    "https://fuuguegkqnpzrrhwymgw.supabase.co"
-)
-
-SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
-
+SUPABASE_URL = supabase_config.url
+SUPABASE_SERVICE_ROLE_KEY = supabase_config.service_role_key
 FUNCTIONS_BASE_URL = f"{SUPABASE_URL}/functions/v1"
 
 

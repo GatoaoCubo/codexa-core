@@ -4,41 +4,29 @@ Lista produtos do Supabase GATO3.
 Usage: python scripts/list_products.py
 """
 
-import os
+import sys
 import json
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 from pathlib import Path
 
+# Add codexa.app to path for config imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
-def load_env():
-    """Carrega variáveis do .env"""
-    env_path = Path(__file__).parent.parent.parent.parent / ".env"
-    if env_path.exists():
-        with open(env_path, "r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith("#") and "=" in line:
-                    key, value = line.split("=", 1)
-                    os.environ.setdefault(key.strip(), value.strip())
+from config.env_loader import supabase
 
 
 def list_products():
     """Lista todos os produtos do Supabase."""
-    load_env()
-
-    url = "https://fuuguegkqnpzrrhwymgw.supabase.co"
-    # Anon key permite leitura de produtos (RLS configurado)
-    key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1dWd1ZWdrcW5wenJyaHd5bWd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc1MTUwMzIsImV4cCI6MjA3MzA5MTAzMn0.Hvc-uw7p6h2Iss5O893yAxBzUBdZbGjQyt9g5CPoO7A"
+    if not supabase.is_configured:
+        print("ERRO: Supabase nao configurado!")
+        print("Configure SUPABASE_URL e SUPABASE_ANON_KEY no .env")
+        return []
 
     # REST API para tabela products
-    api_url = f"{url}/rest/v1/products?select=id,name,slug,price,status,created_at&order=created_at.desc"
+    api_url = f"{supabase.url}/rest/v1/products?select=id,name,slug,price,status,created_at&order=created_at.desc"
 
-    headers = {
-        "apikey": key,
-        "Authorization": f"Bearer {key}",
-        "Content-Type": "application/json",
-    }
+    headers = supabase.get_headers(admin=False)
 
     try:
         req = Request(api_url, headers=headers, method="GET")

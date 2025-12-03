@@ -4,6 +4,9 @@ logs/
 .env
 *.env
 *.env.*
+# But allow .env.example templates
+!.env.example
+!**/.env.example
 
 # Local settings
 .claude/settings.local.json

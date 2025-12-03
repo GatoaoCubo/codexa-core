@@ -10,12 +10,14 @@ Uso:
     python auto_publish_anuncios.py --file arranhador  # Processa arquivo especifico
 
 Requisitos:
-    - SUPABASE_URL (env var ou default)
-    - SUPABASE_SERVICE_ROLE_KEY (env var obrigatoria)
+    - SUPABASE_URL (env var)
+    - SUPABASE_SERVICE_ROLE_KEY (env var obrigatoria para escrita)
+    - SUPABASE_ANON_KEY (env var para leitura)
+
+Configuracao centralizada em: codexa-core/.env
 """
 
 import json
-import os
 import re
 import sys
 from dataclasses import dataclass, field
@@ -25,30 +27,10 @@ from typing import Optional
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
+# Add codexa.app to path for config imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
-# ============================================================================
-# LOAD .ENV FILE
-# ============================================================================
-
-def load_dotenv():
-    """Carrega variaveis de ambiente do .env mais proximo."""
-    current = Path(__file__).parent if '__file__' in dir() else Path.cwd()
-
-    # Procura .env subindo a arvore de diretorios
-    for _ in range(5):
-        env_file = current / ".env"
-        if env_file.exists():
-            for line in env_file.read_text(encoding="utf-8").splitlines():
-                line = line.strip()
-                if "=" in line and not line.startswith("#"):
-                    key, val = line.split("=", 1)
-                    key, val = key.strip(), val.strip()
-                    if key and key not in os.environ:
-                        os.environ[key] = val
-            break
-        current = current.parent
-
-load_dotenv()
+from config.env_loader import supabase
 
 
 # ============================================================================
@@ -60,15 +42,10 @@ USER_ANUNCIOS_DIR = BASE_DIR / "user_anuncios"
 PRODUCTS_CACHE = BASE_DIR / "scripts" / "products_cache.json"
 PUBLISH_LOG = BASE_DIR / "scripts" / "publish_log.json"
 
-SUPABASE_URL = os.getenv(
-    "SUPABASE_URL",
-    "https://fuuguegkqnpzrrhwymgw.supabase.co"
-)
-SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
-SUPABASE_ANON_KEY = os.getenv(
-    "SUPABASE_ANON_KEY",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1dWd1ZWdrcW5wenJyaHd5bWd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgxNjQ4NzIsImV4cCI6MjA0Mzc0MDg3Mn0.0e3x4rOUp8b3WYjkxEHNnvLwKbNrCcLxLNhJg2Lv1Qs"
-)
+# Use centralized config
+SUPABASE_URL = supabase.url
+SUPABASE_SERVICE_ROLE_KEY = supabase.service_role_key
+SUPABASE_ANON_KEY = supabase.anon_key
 
 
 # ============================================================================

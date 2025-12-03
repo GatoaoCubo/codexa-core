@@ -2,27 +2,30 @@
 """
 Busca dados completos de um produto do Supabase.
 Usage: python scripts/fetch_product.py <product_id>
+
+Configuracao centralizada em: codexa-core/.env
 """
 
-import os
 import sys
 import json
+from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
-SUPABASE_URL = "https://fuuguegkqnpzrrhwymgw.supabase.co"
-ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1dWd1ZWdrcW5wenJyaHd5bWd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc1MTUwMzIsImV4cCI6MjA3MzA5MTAzMn0.Hvc-uw7p6h2Iss5O893yAxBzUBdZbGjQyt9g5CPoO7A"
+# Add codexa.app to path for config imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
+
+from config.env_loader import supabase
 
 
 def fetch_product(product_id: str) -> dict:
     """Busca produto completo por ID."""
-    api_url = f"{SUPABASE_URL}/rest/v1/products?id=eq.{product_id}&select=*"
+    if not supabase.is_configured:
+        print("ERRO: Supabase nao configurado no .env")
+        return {}
 
-    headers = {
-        "apikey": ANON_KEY,
-        "Authorization": f"Bearer {ANON_KEY}",
-        "Content-Type": "application/json",
-    }
+    api_url = f"{supabase.url}/rest/v1/products?id=eq.{product_id}&select=*"
+    headers = supabase.get_headers(admin=False)
 
     try:
         req = Request(api_url, headers=headers, method="GET")
