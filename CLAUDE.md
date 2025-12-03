@@ -204,6 +204,22 @@ IF score < 7.0 → Retry once → IF still < 7.0 → Flag for review
 - `/spawn preset:health` - 5 validators for LAW compliance
 - `/spawn model:haiku` - Use fast model for simple searches
 
+### Agent Chains
+Agents connect in pipelines. Each output feeds the next input.
+
+```
+marca → ALL (brand hub)
+pesquisa → anuncio → photo
+curso → video → voice
+```
+
+**Chain Patterns**:
+- Sequential: `/pesquisa` → `/handoff` → `/anuncio`
+- Parallel: `/spawn` with multiple agents
+- Full Pipeline: `/flow auto "full content for product X"`
+
+**Reference**: [docs/AGENT_CHAINS.md](docs/AGENT_CHAINS.md)
+
 ### MCP Servers
 | Server | Purpose | Key Functions |
 |--------|---------|---------------|
@@ -236,14 +252,16 @@ IF score < 7.0 → Retry once → IF still < 7.0 → Flag for review
 |----------|---------|
 | [docs/PLACEHOLDERS.md](docs/PLACEHOLDERS.md) | Placeholder definitions |
 | [docs/WORKFLOWS.md](docs/WORKFLOWS.md) | ADW catalog (41 workflows) |
+| [docs/AGENT_CHAINS.md](docs/AGENT_CHAINS.md) | Agent connections & pipelines |
 | [docs/API_KEYS_REFERENCE.md](docs/API_KEYS_REFERENCE.md) | External services |
 | [path_registry.json](path_registry.json) | Path placeholders |
 
 ---
 
-**Version**: 2.2.0 | **Type**: Project Laws (Auto-loaded)
+**Version**: 2.3.0 | **Type**: Project Laws (Auto-loaded)
 
 ## Changelog
+- **v2.3.0** (2025-12-03): Added Agent Chains section and AGENT_CHAINS.md reference
 - **v2.2.0** (2025-12-03): Added /spawn parallel execution tool with presets
 - **v2.1.0** (2025-12-03): LLM-optimized LAWs with decision heuristics, non-rigid guidelines
 - **v2.0.0** (2025-12-03): Redesign - added LAW 5/7, externalized tables
