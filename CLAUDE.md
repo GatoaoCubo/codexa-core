@@ -192,6 +192,18 @@ IF score < 7.0 → Retry once → IF still < 7.0 → Flag for review
 - `/codexa-build-prompt` - Create HOP
 - `/codexa-orchestrate` - Multi-phase workflows
 
+### Parallel Execution
+- `/spawn` - Launch N agents in parallel (max 10)
+  ```
+  /spawn
+  1. explore: find ADW files
+  2. explore: find HOP files
+  3. plan: design new feature
+  ```
+- `/spawn preset:discovery` - 10 scouts for full path audit
+- `/spawn preset:health` - 5 validators for LAW compliance
+- `/spawn model:haiku` - Use fast model for simple searches
+
 ### MCP Servers
 | Server | Purpose | Key Functions |
 |--------|---------|---------------|
@@ -229,9 +241,10 @@ IF score < 7.0 → Retry once → IF still < 7.0 → Flag for review
 
 ---
 
-**Version**: 2.1.0 | **Type**: Project Laws (Auto-loaded)
+**Version**: 2.2.0 | **Type**: Project Laws (Auto-loaded)
 
 ## Changelog
+- **v2.2.0** (2025-12-03): Added /spawn parallel execution tool with presets
 - **v2.1.0** (2025-12-03): LLM-optimized LAWs with decision heuristics, non-rigid guidelines
 - **v2.0.0** (2025-12-03): Redesign - added LAW 5/7, externalized tables
 - **v1.0.0** (2025-11-20): Initial laws
