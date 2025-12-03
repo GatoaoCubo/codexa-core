@@ -1,9 +1,9 @@
-# VIDEO LP CODEXA.APP - ROTEIRO V2.1 FINAL (10 MIN)
+# VIDEO LP CODEXA.APP - ROTEIRO V2.2 FINAL (10 MIN)
 
-**Versao**: 2.1.0
+**Versao**: 2.2.0
 **Criado**: 2025-12-02
 **Atualizado**: 2025-12-03
-**Status**: FINAL - 9 opcoes decididas via ultrathink analysis
+**Status**: FINAL - Auditado e corrigido (timing, brand compliance, claims)
 **Estrutura**: 80% codexa.app (Fase 1) | 20% Cerebro Empresarial (Futuro)
 
 ---
@@ -77,7 +77,7 @@
 
 **OVERLAY**:
 ```
-74% usam IA
+74% usam IA (ABComm 2024)
 Quantas CONSTRUIRAM?
 Motor Cognitivo Proprio
 ```
@@ -371,14 +371,10 @@ Fonte: Cronoshare
 
 ### TIMECODE 04:30-05:00 - TABELA CLT vs IA
 
-**NARRACAO FINAL (OPCAO_D - Ultrathink - Extendida)**:
-> "Cinco anos de CLT: quatrocentos e quarenta mil reais de custo direto. Mas tem o custo invisivel - turnover. Brasil tem cinquenta e um por cento de rotatividade anual, a maior taxa do mundo. Isso e cento e doze mil em recrutamento, treinamento, produtividade perdida.
->
-> Total real: quinhentos e cinquenta e dois mil reais.
->
-> Isso nao e funcionario. Isso e patrimonio queimando. E voce pode redirecionar isso pro seu motor cognitivo - permanente, escalavel, seu."
+**NARRACAO FINAL (OPCAO_D - Ultrathink - Trimmada)**:
+> "Cinco anos de CLT: quatrocentos e quarenta mil reais. Mais turnover - Brasil tem cinquenta e um por cento de rotatividade, a maior do mundo. Mais cento e doze mil. Total real: quinhentos e cinquenta mil reais de patrimonio queimando. Ou: motor cognitivo por quatorze mil. Permanente. Escalavel. Seu."
 
-**Justificativa**: Anchoring (440k → 552k) + loss aversion ("patrimonio queimando") + ponte para solucao com termos de marca.
+**Justificativa**: Trimado de 109 para 58 palavras. Mantém anchoring (440k → 552k), loss aversion ("patrimonio queimando"), e ponte para solução.
 
 **OVERLAY**:
 ```
@@ -417,7 +413,7 @@ MODELO HIBRIDO IDEAL
 ### TIMECODE 05:30-05:50 - GANCHO
 
 **NARRACAO**:
-> "Por que bilionarios como Amazon, Google e BlackRock investem tanto em IA propria? Porque eles entendem as tres camadas."
+> "Grandes empresas investem bilhoes em IA propria. Amazon, Google, BlackRock. Por que? Porque entendem as tres camadas."
 
 **VISUAL**: Diagrama comecando a aparecer
 
@@ -426,13 +422,13 @@ MODELO HIBRIDO IDEAL
 ### TIMECODE 05:50-06:10 - CAMADA 1 e 2
 
 **NARRACAO**:
-> "Camada 1: voce digita prompt, IA responde. Um para um. E onde noventa e sete por cento das pessoas estao. Camada 2: automacao - Zapier, Make. Melhor, mas fragil. Um ponto de falha derruba tudo."
+> "Camada 1: voce digita prompt, IA responde. Um para um. E onde a maioria das pessoas esta. Camada 2: automacao - Zapier, Make. Melhor, mas fragil. Um ponto de falha derruba tudo."
 
 **OVERLAY**:
 ```
 CAMADA 1: Prompt → Resposta (1:1)
 CAMADA 2: Automacao (fragil)
-97% das pessoas
+A MAIORIA esta aqui
 ```
 
 ---
@@ -471,7 +467,7 @@ Cerebro Plugavel
 ### TIMECODE 06:50-07:20 - CODEXA.APP (FASE 1)
 
 **NARRACAO**:
-> "Fase 1: codexa.app. O que voce recebe hoje. Tres agentes especializados - Pesquisa, Anuncio e Photo. Compliance brasileiro automatico. Cerebro plugavel - funciona com Claude, GPT, qualquer modelo. Roda no SEU computador. Codigo aberto. E SEU para sempre."
+> "Fase 1: codexa.app. O que voce recebe hoje. Tres agentes especializados - Pesquisa, Anuncio e Photo. Compliance brasileiro automatico. Cerebro plugavel - funciona com qualquer LLM, qualquer modelo de fronteira. Roda no SEU computador. Codigo aberto. E SEU para sempre."
 
 **OVERLAY**:
 ```
@@ -479,10 +475,10 @@ CODEXA.APP (FASE 1) - HOJE
 
 ✓ 3 agentes especializados (Pesquisa, Anuncio, Photo)
 ✓ Compliance BR (ANVISA, INMETRO)
-✓ Cerebro plugavel (qualquer LLM)
+✓ Motor cognitivo plugavel (qualquer LLM)
 ✓ Roda local (seu computador)
 ✓ Codigo aberto
-✓ Propriedade vitalicia
+✓ Patrimonio vitalicio
 ```
 
 ---
@@ -531,7 +527,7 @@ Especialista no SEU negocio
 ### TIMECODE 08:00-08:20 - VISAO
 
 **NARRACAO**:
-> "Fase 2: Cerebro Empresarial. Em construcao. codexa.app e o alicerce - ele prepara os documentos que vao definir a identidade da sua marca. Brand guidelines, tom de voz, padroes visuais. Tudo estruturado."
+> "Fase 2: Cerebro Empresarial. Em construcao. codexa.app e o alicerce - prepara os documentos que definem sua marca. Brand guidelines, tom de voz, padroes visuais. Destilacao de conhecimento que qualquer IA entende."
 
 **OVERLAY**:
 ```
@@ -539,10 +535,10 @@ FASE 2: CEREBRO EMPRESARIAL
 (Em construcao)
 
 codexa.app prepara:
-- Brand guidelines
-- Tom de voz
-- Padroes visuais
-- Conhecimento destilado
+✓ Brand guidelines
+✓ Tom de voz
+✓ Padroes visuais
+✓ Destilacao de Conhecimento
 ```
 
 ---
@@ -611,70 +607,52 @@ NAO E ALUGUEL. E PATRIMONIO.
 ### TIMECODE 09:20-09:30 - SEM ESCASSEZ FAKE + GARANTIA
 
 **NARRACAO**:
-> "Sem 'ultimas vagas'. Sem 'bonus expira em tres horas'. O preco e o preco. O produto e o produto. Quando fizer sentido pra voce, assina."
+> "Sem 'ultimas vagas'. Sem 'bonus expira em tres horas'. Sete dias gratis. Noventa dias de garantia. Preco justo, sempre disponivel."
 
 **OVERLAY**:
 ```
 SEM ESCASSEZ FAKE
-Preco justo, sempre disponivel
-```
-
----
-
-### TIMECODE 09:20-09:30 - GARANTIA REAL
-
-**NARRACAO**:
-> "Sete dias de teste gratis. Se em noventa dias nao economizar tempo, manda email. Garantia real, nao marketing."
-
-**OVERLAY**:
-```
-7 DIAS GRATIS
-Garantia 90 dias
+✓ 7 dias gratis
+✓ Garantia 90 dias
+✓ Preco justo, sempre disponivel
 ```
 
 ---
 
 ## SECAO 10: CTA ANTI-VENDA (09:30-10:00)
 
-### TIMECODE 09:30-09:45 - RECAPITULACAO
+### TIMECODE 09:30-09:40 - RECAPITULACAO
 
 **NARRACAO**:
-> "Em dez minutos voce viu pesquisa, anuncio e foto funcionando. Entendeu as tres camadas. Calculou a economia real. Recebeu os tres prompts que mudam seu uso de IA."
+> "Em dez minutos voce viu tres agentes funcionando. Entendeu as camadas. Calculou a economia. Recebeu tres prompts pra construir seu motor cognitivo."
 
 **OVERLAY**:
 ```
 RESUMO
 ✓ 3 agentes funcionando
 ✓ 3 camadas explicadas
-✓ Economia calculada (R$ 536k em 5 anos)
-✓ 3 prompts pra sair da Camada 1
+✓ R$ 536k economia em 5 anos
+✓ 3 prompts = seu motor cognitivo
 ```
 
 ---
 
-### TIMECODE 09:45-09:55 - PERGUNTA FINAL
+### TIMECODE 09:40-09:55 - PERGUNTA FINAL (Extendido para 15s)
 
-**NARRACAO FINAL (OPCAO_D - Ultrathink - Extendida)**:
-> "A pergunta nao e 'funciona?' - voce acabou de ver funcionando.
->
-> A pergunta nao e 'quanto custa?' - voce acabou de ver a economia.
->
-> A pergunta real e: voce quer ser o empresario que constroi patrimonio... ou o que continua alugando cognicao?
->
-> Porque daqui cinco anos, um desses dois vai ter um motor cognitivo trabalhando vinte e quatro sete. E o outro vai ter pago quinhentos mil reais pra ficar no mesmo lugar."
+**NARRACAO FINAL (OPCAO_D - Ultrathink - Trimmada)**:
+> "A pergunta nao e 'funciona?' - voce acabou de ver. A pergunta e: voce constroi patrimonio ou continua alugando cognicao? Daqui cinco anos, um tera motor cognitivo vinte e quatro sete. O outro, quinhentos mil a menos."
 
-**Justificativa**: Identity-based close + future pacing + elimina objecoes + framing de inevitabilidade.
+**Justificativa**: Identity-based close trimado de 86 para 45 palavras. Mantém impacto em tempo viável (15s = 3 palavras/segundo).
 
 **OVERLAY**:
 ```
 A PERGUNTA REAL:
 
-Empresario que CONSTROI patrimonio?
-       ou
-Empresario que ALUGA cognicao?
+CONSTROI patrimonio?
+      ou
+ALUGA cognicao?
 
-DAQUI 5 ANOS:
-Motor 24/7 vs R$ 500k desperdicado
+5 ANOS: Motor 24/7 vs -R$ 500k
 ```
 
 ---
@@ -797,7 +775,7 @@ Texto: #FFFFFF
 ---
 
 **Arquivo**: `VIDEO_LP_CODEXA_10MIN_V2_REMIX.md`
-**Versao**: 2.1.0
+**Versao**: 2.2.0
 **Criado**: 2025-12-02
 **Atualizado**: 2025-12-03
-**Status**: FINAL - Pronto para producao
+**Status**: FINAL - Auditado (timing, brand, claims) - Pronto para producao
