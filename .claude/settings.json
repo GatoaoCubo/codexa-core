@@ -2,36 +2,27 @@
   "mcpServers": {
     "scout": {
       "command": "node",
-      "args": [
-        "C:/Users/Dell/Documents/GitHub/codexa-core/codexa.app/mcp-servers/scout-mcp/index.js"
-      ],
+      "args": ["codexa.app/mcp-servers/scout-mcp/index.js"],
       "env": {
-        "SCOUT_ROOT": "C:/Users/Dell/Documents/GitHub/codexa-core",
+        "SCOUT_ROOT": ".",
         "NAVIGATION_MAP": "codexa.app/agentes/scout_agent/NAVIGATION_MAP.json"
       }
     },
     "codexa-commands": {
       "command": "node",
-      "args": [
-        "C:/Users/Dell/Documents/GitHub/codexa-core/codexa.app/mcp-servers/codexa-commands/index.js"
-      ],
+      "args": ["codexa.app/mcp-servers/codexa-commands/index.js"],
       "env": {
-        "CODEXA_ROOT": "C:/Users/Dell/Documents/GitHub/codexa-core",
+        "CODEXA_ROOT": ".",
         "COMMANDS_DIR": ".claude/commands"
       }
     },
     "browser": {
       "command": "node",
-      "args": [
-        "C:/Users/Dell/Documents/GitHub/codexa-core/codexa.app/mcp-servers/browser-mcp/index.js"
-      ]
+      "args": ["codexa.app/mcp-servers/browser-mcp/index.js"]
     },
     "voice": {
       "command": "uv",
-      "args": [
-        "run",
-        "C:/Users/Dell/Documents/GitHub/codexa-core/codexa.app/voice/server.py"
-      ],
+      "args": ["run", "codexa.app/voice/server.py"],
       "env": {
         "VOICE_PORT": "5000",
         "VOICE_LANGUAGE": "pt-BR"
@@ -46,10 +37,7 @@
           {
             "type": "command",
             "command": "uv",
-            "args": [
-              "run",
-              "C:/Users/Dell/Documents/GitHub/codexa-core/.claude/hooks/pre_tool_use.py"
-            ]
+            "args": ["run", ".claude/hooks/pre_tool_use.py"]
           }
         ]
       },
@@ -59,10 +47,7 @@
           {
             "type": "command",
             "command": "uv",
-            "args": [
-              "run",
-              "C:/Users/Dell/Documents/GitHub/codexa-core/.claude/hooks/pre_tool_use.py"
-            ]
+            "args": ["run", ".claude/hooks/pre_tool_use.py"]
           }
         ]
       },
@@ -72,10 +57,7 @@
           {
             "type": "command",
             "command": "uv",
-            "args": [
-              "run",
-              "C:/Users/Dell/Documents/GitHub/codexa-core/.claude/hooks/pre_tool_use.py"
-            ]
+            "args": ["run", ".claude/hooks/pre_tool_use.py"]
           }
         ]
       }
@@ -87,10 +69,7 @@
           {
             "type": "command",
             "command": "uv",
-            "args": [
-              "run",
-              "C:/Users/Dell/Documents/GitHub/codexa-core/.claude/hooks/notification.py"
-            ]
+            "args": ["run", ".claude/hooks/notification.py"]
           }
         ]
       }
@@ -102,17 +81,14 @@
           {
             "type": "command",
             "command": "uv",
-            "args": [
-              "run",
-              "C:/Users/Dell/Documents/GitHub/codexa-core/.claude/hooks/session_stop.py"
-            ]
+            "args": ["run", ".claude/hooks/session_stop.py"]
           }
         ]
       }
     ]
   },
   "env": {
-    "CODEXA_ROOT": "C:/Users/Dell/Documents/GitHub/codexa-core",
+    "CODEXA_ROOT": ".",
     "CODEXA_VOICE_NOTIFICATIONS": "false",
     "CODEXA_VOICE_GREETING": "false"
   }
