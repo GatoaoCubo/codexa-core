@@ -151,6 +151,6 @@ After loading `/prime-pesquisa`, you can use:
 ---
 
 **Version**: 1.0.0
-**Last Updated**: 2025-12-02
+**Last Updated**: 2025-12-03
 **Type**: Domain Specialist - Market Research
 **Context Load**: Medium (PRIME.md + ADW + config)
