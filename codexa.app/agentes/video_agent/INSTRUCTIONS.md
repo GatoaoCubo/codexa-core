@@ -1,6 +1,6 @@
 # INSTRUCTIONS | video_agent
 
-**Version**: 2.6.0
+**Version**: 2.7.0
 **Purpose**: Instructions for AI assistants / Agent builders to use video_agent
 **Type**: HOP (Higher-Order Prompt) for LLM execution
 **Updated**: 2025-12-04
@@ -35,13 +35,14 @@
 - Video generation APIs (async, parallel)
 - Local video processing (concatenation, audio mixing, text overlays)
 
-**4. Prompts**: 6 HOPs (one per pipeline stage) in TAC-7 format
+**4. Prompts**: 7 HOPs (one per pipeline stage) in TAC-7 format
 - 10_concept_planner_HOP.md (storyboard)
 - 20_script_writer_HOP.md (narration)
 - 30_visual_prompter_HOP.md (platform prompts)
 - 40_production_runner_HOP.md (API orchestration)
 - 50_editor_assembler_HOP.md (FFmpeg editing)
-- 60_title_optimizer_HOP.md (YouTube titles) ← NEW
+- 60_title_optimizer_HOP.md (YouTube titles)
+- 61_description_optimizer_HOP.md (YouTube descriptions) ← NEW
 
 ### 8 OUT-AGENT Pillars (External Artifacts)
 
@@ -351,7 +352,98 @@ Output: 5 titles + recommended winner
 
 ---
 
+## YOUTUBE DESCRIPTION OPTIMIZATION (NEW)
+
+### When to Use
+Use the Description Optimizer (Phase 6++) after Title Optimizer for complete YouTube metadata, or standalone for description-only optimization.
+
+### Quick Usage
+
+**Standalone Mode** (via command):
+```
+/youtube-description "7 Prompts de ChatGPT, duracao 12:34, devs iniciantes, acelerar desenvolvimento"
+```
+
+**Pipeline Mode** (after Title Optimizer):
+```
+PHASE 6++: DESCRIPTION OPTIMIZATION | STARTING
+Input: $video_brief + $title_optimizer_output
+Output: 5-section description + scoring
+```
+
+### Description Generation Process
+
+```
+1. RESEARCH (~10s)
+   ├── Extract primary keyword
+   ├── Parse video duration
+   ├── Load title keywords for consistency
+   └── Determine content strategy (length, timestamps)
+
+2. GENERATE (~15s)
+   ├── Section 1: Hook (100-150 chars, above-fold)
+   ├── Section 2: Value Proposition (150-300 chars)
+   ├── Section 3: Timestamps (if video >= 3min)
+   ├── Section 4: Links & CTAs (200-400 chars)
+   └── Section 5: Hashtags & Keywords (50-100 chars)
+
+3. VALIDATE (~10s)
+   ├── Score with 4D system
+   ├── Check keyword density (1-3%)
+   ├── Verify above-fold quality
+   └── Generate optimization notes
+```
+
+### Section Structure
+
+| Section | Purpose | Char Limit | Required |
+|---------|---------|------------|----------|
+| Hook | Above-fold scroll-stopper | 100-150 | Yes |
+| Value Prop | What viewer gets | 150-300 | Yes |
+| Timestamps | Navigation + watch time | Variable | If >= 3min |
+| Links/CTAs | Conversions | 200-400 | Yes |
+| Hashtags | Discoverability | 50-100 | Yes |
+
+### Example Output
+```json
+{
+  "description_full": "ChatGPT para programação: os 7 prompts que vão...",
+  "char_count": 847,
+  "scores": {
+    "engagement": 8.5,
+    "seo": 8.2,
+    "brand": 7.8,
+    "technical": 9.0
+  },
+  "score_total": 8.35,
+  "keyword_analysis": {
+    "primary": "ChatGPT programação",
+    "density": "2.1%"
+  }
+}
+```
+
+### Files Reference
+| File | Purpose |
+|------|---------|
+| `prompts/61_description_optimizer_HOP.md` | Core HOP |
+| `workflows/104_ADW_YOUTUBE_DESCRIPTION.md` | ADW documentation |
+| `config/youtube_description_rules.json` | Section formulas + thresholds |
+| `schemas/description_optimizer_input.json` | Input validation |
+
+---
+
 ## CHANGELOG
+
+### v2.7.0 (2025-12-04)
+- YouTube Description Optimizer (Phase 6++)
+- 5-section structure (Hook, Value Prop, Timestamps, Links, Hashtags)
+- 4D scoring system (Engagement, SEO, Brand, Technical)
+- New files: 61_description_optimizer_HOP.md, 104_ADW_YOUTUBE_DESCRIPTION.md
+- Config: youtube_description_rules.json
+- Schema: description_optimizer_input.json
+- Auto-timestamps for videos >= 3 minutes
+- Keyword density analysis (1-3% target)
 
 ### v2.6.0 (2025-12-04)
 - YouTube Title Optimizer (Phase 6+)
@@ -378,7 +470,7 @@ Output: 5 titles + recommended winner
 
 ---
 
-**Status**: Production-Ready | **Version**: 2.5.0 | **Type**: Specialist Agent
+**Status**: Production-Ready | **Version**: 2.7.0 | **Type**: Specialist Agent
 **Dependencies**: FFmpeg, Runway/Pika API | **Quality Score**: 9.5/10.0
 **12 Leverage Points**: Fully Implemented
 

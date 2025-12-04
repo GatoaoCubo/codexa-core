@@ -2,7 +2,7 @@
 
 **AI Assistant Entry Point** - Navigation guide for video production specialist
 
-**Version**: 2.6.0 | **Status**: Production-Ready | **Type**: Specialist Agent
+**Version**: 2.7.0 | **Status**: Production-Ready | **Type**: Specialist Agent
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
@@ -60,6 +60,7 @@ Entry Points:
 Execution:
 ├── workflows/100_ADW_RUN_VIDEO.md ──► Complete 5-phase workflow
 ├── workflows/103_ADW_YOUTUBE_TITLE.md ──► Title optimization workflow
+├── workflows/104_ADW_YOUTUBE_DESCRIPTION.md ──► Description optimization workflow
 └── prompts/*.md ──► Detailed HOP prompts per stage
 
 Implementation:
@@ -102,7 +103,7 @@ Process: Script → Visual → Render → Edit
 Output: Video from custom storyboard
 ```
 
-### 4.5 YouTube Title Optimization (NEW)
+### 4.5 YouTube Title Optimization
 ```
 Input: Video brief OR post Phase 5 completion
 Process: Research → Generate (5 angles) → Validate (4D scoring)
@@ -119,6 +120,24 @@ Command: /youtube-title (standalone)
 | Social Proof | 1.18x | Case studies |
 | How-To | 1.22x | Guides |
 | Comparison | 1.30x | Reviews |
+
+### 4.6 YouTube Description Optimization (NEW)
+```
+Input: Video brief + title_optimizer_output (optional)
+Process: Research → Generate (5 sections) → Validate (4D scoring)
+Output: SEO-optimized description with timestamps
+Duration: ~35 seconds
+Command: /youtube-description (standalone)
+```
+
+**Description Sections**:
+| Section | Purpose | Char Limit |
+|---------|---------|------------|
+| Hook | Above-fold scroll-stopper | 100-150 |
+| Value Prop | What viewer gets | 150-300 |
+| Timestamps | Navigation + watch time | Variable |
+| Links/CTAs | Conversions | 200-400 |
+| Hashtags | Discoverability | 50-100 |
 
 ---
 
@@ -283,10 +302,21 @@ pesquisa_agent ──► Competitor analysis ──► video_agent (differentiat
 | `40_production_runner_HOP.md` | 4 | API orchestration |
 | `50_editor_assembler_HOP.md` | 5 | Editing workflow |
 | `60_title_optimizer_HOP.md` | 6+ | YouTube title optimization (CTR-focused) |
+| `61_description_optimizer_HOP.md` | 6++ | YouTube description optimization (SEO-focused) |
 
 ---
 
 ## 12. VERSION HISTORY
+
+- **v2.7.0** (2025-12-04): YouTube Description Optimizer
+  - Added 61_description_optimizer_HOP.md (Phase 6++)
+  - Added 104_ADW_YOUTUBE_DESCRIPTION.md workflow
+  - Added youtube_description_rules.json config
+  - Added description_optimizer_input.json schema
+  - 5-section structure (Hook, Value Prop, Timestamps, Links, Hashtags)
+  - 4D scoring system (Engagement 35%, SEO 30%, Brand 20%, Technical 15%)
+  - Auto-timestamps for videos >= 3 minutes
+  - Keyword density analysis (1-3% target)
 
 - **v2.6.0** (2025-12-04): YouTube Title Optimizer
   - Added 60_title_optimizer_HOP.md (Phase 6+)
@@ -354,6 +384,6 @@ pesquisa_agent ──► Competitor analysis ──► video_agent (differentiat
 ---
 
 **Created by**: CODEXA Meta-Constructor
-**Last Updated**: 2025-11-29
+**Last Updated**: 2025-12-04
 **Quality Score**: 9.5/10.0 (production-ready)
 **12 Leverage Points**: Fully Implemented

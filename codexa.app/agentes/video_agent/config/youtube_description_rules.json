@@ -1,0 +1,345 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "YouTube Description Optimizer configuration with section formulas, scoring weights, and validation rules",
+  "created": "2025-12-04",
+
+  "section_formulas": {
+    "hook": {
+      "id": "A",
+      "name": "Above-Fold Hook",
+      "purpose": "Stop the scroll, create curiosity",
+      "formula": "[Keyword] + [Curiosity/Value Hook] + [Promise]",
+      "char_limit": 150,
+      "position": "first",
+      "required": true,
+      "psychology": ["pattern_interrupt", "value_preview", "curiosity_gap"],
+      "triggers": ["curiosity", "value_preview", "pattern_interrupt"],
+      "example_ptbr": "ChatGPT para programação: os 7 prompts que vão revolucionar seu workflow de desenvolvimento. Depois de testar 50+...",
+      "banned_openings": [
+        "Neste vídeo",
+        "Olá pessoal",
+        "E aí galera",
+        "Fala guys",
+        "Bem-vindos"
+      ]
+    },
+    "value_proposition": {
+      "id": "B",
+      "name": "Value Proposition",
+      "purpose": "Expand on what viewer will learn/achieve",
+      "formula": "[What You'll Learn] + [Why It Matters] + [Who It's For]",
+      "char_limit": 300,
+      "position": "after_hook",
+      "required": true,
+      "structure": {
+        "learn_header": "📌 O QUE VOCÊ VAI APRENDER:",
+        "audience_header": "👤 PARA QUEM É:",
+        "bullet_format": "•"
+      },
+      "psychology": ["completeness", "relevance_check", "value_stacking"],
+      "example_ptbr": "📌 O QUE VOCÊ VAI APRENDER:\n• Prompt para debug que encontra erros em segundos\n• Como pedir explicações de código complexo\n• Template para refatoração automática"
+    },
+    "timestamps": {
+      "id": "C",
+      "name": "Timestamps/Chapters",
+      "purpose": "Enable navigation + boost watch time",
+      "formula": "[MM:SS] [Chapter Title]",
+      "position": "middle",
+      "required": false,
+      "condition": "video_duration >= 180",
+      "requirements": {
+        "first_timestamp": "00:00",
+        "min_chapters": 3,
+        "min_interval_seconds": 10,
+        "max_title_chars": 50,
+        "ascending_order": true
+      },
+      "header": "⏱️ CAPÍTULOS:",
+      "psychology": ["control", "navigation", "commitment"],
+      "example_ptbr": "⏱️ CAPÍTULOS:\n00:00 - Introdução\n01:45 - Prompt #1: Debug\n03:22 - Prompt #2: Explicação"
+    },
+    "links_ctas": {
+      "id": "D",
+      "name": "Links & CTAs",
+      "purpose": "Drive conversions, engagement, subscriptions",
+      "formula": "[CTA] + [Organized Links]",
+      "char_limit": 400,
+      "position": "after_timestamps",
+      "required": true,
+      "structure": {
+        "resources_header": "🔗 LINKS MENCIONADOS:",
+        "social_header": "📱 ME SIGA:",
+        "subscribe_cta": "🔔 Inscreva-se e ative o sininho!"
+      },
+      "link_priority": [
+        "resources_mentioned",
+        "related_videos_playlists",
+        "social_media",
+        "website_newsletter",
+        "affiliate_sponsored"
+      ],
+      "max_links": 10,
+      "psychology": ["reciprocity", "next_step", "community"],
+      "example_ptbr": "🔗 RECURSOS:\n• PDF com todos os prompts: [link]\n\n📱 ME SIGA:\n• GitHub: [link]\n• LinkedIn: [link]"
+    },
+    "hashtags_keywords": {
+      "id": "E",
+      "name": "Hashtags & Keywords",
+      "purpose": "Discoverability without keyword stuffing",
+      "formula": "[Natural keyword sentence] + [3-5 hashtags]",
+      "char_limit": 100,
+      "position": "end",
+      "required": true,
+      "requirements": {
+        "min_hashtags": 3,
+        "max_hashtags": 5,
+        "hashtag_mix": "1 broad + 2-3 specific + 1 branded"
+      },
+      "psychology": ["discoverability", "categorization"],
+      "example_ptbr": "Este tutorial de ChatGPT para programadores faz parte da série sobre IA.\n\n#ChatGPT #Programação #IA #DevTips"
+    }
+  },
+
+  "scoring_weights": {
+    "engagement_potential": {
+      "weight": 0.35,
+      "description": "Predicted engagement and retention potential",
+      "factors": {
+        "hook_quality": {"max_points": 3.0, "description": "Compelling above-fold hook"},
+        "cta_effectiveness": {"max_points": 2.0, "description": "Clear action driver"},
+        "scanability": {"max_points": 2.0, "description": "Bullets, sections, formatting"},
+        "value_clarity": {"max_points": 2.0, "description": "Clear promise/benefit"},
+        "emotional_trigger": {"max_points": 1.0, "description": "Curiosity, urgency, etc"}
+      }
+    },
+    "seo_alignment": {
+      "weight": 0.30,
+      "description": "Search engine optimization alignment",
+      "factors": {
+        "primary_keyword_present": {"max_points": 3.0},
+        "keyword_in_first_25_words": {"max_points": 2.0},
+        "secondary_keywords": {"max_points": 2.0, "per_keyword": 0.5, "max_keywords": 4},
+        "keyword_density_optimal": {"max_points": 2.0, "range": "1-3%"},
+        "no_keyword_stuffing": {"max_points": 1.0}
+      }
+    },
+    "brand_alignment": {
+      "weight": 0.20,
+      "description": "Alignment with brand voice and title consistency",
+      "factors": {
+        "tone_consistency": {"max_points": 4.0, "description": "Matches title and brand voice"},
+        "voice_markers": {"max_points": 3.0, "per_marker": 1.0},
+        "professional_formatting": {"max_points": 2.0},
+        "cta_style_match": {"max_points": 1.0}
+      }
+    },
+    "technical_compliance": {
+      "weight": 0.15,
+      "description": "Technical requirements adherence",
+      "factors": {
+        "char_count_valid": {"max_points": 3.0, "requirement": "under 5000"},
+        "above_fold_optimized": {"max_points": 2.0, "requirement": "100-150 compelling chars"},
+        "timestamps_valid": {"max_points": 2.0, "requirement": "proper format if included"},
+        "proper_formatting": {"max_points": 2.0},
+        "mobile_friendly": {"max_points": 1.0}
+      }
+    }
+  },
+
+  "character_limits": {
+    "total_max": 5000,
+    "above_fold": 150,
+    "recommended_min": 200,
+    "recommended_max": 1500,
+    "hook_max": 150,
+    "value_prop_max": 300,
+    "links_max": 400,
+    "hashtags_max": 100
+  },
+
+  "length_guidelines": {
+    "short_video": {
+      "duration_max_minutes": 5,
+      "description_chars": "300-500",
+      "timestamps": false
+    },
+    "medium_video": {
+      "duration_range_minutes": "5-15",
+      "description_chars": "500-1000",
+      "timestamps": true
+    },
+    "long_video": {
+      "duration_range_minutes": "15-60",
+      "description_chars": "1000-2000",
+      "timestamps": true,
+      "detailed_chapters": true
+    },
+    "tutorial_course": {
+      "duration_min_minutes": 60,
+      "description_chars": "1500-2500",
+      "timestamps": true,
+      "detailed_chapters": true,
+      "resource_links": true
+    }
+  },
+
+  "quality_thresholds": {
+    "excellent": 9.0,
+    "good": 7.5,
+    "acceptable": 6.5,
+    "minimum_recommend": 7.5,
+    "reject_below": 6.5
+  },
+
+  "keyword_rules": {
+    "density_min_percent": 1.0,
+    "density_max_percent": 3.0,
+    "primary_keyword_position_max_words": 25,
+    "max_occurrences": 5,
+    "natural_integration": true
+  },
+
+  "formatting_rules": {
+    "section_dividers": ["blank_line", "━━━"],
+    "emoji_usage": "1-2 per section header",
+    "bullet_format": "•",
+    "timestamp_format": "MM:SS or HH:MM:SS",
+    "link_format": "[Label]: [URL]",
+    "line_breaks_between_sections": true
+  },
+
+  "banned_patterns": {
+    "keyword_stuffing": {
+      "pattern": "same keyword 5+ times",
+      "description": "Unnatural keyword repetition"
+    },
+    "fake_urgency": {
+      "pattern": "LAST CHANCE|URGENTE|ACABANDO",
+      "description": "Without real deadline",
+      "exception": "genuine limited offers"
+    },
+    "excessive_caps": {
+      "pattern": "more than 2 words in ALL CAPS",
+      "description": "Spam signal"
+    },
+    "spam_links": {
+      "pattern": "more than 10 links",
+      "description": "Link spam"
+    },
+    "wall_of_text": {
+      "pattern": "500+ chars without section breaks",
+      "description": "Poor scanability"
+    },
+    "empty_promises": {
+      "examples": ["garantido", "100% certeza", "impossível falhar"],
+      "description": "Claims video can't deliver"
+    }
+  },
+
+  "power_phrases_ptbr": {
+    "hooks": [
+      "Você já se perguntou...",
+      "O segredo que ninguém conta...",
+      "Pare de fazer isso errado...",
+      "Em X minutos você vai aprender...",
+      "Depois de testar 50+ opções...",
+      "Cansei de perder tempo com...",
+      "90% das pessoas fazem isso errado..."
+    ],
+    "ctas": [
+      "Se esse vídeo te ajudou, deixa o like!",
+      "Inscreva-se para mais conteúdo como esse",
+      "Compartilha com quem precisa ver isso",
+      "Me conta nos comentários...",
+      "Ativa o sininho para não perder os próximos",
+      "Salva esse vídeo para depois!"
+    ],
+    "transitions": [
+      "Vamos lá?",
+      "Bora começar!",
+      "Assista até o final para...",
+      "Continue lendo para...",
+      "Confira os capítulos abaixo"
+    ],
+    "value_intros": [
+      "Neste vídeo você vai descobrir...",
+      "O que você vai aprender:",
+      "Aqui está o que cobre:",
+      "Prepare-se para aprender..."
+    ]
+  },
+
+  "cta_styles": {
+    "soft": {
+      "description": "Subtle, non-pushy",
+      "examples": ["Se curtiu, deixa o like 👍", "Compartilha se conhece alguém que precisa"]
+    },
+    "medium": {
+      "description": "Clear but not aggressive",
+      "examples": ["Inscreva-se para não perder os próximos", "Me segue no Instagram para mais dicas"]
+    },
+    "strong": {
+      "description": "Direct call to action",
+      "examples": ["CLIQUE NO LINK para baixar o PDF gratuito", "Inscreva-se AGORA e ganhe acesso"]
+    }
+  },
+
+  "timestamp_requirements": {
+    "min_video_duration_seconds": 180,
+    "first_chapter_must_be": "00:00",
+    "min_chapters_for_feature": 3,
+    "min_seconds_between_chapters": 10,
+    "max_chapter_title_chars": 50,
+    "format_examples": ["00:00", "01:23", "12:34", "1:23:45"]
+  },
+
+  "hashtag_strategy": {
+    "count": {
+      "min": 3,
+      "max": 5,
+      "optimal": 4
+    },
+    "mix": {
+      "broad": 1,
+      "specific": 2,
+      "niche": 1,
+      "branded": 1
+    },
+    "placement": "end_of_description",
+    "format": "#PascalCase",
+    "notes": "First 3 hashtags appear above video title"
+  },
+
+  "integration": {
+    "post_phase": "6+",
+    "predecessor": "60_title_optimizer",
+    "input_sources": ["$video_brief", "$title_optimizer_output"],
+    "output_target": "youtube_upload_metadata",
+    "standalone_command": "/youtube-description",
+    "chain_next": ["62_tags_optimizer", "63_thumbnail_text"]
+  },
+
+  "section_templates": {
+    "minimal": {
+      "sections": ["hook", "hashtags_keywords"],
+      "use_case": "shorts, clips",
+      "char_range": "100-300"
+    },
+    "standard": {
+      "sections": ["hook", "value_proposition", "links_ctas", "hashtags_keywords"],
+      "use_case": "most videos",
+      "char_range": "400-800"
+    },
+    "detailed": {
+      "sections": ["hook", "value_proposition", "timestamps", "links_ctas", "hashtags_keywords"],
+      "use_case": "tutorials, long-form",
+      "char_range": "800-1500"
+    },
+    "comprehensive": {
+      "sections": ["hook", "value_proposition", "prerequisites", "timestamps", "resources", "links_ctas", "hashtags_keywords"],
+      "use_case": "courses, deep tutorials",
+      "char_range": "1500-2500"
+    }
+  }
+}

@@ -1,0 +1,417 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "description_optimizer_input.json",
+  "title": "YouTube Description Optimizer Input Schema",
+  "description": "Input schema for video_agent description optimizer (61_description_optimizer_HOP.md)",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["video_brief"],
+  "properties": {
+    "video_brief": {
+      "type": "object",
+      "description": "Core video brief information",
+      "required": ["title_final", "topic", "target_audience", "key_benefit", "video_duration"],
+      "properties": {
+        "title_final": {
+          "type": "string",
+          "description": "Final video title (from title_optimizer or working title)",
+          "minLength": 5,
+          "maxLength": 100,
+          "examples": [
+            "7 Prompts de ChatGPT Que Todo Dev Precisa Conhecer",
+            "Excel: 3 Atalhos Que Vão Mudar Sua Vida"
+          ]
+        },
+        "topic": {
+          "type": "string",
+          "description": "Primary keyword/topic for SEO targeting",
+          "minLength": 2,
+          "maxLength": 50,
+          "examples": [
+            "ChatGPT programacao",
+            "Excel atalhos"
+          ]
+        },
+        "target_audience": {
+          "type": "string",
+          "description": "Target audience description",
+          "minLength": 5,
+          "maxLength": 200,
+          "examples": [
+            "Desenvolvedores iniciantes/intermediarios",
+            "Profissionais de escritorio"
+          ]
+        },
+        "key_benefit": {
+          "type": "string",
+          "description": "Main value proposition or benefit",
+          "minLength": 5,
+          "maxLength": 200,
+          "examples": [
+            "Acelerar desenvolvimento com IA",
+            "Economizar tempo no trabalho"
+          ]
+        },
+        "video_duration": {
+          "type": "string",
+          "description": "Video duration in MM:SS or HH:MM:SS format",
+          "pattern": "^([0-9]{1,2}:)?[0-5]?[0-9]:[0-5][0-9]$",
+          "examples": [
+            "12:34",
+            "02:45",
+            "1:23:45"
+          ]
+        }
+      }
+    },
+    "title_optimizer_output": {
+      "type": "object",
+      "description": "Output from 60_title_optimizer for consistency (optional)",
+      "properties": {
+        "recommended": {
+          "type": "object",
+          "description": "The winning title from title optimizer",
+          "properties": {
+            "text": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "angle": {
+              "type": "string",
+              "enum": ["question", "number", "social_proof", "how_to", "comparison"]
+            },
+            "score_total": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            }
+          }
+        },
+        "keywords_used": {
+          "type": "array",
+          "description": "Keywords used in the winning title",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 10
+        }
+      }
+    },
+    "brand_profile": {
+      "type": "object",
+      "description": "Brand voice guidelines from marca_agent (optional)",
+      "properties": {
+        "tone_scale": {
+          "type": "object",
+          "description": "4-dimension tone scale",
+          "properties": {
+            "formal_casual": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            },
+            "serio_divertido": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            },
+            "tradicional_inovador": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            },
+            "tecnico_acessivel": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            }
+          }
+        },
+        "archetypes": {
+          "type": "array",
+          "description": "Brand archetypes",
+          "items": {
+            "type": "string",
+            "enum": [
+              "heroi",
+              "mago",
+              "fora_da_lei",
+              "explorador",
+              "sabio",
+              "inocente",
+              "criador",
+              "governante",
+              "cuidador",
+              "cara_comum",
+              "bobo_da_corte",
+              "amante"
+            ]
+          },
+          "maxItems": 3
+        },
+        "voice_markers": {
+          "type": "array",
+          "description": "PT-BR voice markers",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 5
+        },
+        "social_links": {
+          "type": "object",
+          "description": "Default social media links",
+          "properties": {
+            "instagram": {"type": "string", "format": "uri"},
+            "youtube": {"type": "string", "format": "uri"},
+            "linkedin": {"type": "string", "format": "uri"},
+            "twitter": {"type": "string", "format": "uri"},
+            "github": {"type": "string", "format": "uri"},
+            "website": {"type": "string", "format": "uri"}
+          }
+        }
+      }
+    },
+    "seo_keywords": {
+      "type": "array",
+      "description": "Target SEO keywords from pesquisa_agent (optional)",
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 50
+      },
+      "maxItems": 15,
+      "examples": [
+        ["chatgpt", "programacao", "ia para devs", "prompts chatgpt", "produtividade dev"]
+      ]
+    },
+    "video_chapters": {
+      "type": "array",
+      "description": "Pre-defined chapter markers for timestamp generation (optional)",
+      "items": {
+        "type": "object",
+        "required": ["timestamp", "title"],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "Chapter timestamp in MM:SS or HH:MM:SS format",
+            "pattern": "^([0-9]{1,2}:)?[0-5]?[0-9]:[0-5][0-9]$",
+            "examples": ["00:00", "01:45", "12:34", "1:23:45"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Chapter title",
+            "minLength": 2,
+            "maxLength": 50,
+            "examples": ["Introducao", "Prompt #1: Debug Inteligente"]
+          }
+        }
+      },
+      "minItems": 3,
+      "examples": [
+        [
+          {"timestamp": "00:00", "title": "Introducao"},
+          {"timestamp": "01:45", "title": "Prompt #1: Debug"},
+          {"timestamp": "03:22", "title": "Prompt #2: Explicacao"},
+          {"timestamp": "05:10", "title": "Prompt #3: Refatoracao"}
+        ]
+      ]
+    },
+    "channel_context": {
+      "type": "object",
+      "description": "Channel-specific context for optimization (optional)",
+      "properties": {
+        "channel_name": {
+          "type": "string",
+          "description": "Channel name for branding",
+          "maxLength": 100,
+          "examples": ["Tech com Joao", "Codigo Facil"]
+        },
+        "default_cta": {
+          "type": "string",
+          "description": "Default call-to-action style",
+          "enum": ["soft", "medium", "strong"],
+          "default": "medium"
+        },
+        "social_links": {
+          "type": "object",
+          "description": "Channel social media links",
+          "additionalProperties": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "playlist_links": {
+          "type": "array",
+          "description": "Related playlists to link",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {"type": "string", "maxLength": 100},
+              "url": {"type": "string", "format": "uri"}
+            }
+          },
+          "maxItems": 5
+        },
+        "boilerplate": {
+          "type": "string",
+          "description": "Standard channel description/about section",
+          "maxLength": 500
+        }
+      }
+    },
+    "preferences": {
+      "type": "object",
+      "description": "Description generation preferences (optional)",
+      "properties": {
+        "description_length": {
+          "type": "string",
+          "description": "Preferred description length",
+          "enum": ["minimal", "standard", "detailed", "comprehensive"],
+          "default": "standard"
+        },
+        "include_timestamps": {
+          "type": "boolean",
+          "description": "Force include/exclude timestamps",
+          "default": true
+        },
+        "include_links": {
+          "type": "boolean",
+          "description": "Include links section",
+          "default": true
+        },
+        "hashtag_count": {
+          "type": "integer",
+          "description": "Number of hashtags to include",
+          "minimum": 3,
+          "maximum": 5,
+          "default": 4
+        },
+        "cta_style": {
+          "type": "string",
+          "description": "Call-to-action intensity",
+          "enum": ["soft", "medium", "strong"],
+          "default": "medium"
+        },
+        "emoji_usage": {
+          "type": "string",
+          "description": "Emoji usage level",
+          "enum": ["none", "minimal", "standard"],
+          "default": "standard"
+        },
+        "language": {
+          "type": "string",
+          "description": "Description language",
+          "enum": ["pt-BR", "en-US"],
+          "default": "pt-BR"
+        }
+      }
+    },
+    "resources": {
+      "type": "array",
+      "description": "Resources to link in description (optional)",
+      "items": {
+        "type": "object",
+        "required": ["label", "url"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "Resource label/name",
+            "maxLength": 100,
+            "examples": ["PDF com todos os prompts", "Repositorio do projeto"]
+          },
+          "url": {
+            "type": "string",
+            "description": "Resource URL",
+            "format": "uri"
+          },
+          "type": {
+            "type": "string",
+            "description": "Resource type",
+            "enum": ["pdf", "github", "website", "affiliate", "related_video", "playlist", "social", "other"],
+            "default": "other"
+          }
+        }
+      },
+      "maxItems": 10
+    }
+  },
+  "examples": [
+    {
+      "video_brief": {
+        "title_final": "7 Prompts de ChatGPT Que Todo Dev Precisa Conhecer",
+        "topic": "ChatGPT programacao",
+        "target_audience": "Desenvolvedores iniciantes/intermediarios",
+        "key_benefit": "Acelerar desenvolvimento com IA",
+        "video_duration": "12:34"
+      }
+    },
+    {
+      "video_brief": {
+        "title_final": "Excel: 3 Atalhos Que Vão Mudar Sua Vida",
+        "topic": "Excel atalhos",
+        "target_audience": "Profissionais de escritorio",
+        "key_benefit": "Economizar tempo",
+        "video_duration": "02:45"
+      },
+      "preferences": {
+        "description_length": "minimal",
+        "include_timestamps": false
+      }
+    },
+    {
+      "video_brief": {
+        "title_final": "Curso Completo de React 2024: Do Zero ao Projeto",
+        "topic": "Curso React",
+        "target_audience": "Iniciantes em programacao web",
+        "key_benefit": "Aprender React do basico ao avancado",
+        "video_duration": "3:45:22"
+      },
+      "title_optimizer_output": {
+        "recommended": {
+          "text": "Curso Completo de React 2024: Do Zero ao Projeto",
+          "angle": "how_to",
+          "score_total": 8.5
+        },
+        "keywords_used": ["React", "curso", "2024", "projeto"]
+      },
+      "video_chapters": [
+        {"timestamp": "00:00", "title": "Introducao e Setup"},
+        {"timestamp": "15:30", "title": "Componentes Basicos"},
+        {"timestamp": "45:00", "title": "Props e State"},
+        {"timestamp": "1:20:00", "title": "Hooks Essenciais"},
+        {"timestamp": "2:00:00", "title": "Projeto Pratico"},
+        {"timestamp": "3:00:00", "title": "Deploy"}
+      ],
+      "brand_profile": {
+        "tone_scale": {
+          "formal_casual": 4,
+          "serio_divertido": 5,
+          "tradicional_inovador": 7,
+          "tecnico_acessivel": 6
+        },
+        "voice_markers": ["didatico", "pratico", "atualizado"]
+      },
+      "preferences": {
+        "description_length": "comprehensive",
+        "cta_style": "medium",
+        "hashtag_count": 5
+      },
+      "resources": [
+        {"label": "Repositorio do projeto", "url": "https://github.com/example/react-curso", "type": "github"},
+        {"label": "PDF com resumo", "url": "https://example.com/pdf", "type": "pdf"}
+      ],
+      "channel_context": {
+        "channel_name": "Codigo Facil",
+        "default_cta": "medium",
+        "social_links": {
+          "github": "https://github.com/codigofacil",
+          "discord": "https://discord.gg/codigofacil"
+        }
+      }
+    }
+  ]
+}

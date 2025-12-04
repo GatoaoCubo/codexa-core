@@ -1,6 +1,6 @@
 # video_agent
 
-**Version**: 2.6.0
+**Version**: 2.7.0
 **Type**: Specialized Video Production AI Agent
 **Status**: Production-Ready (12 Leverage Points Implemented)
 
@@ -78,6 +78,7 @@ STAGE 5: EDITING (Timeline Assembly) - ~15s
 | 4 | Video Generation | `40_production_runner_HOP.md` | `04_production_builder.py` | clips/*.mp4 |
 | 5 | Video Editing | `50_editor_assembler_HOP.md` | `05_editing_builder.py` | final_video.mp4 |
 | 6+ | YouTube Title | `60_title_optimizer_HOP.md` | (standalone or integrated) | titles.json |
+| 6++ | YouTube Description | `61_description_optimizer_HOP.md` | (standalone or integrated) | description.json |
 
 ## Key Capabilities
 
@@ -110,12 +111,20 @@ STAGE 5: EDITING (Timeline Assembly) - ~15s
 - **Brand Compliance**: Colors, tone, logo placement
 - **Schema Validation**: JSON input/output contracts
 
-### 6. YouTube Title Optimization (NEW)
+### 6. YouTube Title Optimization
 - **5 Psychological Angles**: Question, Number, Social Proof, How-To, Comparison
 - **4D Scoring**: CTR (35%), SEO (30%), Brand (20%), Technical (15%)
 - **CTR Multipliers**: Number angle = 1.36x (best), Comparison = 1.30x
 - **Quality Gate**: Minimum score ≥7.5/10
 - **Integration**: Post Phase 5 OR standalone via `/youtube-title`
+
+### 7. YouTube Description Optimization (NEW)
+- **5-Section Structure**: Hook, Value Proposition, Timestamps, Links/CTAs, Hashtags
+- **4D Scoring**: Engagement (35%), SEO (30%), Brand (20%), Technical (15%)
+- **Automatic Timestamps**: Generated for videos ≥3 minutes
+- **SEO Features**: Keyword density (1-3%), first 25 words optimization
+- **Quality Gate**: Minimum score ≥7.5/10
+- **Integration**: Post Title Optimizer OR standalone via `/youtube-description`
 
 ## Quick Start
 
@@ -175,7 +184,8 @@ video_agent/
 ├── schemas/                     # Input/output contracts
 │   ├── video_input.json
 │   ├── video_output.json
-│   ├── title_optimizer_input.json  # YouTube title input schema (NEW)
+│   ├── title_optimizer_input.json  # YouTube title input schema
+│   ├── description_optimizer_input.json  # YouTube description input schema (NEW)
 │   └── SCHEMAS_GUIDE.md
 │
 ├── config/                      # Configuration files
@@ -183,7 +193,8 @@ video_agent/
 │   ├── api_config.json         # API settings
 │   ├── voice_config.json       # PT-BR voice settings
 │   ├── video_modes.json        # Overlay vs clean modes
-│   ├── youtube_title_rules.json # Title optimization config (NEW)
+│   ├── youtube_title_rules.json # Title optimization config
+│   ├── youtube_description_rules.json # Description optimization config (NEW)
 │   └── brand_profiles.json     # Brand templates
 │
 ├── prompts/                     # HOPs (Higher-Order Prompts)
@@ -192,13 +203,15 @@ video_agent/
 │   ├── 30_visual_prompter_HOP.md
 │   ├── 40_production_runner_HOP.md
 │   ├── 50_editor_assembler_HOP.md
-│   └── 60_title_optimizer_HOP.md  # YouTube title optimization (NEW)
+│   ├── 60_title_optimizer_HOP.md  # YouTube title optimization
+│   └── 61_description_optimizer_HOP.md  # YouTube description optimization (NEW)
 │
 ├── workflows/                   # ADW orchestration
 │   ├── 100_ADW_RUN_VIDEO.md
 │   ├── 101_ADW_CURSO_BRIDGE.md
 │   ├── 102_ADW_NOTEBOOKLM_VIDEO.md
-│   └── 103_ADW_YOUTUBE_TITLE.md   # YouTube title workflow (NEW)
+│   ├── 103_ADW_YOUTUBE_TITLE.md   # YouTube title workflow
+│   └── 104_ADW_YOUTUBE_DESCRIPTION.md   # YouTube description workflow (NEW)
 │
 ├── examples/                    # Trinity output examples
 │   ├── tenis_nike_30s.md
@@ -289,6 +302,15 @@ video_agent/
 
 ## Version History
 
+- **v2.7.0** (2025-12-04): YouTube Description Optimizer
+  - Phase 6++: Description optimization for YouTube uploads
+  - 5-section structure (Hook, Value Prop, Timestamps, Links, Hashtags)
+  - 4D scoring (Engagement 35%, SEO 30%, Brand 20%, Technical 15%)
+  - New files: 61_description_optimizer_HOP.md, 104_ADW_YOUTUBE_DESCRIPTION.md
+  - Config: youtube_description_rules.json, Schema: description_optimizer_input.json
+  - Auto-timestamps for videos >= 3 minutes
+  - Keyword density analysis (1-3% target)
+
 - **v2.6.0** (2025-12-04): YouTube Title Optimizer
   - Phase 6+: Title optimization for YouTube uploads
   - 5 psychological angles (Question, Number, Social Proof, How-To, Comparison)
@@ -327,6 +349,6 @@ video_agent/
 ---
 
 **Created by**: CODEXA Meta-Constructor
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-04
 **Quality Score**: 9.5/10.0 (production-ready)
 **12 Leverage Points**: Fully Implemented
