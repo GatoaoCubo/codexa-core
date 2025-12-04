@@ -162,7 +162,7 @@ class TestFullIntegration:
 
         # Test Gemini if API key available
         if api_key_manager.has_key("gemini"):
-            providers_to_test.append(("gemini", ModelType.GEMINI_PRO))
+            providers_to_test.append(("gemini", ModelType.GEMINI_15_PRO))
 
         if not providers_to_test:
             pytest.skip("No API keys available for testing")
