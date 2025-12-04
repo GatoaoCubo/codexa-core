@@ -28,9 +28,9 @@ class ClaudeProvider(LLMProvider):
 
     # Pricing per 1M tokens (input, output)
     PRICING = {
-        "claude-opus-4-20250514": (15.00, 75.00),
-        "claude-sonnet-4-5-20250929": (3.00, 15.00),
-        "claude-haiku-4-20250312": (0.25, 1.25),
+        "claude-3-opus-latest": (15.00, 75.00),
+        "claude-sonnet-4-20250514": (3.00, 15.00),
+        "claude-3-5-haiku-latest": (0.80, 4.00),
     }
 
     def __init__(self, config: LLMConfig):
@@ -64,34 +64,76 @@ class ClaudeProvider(LLMProvider):
         self,
         messages: List[Message],
         tools: Optional[List[Dict[str, Any]]] = None,
-        system: Optional[str] = None
+        system: Optional[str] = None,
+        **kwargs
     ) -> LLMResponse:
         """
         Get completion from Claude.
 
         Args:
-            messages: List of chat messages
+            messages: List of chat messages (dict or Message objects)
             tools: Optional list of tool definitions
             system: Optional system prompt
+            **kwargs: Optional overrides (temperature, top_p, max_tokens)
 
         Returns:
             LLM response
         """
         start_time = time.time()
 
-        # Convert messages to Claude format
-        claude_messages = [
-            {"role": msg.role, "content": msg.content}
-            for msg in messages
-        ]
+        # Convert messages to Claude format (accept both dict and Message objects)
+        claude_messages = []
+        for msg in messages:
+            if isinstance(msg, dict):
+                role = msg["role"]
+                content = msg["content"]
+                tool_calls = msg.get("tool_calls", [])
+                tool_call_id = msg.get("tool_call_id")
+            else:
+                role = msg.role
+                content = msg.content
+                tool_calls = getattr(msg, 'tool_calls', []) or []
+                tool_call_id = getattr(msg, 'tool_call_id', None)
 
-        # Prepare request parameters
+            # Handle tool result messages (convert role "tool" to "user" with tool_result block)
+            if role == "tool" and tool_call_id:
+                claude_messages.append({
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "tool_result",
+                            "tool_use_id": tool_call_id,
+                            "content": content
+                        }
+                    ]
+                })
+            # Handle assistant messages with tool calls
+            elif role == "assistant" and tool_calls:
+                content_blocks = []
+                if content:
+                    content_blocks.append({"type": "text", "text": content})
+                for tc in tool_calls:
+                    tc_name = tc.tool_name if hasattr(tc, 'tool_name') else tc.get('tool_name', tc.get('name'))
+                    tc_args = tc.arguments if hasattr(tc, 'arguments') else tc.get('arguments', {})
+                    tc_id = tc.id if hasattr(tc, 'id') else tc.get('id')
+                    content_blocks.append({
+                        "type": "tool_use",
+                        "id": tc_id,
+                        "name": tc_name,
+                        "input": tc_args
+                    })
+                claude_messages.append({"role": "assistant", "content": content_blocks})
+            # Regular messages
+            else:
+                claude_messages.append({"role": role, "content": content})
+
+        # Prepare request parameters (allow kwargs to override config)
         request_params = {
             "model": self.config.model.value,
             "messages": claude_messages,
-            "max_tokens": self.config.max_tokens,
-            "temperature": self.config.temperature,
-            "top_p": self.config.top_p,
+            "max_tokens": kwargs.get("max_tokens", self.config.max_tokens),
+            "temperature": kwargs.get("temperature", self.config.temperature),
+            "top_p": kwargs.get("top_p", self.config.top_p),
         }
 
         if system:

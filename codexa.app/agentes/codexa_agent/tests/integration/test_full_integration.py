@@ -167,13 +167,19 @@ class TestFullIntegration:
         if not providers_to_test:
             pytest.skip("No API keys available for testing")
 
+        tested_count = 0
         for provider_name, model in providers_to_test:
-            # Create provider
+            # Create provider (skip if package not installed)
             api_key = api_key_manager.get_key(provider_name)
-            provider = ProviderFactory.create_provider(
-                model=model,
-                api_key=api_key
-            )
+            try:
+                provider = ProviderFactory.create_provider(
+                    model=model,
+                    api_key=api_key
+                )
+            except Exception as e:
+                if "not installed" in str(e):
+                    continue  # Skip providers without required package
+                raise
 
             # Test simple completion
             response = await provider.complete(
@@ -184,6 +190,10 @@ class TestFullIntegration:
             assert response.success
             assert len(response.content) > 0
             assert response.cost_usd >= 0
+            tested_count += 1
+
+        if tested_count == 0:
+            pytest.skip("No LLM providers available (packages not installed)")
 
     @pytest.mark.asyncio
     @pytest.mark.slow

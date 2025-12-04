@@ -69,10 +69,15 @@ class PromptLoader:
             # Compose prompt
             logger.info(f"Composing prompt from layers: {layer_ids}")
 
-            prompt_content = composer.compose_from_layers(
-                layer_ids=layer_ids,
-                output_file=str(output_path) if output_path else None
+            prompt_content = composer.compose_layers(
+                layer_ids=layer_ids
             )
+
+            # Write to output file if specified
+            if output_path:
+                output_path.parent.mkdir(parents=True, exist_ok=True)
+                with open(output_path, 'w', encoding='utf-8') as f:
+                    f.write(prompt_content)
 
             logger.info(
                 f"Composed prompt: {len(prompt_content)} chars, "
@@ -183,9 +188,10 @@ class PromptLoader:
             # Import composer module
             import composer as composer_module
 
-            # Create composer instance
-            self._composer = composer_module.PromptLayerComposer(
-                layers_dir=str(self.layers_path)
+            # Create composer instance with config path
+            config_path = self.project_root / "config" / "prompt_layers.yml"
+            self._composer = composer_module.LayerComposer(
+                config_path=config_path
             )
 
             return self._composer

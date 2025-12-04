@@ -297,13 +297,13 @@ class AgentRuntime:
             self.state.total_tool_calls += 1
 
             logger.info(
-                f"[{self.config.agent_id}] Executing tool: {tool_call.name}"
+                f"[{self.config.agent_id}] Executing tool: {tool_call.tool_name}"
             )
 
             try:
                 # Execute tool through executor
                 result = await self.config.tool_executor.execute(
-                    tool_name=tool_call.name,
+                    tool_name=tool_call.tool_name,
                     arguments=tool_call.arguments,
                     agent_id=self.config.agent_id
                 )
@@ -314,18 +314,18 @@ class AgentRuntime:
                 results.append(result)
 
                 logger.info(
-                    f"[{self.config.agent_id}] Tool {tool_call.name}: "
+                    f"[{self.config.agent_id}] Tool {tool_call.tool_name}: "
                     f"{'success' if result.success else 'failed'}"
                 )
 
             except Exception as e:
                 logger.error(
-                    f"[{self.config.agent_id}] Tool {tool_call.name} error: {e}"
+                    f"[{self.config.agent_id}] Tool {tool_call.tool_name} error: {e}"
                 )
 
                 # Create error result
                 error_result = ToolResult(
-                    tool_name=tool_call.name,
+                    tool_name=tool_call.tool_name,
                     success=False,
                     output=None,
                     error=str(e),
@@ -349,7 +349,7 @@ class AgentRuntime:
             tools.append({
                 "name": "read",
                 "description": "Read contents of a file",
-                "parameters": {
+                "input_schema": {
                     "type": "object",
                     "properties": {
                         "file_path": {
@@ -374,7 +374,7 @@ class AgentRuntime:
             tools.append({
                 "name": "write",
                 "description": "Write content to a file (overwrites existing)",
-                "parameters": {
+                "input_schema": {
                     "type": "object",
                     "properties": {
                         "file_path": {
@@ -395,7 +395,7 @@ class AgentRuntime:
             tools.append({
                 "name": "edit",
                 "description": "Edit file by replacing text",
-                "parameters": {
+                "input_schema": {
                     "type": "object",
                     "properties": {
                         "file_path": {
@@ -424,7 +424,7 @@ class AgentRuntime:
             tools.append({
                 "name": "glob",
                 "description": "Find files matching a glob pattern",
-                "parameters": {
+                "input_schema": {
                     "type": "object",
                     "properties": {
                         "pattern": {
@@ -445,7 +445,7 @@ class AgentRuntime:
             tools.append({
                 "name": "grep",
                 "description": "Search for pattern in files",
-                "parameters": {
+                "input_schema": {
                     "type": "object",
                     "properties": {
                         "pattern": {
@@ -471,7 +471,7 @@ class AgentRuntime:
             tools.append({
                 "name": "bash",
                 "description": "Execute bash command",
-                "parameters": {
+                "input_schema": {
                     "type": "object",
                     "properties": {
                         "command": {

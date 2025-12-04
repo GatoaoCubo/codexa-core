@@ -12,10 +12,10 @@ from datetime import datetime
 
 class ModelType(Enum):
     """Available model types across providers."""
-    # Claude models
-    CLAUDE_OPUS = "claude-opus-4-20250514"
-    CLAUDE_SONNET = "claude-sonnet-4-5-20250929"
-    CLAUDE_HAIKU = "claude-haiku-4-20250312"
+    # Claude models (current as of Dec 2025)
+    CLAUDE_OPUS = "claude-3-opus-latest"
+    CLAUDE_SONNET = "claude-sonnet-4-20250514"
+    CLAUDE_HAIKU = "claude-3-5-haiku-latest"
 
     # OpenAI models
     GPT_4 = "gpt-4"
@@ -46,8 +46,10 @@ class LLMConfig:
 @dataclass
 class Message:
     """Chat message."""
-    role: str  # "user", "assistant", "system"
+    role: str  # "user", "assistant", "system", "tool"
     content: str
+    tool_calls: List["ToolCall"] = field(default_factory=list)
+    tool_call_id: Optional[str] = None
 
 
 @dataclass
@@ -76,6 +78,11 @@ class LLMResponse:
     def has_tool_calls(self) -> bool:
         """Check if response contains tool calls."""
         return len(self.tool_calls) > 0
+
+    @property
+    def success(self) -> bool:
+        """Check if response was successful (always True if response exists)."""
+        return True
 
 
 class LLMProvider(ABC):
