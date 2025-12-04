@@ -2,7 +2,7 @@
 
 **AI Assistant Entry Point** - Navigation guide for video production specialist
 
-**Version**: 2.7.0 | **Status**: Production-Ready | **Type**: Specialist Agent
+**Version**: 2.8.0 | **Status**: Production-Ready | **Type**: Specialist Agent
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
@@ -53,6 +53,7 @@
 ```
 Entry Points:
 ├── PRIME.md (this file) ──► Start here for AI assistants
+├── COMMAND_GUIDE.md ──► LLM vs Humano: como comandar criação
 ├── README.md ──► Overview, architecture, quick start
 ├── INSTRUCTIONS.md ──► Step-by-step workflows
 └── SETUP.md ──► Configuration and API setup
@@ -138,6 +139,59 @@ Command: /youtube-description (standalone)
 | Timestamps | Navigation + watch time | Variable |
 | Links/CTAs | Conversions | 200-400 |
 | Hashtags | Discoverability | 50-100 |
+
+### 4.7 YouTube Tags Optimization (NEW)
+```
+Input: Video brief + title_output + description_output
+Process: Research → Generate (4 categories) → Validate (4D scoring)
+Output: 30-50 SEO-optimized tags (max 500 chars)
+Duration: ~35 seconds
+Command: /youtube-tags (standalone)
+```
+
+**Tag Categories**:
+| Category | Count | Purpose |
+|----------|-------|---------|
+| Primary | 3-5 | Core keywords, high relevance |
+| Secondary | 8-12 | Commercial intent, modifiers |
+| Long-tail | 12-20 | Discovery, low competition |
+| Semantic | 5-8 | Context signals, related topics |
+
+### 4.8 YouTube Thumbnail Text Optimization (NEW)
+```
+Input: Title final + video brief
+Process: Analyze → Generate (3-5 variants) → Validate (4D scoring)
+Output: CTR-optimized text variants (3-5 words max)
+Duration: ~35 seconds
+Command: /youtube-thumbnail-text (standalone)
+```
+
+**Psychological Angles**:
+| Angle | CTR Multiplier | Best For |
+|-------|----------------|----------|
+| Hook | 1.18x | Myth-busting, exposés |
+| Benefit | 1.32x ⭐ | Educational, results |
+| Curiosity | 1.25x | Comparisons, reveals |
+| Urgency | 1.20x | Limited offers |
+| Transformation | 1.28x | Tutorials, success |
+
+### 4.9 YouTube Chapters Generation (NEW)
+```
+Input: Script OR transcript OR outline + duration
+Process: Analyze → Generate → Validate (5D scoring)
+Output: 5-10 timestamped chapters
+Duration: ~35 seconds
+Command: /youtube-chapters (standalone)
+```
+
+**Chapter Requirements**:
+| Rule | Requirement |
+|------|-------------|
+| First chapter | MUST be 00:00 |
+| Minimum chapters | 3 (YouTube requirement) |
+| Minimum gap | 10 seconds between chapters |
+| Max title length | 50 characters |
+| Style | Action-oriented verbs |
 
 ---
 
@@ -280,7 +334,8 @@ pesquisa_agent ──► Competitor analysis ──► video_agent (differentiat
 | File | Purpose | Lines |
 |------|---------|-------|
 | `README.md` | Overview, quick start | ~350 |
-| `PRIME.md` | AI entry point | ~250 |
+| `PRIME.md` | AI entry point | ~450 |
+| `COMMAND_GUIDE.md` | LLM vs Humano commands | ~350 |
 | `INSTRUCTIONS.md` | Workflows | ~700 |
 | `SETUP.md` | Configuration | ~700 |
 
@@ -303,10 +358,24 @@ pesquisa_agent ──► Competitor analysis ──► video_agent (differentiat
 | `50_editor_assembler_HOP.md` | 5 | Editing workflow |
 | `60_title_optimizer_HOP.md` | 6+ | YouTube title optimization (CTR-focused) |
 | `61_description_optimizer_HOP.md` | 6++ | YouTube description optimization (SEO-focused) |
+| `62_tags_optimizer_HOP.md` | 6+++ | YouTube tags optimization (SEO consistency) |
+| `63_thumbnail_text_HOP.md` | 6++++ | Thumbnail text variants (CTR psychology) |
+| `64_chapters_generator_HOP.md` | 6.5 | Chapter timestamps (navigation + SEO) |
 
 ---
 
 ## 12. VERSION HISTORY
+
+- **v2.8.0** (2025-12-04): YouTube Optimization Suite Expansion
+  - Added 62_tags_optimizer_HOP.md (Phase 6+++)
+  - Added 63_thumbnail_text_HOP.md (Phase 6++++)
+  - Added 64_chapters_generator_HOP.md (Phase 6.5)
+  - Added youtube_tags_rules.json, youtube_thumbnail_rules.json, youtube_chapters_rules.json
+  - Added tags_optimizer_input.json schema
+  - 4 tag categories (Primary, Secondary, Long-tail, Semantic) with 500 char limit
+  - 5 psychological thumbnail angles with CTR multipliers (Benefit 1.32x best)
+  - 3 chapter input modes (transcript, script, outline) with 5D scoring
+  - Complete YouTube metadata pipeline: Title → Description → Tags → Thumbnail → Chapters
 
 - **v2.7.0** (2025-12-04): YouTube Description Optimizer
   - Added 61_description_optimizer_HOP.md (Phase 6++)

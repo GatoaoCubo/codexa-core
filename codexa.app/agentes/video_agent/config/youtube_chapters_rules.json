@@ -1,0 +1,263 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "YouTube Chapters Generator configuration with naming conventions, timing rules, and validation",
+  "created": "2025-12-04",
+
+  "chapter_requirements": {
+    "youtube_technical": {
+      "first_chapter_must_be": "00:00",
+      "min_chapters_for_feature": 3,
+      "min_seconds_between_chapters": 10,
+      "max_chapter_title_chars": 50,
+      "timestamps_must_be_ascending": true,
+      "format_options": ["MM:SS", "HH:MM:SS"]
+    },
+    "video_duration_minimum_seconds": 180,
+    "note": "YouTube only shows chapters for videos >= 3 minutes with >= 3 timestamps starting at 00:00"
+  },
+
+  "chapter_count_by_duration": {
+    "short": {
+      "duration_range_minutes": "3-5",
+      "recommended_chapters": {"min": 2, "max": 3, "optimal": 3},
+      "avg_chapter_duration_minutes": 1.5
+    },
+    "medium": {
+      "duration_range_minutes": "5-10",
+      "recommended_chapters": {"min": 4, "max": 6, "optimal": 5},
+      "avg_chapter_duration_minutes": 2
+    },
+    "long": {
+      "duration_range_minutes": "10-20",
+      "recommended_chapters": {"min": 6, "max": 8, "optimal": 7},
+      "avg_chapter_duration_minutes": 2.5
+    },
+    "extended": {
+      "duration_range_minutes": "20-60",
+      "recommended_chapters": {"min": 8, "max": 12, "optimal": 10},
+      "avg_chapter_duration_minutes": 4
+    },
+    "course": {
+      "duration_range_minutes": "60+",
+      "recommended_chapters": {"min": 10, "max": 15, "optimal": 12},
+      "avg_chapter_duration_minutes": 5
+    }
+  },
+
+  "naming_conventions": {
+    "primary_style": "action_oriented",
+    "secondary_style": "benefit_focused",
+    "case": "title_case",
+    "language": "match_video_language",
+    "parallel_structure": true,
+
+    "power_verbs_ptbr": {
+      "discovery": ["Descobrindo", "Explorando", "Revelando", "Analisando", "Investigando"],
+      "learning": ["Aprendendo", "Entendendo", "Dominando", "Compreendendo", "Absorvendo"],
+      "building": ["Construindo", "Criando", "Desenvolvendo", "Montando", "Implementando"],
+      "optimizing": ["Otimizando", "Melhorando", "Acelerando", "Refinando", "Aperfeiçoando"],
+      "solving": ["Resolvendo", "Corrigindo", "Eliminando", "Superando", "Debugando"],
+      "implementing": ["Implementando", "Aplicando", "Executando", "Integrando", "Configurando"]
+    },
+
+    "power_verbs_en": {
+      "discovery": ["Discovering", "Exploring", "Revealing", "Analyzing", "Investigating"],
+      "learning": ["Learning", "Understanding", "Mastering", "Comprehending"],
+      "building": ["Building", "Creating", "Developing", "Implementing", "Setting Up"],
+      "optimizing": ["Optimizing", "Improving", "Accelerating", "Refining"],
+      "solving": ["Solving", "Fixing", "Debugging", "Troubleshooting"],
+      "implementing": ["Implementing", "Applying", "Executing", "Integrating", "Configuring"]
+    },
+
+    "chapter_templates": {
+      "intro": {
+        "position": "first",
+        "timestamp": "00:00",
+        "examples_ptbr": ["Introdução e Visão Geral", "O Que Você Vai Aprender", "Começando"],
+        "examples_en": ["Introduction and Overview", "What You'll Learn", "Getting Started"]
+      },
+      "content": {
+        "position": "middle",
+        "formula": "[Action Verb] + [Specific Topic]",
+        "examples_ptbr": ["Configurando o Ambiente", "Entendendo Conceitos Básicos", "Implementando a Solução"],
+        "examples_en": ["Setting Up Environment", "Understanding Core Concepts", "Implementing the Solution"]
+      },
+      "conclusion": {
+        "position": "last",
+        "min_duration_seconds": 30,
+        "examples_ptbr": ["Resumo e Próximos Passos", "Conclusão", "Recapitulação Final"],
+        "examples_en": ["Summary and Next Steps", "Conclusion", "Final Recap"]
+      }
+    }
+  },
+
+  "scoring_weights": {
+    "naming_quality": {
+      "weight": 0.25,
+      "description": "Clarity and action orientation of titles",
+      "factors": {
+        "action_verb_present": {"max_points": 3.0},
+        "clear_subject": {"max_points": 2.0},
+        "benefit_implied": {"max_points": 2.0},
+        "proper_length": {"max_points": 2.0, "requirement": "< 50 chars"},
+        "no_jargon": {"max_points": 1.0}
+      }
+    },
+    "timing_accuracy": {
+      "weight": 0.25,
+      "description": "Proper spacing, format, and alignment",
+      "factors": {
+        "first_chapter_00_00": {"max_points": 3.0, "mandatory": true},
+        "ascending_order": {"max_points": 2.0},
+        "min_10s_gaps": {"max_points": 2.0},
+        "proper_format": {"max_points": 2.0},
+        "aligns_with_content": {"max_points": 1.0}
+      }
+    },
+    "coverage": {
+      "weight": 0.20,
+      "description": "All major sections represented",
+      "factors": {
+        "intro_present": {"max_points": 2.0},
+        "main_content_covered": {"max_points": 4.0},
+        "conclusion_present": {"max_points": 2.0},
+        "key_points_included": {"max_points": 2.0}
+      }
+    },
+    "engagement_potential": {
+      "weight": 0.20,
+      "description": "Viewer appeal and navigation value",
+      "factors": {
+        "curiosity_inducing": {"max_points": 2.0},
+        "scannable_memorable": {"max_points": 2.0},
+        "logical_flow": {"max_points": 2.0},
+        "pacing_appropriate": {"max_points": 2.0},
+        "action_verbs_engaging": {"max_points": 2.0}
+      }
+    },
+    "seo_alignment": {
+      "weight": 0.10,
+      "description": "Keyword inclusion and searchability",
+      "factors": {
+        "primary_keyword_present": {"max_points": 2.0},
+        "secondary_keywords": {"max_points": 2.0},
+        "chapter_titles_searchable": {"max_points": 2.0},
+        "no_keyword_stuffing": {"max_points": 2.0},
+        "natural_language": {"max_points": 2.0}
+      }
+    }
+  },
+
+  "quality_thresholds": {
+    "excellent": 9.0,
+    "good": 7.5,
+    "acceptable": 6.5,
+    "minimum_recommend": 7.5,
+    "reject_below": 6.5
+  },
+
+  "timing_rules": {
+    "gap_minimum_seconds": 10,
+    "gap_practical_minimum_seconds": 30,
+    "gap_recommended_minimum_seconds": 60,
+    "gap_maximum_seconds": 600,
+    "last_chapter_minimum_seconds": 30,
+    "format_zero_padding": true
+  },
+
+  "banned_patterns": {
+    "generic_numbering": {
+      "examples": ["Part 1", "Part 2", "Parte 1", "Parte 2"],
+      "description": "Use descriptive titles instead"
+    },
+    "vague_titles": {
+      "examples": ["More Content", "Continuation", "Mais Conteúdo", "Continuação"],
+      "description": "Be specific about what the chapter covers"
+    },
+    "all_caps": {
+      "description": "Title Case is preferred for readability"
+    },
+    "promotional_only": {
+      "examples": ["Subscribe Now", "Click Here"],
+      "description": "Chapters should describe content, not CTAs"
+    },
+    "duplicate_titles": {
+      "description": "Each chapter title must be unique"
+    }
+  },
+
+  "input_modes": {
+    "transcript": {
+      "description": "Full video transcript or auto-generated captions",
+      "parsing_strategy": "sentence_segmentation_and_topic_detection",
+      "confidence_typical": 0.75,
+      "requires_timestamp_inference": true
+    },
+    "script": {
+      "description": "Script from Stage 2 with narration segments and timing",
+      "parsing_strategy": "segment_analysis_with_timing",
+      "confidence_typical": 0.90,
+      "requires_timestamp_inference": false
+    },
+    "outline": {
+      "description": "Manual content outline with estimated durations",
+      "parsing_strategy": "section_mapping_with_cumulative_timing",
+      "confidence_typical": 0.85,
+      "requires_timestamp_inference": true
+    }
+  },
+
+  "validation_checks": {
+    "critical": [
+      {"name": "first_timestamp_00_00", "severity": "error", "auto_fix": true},
+      {"name": "ascending_order", "severity": "error", "auto_fix": true},
+      {"name": "min_10s_gaps", "severity": "error", "auto_fix": "merge_chapters"}
+    ],
+    "high": [
+      {"name": "title_length_50", "severity": "warning", "auto_fix": "truncate"},
+      {"name": "no_duplicates", "severity": "warning", "auto_fix": "differentiate"}
+    ],
+    "medium": [
+      {"name": "chapter_count_range", "severity": "info", "auto_fix": "adjust"},
+      {"name": "action_verb_present", "severity": "info", "auto_fix": false}
+    ]
+  },
+
+  "integration": {
+    "phase": "6.5",
+    "relationship_to_description": "provides timestamps section",
+    "predecessor": "61_description_optimizer (may provide pre-defined chapters)",
+    "input_sources": ["$script", "$outline", "$transcript", "$video_brief"],
+    "output_target": ["youtube_upload_metadata", "description_timestamps_section"],
+    "standalone_command": "/youtube-chapters"
+  },
+
+  "content_type_templates": {
+    "tutorial": {
+      "typical_structure": ["intro", "setup", "core_concepts", "implementation", "advanced", "conclusion"],
+      "recommended_chapters": 7,
+      "chapter_verb_focus": "learning"
+    },
+    "review": {
+      "typical_structure": ["intro", "unboxing", "design", "features", "performance", "verdict"],
+      "recommended_chapters": 6,
+      "chapter_verb_focus": "discovery"
+    },
+    "educational": {
+      "typical_structure": ["intro", "theory", "examples", "practice", "summary"],
+      "recommended_chapters": 5,
+      "chapter_verb_focus": "learning"
+    },
+    "promotional": {
+      "typical_structure": ["intro", "problem", "solution", "benefits", "cta"],
+      "recommended_chapters": 5,
+      "chapter_verb_focus": "solving"
+    },
+    "vlog": {
+      "typical_structure": ["intro", "activity_1", "activity_2", "highlights", "outro"],
+      "recommended_chapters": 5,
+      "chapter_verb_focus": "discovery"
+    }
+  }
+}

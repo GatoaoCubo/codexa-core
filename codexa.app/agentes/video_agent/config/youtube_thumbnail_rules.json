@@ -1,0 +1,246 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "YouTube Thumbnail Text Optimizer configuration with psychological angles, scoring weights, and design specs",
+  "created": "2025-12-04",
+
+  "psychological_angles": {
+    "hook": {
+      "id": "A",
+      "name": "Hook (Pattern Interrupt)",
+      "ctr_multiplier": 1.18,
+      "purpose": "Stop the scroll with unexpected statement",
+      "psychology": ["novelty", "attention_capture", "pattern_interrupt"],
+      "formula": "[Surprising Adjective] + [Noun] OR [Emotion] + [Benefit]",
+      "word_count_range": {"min": 2, "max": 4},
+      "examples_ptbr": ["Revelação Chocante", "Método Proibido", "Erro Comum", "Descobri Isso"],
+      "best_for": ["myth_busting", "exposes", "controversial_angles"],
+      "case_recommendation": "ALL_CAPS or Title Case"
+    },
+    "benefit": {
+      "id": "B",
+      "name": "Benefit (Value Proposition)",
+      "ctr_multiplier": 1.32,
+      "purpose": "Communicate clear transformation/result",
+      "psychology": ["clarity", "aspiration", "outcome_focus"],
+      "formula": "[Verb] + [Quantity/Time] + [Result]",
+      "word_count_range": {"min": 2, "max": 4},
+      "examples_ptbr": ["Ganhe R$10k", "2x Produtividade", "Perca 10kg", "Salve 5 Horas"],
+      "best_for": ["educational", "self_improvement", "results_focused"],
+      "case_recommendation": "Mixed with numeric",
+      "note": "BEST CTR - use when possible"
+    },
+    "curiosity": {
+      "id": "C",
+      "name": "Curiosity (Intrigue)",
+      "ctr_multiplier": 1.25,
+      "purpose": "Create information gap",
+      "psychology": ["incompleteness", "mystery", "open_loop"],
+      "formula": "[Unexpected Pairing] OR [Unfinished Promise]",
+      "word_count_range": {"min": 2, "max": 4},
+      "examples_ptbr": ["Ninguém Sabia...", "Segredo Revelado", "Você Fazia Errado", "Antes vs Depois"],
+      "best_for": ["comparisons", "reveals", "tutorials"],
+      "case_recommendation": "Title Case"
+    },
+    "urgency": {
+      "id": "D",
+      "name": "Urgency (Scarcity/Time)",
+      "ctr_multiplier": 1.20,
+      "purpose": "Drive immediate action",
+      "psychology": ["fomo", "scarcity", "deadline_pressure"],
+      "formula": "[Time/Quantity] + [Resource] OR [Action] + [Now]",
+      "word_count_range": {"min": 2, "max": 3},
+      "examples_ptbr": ["Últimas 48h", "Vagas Limitadas", "Clique Agora", "Não Perca"],
+      "best_for": ["promotions", "limited_offers", "time_bound_content"],
+      "case_recommendation": "ALL_CAPS",
+      "warning": "Only use if video has genuine urgency"
+    },
+    "transformation": {
+      "id": "E",
+      "name": "Transformation (Before/After)",
+      "ctr_multiplier": 1.28,
+      "purpose": "Show concrete progression/results",
+      "psychology": ["progress", "achievement", "aspiration"],
+      "formula": "[Starting Point] → [End Result] OR [Problem] ✓ [Solution]",
+      "word_count_range": {"min": 3, "max": 5},
+      "examples_ptbr": ["Iniciante → Expert", "Caótico ✓ Organizado", "0 → 100k", "Perdido ✓ Encontrado"],
+      "best_for": ["tutorials", "success_stories", "step_by_step"],
+      "case_recommendation": "Mixed with symbol",
+      "symbols_allowed": ["→", "✓", "↑", "▶"]
+    }
+  },
+
+  "scoring_weights": {
+    "readability": {
+      "weight": 0.30,
+      "description": "Visual clarity at thumbnail scale",
+      "factors": {
+        "word_count_optimal": {"max_points": 3.0, "optimal": 4},
+        "char_count_efficient": {"max_points": 2.0, "range": "25-32"},
+        "font_size_feasible": {"max_points": 2.0, "min_px": 28},
+        "case_appropriate": {"max_points": 2.0},
+        "no_truncation_risk": {"max_points": 1.0}
+      }
+    },
+    "message_consistency": {
+      "weight": 0.25,
+      "description": "Alignment with title without duplication",
+      "factors": {
+        "topic_overlap": {"max_points": 3.0, "min_overlap": 0.70},
+        "angle_differentiation": {"max_points": 3.0, "must_differ": true},
+        "benefit_reinforcement": {"max_points": 2.0},
+        "no_contradiction": {"max_points": 2.0}
+      }
+    },
+    "psychology_impact": {
+      "weight": 0.25,
+      "description": "Click-through potential",
+      "factors": {
+        "ctr_multiplier": {"max_points": 3.0, "based_on": "angle"},
+        "trigger_count": {"max_points": 2.0, "per_trigger": 1.0},
+        "power_word_presence": {"max_points": 2.0},
+        "conflict_or_contrast": {"max_points": 2.0},
+        "specificity": {"max_points": 1.0, "if_numbers": true}
+      }
+    },
+    "typography_fit": {
+      "weight": 0.20,
+      "description": "Design implementation feasibility",
+      "factors": {
+        "case_matches_angle": {"max_points": 3.0},
+        "font_weight_feasible": {"max_points": 2.0},
+        "contrast_appropriate": {"max_points": 2.0},
+        "symbol_optimization": {"max_points": 2.0},
+        "mobile_preview_safe": {"max_points": 1.0}
+      }
+    }
+  },
+
+  "character_limits": {
+    "word_count_min": 3,
+    "word_count_max": 5,
+    "word_count_optimal": 4,
+    "char_count_max": 40,
+    "char_count_optimal_min": 25,
+    "char_count_optimal_max": 32
+  },
+
+  "quality_thresholds": {
+    "excellent": 9.0,
+    "good": 7.5,
+    "acceptable": 6.5,
+    "minimum_recommend": 7.5,
+    "reject_below": 6.5
+  },
+
+  "consistency_rules": {
+    "topic_overlap_min": 0.70,
+    "angle_must_differ_from_title": true,
+    "no_title_duplication": true,
+    "emotion_must_complement": true
+  },
+
+  "typography_specs": {
+    "font_size_tiers": {
+      "large": {"char_range": "0-20", "size_px": "32-40", "readability": "excellent"},
+      "standard": {"char_range": "21-30", "size_px": "28-32", "readability": "good"},
+      "minimum": {"char_range": "31-40", "size_px": "20-27", "readability": "acceptable"},
+      "avoid": {"char_range": "40+", "size_px": "<20", "readability": "poor"}
+    },
+    "font_weight_minimum": "semi-bold (600)",
+    "font_weight_recommended": "bold (700)",
+    "mobile_minimum_effective_px": 14
+  },
+
+  "case_by_angle": {
+    "hook": {"primary": "ALL_CAPS", "alternative": "Title Case"},
+    "benefit": {"primary": "Mixed", "note": "Numeric stays as-is"},
+    "curiosity": {"primary": "Title Case", "alternative": "Mixed"},
+    "urgency": {"primary": "ALL_CAPS", "max_words": 3},
+    "transformation": {"primary": "Mixed", "with_symbol": true}
+  },
+
+  "contrast_categories": {
+    "high": {
+      "when_to_use": ["hook", "urgency"],
+      "background": "dark semi-transparent overlay",
+      "text_color": "#FFFFFF",
+      "stroke": "2px black"
+    },
+    "medium": {
+      "when_to_use": ["benefit", "transformation"],
+      "background": "gradient or brand color",
+      "text_color": "#FFFFFF or brand",
+      "stroke": "optional"
+    },
+    "flexible": {
+      "when_to_use": ["curiosity"],
+      "background": "depends on image",
+      "text_color": "contrast with background",
+      "stroke": "if needed"
+    }
+  },
+
+  "banned_patterns": {
+    "title_exact_copy": {
+      "description": "Duplicating title wastes opportunity",
+      "action": "regenerate"
+    },
+    "all_caps_5_words": {
+      "description": "Unreadable at thumbnail scale",
+      "action": "reduce to 3 words or change case"
+    },
+    "generic_cta": {
+      "examples": ["Clique Aqui", "Saiba Mais", "Veja Mais"],
+      "description": "No value, wastes space"
+    },
+    "emoji_overload": {
+      "max_count": 1,
+      "description": "Reduces readability"
+    },
+    "long_sentences": {
+      "max_words": 5,
+      "description": "Not scannable"
+    }
+  },
+
+  "power_words_ptbr": {
+    "urgency": ["Agora", "Hoje", "Rápido", "Última", "Final"],
+    "exclusivity": ["Segredo", "Revelado", "Escondido", "Proibido", "Exclusivo"],
+    "transformation": ["Transforme", "Mude", "Domine", "Conquiste", "Desbloqueie"],
+    "specificity": ["Exato", "Passo", "Comprovado", "Testado", "Real"],
+    "emotional": ["Chocante", "Inacreditável", "Épico", "Surreal", "Absurdo"],
+    "results": ["Ganhe", "Perca", "Aumente", "Dobre", "Triple"]
+  },
+
+  "integration": {
+    "post_phase": "6+++",
+    "predecessor": "62_tags_optimizer",
+    "input_sources": ["$title_final", "$video_brief", "$brand_profile"],
+    "output_target": "thumbnail_designer",
+    "standalone_command": "/youtube-thumbnail-text",
+    "chain_next": ["64_chapters_generator"]
+  },
+
+  "design_integration": {
+    "position_zones": {
+      "top": {"y_percent": "10-30", "best_for": ["hook", "urgency"]},
+      "center": {"y_percent": "35-65", "best_for": ["benefit", "transformation"]},
+      "bottom": {"y_percent": "70-90", "best_for": ["curiosity", "cta"]}
+    },
+    "safe_margins_px": 20,
+    "avoid_zones": {
+      "youtube_logo": "top-left 10%",
+      "video_duration": "bottom-right 15%",
+      "mobile_edges": "left/right 5%"
+    }
+  },
+
+  "ab_testing": {
+    "enabled": true,
+    "min_variants": 2,
+    "max_variants": 5,
+    "test_metrics": ["ctr", "impressions", "click_position"],
+    "test_duration_hours": 48
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "YouTube Tags Optimizer Input Schema",
+  "description": "Input validation schema for 62_tags_optimizer_HOP",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["video_brief"],
+  "properties": {
+    "video_brief": {
+      "type": "object",
+      "description": "Core video information for tag generation",
+      "required": ["topic"],
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "Primary topic/keyword for the video",
+          "minLength": 2,
+          "maxLength": 100,
+          "examples": ["ChatGPT programação", "iPhone 15 Pro review", "React tutorial"]
+        },
+        "target_audience": {
+          "type": "string",
+          "description": "Target audience description",
+          "maxLength": 200,
+          "examples": ["Desenvolvedores iniciantes", "Consumidores tech-savvy"]
+        },
+        "key_benefit": {
+          "type": "string",
+          "description": "Main benefit or value proposition",
+          "maxLength": 200,
+          "examples": ["Acelerar desenvolvimento com IA", "Decisão de compra informada"]
+        }
+      }
+    },
+    "title_optimizer_output": {
+      "type": "object",
+      "description": "Output from 60_title_optimizer for keyword consistency",
+      "properties": {
+        "recommended": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "description": "Winning title text",
+              "maxLength": 100
+            },
+            "angle": {
+              "type": "string",
+              "enum": ["question", "number", "social_proof", "how_to", "comparison"]
+            }
+          }
+        },
+        "keywords_used": {
+          "type": "array",
+          "description": "Keywords used in the title",
+          "items": {"type": "string"},
+          "maxItems": 10
+        }
+      }
+    },
+    "description_optimizer_output": {
+      "type": "object",
+      "description": "Output from 61_description_optimizer for alignment",
+      "properties": {
+        "description_full": {
+          "type": "string",
+          "description": "Full description text"
+        },
+        "primary_keyword": {
+          "type": "string",
+          "description": "Primary keyword used"
+        },
+        "secondary_keywords": {
+          "type": "array",
+          "description": "Secondary keywords in description",
+          "items": {"type": "string"},
+          "maxItems": 15
+        },
+        "hashtags": {
+          "type": "array",
+          "description": "Hashtags from description (convert to tags)",
+          "items": {"type": "string"},
+          "maxItems": 5
+        }
+      }
+    },
+    "brand_profile": {
+      "type": "object",
+      "description": "Brand voice guidelines from marca_agent",
+      "properties": {
+        "voice_markers": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "archetypes": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "seo_keywords": {
+      "type": "array",
+      "description": "Target keywords from pesquisa_agent",
+      "items": {"type": "string"},
+      "maxItems": 20
+    },
+    "competitor_tags": {
+      "type": "array",
+      "description": "Tags from competitor videos for gap analysis",
+      "items": {"type": "string"},
+      "maxItems": 50
+    }
+  }
+}

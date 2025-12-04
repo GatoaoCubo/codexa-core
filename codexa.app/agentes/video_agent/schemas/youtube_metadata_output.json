@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "YouTube Metadata Output",
+  "description": "Consolidated output from YouTube optimization pipeline (Phases 6+ to 6.5)",
+  "version": "1.0.0",
+  "type": "object",
+
+  "required": ["youtube_metadata", "score", "generated"],
+
+  "properties": {
+    "youtube_metadata": {
+      "type": "object",
+      "required": ["title", "description", "tags"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Optimized video title",
+          "minLength": 50,
+          "maxLength": 70
+        },
+        "description": {
+          "type": "string",
+          "description": "Full description with all sections",
+          "maxLength": 5000
+        },
+        "tags": {
+          "type": "string",
+          "description": "Comma-separated tags",
+          "maxLength": 500
+        },
+        "thumbnail_text": {
+          "type": "string",
+          "description": "Text for thumbnail overlay",
+          "maxLength": 40
+        }
+      }
+    },
+
+    "score": {
+      "type": "number",
+      "description": "Average score across all phases",
+      "minimum": 0,
+      "maximum": 10
+    },
+
+    "generated": {
+      "type": "string",
+      "format": "date",
+      "description": "Generation date (YYYY-MM-DD)"
+    },
+
+    "version": {
+      "type": "string",
+      "description": "video_agent version used"
+    },
+
+    "phases": {
+      "type": "object",
+      "description": "Individual phase scores (optional)",
+      "properties": {
+        "title": {"type": "number"},
+        "description": {"type": "number"},
+        "tags": {"type": "number"},
+        "thumbnail": {"type": "number"},
+        "chapters": {"type": "number"}
+      }
+    }
+  },
+
+  "output_files": {
+    "consolidated": {
+      "YOUTUBE_READY.json": "Machine-readable consolidated output",
+      "YOUTUBE_READY.md": "Human-readable copy-paste format"
+    },
+    "detailed": {
+      "01_title_optimizer_output.json": "Full title analysis",
+      "02_description_optimizer_output.json": "Full description analysis",
+      "03_tags_optimizer_output.json": "Full tags analysis",
+      "04_thumbnail_text_optimizer_output.json": "Full thumbnail analysis",
+      "05_chapters_generator_output.json": "Full chapters analysis"
+    }
+  }
+}

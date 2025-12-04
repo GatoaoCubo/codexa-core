@@ -1,0 +1,225 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "YouTube Tags Optimizer configuration with category strategies, scoring weights, and validation rules",
+  "created": "2025-12-04",
+
+  "tag_categories": {
+    "primary": {
+      "id": "A",
+      "name": "Primary Tags",
+      "purpose": "Core keyword coverage, highest relevance",
+      "count": {"min": 3, "max": 5, "optimal": 4},
+      "char_budget": 50,
+      "search_volume_target": "high",
+      "keyword_difficulty_max": 90,
+      "sources": ["topic", "title_keyword", "main_benefit"],
+      "strategy": "exact_match_and_close_variants",
+      "example_ptbr": ["ChatGPT", "programação", "IA", "inteligência artificial"]
+    },
+    "secondary": {
+      "id": "B",
+      "name": "Secondary Tags",
+      "purpose": "Commercial intent, specific topic coverage",
+      "count": {"min": 8, "max": 12, "optimal": 10},
+      "char_budget": 180,
+      "search_volume_target": "medium",
+      "keyword_difficulty_max": 70,
+      "sources": ["title_keywords", "description_sections", "benefit_phrases"],
+      "strategy": "keyword_modifier_combinations",
+      "formulas": [
+        {"pattern": "[Primary] + [Action]", "example": "ChatGPT tutorial"},
+        {"pattern": "[Primary] + [Audience]", "example": "ChatGPT para devs"},
+        {"pattern": "[Primary] + [Year]", "example": "ChatGPT 2024"},
+        {"pattern": "[Benefit] + [Topic]", "example": "produtividade programação"}
+      ],
+      "example_ptbr": ["ChatGPT tutorial", "programar com IA", "ChatGPT dicas", "prompts ChatGPT"]
+    },
+    "long_tail": {
+      "id": "C",
+      "name": "Long-Tail Tags",
+      "purpose": "Discovery, low competition, specific queries",
+      "count": {"min": 12, "max": 20, "optimal": 15},
+      "char_budget": 200,
+      "search_volume_target": "low",
+      "keyword_difficulty_max": 50,
+      "word_count": {"min": 3, "max": 5},
+      "sources": ["questions", "specific_use_cases", "niche_phrases"],
+      "strategy": "specific_phrase_combinations",
+      "formulas": [
+        {"pattern": "como [action] [topic]", "example": "como usar ChatGPT programar"},
+        {"pattern": "[topic] para [audience]", "example": "ChatGPT para iniciantes"},
+        {"pattern": "[topic] [specific use]", "example": "ChatGPT debug código"},
+        {"pattern": "[benefit] com [topic]", "example": "acelerar código com IA"}
+      ],
+      "example_ptbr": ["como usar ChatGPT para programar", "ChatGPT para iniciantes", "prompts ChatGPT programação"]
+    },
+    "semantic": {
+      "id": "D",
+      "name": "Semantic Tags",
+      "purpose": "Context signals, related concepts, category coverage",
+      "count": {"min": 5, "max": 8, "optimal": 6},
+      "char_budget": 110,
+      "search_volume_target": "varies",
+      "keyword_difficulty_max": 60,
+      "sources": ["topic_modeling", "related_fields", "youtube_categories"],
+      "strategy": "adjacent_topics_and_categories",
+      "example_ptbr": ["machine learning", "produtividade", "tecnologia", "desenvolvimento software", "automação"]
+    }
+  },
+
+  "scoring_weights": {
+    "seo_relevance": {
+      "weight": 0.40,
+      "description": "YouTube ranking and discovery potential",
+      "factors": {
+        "keyword_search_volume": {"max_points": 3.0, "description": "High/medium volume terms"},
+        "keyword_difficulty": {"max_points": 2.0, "requirement": "difficulty <= 60"},
+        "semantic_fit_to_title": {"max_points": 2.0, "description": "Exact/phrase match with title"},
+        "semantic_fit_to_description": {"max_points": 1.0, "description": "Appears in description"},
+        "specificity_score": {"max_points": 1.0, "description": "2-3 words, not too broad"},
+        "recency": {"max_points": 1.0, "description": "Trending topic bonus"}
+      }
+    },
+    "keyword_consistency": {
+      "weight": 0.35,
+      "description": "Alignment with title and description",
+      "factors": {
+        "title_keyword_present": {"max_points": 3.0, "description": "Primary keyword from title"},
+        "description_keywords_coverage": {"max_points": 2.0, "description": "Secondary keywords captured"},
+        "hashtag_alignment": {"max_points": 2.0, "description": "Hashtags converted to tags"},
+        "intent_alignment": {"max_points": 1.5, "description": "Same search intent"},
+        "no_contradictions": {"max_points": 1.5, "description": "No conflicting terms"}
+      }
+    },
+    "discoverability_coverage": {
+      "weight": 0.15,
+      "description": "Breadth of discovery opportunities",
+      "factors": {
+        "primary_tags_present": {"max_points": 2.0, "description": "3-5 main keywords"},
+        "secondary_tags_present": {"max_points": 2.0, "description": "8-12 commercial intent"},
+        "long_tail_coverage": {"max_points": 2.0, "description": "12-20 discovery terms"},
+        "semantic_context": {"max_points": 2.0, "description": "5-8 related concepts"},
+        "no_over_optimization": {"max_points": 2.0, "description": "Balanced, not spammy"}
+      }
+    },
+    "technical_compliance": {
+      "weight": 0.10,
+      "description": "YouTube platform requirements",
+      "factors": {
+        "char_count_valid": {"max_points": 3.0, "requirement": "≤500 total"},
+        "tag_count_valid": {"max_points": 2.0, "requirement": "30-50 tags"},
+        "no_banned_patterns": {"max_points": 3.0},
+        "proper_formatting": {"max_points": 2.0}
+      }
+    }
+  },
+
+  "character_limits": {
+    "total_max": 500,
+    "per_tag_max": 30,
+    "separator": ",",
+    "calculation_note": "sum(len(tag)) + (num_tags - 1) for commas"
+  },
+
+  "count_limits": {
+    "total_min": 30,
+    "total_max": 50,
+    "total_optimal_min": 40,
+    "total_optimal_max": 45
+  },
+
+  "quality_thresholds": {
+    "excellent": 9.0,
+    "good": 7.5,
+    "acceptable": 6.5,
+    "minimum_recommend": 7.5,
+    "reject_below": 6.5
+  },
+
+  "consistency_rules": {
+    "title_keyword_required": true,
+    "description_keywords_coverage_target": 0.85,
+    "hashtag_conversion_target": 0.90,
+    "no_contradicting_intent": true
+  },
+
+  "redundancy_rules": {
+    "max_semantic_overlap": 0.15,
+    "synonym_detection": true,
+    "near_duplicate_threshold": 0.85
+  },
+
+  "banned_patterns": {
+    "exact_duplicates": {
+      "pattern": "same tag appears twice",
+      "description": "Remove duplicates"
+    },
+    "near_synonyms": {
+      "examples": ["ChatGPT vs Chat GPT", "IA vs I.A."],
+      "description": "Pick canonical form"
+    },
+    "competitor_brands": {
+      "description": "Unless comparison video",
+      "exception": "video explicitly compares products"
+    },
+    "misleading_tags": {
+      "description": "Unrelated to content",
+      "examples": ["trending topics unrelated to video"]
+    },
+    "adult_content": {
+      "description": "YouTube policy violation"
+    },
+    "trademark_abuse": {
+      "description": "Brand impersonation"
+    },
+    "keyword_stuffing": {
+      "pattern": "same keyword with minor variations 5+ times",
+      "description": "Spam signal"
+    }
+  },
+
+  "power_words_ptbr": {
+    "action_modifiers": ["tutorial", "guia", "curso", "aula", "dicas", "truques", "hacks"],
+    "audience_modifiers": ["para iniciantes", "para devs", "para profissionais", "avançado", "básico"],
+    "time_modifiers": ["2024", "atualizado", "novo", "rápido", "em minutos"],
+    "benefit_modifiers": ["grátis", "completo", "definitivo", "melhor", "top"],
+    "format_modifiers": ["passo a passo", "na prática", "ao vivo", "explicado"]
+  },
+
+  "search_intent_mapping": {
+    "informational": {
+      "triggers": ["como", "o que é", "por que", "tutorial", "guia", "aprender"],
+      "best_for": "long_tail"
+    },
+    "navigational": {
+      "triggers": ["nome específico", "marca", "produto"],
+      "best_for": "primary"
+    },
+    "commercial": {
+      "triggers": ["melhor", "review", "comparativo", "vale a pena", "preço"],
+      "best_for": "secondary"
+    },
+    "transactional": {
+      "triggers": ["comprar", "download", "baixar", "assinar"],
+      "best_for": "secondary"
+    }
+  },
+
+  "integration": {
+    "post_phase": "6++",
+    "predecessor": "61_description_optimizer",
+    "input_sources": ["$video_brief", "$title_optimizer_output", "$description_optimizer_output"],
+    "output_target": "youtube_upload_metadata",
+    "standalone_command": "/youtube-tags",
+    "chain_next": ["63_thumbnail_text", "64_chapters_generator"]
+  },
+
+  "optimization_priorities": {
+    "1_title_consistency": "Primary keyword from title MUST be in tags",
+    "2_description_alignment": "Secondary keywords should match description",
+    "3_category_balance": "All 4 categories must have minimum counts",
+    "4_char_efficiency": "Maximize useful tags within 500 char limit",
+    "5_redundancy_elimination": "No synonyms or near-duplicates"
+  }
+}

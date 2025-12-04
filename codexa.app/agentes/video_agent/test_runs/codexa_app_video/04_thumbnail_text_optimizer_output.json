@@ -1,0 +1,198 @@
+{
+  "phase": "6++++",
+  "hop": "63_thumbnail_text_HOP.md",
+  "execution_time": "9.8s",
+  "status": "completed",
+
+  "input_chained": {
+    "title_final": "22 Anúncios em 18 Minutos: Conheça o Codexa (IA E-commerce)",
+    "title_angle": "number",
+    "title_keywords": ["22", "18 minutos", "Codexa", "IA"],
+    "video_brief_topic": "Codexa IA e-commerce",
+    "key_benefit": "Criar 22 anúncios em 18 minutos"
+  },
+
+  "research_summary": {
+    "title_core_message": "Velocidade e eficiência com IA",
+    "title_numbers": ["22", "18"],
+    "title_emotion": "empowerment, efficiency",
+    "complementary_angles": ["transformation", "benefit", "curiosity"],
+    "banned_duplications": ["22 Anúncios", "18 Minutos", "Codexa"]
+  },
+
+  "thumbnail_variants": [
+    {
+      "id": "A",
+      "angle": "hook",
+      "text": "IA SECRETA",
+      "char_count": 10,
+      "word_count": 2,
+      "case": "ALL_CAPS",
+      "ctr_multiplier": 1.18,
+      "position_zone": "top",
+      "psychology": ["novelty", "attention_capture", "pattern_interrupt"],
+      "scores": {
+        "readability": 9.0,
+        "consistency": 7.5,
+        "psychology": 7.8,
+        "typography": 9.0
+      },
+      "score_total": 8.25,
+      "rationale": "Chama atenção mas não complementa bem o título (título já é specific)"
+    },
+    {
+      "id": "B",
+      "angle": "benefit",
+      "text": "10x Mais Rápido",
+      "char_count": 15,
+      "word_count": 3,
+      "case": "Mixed",
+      "ctr_multiplier": 1.32,
+      "position_zone": "center",
+      "psychology": ["clarity", "aspiration", "outcome_focus"],
+      "scores": {
+        "readability": 9.5,
+        "consistency": 9.0,
+        "psychology": 9.2,
+        "typography": 9.0
+      },
+      "score_total": 9.18,
+      "rationale": "Benefício claro, complementa título (título: 22 em 18min, thumb: 10x rápido)"
+    },
+    {
+      "id": "C",
+      "angle": "curiosity",
+      "text": "Você Fazia Errado",
+      "char_count": 17,
+      "word_count": 3,
+      "case": "Title Case",
+      "ctr_multiplier": 1.25,
+      "position_zone": "bottom",
+      "psychology": ["incompleteness", "mystery", "open_loop"],
+      "scores": {
+        "readability": 8.5,
+        "consistency": 8.0,
+        "psychology": 8.5,
+        "typography": 8.5
+      },
+      "score_total": 8.35,
+      "rationale": "Cria curiosidade mas pode parecer negativo demais para produto SaaS"
+    },
+    {
+      "id": "D",
+      "angle": "urgency",
+      "text": "TESTE GRÁTIS",
+      "char_count": 12,
+      "word_count": 2,
+      "case": "ALL_CAPS",
+      "ctr_multiplier": 1.20,
+      "position_zone": "top",
+      "psychology": ["fomo", "scarcity", "deadline_pressure"],
+      "scores": {
+        "readability": 9.0,
+        "consistency": 7.0,
+        "psychology": 7.5,
+        "typography": 9.0
+      },
+      "score_total": 7.98,
+      "rationale": "CTA direto mas não complementa título (título não menciona trial)"
+    },
+    {
+      "id": "E",
+      "angle": "transformation",
+      "text": "Manual → IA",
+      "char_count": 11,
+      "word_count": 2,
+      "case": "Mixed",
+      "symbols": ["→"],
+      "ctr_multiplier": 1.28,
+      "position_zone": "center",
+      "psychology": ["progress", "achievement", "aspiration"],
+      "scores": {
+        "readability": 9.0,
+        "consistency": 9.5,
+        "psychology": 9.0,
+        "typography": 8.5
+      },
+      "score_total": 9.05,
+      "rationale": "Transformação clara, muito complementar ao título (mostra o antes/depois)"
+    }
+  ],
+
+  "recommended": {
+    "id": "B",
+    "text": "10x Mais Rápido",
+    "angle": "benefit",
+    "score_total": 9.18,
+    "rationale": "Highest score (9.18), best CTR multiplier (1.32x), complementa perfeitamente o título sem duplicar. Título fala '22 em 18min', thumbnail reforça '10x mais rápido' - mesma mensagem, ângulo diferente."
+  },
+
+  "alternatives": [
+    {
+      "id": "E",
+      "text": "Manual → IA",
+      "score_total": 9.05,
+      "use_case": "Para A/B test se quiser enfatizar transformação tecnológica"
+    },
+    {
+      "id": "C",
+      "text": "Você Fazia Errado",
+      "score_total": 8.35,
+      "use_case": "Para conteúdo mais provocativo/educacional"
+    }
+  ],
+
+  "design_specs": {
+    "recommended_font_size": "32-40px",
+    "font_weight": "bold (700)",
+    "contrast_category": "medium",
+    "background_suggestion": "dark semi-transparent overlay",
+    "text_color": "#FFFFFF",
+    "stroke": "2px black",
+    "position_zone": "center",
+    "safe_margins": "20px from edges",
+    "avoid_zones": ["top-left 10% (YouTube logo)", "bottom-right 15% (duration)"]
+  },
+
+  "scores": {
+    "readability": 9.5,
+    "consistency": 9.0,
+    "psychology": 9.2,
+    "typography": 9.0
+  },
+  "score_total": 9.18,
+
+  "quality_gate": {
+    "passed": true,
+    "minimum_threshold": 7.5,
+    "all_variants_valid": true,
+    "no_title_duplication": true,
+    "topic_overlap_ok": true
+  },
+
+  "validation_checklist": {
+    "word_count_3_5": true,
+    "char_count_under_40": true,
+    "no_title_exact_copy": true,
+    "angle_differs_from_title": true,
+    "topic_overlap_above_70": true,
+    "mobile_preview_safe": true,
+    "no_emoji_overload": true
+  },
+
+  "consistency_analysis": {
+    "title_angle": "number (specificity)",
+    "thumbnail_angle": "benefit (value proposition)",
+    "complementary": true,
+    "topic_overlap": 0.85,
+    "message_reinforcement": "Título: quantifica (22, 18min), Thumbnail: beneficia (10x)"
+  },
+
+  "optimization_notes": [
+    "Variant B (10x Mais Rápido) tem melhor score e complementa sem duplicar",
+    "Variant E (Manual → IA) é boa alternativa para A/B test",
+    "Evitei números no thumbnail pois título já tem (22, 18)",
+    "Case 'Mixed' funciona bem para benefit angle",
+    "Símbolo → aumenta visual impact em transformation"
+  ]
+}

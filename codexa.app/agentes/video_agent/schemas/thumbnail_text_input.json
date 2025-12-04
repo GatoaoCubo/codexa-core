@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Thumbnail Text Optimizer Input",
+  "description": "Input schema for 63_thumbnail_text_HOP.md",
+  "version": "1.0.0",
+  "type": "object",
+
+  "required": ["video_brief"],
+
+  "properties": {
+    "video_brief": {
+      "type": "object",
+      "required": ["topic"],
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "Primary topic/keyword of the video",
+          "minLength": 3,
+          "maxLength": 100
+        },
+        "target_audience": {
+          "type": "string",
+          "description": "Target audience description"
+        },
+        "key_benefit": {
+          "type": "string",
+          "description": "Main benefit or value proposition"
+        }
+      }
+    },
+
+    "title_optimizer_output": {
+      "type": "object",
+      "description": "Output from 60_title_optimizer_HOP (recommended for consistency)",
+      "properties": {
+        "recommended": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "description": "The winning title"
+            },
+            "angle": {
+              "type": "string",
+              "enum": ["question", "number", "social_proof", "how_to", "comparison"],
+              "description": "Psychological angle used"
+            }
+          }
+        },
+        "keywords_used": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Keywords present in the title"
+        }
+      }
+    },
+
+    "brand_profile": {
+      "type": "object",
+      "description": "Brand voice guidelines (from marca_agent)",
+      "properties": {
+        "tone": {
+          "type": "string",
+          "description": "Brand tone description"
+        },
+        "archetypes": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "primary_color": {
+          "type": "string",
+          "description": "Brand primary color (hex)"
+        }
+      }
+    },
+
+    "preferred_angle": {
+      "type": "string",
+      "enum": ["hook", "benefit", "curiosity", "urgency", "transformation"],
+      "description": "Preferred psychological angle for thumbnail text"
+    }
+  },
+
+  "examples": [
+    {
+      "video_brief": {
+        "topic": "ChatGPT programação",
+        "target_audience": "Desenvolvedores iniciantes",
+        "key_benefit": "Acelerar desenvolvimento com IA"
+      },
+      "title_optimizer_output": {
+        "recommended": {
+          "text": "7 Prompts de ChatGPT Que Todo Dev Precisa Conhecer",
+          "angle": "number"
+        },
+        "keywords_used": ["ChatGPT", "prompts", "dev"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "video_brief": {
+    "title_working": "Codexa: O Cérebro de IA Para E-commerce",
+    "topic": "Codexa IA e-commerce",
+    "target_audience": "Lojistas e vendedores de marketplace (Mercado Livre, Shopee, Amazon)",
+    "key_benefit": "Criar 22 anúncios em 18 minutos com IA especializada",
+    "video_duration": "5:30",
+    "content_type": "product_demo",
+    "language": "pt-BR"
+  },
+  "product_info": {
+    "name": "Codexa",
+    "tagline": "Cérebro Empresarial para E-commerce",
+    "headline": "Turbine suas vendas com Codexa",
+    "price": "R$69.99/mês",
+    "cta": "Comece grátis!",
+    "rating": 4.8,
+    "reviews_count": 150,
+    "website": "https://codexaapp.com"
+  },
+  "features": [
+    "Análise SEO para marketplaces",
+    "Otimização de títulos de produtos",
+    "Geração de imagens de alta conversão",
+    "Pesquisa de concorrência",
+    "Metodologia de alta performance"
+  ],
+  "brand_profile": {
+    "tone": "profissional, confiante, resultados-orientado",
+    "archetypes": ["Mago", "Herói"],
+    "voice_markers": ["eficiência", "automação", "inteligência artificial", "resultados"],
+    "primary_color": "#0D9488"
+  },
+  "video_outline": [
+    {"timestamp": "00:00", "section": "Hook: Problema do lojista"},
+    {"timestamp": "00:30", "section": "Apresentação Codexa"},
+    {"timestamp": "01:15", "section": "Feature 1: Análise SEO"},
+    {"timestamp": "02:00", "section": "Feature 2: Otimização de Títulos"},
+    {"timestamp": "02:45", "section": "Feature 3: Geração de Imagens"},
+    {"timestamp": "03:30", "section": "Feature 4: Pesquisa de Concorrência"},
+    {"timestamp": "04:15", "section": "Resultados e Prova Social"},
+    {"timestamp": "05:00", "section": "CTA: Comece Grátis"}
+  ],
+  "test_metadata": {
+    "test_date": "2025-12-04",
+    "purpose": "Full pipeline test for YouTube optimization suite v2.8.0",
+    "phases_to_test": ["6+ Title", "6++ Description", "6+++ Tags", "6++++ Thumbnail", "6.5 Chapters"]
+  }
+}

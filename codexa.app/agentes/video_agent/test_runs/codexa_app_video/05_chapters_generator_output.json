@@ -1,0 +1,212 @@
+{
+  "phase": "6.5",
+  "hop": "64_chapters_generator_HOP.md",
+  "execution_time": "10.5s",
+  "status": "completed",
+
+  "input_chained": {
+    "video_duration": "5:30",
+    "video_duration_seconds": 330,
+    "input_mode": "outline",
+    "outline_source": "video_brief.video_outline",
+    "description_timestamps": "already_generated_in_phase_6++"
+  },
+
+  "research_summary": {
+    "duration_category": "medium",
+    "recommended_chapter_count": {"min": 4, "max": 6, "optimal": 5},
+    "avg_chapter_duration": "66 seconds",
+    "content_type": "product_demo",
+    "chapter_verb_focus": "discovery",
+    "primary_keyword": "Codexa",
+    "secondary_keywords": ["IA", "e-commerce", "anúncios"]
+  },
+
+  "chapters_generated": [
+    {
+      "timestamp": "00:00",
+      "title": "O Problema: Horas Perdidas em Anúncios",
+      "char_count": 38,
+      "duration_to_next": 30,
+      "position": "intro",
+      "verb_type": "none",
+      "keyword_present": false,
+      "seo_value": "medium"
+    },
+    {
+      "timestamp": "00:30",
+      "title": "Descobrindo o Codexa",
+      "char_count": 20,
+      "duration_to_next": 45,
+      "position": "content",
+      "verb_type": "discovery",
+      "keyword_present": true,
+      "seo_value": "high"
+    },
+    {
+      "timestamp": "01:15",
+      "title": "Explorando Análise SEO Automática",
+      "char_count": 34,
+      "duration_to_next": 45,
+      "position": "content",
+      "verb_type": "discovery",
+      "keyword_present": false,
+      "seo_value": "high"
+    },
+    {
+      "timestamp": "02:00",
+      "title": "Otimizando Títulos com IA",
+      "char_count": 26,
+      "duration_to_next": 45,
+      "position": "content",
+      "verb_type": "optimizing",
+      "keyword_present": false,
+      "seo_value": "high"
+    },
+    {
+      "timestamp": "02:45",
+      "title": "Criando Imagens Profissionais",
+      "char_count": 30,
+      "duration_to_next": 45,
+      "position": "content",
+      "verb_type": "building",
+      "keyword_present": false,
+      "seo_value": "medium"
+    },
+    {
+      "timestamp": "03:30",
+      "title": "Analisando a Concorrência",
+      "char_count": 26,
+      "duration_to_next": 45,
+      "position": "content",
+      "verb_type": "discovery",
+      "keyword_present": false,
+      "seo_value": "medium"
+    },
+    {
+      "timestamp": "04:15",
+      "title": "Resultados: 150 Reviews, 4.8 Estrelas",
+      "char_count": 38,
+      "duration_to_next": 45,
+      "position": "content",
+      "verb_type": "none",
+      "keyword_present": false,
+      "seo_value": "low"
+    },
+    {
+      "timestamp": "05:00",
+      "title": "Começando Grátis no Codexa",
+      "char_count": 27,
+      "duration_to_next": 30,
+      "position": "conclusion",
+      "verb_type": "implementing",
+      "keyword_present": true,
+      "seo_value": "high"
+    }
+  ],
+
+  "chapters_formatted": "00:00 O Problema: Horas Perdidas em Anúncios\n00:30 Descobrindo o Codexa\n01:15 Explorando Análise SEO Automática\n02:00 Otimizando Títulos com IA\n02:45 Criando Imagens Profissionais\n03:30 Analisando a Concorrência\n04:15 Resultados: 150 Reviews, 4.8 Estrelas\n05:00 Começando Grátis no Codexa",
+
+  "chapter_count": 8,
+  "total_char_count": 239,
+
+  "scores": {
+    "naming_quality": 8.5,
+    "timing_accuracy": 9.0,
+    "coverage": 9.2,
+    "engagement_potential": 8.8,
+    "seo_alignment": 8.0
+  },
+  "score_total": 8.68,
+
+  "scoring_breakdown": {
+    "naming_quality": {
+      "action_verb_present": "6/8 chapters have action verbs",
+      "clear_subject": "All chapters have clear subjects",
+      "benefit_implied": "5/8 imply benefit",
+      "proper_length": "All under 50 chars",
+      "no_jargon": "Clean, accessible language"
+    },
+    "timing_accuracy": {
+      "first_chapter_00_00": true,
+      "ascending_order": true,
+      "min_10s_gaps": "All gaps >= 30s",
+      "proper_format": "MM:SS consistent",
+      "aligns_with_content": "Matches outline"
+    },
+    "coverage": {
+      "intro_present": true,
+      "main_content_covered": "4 features covered",
+      "conclusion_present": true,
+      "key_points_included": "All key features have chapters"
+    },
+    "engagement_potential": {
+      "curiosity_inducing": "Problem hook creates interest",
+      "scannable_memorable": "Short, clear titles",
+      "logical_flow": "Problem → Solution → Proof → CTA",
+      "pacing_appropriate": "30-45s per chapter",
+      "action_verbs_engaging": "Gerund form creates action"
+    },
+    "seo_alignment": {
+      "primary_keyword_present": "Codexa appears 2x",
+      "secondary_keywords": "SEO, IA present",
+      "chapter_titles_searchable": true,
+      "no_keyword_stuffing": true,
+      "natural_language": true
+    }
+  },
+
+  "quality_gate": {
+    "passed": true,
+    "minimum_threshold": 7.5,
+    "youtube_requirements_met": true
+  },
+
+  "validation_checklist": {
+    "first_timestamp_00_00": true,
+    "min_3_chapters": true,
+    "ascending_order": true,
+    "min_10s_gaps": true,
+    "all_titles_under_50_chars": true,
+    "no_duplicate_titles": true,
+    "action_verbs_present": true
+  },
+
+  "youtube_requirements": {
+    "first_chapter_00_00": true,
+    "minimum_3_chapters": true,
+    "minimum_10s_between": true,
+    "ascending_timestamps": true,
+    "chapters_will_display": true
+  },
+
+  "comparison_with_description": {
+    "description_chapters": 8,
+    "generated_chapters": 8,
+    "matching": true,
+    "refinements_made": [
+      "Adicionado verbos de ação (Descobrindo, Explorando, Otimizando)",
+      "Títulos mais curtos e scannáveis",
+      "Mantida estrutura e timestamps da descrição"
+    ]
+  },
+
+  "optimization_notes": [
+    "8 capítulos para vídeo de 5:30 - bom para navegação sem fragmentar",
+    "Verbos gerúndio (Descobrindo, Explorando) criam sensação de ação",
+    "Keyword 'Codexa' aparece 2x (intro + conclusion) - boa distribuição",
+    "Capítulo de prova social (150 Reviews) pode ser movido para antes do CTA",
+    "Gaps de 30-45s são confortáveis para cada seção"
+  ],
+
+  "alternative_versions": {
+    "shorter_version_5_chapters": [
+      {"timestamp": "00:00", "title": "Introdução ao Codexa"},
+      {"timestamp": "01:00", "title": "As 4 Features Principais"},
+      {"timestamp": "03:00", "title": "Resultados e Prova Social"},
+      {"timestamp": "04:30", "title": "Como Começar"},
+      {"timestamp": "05:15", "title": "Próximos Passos"}
+    ],
+    "use_case": "Se preferir menos capítulos para vídeo curto"
+  }
+}
