@@ -136,7 +136,7 @@ async def main():
         providers_to_test.append(("Claude", ModelType.CLAUDE_HAIKU, "claude"))
 
     if api_keys.has_key("openai"):
-        providers_to_test.append(("OpenAI", ModelType.GPT4_TURBO, "openai"))
+        providers_to_test.append(("OpenAI", ModelType.GPT_4_TURBO, "openai"))
 
     if api_keys.has_key("gemini"):
         providers_to_test.append(("Gemini", ModelType.GEMINI_PRO, "gemini"))

@@ -538,6 +538,9 @@ class TestActualADWFiles:
         missing_spec = []
 
         for adw_file in self.WORKFLOWS_DIR.glob("*_ADW_*.md"):
+            # Skip README files (documentation, not workflow specs)
+            if adw_file.name.startswith("README"):
+                continue
             workflow = parser.parse_file(adw_file)
             if workflow is None:
                 missing_spec.append(adw_file.name)

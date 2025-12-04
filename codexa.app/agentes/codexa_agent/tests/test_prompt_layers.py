@@ -323,6 +323,9 @@ class TestActualPromptLayers:
         errors = []
 
         for layer_file in LAYERS_DIR.glob("*.md"):
+            # Skip README files (documentation, not prompt layers)
+            if layer_file.name.lower() == "readme.md":
+                continue
             validator = PromptLayerValidator(layer_file)
             if validator.load():
                 valid, layer_errors = validator.validate_structure()

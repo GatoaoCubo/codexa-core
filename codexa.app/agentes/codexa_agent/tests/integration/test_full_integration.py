@@ -158,7 +158,7 @@ class TestFullIntegration:
 
         # Test OpenAI if API key available
         if api_key_manager.has_key("openai"):
-            providers_to_test.append(("openai", ModelType.GPT4_TURBO))
+            providers_to_test.append(("openai", ModelType.GPT_4_TURBO))
 
         # Test Gemini if API key available
         if api_key_manager.has_key("gemini"):

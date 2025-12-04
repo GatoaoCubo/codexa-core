@@ -11,3 +11,7 @@ logs/
 # Local settings
 .claude/settings.local.json
 
+# Bugfix logs (LAW 8: FEEDBACK LOOPS)
+outputs/bugfixes/*.md
+!outputs/bugfixes/.gitkeep
+

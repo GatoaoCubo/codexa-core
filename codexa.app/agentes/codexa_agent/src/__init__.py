@@ -200,7 +200,7 @@ def create_agent(
     else:
         model_type = {
             "claude": ModelType.CLAUDE_SONNET,
-            "openai": ModelType.GPT4_TURBO,
+            "openai": ModelType.GPT_4_TURBO,
             "gemini": ModelType.GEMINI_PRO,
         }.get(provider.lower(), ModelType.CLAUDE_SONNET)
 
