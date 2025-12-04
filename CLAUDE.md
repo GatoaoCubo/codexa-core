@@ -1,6 +1,6 @@
 # CLAUDE.md - Project Laws
 
-**Auto-loaded by Claude Code** | v2.1.0 | 2025-12-03
+**Auto-loaded by Claude Code** | v2.5.0 | 2025-12-04
 
 ---
 
@@ -180,6 +180,49 @@ IF score < 7.0 → Retry once → IF still < 7.0 → Flag for review
 
 ---
 
+### LAW 8: FEEDBACK LOOPS
+
+> "Test, fix, verify, repeat — until green or escalate."
+
+**Philosophy**: Autonomous correction cycles close the gap between error detection and resolution. The system self-heals within defined boundaries.
+
+**Loop Pattern**:
+```
+TEST → FAIL? → REVIEW → FIX → VERIFY → PASS? → COMMIT → PUSH
+  ↑                                        ↓
+  └──────────── REPEAT (max 3x) ──────────┘
+```
+
+**Decision Heuristics**:
+| Signal | Auto-Fix | Escalate |
+|--------|----------|----------|
+| Test failure (deterministic) | Retry with fix | After 3 attempts |
+| Quality score < 7.0 | Improve + revalidate | After 2 retries |
+| Lint/type errors | Auto-correct | If semantic change needed |
+| Breaking change detected | Never auto-fix | Always escalate |
+
+**Autonomy Levels**:
+```
+LEVEL 1: Observe    → Run tests, report results only
+LEVEL 2: Suggest    → Propose fixes, wait for approval
+LEVEL 3: Fix+Review → Apply fixes, require human review before push
+LEVEL 4: Full Auto  → Fix, commit, push (with rollback capability)
+```
+
+**Quality Gates**:
+- Max retries: 3 (per issue)
+- Max loop duration: 10 minutes
+- Rollback trigger: 2+ consecutive failures post-push
+- Escalation: Any security-related change
+
+**Documentation**: All fixes logged to `outputs/bugfixes/` (gitignored)
+
+**Trigger**: `/bugloop` (full cycle), `/bugloop --dry-run` (observe only)
+
+**Reference**: [202_ADW_BUG_FIXING.md](codexa.app/agentes/codexa_agent/workflows/202_ADW_BUG_FIXING.md)
+
+---
+
 ## TOOLS
 
 ### Navigation
@@ -196,6 +239,12 @@ IF score < 7.0 → Retry once → IF still < 7.0 → Flag for review
 - `/flow do` - Execute approved plan
 - `/flow distill file.md` - Convert to template
 - `/handoff` - Generate cross-chat transfer block
+
+### Feedback Loops (LAW 8)
+- `/bugloop` - Autonomous test→fix→verify→commit→push cycle
+- `/bugloop --dry-run` - Observe only, report what would be fixed
+- `/bugloop --confirm-push` - Fix + commit, ask before push
+- `/bugloop --once` - Single iteration (no retry loop)
 
 ### Parallel Execution
 - `/spawn` - Launch N agents in parallel (max 10)
@@ -264,9 +313,10 @@ curso → video → voice
 
 ---
 
-**Version**: 2.4.0 | **Type**: Project Laws (Auto-loaded)
+**Version**: 2.5.0 | **Type**: Project Laws (Auto-loaded)
 
 ## Changelog
+- **v2.5.0** (2025-12-04): Added LAW 8 (FEEDBACK LOOPS), `/bugloop` command, `outputs/bugfixes/` directory
 - **v2.4.0** (2025-12-03): Fixed trigger references (`/prime-*`), added Task Pipeline section
 - **v2.3.0** (2025-12-03): Added Agent Chains section and AGENT_CHAINS.md reference
 - **v2.2.0** (2025-12-03): Added /spawn parallel execution tool with presets
