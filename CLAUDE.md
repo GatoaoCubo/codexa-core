@@ -259,6 +259,7 @@ curso → video → voice
 | [docs/WORKFLOWS.md](docs/WORKFLOWS.md) | ADW catalog (41 workflows) |
 | [docs/AGENT_CHAINS.md](docs/AGENT_CHAINS.md) | Agent connections & pipelines |
 | [docs/API_KEYS_REFERENCE.md](docs/API_KEYS_REFERENCE.md) | External services |
+| [docs/COMMERCIALIZATION_ROADMAP.md](docs/COMMERCIALIZATION_ROADMAP.md) | Business strategy & monetization |
 | [path_registry.json](path_registry.json) | Path placeholders |
 
 ---
