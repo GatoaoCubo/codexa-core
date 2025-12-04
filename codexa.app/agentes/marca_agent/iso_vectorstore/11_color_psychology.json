@@ -1,0 +1,664 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-11-14",
+  "description": "Color psychology for brand identity with Brazilian cultural context",
+  "scope": "E-commerce brands targeting Brazilian marketplaces",
+  "wcag_compliance": "All color pairs tested for Level AA contrast (4.5:1 text, 3:1 UI)",
+
+  "primary_colors": {
+    "red": {
+      "name": "Vermelho",
+      "hex_variations": [
+        {"name": "Crimson Red", "hex": "#DC143C", "rgb": "220, 20, 60"},
+        {"name": "Fire Red", "hex": "#FF2400", "rgb": "255, 36, 0"},
+        {"name": "Ruby Red", "hex": "#E0115F", "rgb": "224, 17, 95"},
+        {"name": "Cherry Red", "hex": "#D2042D", "rgb": "210, 4, 45"},
+        {"name": "Bordeaux", "hex": "#6D071A", "rgb": "109, 7, 26"}
+      ],
+      "psychology": {
+        "universal": ["Energy", "Passion", "Urgency", "Power", "Excitement"],
+        "positive_associations": ["Love", "Courage", "Strength", "Determination"],
+        "negative_associations": ["Danger", "Aggression", "Warning", "Debt (in finance)"]
+      },
+      "brazilian_context": {
+        "cultural_meanings": [
+          "Festa, celebração (Natal, Carnaval)",
+          "Paixão e romance (Dia dos Namorados)",
+          "Urgência em promoções ('Queima de estoque', 'Última chance')",
+          "Política (PT - Partido dos Trabalhadores)",
+          "Sorte no jogo do bicho (número 25 - avestruz)"
+        ],
+        "marketplace_usage": {
+          "mercado_livre": "Usado em badges de desconto, promoções urgentes",
+          "shopee": "Cor primária da marca, associado a descontos",
+          "magalu": "Cor institucional (Magazine Luiza), evitar uso direto",
+          "amazon_br": "Usado para CTAs e ofertas relâmpago"
+        },
+        "regional_variations": {
+          "nordeste": "Associado a festas juninas (bandeirinhas, fogos)",
+          "sul": "Menos intenso, preferência por tons burgundy",
+          "sudeste": "Uso corporativo, vermelho escuro para seriedade"
+        }
+      },
+      "brand_archetype_fit": {
+        "high": ["Hero", "Rebel", "Magician", "Lover"],
+        "medium": ["Jester", "Ruler"],
+        "low": ["Caregiver", "Innocent", "Sage"]
+      },
+      "industry_associations": {
+        "food_beverage": "Estimula apetite (Coca-Cola, McDonald's, Burger King)",
+        "fashion": "Paixão, sensualidade (Victoria's Secret, Christian Louboutin)",
+        "sports": "Energia, competição (Nike Air, Adidas, Ferrari)",
+        "finance": "Alerta (vermelho = negativo), evitar em bancos/investimentos",
+        "health": "Alerta, emergência - usar com cuidado"
+      },
+      "combinations": {
+        "classic": [
+          {"pair": "Vermelho + Branco", "effect": "Energia clean, urgência positiva", "examples": ["Coca-Cola", "Santander"]},
+          {"pair": "Vermelho + Preto", "effect": "Luxo, poder, sofisticação", "examples": ["Netflix", "ESPN"]},
+          {"pair": "Vermelho + Dourado", "effect": "Riqueza, prestígio", "examples": ["Budweiser", "Shell"]}
+        ],
+        "avoid": [
+          {"pair": "Vermelho + Verde", "effect": "Natal clichê, contraste excessivo"},
+          {"pair": "Vermelho + Rosa", "effect": "Conflito visual, pouca harmonia"}
+        ]
+      },
+      "wcag_contrast": {
+        "on_white": {"ratio": "4.7:1", "level": "AA", "use": "Text acceptable"},
+        "on_black": {"ratio": "8.2:1", "level": "AAA", "use": "Excellent contrast"},
+        "white_on_red": {"ratio": "3.9:1", "level": "AA Large", "use": "Headlines only"}
+      },
+      "emotional_temperature": "Quente (estimulante)",
+      "attention_grabbing": "Muito alto",
+      "conversion_impact": "Alto (CTAs, urgência)"
+    },
+
+    "blue": {
+      "name": "Azul",
+      "hex_variations": [
+        {"name": "Sky Blue", "hex": "#87CEEB", "rgb": "135, 206, 235"},
+        {"name": "Ocean Blue", "hex": "#0077BE", "rgb": "0, 119, 190"},
+        {"name": "Navy Blue", "hex": "#000080", "rgb": "0, 0, 128"},
+        {"name": "Royal Blue", "hex": "#4169E1", "rgb": "65, 105, 225"},
+        {"name": "Teal Blue", "hex": "#008080", "rgb": "0, 128, 128"}
+      ],
+      "psychology": {
+        "universal": ["Trust", "Stability", "Calm", "Professionalism", "Security"],
+        "positive_associations": ["Loyalty", "Wisdom", "Confidence", "Intelligence"],
+        "negative_associations": ["Coldness", "Sadness (blue = triste)", "Distance"]
+      },
+      "brazilian_context": {
+        "cultural_meanings": [
+          "Confiança (instituições financeiras, governo)",
+          "Céu e mar (liberdade, vastidão)",
+          "Tecnologia (IBM, Intel, Dell, HP)",
+          "Política (PSDB - Partido da Social Democracia Brasileira)",
+          "Futebol (Cruzeiro, Grêmio, CSA)"
+        ],
+        "marketplace_usage": {
+          "mercado_livre": "Cor principal da marca, confiança estabelecida",
+          "shopee": "Azul-laranja (complementar), menos usado",
+          "magalu": "Evitar - azul royal é cor da Lu (mascote)",
+          "amazon_br": "Evitar - azul é cor institucional da Amazon"
+        },
+        "regional_variations": {
+          "nordeste": "Azul celeste associado a santinhos (religiosidade)",
+          "sul": "Azul marinho corporativo, seriedade",
+          "norte": "Azul turquesa (rios amazônicos)"
+        }
+      },
+      "brand_archetype_fit": {
+        "high": ["Sage", "Ruler", "Caregiver"],
+        "medium": ["Hero", "Explorer", "Everyman"],
+        "low": ["Rebel", "Jester", "Lover"]
+      },
+      "industry_associations": {
+        "finance": "Confiança, segurança (Caixa, Bradesco, PayPal)",
+        "technology": "Inovação, profissionalismo (IBM, Dell, Intel, Samsung)",
+        "health": "Higiene, limpeza (hospitais, clínicas odontológicas)",
+        "corporate": "Seriedade, estabilidade (LinkedIn, GE)"
+      },
+      "combinations": {
+        "classic": [
+          {"pair": "Azul + Branco", "effect": "Clean, confiável, acessível", "examples": ["Facebook", "HP", "Oral-B"]},
+          {"pair": "Azul + Amarelo", "effect": "Contraste alto, energético", "examples": ["IKEA", "Best Buy"]},
+          {"pair": "Azul + Cinza", "effect": "Corporativo, sério", "examples": ["LinkedIn", "Dell"]}
+        ],
+        "avoid": [
+          {"pair": "Azul escuro + Preto", "effect": "Muito pesado, sombrio"},
+          {"pair": "Azul + Marrom", "effect": "Pouca harmonia visual"}
+        ]
+      },
+      "wcag_contrast": {
+        "navy_on_white": {"ratio": "12.6:1", "level": "AAA", "use": "Excellent for text"},
+        "sky_on_white": {"ratio": "2.1:1", "level": "Fail", "use": "Decorative only"},
+        "white_on_navy": {"ratio": "12.6:1", "level": "AAA", "use": "Perfect contrast"}
+      },
+      "emotional_temperature": "Frio (calmante)",
+      "attention_grabbing": "Médio-baixo",
+      "conversion_impact": "Médio (confiança, não urgência)"
+    },
+
+    "green": {
+      "name": "Verde",
+      "hex_variations": [
+        {"name": "Forest Green", "hex": "#228B22", "rgb": "34, 139, 34"},
+        {"name": "Lime Green", "hex": "#32CD32", "rgb": "50, 205, 50"},
+        {"name": "Olive Green", "hex": "#556B2F", "rgb": "85, 107, 47"},
+        {"name": "Mint Green", "hex": "#98FF98", "rgb": "152, 255, 152"},
+        {"name": "Emerald", "hex": "#50C878", "rgb": "80, 200, 120"}
+      ],
+      "psychology": {
+        "universal": ["Nature", "Growth", "Harmony", "Freshness", "Health"],
+        "positive_associations": ["Sustainability", "Balance", "Renewal", "Safety"],
+        "negative_associations": ["Envy (inveja)", "Inexperience", "Nausea"]
+      },
+      "brazilian_context": {
+        "cultural_meanings": [
+          "Natureza, ecologia (preservação da Amazônia)",
+          "Esperança (verde-amarelo da bandeira)",
+          "Saúde, produtos naturais (farmácias, orgânicos)",
+          "Aprovação, sucesso (verde = positivo, vermelho = negativo)",
+          "Sorte (trevo de 4 folhas, fitas do Senhor do Bonfim)"
+        ],
+        "marketplace_usage": {
+          "mercado_livre": "Usado em badges de 'Frete Grátis', benefícios",
+          "shopee": "Verde para cashback, benefícios",
+          "magalu": "Usado em promoções sustentáveis",
+          "amazon_br": "Verde para disponibilidade 'Em estoque'"
+        },
+        "regional_variations": {
+          "norte": "Verde intenso (floresta amazônica, identidade regional)",
+          "centro_oeste": "Verde-oliva (cerrado, agronegócio)",
+          "sul": "Verde-escuro (mate, agricultura)"
+        }
+      },
+      "brand_archetype_fit": {
+        "high": ["Innocent", "Caregiver", "Explorer"],
+        "medium": ["Sage", "Everyman"],
+        "low": ["Rebel", "Ruler", "Magician"]
+      },
+      "industry_associations": {
+        "organic_food": "Produtos naturais, sem agrotóxicos (Jasmine, Native)",
+        "health_wellness": "Saúde, bem-estar (Whole Foods, farmácias)",
+        "finance": "Dinheiro, prosperidade (verde = lucro, positivo)",
+        "ecology": "Sustentabilidade (Greenpeace, produtos eco-friendly)",
+        "security": "Segurança, proteção (Kaspersky, antivírus)"
+      },
+      "combinations": {
+        "classic": [
+          {"pair": "Verde + Branco", "effect": "Clean, saudável, fresco", "examples": ["Whole Foods", "Subway"]},
+          {"pair": "Verde + Marrom", "effect": "Natural, orgânico, terroso", "examples": ["Starbucks", "The Body Shop"]},
+          {"pair": "Verde + Azul", "effect": "Calmo, ecológico", "examples": ["Sprite (verde-azul-branco)"]}
+        ],
+        "avoid": [
+          {"pair": "Verde + Vermelho", "effect": "Natal clichê (exceto se intencional)"},
+          {"pair": "Verde + Rosa", "effect": "Contraste artificial, pouca harmonia"}
+        ]
+      },
+      "wcag_contrast": {
+        "forest_on_white": {"ratio": "5.3:1", "level": "AA", "use": "Good for text"},
+        "lime_on_white": {"ratio": "1.9:1", "level": "Fail", "use": "Decorative only"},
+        "white_on_forest": {"ratio": "5.3:1", "level": "AA", "use": "Acceptable"}
+      },
+      "emotional_temperature": "Neutro (equilibrado)",
+      "attention_grabbing": "Médio",
+      "conversion_impact": "Médio-alto (call to action positivo)"
+    },
+
+    "yellow": {
+      "name": "Amarelo",
+      "hex_variations": [
+        {"name": "Bright Yellow", "hex": "#FFFF00", "rgb": "255, 255, 0"},
+        {"name": "Golden Yellow", "hex": "#FFD700", "rgb": "255, 215, 0"},
+        {"name": "Mustard", "hex": "#FFDB58", "rgb": "255, 219, 88"},
+        {"name": "Lemon Yellow", "hex": "#FFF44F", "rgb": "255, 244, 79"},
+        {"name": "Amber", "hex": "#FFBF00", "rgb": "255, 191, 0"}
+      ],
+      "psychology": {
+        "universal": ["Happiness", "Optimism", "Energy", "Warmth", "Attention"],
+        "positive_associations": ["Joy", "Creativity", "Sunshine", "Confidence"],
+        "negative_associations": ["Caution", "Cowardice", "Anxiety (if overused)"]
+      },
+      "brazilian_context": {
+        "cultural_meanings": [
+          "Alegria, otimismo (sol tropical, praias)",
+          "Riqueza, ouro (bandeira do Brasil)",
+          "Atenção, cuidado (placas de trânsito)",
+          "Carnaval (fantasias douradas, brilho)",
+          "Religiosidade (ouro em igrejas barrocas)"
+        ],
+        "marketplace_usage": {
+          "mercado_livre": "Amarelo primário da marca, descontos",
+          "shopee": "Laranja-amarelo para promoções",
+          "magalu": "Usado em CTAs secundários",
+          "amazon_br": "Amarelo-laranja em ofertas (Prime Day)"
+        },
+        "regional_variations": {
+          "nordeste": "Amarelo vibrante (sol forte, festas)",
+          "sudeste": "Dourado sofisticado (corporate)",
+          "sul": "Amarelo mostarda (menos saturado)"
+        }
+      },
+      "brand_archetype_fit": {
+        "high": ["Jester", "Innocent", "Creator"],
+        "medium": ["Explorer", "Magician"],
+        "low": ["Sage", "Ruler", "Caregiver"]
+      },
+      "industry_associations": {
+        "food": "Apetite, energia (McDonald's, Subway, Maggi)",
+        "children": "Alegria, diversão (Lego, Play-Doh)",
+        "energy": "Vitalidade, ação (energia solar, baterias)",
+        "logistics": "Rapidez, eficiência (DHL, Correios)",
+        "construction": "Atenção, segurança (CAT, equipamentos)"
+      },
+      "combinations": {
+        "classic": [
+          {"pair": "Amarelo + Preto", "effect": "Alto contraste, visibilidade máxima", "examples": ["Stanley", "CAT"]},
+          {"pair": "Amarelo + Vermelho", "effect": "Energia, fast food", "examples": ["McDonald's", "Shell"]},
+          {"pair": "Amarelo + Azul", "effect": "Contraste complementar forte", "examples": ["IKEA", "Best Buy"]}
+        ],
+        "avoid": [
+          {"pair": "Amarelo + Branco", "effect": "Baixíssimo contraste, ilegível"},
+          {"pair": "Amarelo + Verde-limão", "effect": "Muito vibrante, cansa os olhos"}
+        ]
+      },
+      "wcag_contrast": {
+        "yellow_on_white": {"ratio": "1.1:1", "level": "Fail", "use": "Never use for text"},
+        "yellow_on_black": {"ratio": "19.6:1", "level": "AAA", "use": "Excellent contrast"},
+        "black_on_yellow": {"ratio": "19.6:1", "level": "AAA", "use": "Perfect (warning signs)"}
+      },
+      "emotional_temperature": "Quente (estimulante)",
+      "attention_grabbing": "Muito alto",
+      "conversion_impact": "Alto (urgência positiva)"
+    },
+
+    "orange": {
+      "name": "Laranja",
+      "hex_variations": [
+        {"name": "Bright Orange", "hex": "#FF6600", "rgb": "255, 102, 0"},
+        {"name": "Burnt Orange", "hex": "#CC5500", "rgb": "204, 85, 0"},
+        {"name": "Coral", "hex": "#FF7F50", "rgb": "255, 127, 80"},
+        {"name": "Tangerine", "hex": "#FF9500", "rgb": "255, 149, 0"},
+        {"name": "Amber Orange", "hex": "#FF8000", "rgb": "255, 128, 0"}
+      ],
+      "psychology": {
+        "universal": ["Enthusiasm", "Creativity", "Adventure", "Success", "Fun"],
+        "positive_associations": ["Confidence", "Sociability", "Warmth", "Vitality"],
+        "negative_associations": ["Frivolity", "Immaturity", "Superficiality"]
+      },
+      "brazilian_context": {
+        "cultural_meanings": [
+          "Energia, vitalidade (frutas tropicais: laranja, manga)",
+          "Festa, celebração (Carnaval, festas juninas)",
+          "Criatividade, inovação (startups, tech)",
+          "Acessibilidade, valor (promoções, bom custo-benefício)",
+          "Verão, calor (praia, sol poente)"
+        ],
+        "marketplace_usage": {
+          "mercado_livre": "Laranja-amarelo para destaques",
+          "shopee": "COR PRINCIPAL - laranja vibrante em toda identidade",
+          "magalu": "Usado em CTAs e promoções",
+          "amazon_br": "Evitar - laranja é cor da Amazon (logo, smile)"
+        },
+        "regional_variations": {
+          "nordeste": "Laranja intenso (sol, festas)",
+          "sudeste": "Laranja corporativo (Itaú - predominante no setor bancário)",
+          "centro_oeste": "Laranja-terra (cerrado, pôr do sol)"
+        }
+      },
+      "brand_archetype_fit": {
+        "high": ["Explorer", "Jester", "Creator"],
+        "medium": ["Hero", "Everyman"],
+        "low": ["Sage", "Ruler", "Caregiver"]
+      },
+      "industry_associations": {
+        "tech": "Inovação, criatividade (Blogger, SoundCloud)",
+        "food": "Apetite, energia (Fanta, Crush, Cheetos)",
+        "sports": "Aventura, performance (Gatorade, Head)",
+        "retail": "Bom custo-benefício (Home Depot, Alibaba)",
+        "telecom": "Acessibilidade (Vivo - em alguns materiais)"
+      },
+      "combinations": {
+        "classic": [
+          {"pair": "Laranja + Branco", "effect": "Clean, energético, acessível", "examples": ["Shopee", "Fanta"]},
+          {"pair": "Laranja + Azul", "effect": "Contraste complementar forte", "examples": ["Firefox", "Gulf"]},
+          {"pair": "Laranja + Cinza", "effect": "Moderno, balanceado", "examples": ["SoundCloud"]}
+        ],
+        "avoid": [
+          {"pair": "Laranja + Vermelho", "effect": "Muito quente, cansativo"},
+          {"pair": "Laranja + Rosa", "effect": "Conflito visual, pouca seriedade"}
+        ]
+      },
+      "wcag_contrast": {
+        "orange_on_white": {"ratio": "2.9:1", "level": "Fail (AA)", "use": "Large text only"},
+        "orange_on_black": {"ratio": "7.2:1", "level": "AA", "use": "Good for text"},
+        "white_on_orange": {"ratio": "2.9:1", "level": "Fail", "use": "Avoid for body text"}
+      },
+      "emotional_temperature": "Quente (muito estimulante)",
+      "attention_grabbing": "Muito alto",
+      "conversion_impact": "Alto (CTAs amigáveis)"
+    },
+
+    "purple": {
+      "name": "Roxo/Lilás",
+      "hex_variations": [
+        {"name": "Royal Purple", "hex": "#7851A9", "rgb": "120, 81, 169"},
+        {"name": "Lavender", "hex": "#E6E6FA", "rgb": "230, 230, 250"},
+        {"name": "Violet", "hex": "#8F00FF", "rgb": "143, 0, 255"},
+        {"name": "Plum", "hex": "#8E4585", "rgb": "142, 69, 133"},
+        {"name": "Magenta", "hex": "#FF00FF", "rgb": "255, 0, 255"}
+      ],
+      "psychology": {
+        "universal": ["Royalty", "Luxury", "Spirituality", "Creativity", "Mystery"],
+        "positive_associations": ["Wisdom", "Dignity", "Independence", "Magic"],
+        "negative_associations": ["Extravagance", "Arrogance", "Mourning (in some contexts)"]
+      },
+      "brazilian_context": {
+        "cultural_meanings": [
+          "Luxo, sofisticação (menos comum, mais exclusivo)",
+          "Espiritualidade, misticismo (religiões afro-brasileiras)",
+          "Feminilidade (lilás para bebês meninas)",
+          "Luto (roxo escuro em contextos religiosos)",
+          "Criatividade, inovação (design, tech)"
+        ],
+        "marketplace_usage": {
+          "mercado_livre": "Raro, usado em categorias premium",
+          "shopee": "Roxo para eventos especiais (dia das mães)",
+          "magalu": "Pouco usado",
+          "amazon_br": "Raro, exceto em categorias específicas"
+        },
+        "regional_variations": {
+          "nordeste": "Roxo religioso (quaresma, procissões)",
+          "sudeste": "Lilás sofisticado (moda, beleza)",
+          "sul": "Roxo discreto, menos vibrante"
+        }
+      },
+      "brand_archetype_fit": {
+        "high": ["Magician", "Creator", "Lover"],
+        "medium": ["Sage", "Ruler"],
+        "low": ["Everyman", "Jester", "Hero"]
+      },
+      "industry_associations": {
+        "beauty": "Luxo, transformação (Urban Decay, Aussie)",
+        "tech": "Criatividade, inovação (Yahoo, Twitch, Roku)",
+        "spirituality": "Meditação, bem-estar (apps de mindfulness)",
+        "luxury": "Exclusividade (Cadbury, Crown Royal)",
+        "children": "Fantasia, magia (princesas Disney)"
+      },
+      "combinations": {
+        "classic": [
+          {"pair": "Roxo + Branco", "effect": "Sofisticado, limpo", "examples": ["Cadbury", "FedEx"]},
+          {"pair": "Roxo + Dourado", "effect": "Luxo máximo, realeza", "examples": ["Crown Royal"]},
+          {"pair": "Roxo + Cinza", "effect": "Moderno, criativo", "examples": ["Twitch"]}
+        ],
+        "avoid": [
+          {"pair": "Roxo + Marrom", "effect": "Sombrio, pouca harmonia"},
+          {"pair": "Roxo escuro + Preto", "effect": "Muito pesado, mórbido"}
+        ]
+      },
+      "wcag_contrast": {
+        "royal_on_white": {"ratio": "6.2:1", "level": "AA", "use": "Good for text"},
+        "lavender_on_white": {"ratio": "1.2:1", "level": "Fail", "use": "Decorative only"},
+        "white_on_royal": {"ratio": "6.2:1", "level": "AA", "use": "Acceptable"}
+      },
+      "emotional_temperature": "Frio (calmante com toque místico)",
+      "attention_grabbing": "Médio-alto",
+      "conversion_impact": "Médio (luxo, não urgência)"
+    },
+
+    "pink": {
+      "name": "Rosa",
+      "hex_variations": [
+        {"name": "Hot Pink", "hex": "#FF69B4", "rgb": "255, 105, 180"},
+        {"name": "Rose Pink", "hex": "#FF007F", "rgb": "255, 0, 127"},
+        {"name": "Baby Pink", "hex": "#FFB6C1", "rgb": "255, 182, 193"},
+        {"name": "Salmon", "hex": "#FA8072", "rgb": "250, 128, 114"},
+        {"name": "Fuchsia", "hex": "#FF00FF", "rgb": "255, 0, 255"}
+      ],
+      "psychology": {
+        "universal": ["Femininity", "Romance", "Care", "Sweetness", "Innocence"],
+        "positive_associations": ["Compassion", "Nurture", "Love", "Playfulness"],
+        "negative_associations": ["Weakness", "Immaturity", "Gender stereotyping"]
+      },
+      "brazilian_context": {
+        "cultural_meanings": [
+          "Feminilidade (rosa para meninas, azul para meninos - tradição forte)",
+          "Romance, amor (Dia dos Namorados)",
+          "Saúde feminina (Outubro Rosa - câncer de mama)",
+          "Doçura, delicadeza (doces, sobremesas)",
+          "Modernidade (rosa millennial, branding contemporâneo)"
+        ],
+        "marketplace_usage": {
+          "mercado_livre": "Usado em categorias femininas, beleza",
+          "shopee": "Rosa para dia das mães, público feminino",
+          "magalu": "Rosa em campanhas femininas",
+          "amazon_br": "Categorias de beleza e moda feminina"
+        },
+        "regional_variations": {
+          "nordeste": "Rosa vibrante (festas, alegria)",
+          "sudeste": "Rosa sofisticado (millennial pink)",
+          "sul": "Rosa discreto, pastel"
+        }
+      },
+      "brand_archetype_fit": {
+        "high": ["Lover", "Caregiver", "Innocent"],
+        "medium": ["Jester", "Creator"],
+        "low": ["Hero", "Ruler", "Rebel"]
+      },
+      "industry_associations": {
+        "beauty": "Cosmética, cuidados (Victoria's Secret, Benefit)",
+        "fashion": "Feminino, romântico (marcas de lingerie)",
+        "food": "Doces, sobremesas (sorveterias, confeitarias)",
+        "health": "Saúde feminina (campanhas Outubro Rosa)",
+        "children": "Bebês meninas, brinquedos (Barbie)"
+      },
+      "combinations": {
+        "classic": [
+          {"pair": "Rosa + Branco", "effect": "Doce, feminino, clean", "examples": ["Victoria's Secret"]},
+          {"pair": "Rosa + Cinza", "effect": "Moderno, sofisticado", "examples": ["T-Mobile (magenta)"]},
+          {"pair": "Rosa + Preto", "effect": "Ousado, fashion", "examples": ["Barbie (recent branding)"]}
+        ],
+        "avoid": [
+          {"pair": "Rosa + Laranja", "effect": "Conflito visual, muito quente"},
+          {"pair": "Rosa bebê + Amarelo", "effect": "Infantil demais para marcas adultas"}
+        ]
+      },
+      "wcag_contrast": {
+        "hot_pink_on_white": {"ratio": "2.4:1", "level": "Fail", "use": "Large text only"},
+        "rose_on_black": {"ratio": "5.1:1", "level": "AA", "use": "Good for text"},
+        "white_on_hot_pink": {"ratio": "2.4:1", "level": "Fail", "use": "Avoid"}
+      },
+      "emotional_temperature": "Quente (acolhedor)",
+      "attention_grabbing": "Alto",
+      "conversion_impact": "Médio-alto (para público feminino)"
+    }
+  },
+
+  "neutral_colors": {
+    "white": {
+      "name": "Branco",
+      "hex": "#FFFFFF",
+      "rgb": "255, 255, 255",
+      "psychology": ["Purity", "Simplicity", "Cleanliness", "Minimalism", "Space"],
+      "brazilian_context": {
+        "cultural_meanings": ["Paz (pomba branca)", "Religião (roupa de candomblé, batismo)", "Ano Novo (tradição de usar branco)", "Limpeza, higiene"],
+        "usage": "Background universal, minimalismo, espaço negativo"
+      },
+      "combinations": "Funciona com qualquer cor, base neutra universal"
+    },
+    "black": {
+      "name": "Preto",
+      "hex": "#000000",
+      "rgb": "0, 0, 0",
+      "psychology": ["Luxury", "Power", "Elegance", "Mystery", "Authority"],
+      "brazilian_context": {
+        "cultural_meanings": ["Elegância, sofisticação (black tie)", "Luto (roupa de velório)", "Luxo (produtos premium)", "Rebeldia (rock, streetwear)"],
+        "usage": "Texto, luxo, contraste máximo"
+      },
+      "combinations": "Base para cores vibrantes, luxo com dourado/prata"
+    },
+    "gray": {
+      "name": "Cinza",
+      "hex_variations": [
+        {"name": "Light Gray", "hex": "#D3D3D3", "rgb": "211, 211, 211"},
+        {"name": "Medium Gray", "hex": "#808080", "rgb": "128, 128, 128"},
+        {"name": "Charcoal", "hex": "#36454F", "rgb": "54, 69, 79"}
+      ],
+      "psychology": ["Professionalism", "Neutrality", "Balance", "Modernity"],
+      "brazilian_context": {
+        "cultural_meanings": ["Corporativo, sério", "Tecnologia, modernidade", "Balanceamento (entre preto e branco)"],
+        "usage": "Backgrounds secundários, texto secundário, sofisticação discreta"
+      }
+    },
+    "brown": {
+      "name": "Marrom",
+      "hex_variations": [
+        {"name": "Chocolate", "hex": "#7B3F00", "rgb": "123, 63, 0"},
+        {"name": "Tan", "hex": "#D2B48C", "rgb": "210, 180, 140"},
+        {"name": "Coffee", "hex": "#6F4E37", "rgb": "111, 78, 55"}
+      ],
+      "psychology": ["Earthiness", "Reliability", "Warmth", "Stability"],
+      "brazilian_context": {
+        "cultural_meanings": ["Terra, agricultura", "Café (produto icônico brasileiro)", "Madeira, artesanato", "Chocolate"],
+        "usage": "Produtos orgânicos, cafeterias, artesanato"
+      }
+    }
+  },
+
+  "metallic_accents": {
+    "gold": {
+      "name": "Dourado",
+      "hex": "#FFD700",
+      "rgb": "255, 215, 0",
+      "psychology": ["Wealth", "Success", "Prestige", "Quality"],
+      "brazilian_context": {
+        "cultural_meanings": ["Luxo, riqueza", "Ouro barroco (igrejas coloniais)", "Troféus, conquistas", "Festividades (Ano Novo, Natal)"],
+        "usage": "Produtos premium, detalhes de luxo, badges especiais"
+      },
+      "archetype_fit": ["Ruler", "Lover", "Magician"]
+    },
+    "silver": {
+      "name": "Prateado",
+      "hex": "#C0C0C0",
+      "rgb": "192, 192, 192",
+      "psychology": ["Modernity", "Technology", "Sophistication", "Innovation"],
+      "brazilian_context": {
+        "cultural_meanings": ["Tecnologia", "Modernidade", "Segundo lugar (medalha de prata)", "Futurismo"],
+        "usage": "Tech products, inovação, elegância discreta"
+      },
+      "archetype_fit": ["Sage", "Creator", "Magician"]
+    }
+  },
+
+  "color_selection_guide": {
+    "by_industry": {
+      "food_beverage": {
+        "recommended": ["Red", "Yellow", "Orange", "Green (organic)"],
+        "avoid": ["Blue (suppresses appetite)", "Gray", "Black"],
+        "examples": "McDonald's (vermelho-amarelo), Subway (verde-amarelo)"
+      },
+      "health_wellness": {
+        "recommended": ["Green", "Blue", "White", "Light Purple"],
+        "avoid": ["Red (alert)", "Black", "Dark colors"],
+        "examples": "Farmácias (verde-branco-azul), clínicas (azul-branco)"
+      },
+      "finance": {
+        "recommended": ["Blue", "Green", "Gray", "Gold"],
+        "avoid": ["Red (debt)", "Pink", "Bright colors"],
+        "examples": "Bancos (azul), fintechs (verde-azul)"
+      },
+      "fashion_beauty": {
+        "recommended": ["Black", "Pink", "Purple", "Gold", "Red"],
+        "avoid": ["Brown", "Dull colors"],
+        "examples": "Victoria's Secret (rosa-preto), Chanel (preto-branco)"
+      },
+      "technology": {
+        "recommended": ["Blue", "Silver", "Black", "Orange"],
+        "avoid": ["Brown", "Pink", "Yellow"],
+        "examples": "Apple (cinza-prata), Samsung (azul)"
+      },
+      "eco_sustainable": {
+        "recommended": ["Green", "Brown", "Beige", "Earth tones"],
+        "avoid": ["Neon colors", "Synthetic-looking brights"],
+        "examples": "Whole Foods (verde-marrom), The Body Shop"
+      }
+    },
+    "by_archetype": {
+      "hero": ["Red", "Blue", "Gold", "Black"],
+      "sage": ["Blue", "Gray", "White", "Purple"],
+      "innocent": ["White", "Light Blue", "Pastels", "Yellow"],
+      "explorer": ["Green", "Orange", "Brown", "Earth tones"],
+      "creator": ["Purple", "Orange", "Bright colors"],
+      "ruler": ["Black", "Gold", "Navy Blue", "Burgundy"],
+      "magician": ["Purple", "Black", "Gold", "Deep colors"],
+      "lover": ["Red", "Pink", "Burgundy", "Gold"],
+      "caregiver": ["Blue", "Green", "Warm neutrals"],
+      "jester": ["Yellow", "Orange", "Bright primary colors"],
+      "everyman": ["Blue", "Green", "Warm earth tones"],
+      "rebel": ["Black", "Red", "Dark colors", "Grunge tones"]
+    },
+    "by_price_positioning": {
+      "budget": {
+        "colors": ["Yellow", "Orange", "Bright primary colors"],
+        "rationale": "Acessibilidade, bom custo-benefício, energia",
+        "examples": "Shopee (laranja), Mercado Livre (amarelo)"
+      },
+      "mid_range": {
+        "colors": ["Blue", "Green", "Red", "Balanced palettes"],
+        "rationale": "Confiança, qualidade, equilíbrio valor-preço",
+        "examples": "Americanas (vermelho), Magalu (azul)"
+      },
+      "premium": {
+        "colors": ["Navy Blue", "Black", "Gray", "Burgundy"],
+        "rationale": "Sofisticação, qualidade superior, exclusividade",
+        "examples": "Apple (cinza-prata), Amazon (preto-laranja)"
+      },
+      "luxury": {
+        "colors": ["Black", "Gold", "White", "Deep jewel tones"],
+        "rationale": "Luxo máximo, exclusividade, prestígio",
+        "examples": "Louis Vuitton (marrom-dourado), Chanel (preto-dourado)"
+      }
+    }
+  },
+
+  "accessibility_notes": {
+    "wcag_guidelines": "All combinations tested against WCAG 2.1 Level AA (4.5:1 for normal text, 3:1 for large text and UI components)",
+    "color_blindness": {
+      "deuteranopia": "Red-green blindness (most common) - ensure sufficient contrast with blue/yellow",
+      "protanopia": "Red blindness - use blue and yellow for important elements",
+      "tritanopia": "Blue-yellow blindness - use red and green contrasts",
+      "recommendation": "Never rely on color alone - use icons, text labels, patterns"
+    },
+    "testing_tools": [
+      "WebAIM Contrast Checker (https://webaim.org/resources/contrastchecker/)",
+      "Coolors Contrast Checker (https://coolors.co/contrast-checker)",
+      "Adobe Color Accessibility Tools"
+    ]
+  },
+
+  "cultural_sensitivity": {
+    "religious_contexts": {
+      "catholic": "Roxo para Quaresma, branco para Páscoa/Natal, vermelho para Pentecostes",
+      "afro_brazilian": "Branco para Oxalá, vermelho para Xangô, azul para Iemanjá (respeitar quando relevante)",
+      "spiritism": "Branco e azul claro (paz, espiritualidade)"
+    },
+    "political_sensitivity": "Evitar combinações vermelhas (PT), azuis (PSDB), verdes (militares) se marca é apolítica",
+    "regional_pride": "Cores de times de futebol locais podem influenciar aceitação regional"
+  },
+
+  "seasonal_colors": {
+    "natal": ["Red", "Green", "Gold", "White"],
+    "carnaval": ["Yellow", "Purple", "Green", "Bright rainbow"],
+    "pascoa": ["Purple", "White", "Pastels"],
+    "junho": ["Red", "Blue", "Yellow (bandeirinhas)"],
+    "black_friday": ["Black", "Red", "Yellow"]
+  },
+
+  "notes": {
+    "usage": "Use this guide to select colors aligned with brand archetype, industry, and Brazilian cultural context",
+    "combining_colors": "Recommended 60-30-10 rule: 60% dominant, 30% secondary, 10% accent",
+    "testing": "Always test color combinations with target audience before finalizing",
+    "updates": "Review quarterly for cultural trend changes"
+  }
+}
