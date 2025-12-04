@@ -1,7 +1,21 @@
 # 02_operating_modes | CODEXA Operating Modes
 
+## MODULE_METADATA
+
+```yaml
+id: 02_operating_modes
+version: 1.0.0
+category: behavior
+type: composable_layer
+```
+
+## PURPOSE
+
+Define operational modes, mode transitions, and task boundary system.
+
+---
+
 **Layer Version**: 1.0.0 | **Created**: 2025-11-24
-**Purpose**: Define operational modes, mode transitions, and task boundary system
 **Category**: Behavior Layer | **Composable**: Yes
 **Integration**: All agents, workflows requiring mode-aware operation
 

@@ -1,7 +1,21 @@
 # 04_communication_layer | CODEXA Communication Style
 
+## MODULE_METADATA
+
+```yaml
+id: 04_communication_layer
+version: 1.0.0
+category: interaction
+type: composable_layer
+```
+
+## PURPOSE
+
+Define user interaction patterns, tone, style, and communication protocols.
+
+---
+
 **Layer Version**: 1.0.0 | **Created**: 2025-11-24
-**Purpose**: Define user interaction patterns, tone, style, and communication protocols
 **Category**: Interaction Layer | **Composable**: Yes
 **Integration**: All user-facing interactions
 

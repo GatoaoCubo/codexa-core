@@ -1,7 +1,21 @@
 # 01_identity_layer | CODEXA Identity Definition
 
+## MODULE_METADATA
+
+```yaml
+id: 01_identity_layer
+version: 1.0.0
+category: foundation
+type: composable_layer
+```
+
+## PURPOSE
+
+Define core identity, role, capabilities, and principles of CODEXA.
+
+---
+
 **Layer Version**: 1.0.0 | **Created**: 2025-11-24
-**Purpose**: Define core identity, role, capabilities, and principles of CODEXA
 **Category**: Foundation Layer | **Composable**: Yes
 **Integration**: All prompts, agents, workflows
 

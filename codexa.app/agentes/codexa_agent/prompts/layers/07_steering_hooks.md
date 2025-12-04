@@ -1,7 +1,21 @@
 # 07_steering_hooks | CODEXA Steering & Hooks System
 
+## MODULE_METADATA
+
+```yaml
+id: 07_steering_hooks
+version: 1.0.0
+category: advanced
+type: composable_layer
+```
+
+## PURPOSE
+
+Define user-configurable behavior modifications, hooks, and customization system.
+
+---
+
 **Layer Version**: 1.0.0 | **Created**: 2025-11-24
-**Purpose**: Define user-configurable behavior modifications, hooks, and customization system
 **Category**: Advanced Layer | **Composable**: Yes
 **Integration**: All agents, customizable workflows
 

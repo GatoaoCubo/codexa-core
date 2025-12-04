@@ -1,7 +1,21 @@
 # 05_code_conventions | CODEXA Code Style Standards
 
+## MODULE_METADATA
+
+```yaml
+id: 05_code_conventions
+version: 1.0.0
+category: standards
+type: composable_layer
+```
+
+## PURPOSE
+
+Define code style, naming conventions, and best practices from 30+ AI coding platforms.
+
+---
+
 **Layer Version**: 1.0.0 | **Created**: 2025-11-24
-**Purpose**: Define code style, naming conventions, and best practices from 30+ AI coding platforms
 **Category**: Standards Layer | **Composable**: Yes
 **Integration**: All code generation, execution agents
 

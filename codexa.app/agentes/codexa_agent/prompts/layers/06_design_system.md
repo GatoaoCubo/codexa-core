@@ -1,7 +1,21 @@
 # 06_design_system | CODEXA Design System Standards
 
+## MODULE_METADATA
+
+```yaml
+id: 06_design_system
+version: 1.0.0
+category: standards
+type: composable_layer
+```
+
+## PURPOSE
+
+Define design tokens, semantic naming, UI conventions, and component patterns.
+
+---
+
 **Layer Version**: 1.0.0 | **Created**: 2025-11-24
-**Purpose**: Define design tokens, semantic naming, UI conventions, and component patterns
 **Category**: Standards Layer | **Composable**: Yes
 **Integration**: UI component generation, frontend agents, design-related workflows
 

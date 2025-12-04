@@ -1,7 +1,21 @@
 # 08_workflows | CODEXA Workflow Patterns & Recipes
 
+## MODULE_METADATA
+
+```yaml
+id: 08_workflows
+version: 1.0.0
+category: orchestration
+type: composable_layer
+```
+
+## PURPOSE
+
+Define common workflow patterns, recipes, and orchestration strategies.
+
+---
+
 **Layer Version**: 1.0.0 | **Created**: 2025-11-24
-**Purpose**: Define common workflow patterns, recipes, and orchestration strategies
 **Category**: Orchestration Layer | **Composable**: Yes
 **Integration**: Multi-agent workflows, ADWs, complex task orchestration
 

@@ -1,7 +1,21 @@
 # 03_tool_usage_layer | CODEXA Tool Usage Patterns
 
+## MODULE_METADATA
+
+```yaml
+id: 03_tool_usage_layer
+version: 1.0.0
+category: execution
+type: composable_layer
+```
+
+## PURPOSE
+
+Define tool selection patterns, usage rules, and optimization strategies.
+
+---
+
 **Layer Version**: 1.0.0 | **Created**: 2025-11-24
-**Purpose**: Define tool selection patterns, usage rules, and optimization strategies
 **Category**: Execution Layer | **Composable**: Yes
 **Integration**: All modes requiring tool decisions
 
