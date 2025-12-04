@@ -1,0 +1,278 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "title_optimizer_input.json",
+  "title": "YouTube Title Optimizer Input Schema",
+  "description": "Input schema for video_agent title optimizer (60_title_optimizer_HOP.md)",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["video_brief"],
+  "properties": {
+    "video_brief": {
+      "type": "object",
+      "description": "Core video brief information",
+      "required": ["title_working", "topic", "target_audience", "key_benefit"],
+      "properties": {
+        "title_working": {
+          "type": "string",
+          "description": "Working title or video concept description",
+          "minLength": 5,
+          "maxLength": 100,
+          "examples": [
+            "Como usar o ChatGPT para programar",
+            "Review do Fone Bluetooth XYZ"
+          ]
+        },
+        "topic": {
+          "type": "string",
+          "description": "Primary keyword/topic for SEO targeting",
+          "minLength": 2,
+          "maxLength": 50,
+          "examples": [
+            "ChatGPT programacao",
+            "Fone Bluetooth"
+          ]
+        },
+        "target_audience": {
+          "type": "string",
+          "description": "Target audience description",
+          "minLength": 5,
+          "maxLength": 200,
+          "examples": [
+            "Desenvolvedores iniciantes",
+            "Consumidores tech-savvy 25-45 anos"
+          ]
+        },
+        "key_benefit": {
+          "type": "string",
+          "description": "Main value proposition or benefit",
+          "minLength": 5,
+          "maxLength": 200,
+          "examples": [
+            "Acelerar desenvolvimento com IA",
+            "40h de bateria, ANC ativo"
+          ]
+        }
+      }
+    },
+    "brand_profile": {
+      "type": "object",
+      "description": "Brand voice guidelines from marca_agent (optional)",
+      "properties": {
+        "tone_scale": {
+          "type": "object",
+          "description": "4-dimension tone scale",
+          "properties": {
+            "formal_casual": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            },
+            "serio_divertido": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            },
+            "tradicional_inovador": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            },
+            "tecnico_acessivel": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            }
+          }
+        },
+        "archetypes": {
+          "type": "array",
+          "description": "Brand archetypes",
+          "items": {
+            "type": "string",
+            "enum": [
+              "heroi",
+              "mago",
+              "fora_da_lei",
+              "explorador",
+              "sabio",
+              "inocente",
+              "criador",
+              "governante",
+              "cuidador",
+              "cara_comum",
+              "bobo_da_corte",
+              "amante"
+            ]
+          },
+          "maxItems": 3
+        },
+        "voice_markers": {
+          "type": "array",
+          "description": "PT-BR voice markers",
+          "items": {
+            "type": "string"
+          },
+          "examples": [
+            ["direto", "pratico", "resultados"],
+            ["acolhedor", "didatico", "paciente"]
+          ],
+          "maxItems": 5
+        }
+      }
+    },
+    "seo_keywords": {
+      "type": "array",
+      "description": "Target SEO keywords from pesquisa_agent (optional)",
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 50
+      },
+      "maxItems": 10,
+      "examples": [
+        ["chatgpt", "programacao", "ia para devs", "copilot alternativa"]
+      ]
+    },
+    "competitor_titles": {
+      "type": "array",
+      "description": "Competitor title analysis for gap identification (optional)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "views": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "channel": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["title"]
+      },
+      "maxItems": 5
+    },
+    "channel_context": {
+      "type": "object",
+      "description": "Channel-specific context for optimization (optional)",
+      "properties": {
+        "subscriber_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Channel subscriber count"
+        },
+        "niche": {
+          "type": "string",
+          "description": "Channel niche/category",
+          "maxLength": 50,
+          "examples": [
+            "tech",
+            "educacao",
+            "empreendedorismo",
+            "lifestyle"
+          ]
+        },
+        "avg_ctr": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Average CTR percentage for the channel"
+        }
+      }
+    },
+    "preferences": {
+      "type": "object",
+      "description": "Title generation preferences (optional)",
+      "properties": {
+        "preferred_angles": {
+          "type": "array",
+          "description": "Preferred psychological angles to prioritize",
+          "items": {
+            "type": "string",
+            "enum": ["question", "number", "social_proof", "how_to", "comparison"]
+          },
+          "maxItems": 3
+        },
+        "avoid_patterns": {
+          "type": "array",
+          "description": "Patterns to avoid in titles",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 10
+        },
+        "include_year": {
+          "type": "boolean",
+          "description": "Include current year in title (for dated content)",
+          "default": false
+        },
+        "language": {
+          "type": "string",
+          "description": "Title language",
+          "enum": ["pt-BR", "en-US"],
+          "default": "pt-BR"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "video_brief": {
+        "title_working": "Como usar o ChatGPT para programar",
+        "topic": "ChatGPT programacao",
+        "target_audience": "Desenvolvedores iniciantes",
+        "key_benefit": "Acelerar desenvolvimento com IA"
+      }
+    },
+    {
+      "video_brief": {
+        "title_working": "Review do Fone Bluetooth XYZ",
+        "topic": "Fone Bluetooth",
+        "target_audience": "Consumidores tech-savvy",
+        "key_benefit": "40h de bateria, ANC"
+      },
+      "brand_profile": {
+        "tone_scale": {
+          "formal_casual": 3,
+          "serio_divertido": 6,
+          "tradicional_inovador": 7,
+          "tecnico_acessivel": 4
+        },
+        "archetypes": ["explorador", "sabio"],
+        "voice_markers": ["objetivo", "detalhista", "honesto"]
+      },
+      "seo_keywords": [
+        "fone bluetooth",
+        "headphone anc",
+        "fone sem fio",
+        "melhor fone 2024"
+      ],
+      "channel_context": {
+        "subscriber_count": 50000,
+        "niche": "tech",
+        "avg_ctr": 5.2
+      }
+    },
+    {
+      "video_brief": {
+        "title_working": "Estrategias de marketing digital",
+        "topic": "Marketing Digital",
+        "target_audience": "Empreendedores e PMEs",
+        "key_benefit": "Aumentar vendas em 30 dias"
+      },
+      "preferences": {
+        "preferred_angles": ["number", "how_to"],
+        "include_year": true,
+        "language": "pt-BR"
+      }
+    }
+  ]
+}

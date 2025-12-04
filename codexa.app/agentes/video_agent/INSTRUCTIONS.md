@@ -1,9 +1,9 @@
 # INSTRUCTIONS | video_agent
 
-**Version**: 2.5.0
+**Version**: 2.6.0
 **Purpose**: Instructions for AI assistants / Agent builders to use video_agent
 **Type**: HOP (Higher-Order Prompt) for LLM execution
-**Updated**: 2025-11-25
+**Updated**: 2025-12-04
 
 ---
 
@@ -35,12 +35,13 @@
 - Video generation APIs (async, parallel)
 - Local video processing (concatenation, audio mixing, text overlays)
 
-**4. Prompts**: 5 HOPs (one per pipeline stage) in TAC-7 format
+**4. Prompts**: 6 HOPs (one per pipeline stage) in TAC-7 format
 - 10_concept_planner_HOP.md (storyboard)
 - 20_script_writer_HOP.md (narration)
 - 30_visual_prompter_HOP.md (platform prompts)
 - 40_production_runner_HOP.md (API orchestration)
 - 50_editor_assembler_HOP.md (FFmpeg editing)
+- 60_title_optimizer_HOP.md (YouTube titles) ← NEW
 
 ### 8 OUT-AGENT Pillars (External Artifacts)
 
@@ -288,7 +289,77 @@ None - video_agent runs independently.
 
 ---
 
+## YOUTUBE TITLE OPTIMIZATION (NEW)
+
+### When to Use
+Use the Title Optimizer (Phase 6+) when uploading videos to YouTube and need CTR-optimized titles.
+
+### Quick Usage
+
+**Standalone Mode** (via command):
+```
+/youtube-title "ChatGPT programação, devs iniciantes, acelerar desenvolvimento"
+```
+
+**Pipeline Mode** (after Phase 5):
+```
+PHASE 6+: TITLE OPTIMIZATION | STARTING
+Input: $video_brief from Phase 1
+Output: 5 titles + recommended winner
+```
+
+### Title Generation Process
+
+```
+1. RESEARCH (~10s)
+   ├── Extract primary keyword
+   ├── Infer audience pain
+   └── Map brand tone
+
+2. GENERATE (~15s)
+   ├── Title A: Question (1.25x CTR)
+   ├── Title B: Number (1.36x CTR) ⭐ BEST
+   ├── Title C: Social Proof (1.18x CTR)
+   ├── Title D: How-To (1.22x CTR)
+   └── Title E: Comparison (1.30x CTR)
+
+3. VALIDATE (~10s)
+   ├── Score with 4D system
+   ├── Select winner (≥7.5 score)
+   └── Suggest A/B test
+```
+
+### Example Output
+```json
+{
+  "recommended": {
+    "text": "7 Prompts de ChatGPT Que Todo Dev Precisa Conhecer",
+    "angle": "number",
+    "score_total": 8.9,
+    "rationale": "Number angle (1.36x CTR), strong keyword position"
+  }
+}
+```
+
+### Files Reference
+| File | Purpose |
+|------|---------|
+| `prompts/60_title_optimizer_HOP.md` | Core HOP |
+| `workflows/103_ADW_YOUTUBE_TITLE.md` | ADW documentation |
+| `config/youtube_title_rules.json` | Formulas + thresholds |
+| `schemas/title_optimizer_input.json` | Input validation |
+
+---
+
 ## CHANGELOG
+
+### v2.6.0 (2025-12-04)
+- YouTube Title Optimizer (Phase 6+)
+- 5 psychological title angles
+- 4D scoring system (CTR, SEO, Brand, Technical)
+- New files: 60_title_optimizer_HOP.md, 103_ADW_YOUTUBE_TITLE.md
+- Config: youtube_title_rules.json
+- Schema: title_optimizer_input.json
 
 ### v2.5.0 (2025-11-25)
 - 12 Leverage Points implementation

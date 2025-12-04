@@ -1,6 +1,6 @@
 # video_agent
 
-**Version**: 2.5.0
+**Version**: 2.6.0
 **Type**: Specialized Video Production AI Agent
 **Status**: Production-Ready (12 Leverage Points Implemented)
 
@@ -77,6 +77,7 @@ STAGE 5: EDITING (Timeline Assembly) - ~15s
 | 3 | Prompt Engineering | `30_visual_prompter_HOP.md` | `03_visual_builder.py` | visual_prompts.json |
 | 4 | Video Generation | `40_production_runner_HOP.md` | `04_production_builder.py` | clips/*.mp4 |
 | 5 | Video Editing | `50_editor_assembler_HOP.md` | `05_editing_builder.py` | final_video.mp4 |
+| 6+ | YouTube Title | `60_title_optimizer_HOP.md` | (standalone or integrated) | titles.json |
 
 ## Key Capabilities
 
@@ -108,6 +109,13 @@ STAGE 5: EDITING (Timeline Assembly) - ~15s
 - **11-Point Checklist**: Duration, resolution, audio sync, text visibility, etc.
 - **Brand Compliance**: Colors, tone, logo placement
 - **Schema Validation**: JSON input/output contracts
+
+### 6. YouTube Title Optimization (NEW)
+- **5 Psychological Angles**: Question, Number, Social Proof, How-To, Comparison
+- **4D Scoring**: CTR (35%), SEO (30%), Brand (20%), Technical (15%)
+- **CTR Multipliers**: Number angle = 1.36x (best), Comparison = 1.30x
+- **Quality Gate**: Minimum score ≥7.5/10
+- **Integration**: Post Phase 5 OR standalone via `/youtube-title`
 
 ## Quick Start
 
@@ -167,11 +175,15 @@ video_agent/
 ├── schemas/                     # Input/output contracts
 │   ├── video_input.json
 │   ├── video_output.json
+│   ├── title_optimizer_input.json  # YouTube title input schema (NEW)
 │   └── SCHEMAS_GUIDE.md
 │
 ├── config/                      # Configuration files
 │   ├── video_styles.json       # Style presets
 │   ├── api_config.json         # API settings
+│   ├── voice_config.json       # PT-BR voice settings
+│   ├── video_modes.json        # Overlay vs clean modes
+│   ├── youtube_title_rules.json # Title optimization config (NEW)
 │   └── brand_profiles.json     # Brand templates
 │
 ├── prompts/                     # HOPs (Higher-Order Prompts)
@@ -179,10 +191,14 @@ video_agent/
 │   ├── 20_script_writer_HOP.md
 │   ├── 30_visual_prompter_HOP.md
 │   ├── 40_production_runner_HOP.md
-│   └── 50_editor_assembler_HOP.md
+│   ├── 50_editor_assembler_HOP.md
+│   └── 60_title_optimizer_HOP.md  # YouTube title optimization (NEW)
 │
 ├── workflows/                   # ADW orchestration
-│   └── 100_ADW_RUN_VIDEO.md
+│   ├── 100_ADW_RUN_VIDEO.md
+│   ├── 101_ADW_CURSO_BRIDGE.md
+│   ├── 102_ADW_NOTEBOOKLM_VIDEO.md
+│   └── 103_ADW_YOUTUBE_TITLE.md   # YouTube title workflow (NEW)
 │
 ├── examples/                    # Trinity output examples
 │   ├── tenis_nike_30s.md
@@ -272,6 +288,13 @@ video_agent/
 | Low quality clips | Increase Runway quality setting or retry |
 
 ## Version History
+
+- **v2.6.0** (2025-12-04): YouTube Title Optimizer
+  - Phase 6+: Title optimization for YouTube uploads
+  - 5 psychological angles (Question, Number, Social Proof, How-To, Comparison)
+  - 4D scoring (CTR 35%, SEO 30%, Brand 20%, Technical 15%)
+  - New files: 60_title_optimizer_HOP.md, 103_ADW_YOUTUBE_TITLE.md
+  - Config: youtube_title_rules.json, Schema: title_optimizer_input.json
 
 - **v2.5.0** (2025-11-25): 12 Leverage Points Implementation
   - Restructured iso_vectorstore (22 -> 20 files)

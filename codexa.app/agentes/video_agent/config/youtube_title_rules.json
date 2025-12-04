@@ -1,0 +1,193 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "YouTube Title Optimizer configuration with formulas, scoring weights, and validation rules",
+  "created": "2025-12-04",
+
+  "title_formulas": {
+    "question": {
+      "id": "A",
+      "name": "Question Angle",
+      "formula": "[Keyword] + [Provocative Question]?",
+      "ctr_multiplier": 1.25,
+      "psychology": ["curiosity_gap", "pattern_interrupt", "self_assessment"],
+      "best_for": ["educational", "tutorial", "myth_busting"],
+      "example_ptbr": "Marketing Digital: Você Está Cometendo Esses 5 Erros?",
+      "triggers": ["curiosity", "self_assessment", "fomo"]
+    },
+    "number": {
+      "id": "B",
+      "name": "Number Angle",
+      "formula": "[N] + [Benefit/Reason] + [Keyword]",
+      "ctr_multiplier": 1.36,
+      "psychology": ["specificity", "scanability", "completeness_promise"],
+      "best_for": ["lists", "tutorials", "compilations"],
+      "example_ptbr": "7 Técnicas de Vendas Que Triplicaram Meu Faturamento",
+      "triggers": ["specificity", "completeness", "efficiency"],
+      "preferred_numbers": [3, 5, 7, 10, 15, 21],
+      "note": "Odd numbers outperform even numbers"
+    },
+    "social_proof": {
+      "id": "C",
+      "name": "Social Proof Angle",
+      "formula": "[Keyword] + [Transformation/Result Statement]",
+      "ctr_multiplier": 1.18,
+      "psychology": ["authority", "credibility", "aspirational"],
+      "best_for": ["case_studies", "expert_content", "results_focused"],
+      "example_ptbr": "Design Thinking: O Método Que Usei Para 10x Minha Criatividade",
+      "triggers": ["authority", "transformation", "credibility"]
+    },
+    "how_to": {
+      "id": "D",
+      "name": "How-To Angle",
+      "formula": "Como + [Action Verb] + [Keyword] + [Qualifier]",
+      "ctr_multiplier": 1.22,
+      "psychology": ["direct_utility", "immediate_value", "clarity"],
+      "best_for": ["tutorials", "step_by_step", "practical_guides"],
+      "example_ptbr": "Como Criar Landing Pages Que Convertem 47%+",
+      "triggers": ["utility", "clarity", "achievability"]
+    },
+    "comparison": {
+      "id": "E",
+      "name": "Comparison Angle",
+      "formula": "[A] vs [B] + [Decision Helper]",
+      "ctr_multiplier": 1.30,
+      "psychology": ["decision_relief", "completeness", "curiosity"],
+      "best_for": ["reviews", "comparisons", "debates"],
+      "example_ptbr": "ChatGPT vs Claude: Qual IA Usar Para Cada Tarefa",
+      "triggers": ["completeness", "decision_relief", "curiosity"]
+    }
+  },
+
+  "scoring_weights": {
+    "ctr_prediction": {
+      "weight": 0.35,
+      "description": "Predicted click-through rate potential",
+      "factors": {
+        "angle_multiplier": {"max_points": 3.0, "description": "Based on formula CTR multiplier"},
+        "power_words_count": {"max_points": 1.5, "per_word": 0.5},
+        "curiosity_gap": {"max_points": 1.0, "if_present": true},
+        "specificity": {"max_points": 0.5, "if_numbers_or_stats": true},
+        "mobile_hook": {"max_points": 0.5, "if_first_45_chars_compelling": true},
+        "emotional_trigger": {"max_points": 1.5, "per_trigger": 0.5},
+        "urgency_word": {"max_points": 1.0, "if_present": true},
+        "exclusivity_word": {"max_points": 1.0, "if_present": true}
+      }
+    },
+    "seo_alignment": {
+      "weight": 0.30,
+      "description": "Search engine optimization alignment",
+      "factors": {
+        "primary_keyword_present": {"max_points": 3.0},
+        "keyword_position": {"max_points": 2.0, "requirement": "within first 40 chars"},
+        "secondary_keywords": {"max_points": 2.0, "per_keyword": 0.5, "max_keywords": 4},
+        "search_intent_match": {"max_points": 2.0},
+        "competition_differentiation": {"max_points": 1.0}
+      }
+    },
+    "brand_alignment": {
+      "weight": 0.20,
+      "description": "Alignment with brand voice and identity",
+      "factors": {
+        "tone_match": {"max_points": 4.0, "based_on": "tone_scale"},
+        "voice_markers": {"max_points": 3.0, "per_marker": 1.0},
+        "archetype_alignment": {"max_points": 2.0},
+        "audience_fit": {"max_points": 1.0}
+      }
+    },
+    "technical_compliance": {
+      "weight": 0.15,
+      "description": "Technical requirements adherence",
+      "factors": {
+        "char_count_valid": {"max_points": 3.0, "range": "50-70"},
+        "char_count_optimal": {"max_points": 1.0, "range": "55-65"},
+        "no_banned_patterns": {"max_points": 3.0},
+        "proper_formatting": {"max_points": 2.0},
+        "mobile_truncation_safe": {"max_points": 1.0}
+      }
+    }
+  },
+
+  "character_limits": {
+    "absolute_min": 50,
+    "absolute_max": 70,
+    "optimal_min": 55,
+    "optimal_max": 65,
+    "keyword_position_max": 40,
+    "mobile_preview_chars": 45
+  },
+
+  "quality_thresholds": {
+    "excellent": 9.0,
+    "good": 7.5,
+    "acceptable": 6.5,
+    "minimum_recommend": 7.5,
+    "reject_below": 6.5
+  },
+
+  "formatting_rules": {
+    "capitalization": "title_case",
+    "connectors_allowed": ["de", "para", "em", "e", "ou", "que", "como", "com", "sem"],
+    "connectors_max": 2,
+    "numbers_format": "digits",
+    "question_ending": "?",
+    "no_period_at_end": true
+  },
+
+  "banned_patterns": {
+    "formatting": [
+      {"pattern": "^[A-Z\\s]+$", "description": "ALL CAPS titles"},
+      {"pattern": "!!!+", "description": "Multiple exclamation marks"},
+      {"pattern": "\\?\\?+", "description": "Multiple question marks"}
+    ],
+    "clickbait": [
+      {"pattern": "você não vai acreditar", "description": "Empty clickbait"},
+      {"pattern": "chocante", "description": "Overused clickbait (unless justified)"},
+      {"pattern": "impressionante", "description": "Generic superlative"}
+    ],
+    "superlatives": [
+      {"pattern": "o melhor", "description": "Generic superlative"},
+      {"pattern": "número 1", "description": "Unverifiable claim"},
+      {"pattern": "#1", "description": "Unverifiable claim"},
+      {"pattern": "incrível", "description": "Overused adjective"},
+      {"pattern": "perfeito", "description": "Absolute claim"}
+    ],
+    "year_in_evergreen": {
+      "pattern": "\\b20\\d{2}\\b",
+      "description": "Year in evergreen content",
+      "exception": "dated content that needs year"
+    }
+  },
+
+  "power_words_ptbr": {
+    "urgency": ["Agora", "Hoje", "Rápido", "Imediato", "Urgente", "Última Chance"],
+    "exclusivity": ["Segredo", "Revelado", "Escondido", "Poucos Sabem", "Exclusivo", "Restrito"],
+    "transformation": ["Transforme", "Mude", "Revolucione", "Domine", "Conquiste", "Desbloqueie"],
+    "specificity": ["Exato", "Passo a Passo", "Comprovado", "Testado", "Garantido", "Completo"],
+    "emotional": ["Chocante", "Surpreendente", "Emocionante", "Inacreditável", "Épico"],
+    "authority": ["Especialista", "Profissional", "Mestre", "Expert", "Definitivo"],
+    "results": ["Resultado", "Lucro", "Crescimento", "Aumento", "Melhoria", "Sucesso"]
+  },
+
+  "connector_rules": {
+    "avoid_in_first_position": ["de", "para", "e"],
+    "max_consecutive": 1,
+    "banned_combinations": ["de para", "para de", "e e"]
+  },
+
+  "integration": {
+    "post_phase": 6,
+    "predecessor": "editor_assembler",
+    "input_source": "$video_brief",
+    "output_target": "youtube_upload_metadata",
+    "standalone_command": "/youtube-title"
+  },
+
+  "ab_testing": {
+    "enabled": true,
+    "min_variants": 2,
+    "max_variants": 5,
+    "metrics_to_track": ["ctr", "watch_time", "engagement_rate"],
+    "test_duration_hours": 48
+  }
+}

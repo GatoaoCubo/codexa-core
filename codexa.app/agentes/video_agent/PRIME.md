@@ -2,7 +2,7 @@
 
 **AI Assistant Entry Point** - Navigation guide for video production specialist
 
-**Version**: 2.5.0 | **Status**: Production-Ready | **Type**: Specialist Agent
+**Version**: 2.6.0 | **Status**: Production-Ready | **Type**: Specialist Agent
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
@@ -59,6 +59,7 @@ Entry Points:
 
 Execution:
 ├── workflows/100_ADW_RUN_VIDEO.md ──► Complete 5-phase workflow
+├── workflows/103_ADW_YOUTUBE_TITLE.md ──► Title optimization workflow
 └── prompts/*.md ──► Detailed HOP prompts per stage
 
 Implementation:
@@ -100,6 +101,24 @@ Input: Manual storyboard (skip concept stage)
 Process: Script → Visual → Render → Edit
 Output: Video from custom storyboard
 ```
+
+### 4.5 YouTube Title Optimization (NEW)
+```
+Input: Video brief OR post Phase 5 completion
+Process: Research → Generate (5 angles) → Validate (4D scoring)
+Output: 5 CTR-optimized titles + recommended winner
+Duration: ~35 seconds
+Command: /youtube-title (standalone)
+```
+
+**Title Angles**:
+| Angle | CTR Multiplier | Best For |
+|-------|----------------|----------|
+| Question | 1.25x | Educational |
+| Number | 1.36x ⭐ | Lists, tutorials |
+| Social Proof | 1.18x | Case studies |
+| How-To | 1.22x | Guides |
+| Comparison | 1.30x | Reviews |
 
 ---
 
@@ -263,10 +282,19 @@ pesquisa_agent ──► Competitor analysis ──► video_agent (differentiat
 | `30_visual_prompter_HOP.md` | 3 | Prompt engineering |
 | `40_production_runner_HOP.md` | 4 | API orchestration |
 | `50_editor_assembler_HOP.md` | 5 | Editing workflow |
+| `60_title_optimizer_HOP.md` | 6+ | YouTube title optimization (CTR-focused) |
 
 ---
 
 ## 12. VERSION HISTORY
+
+- **v2.6.0** (2025-12-04): YouTube Title Optimizer
+  - Added 60_title_optimizer_HOP.md (Phase 6+)
+  - Added 103_ADW_YOUTUBE_TITLE.md workflow
+  - Added youtube_title_rules.json config
+  - Added title_optimizer_input.json schema
+  - 5 psychological title angles (Question, Number, Social Proof, How-To, Comparison)
+  - 4D scoring system (CTR 35%, SEO 30%, Brand 20%, Technical 15%)
 
 - **v2.5.0** (2025-11-25): 12 Leverage Points Implementation
   - Restructured iso_vectorstore (22 -> 20 files)
