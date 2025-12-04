@@ -21,6 +21,12 @@ dependencies:
   - anuncio_agent/workflows/100_ADW_RUN_ANUNCIO.md
   - anuncio_agent/scripts/sync_all_shopify.py
   - anuncio_agent/plans/full_anuncio.json
+  - photo_agent/workflows/100_ADW_RUN_PHOTO.md
+  - photo_agent/prompts/10_scene_planner_HOP.md
+  - photo_agent/prompts/20_camera_designer_HOP.md
+  - photo_agent/prompts/30_prompt_generator_HOP.md
+  - photo_agent/prompts/40_brand_validator_HOP.md
+  - photo_agent/prompts/50_batch_assembler_HOP.md
 status: production_ready
 created: 2025-11-29
 platform_patterns:
@@ -44,7 +50,7 @@ mcp_requirements:
   "workflow_id": "adw_integrated_product_reform",
   "workflow_name": "Integrated Product Reform Pipeline",
   "version": "1.0.0",
-  "orchestrates": ["pesquisa_agent", "anuncio_agent", "sync_shopify"],
+  "orchestrates": ["pesquisa_agent", "anuncio_agent", "photo_agent", "sync_shopify"],
   "context_strategy": "product_scoped",
   "failure_handling": "continue_batch_report_failures",
   "min_llm_model": "claude-sonnet-4+ or gpt-4o",
@@ -57,9 +63,17 @@ mcp_requirements:
   },
 
   "batch_config": {
-    "max_parallel_products": 3,
-    "rate_limit_ms": 1000,
-    "checkpoint_interval": 5
+    "max_parallel_products": 5,
+    "rate_limit_ms": 500,
+    "checkpoint_interval": 10,
+    "parallelization_strategy": "dynamic_queue_per_phase",
+    "phase_concurrency": {
+      "phase_2_research": 5,
+      "phase_3_generation": 5,
+      "phase_3_5_photo_prompts": 3,
+      "phase_4_validation": 5,
+      "phase_5_sync": 5
+    }
   },
 
   "phases": [
@@ -89,10 +103,16 @@ mcp_requirements:
       "description": "Execute anuncio_agent full_anuncio plan with research context"
     },
     {
+      "phase_id": "phase_3_5_photo_prompts",
+      "phase_name": "Photo Prompt Generation (per product)",
+      "duration": "10-15min/product",
+      "description": "Generate AI photography prompts (Grid 3x3 + 9 Individual) using photo_agent"
+    },
+    {
       "phase_id": "phase_4_validation",
       "phase_name": "Quality Validation (per product)",
       "duration": "2-3min/product",
-      "description": "11-criteria QA check + compliance validation"
+      "description": "13-criteria QA check + compliance validation + photo integration"
     },
     {
       "phase_id": "phase_5_sync",
@@ -205,6 +225,22 @@ SCOPE: Fetch product list and create processing queue
 - [ ] Supabase connection successful
 - [ ] At least 1 product found
 - [ ] Checkpoint file created
+
+### Quality Gate 1: Knowledge Load Validation
+
+**Objective**: Verify knowledge context is sufficient before research starts
+
+**Checklist**:
+- [ ] pesquisa_agent/PRIME.md loaded
+- [ ] anuncio_agent/PRIME.md loaded
+- [ ] marketplace_specs.json accessible
+- [ ] copy_rules.json accessible
+- [ ] At least 1 product in queue
+- [ ] Checkpoint file created
+
+**Failure Action**: STOP and ask user to verify prerequisites
+
+**Score Threshold**: ALL items must pass (no partial)
 
 ---
 
@@ -373,6 +409,93 @@ Save to `USER_DOCS/produtos/anuncios/{product_name}/`:
 - [ ] Keywords >= 60 total
 - [ ] No forbidden words detected
 
+### Quality Gate 2: Ad Copy Quality Validation (Before Photo Generation)
+
+**Objective**: Fast pre-photo validation to avoid wasting compute on bad copy
+
+**Quick Checklist (5 criteria)**:
+1. Title present and 55-65 chars? → YES/NO
+2. Description > 500 chars? → YES/NO
+3. Keywords >= 5 high-value terms? → YES/NO
+4. No forbidden words detected? → YES/NO
+5. At least 5 bullet points? → YES/NO
+
+**Score**: 5 criteria × 20% each = 0-100%
+
+**Thresholds**:
+- ≥ 4/5 criteria (80%): PASS → Continue to Phase 3.5 (photo)
+- 3/5 criteria (60%): WARN → Flag for manual review, continue
+- < 3/5 criteria (60%): FAIL → Skip to Phase 4 validation (skip photos), continue
+
+**Why This Gate?**: Photo generation is LLM-intensive; fail fast on broken copy.
+
+---
+
+## PHASE 3.5: Photo Prompt Generation (Per Product)
+
+**Objective**: Generate AI photography prompts for product images using photo_agent
+
+**Task Boundary Declaration**:
+```
+TASK_BOUNDARY: PHOTO_PROMPTS
+AGENT: photo_agent (via orchestrator)
+ACCESS: read_only (photo_agent HOP prompts)
+SCOPE: Generate 2 copyable photography prompts (Grid 3x3 + 9 Individual)
+LOOP: For each product with completed ad copy (Gate 2 passed)
+```
+
+**Execution Steps**:
+
+### Step 3.5.1: Extract Product Visuals Context
+From Phase 3 output, extract:
+- Product type and category
+- Key features from bullet points
+- Color/material from description
+- Target marketplace style (ML/Shopee/Amazon)
+
+### Step 3.5.2: Call photo_agent (Workflow: Standard 9-Scene)
+
+```python
+# Invoke photo_agent with extracted context
+photo_context = {
+  "subject": f"{product.name} - {product.category}",
+  "key_features": extracted_bullets[0:3],
+  "colors": extract_dominant_colors(product.anuncio.description),
+  "marketplace_compliance": "mercado_livre"
+}
+
+# Execute photo_agent/workflows/100_ADW_RUN_PHOTO.md
+# Duration: 10-15min (parallelizable, max 3 concurrent due to LLM tokens)
+```
+
+### Step 3.5.3: Generate Trinity Output
+
+Save to `USER_DOCS/produtos/fotos/{product_name}/`:
+- `{product_name}_prompts.md` (human-readable grid + individual)
+- `{product_name}_prompts.json` (structured for image generation API)
+- `{product_name}_prompts.meta.json` (workflow metadata with seed values)
+
+**Input**:
+- `$anuncio_package` (from Phase 3)
+- `$product` (product data)
+- photo_agent HOP prompts
+
+**Output**:
+- `$photo_prompts_package` (Trinity output)
+- `$photos_generated` (count)
+
+**Validation**:
+- [ ] Grid prompt present (3x3 concatenated)
+- [ ] 9 individual prompts generated (≥80 words each)
+- [ ] `{user_image} {seed:[RANDOM]}` prefix present
+- [ ] Scenes 1 & 9 have white #FFFFFF background
+- [ ] `[OPEN_VARIABLES]` placeholders included
+
+**Error Handling**:
+- If photo_agent fails → log warning, continue (photos optional)
+- If < 6 prompts generated → flag LOW_PHOTOS, continue
+- Retry count: 1 (time budget: 15min max)
+
 ---
 
 ## PHASE 4: Quality Validation (Per Product)
@@ -388,28 +511,64 @@ SCOPE: Run 11-criteria QA check and determine sync approval
 LOOP: For each product with generated ad copy
 ```
 
-**QA Checklist (from 90_qa_validation.md):**
+### Quality Gate 3: Comprehensive QA Validation (Before Sync)
 
+**QA Checklist (13 criteria across 4 categories)**:
+
+#### Technical Criteria (50% weight)
 | # | Criterion | Threshold | Weight |
 |---|-----------|-----------|--------|
-| 1 | Title char count | 58-60 chars (ML) | 10% |
-| 2 | Title keyword density | >= 0.70 | 10% |
-| 3 | Title no forbidden words | 0 violations | 10% |
-| 4 | Keywords total count | >= 60 | 10% |
-| 5 | Keywords coverage | >= 80% head terms | 5% |
-| 6 | Description length | >= 3300 chars | 10% |
-| 7 | Description keyword density | 2-5% | 5% |
-| 8 | Bullet points count | 10 bullets | 10% |
-| 9 | Bullet points char length | 250-299 each | 5% |
-| 10 | Compliance check | PASS | 15% |
-| 11 | Research backing | >= 3 competitors | 10% |
+| 1 | Title char count | 58-60 chars (ML) | 8% |
+| 2 | Title keyword density | >= 0.70 | 8% |
+| 3 | Keywords total count | >= 60 | 8% |
+| 4 | Keywords coverage | >= 80% head terms | 8% |
+| 5 | Description length | >= 3300 chars | 10% |
+| 6 | Description keyword density | 2-5% | 8% |
+| 7 | Bullet points count | 10 bullets | 0% (mandatory) |
+
+#### Compliance Criteria (30% weight)
+| # | Criterion | Threshold | Weight |
+|---|-----------|-----------|--------|
+| 8 | No forbidden words | 0 violations | 10% |
+| 9 | Price formatting valid | R$ format | 10% |
+| 10 | No HTML tags in description | 0 tags | 10% |
+
+#### Research-Backed Criteria (15% weight)
+| # | Criterion | Threshold | Weight |
+|---|-----------|-----------|--------|
+| 11 | Competitors analyzed | >= 3 | 8% |
+| 12 | Keywords from research | >= 70% research terms | 7% |
+
+#### Photo Integration Criteria (5% weight)
+| # | Criterion | Threshold | Weight |
+|---|-----------|-----------|--------|
+| 13 | Photo prompts generated | Present or N/A | 5% |
 
 **Quality Score Calculation**:
 ```python
 quality_score = sum(criterion.passed * criterion.weight for criterion in qa_checks)
-# Threshold: >= 0.85 to proceed to sync
-# 0.70-0.84: WARN, manual review suggested
-# < 0.70: FAIL, do not sync
+# NEW: Mandatory checks (must pass all):
+mandatory_pass = bullet_points == 10 and forbidden_words == 0
+
+if not mandatory_pass:
+    quality_score = 0.0  # Auto-fail
+elif quality_score >= 0.90:
+    sync_approved = True
+elif quality_score >= 0.75:
+    sync_approved = True
+    flag_manual_review = True
+else:
+    sync_approved = False  # Require manual intervention
+```
+
+**Decision Tree**:
+```
+├─ Mandatory criteria pass?
+│  ├─ NO → FAIL (quality_score = 0.0)
+│  └─ YES → Check weighted score
+│     ├─ >= 0.90 → APPROVED (auto-sync)
+│     ├─ 0.75-0.89 → CONDITIONAL (sync + flag for manual review next batch)
+│     └─ < 0.75 → REJECTED (skip sync, require manual fix)
 ```
 
 **Input**:
@@ -442,16 +601,83 @@ SCOPE: Push approved products and generate batch report
 FINAL_PHASE: true
 ```
 
-### Step 5.1: Sync to Shopify (for approved products)
+### Step 5.1: Sync to Shopify via unified-sync Edge Function
 
+**Option A: Batch Sync (Recommended)**
 ```python
-# Using sync_all_shopify.py pattern
-for product in approved_products:
-    result = sync_to_shopify(product.id, service_key)
-    if result.success:
-        update_checkpoint(product.id, "synced")
-    else:
-        log_error(product.id, result.error)
+# Using unified_sync.py wrapper (calls unified-sync Edge Function)
+from anuncio_agent.scripts.unified_sync import call_unified_sync
+
+result = call_unified_sync(
+    mode="push",
+    scope="content",  # Only ad copy + images
+    dry_run=False,
+    force=False  # Respect timestamps
+)
+
+# Result structure:
+{
+  "success": true,
+  "mode": "push",
+  "scope": "content",
+  "duration_ms": 8500,
+  "stats": {
+    "total": 22,
+    "synced": 20,
+    "created": 2,
+    "updated": 18,
+    "skipped": 0,
+    "errors": 2
+  },
+  "products": [
+    {
+      "id": "prod_123",
+      "name": "Product Name",
+      "action": "updated",
+      "direction": "supabase_to_shopify",
+      "changes": ["title", "description", "images"]
+    }
+  ]
+}
+```
+
+**Option B: Per-Product Sync (for individual failures)**
+```python
+# Fallback for failed products
+result = call_unified_sync(
+    mode="push",
+    scope="content",
+    product_id=product.id,
+    force=True
+)
+```
+
+**Edge Function Benefits**:
+1. **Transactional**: All-or-nothing for each product
+2. **Observability**: Detailed change logs returned to Supabase
+3. **Rate Limiting**: Built-in exponential backoff
+4. **Conflict Resolution**: Timestamp-based smart merge
+5. **Rollback**: On error, Edge Function reverts Shopify changes
+
+**API Endpoint**: `https://fuuguegkqnpzrrhwymgw.supabase.co/functions/v1/unified-sync`
+
+**Request Headers**:
+```json
+{
+  "Authorization": "Bearer <SUPABASE_SERVICE_ROLE_KEY>",
+  "Content-Type": "application/json"
+}
+```
+
+**Request Body**:
+```json
+{
+  "mode": "push|pull|bidirectional",
+  "scope": "all|content|inventory|price",
+  "productId": "optional",
+  "dryRun": false,
+  "force": false
+}
 ```
 
 ### Step 5.2: Generate Batch Report
@@ -476,12 +702,34 @@ for product in approved_products:
 
 ## Product Results
 
-| # | Product | Research | Ad Gen | QA Score | Synced | Notes |
-|---|---------|----------|--------|----------|--------|-------|
-| 1 | [name]  | OK       | OK     | 0.92     | YES    | -     |
-| 2 | [name]  | OK       | OK     | 0.87     | YES    | -     |
-| 3 | [name]  | LOW_DATA | OK     | 0.78     | NO     | Manual review |
+| # | Product | Research | Ad Gen | Photos | QA Score | Synced | Notes |
+|---|---------|----------|--------|--------|----------|--------|-------|
+| 1 | [name]  | OK       | OK     | OK     | 0.92     | YES    | -     |
+| 2 | [name]  | OK       | OK     | OK     | 0.87     | YES    | -     |
+| 3 | [name]  | LOW_DATA | OK     | WARN   | 0.78     | NO     | Photo quality low |
 ...
+
+## Quality Gate Results
+
+| Gate | Phase | Products Passed | Products Warned | Products Failed | Avg Score |
+|------|-------|-----------------|-----------------|-----------------|-----------|
+| 1 | Knowledge | 22 | 0 | 0 | N/A |
+| 2 | Ad Quality | 22 | 0 | 0 | 0.88 |
+| 3 | Full QA | 20 | 2 | 0 | 0.87 |
+| 4 | Sync Verify | 20 | 0 | 0 | N/A |
+
+**Summary**: 91% passed all gates, 9% flagged for manual review, 0% failed
+
+## Photo Prompt Generation Metrics
+
+| Metric | Value | Notes |
+|--------|-------|-------|
+| Total Prompts Generated | 20 | 2 products had photos disabled |
+| Avg Prompt Quality Score | 0.85 | 13-point validation |
+| Grid 3x3 Prompts | 20 | 100% compliance |
+| Individual 9-Scene Prompts | 180 | 9 × 20 products |
+| Marketplace Compliance Pass | 20/20 | Scenes 1+9 white #FFFFFF |
+| Generation Errors | 0 | No failures |
 
 ## Failed Products (require manual intervention)
 1. [product_name] - Error: [description]
@@ -490,6 +738,7 @@ for product in approved_products:
 ## Recommendations
 - Products with score < 0.85: manual review before re-sync
 - Products with LOW_DATA: deeper research needed
+- Products with LOW_PHOTOS: regenerate with explicit scene instructions
 - Next batch: [suggested products]
 ```
 
@@ -513,24 +762,54 @@ for product in approved_products:
 - [ ] Batch report generated
 - [ ] Checkpoint updated
 
+### Quality Gate 4: Post-Sync Verification
+
+**Objective**: Verify sync completed successfully before marking batch complete
+
+**Checklist**:
+- [ ] unified-sync returned success=true
+- [ ] All approved products in sync stats
+- [ ] Errors count <= 2 (< 10% failure rate)
+- [ ] Batch report generated
+- [ ] Checkpoint updated with synced timestamp
+
+**If Errors > 2**:
+1. Log error details to `batch_[id]_errors.json`
+2. Retry failed products with `--force` flag
+3. If still failing, move to manual review queue
+4. Continue batch processing (don't pause)
+
+**If Batch Integrity Compromised** (> 50% failures):
+- PAUSE execution
+- Return detailed error report to user
+- Require `--force-continue` to proceed
+
 ---
 
 ## EXECUTION MODES
 
-### Mode A: Full Batch (Recommended for 22 products)
+### Mode A: Full Batch with Optimizations (Recommended for 22 products)
 
 ```bash
-# Execute via slash command
-/reform-batch --limit 22 --parallel 3
+# Execute via slash command with all optimizations
+/reform-batch --limit 22 --parallel 5 --photo-prompts --unified-sync --quality-gates 4
 
 # Or manual execution
 1. Load this ADW
-2. Execute Phase 1 (discovery)
-3. Loop Phases 2-4 for each product
-4. Execute Phase 5 (sync + report)
+2. Execute Phase 1 (discovery) + Gate 1
+3. Loop Phases 2-3 for each product (5 parallel)
+   - Gate 2 after Phase 3
+4. Execute Phase 3.5 (photo prompts) for each product (3 parallel batches)
+5. Execute Phase 4 validation for all products (5 parallel)
+   - Gate 3 before Phase 5
+6. Execute Phase 5 (unified-sync + report) (5 parallel syncs)
+   - Gate 4 after sync
 ```
 
-**Estimated Time**: 22 products × 15min/product = ~5.5 hours (with parallelization: ~2 hours)
+**Estimated Time**:
+- OLD: 22 products × 15min/product = ~5.5 hours (with parallelization: ~2 hours)
+- NEW: 22 products × 10min/product = ~3.7 hours (with parallelization: ~1.3 hours)
+- **Improvement**: 35% faster with 5 concurrent + photos + unified-sync
 
 ### Mode B: Single Product
 
@@ -557,19 +836,41 @@ for product in approved_products:
 Create `/reform-batch` command in `.claude/commands/`:
 
 ```markdown
-# /reform-batch - Execute Integrated Product Reform
+# /reform-batch - Execute Integrated Product Reform (v2.0)
 
 ## Parameters
 - `--limit N`: Max products to process (default: all)
-- `--parallel N`: Concurrent products (default: 1, max: 3)
-- `--dry-run`: Simulate without syncing
+- `--parallel N`: Concurrent products (default: 5, max: 5)
+- `--photo-prompts`: Enable photo prompt generation (Phase 3.5) (default: true)
+- `--unified-sync`: Use unified-sync Edge Function (default: true)
+- `--quality-gates N`: Enable N quality gates 0-4 (default: 4)
+- `--dry-run`: Simulate without syncing to Shopify
 - `--product-ids`: Comma-separated specific IDs
+- `--resume-batch`: Resume from checkpoint (batch_id)
+- `--force`: Skip timestamp checks, always sync
 
 ## Execution
 1. Read ADW: `codexa_agent/workflows/204_ADW_INTEGRATED_PRODUCT_REFORM.md`
-2. Execute 5 phases as specified
-3. Generate batch report
-4. Return summary to user
+2. Execute 6 phases as specified with 4 quality gates
+3. Parallelize up to 5 products per phase (except Phase 3.5: max 3)
+4. Use unified-sync Edge Function for Phase 5
+5. Generate comprehensive batch report with quality metrics
+6. Return summary to user
+
+## Examples
+\`\`\`bash
+# Full batch with all optimizations
+/reform-batch --limit 22 --parallel 5 --photo-prompts --unified-sync --quality-gates 4
+
+# Conservative (minimal risk)
+/reform-batch --limit 5 --parallel 2 --quality-gates 4 --dry-run
+
+# Resume from checkpoint
+/reform-batch --resume-batch reform_2025-11-29_001
+
+# Single product with photos
+/reform-batch --product-ids abc123 --photo-prompts
+\`\`\`
 ```
 
 ---
@@ -581,8 +882,12 @@ Create `/reform-batch` command in `.claude/commands/`:
 | Marketplace search failed | Retry 2x, then skip product | YES |
 | Research incomplete (< 3 competitors) | Flag LOW_DATA, continue | YES |
 | Ad generation failed | Retry 1x, then skip | YES |
+| Photo prompt generation failed | Log warning, continue (photos optional) | YES |
 | QA score < 0.70 | Skip sync, log for review | YES |
 | Shopify sync failed | Log error, retry next batch | YES |
+| unified-sync Edge Function timeout | Retry 1x, if fails mark for manual review | YES |
+| unified-sync conflict (timestamp) | Use newer version, log for review | YES |
+| unified-sync rate limit (429) | Wait 30s, retry from queue | PAUSE |
 | Supabase connection lost | Pause, wait 30s, retry | PAUSE |
 | Rate limit hit | Wait 60s, continue | PAUSE |
 
@@ -607,8 +912,10 @@ Create `/reform-batch` command in `.claude/commands/`:
 ## PARALLEL EXECUTION OPPORTUNITIES
 
 **Independent Tasks (can run in parallel)**:
-- Multiple product research (Phase 2) - up to 3 concurrent
-- Multiple product generation (Phase 3) - up to 3 concurrent
+- Multiple product research (Phase 2) - up to 5 concurrent
+- Multiple product generation (Phase 3) - up to 5 concurrent
+- Multiple photo prompt generation (Phase 3.5) - up to 3 concurrent (LLM-intensive)
+- Multiple quality validation (Phase 4) - up to 5 concurrent
 - Shopify syncs (Phase 5) - up to 5 concurrent with rate limiting
 
 **Sequential Tasks (must run in order)**:
@@ -617,20 +924,29 @@ Create `/reform-batch` command in `.claude/commands/`:
 - Phase 3 → Phase 4 per product (generation needed before validation)
 - Phase 4 → Phase 5 per product (validation needed before sync)
 
-**Parallelization Pattern**:
+**Parallelization Strategy**: Dynamic queue per phase
 ```yaml
-# Batch parallelization
-parallel_batch:
-  max_concurrent: 3
-  products:
-    - product_1: "Phase 2 Research"
-    - product_2: "Phase 2 Research"
-    - product_3: "Phase 2 Research"
-# Wait for batch to complete, then next phase
-sequential_per_product:
-  - phase_3: "Generation (needs research)"
-  - phase_4: "Validation (needs generation)"
-  - phase_5: "Sync (needs validation)"
+batch_pipeline:
+  phase_2_research:
+    max_concurrent: 5
+    queue: product_1, product_2, product_3, product_4, product_5
+
+  phase_3_generation:
+    max_concurrent: 5
+    queue: product_1, product_2, product_3, product_4, product_5
+
+  phase_3_5_photo_prompts:
+    max_concurrent: 3  # LLM token limits
+    queue: product_1, product_2, product_3 (batched)
+    parallel_batch_2: product_4, product_5
+
+  phase_4_validation:
+    max_concurrent: 5
+    queue: all_completed_products
+
+  phase_5_sync:
+    max_concurrent: 5
+    rate_limiter: 500ms between API calls
 ```
 
 ---
@@ -674,8 +990,13 @@ sequential_per_product:
 - `anuncio_agent/plans/full_anuncio.json`
 
 **Scripts**:
-- `anuncio_agent/scripts/sync_all_shopify.py` (sync pattern)
+- `anuncio_agent/scripts/unified_sync.py` - Python wrapper for unified-sync Edge Fn (primary)
+- `anuncio_agent/scripts/sync_all_shopify.py` - Legacy batch sync (fallback)
 - `anuncio_agent/scripts/reform_product.py` (single product)
+
+**Edge Functions**:
+- `unified-sync` - Bidirectional Shopify <-> Supabase sync (primary)
+- `sync-shopify-product` - Legacy single-product sync (fallback)
 
 **MCP Tools**:
 - `mcp__browser__search_marketplace`
@@ -687,12 +1008,14 @@ sequential_per_product:
 ## METADATA
 
 **Created**: 2025-11-29
+**Updated**: 2025-12-04
 **Author**: CODEXA Meta-Constructor
-**Version**: 1.0.0
+**Version**: 1.1.0
 **Type**: Orchestration ADW (coordinates multiple agents)
-**Agents**: pesquisa_agent + anuncio_agent + sync_shopify
-**Phases**: 5
-**Estimated Duration**: 15min/product (batch), 45-60min/product (single)
+**Agents**: pesquisa_agent + anuncio_agent + photo_agent + sync_shopify
+**Phases**: 6 (including Phase 3.5 photo prompts)
+**Quality Gates**: 4 (Phase 1→2, Phase 3→3.5, Phase 4→5, Post-sync)
+**Estimated Duration**: 10min/product (batch with 5 concurrent), 35-45min/product (single)
 
 ---
 
