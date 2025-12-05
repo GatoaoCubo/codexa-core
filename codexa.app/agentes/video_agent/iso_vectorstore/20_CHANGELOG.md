@@ -4,6 +4,52 @@ All notable changes to this agent are documented in this file.
 
 ---
 
+## [2.9.0] - 2025-12-05
+
+### Added
+- `105_ADW_YOUTUBE_FULL_METADATA.md` - Unified YouTube metadata optimizer
+  - Single-run execution for complete upload package
+  - Hybrid parallel execution (~40% faster than sequential)
+  - Title → Parallel[Description, Thumbnail, Chapters] → Tags → Consolidate
+  - Consolidated quality score (weighted average)
+  - Copy-paste ready output for YouTube Studio
+  - Keyword consistency enforced across all outputs
+
+### Integration
+- Orchestrates 5 HOPs in optimized sequence:
+  - 60_title_optimizer_HOP.md (Phase 1 - Sequential)
+  - 61_description_optimizer_HOP.md (Phase 2A - Parallel)
+  - 63_thumbnail_text_HOP.md (Phase 2B - Parallel)
+  - 64_chapters_generator_HOP.md (Phase 2C - Parallel)
+  - 62_tags_optimizer_HOP.md (Phase 3 - Sequential)
+
+### Output
+- youtube_metadata.json with consolidated scores
+- copy_paste_ready section for direct upload
+- Individual phase outputs preserved
+
+---
+
+## [2.8.0] - 2025-12-04
+
+### Added
+- YouTube Optimization Suite (5 modules)
+- `103_ADW_YOUTUBE_TITLE.md` - Title optimizer workflow
+- `104_ADW_YOUTUBE_DESCRIPTION.md` - Description optimizer workflow
+- `prompts/60_title_optimizer_HOP.md` - 5 psychological angles, 4D scoring
+- `prompts/61_description_optimizer_HOP.md` - 5-section structure
+- `prompts/62_tags_optimizer_HOP.md` - 4 category strategies, 30-50 tags
+- `prompts/63_thumbnail_text_HOP.md` - CTR-optimized 3-5 word variants
+- `prompts/64_chapters_generator_HOP.md` - Action-oriented timestamps
+- `config/youtube_title_rules.json`
+- `config/youtube_description_rules.json`
+- `config/youtube_tags_rules.json`
+- `config/youtube_thumbnail_rules.json`
+- `config/youtube_chapters_rules.json`
+- `schemas/youtube_metadata_output.json`
+
+---
+
 ## [2.5.0] - 2025-11-25
 
 ### Added

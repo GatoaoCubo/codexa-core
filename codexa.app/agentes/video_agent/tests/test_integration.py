@@ -226,6 +226,6 @@ class TestConfigurationLoading:
     def test_all_configs_valid_json(self, config_dir):
         """All config files should be valid JSON."""
         for config_file in config_dir.glob("*.json"):
-            with open(config_file) as f:
+            with open(config_file, encoding="utf-8") as f:
                 data = json.load(f)  # Should not raise
                 assert data is not None

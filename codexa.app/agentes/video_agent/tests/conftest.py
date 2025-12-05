@@ -139,6 +139,7 @@ def sample_script():
     """Return a sample script.json output from Stage 2."""
     return {
         "video_mode": "overlay",
+        "total_duration": 30,
         "narration": [
             {
                 "start": 0.3,
@@ -199,6 +200,12 @@ def sample_script():
             "gender": "feminina",
             "stability": 0.5,
             "similarity_boost": 0.75
+        },
+        "timing_validation": {
+            "total_narration_time": 20.7,
+            "total_silence_time": 9.3,
+            "overlapping_segments": 0,
+            "narration_exceeds_video": False
         }
     }
 
@@ -340,7 +347,7 @@ def video_styles_config(config_dir):
     """Load video_styles.json config."""
     config_path = config_dir / "video_styles.json"
     if config_path.exists():
-        with open(config_path) as f:
+        with open(config_path, encoding="utf-8") as f:
             return json.load(f)
     return {}
 
@@ -350,7 +357,7 @@ def voice_config(config_dir):
     """Load voice_config.json config."""
     config_path = config_dir / "voice_config.json"
     if config_path.exists():
-        with open(config_path) as f:
+        with open(config_path, encoding="utf-8") as f:
             return json.load(f)
     return {}
 
@@ -360,7 +367,7 @@ def video_modes_config(config_dir):
     """Load video_modes.json config."""
     config_path = config_dir / "video_modes.json"
     if config_path.exists():
-        with open(config_path) as f:
+        with open(config_path, encoding="utf-8") as f:
             return json.load(f)
     return {}
 
