@@ -1,0 +1,138 @@
+# MANIFEST | shared_knowledge v1.0.0
+
+**Package**: shared_knowledge (cross-agent knowledge base)
+**Version**: 1.0.0 | **Date**: 2025-12-05
+**Scope**: Reusable knowledge cards for multiple agents
+**Files**: 5 | **Total Tokens**: ~8,000
+
+---
+
+## PURPOSE
+
+Central repository of knowledge that applies across multiple agents. Avoids duplication by consolidating shared concepts, frameworks, and guidelines in one location.
+
+**Philosophy**: Write once, reference everywhere.
+
+---
+
+## DEPLOY CHECKLIST
+
+```
+[ ] Review knowledge cards for completeness
+[ ] Verify cross-references in consuming agents
+[ ] Test retrieval via Scout MCP
+[ ] Update agent PRIME.md files to reference shared knowledge
+```
+
+---
+
+## FILE INVENTORY (5 Files)
+
+### Root (00) ~400 tokens
+
+| # | File | Tokens | Purpose |
+|---|------|--------|---------|
+| 00 | MANIFEST.md | ~400 | Package index |
+
+### COPYWRITING_FRAMEWORKS/ ~7,600 tokens
+
+| # | File | Tokens | Purpose |
+|---|------|--------|---------|
+| 00 | MANIFEST.md | ~400 | Category index |
+| 01 | persuasion_patterns.md | ~2,000 | Mental triggers (escassez, urgencia, prova social) |
+| 02 | storytelling_frameworks.md | ~2,200 | StoryBrand, Hero's Journey, AIDA, PAS |
+| 03 | marketplace_copy_rules.md | ~1,800 | ML, Shopee, Amazon copy guidelines |
+| 04 | brand_voice_template.md | ~1,200 | Template for consistent brand voice |
+
+---
+
+## CATEGORY INDEX
+
+### COPYWRITING_FRAMEWORKS/
+
+Knowledge cards for persuasive writing in Brazilian e-commerce context.
+
+**Consuming Agents**:
+- anuncio_agent: Marketplace copy generation
+- marca_agent: Brand messaging consistency
+- curso_agent: Sales copy and landing pages
+- photo_agent: Image caption alignment
+- video_agent: Script persuasion elements
+
+**Usage Pattern**:
+```
+1. Load relevant card via Scout
+2. Apply framework to specific context
+3. Validate output against guidelines
+```
+
+---
+
+## KNOWLEDGE CARD STRUCTURE
+
+Each card follows this template:
+
+```markdown
+# [Topic] | shared_knowledge
+
+**Purpose**: [Single sentence]
+**Version**: X.X.X | **Updated**: YYYY-MM-DD
+**Quality Score**: X.XX/1.00
+
+---
+
+## OVERVIEW
+[What and why]
+
+## FRAMEWORKS
+[Core content with examples]
+
+## BRAZILIAN CONTEXT
+[Local adaptations]
+
+## USAGE EXAMPLES
+[Practical applications]
+
+## INTEGRATION
+[How agents use this]
+```
+
+---
+
+## QUALITY STANDARDS
+
+| Metric | Threshold |
+|--------|-----------|
+| Completeness | >= 0.75 |
+| Brazilian relevance | >= 0.80 |
+| Practical examples | >= 5 per card |
+| Agent applicability | >= 3 agents |
+
+---
+
+## FUTURE CATEGORIES (Planned)
+
+```
+shared_knowledge/
+├── COPYWRITING_FRAMEWORKS/     [CURRENT]
+├── SEO_GUIDELINES/             [PLANNED]
+├── COMPLIANCE_RULES/           [PLANNED]
+├── MARKETPLACE_SPECS/          [PLANNED]
+└── VISUAL_STANDARDS/           [PLANNED]
+```
+
+---
+
+## CROSS-REFERENCES
+
+| Document | Purpose |
+|----------|---------|
+| [COPYWRITING_FRAMEWORKS/00_MANIFEST.md](COPYWRITING_FRAMEWORKS/00_MANIFEST.md) | Copywriting category index |
+| [docs/PLACEHOLDERS.md](../docs/PLACEHOLDERS.md) | Distillation placeholders |
+
+---
+
+**Package**: shared_knowledge v1.0.0
+**Status**: ACTIVE
+**Tokens**: ~8,000
+**Date**: 2025-12-05
