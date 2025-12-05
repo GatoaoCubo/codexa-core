@@ -1,0 +1,105 @@
+{
+  "product": {
+    "name": "Garrafa Térmica Inox Gato Parede Dupla Esportiva Academia",
+    "short_name": "Garrafa Térmica Gato",
+    "color": "Azul",
+    "price": "R$ 65,89",
+    "capacity": "320ml",
+    "material": "Aço Inoxidável",
+    "mlb_id": "MLB34173780",
+    "seller": "GATO AO CUBO",
+    "rating": "4.8/5.0",
+    "reviews": 32,
+    "units_sold": "50+"
+  },
+  "image": {
+    "original_url": "https://http2.mlstatic.com/D_NQ_NP_2X_690723-MLU76418295586_052024-F.webp",
+    "local_path": "user_research/garrafa_termica_gato/imagem_original.webp",
+    "analysis": {
+      "color_actual": "Aço inoxidável metalizado (champagne/prata)",
+      "cat_design": "Tampa com orelhas de gato 3D (escultura, não estampa)",
+      "body_finish": "Escovado/fosco com linhas horizontais",
+      "features": ["Tampa rosqueável", "Cordão de transporte", "Corpo cilíndrico slim"]
+    }
+  },
+  "specs": {
+    "capacity_ml": 320,
+    "construction": "Parede dupla",
+    "insulation": "Térmico",
+    "colors_available": ["Azul", "Dourado", "Rosa"],
+    "category": "Esportes e Fitness > Recipientes Térmicos"
+  },
+  "market": {
+    "segment": "mid-range",
+    "price_range": {
+      "min": "R$ 41,99",
+      "avg": "R$ 88,62",
+      "max": "R$ 169,90"
+    },
+    "positioning": "Design kawaii com performance térmica",
+    "target_audience": "Mulheres 18-35, amantes de gatos, fitness/lifestyle"
+  },
+  "competitors": [
+    {"name": "BTWood Premium", "price": "R$ 69,90"},
+    {"name": "Elo7 Tampa Gato", "price": "R$ 81,30"},
+    {"name": "Mimeria Rosa", "price": "R$ 89,90"},
+    {"name": "ML Genéricos", "price": "R$ 41,99-127"},
+    {"name": "Imaginarium", "price": "R$ 161-170"}
+  ],
+  "seo": {
+    "head_terms": [
+      "garrafa térmica inox",
+      "squeeze térmico",
+      "garrafa térmica gato",
+      "garrafa térmica fofa",
+      "garrafa térmica kawaii",
+      "garrafa térmica academia"
+    ],
+    "longtails": [
+      "garrafa térmica inox gato orelhas",
+      "garrafa térmica fofa kawaii",
+      "squeeze térmico gato academia",
+      "garrafa térmica mantém gelado 24h"
+    ]
+  },
+  "pain_points": [
+    "Tampa vaza durante transporte",
+    "Não mantém temperatura prometida",
+    "Tampa quebra/perde vedação rápido",
+    "Garrafa sua por fora"
+  ],
+  "desired_gains": [
+    "Manter bebida gelada 24h+",
+    "Tampa 100% vedada",
+    "Não suar por fora",
+    "Design bonito",
+    "Durabilidade",
+    "Leveza"
+  ],
+  "differentiators": [
+    "Tampa com orelhas de gato 3D (não estampa)",
+    "Cordão de transporte incluso",
+    "Vendedor Mercado Líder Gold",
+    "67% mais barato que Imaginarium"
+  ],
+  "compliance": {
+    "inmetro": "Não obrigatório",
+    "anvisa": "RDC 854/2024 - materiais metálicos",
+    "material_approved": "Aço inox 304 ou 316",
+    "prohibited_claims": [
+      "Mantém gelado eternamente",
+      "Nunca vaza",
+      "Aprovado pela ANVISA"
+    ]
+  },
+  "copy_decisions": {
+    "tone": "Fofo + funcional (kawaii meets performance)",
+    "primary_message": "Design que encanta, performance que impressiona",
+    "mental_triggers": ["Escassez", "Prova Social", "Autoridade", "Pertencimento"]
+  },
+  "pipeline": {
+    "research_file": "garrafa_termica_gato_research_notes.md",
+    "next_phase": "anuncio_agent",
+    "execution_date": "2025-12-05"
+  }
+}

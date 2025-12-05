@@ -1,0 +1,61 @@
+{
+  "product": "Garrafa Termica Inox Gato Azul",
+  "generated_at": "2025-12-05T18:08:52.746898",
+  "model": "imagen-4.0-generate-001",
+  "results": [
+    {
+      "scene": "01_HERO_WHITE",
+      "filename": "01_HERO_WHITE_180858.png",
+      "size_kb": 430.6,
+      "status": "success"
+    },
+    {
+      "scene": "02_HERO_GRADIENT",
+      "filename": "02_HERO_GRADIENT_180905.png",
+      "size_kb": 1069.1,
+      "status": "success"
+    },
+    {
+      "scene": "03_SCALE_HAND",
+      "filename": "03_SCALE_HAND_180913.png",
+      "size_kb": 1135.8,
+      "status": "success"
+    },
+    {
+      "scene": "04_LIFESTYLE_DESK",
+      "filename": "04_LIFESTYLE_DESK_180921.png",
+      "size_kb": 1179.0,
+      "status": "success"
+    },
+    {
+      "scene": "05_LIFESTYLE_GYM",
+      "filename": "05_LIFESTYLE_GYM_180929.png",
+      "size_kb": 1328.2,
+      "status": "success"
+    },
+    {
+      "scene": "06_LIFESTYLE_OUTDOOR",
+      "filename": "06_LIFESTYLE_OUTDOOR_180937.png",
+      "size_kb": 1340.2,
+      "status": "success"
+    },
+    {
+      "scene": "07_DETAIL_EARS",
+      "filename": "07_DETAIL_EARS_180944.png",
+      "size_kb": 1429.6,
+      "status": "success"
+    },
+    {
+      "scene": "08_DETAIL_TEXTURE",
+      "filename": "08_DETAIL_TEXTURE_180953.png",
+      "size_kb": 1256.0,
+      "status": "success"
+    },
+    {
+      "scene": "09_SOCIAL_FLATLAY",
+      "filename": "09_SOCIAL_FLATLAY_181000.png",
+      "size_kb": 901.9,
+      "status": "success"
+    }
+  ]
+}

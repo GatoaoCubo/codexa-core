@@ -1,0 +1,133 @@
+{
+  "product": "Garrafa Térmica Inox Gato 320ml",
+  "generated_at": "2025-12-05",
+  "agent": "photo_agent",
+  "hard_rule_applied": true,
+  "reference_image": "user_research/garrafa_termica_gato/imagem_original.webp",
+  "prompts": [
+    {
+      "prompt_id": "photo_01_hero",
+      "scene_name": "Hero Shot - Packshot Principal",
+      "prompt_text": "Professional e-commerce product photography of a slim stainless steel thermal bottle 320ml with 3D sculptured cat ears lid, champagne silver metallic brushed finish with subtle horizontal texture lines, transport cord strap attached below lid. Front 3/4 view angle showing distinctive cat ears and elongated cylindrical body. Pure white background #FFFFFF, centered composition with product occupying 85% of frame. Soft box key light front-left 45 degrees, fill light front-right 30%, rim light back 20% for metallic highlight definition. Ultra-sharp 8K resolution, commercial product photography, hyper-realistic metallic reflections, no text, no logos, no watermarks. Marketplace compliant.",
+      "reference_images": ["user_research/garrafa_termica_gato/imagem_original.webp"],
+      "style_modifiers": ["commercial", "e-commerce", "professional", "packshot", "hero"],
+      "technical_specs": {
+        "aspect_ratio": "1:1",
+        "background": "#FFFFFF pure white",
+        "lighting": "3-point studio softbox"
+      },
+      "marketplace_use": ["main_image", "mercado_livre", "shopee", "amazon"]
+    },
+    {
+      "prompt_id": "photo_02_detail_ears",
+      "scene_name": "Detail Shot - 3D Cat Ears Close-Up",
+      "prompt_text": "Professional macro product photography extreme close-up of 3D sculptured cat ears on stainless steel thermal bottle lid, champagne silver metallic finish showing precise ear shape detail and metallic texture. Top-down 45 degree angle focusing on cat ears sculpture revealing depth and dimension of ear curves. Soft neutral gray background with subtle gradient blur. Rim lighting from behind to highlight 3D contours and metallic reflections on ears, soft diffused key light front for detail visibility. Ultra-sharp 8K macro photography revealing craftsmanship quality, tactile desire aesthetic. Focus on unique design differentiator, premium quality.",
+      "reference_images": ["user_research/garrafa_termica_gato/imagem_original.webp"],
+      "style_modifiers": ["macro", "detail", "close-up", "product-feature"],
+      "technical_specs": {
+        "aspect_ratio": "1:1",
+        "background": "soft neutral gray gradient",
+        "lighting": "rim light + soft diffused front"
+      },
+      "marketplace_use": ["carousel_image", "feature_highlight", "all_platforms"]
+    },
+    {
+      "prompt_id": "photo_03_lifestyle_gym",
+      "scene_name": "Lifestyle - Gym Academia Setting",
+      "prompt_text": "Professional lifestyle product photography of slim stainless steel thermal bottle 320ml with 3D sculptured cat ears lid, champagne silver metallic brushed finish, placed on modern gym bench next to workout towel and wireless earbuds. Modern fitness center environment with blurred gym equipment in background creating depth. Natural gym lighting with dramatic side shadows from large windows, warm ambient tones. Environmental composition with product prominent in foreground, rule of thirds placement. Aspirational fitness lifestyle, active woman aesthetic, energetic dynamic mood. 8K quality lifestyle editorial photography.",
+      "reference_images": ["user_research/garrafa_termica_gato/imagem_original.webp"],
+      "style_modifiers": ["lifestyle", "fitness", "gym", "aspirational", "editorial"],
+      "technical_specs": {
+        "aspect_ratio": "4:5",
+        "background": "modern gym environment bokeh",
+        "lighting": "natural window light with dramatic shadows"
+      },
+      "marketplace_use": ["carousel_image", "lifestyle_shot", "instagram", "shopee"]
+    },
+    {
+      "prompt_id": "photo_04_lifestyle_office",
+      "scene_name": "Lifestyle - Modern Office Workspace",
+      "prompt_text": "Professional lifestyle product photography of slim stainless steel thermal bottle 320ml with 3D sculptured cat ears lid, champagne silver metallic brushed finish, positioned on clean minimalist white desk beside MacBook laptop and notebook. Modern office workspace with indoor plant and soft neutral decor visible. Natural window light from left side creating soft shadows, warm daylight tones. Composition showing product on desk with laptop partially visible, sophisticated corporate aesthetic. Professional woman workspace context, elegant minimalist style. 8K commercial lifestyle photography.",
+      "reference_images": ["user_research/garrafa_termica_gato/imagem_original.webp"],
+      "style_modifiers": ["lifestyle", "office", "corporate", "minimalist", "sophisticated"],
+      "technical_specs": {
+        "aspect_ratio": "4:5",
+        "background": "minimalist office desk setup",
+        "lighting": "natural window light soft shadows"
+      },
+      "marketplace_use": ["carousel_image", "lifestyle_shot", "instagram", "pinterest"]
+    },
+    {
+      "prompt_id": "photo_05_lifestyle_study",
+      "scene_name": "Lifestyle - Study Area Cozy Aesthetic",
+      "prompt_text": "Professional lifestyle product photography of slim stainless steel thermal bottle 320ml with 3D sculptured cat ears lid, champagne silver metallic brushed finish, arranged in cozy study flat lay composition. Overhead 45 degree angle showing bottle with open textbooks, colorful highlighters, reading glasses, and small succulent plant on wooden desk surface. Warm ambient lighting creating inviting study atmosphere. Flat lay composition with harmonious prop arrangement. Student lifestyle context, cozy academic aesthetic, comfort belonging mood. 8K lifestyle photography, Instagram aesthetic curated props.",
+      "reference_images": ["user_research/garrafa_termica_gato/imagem_original.webp"],
+      "style_modifiers": ["lifestyle", "study", "cozy", "flat-lay", "instagram-aesthetic"],
+      "technical_specs": {
+        "aspect_ratio": "1:1",
+        "background": "wooden desk surface with study props",
+        "lighting": "warm ambient 4500K"
+      },
+      "marketplace_use": ["carousel_image", "lifestyle_shot", "instagram", "pinterest", "shopee"]
+    },
+    {
+      "prompt_id": "photo_06_in_use_drinking",
+      "scene_name": "In-Use Shot - Hand Holding Drinking",
+      "prompt_text": "Professional lifestyle product photography of feminine hand holding slim stainless steel thermal bottle 320ml with 3D sculptured cat ears lid, champagne silver metallic brushed finish, positioned for drinking. Side profile view showing elegant hand grip on bottle body, cat ears visible at top, transport cord strap hanging naturally. Soft outdoor natural lighting or bright studio setting, neutral blurred background. Dynamic action composition showing product scale and ergonomic design. Young woman target audience, authentic usage demonstration. Shows slim 320ml capacity is perfect for one-hand grip. 8K commercial photography.",
+      "reference_images": ["user_research/garrafa_termica_gato/imagem_original.webp"],
+      "style_modifiers": ["in-use", "action", "dynamic", "hands", "authentic"],
+      "technical_specs": {
+        "aspect_ratio": "4:5",
+        "background": "soft neutral blur",
+        "lighting": "natural or bright studio"
+      },
+      "marketplace_use": ["carousel_image", "usage_demonstration", "shopee", "tiktok"]
+    },
+    {
+      "prompt_id": "photo_07_group_colors",
+      "scene_name": "Group Shot - Color Variants Display",
+      "prompt_text": "Professional product photography group shot of three slim stainless steel thermal bottles 320ml with 3D sculptured cat ears lids arranged aesthetically. Center bottle champagne silver metallic original, flanked by blue metallic variant and rose gold pink variant. Front view with slight stagger depth arrangement creating visual interest. Pure white background #FFFFFF. Even studio lighting from multiple softboxes ensuring consistent exposure across all bottles, no harsh shadows. Centered symmetrical composition with three-bottle arrangement. Product line showcase, color options display, catalog commercial style. 8K resolution, marketplace compliant.",
+      "reference_images": ["user_research/garrafa_termica_gato/imagem_original.webp"],
+      "style_modifiers": ["group-shot", "catalog", "color-variants", "commercial"],
+      "technical_specs": {
+        "aspect_ratio": "16:9",
+        "background": "#FFFFFF pure white",
+        "lighting": "even multi-softbox studio"
+      },
+      "marketplace_use": ["carousel_image", "variant_display", "all_platforms"]
+    },
+    {
+      "prompt_id": "photo_08_flatlay_essentials",
+      "scene_name": "Flat Lay - Daily Essentials Kit",
+      "prompt_text": "Professional flat lay product photography top-down 90 degree overhead view of slim stainless steel thermal bottle 320ml with 3D sculptured cat ears lid, champagne silver metallic brushed finish, arranged with daily essentials. Composition includes bottle, car keys, wireless earbuds case, small towel, smartphone, and lip balm on clean marble or light wood surface. Soft overhead diffused lighting avoiding harsh shadows. Symmetrical balanced arrangement with negative space, Instagram aesthetic curated props style. Everyday carry essentials concept. 8K quality, social media ready.",
+      "reference_images": ["user_research/garrafa_termica_gato/imagem_original.webp"],
+      "style_modifiers": ["flat-lay", "overhead", "essentials", "instagram-aesthetic", "curated"],
+      "technical_specs": {
+        "aspect_ratio": "1:1",
+        "background": "marble or light wood surface",
+        "lighting": "soft overhead diffused"
+      },
+      "marketplace_use": ["carousel_image", "lifestyle_shot", "instagram", "pinterest"]
+    },
+    {
+      "prompt_id": "photo_09_emotional_cat",
+      "scene_name": "Emotional - Cat Lover Brand Connection",
+      "prompt_text": "Professional lifestyle product photography of slim stainless steel thermal bottle 320ml with 3D sculptured cat ears lid, champagne silver metallic brushed finish, positioned on clean white surface with cat-themed decorative elements or real cat paw visible. Pure white background #FFFFFF maintaining marketplace compliance while adding emotional cat lover connection. Warm cozy lighting creating inviting atmosphere. Creative composition emphasizing cat ears design echoing real cat or cat silhouette decor element. Emotive shareable content for cat lovers community. Brand identity reinforcement showing product designed for cat enthusiasts. Cute aesthetic meets premium quality. 8K commercial photography, marketplace compliant.",
+      "reference_images": ["user_research/garrafa_termica_gato/imagem_original.webp"],
+      "style_modifiers": ["emotional", "cat-lover", "brand-connection", "shareable", "cozy"],
+      "technical_specs": {
+        "aspect_ratio": "1:1",
+        "background": "#FFFFFF pure white",
+        "lighting": "warm cozy 5000K"
+      },
+      "marketplace_use": ["main_image_alternate", "social_media", "brand_storytelling"]
+    }
+  ],
+  "validation": {
+    "total_prompts": 9,
+    "hard_rule_compliance": "100% - all prompts include reference_images",
+    "language": "English (for Imagen model)",
+    "marketplace_compliant": true,
+    "scenes_with_white_bg": ["photo_01_hero", "photo_07_group_colors", "photo_09_emotional_cat"]
+  }
+}

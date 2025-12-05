@@ -1,0 +1,533 @@
+{
+  "metadata": {
+    "data_pesquisa": "2025-12-05",
+    "nicho": "Garrafas Térmicas e Squeezes",
+    "categoria": "Fitness, Lifestyle, Home Office",
+    "total_queries": 8,
+    "confianca": 0.78
+  },
+  "video_formats": [
+    {
+      "formato": "Review Comparativo",
+      "descricao": "Comparação lado a lado de 2-5 marcas (Stanley, Contigo, Tramontina, Tuyo, etc.)",
+      "duracao_media": "10-15 minutos",
+      "engajamento": "Alto",
+      "exemplo_titulo": "TESTEI 5 GARRAFAS TÉRMICAS: Qual Realmente Vale a Pena?",
+      "estrutura": [
+        "Introdução com produto em mãos",
+        "Unboxing de cada marca",
+        "Teste térmico (água quente/gelada)",
+        "Medição após 6h, 12h, 24h",
+        "Veredito final com ranking"
+      ]
+    },
+    {
+      "formato": "Unboxing + First Impressions",
+      "descricao": "Abertura de produto com primeiras impressões e análise visual",
+      "duracao_media": "5-8 minutos",
+      "engajamento": "Médio-Alto",
+      "exemplo_titulo": "UNBOXING Garrafa Stanley Original: Vale R$ 200?",
+      "estrutura": [
+        "Mostrar embalagem e lacres",
+        "Abertura cuidadosa",
+        "Análise de qualidade (material, acabamento, tampa)",
+        "Teste de vazamento inicial",
+        "Primeiras impressões"
+      ]
+    },
+    {
+      "formato": "Teste Prático de Duração Térmica",
+      "descricao": "Experimento científico medindo isolamento térmico em horas",
+      "duracao_media": "8-12 minutos",
+      "engajamento": "Alto",
+      "exemplo_titulo": "TESTEI 24 HORAS: Garrafa Térmica Mantém Água Gelada MESMO?",
+      "estrutura": [
+        "Setup do teste (termômetro, cronômetro)",
+        "Medição inicial (tempo 0)",
+        "Time-lapse ou cortes temporais (6h, 12h, 24h)",
+        "Resultado final com dados",
+        "Conclusão: cumpre promessa da marca?"
+      ]
+    },
+    {
+      "formato": "Original vs Falsificada",
+      "descricao": "Comparação entre produto original e réplica, com dicas de identificação",
+      "duracao_media": "8-10 minutos",
+      "engajamento": "Muito Alto",
+      "exemplo_titulo": "Como Saber se sua Stanley é FALSA? 5 Dicas Infalíveis",
+      "estrutura": [
+        "Mostrar lado a lado",
+        "Diferenças visuais (logo, acabamento, cor)",
+        "Teste de peso e qualidade",
+        "Diferença de desempenho térmico",
+        "Checklist para compra segura"
+      ]
+    },
+    {
+      "formato": "Day in My Life + Product Integration",
+      "descricao": "Vlog de rotina (academia, trabalho, viagem) com garrafa térmica integrada",
+      "duracao_media": "12-20 minutos",
+      "engajamento": "Médio",
+      "exemplo_titulo": "Um Dia Comigo na Academia + Minha Garrafa Térmica Favorita",
+      "estrutura": [
+        "Morning routine com hidratação",
+        "Leva para academia/trabalho",
+        "Comentários ao longo do dia",
+        "Teste prático em uso real",
+        "Conclusão no final do dia"
+      ]
+    },
+    {
+      "formato": "Top 10 / Ranking",
+      "descricao": "Lista curada das melhores opções por critério (preço, desempenho, design)",
+      "duracao_media": "8-12 minutos",
+      "engajamento": "Alto",
+      "exemplo_titulo": "TOP 10 Melhores Garrafas Térmicas de 2025 (Todas as Faixas de Preço)",
+      "estrutura": [
+        "Critérios de seleção",
+        "#10 até #1 (ordem crescente)",
+        "Quick review de cada",
+        "Link na descrição",
+        "Melhor custo-benefício destacado"
+      ]
+    },
+    {
+      "formato": "Dicas e Truques (Hacks)",
+      "descricao": "Como potencializar o uso da garrafa térmica",
+      "duracao_media": "5-8 minutos",
+      "engajamento": "Médio",
+      "exemplo_titulo": "TRUQUE que NINGUÉM te Conta: Como Deixar Café Quente o Dia TODO",
+      "estrutura": [
+        "Problema comum",
+        "Hack revelado (pré-aquecer/resfriar garrafa)",
+        "Demonstração prática",
+        "Outros truques bônus",
+        "Resultado final"
+      ]
+    }
+  ],
+  "key_talking_points": [
+    {
+      "tema": "Duração Térmica Real",
+      "mencoes_recorrentes": [
+        "Mantém gelado por 24 horas?",
+        "Quanto tempo REALMENTE conserva quente?",
+        "Teste com termômetro",
+        "Comparação com promessa da marca"
+      ],
+      "importancia": "Crítica",
+      "abordagem_sugerida": "Teste prático com medições em 0h, 6h, 12h, 24h"
+    },
+    {
+      "tema": "Qualidade da Tampa e Vedação",
+      "mencoes_recorrentes": [
+        "Tampa vaza?",
+        "Vedação de silicone boa?",
+        "Abertura fácil com uma mão?",
+        "Sistema anti-vazamento funciona?"
+      ],
+      "importancia": "Alta",
+      "abordagem_sugerida": "Teste de vazamento virando de cabeça para baixo, chacoalhar"
+    },
+    {
+      "tema": "Design vs Funcionalidade",
+      "mencoes_recorrentes": [
+        "Bonita mas funcional?",
+        "Cabe na bolsa de academia?",
+        "Porta-copo do carro?",
+        "Peso quando cheia?"
+      ],
+      "importancia": "Média-Alta",
+      "abordagem_sugerida": "Demonstrar uso em contextos reais (bolsa, carro, mochila)"
+    },
+    {
+      "tema": "Original vs Falsa",
+      "mencoes_recorrentes": [
+        "Como identificar Stanley original?",
+        "Diferenças visuais",
+        "Código QR Reveo",
+        "Preço muito baixo é sinal de falsificação"
+      ],
+      "importancia": "Muito Alta (nicho Stanley)",
+      "abordagem_sugerida": "Comparação lado a lado, checklist visual"
+    },
+    {
+      "tema": "Relação Custo-Benefício",
+      "mencoes_recorrentes": [
+        "Vale a pena o preço?",
+        "Alternativas mais baratas?",
+        "Stanley vs marcas nacionais",
+        "Durabilidade justifica investimento?"
+      ],
+      "importancia": "Crítica",
+      "abordagem_sugerida": "Comparar performance por faixa de preço (R$50-400)"
+    },
+    {
+      "tema": "Material e Durabilidade",
+      "mencoes_recorrentes": [
+        "Aço inox 18/8",
+        "Pintura descasca?",
+        "Resistente a quedas?",
+        "Quanto tempo dura?"
+      ],
+      "importancia": "Alta",
+      "abordagem_sugerida": "Drop test, teste de arranhões, análise após uso prolongado"
+    },
+    {
+      "tema": "Limpeza e Manutenção",
+      "mencoes_recorrentes": [
+        "Fácil de lavar?",
+        "Pode lavar na máquina?",
+        "Boca larga facilita?",
+        "Cheiro de plástico/metal?"
+      ],
+      "importancia": "Média",
+      "abordagem_sugerida": "Tutorial de limpeza, dicas para eliminar odores"
+    },
+    {
+      "tema": "Tamanho e Capacidade Ideal",
+      "mencoes_recorrentes": [
+        "500ml ou 1L?",
+        "Qual tamanho para academia?",
+        "Compacta o suficiente?",
+        "Comparação de tamanhos lado a lado"
+      ],
+      "importancia": "Média",
+      "abordagem_sugerida": "Demonstrar com objetos de referência (mochila, porta-copo)"
+    }
+  ],
+  "viewer_questions": [
+    {
+      "pergunta": "Quanto tempo mantém a água REALMENTE gelada?",
+      "frequencia": "Muito Alta",
+      "categoria": "Performance",
+      "resposta_esperada": "Teste com dados concretos (horas + temperatura)"
+    },
+    {
+      "pergunta": "Cabe na bolsa de academia / porta-copo do carro?",
+      "frequencia": "Alta",
+      "categoria": "Praticidade",
+      "resposta_esperada": "Demonstração visual com medidas"
+    },
+    {
+      "pergunta": "Vale a pena pagar R$ 200+ pela Stanley?",
+      "frequencia": "Muito Alta",
+      "categoria": "Custo-Benefício",
+      "resposta_esperada": "Comparação com alternativas + análise de durabilidade"
+    },
+    {
+      "pergunta": "Como saber se é original ou falsa?",
+      "frequencia": "Alta (específica Stanley)",
+      "categoria": "Autenticidade",
+      "resposta_esperada": "Checklist visual + verificação app Reveo"
+    },
+    {
+      "pergunta": "Qual a melhor garrafa térmica custo-benefício?",
+      "frequencia": "Muito Alta",
+      "categoria": "Decisão de Compra",
+      "resposta_esperada": "Ranking com justificativa técnica + preços"
+    },
+    {
+      "pergunta": "A tampa vaza ou fica apertada demais?",
+      "frequencia": "Média-Alta",
+      "categoria": "Usabilidade",
+      "resposta_esperada": "Teste prático de vazamento + facilidade de abertura"
+    },
+    {
+      "pergunta": "Dá para colocar líquidos quentes e gelados na mesma garrafa?",
+      "frequencia": "Média",
+      "categoria": "Versatilidade",
+      "resposta_esperada": "Explicação técnica + teste de limpeza entre usos"
+    },
+    {
+      "pergunta": "Quanto tempo dura antes de começar a descascar/oxidar?",
+      "frequencia": "Média",
+      "categoria": "Durabilidade",
+      "resposta_esperada": "Experiência de uso prolongado (meses/anos)"
+    },
+    {
+      "pergunta": "Qual tamanho é ideal para treino de 1h30?",
+      "frequencia": "Média",
+      "categoria": "Escolha de Produto",
+      "resposta_esperada": "Recomendação baseada em contexto de uso"
+    },
+    {
+      "pergunta": "Conserva bebidas com gelo ou só líquido?",
+      "frequencia": "Baixa-Média",
+      "categoria": "Performance",
+      "resposta_esperada": "Teste com cubos de gelo + tempo de derretimento"
+    }
+  ],
+  "thumbnail_patterns": [
+    {
+      "padrão": "Produto em Destaque + Termômetro/Cronômetro",
+      "elementos": [
+        "Garrafa centralizada",
+        "Termômetro digital sobreposto",
+        "Texto grande: '24 HORAS' ou 'TESTE REAL'",
+        "Cores contrastantes (azul gelo / vermelho quente)"
+      ],
+      "exemplo": "Garrafa + termômetro mostrando temperatura + '24H GELADO'"
+    },
+    {
+      "padrão": "Comparação Lado a Lado",
+      "elementos": [
+        "2-3 marcas alinhadas",
+        "Setas ou símbolos de comparação",
+        "Texto: 'QUAL A MELHOR?'",
+        "Destaque visual na vencedora"
+      ],
+      "exemplo": "Stanley vs Contigo vs Tramontina com selo 'VENCEDORA' em uma"
+    },
+    {
+      "padrão": "Original vs Fake (Polarização)",
+      "elementos": [
+        "Divisão ao meio (original/falsa)",
+        "Cores opostas (verde/vermelho, check/X)",
+        "Texto: 'ORIGINAL ou FALSA?'",
+        "Expressão facial de surpresa"
+      ],
+      "exemplo": "Metade da thumb com original (✓) e metade com fake (X)"
+    },
+    {
+      "padrão": "Reação Facial + Produto",
+      "elementos": [
+        "Creator com expressão marcante (surpresa, decepção)",
+        "Produto em mãos",
+        "Texto emocional: 'NÃO ACREDITO' / 'INCRÍVEL'",
+        "Fundo clean ou desfocado"
+      ],
+      "exemplo": "Creator com cara de surpresa segurando Stanley + 'VALE A PENA?'"
+    },
+    {
+      "padrão": "Checklist/Guia Visual",
+      "elementos": [
+        "Ícones ou números (1-5)",
+        "Produto com elementos gráficos",
+        "Texto: 'X DICAS' / 'COMO ESCOLHER'",
+        "Cores vibrantes"
+      ],
+      "exemplo": "Garrafa + 5 ícones numerados + '5 DICAS PARA ESCOLHER'"
+    }
+  ],
+  "content_opportunities": [
+    {
+      "oportunidade": "Teste de Longa Duração (30 dias)",
+      "gap_identificado": "Poucos reviews testam durabilidade ao longo do tempo",
+      "formato_sugerido": "Série de vídeos (Dia 1, 7, 15, 30) mostrando desgaste",
+      "potencial_views": "Alto",
+      "dificuldade": "Média"
+    },
+    {
+      "oportunidade": "Comparativo Científico Detalhado",
+      "gap_identificado": "Testes casuais sem metodologia rigorosa",
+      "formato_sugerido": "Laboratório caseiro com termômetros precisos, controle de variáveis",
+      "potencial_views": "Muito Alto",
+      "dificuldade": "Média-Alta"
+    },
+    {
+      "oportunidade": "Guia de Compra por Perfil de Usuário",
+      "gap_identificado": "Falta segmentação (fitness, escritório, viagem, camping)",
+      "formato_sugerido": "Qual garrafa para VOCÊ? 5 perfis diferentes",
+      "potencial_views": "Alto",
+      "dificuldade": "Baixa"
+    },
+    {
+      "oportunidade": "Identificação de Produtos Falsos (Tutorial)",
+      "gap_identificado": "Alta demanda, especialmente para Stanley",
+      "formato_sugerido": "Passo a passo visual + checklist descritível",
+      "potencial_views": "Muito Alto",
+      "dificuldade": "Baixa"
+    },
+    {
+      "oportunidade": "Hacks e Otimização de Uso",
+      "gap_identificado": "Truques mencionados em comentários, mas sem vídeos dedicados",
+      "formato_sugerido": "5 truques que NINGUÉM te contou sobre garrafas térmicas",
+      "potencial_views": "Médio-Alto",
+      "dificuldade": "Baixa"
+    },
+    {
+      "oportunidade": "Sustentabilidade e Economia",
+      "gap_identificado": "Poucos calculam economia vs garrafas descartáveis",
+      "formato_sugerido": "Quanto você ECONOMIZA em 1 ano com garrafa térmica?",
+      "potencial_views": "Médio",
+      "dificuldade": "Baixa"
+    },
+    {
+      "oportunidade": "Reviews de Marcas Nacionais",
+      "gap_identificado": "Foco excessivo em Stanley/Contigo, marcas BR sub-representadas",
+      "formato_sugerido": "Tramontina vs Invicta vs Lyor: Melhores Marcas Brasileiras",
+      "potencial_views": "Médio-Alto",
+      "dificuldade": "Baixa-Média"
+    },
+    {
+      "oportunidade": "Conteúdo para Público Infantil",
+      "gap_identificado": "Pais buscando garrafas térmicas para escola",
+      "formato_sugerido": "Melhores garrafas térmicas INFANTIS (segurança + design)",
+      "potencial_views": "Alto",
+      "dificuldade": "Baixa"
+    }
+  ],
+  "top_channels": [
+    {
+      "tipo": "Review Generalista Tech",
+      "exemplos": [
+        "Fora da Caixa (674k inscritos)",
+        "Coisa de Nerd (11M+ inscritos)"
+      ],
+      "foco": "Unboxing, reviews, testes comparativos",
+      "relevancia_nicho": "Média (cobrem produtos diversos)"
+    },
+    {
+      "tipo": "Fitness Influencers",
+      "exemplos": [
+        "Renato Cariani",
+        "Leo Stronda",
+        "Bella Falconi",
+        "Ramon Dino",
+        "Taynara Cabral"
+      ],
+      "foco": "Lifestyle fitness, rotinas, equipamentos de treino",
+      "relevancia_nicho": "Alta (garrafas térmicas como acessório essencial)"
+    },
+    {
+      "tipo": "Lifestyle e Day in My Life",
+      "exemplos": [
+        "Creators de rotina produtiva",
+        "Home office vlogs",
+        "Canais de organização"
+      ],
+      "foco": "Produtos do dia a dia, otimização de rotina",
+      "relevancia_nicho": "Média-Alta"
+    },
+    {
+      "tipo": "Review Especializado em Produtos",
+      "exemplos": [
+        "Canais de review de produtos Amazon",
+        "mReviews",
+        "RadarCasa (site, possível canal)"
+      ],
+      "foco": "Análises técnicas, comparativos, custo-benefício",
+      "relevancia_nicho": "Muito Alta"
+    },
+    {
+      "tipo": "Outdoor e Aventura",
+      "exemplos": [
+        "Canais de camping",
+        "Trekking e trilhas",
+        "Sobrevivência"
+      ],
+      "foco": "Equipamentos para atividades ao ar livre",
+      "relevancia_nicho": "Alta (garrafa térmica como essencial)"
+    }
+  ],
+  "seo_keywords_youtube": [
+    "garrafa térmica review",
+    "garrafa stanley original",
+    "melhor garrafa térmica 2025",
+    "garrafa térmica teste",
+    "squeeze térmico academia",
+    "stanley vs contigo",
+    "garrafa térmica falsa",
+    "como escolher garrafa térmica",
+    "garrafa térmica vale a pena",
+    "unboxing garrafa térmica",
+    "teste 24 horas garrafa térmica",
+    "garrafa térmica inox",
+    "garrafa térmica custo benefício",
+    "stanley original ou falsa",
+    "garrafa térmica brasil"
+  ],
+  "engagement_triggers": [
+    {
+      "gatilho": "Teste de Tempo Real",
+      "exemplo": "TESTANDO AGORA: água a 0°C às 10h da manhã",
+      "efeito": "Cria expectativa, viewer aguarda resultado"
+    },
+    {
+      "gatilho": "Revelação de Falsificação",
+      "exemplo": "Comprei uma STANLEY FALSA no Mercado Livre",
+      "efeito": "Curiosidade + alerta social"
+    },
+    {
+      "gatilho": "Comparação de Preço Extremo",
+      "exemplo": "R$ 50 vs R$ 300: Qual REALMENTE vale a pena?",
+      "efeito": "Polarização, decisão de compra assistida"
+    },
+    {
+      "gatilho": "Hack Revelado",
+      "exemplo": "TRUQUE que DOBRA o tempo de conservação térmica",
+      "efeito": "Promessa de valor imediato"
+    },
+    {
+      "gatilho": "Storytelling Pessoal",
+      "exemplo": "Por que parei de usar garrafas descartáveis (economia REAL)",
+      "efeito": "Conexão emocional + prova social"
+    }
+  ],
+  "consultas_web": [
+    {
+      "data": "2025-12-05",
+      "query": "garrafa térmica review youtube brasil 2025",
+      "fonte": "WebSearch",
+      "insight": "Principais sites de review (mReviews, RadarCasa) listam Stanley, Tuyo, Contigo como top marcas. Foco em duração térmica (24h frio, 40h quente)."
+    },
+    {
+      "data": "2025-12-05",
+      "query": "squeeze térmico unboxing teste youtube",
+      "fonte": "WebSearch",
+      "insight": "Busca não retornou vídeos específicos, apenas e-commerces. GAP: pouco conteúdo YouTube sobre squeezes térmicos comparado a garrafas."
+    },
+    {
+      "data": "2025-12-05",
+      "query": "melhor garrafa térmica academia youtube comparação",
+      "fonte": "WebSearch",
+      "insight": "Capacidade 500ml-1L ideal para academia. Coleman AUTOSEAL e Dust destacadas. Foco em uso com uma mão e anti-vazamento."
+    },
+    {
+      "data": "2025-12-05",
+      "query": "garrafa inox parede dupla teste prático youtube",
+      "fonte": "WebSearch",
+      "insight": "Tecnologia parede dupla + vácuo mantém 6-24h frio. Materiais: aço inox 18/8. Busca não retornou vídeos práticos específicos."
+    },
+    {
+      "data": "2025-12-05",
+      "query": "youtubers brasileiros review produtos fitness 2025",
+      "fonte": "WebSearch",
+      "insight": "Top influencers: Renato Cariani, Leo Stronda, Toguro, Bella Falconi, Ramon Dino, Taynara Cabral. Oportunidade para parcerias."
+    },
+    {
+      "data": "2025-12-05",
+      "query": "unboxing produtos amazon brasil youtube tendências",
+      "fonte": "WebSearch",
+      "insight": "Unboxing teve 25 bilhões de views em 2023. Canais BR: Fora da Caixa (674k), Coisa de Nerd (11M). Formato comprovadamente viral."
+    },
+    {
+      "data": "2025-12-05",
+      "query": "perguntas comentários youtube garrafa stanley brasil",
+      "fonte": "WebSearch",
+      "insight": "Principais dúvidas: autenticidade (original vs falsa), preço (R$150-400), duração térmica real, como identificar via app Reveo."
+    },
+    {
+      "data": "2025-12-05",
+      "query": "site:youtube.com garrafa térmica stanley review brasil",
+      "fonte": "WebSearch",
+      "insight": "Site: operator não retornou resultados. Necessário buscar diretamente no YouTube para mapear canais específicos."
+    }
+  ],
+  "compliance_notes": {
+    "anvisa": "Não aplicável (produtos de uso doméstico, não alimentos/cosméticos)",
+    "inmetro": "Verificar se produtos anunciados possuem certificação INMETRO para segurança de materiais em contato com alimentos",
+    "conar": "Evitar claims exagerados ('NUNCA perde temperatura', 'ETERNA durabilidade'). Usar dados verificáveis ('mantém até 24h segundo testes')"
+  },
+  "recomendacoes_conteudo": [
+    "Priorizar formato 'Teste Científico' com dados mensuráveis (temperatura, horas)",
+    "Incluir comparação de preços em todos os reviews (R$ por hora de conservação térmica)",
+    "Abordar tema 'Original vs Falsa' para Stanley (alta demanda, baixa oferta de conteúdo)",
+    "Criar série segmentada: Melhor para Academia / Escritório / Viagem / Camping",
+    "Usar thumbnails com termômetros/cronômetros para reforçar credibilidade técnica",
+    "Integrar produto em vlogs de rotina (day in my life fitness/produtividade)",
+    "Produzir conteúdo evergreen: 'Como escolher garrafa térmica em 2025' (atualizar anualmente)",
+    "Explorar nicho infantil (pais buscando para escola, poucos reviews disponíveis)"
+  ]
+}

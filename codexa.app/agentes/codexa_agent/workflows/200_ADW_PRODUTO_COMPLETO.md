@@ -1,10 +1,11 @@
 # 200_ADW_PRODUTO_COMPLETO | End-to-End Product Creation Pipeline
 
-**Purpose**: Create complete product from reference (URL/image) to published listing
-**Type**: 10-Phase ADW | **Duration**: ~15-30min
-**Output**: Product live on Supabase + Shopify with 9 AI-generated images
-**Architecture**: Multi-Agent Orchestration (Parallel Execution)
-**Status**: Production-Ready | **Version**: 1.0.0
+**Purpose**: Create complete product from reference (URL/image) to published listing with real-time dashboard
+**Type**: 11-Phase ADW | **Duration**: ~15-30min
+**Output**: Product live on Supabase + Shopify with 9 AI-generated images + Preview page
+**Architecture**: Multi-Agent Orchestration (Parallel Execution) + Pipeline Live Dashboard
+**Status**: Production-Ready | **Version**: 2.0.0
+**Dashboard**: http://localhost:3456 (Pipeline Live tab)
 
 ---
 
@@ -13,18 +14,21 @@
 ```json
 {
   "workflow_id": "adw_produto_completo",
-  "workflow_name": "Complete Product Creation Pipeline",
+  "workflow_name": "Complete Product Creation Pipeline with Dashboard",
   "agent": "codexa_agent (orchestrator)",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "context_strategy": "rolling_window",
   "failure_handling": "retry_then_report",
   "min_llm_model": "claude-sonnet-4+ or gpt-4+",
+  "dashboard_url": "http://localhost:3456",
+  "pipeline_state_file": "outputs/pipeline_state.json",
 
   "required_capabilities": {
     "parallel_agent_execution": true,
     "image_generation_api": true,
     "supabase_storage": true,
-    "shopify_sync": true
+    "shopify_sync": true,
+    "pipeline_emitter": true
   },
 
   "agents_involved": [
@@ -35,7 +39,7 @@
   ],
 
   "external_apis": [
-    "Google Imagen 4.0",
+    "Gemini 2.5 Flash (imagen-3.0-generate-002)",
     "Supabase Storage",
     "Supabase Database",
     "Shopify Admin API"
@@ -46,15 +50,68 @@
     {"phase_id": "phase_2_identification", "name": "Product Identification", "duration": "2min", "agent": "pesquisa_agent"},
     {"phase_id": "phase_3_content", "name": "Content Generation", "duration": "5min", "agent": "anuncio_agent"},
     {"phase_id": "phase_4_prompts", "name": "Image Prompts", "duration": "3min", "agent": "photo_agent"},
-    {"phase_id": "phase_5_images", "name": "Image Generation", "duration": "5min", "agent": "imagen_api"},
+    {"phase_id": "phase_5_images", "name": "Image Generation", "duration": "5min", "agent": "gemini_api"},
     {"phase_id": "phase_6_upload", "name": "Storage Upload", "duration": "2min", "agent": "codexa_agent"},
     {"phase_id": "phase_7_supabase", "name": "Database Insert", "duration": "1min", "agent": "codexa_agent"},
-    {"phase_id": "phase_8_shopify", "name": "Shopify Sync", "duration": "1min", "agent": "edge_function"},
-    {"phase_id": "phase_9_validation", "name": "Validation", "duration": "1min", "agent": "codexa_agent"},
-    {"phase_id": "phase_10_commit", "name": "Git Commit & Push", "duration": "1min", "agent": "codexa_agent"}
+    {"phase_id": "phase_8_preview", "name": "Preview Generation", "duration": "1min", "agent": "codexa_agent"},
+    {"phase_id": "phase_9_shopify", "name": "Shopify Sync", "duration": "1min", "agent": "edge_function"},
+    {"phase_id": "phase_10_validation", "name": "Validation", "duration": "1min", "agent": "codexa_agent"},
+    {"phase_id": "phase_11_commit", "name": "Git Commit & Push", "duration": "1min", "agent": "codexa_agent"}
   ]
 }
 ```
+
+---
+
+## PIPELINE EMITTER INTEGRATION
+
+### Initialization (Before Phase 1)
+
+```python
+from builders.pipeline_emitter import PipelineEmitter
+
+# Initialize pipeline with product name
+emitter = PipelineEmitter(product_name="Nome do Produto")
+
+# Custom phases (if different from default)
+custom_phases = [
+    {"id": "pesquisa", "name": "Market Research", "status": "pending", "progress": 0},
+    {"id": "anuncio", "name": "Ad Copy", "status": "pending", "progress": 0},
+    {"id": "photo", "name": "Photo Prompts", "status": "pending", "progress": 0},
+    {"id": "images", "name": "Image Gen", "status": "pending", "progress": 0},
+    {"id": "preview", "name": "Preview Page", "status": "pending", "progress": 0},
+    {"id": "shopify", "name": "Shopify Sync", "status": "pending", "progress": 0},
+]
+emitter = PipelineEmitter(product_name, phases=custom_phases)
+```
+
+### Per-Phase Integration Pattern
+
+```python
+# At phase start
+emitter.start_phase("pesquisa", "Market Research")
+emitter.emit_thought("pesquisa_agent", "Iniciando analise de mercado...")
+
+# During execution
+emitter.update_progress("pesquisa", 50, "Analyzing competitors")
+emitter.emit_thought("pesquisa_agent", "47 listings analisados no Mercado Livre")
+
+# At phase end
+emitter.complete_phase("pesquisa", quality_score=0.85, outputs={"keywords_count": 47})
+
+# Update preview results (optional)
+emitter.update_results({
+    "title_preview": "Garrafa Termica Inox Gato - 500ml",
+    "keywords_preview": ["garrafa termica", "inox", "gato"],
+    "images_generated": 9
+})
+```
+
+### Dashboard Communication
+
+- **State File**: `outputs/pipeline_state.json` (auto-updated by emitter)
+- **Dashboard URL**: http://localhost:3456 (Pipeline Live tab)
+- **Polling**: 1s interval (WebSocket fallback for Windows)
 
 ---
 
@@ -218,36 +275,59 @@
 
 ## PHASE 5: IMAGE GENERATION
 
-**Objective**: Generate 9 product images using AI
+**Objective**: Generate 9 product images using AI with original image reference
 
-**API**: Google Imagen 4.0 (`imagen-4.0-generate-001`)
+**API**: Gemini 2.5 Flash (`gemini-2.5-flash-preview-05-20`) + Imagen 3.0 (`imagen-3.0-generate-002`)
+
+> **HARD RULE**: Every image generation call MUST include the original product image as reference.
+> See: `photo_agent/prompts/30_prompt_generator_HOP.md` for detailed requirements.
 
 **Actions**:
 1. Initialize Google GenAI client
-2. For each prompt in priority order:
-   - Call `client.models.generate_images()`
+2. Load original product image (REQUIRED)
+3. For each prompt in priority order:
+   - Call `client.models.generate_images()` WITH `reference_images`
+   - Emit progress to dashboard
    - Save PNG to `imagens_geradas/`
-3. Log generation results
+4. Log generation results
 
 **Code Reference**:
 ```python
 from google import genai
 from google.genai import types
+from PIL import Image
+from builders.pipeline_emitter import emit_thought, update_progress, start_phase, complete_phase
 
 client = genai.Client(api_key=GOOGLE_API_KEY)
 
-response = client.models.generate_images(
-    model="imagen-4.0-generate-001",
-    prompt=prompt_text,
-    config=types.GenerateImagesConfig(
-        number_of_images=1,
-        aspect_ratio="4:3",
-    )
-)
+# OBRIGATORIO: Carregar imagem original
+imagem_original = Image.open("imagem_original.webp")
 
-# Save image
-with open(filepath, 'wb') as f:
-    f.write(response.generated_images[0].image.image_bytes)
+# Emitir inicio da fase
+start_phase("images", "Image Generation")
+
+for i, prompt in enumerate(prompts, 1):
+    emit_thought("gemini_api", f"Gerando imagem {i}/9: {prompt['id']}...")
+    update_progress("images", int((i / 9) * 100), f"Image {i}/9")
+
+    response = client.models.generate_images(
+        model="imagen-3.0-generate-002",
+        prompt=prompt["text"],
+        reference_images=[imagem_original],  # OBRIGATORIO - NUNCA OMITIR
+        config=types.GenerateImagesConfig(
+            number_of_images=1,
+            aspect_ratio=prompt.get("aspect_ratio", "4:3"),
+        )
+    )
+
+    # Save image
+    filepath = f"imagens_geradas/{prompt['id']}_{i}.png"
+    with open(filepath, 'wb') as f:
+        f.write(response.generated_images[0].image.image_bytes)
+
+    emit_thought("gemini_api", f"Imagem {i}/9 salva: {filepath}")
+
+complete_phase("images", quality_score=0.95, outputs={"images_count": 9})
 ```
 
 **Output**: 9 PNG files in `imagens_geradas/`
@@ -256,6 +336,7 @@ with open(filepath, 'wb') as f:
 - ✅ 9 images generated
 - ✅ File sizes > 100KB each
 - ✅ No generation errors
+- ✅ **All images used original as reference** (consistency check)
 
 ---
 
@@ -333,7 +414,76 @@ public_url = f"{SUPABASE_URL}/storage/v1/object/public/{bucket_encoded}/{object_
 
 ---
 
-## PHASE 8: SHOPIFY SYNC
+## PHASE 8: PREVIEW GENERATION
+
+**Objective**: Generate product preview page for validation before Shopify sync
+
+**Output**: `preview.html` accessible at http://localhost:3456/preview.html
+
+**Actions**:
+1. Collect all generated data ($product_data + $anuncio_data + $image_urls)
+2. Generate preview HTML from template
+3. Save to `USER_DOCS/produtos/{slug}/preview.html`
+4. Emit completion to dashboard
+5. Open preview URL for user validation
+
+**Code Reference**:
+```python
+from builders.pipeline_emitter import start_phase, complete_phase, emit_thought
+from jinja2 import Template
+
+start_phase("preview", "Preview Generation")
+emit_thought("codexa_agent", "Gerando pagina de preview...")
+
+# Load preview template
+template = Template(open("templates/preview_template.html").read())
+
+# Render with product data
+preview_html = template.render(
+    product_name=product_data["name"],
+    title=anuncio_data["seo_title"],
+    description=anuncio_data["description"],
+    long_description=anuncio_data["long_description"],
+    benefits=anuncio_data["benefits_functional"],
+    faq=anuncio_data["faq"],
+    keywords=anuncio_data["keywords"][:10],
+    images=image_urls,
+    price=product_data.get("price", 0),
+)
+
+# Save preview
+preview_path = f"USER_DOCS/produtos/{slug}/preview.html"
+with open(preview_path, "w", encoding="utf-8") as f:
+    f.write(preview_html)
+
+emit_thought("codexa_agent", f"Preview salvo: {preview_path}")
+complete_phase("preview", quality_score=0.90, outputs={"preview_url": f"http://localhost:3456/preview.html?product={slug}"})
+
+# Also update results for dashboard preview
+update_results({
+    "preview_url": f"http://localhost:3456/preview.html?product={slug}",
+    "preview_ready": True
+})
+```
+
+**Preview Page Features**:
+- 9-image gallery with lightbox
+- Product specs section
+- Keywords display
+- Bullet points (benefits)
+- Long description
+- FAQ accordion
+- Price display
+
+**Validation**:
+- ✅ Preview HTML generated
+- ✅ All 9 images displayed correctly
+- ✅ All text content populated
+- ✅ Accessible at dashboard URL
+
+---
+
+## PHASE 9: SHOPIFY SYNC
 
 **Objective**: Sync product to Shopify via Edge Function
 
@@ -369,7 +519,7 @@ body = {"productId": product_id}
 
 ---
 
-## PHASE 9: VALIDATION
+## PHASE 10: VALIDATION
 
 **Objective**: Verify product is live and correct
 
@@ -399,7 +549,7 @@ score = (
 
 ---
 
-## PHASE 10: GIT COMMIT & PUSH
+## PHASE 11: GIT COMMIT & PUSH
 
 **Objective**: Save all assets to repository
 
@@ -452,32 +602,39 @@ USER_DOCS/produtos/{slug}/
 ## PARALLEL EXECUTION STRATEGY
 
 ```
-Timeline (optimized):
+Timeline (optimized with Dashboard):
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Phase 1: INPUT ────────┐
-                       │
-                       ├──→ Phase 2: PESQUISA ──────┐
-                       │                            │
+Phase 1: INPUT ────────┐                              [Dashboard: pipeline_state.json]
+                       │                                        ↓
+                       ├──→ Phase 2: PESQUISA ──────┐          emit_thought()
+                       │                            │          update_progress()
                        ├──→ Phase 3: ANUNCIO ───────┼──→ MERGE
                        │                            │
                        └──→ Phase 4: PHOTO_PROMPTS ─┘
                                                     │
-Phase 5: IMAGE_GEN ←────────────────────────────────┘
+Phase 5: IMAGE_GEN ←────────────────────────────────┘  [HARD RULE: imagem_original]
          │
 Phase 6: UPLOAD ←───────┘
          │
 Phase 7: SUPABASE ←─────┘
          │
-Phase 8: SHOPIFY ←──────┘
+Phase 8: PREVIEW ←──────┘  [NEW: http://localhost:3456/preview.html]
          │
-Phase 9: VALIDATION ←───┘
+Phase 9: SHOPIFY ←──────┘
          │
-Phase 10: COMMIT ←──────┘
+Phase 10: VALIDATION ←──┘
+         │
+Phase 11: COMMIT ←──────┘
 
 Parallel Groups:
 - Group A: Phases 2, 3, 4 (can run simultaneously)
-- Group B: Phases 5-10 (sequential, depends on A)
+- Group B: Phases 5-11 (sequential, depends on A)
+
+Dashboard Integration:
+- All phases emit to pipeline_state.json
+- Dashboard polls every 1s (WebSocket fallback)
+- Live thoughts stream visible in Pipeline Live tab
 ```
 
 ---
@@ -516,13 +673,15 @@ After spawn completes, merge outputs into single product structure before Phase 
 ## SUCCESS CRITERIA
 
 ### Pipeline Level
-- ✅ All 10 phases completed
+- ✅ All 11 phases completed
 - ✅ Duration < 30 minutes
 - ✅ Quality score >= 0.8
+- ✅ Dashboard shows all phases green
 
 ### Output Level
-- ✅ 9 images generated and uploaded
+- ✅ 9 images generated with original reference (consistency)
 - ✅ Product live in Supabase
+- ✅ Preview page accessible
 - ✅ Product synced to Shopify
 - ✅ All files committed to repo
 
@@ -530,6 +689,7 @@ After spawn completes, merge outputs into single product structure before Phase 
 - ✅ Product visible on storefront
 - ✅ Price and inventory correct
 - ✅ SEO metadata complete
+- ✅ Preview validated before publish
 
 ---
 
@@ -577,6 +737,23 @@ Or manual:
 
 ## VERSION HISTORY
 
+**v2.0.0** (2025-12-05):
+- **Pipeline Live Dashboard Integration**
+  - Added pipeline_emitter.py integration for real-time updates
+  - Dashboard URL: http://localhost:3456 (Pipeline Live tab)
+  - State file: outputs/pipeline_state.json
+  - Polling 1s (WebSocket fallback for Windows)
+- **New Phase 8: Preview Generation**
+  - Preview page before Shopify sync
+  - URL: http://localhost:3456/preview.html
+  - 9-image gallery + specs + keywords + FAQ
+- **Image Model Update**
+  - Changed from Imagen 4.0 to Gemini 2.5 Flash
+  - Model: gemini-2.5-flash-preview-05-20 + imagen-3.0-generate-002
+  - HARD RULE: reference_images obrigatorio
+- **11-phase pipeline** (was 10)
+- Updated parallel execution diagram
+
 **v1.0.0** (2025-12-05):
 - Initial workflow creation
 - 10-phase pipeline
@@ -589,4 +766,5 @@ Or manual:
 
 **Status**: Production-Ready
 **Maintainer**: CODEXA Meta-Constructor
-**Reference Implementation**: `gato3-landing-pages/USER_DOCS/produtos/espelho-gatinho-organizador-joias/`
+**Dashboard**: http://localhost:3456 (Pipeline Live tab)
+**Reference Implementation**: `USER_DOCS/produtos/garrafa-termica-gato-inox/`

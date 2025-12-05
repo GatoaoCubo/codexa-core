@@ -1,0 +1,504 @@
+{
+  "analysis_metadata": {
+    "date": "2025-12-05",
+    "agent": "pesquisa_agent",
+    "task": "Title Pattern Analysis - Thermal Bottles BR Marketplaces",
+    "marketplaces_analyzed": ["Mercado Livre", "Shopee", "Amazon BR"],
+    "total_queries": 8,
+    "confidence_score": 0.85
+  },
+
+  "title_patterns": [
+    {
+      "pattern": "[Produto] [Material] [Capacidade] [Marca] [Benefício Funcional]",
+      "example": "Garrafa Térmica Aço Inox 500ml Stanley Mantém Quente 12h",
+      "frequency": "muito_alta",
+      "marketplace_preference": ["Mercado Livre", "Amazon BR"],
+      "character_range": "55-70",
+      "notes": "Padrão dominante em top sellers. Foco em especificações técnicas."
+    },
+    {
+      "pattern": "[Tipo] [Material] [Capacidade] [Tecnologia] [Uso/Contexto]",
+      "example": "Squeeze Térmico Inox 500ml Parede Dupla Academia",
+      "frequency": "alta",
+      "marketplace_preference": ["Shopee", "Mercado Livre"],
+      "character_range": "50-65",
+      "notes": "Comum em produtos de nicho esportivo. Inclui tecnologia construtiva."
+    },
+    {
+      "pattern": "[Marca] [Produto] [Modelo] [Capacidade] [Cor/Acabamento]",
+      "example": "Stanley Quencher 2.0 Cream 887ml",
+      "frequency": "alta",
+      "marketplace_preference": ["Amazon BR", "Mercado Livre"],
+      "character_range": "35-50",
+      "notes": "Marcas consolidadas (Stanley, Contigo) iniciam com brand name."
+    },
+    {
+      "pattern": "[Produto] [Especificação] [Capacidade] [Múltiplos Benefícios] [Contexto]",
+      "example": "Garrafa Térmica Inox 1L Mantém Quente 12h Frio 24h Academia Viagem",
+      "frequency": "média",
+      "marketplace_preference": ["Shopee"],
+      "character_range": "70-120",
+      "notes": "Shopee permite títulos mais longos (120 chars). Maximiza keywords."
+    },
+    {
+      "pattern": "[Produto] [Material] [Tecnologia] [Capacidade] [Diferencial Único]",
+      "example": "Garrafa Térmica Inox Parede Dupla Vácuo 500ml Termômetro Digital",
+      "frequency": "média",
+      "marketplace_preference": ["Mercado Livre"],
+      "character_range": "60-75",
+      "notes": "Enfatiza diferenciais tecnológicos (termômetro, display LED)."
+    },
+    {
+      "pattern": "[Produto] [Marca] [Linha] [Material] [Capacidade] [Cor]",
+      "example": "Garrafa Termolar Lúmina Inox 500ml Bomba Pressão Cor Inox",
+      "frequency": "média",
+      "marketplace_preference": ["Mercado Livre"],
+      "character_range": "55-65",
+      "notes": "Marcas brasileiras (Termolar, Invicta) seguem padrão nacional."
+    },
+    {
+      "pattern": "[Produto Genérico] [Capacidade] [Múltiplos Atributos Separados]",
+      "example": "Garrafa Squeeze Térmica 1 Litro Isolado Parede Dupla Quente Frio",
+      "frequency": "baixa",
+      "marketplace_preference": ["Shopee"],
+      "character_range": "65-80",
+      "notes": "Títulos genéricos sem marca. Menor performance em conversão."
+    }
+  ],
+
+  "keyword_positions": {
+    "início": {
+      "keywords": ["Garrafa", "Squeeze", "Copo", "Stanley", "Contigo", "Termolar"],
+      "rationale": "Categoria do produto ou marca forte. Essencial para busca e reconhecimento.",
+      "frequency": "95%"
+    },
+    "meio": {
+      "keywords": ["Térmica", "Inox", "Parede Dupla", "Vácuo", "500ml", "1L", "Aço Inoxidável"],
+      "rationale": "Especificações técnicas e material. Core attributes para filtragem.",
+      "frequency": "90%"
+    },
+    "fim": {
+      "keywords": ["Academia", "Esportiva", "Viagem", "Cor Preta", "Mantém Quente 12h", "Portátil"],
+      "rationale": "Contexto de uso, cores e benefícios funcionais. Diferenciação.",
+      "frequency": "70%"
+    }
+  },
+
+  "optimal_length_by_marketplace": {
+    "mercado_livre": {
+      "max_chars": 60,
+      "optimal_range": "50-60",
+      "recommendation": "Títulos concisos com foco em especificações. Limite técnico de 60 caracteres.",
+      "pattern_preference": "[Produto] [Material] [Capacidade] [Marca] [1 Benefício Chave]",
+      "example": "Garrafa Térmica Inox 500ml Stanley Mantém Quente 12h"
+    },
+    "shopee": {
+      "max_chars": 120,
+      "optimal_range": "80-120",
+      "recommendation": "Aproveitar limite amplo para incluir múltiplos benefícios e contextos de uso.",
+      "pattern_preference": "[Produto] [Material] [Cap] [Benefícios] [Contexto] [Cor]",
+      "example": "Garrafa Térmica Squeeze Inox 1L Parede Dupla Academia Viagem Mantém Frio 24h Quente 12h Preto"
+    },
+    "amazon_br": {
+      "max_chars": 200,
+      "optimal_range": "60-100",
+      "recommendation": "Limite alto (200), mas sweet spot em 60-100 chars. Foco em keywords de busca.",
+      "pattern_preference": "[Marca] [Produto] [Modelo] [Capacidade] [Material] [Diferencial]",
+      "example": "Stanley Copo Quencher 2.0 Cream 887ml Aço Inox Isolamento Térmico 11h Frio"
+    },
+    "general_insights": "ML = conciso e técnico. Shopee = descritivo e contextual. Amazon = marca + modelo + diferencial."
+  },
+
+  "top_attributes_mentioned": [
+    {
+      "attribute": "Parede Dupla / Dupla Parede",
+      "frequency": "85%",
+      "importance": "crítica",
+      "reason": "Principal tecnologia de isolamento térmico. Keyword obrigatória."
+    },
+    {
+      "attribute": "500ml / 1L / 1000ml",
+      "frequency": "90%",
+      "importance": "crítica",
+      "reason": "Capacidades mais vendidas. Essencial para filtragem de busca."
+    },
+    {
+      "attribute": "Inox / Aço Inoxidável",
+      "frequency": "80%",
+      "importance": "alta",
+      "reason": "Material premium associado a durabilidade e qualidade."
+    },
+    {
+      "attribute": "Vácuo / Isolamento a Vácuo",
+      "frequency": "60%",
+      "importance": "alta",
+      "reason": "Tecnologia de alta performance térmica. Diferencial técnico."
+    },
+    {
+      "attribute": "Mantém Quente 12h / Frio 24h",
+      "frequency": "70%",
+      "importance": "alta",
+      "reason": "Prova funcional concreta. Alta conversão em decisão de compra."
+    },
+    {
+      "attribute": "Não Vaza / Antigotejamento",
+      "frequency": "45%",
+      "importance": "média",
+      "reason": "Reduz objeção de vazamento. Tranquilidade para transporte."
+    },
+    {
+      "attribute": "Academia / Esportiva / Fitness",
+      "frequency": "55%",
+      "importance": "média",
+      "reason": "Contexto de uso para público jovem ativo. Nicho relevante."
+    },
+    {
+      "attribute": "Com Alça / Portátil",
+      "frequency": "40%",
+      "importance": "média",
+      "reason": "Facilidade de transporte. Diferencial para público em movimento."
+    },
+    {
+      "attribute": "Cor [Especificação]",
+      "frequency": "50%",
+      "importance": "média",
+      "reason": "Personalização. Importante para Shopee (variações de cor)."
+    },
+    {
+      "attribute": "BPA Free / Livre de BPA",
+      "frequency": "30%",
+      "importance": "baixa-média",
+      "reason": "Compliance e saúde. Mais relevante para Amazon e público consciente."
+    }
+  ],
+
+  "emotional_triggers": [
+    {
+      "trigger": "Premium / Qualidade Premium",
+      "frequency": "alta",
+      "emotion": "status, exclusividade",
+      "example": "Squeeze Linha Premium Academia Inox",
+      "effectiveness": "alta em Amazon e ML"
+    },
+    {
+      "trigger": "Original / Produto Original",
+      "frequency": "média",
+      "emotion": "confiança, autenticidade",
+      "example": "Stanley Original Brasil Garantia Oficial",
+      "effectiveness": "crítica para marcas consolidadas"
+    },
+    {
+      "trigger": "Garantia / Com Garantia",
+      "frequency": "média",
+      "emotion": "segurança, confiança",
+      "example": "Garrafa Térmica 1 Ano Garantia Fabricante",
+      "effectiveness": "média-alta, reduz objeção"
+    },
+    {
+      "trigger": "Promoção / Oferta / Desconto",
+      "frequency": "baixa em títulos",
+      "emotion": "urgência, oportunidade",
+      "example": "Raramente no título, mais em badges",
+      "effectiveness": "baixa no título, alta em badges visuais"
+    },
+    {
+      "trigger": "Bestseller / Mais Vendido",
+      "frequency": "baixa",
+      "emotion": "prova social, validação",
+      "example": "Garrafa Térmica Mais Vendida 2025",
+      "effectiveness": "média, mais relevante em badges"
+    },
+    {
+      "trigger": "Profissional / Academia / Esportiva",
+      "frequency": "alta",
+      "emotion": "identidade, pertencimento",
+      "example": "Garrafa Térmica Profissional Academia Fitness",
+      "effectiveness": "alta para nicho esportivo"
+    },
+    {
+      "trigger": "Nova / Lançamento / 2025",
+      "frequency": "baixa-média",
+      "emotion": "novidade, atualização",
+      "example": "Garrafa Térmica Nova 2025 Stanley",
+      "effectiveness": "média em produtos sazonais"
+    },
+    {
+      "trigger": "Durabilidade / Resistente / Inquebrável",
+      "frequency": "média",
+      "emotion": "segurança, valor longo prazo",
+      "example": "Garrafa Térmica Inox Resistente Inquebrável",
+      "effectiveness": "alta, reduz objeção de fragilidade"
+    }
+  ],
+
+  "marketplace_specific_insights": {
+    "mercado_livre": {
+      "title_strategy": "Concisão + Especificações Técnicas",
+      "key_patterns": [
+        "Marca no início se consolidada (Stanley, Termolar, Contigo)",
+        "Capacidade sempre presente (500ml, 1L)",
+        "Material no meio (Inox, Aço Inoxidável)",
+        "1 benefício funcional no fim (Mantém Quente 12h)"
+      ],
+      "winning_formula": "[Marca/Produto] [Material] [Capacidade] [Benefício]",
+      "character_sweet_spot": "52-60 chars",
+      "top_performers_examples": [
+        "Garrafa Térmica Termolar Lúmina Inox 500ml Bomba Pressão",
+        "Stanley Quick Flip Inox 750ml Mantém Quente 8h",
+        "Garrafa Térmica Inox Parede Dupla Vácuo 1L"
+      ]
+    },
+    "shopee": {
+      "title_strategy": "Maximizar Keywords + Contextos de Uso",
+      "key_patterns": [
+        "Títulos mais longos (80-120 chars) bem aceitos",
+        "Múltiplos benefícios listados (Quente 12h Frio 24h)",
+        "Contextos de uso empilhados (Academia Viagem Escritório)",
+        "Cores frequentemente mencionadas no título"
+      ],
+      "winning_formula": "[Produto] [Material] [Cap] [Duplo Benefício] [Contextos] [Cor]",
+      "character_sweet_spot": "85-115 chars",
+      "top_performers_examples": [
+        "Garrafa Squeeze Térmico Inox Color 500ml Termopro Mantém Quente Frio Academia",
+        "Garrafa Térmica 1L Parede Dupla Isolado Quente 12h Frio 24h Academia Viagem Preto",
+        "Squeeze Térmico Aço Inox 500ml Parede Dupla Academia Esportiva Não Vaza Rosa"
+      ]
+    },
+    "amazon_br": {
+      "title_strategy": "Marca + Modelo + Diferencial Premium",
+      "key_patterns": [
+        "Marca sempre no início (Stanley, Contigo, MODUS)",
+        "Modelo/linha destacada (Quencher 2.0, Aerolight)",
+        "Diferencial tecnológico (Isolamento a Vácuo, BPA Free)",
+        "Capacidade em formato internacional (887ml, 591ml, 1.1L)"
+      ],
+      "winning_formula": "[Marca] [Produto] [Modelo] [Capacidade] [Diferencial Premium]",
+      "character_sweet_spot": "65-95 chars",
+      "top_performers_examples": [
+        "Stanley Copo Quencher 2.0 Cream 887ml Isolamento Térmico",
+        "Contigo Garrafa Térmica Inox Parede Dupla Matterhorn 591ml",
+        "MODUS Garrafa Térmica Esportiva Aço Inox Isolamento Vácuo 1000ml"
+      ]
+    }
+  },
+
+  "keyword_density_recommendations": {
+    "primary_keywords": {
+      "must_include": ["Garrafa Térmica / Squeeze Térmico", "Inox / Aço Inoxidável", "500ml / 1L"],
+      "placement": "início e meio do título",
+      "density": "100% dos títulos"
+    },
+    "secondary_keywords": {
+      "highly_recommended": ["Parede Dupla", "Vácuo", "Mantém Quente/Frio", "Academia/Esportiva"],
+      "placement": "meio e fim do título",
+      "density": "70-85% dos títulos"
+    },
+    "tertiary_keywords": {
+      "optional_differentiators": ["Cor [especificação]", "Portátil", "Antigotejamento", "BPA Free", "Com Alça"],
+      "placement": "fim do título",
+      "density": "30-50% dos títulos"
+    }
+  },
+
+  "brand_positioning_in_titles": {
+    "marcas_consolidadas": {
+      "brands": ["Stanley", "Contigo", "Termolar", "Invicta"],
+      "strategy": "Marca no início do título. Brand equity alto.",
+      "example": "Stanley Quencher 2.0 887ml Inox Isolamento Térmico",
+      "marketplace_preference": "Amazon BR > Mercado Livre > Shopee"
+    },
+    "marcas_emergentes": {
+      "brands": ["Termopro", "MODUS", "Kouda", "FitKit"],
+      "strategy": "Produto primeiro, marca depois. Foco em atributos.",
+      "example": "Garrafa Térmica Inox 500ml Parede Dupla Termopro Academia",
+      "marketplace_preference": "Shopee > Mercado Livre"
+    },
+    "produtos_genéricos": {
+      "brands": ["Sem marca / OEM"],
+      "strategy": "Máximo de keywords. Compensar falta de brand equity.",
+      "example": "Garrafa Squeeze Térmica 1L Inox Parede Dupla Academia Viagem Quente Frio",
+      "marketplace_preference": "Shopee"
+    }
+  },
+
+  "seo_optimization_rules": {
+    "regra_1": {
+      "rule": "Head Term no início",
+      "detail": "Sempre iniciar com 'Garrafa Térmica' ou 'Squeeze Térmico' para máxima relevância em busca.",
+      "impact": "crítico para rankeamento orgânico"
+    },
+    "regra_2": {
+      "rule": "Capacidade obrigatória",
+      "detail": "500ml e 1L são filtros de busca mais usados. Sempre incluir no título.",
+      "impact": "alto para conversão"
+    },
+    "regra_3": {
+      "rule": "Material como diferenciador",
+      "detail": "'Inox' ou 'Aço Inoxidável' associado a qualidade e durabilidade.",
+      "impact": "alto para percepção de valor"
+    },
+    "regra_4": {
+      "rule": "Benefício funcional mensurável",
+      "detail": "'Mantém Quente 12h' ou 'Frio 24h' gera prova concreta de performance.",
+      "impact": "médio-alto para decisão de compra"
+    },
+    "regra_5": {
+      "rule": "Contexto de uso para segmentação",
+      "detail": "'Academia', 'Viagem', 'Escritório' segmenta público e aumenta relevância.",
+      "impact": "médio para nicho específico"
+    },
+    "regra_6": {
+      "rule": "Evitar keyword stuffing no ML",
+      "detail": "Mercado Livre penaliza excesso de keywords. Shopee tolera melhor.",
+      "impact": "crítico para não ser penalizado"
+    }
+  },
+
+  "competitive_intelligence": {
+    "top_selling_brands": [
+      {
+        "brand": "Stanley",
+        "market_share_estimate": "30-35%",
+        "avg_price_range": "R$ 140 - R$ 280",
+        "key_models": ["Quencher 2.0", "Classic", "Quick Flip", "Aerolight"],
+        "title_pattern": "[Marca] [Modelo] [Capacidade] [Material/Diferencial]"
+      },
+      {
+        "brand": "Termolar",
+        "market_share_estimate": "20-25%",
+        "avg_price_range": "R$ 45 - R$ 120",
+        "key_models": ["Lúmina", "MaxiTermo", "Allety"],
+        "title_pattern": "[Marca] [Linha] [Material] [Capacidade] [Sistema Abertura]"
+      },
+      {
+        "brand": "Contigo",
+        "market_share_estimate": "10-15%",
+        "avg_price_range": "R$ 90 - R$ 180",
+        "key_models": ["Matterhorn", "Autoseal", "West Loop"],
+        "title_pattern": "[Marca] [Produto] [Modelo] [Material] [Capacidade]"
+      },
+      {
+        "brand": "Produtos Genéricos/OEM",
+        "market_share_estimate": "25-30%",
+        "avg_price_range": "R$ 35 - R$ 80",
+        "key_models": ["N/A - focam em keywords genéricas"],
+        "title_pattern": "[Produto] [Material] [Cap] [Múltiplos Atributos Empilhados]"
+      }
+    ],
+    "pricing_correlation_with_title": {
+      "premium_titles": {
+        "characteristics": "Marca forte no início + Modelo + Tecnologia premium",
+        "price_range": "R$ 140 - R$ 280",
+        "example": "Stanley Quencher 2.0 Cream 887ml Isolamento Térmico"
+      },
+      "mid_range_titles": {
+        "characteristics": "Marca nacional + Material + Capacidade + Benefício",
+        "price_range": "R$ 70 - R$ 140",
+        "example": "Termolar Lúmina Inox 500ml Bomba Pressão Mantém Quente"
+      },
+      "budget_titles": {
+        "characteristics": "Produto genérico + Empilhamento de keywords + Sem marca forte",
+        "price_range": "R$ 35 - R$ 70",
+        "example": "Garrafa Térmica Inox 1L Parede Dupla Academia Viagem Quente Frio"
+      }
+    }
+  },
+
+  "actionable_recommendations": {
+    "para_mercado_livre": [
+      "Usar 52-60 caracteres no título (limite técnico de 60)",
+      "Estrutura: [Marca/Produto] [Material] [Capacidade] [1 Benefício Chave]",
+      "Priorizar especificações técnicas sobre contextos de uso",
+      "Incluir 'Parede Dupla' ou 'Vácuo' para diferenciar de produtos básicos",
+      "Se marca consolidada, iniciar com nome da marca"
+    ],
+    "para_shopee": [
+      "Aproveitar limite de 120 caracteres para máxima cobertura de keywords",
+      "Estrutura: [Produto] [Material] [Cap] [Benefícios] [Contextos] [Cor]",
+      "Incluir múltiplos contextos de uso (Academia + Viagem + Escritório)",
+      "Especificar cor no título (Preto, Rosa, Branco) para SEO de variações",
+      "Benefícios duplos ('Quente 12h Frio 24h') performam bem"
+    ],
+    "para_amazon_br": [
+      "Usar 65-95 caracteres (sweet spot, apesar do limite de 200)",
+      "Estrutura: [Marca] [Produto] [Modelo] [Capacidade] [Diferencial Premium]",
+      "Sempre iniciar com marca se tiver brand equity",
+      "Incluir diferenciais tecnológicos (BPA Free, Isolamento a Vácuo)",
+      "Capacidades em formato internacional (887ml vs 900ml) seguem padrão Stanley"
+    ],
+    "keywords_obrigatórias_geral": [
+      "Head term no início: 'Garrafa Térmica' ou 'Squeeze Térmico'",
+      "Material: 'Inox' ou 'Aço Inoxidável'",
+      "Capacidade: '500ml', '1L', '750ml' (top 3 mais buscadas)",
+      "Tecnologia: 'Parede Dupla' ou 'Vácuo'",
+      "Benefício mensurável: 'Mantém Quente Xh' ou 'Frio Xh'"
+    ],
+    "evitar": [
+      "Keyword stuffing excessivo no Mercado Livre (penalização de ranking)",
+      "Títulos genéricos sem diferenciação ('Garrafa Térmica Boa Qualidade')",
+      "Omitir capacidade (filtro crítico de busca)",
+      "Usar apenas benefícios emocionais sem especificações técnicas",
+      "Títulos curtos na Shopee (desperdiça limite de 120 chars)"
+    ]
+  },
+
+  "queries_traced": [
+    {
+      "query": "site:mercadolivre.com.br garrafa térmica inox mais vendida 2025",
+      "date": "2025-12-05",
+      "source": "Mercado Livre",
+      "url": "https://www.mercadolivre.com.br/blog/mais-vendidos/garrafas-termicas",
+      "insight": "Stanley, Termolar, Tramontina e Casita dominam top sellers. Parede dupla e capacidade 500ml/1L são atributos core."
+    },
+    {
+      "query": "site:shopee.com.br squeeze térmico top vendas bestseller",
+      "date": "2025-12-05",
+      "source": "Shopee",
+      "url": "https://shopee.com.br/Garrafa-Squeeze-T%C3%A9rmico-Inox-Color-500ml-Termopro-i.467603396.5092306378",
+      "insight": "Títulos longos com múltiplas variações de cor. Termopro forte em nicho esportivo."
+    },
+    {
+      "query": "site:amazon.com.br garrafa térmica best seller mais vendidos",
+      "date": "2025-12-05",
+      "source": "Amazon BR",
+      "url": "https://www.amazon.com.br/gp/bestsellers/kitchen/23541578011",
+      "insight": "Stanley Quencher 2.0 lidera. Títulos estruturados [Marca Modelo Capacidade]. Ratings 4.7-4.8 estrelas."
+    },
+    {
+      "query": "mercadolivre garrafa térmica stanley contigo fitkit",
+      "date": "2025-12-05",
+      "source": "Mercado Livre",
+      "url": "https://lista.mercadolivre.com.br/garrafa-termica-stanley",
+      "insight": "Stanley possui modelos icônicos (Classic, Flip Straw, Quick Flip). Títulos enfatizam tecnologia (Mantém Quente 15h)."
+    },
+    {
+      "query": "shopee garrafa térmica 500ml 1 litro parede dupla",
+      "date": "2025-12-05",
+      "source": "Shopee",
+      "url": "https://shopee.com.br/Garrafa-T%C3%A9rmica-de-Inox-Parede-Dupla-500ml-i.391120169.8118044614",
+      "insight": "Parede dupla é keyword obrigatória. Títulos incluem contexto de uso (Academia, Viagem)."
+    },
+    {
+      "query": "\"garrafa térmica\" \"500ml\" OR \"1 litro\" \"parede dupla\" site:mercadolivre.com.br título",
+      "date": "2025-12-05",
+      "source": "Mercado Livre",
+      "url": "https://www.mercadolivre.com.br/garrafa-termica-de-inox-parede-dupla-500ml/p/MLB23147690",
+      "insight": "Títulos técnicos performam melhor. 'Parede Dupla' + 'Vácuo' associados a produtos premium."
+    },
+    {
+      "query": "\"Squeeze Térmico\" \"Inox\" shopee amazon título completo produto",
+      "date": "2025-12-05",
+      "source": "Multi-marketplace",
+      "url": "https://shopee.com.br/amp/Garrafa-Squeeze-T%C3%A9rmico-Inox-Color-500ml-Termopro-i.467603396.5092306378",
+      "insight": "Squeeze = nicho esportivo. Títulos incluem 'Academia', 'Fitness', 'Esportiva' para segmentação."
+    },
+    {
+      "query": "garrafa térmica título otimizado SEO mercado livre shopee exemplo",
+      "date": "2025-12-05",
+      "source": "SEO Best Practices",
+      "url": "https://ecommercenapratica.com/blog/marketplace/",
+      "insight": "Título deve descrever produto de forma objetiva. Diferença entre vender está em como clientes buscam."
+    }
+  ]
+}

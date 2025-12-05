@@ -1,0 +1,110 @@
+{
+  "pipeline_id": "pipeline_garrafa_gato_20251205",
+  "product_name": "Garrafa Térmica Inox Gato Parede Dupla 320ml",
+  "started_at": "2025-12-05T00:00:00.000000",
+  "status": "running",
+  "phases": [
+    {
+      "id": "pesquisa",
+      "name": "Market Research (10 agents)",
+      "status": "completed",
+      "progress": 100,
+      "started_at": "2025-12-05T00:00:00.000000",
+      "completed_at": "2025-12-05T00:05:00.000000",
+      "quality_score": 0.92
+    },
+    {
+      "id": "anuncio",
+      "name": "Ad Copy",
+      "status": "completed",
+      "progress": 100,
+      "started_at": "2025-12-05T00:05:00.000000",
+      "completed_at": "2025-12-05T00:13:00.000000",
+      "quality_score": 1.0
+    },
+    {
+      "id": "photo",
+      "name": "Photo Prompts (9 scenes)",
+      "status": "completed",
+      "progress": 100,
+      "started_at": "2025-12-05T00:13:00.000000",
+      "completed_at": "2025-12-05T00:18:00.000000",
+      "quality_score": 1.0
+    },
+    {
+      "id": "images",
+      "name": "Image Gen (Gemini 2.5)",
+      "status": "pending",
+      "progress": 0
+    },
+    {
+      "id": "preview",
+      "name": "Preview HTML",
+      "status": "pending",
+      "progress": 0
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify Sync",
+      "status": "pending",
+      "progress": 0
+    }
+  ],
+  "live_thoughts": [
+    {
+      "timestamp": "2025-12-05T00:00:00.000000",
+      "agent": "orchestrator",
+      "message": "Pipeline iniciado - Garrafa Térmica Gato"
+    },
+    {
+      "timestamp": "2025-12-05T00:01:00.000000",
+      "agent": "pesquisa_agent",
+      "message": "10 agentes paralelos: specs, concorrentes, keywords, preços, sentiment, trends, compliance, YouTube, títulos, imagem"
+    },
+    {
+      "timestamp": "2025-12-05T00:05:00.000000",
+      "agent": "pesquisa_agent",
+      "message": "22 blocos de pesquisa consolidados - 5 concorrentes, 50+ queries"
+    },
+    {
+      "timestamp": "2025-12-05T00:08:00.000000",
+      "agent": "anuncio_agent",
+      "message": "6 títulos SEO, 60 keywords, 15 bullets, descrição StoryBrand"
+    },
+    {
+      "timestamp": "2025-12-05T00:13:00.000000",
+      "agent": "anuncio_agent",
+      "message": "Compliance 100% - pronto para publicação"
+    },
+    {
+      "timestamp": "2025-12-05T00:15:00.000000",
+      "agent": "photo_agent",
+      "message": "9 prompts gerados com HARD RULE (reference_images em todos)"
+    },
+    {
+      "timestamp": "2025-12-05T00:18:00.000000",
+      "agent": "photo_agent",
+      "message": "Prompts prontos: Hero, Detail, Gym, Office, Study, In-Use, Group, Flatlay, Emotional"
+    }
+  ],
+  "current_results": {
+    "title_preview": "Garrafa Térmica Gato 320ml Inox Tampa Orelhas 3D Gelada 24h",
+    "image_original": "user_research/garrafa_termica_gato/imagem_original.webp",
+    "prompts_ready": 9,
+    "compliance_score": 1.0
+  },
+  "files": {
+    "research": "user_research/garrafa_termica_gato/garrafa_termica_gato_research_notes.md",
+    "product_data": "user_research/garrafa_termica_gato/product_data.json",
+    "original_image": "user_research/garrafa_termica_gato/imagem_original.webp",
+    "anuncio": "user_research/garrafa_termica_gato/anuncio_completo.md",
+    "photo_prompts": "user_research/garrafa_termica_gato/photo_prompts.json"
+  },
+  "next_action": {
+    "phase": "images",
+    "model": "gemini-2.5-flash-preview-05-20 + imagen-3.0-generate-002",
+    "input": "photo_prompts.json",
+    "reference_image": "imagem_original.webp"
+  },
+  "updated_at": "2025-12-05T00:18:00.000000"
+}

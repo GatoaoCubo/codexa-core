@@ -1,15 +1,69 @@
 # 30_prompt_generator_HOP.md | photo_agent - AI Prompt Generation (Scenes 1-9)
 
-**Version**: 2.0.0
+**Version**: 2.1.0
 **Type**: HOP (Higher-Order Prompt)
 **Status**: Integrated with ADW Workflow v2.0.0
-**Last Updated**: 2025-11-17
+**Last Updated**: 2025-12-05
 **Integrated with**: workflows/100_ADW_RUN_PHOTO.md
 
 **Purpose**: Generate 9 detailed AI image prompts with technical specs, composition, and PNL triggers
-**Input**: Phase 2 output (camera specs + lighting design for all 9 scenes)
-**Output**: 9 AI prompts (≥80 words each) in code blocks, ready for Midjourney/DALL-E/Stable Diffusion
+**Input**: Phase 2 output (camera specs + lighting design for all 9 scenes) + **IMAGEM ORIGINAL DO PRODUTO**
+**Output**: 9 AI prompts (≥80 words each) in code blocks, ready for Gemini 2.5 Flash
 **Estimated Duration**: 5-10 minutes
+**Image Model**: Gemini 2.5 Flash (`gemini-2.5-flash-preview-05-20`) with Imagen 3.0 (`imagen-3.0-generate-002`)
+
+---
+
+## HARD RULE: IMAGEM ORIGINAL OBRIGATORIA
+
+> **REGRA INVIOLAVEL**: Cada prompt DEVE ser enviado junto com a imagem original do produto.
+
+### Por que esta regra existe?
+
+O modelo Gemini 2.5 Flash com Imagen 3.0 **perde consistencia visual** se nao receber a imagem de referencia em cada chamada. Isso causa:
+- Produtos diferentes entre cenas (cor, formato, detalhes)
+- Perda de identidade visual da marca
+- Imagens inutilizaveis para marketplace
+
+### Formato Obrigatorio de Chamada
+
+```python
+# CORRETO: Imagem original + prompt em CADA cena
+for scene in scenes_1_to_9:
+    response = client.models.generate_images(
+        model="imagen-3.0-generate-002",
+        prompt=scene.prompt,
+        reference_images=[imagem_original],  # OBRIGATORIO
+        config=types.GenerateImagesConfig(
+            number_of_images=1,
+            aspect_ratio=scene.aspect_ratio,
+        )
+    )
+
+# ERRADO: Prompt sem imagem de referencia
+response = client.models.generate_images(
+    model="imagen-3.0-generate-002",
+    prompt=scene.prompt,
+    # SEM reference_images = INCONSISTENCIA VISUAL
+)
+```
+
+### Checklist de Validacao
+
+- [ ] Imagem original carregada antes de gerar prompts
+- [ ] Cada chamada de API inclui `reference_images=[imagem_original]`
+- [ ] Todas as 9 cenas usam a MESMA imagem de referencia
+- [ ] Formato da imagem: WebP, PNG ou JPG (max 5MB)
+
+### Integracao com Pipeline Emitter
+
+```python
+from builders.pipeline_emitter import emit_thought, update_progress
+
+# Ao iniciar geracao de cada cena
+emit_thought("photo_agent", f"Gerando cena {scene_id} com imagem original...")
+update_progress("photo", progress_percent, f"Scene {scene_id}/9")
+```
 
 ---
 
