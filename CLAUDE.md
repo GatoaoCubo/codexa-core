@@ -1,6 +1,19 @@
 # CLAUDE.md - Project Laws
 
-**Auto-loaded by Claude Code** | v2.5.0 | 2025-12-04
+**Auto-loaded by Claude Code** | v2.7.0 | 2025-12-05
+
+---
+
+## QUICK NAVIGATION (Choose Your Path)
+
+| You Are | Start Here | Skip |
+|---------|------------|------|
+| **New User** | [GETTING_STARTED.md](GETTING_STARTED.md) | All LAWs (come back later) |
+| **Content Creator** | LAW 2, LAW 4 | LAW 3, 5, 6, 8, 9 |
+| **System Builder** | All LAWs | None |
+| **External LLM** | Agent's `iso_vectorstore/01_QUICK_START.md` | This file |
+
+**TL;DR for LLMs**: Laws are heuristics, not rigid rules. Use judgment. When uncertain, ask.
 
 ---
 
@@ -225,55 +238,38 @@ LEVEL 4: Full Auto  → Fix, commit, push (with rollback capability)
 
 ### LAW 9: SCOUT-FIRST CONSOLIDATION
 
-> "Every task begins with discovery. Update before create. Delete before duplicate."
+> "When in doubt, discover first. Update before create. Delete before duplicate."
 
-**Philosophy**: Scouts are the first action in ANY task. They find relevant context, identify consolidatable files, and prevent project pollution. CRUD discipline prioritizes Update/Delete over Create.
+**Philosophy**: Before creating new files or making significant changes, consider whether existing content can be reused or consolidated. This is a **heuristic, not a rigid rule** - use judgment based on task complexity.
 
-**Mandatory First Step**:
+**When to Scout First** (use judgment):
+| Task Type | Scout? | Rationale |
+|-----------|--------|-----------|
+| Creating new agent/HOP/command | Yes | Check if similar exists |
+| Multi-file refactoring | Yes | Understand dependencies |
+| Simple bug fix | No | Direct action faster |
+| Adding to existing file | No | Already know the target |
+| Uncertain where to start | Yes | Discovery helps orient |
+
+**CRUD Priority** (when creating/modifying):
 ```
-TASK RECEIVED → SPAWN SCOUTS → ANALYZE FINDINGS → THEN EXECUTE
-                     ↓
-         Find: relevant files, duplicates, consolidatables
-```
-
-**Decision Heuristics**:
-| Scout Finds | Action | Rationale |
-|-------------|--------|-----------|
-| Existing file matches intent | UPDATE it | Don't create duplicate |
-| Multiple similar files | CONSOLIDATE first | Reduce before adding |
-| Orphaned/stale files | DELETE them | Clean before building |
-| No relevant files | CREATE new | Only after scout confirms |
-
-**CRUD Priority** (highest to lowest):
-```
-1. DELETE  → Remove stale, orphaned, duplicate files
-2. UPDATE  → Modify existing files to match new requirements
-3. READ    → Use existing content as foundation
-4. CREATE  → Only when scouts confirm nothing exists
+Prefer UPDATE over CREATE → Extend existing files
+Prefer DELETE over DUPLICATE → Remove redundant content
+Prefer READ over ASSUME → Check existing patterns first
 ```
 
-**Consolidation Triggers** (auto-consolidate when):
-- Same content exists in 2+ locations
-- File in `iso_vectorstore/` duplicates parent directory file
-- HOPs with `*_HOP.md` suffix duplicate base HOP
-- Commands overlap in functionality
+**Anti-Pollution Principles**:
+- `iso_vectorstore/` = Export target, not source of truth
+- One canonical file per function (avoid `*_HOP.md` duplicates)
+- Consolidate overlapping commands
 
-**Scout Spawn Pattern**:
-```
-# Before ANY task, spawn scouts:
-/spawn model:haiku
-1. explore: find files relevant to "{task description}"
-2. explore: find consolidatable duplicates in affected directories
-3. explore: check iso_vectorstore sync status
-```
+**When to Use `/consolidate`**:
+- Periodic maintenance (weekly/monthly)
+- Before major refactoring
+- After bulk file operations
+- When noticing duplicate content
 
-**Anti-Pollution Rules**:
-- **iso_vectorstore**: Export target only, never source of truth
-- **Commands**: One command per workflow, consolidate overlaps
-- **HOPs**: One canonical ordinal per function
-- **Templates**: Shared in `codexa_agent/templates/`, agent-specific only when necessary
-
-**Trigger**: `/consolidate` (scan + auto-fix), `/consolidate --dry-run` (report only)
+**Trigger**: `/consolidate --dry-run` (report), `/consolidate` (auto-fix)
 
 **Reference**: [docs/CONSOLIDATION_PATTERNS.md](docs/CONSOLIDATION_PATTERNS.md)
 
@@ -352,18 +348,16 @@ curso → video → voice
 ### NEVER
 - Hardcode brand content in deliverables
 - Skip quality validation (≥7.0)
-- Guess file paths (use Scout)
+- Guess file paths (use Scout when uncertain)
 - Fail silently (always log)
-- Create files without scouting first (LAW 9)
-- Duplicate content across locations
+- Duplicate content across locations unnecessarily
 
 ### ALWAYS
 - Start with PRIME.md for new domains
 - Distill deliverables to templates
 - Use `{{PLACEHOLDER}}` syntax
 - Log errors with context
-- Scout before any task (LAW 9)
-- Consolidate before creating (CRUD priority)
+- Consider existing content before creating new (LAW 9 heuristic)
 
 ---
 
@@ -381,9 +375,10 @@ curso → video → voice
 
 ---
 
-**Version**: 2.6.0 | **Type**: Project Laws (Auto-loaded)
+**Version**: 2.7.0 | **Type**: Project Laws (Auto-loaded)
 
 ## Changelog
+- **v2.7.0** (2025-12-05): UX improvements - Quick Navigation section, GETTING_STARTED.md, LAW 9 softened to heuristic
 - **v2.6.0** (2025-12-05): Added LAW 9 (SCOUT-FIRST CONSOLIDATION), `/consolidate` command, CRUD priority discipline
 - **v2.5.0** (2025-12-04): Added LAW 8 (FEEDBACK LOOPS), `/bugloop` command, `outputs/bugfixes/` directory
 - **v2.4.0** (2025-12-03): Fixed trigger references (`/prime-*`), added Task Pipeline section
