@@ -1,8 +1,10 @@
 # /prime-scout | Path Discovery & Navigation System
 
-**Version**: 1.0.0 | **Status**: Active | **Type**: Infrastructure Agent | **Architecture**: MCP Server
+**Version**: 1.1.0 | **Status**: Active | **Type**: Infrastructure Agent | **Architecture**: MCP Server
 
 > **Scout**: Este é o próprio Scout! Veja [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md) para instruções de uso.
+
+> **LAW 9**: Scout-First Consolidation | Scout é a PRIMEIRA ação de qualquer tarefa → CRUD Priority: Delete > Update > Read > Create
 
 ---
 

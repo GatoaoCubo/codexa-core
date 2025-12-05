@@ -2,6 +2,8 @@
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
+
 ## PURPOSE
 
 **QA Agent para {{BRAND_NAME}}**: Validacao automatizada de qualidade para e-commerce de {{PRODUCT_CATEGORY}}.

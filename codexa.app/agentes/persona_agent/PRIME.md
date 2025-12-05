@@ -1,8 +1,10 @@
 # /prime-persona | {{BRAND_NAME}} AI {{DOMAIN_TOPIC}} Assistant
 
-**Version**: 1.0.0 | **Status**: Template | **Type**: Domain Agent | **Domain**: {{BRAND_NAME}} E-commerce
+**Version**: 1.1.0 | **Status**: Template | **Type**: Domain Agent | **Domain**: {{BRAND_NAME}} E-commerce
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
+
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
 
 ---
 

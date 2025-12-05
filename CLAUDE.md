@@ -223,6 +223,62 @@ LEVEL 4: Full Auto  → Fix, commit, push (with rollback capability)
 
 ---
 
+### LAW 9: SCOUT-FIRST CONSOLIDATION
+
+> "Every task begins with discovery. Update before create. Delete before duplicate."
+
+**Philosophy**: Scouts are the first action in ANY task. They find relevant context, identify consolidatable files, and prevent project pollution. CRUD discipline prioritizes Update/Delete over Create.
+
+**Mandatory First Step**:
+```
+TASK RECEIVED → SPAWN SCOUTS → ANALYZE FINDINGS → THEN EXECUTE
+                     ↓
+         Find: relevant files, duplicates, consolidatables
+```
+
+**Decision Heuristics**:
+| Scout Finds | Action | Rationale |
+|-------------|--------|-----------|
+| Existing file matches intent | UPDATE it | Don't create duplicate |
+| Multiple similar files | CONSOLIDATE first | Reduce before adding |
+| Orphaned/stale files | DELETE them | Clean before building |
+| No relevant files | CREATE new | Only after scout confirms |
+
+**CRUD Priority** (highest to lowest):
+```
+1. DELETE  → Remove stale, orphaned, duplicate files
+2. UPDATE  → Modify existing files to match new requirements
+3. READ    → Use existing content as foundation
+4. CREATE  → Only when scouts confirm nothing exists
+```
+
+**Consolidation Triggers** (auto-consolidate when):
+- Same content exists in 2+ locations
+- File in `iso_vectorstore/` duplicates parent directory file
+- HOPs with `*_HOP.md` suffix duplicate base HOP
+- Commands overlap in functionality
+
+**Scout Spawn Pattern**:
+```
+# Before ANY task, spawn scouts:
+/spawn model:haiku
+1. explore: find files relevant to "{task description}"
+2. explore: find consolidatable duplicates in affected directories
+3. explore: check iso_vectorstore sync status
+```
+
+**Anti-Pollution Rules**:
+- **iso_vectorstore**: Export target only, never source of truth
+- **Commands**: One command per workflow, consolidate overlaps
+- **HOPs**: One canonical ordinal per function
+- **Templates**: Shared in `codexa_agent/templates/`, agent-specific only when necessary
+
+**Trigger**: `/consolidate` (scan + auto-fix), `/consolidate --dry-run` (report only)
+
+**Reference**: [docs/CONSOLIDATION_PATTERNS.md](docs/CONSOLIDATION_PATTERNS.md)
+
+---
+
 ## TOOLS
 
 ### Navigation
@@ -245,6 +301,13 @@ LEVEL 4: Full Auto  → Fix, commit, push (with rollback capability)
 - `/bugloop --dry-run` - Observe only, report what would be fixed
 - `/bugloop --confirm-push` - Fix + commit, ask before push
 - `/bugloop --once` - Single iteration (no retry loop)
+
+### Scout-First Consolidation (LAW 9)
+- `/consolidate` - Scan for duplicates + auto-consolidate
+- `/consolidate --dry-run` - Report consolidatables without changing
+- `/consolidate --scope agents` - Only scan agent directories
+- `/consolidate --scope commands` - Only scan command files
+- `/spawn preset:consolidate` - 5 scouts scanning for duplicates
 
 ### Parallel Execution
 - `/spawn` - Launch N agents in parallel (max 10)
@@ -291,12 +354,16 @@ curso → video → voice
 - Skip quality validation (≥7.0)
 - Guess file paths (use Scout)
 - Fail silently (always log)
+- Create files without scouting first (LAW 9)
+- Duplicate content across locations
 
 ### ALWAYS
 - Start with PRIME.md for new domains
 - Distill deliverables to templates
 - Use `{{PLACEHOLDER}}` syntax
 - Log errors with context
+- Scout before any task (LAW 9)
+- Consolidate before creating (CRUD priority)
 
 ---
 
@@ -307,15 +374,17 @@ curso → video → voice
 | [docs/PLACEHOLDERS.md](docs/PLACEHOLDERS.md) | Placeholder definitions |
 | [docs/WORKFLOWS.md](docs/WORKFLOWS.md) | ADW catalog (41 workflows) |
 | [docs/AGENT_CHAINS.md](docs/AGENT_CHAINS.md) | Agent connections & pipelines |
+| [docs/CONSOLIDATION_PATTERNS.md](docs/CONSOLIDATION_PATTERNS.md) | LAW 9 consolidation patterns |
 | [docs/API_KEYS_REFERENCE.md](docs/API_KEYS_REFERENCE.md) | External services |
 | [docs/COMMERCIALIZATION_ROADMAP.md](docs/COMMERCIALIZATION_ROADMAP.md) | Business strategy & monetization |
 | [path_registry.json](path_registry.json) | Path placeholders |
 
 ---
 
-**Version**: 2.5.0 | **Type**: Project Laws (Auto-loaded)
+**Version**: 2.6.0 | **Type**: Project Laws (Auto-loaded)
 
 ## Changelog
+- **v2.6.0** (2025-12-05): Added LAW 9 (SCOUT-FIRST CONSOLIDATION), `/consolidate` command, CRUD priority discipline
 - **v2.5.0** (2025-12-04): Added LAW 8 (FEEDBACK LOOPS), `/bugloop` command, `outputs/bugfixes/` directory
 - **v2.4.0** (2025-12-03): Fixed trigger references (`/prime-*`), added Task Pipeline section
 - **v2.3.0** (2025-12-03): Added Agent Chains section and AGENT_CHAINS.md reference

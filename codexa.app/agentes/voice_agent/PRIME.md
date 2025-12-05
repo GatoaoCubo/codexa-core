@@ -2,6 +2,8 @@
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
+
 ## PURPOSE
 
 **VOICE_AGENT**: Accessibility-first voice interface for CODEXA. Enables hands-free interaction with Claude Code.

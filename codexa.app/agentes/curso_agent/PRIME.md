@@ -2,6 +2,8 @@
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
+
 ## 🗺️ NAVIGATION MAP (Quick Reference)
 
 ### Status do Projeto: v2.5.1 PRODUCTION-READY (12 Leverage Points)

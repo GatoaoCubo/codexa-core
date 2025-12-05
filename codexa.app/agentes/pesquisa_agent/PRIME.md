@@ -1,8 +1,10 @@
 # /prime-pesquisa | Brazilian E-commerce Research Agent
 
-**Version**: 3.1.0 | **Status**: Production | **Isolation**: Full | **Framework**: 12 Leverage Points
+**Version**: 3.2.0 | **Status**: Production | **Isolation**: Full | **Framework**: 12 Leverage Points
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
+
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
 
 ---
 

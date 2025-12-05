@@ -1,10 +1,12 @@
-# /prime-marca | Brand Strategy Agent v3.0.0
+# /prime-marca | Brand Strategy Agent v3.1.0
 
 **Purpose**: TAC-7 system for comprehensive Brazilian e-commerce brand identities
 **Time**: 15-20min | **Output**: brand_strategy.md (32 blocks) + validation_report.txt + metadata.json (Trinity)
 **Architecture**: Dual-Layer ADW+HOP | 5-Phase SDLC | 12 Leverage Points
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
+
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
 
 ---
 

@@ -1,8 +1,10 @@
-# PRIME: anuncio_agent v2.5.0
+# PRIME: anuncio_agent v2.6.0
 
 **AI Assistant Entry Point** - Compliant, persuasive e-commerce copywriting for Brazilian marketplaces
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
+
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
 
 ---
 

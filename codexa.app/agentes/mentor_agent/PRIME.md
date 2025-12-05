@@ -2,6 +2,8 @@
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
+
 ## 🎯 Purpose
 Provide focused context for the **Mentor Agent** - a consolidated intelligence system combining discovery (scout), knowledge processing, and practical mentoring for Brazilian e-commerce sellers.
 

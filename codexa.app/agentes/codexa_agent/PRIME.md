@@ -51,13 +51,21 @@
 
 **IMPORTANT:** META-LEVEL. Read strategically. Find and use existing files to orchestrate [any task].
 
-### Discovery-First Workflow
+### Scout-First Workflow (LAW 9)
 
-**Pattern**: Find existing files → Understand system → Execute orchestration
+**Pattern**: Scout → Analyze Consolidatables → CRUD Priority → Execute
 
 ```bash
-# 1. SCAN: Understand meta-construction system
-ls -1 builders/*.py validators/*.py prompts/*_HOP.md
+# 0. SCOUT FIRST (MANDATORY - LAW 9)
+# Before ANY task, spawn scouts to find relevant files and duplicates
+/spawn model:haiku
+1. explore: find files relevant to "{task description}"
+2. explore: find consolidatable duplicates in affected directories
+
+# 1. ANALYZE: Review scout findings
+# - Existing files to UPDATE (not duplicate)
+# - Similar files to CONSOLIDATE
+# - Orphaned files to DELETE
 
 # 2. BUILD: Execute construction (5-phase agent / 3-phase workflow)
 uv run builders/02_agent_meta_constructor.py "Agent description"
@@ -65,6 +73,12 @@ uv run builders/02_agent_meta_constructor.py "Agent description"
 # 3. VALIDATE: Quality gates
 uv run validators/07_hop_sync_validator.py [file.md]
 ```
+
+**CRUD Priority** (highest to lowest):
+1. **DELETE** - Remove stale, orphaned, duplicate files first
+2. **UPDATE** - Modify existing files to match new requirements
+3. **READ** - Use existing content as foundation
+4. **CREATE** - Only when scouts confirm nothing exists
 
 ### PITER Framework (AFK Coding Agents)
 
@@ -127,18 +141,19 @@ uv run validators/07_hop_sync_validator.py [file.md]
 
 ### Meta-Construction Principles
 
-**1. Meta > Instance** - Build builders not artifacts | Templates not instances | Patterns not solutions
-**2. One-Prompt-One-Purpose (OPOP)** - 1 module = 1 responsibility | Compose don't duplicate | Single agent, single prompt, single purpose
-**3. [OPEN_VARIABLES]** - Intentional blanks | Creative entropy | LLM fills appropriately
-**4. $arguments-chaining** - Phase N output → Phase N+1 input | Explicit data flow | Traceable
-**5. Isolation Principle** - Self-contained agents | No hidden dependencies | Portable/composable
-**6. Trinity Output** - .md (human) + .llm.json (structured) + .meta.json (metadata)
-**7. Information-Dense** - Keywords not sentences | Token-efficient | MAX 1000 LINES/FILE
-**8. Plan>Code>Test>Review>Document** - ADW workflow pattern | Quality gates at each step
-**9. Always Add Feedback Loops** - Test → Validate → Fix → Repeat | Closing the Loop | Self-correcting systems
-**10. Template Your Engineering** - Transform workflows into reusable units | 1 template → many plans → many results
-**11. Prioritize Agentics** - 50%+ time in agentic layer (building builders) vs application layer (building features)
-**12. ##report Standard** - Every builder/validator/workflow must output structured report (MD + JSON) with metrics/results
+**1. Scout-First (LAW 9)** - Every task starts with scouts | Find before build | Consolidate before create | CRUD: Delete > Update > Read > Create
+**2. Meta > Instance** - Build builders not artifacts | Templates not instances | Patterns not solutions
+**3. One-Prompt-One-Purpose (OPOP)** - 1 module = 1 responsibility | Compose don't duplicate | Single agent, single prompt, single purpose
+**4. [OPEN_VARIABLES]** - Intentional blanks | Creative entropy | LLM fills appropriately
+**5. $arguments-chaining** - Phase N output → Phase N+1 input | Explicit data flow | Traceable
+**6. Isolation Principle** - Self-contained agents | No hidden dependencies | Portable/composable
+**7. Trinity Output** - .md (human) + .llm.json (structured) + .meta.json (metadata)
+**8. Information-Dense** - Keywords not sentences | Token-efficient | MAX 1000 LINES/FILE
+**9. Plan>Code>Test>Review>Document** - ADW workflow pattern | Quality gates at each step
+**10. Always Add Feedback Loops** - Test → Validate → Fix → Repeat | Closing the Loop | Self-correcting systems
+**11. Template Your Engineering** - Transform workflows into reusable units | 1 template → many plans → many results
+**12. Prioritize Agentics** - 50%+ time in agentic layer (building builders) vs application layer (building features)
+**13. ##report Standard** - Every builder/validator/workflow must output structured report (MD + JSON) with metrics/results
 
 ### Keywords Reference (Information-Dense Communication)
 
@@ -390,17 +405,23 @@ def value_aware_loop(task, validator, confidence_threshold=0.7):
 
 ### Best Practices (Rules)
 
-**DO**: Read philosophy first | Use templates | Validate incrementally | Document everything | Embrace [VARIABLES] | Chain $arguments | Build for reuse | Information-dense keywords | MAX 1000 LINES
+**DO**: Scout first (LAW 9) | Read philosophy first | Use templates | Validate incrementally | Document everything | Embrace [VARIABLES] | Chain $arguments | Build for reuse | Information-dense keywords | MAX 1000 LINES | Consolidate before create
 
-**DON'T**: Skip validation | Create orphaned dependencies | Ignore quality thresholds | Build instances (build builders instead)
+**DON'T**: Skip scouting | Create without checking existing | Skip validation | Create orphaned dependencies | Ignore quality thresholds | Build instances (build builders instead) | Duplicate content across locations
 
 ---
 
-**Version**: 2.5.1
-**Last Updated**: 2025-11-29
+**Version**: 2.6.0
+**Last Updated**: 2025-12-05
 **Agent Type**: Meta-Construction & Self-Improvement
 **Dependencies**: All other agents (CODEXA builds them all)
 **Status**: Production-Ready Multi-Agent Orchestration System
+
+**Changelog v2.6.0** (LAW 9 INTEGRATION):
+- ✅ Added Scout-First Workflow (LAW 9) as principle #1
+- ✅ Added CRUD Priority discipline (Delete > Update > Read > Create)
+- ✅ Updated Best Practices with consolidation rules
+- ✅ Integrated with CLAUDE.md v2.6.0
 
 **Changelog v2.5.0** (PHASE 9 DEPLOYMENT):
 - ✅ Created CHANGELOG.md (complete version history, metrics, migration path)

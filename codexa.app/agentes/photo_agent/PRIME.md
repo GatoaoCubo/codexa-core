@@ -1,8 +1,10 @@
-# PRIME: photo_agent v2.5.0
+# PRIME: photo_agent v2.6.0
 
 **AI Assistant Entry Point** - Professional AI photography prompt generation for e-commerce
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
+
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
 
 ---
 

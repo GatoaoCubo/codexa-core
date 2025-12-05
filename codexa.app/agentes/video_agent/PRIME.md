@@ -2,9 +2,11 @@
 
 **AI Assistant Entry Point** - Navigation guide for video production specialist
 
-**Version**: 2.8.0 | **Status**: Production-Ready | **Type**: Specialist Agent
+**Version**: 2.9.0 | **Status**: Production-Ready | **Type**: Specialist Agent
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
+
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
 
 ---
 
