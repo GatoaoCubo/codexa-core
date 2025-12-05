@@ -3,6 +3,12 @@ Unit tests for CodeXAnuncio processor.
 Tests parsing, generation, validation, and persuasion scoring.
 """
 
+import sys
+from pathlib import Path
+
+# Add src directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
 from datetime import datetime
 
 import pytest
