@@ -115,10 +115,35 @@ async function ensureScreenshotsDir() {
 
 // Browser instance management
 let browserInstance = null;
+let browserLaunchAttempts = 0;
+const MAX_LAUNCH_ATTEMPTS = 3;
 
+/**
+ * Get or create browser instance with smart fallback strategy:
+ * 1. Try system Chrome (if CHROME_PATH env var set)
+ * 2. Try bundled Chromium (auto-downloaded by Puppeteer)
+ * 3. Retry with alternative args if launch fails
+ *
+ * Chromium bundling: Puppeteer automatically downloads Chromium on `npm install`
+ * Location: node_modules/puppeteer/.local-chromium/
+ */
 async function getBrowser() {
-  if (!browserInstance) {
-    browserInstance = await puppeteer.launch({
+  if (browserInstance && browserInstance.isConnected()) {
+    return browserInstance;
+  }
+
+  if (browserLaunchAttempts >= MAX_LAUNCH_ATTEMPTS) {
+    throw new Error(
+      'Failed to launch browser after multiple attempts. ' +
+      'Ensure Chrome/Chromium is available or run: npm install puppeteer'
+    );
+  }
+
+  browserLaunchAttempts++;
+
+  try {
+    // Base launch options
+    const launchOptions = {
       headless: 'new',
       args: [
         '--no-sandbox',
@@ -131,34 +156,109 @@ async function getBrowser() {
         '--disable-features=IsolateOrigins,site-per-process',
         '--lang=pt-BR,pt',
       ],
+    };
+
+    // Strategy 1: Use system Chrome if CHROME_PATH env var is set
+    if (process.env.CHROME_PATH) {
+      console.error(`[Browser] Attempting to use Chrome at: ${process.env.CHROME_PATH}`);
+      launchOptions.executablePath = process.env.CHROME_PATH;
+    } else {
+      // Strategy 2: Use bundled Chromium (default Puppeteer behavior)
+      console.error('[Browser] Using bundled Chromium (auto-downloaded by Puppeteer)');
+      // executablePath is omitted - Puppeteer uses bundled Chromium
+    }
+
+    browserInstance = await puppeteer.launch(launchOptions);
+    browserLaunchAttempts = 0; // Reset on success
+
+    console.error(`[Browser] Successfully launched (attempt ${browserLaunchAttempts})`);
+
+    // Set up disconnect handler
+    browserInstance.on('disconnected', () => {
+      console.error('[Browser] Browser disconnected, will reconnect on next request');
+      browserInstance = null;
     });
+
+    return browserInstance;
+
+  } catch (error) {
+    console.error(`[Browser] Launch failed (attempt ${browserLaunchAttempts}/${MAX_LAUNCH_ATTEMPTS}):`, error.message);
+
+    // Strategy 3: Retry with minimal args if first attempt failed
+    if (browserLaunchAttempts === 1) {
+      console.error('[Browser] Retrying with minimal arguments...');
+      try {
+        const minimalOptions = {
+          headless: 'new',
+          args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        };
+
+        if (process.env.CHROME_PATH) {
+          minimalOptions.executablePath = process.env.CHROME_PATH;
+        }
+
+        browserInstance = await puppeteer.launch(minimalOptions);
+        browserLaunchAttempts = 0;
+        console.error('[Browser] Successfully launched with minimal config');
+        return browserInstance;
+      } catch (retryError) {
+        console.error('[Browser] Minimal config also failed:', retryError.message);
+      }
+    }
+
+    // If all strategies fail, provide helpful error message
+    const errorMessage = [
+      'Browser launch failed. Troubleshooting steps:',
+      '1. Run: npm install puppeteer (downloads bundled Chromium)',
+      '2. Set CHROME_PATH env var to your Chrome installation:',
+      '   - Windows: C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+      '   - Linux: /usr/bin/google-chrome or /usr/bin/chromium',
+      '   - macOS: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+      '3. Check permissions and available disk space',
+      `Original error: ${error.message}`
+    ].join('\n   ');
+
+    throw new Error(errorMessage);
   }
-  return browserInstance;
 }
 
 async function createPage() {
-  const browser = await getBrowser();
-  const page = await browser.newPage();
+  try {
+    const browser = await getBrowser();
+    const page = await browser.newPage();
 
-  const viewport = getRandomViewport();
-  const userAgent = getRandomUserAgent();
+    const viewport = getRandomViewport();
+    const userAgent = getRandomUserAgent();
 
-  await page.setViewport(viewport);
-  await page.setUserAgent(userAgent);
+    await page.setViewport(viewport);
+    await page.setUserAgent(userAgent);
 
-  // Set Brazilian locale
-  await page.setExtraHTTPHeaders({
-    'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
-  });
+    // Set Brazilian locale
+    await page.setExtraHTTPHeaders({
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    });
 
-  // Bypass some detection
-  await page.evaluateOnNewDocument(() => {
-    Object.defineProperty(navigator, 'webdriver', { get: () => false });
-    Object.defineProperty(navigator, 'languages', { get: () => ['pt-BR', 'pt', 'en-US', 'en'] });
-    Object.defineProperty(navigator, 'platform', { get: () => 'Win32' });
-  });
+    // Bypass some detection
+    await page.evaluateOnNewDocument(() => {
+      Object.defineProperty(navigator, 'webdriver', { get: () => false });
+      Object.defineProperty(navigator, 'languages', { get: () => ['pt-BR', 'pt', 'en-US', 'en'] });
+      Object.defineProperty(navigator, 'platform', { get: () => 'Win32' });
+    });
 
-  return page;
+    return page;
+  } catch (error) {
+    console.error('[Browser] Failed to create page:', error.message);
+    // Reset browser instance to force reconnection on next attempt
+    if (browserInstance) {
+      try {
+        await browserInstance.close();
+      } catch (e) {
+        // Ignore close errors
+      }
+      browserInstance = null;
+    }
+    throw new Error(`Failed to create browser page: ${error.message}`);
+  }
 }
 
 // Core functions

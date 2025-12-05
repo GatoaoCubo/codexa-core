@@ -1,0 +1,27 @@
+{
+  "name": "mcp-dashboard",
+  "version": "1.0.0",
+  "description": "Web Dashboard for MCP Server Management - Health Monitor, Tool Explorer, Log Viewer, Command Palette",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ws": "^8.18.0",
+    "open": "^10.1.0"
+  },
+  "keywords": [
+    "mcp",
+    "dashboard",
+    "web",
+    "codexa"
+  ],
+  "author": "CODEXA",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

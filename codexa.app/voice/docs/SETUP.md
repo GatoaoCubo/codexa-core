@@ -8,6 +8,22 @@
 
 ## Installation
 
+### Windows (Recommended)
+
+Run the automated setup script:
+
+```batch
+codexa.app\voice\setup_windows.bat
+```
+
+Or manually install:
+
+```batch
+python -m pip install -r codexa.app\voice\requirements.txt
+```
+
+### Linux/macOS
+
 ```bash
 # Install dependencies
 pip install -r codexa.app/voice/requirements.txt
@@ -46,17 +62,19 @@ Already configured in `.mcp.json`:
 {
   "mcpServers": {
     "voice": {
-      "type": "stdio",
-      "command": "py",
-      "args": ["-3.12", "codexa.app/voice/server.py"],
+      "command": "python",
+      "args": ["codexa.app/voice/server.py"],
       "env": {
-        "PYTHONPATH": "...",
-        "ELEVENLABS_API_KEY": "..."
+        "ELEVENLABS_API_KEY": "${ELEVENLABS_API_KEY}",
+        "VOICE_PORT": "5000",
+        "VOICE_LANGUAGE": "pt-BR"
       }
     }
   }
 }
 ```
+
+**Note**: The configuration uses `python` command which works on Windows, Linux, and macOS. The server will automatically find the Python interpreter in your PATH.
 
 ### 3. Test Setup
 

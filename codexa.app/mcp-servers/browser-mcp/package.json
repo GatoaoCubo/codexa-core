@@ -1,12 +1,14 @@
 {
   "name": "browser-mcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MCP Browser Server for market research - screenshots, anti-detection, full page capture",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "node test.js"
+    "test": "node test.js",
+    "test-browser": "node test-browser.js",
+    "postinstall": "node -e \"console.log('Puppeteer will download bundled Chromium automatically if not present')\""
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.5.0",
@@ -14,13 +16,20 @@
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
+  "puppeteer": {
+    "skipDownload": false
+  },
   "keywords": [
     "mcp",
     "browser",
     "puppeteer",
     "screenshot",
-    "research"
+    "research",
+    "chromium"
   ],
   "author": "Codexa",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

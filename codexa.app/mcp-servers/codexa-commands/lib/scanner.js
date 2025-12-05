@@ -18,8 +18,8 @@ export async function scanCommands(rootPath) {
   // Pattern 1: Agent-level commands
   const agentPattern = 'codexa.app/agentes/*/commands/*.md';
 
-  // Pattern 2: Global commands
-  const globalPattern = 'codexa.app/.claude/commands/*.md';
+  // Pattern 2: Global commands (root .claude/commands/)
+  const globalPattern = '.claude/commands/*.md';
 
   try {
     // Scan agent commands

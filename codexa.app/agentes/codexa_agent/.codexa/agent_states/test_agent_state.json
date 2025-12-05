@@ -1,0 +1,13 @@
+{
+  "agent_id": "test_agent",
+  "workflow_id": "test_workflow_001",
+  "status": "completed",
+  "iteration": 3,
+  "total_tool_calls": 2,
+  "total_cost": 0.0039496,
+  "started_at": "2025-12-04T18:46:15.012121",
+  "completed_at": "2025-12-04T18:46:20.219789",
+  "error": null,
+  "artifacts_created": [],
+  "metadata": {}
+}

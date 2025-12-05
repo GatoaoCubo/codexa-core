@@ -1,19 +1,57 @@
-# CODEXA Voice System v2.0
+# CODEXA Voice System v3.0
 
 Sistema de voz para acessibilidade. Permite interagir com Claude Code usando apenas voz.
 
+## IMPORTANTE: Funciona SEM API Keys!
+
+O sistema de voz funciona **completamente grátis** usando:
+- **TTS**: Edge TTS (Microsoft, grátis, boa qualidade)
+- **STT**: Whisper local (OpenAI, grátis, offline)
+
+A chave `ELEVENLABS_API_KEY` é **OPCIONAL** e só necessária se você quiser qualidade premium.
+
 ## Quick Start
 
-```bash
-# 1. Instalar dependencias
-pip install -r requirements.txt
+### Windows
 
-# 2. Executar setup (opcional - configura e testa)
-python -m setup
+```batch
+REM 1. Instalar dependências
+python -m pip install -r codexa.app\voice\requirements.txt
+
+REM 2. (OPCIONAL) Configurar .env na raiz do projeto
+REM    Apenas se quiser usar ElevenLabs premium:
+REM    ELEVENLABS_API_KEY=el_your_key_here
+REM
+REM    Se não configurar, usa Edge TTS (grátis, bom)
+
+REM 3. No Claude Code, digitar:
+REM /v
+```
+
+### Linux/macOS
+
+```bash
+# 1. Instalar dependências
+pip install -r codexa.app/voice/requirements.txt
+
+# 2. (OPCIONAL) Configurar .env na raiz do projeto
+#    Apenas se quiser usar ElevenLabs premium
 
 # 3. No Claude Code, digitar:
 /v
 ```
+
+## Fallback Automático
+
+O sistema tenta automaticamente (em ordem):
+
+### TTS (Text-to-Speech):
+1. **Edge TTS** (FREE, online, boa qualidade) ← padrão
+2. **ElevenLabs** (premium, se configurado)
+3. **pyttsx3** (FREE, offline, qualidade básica) ← sempre funciona
+
+### STT (Speech-to-Text):
+- **Whisper** (FREE, offline, ótima qualidade) ← único método
 
 ## Uso
 
@@ -105,13 +143,78 @@ Este sistema foi projetado para usuários que não podem digitar:
 
 ## Troubleshooting
 
-### TTS não funciona
-1. Verifique se pygame está instalado: `pip install pygame`
-2. Teste: `python tts.py "teste"`
+### "ELEVENLABS_API_KEY not found" ou erro similar
+
+**Resposta**: Isso é NORMAL! O sistema vai funcionar mesmo assim.
+
+O voice server tenta os providers de TTS nesta ordem:
+1. Edge TTS (FREE) - vai funcionar se tiver internet
+2. ElevenLabs - só tenta se você configurou a API key
+3. pyttsx3 (FREE, offline) - sempre funciona
+
+**Solução**: Ignore o aviso. O sistema vai usar Edge TTS automaticamente.
+
+### TTS não funciona / Sem som
+
+**Causa comum**: Faltam dependências de áudio
+
+**Solução**:
+```bash
+# Instalar todas as dependências
+pip install -r codexa.app/voice/requirements.txt
+
+# Ou individualmente:
+pip install edge-tts  # Para Edge TTS (recomendado)
+pip install pygame    # Para playback de áudio
+pip install pyttsx3   # Para fallback offline
+```
+
+**Testar**:
+```bash
+cd codexa.app/voice
+python tts.py "teste de voz"
+```
 
 ### Microfone não detectado
-1. Verifique se sounddevice está instalado: `pip install sounddevice`
-2. Execute o setup: `python -m setup`
+
+**Solução**:
+```bash
+# Instalar dependências STT
+pip install sounddevice soundfile webrtcvad faster-whisper
+
+# Executar wizard de configuração
+cd codexa.app/voice
+python -m setup
+```
+
+### Edge TTS falha (sem internet)
+
+**Resposta**: O sistema vai automaticamente usar pyttsx3 (offline).
+
+**Para forçar offline**:
+```env
+# Adicionar no .env
+TTS_PROVIDER=pyttsx3
+```
+
+### Qualidade de voz ruim
+
+**Para melhorar**:
+
+1. **Grátis**: Use Edge TTS (padrão, boa qualidade)
+2. **Premium**: Configure ElevenLabs:
+   ```env
+   ELEVENLABS_API_KEY=el_sua_chave_aqui
+   ```
+   Obtenha chave em: https://elevenlabs.io/app/settings/api-keys
+
+### Erro "Module not found"
+
+**Solução**:
+```bash
+# Reinstalar todas as dependências
+pip install -r codexa.app/voice/requirements.txt --force-reinstall
+```
 
 ### ElevenLabs não funciona
 1. Verifique a API key no `.env`

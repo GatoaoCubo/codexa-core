@@ -61,22 +61,45 @@ MAX_IMAGE_SIZE_MB=10
 
 ## 2. Voice & Audio (Optional)
 
-### ElevenLabs
+> **IMPORTANT**: Voice features work WITHOUT any API keys!
+>
+> The system uses:
+> - **TTS**: Edge TTS (FREE) → ElevenLabs (premium) → pyttsx3 (offline)
+> - **STT**: Local Whisper model (FREE, offline)
+>
+> Leave `ELEVENLABS_API_KEY` empty to use FREE Edge TTS + Whisper.
+
+### ElevenLabs (Optional Premium TTS)
 
 ```
 Key: ELEVENLABS_API_KEY
 Format: el_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-Get at: https://elevenlabs.io
-Used by: voice server, video_agent TTS
-Fallback: Local pyttsx3 (free, lower quality)
+Get at: https://elevenlabs.io/app/settings/api-keys
+Used by: voice server, video_agent TTS (optional)
+Required: NO - system falls back to Edge TTS (free, online) or pyttsx3 (offline)
 ```
+
+**TTS Fallback Chain:**
+1. **Edge TTS** (FREE, online, good quality) - tried first
+2. **ElevenLabs** (premium, optional) - only if API key configured
+3. **pyttsx3** (FREE, offline, basic) - final fallback
 
 **Related Settings:**
 ```env
-ELEVENLABS_DEFAULT_VOICE_ID=pMsXgVXv3BLzUgSXRplE
+# ElevenLabs (optional)
+ELEVENLABS_API_KEY={YOUR_KEY_HERE}
+ELEVENLABS_VOICE_ID=pMsXgVXv3BLzUgSXRplE
 ELEVENLABS_MODEL_ID=eleven_multilingual_v2
+
+# Voice server
 VOICE_PORT=5000
 VOICE_LANGUAGE=pt-BR
+
+# TTS provider override (optional)
+TTS_PROVIDER=auto  # auto, edge, elevenlabs, pyttsx3
+
+# Edge TTS voice (free alternative)
+EDGE_VOICE=pt-BR-FranciscaNeural
 ```
 
 ---

@@ -266,10 +266,10 @@ def speak(
     """
     Speak text using the best available TTS provider.
 
-    Fallback chain:
-    1. Edge TTS (free, online)
-    2. ElevenLabs (premium, if configured)
-    3. pyttsx3 (offline)
+    Fallback chain (auto mode):
+    1. Edge TTS (FREE, online, good quality) - always works if internet available
+    2. ElevenLabs (PREMIUM, requires ELEVENLABS_API_KEY in .env)
+    3. pyttsx3 (FREE, offline, basic quality) - always works
 
     Args:
         text: Text to speak
@@ -279,6 +279,16 @@ def speak(
 
     Returns:
         True if success
+
+    Example:
+        # Auto-select best available (recommended)
+        speak("Hello world")
+
+        # Force specific provider
+        speak("Hello world", provider='pyttsx3')
+
+        # Save to file
+        speak("Hello world", save_to_file='output.mp3')
     """
     if not text or not text.strip():
         return True
@@ -292,6 +302,9 @@ def speak(
         return speak_pyttsx3(text)
 
     # Auto mode: try each provider in order
+    # Edge TTS first (free, good quality)
+    # ElevenLabs second (premium, only if configured)
+    # pyttsx3 last (offline fallback, always works)
     providers = [
         ('edge', lambda: speak_edge(text, save_to_file=save_to_file)),
         ('elevenlabs', lambda: speak_elevenlabs(text, voice_id=voice_id, save_to_file=save_to_file)),
@@ -300,13 +313,15 @@ def speak(
 
     for name, func in providers:
         try:
-            if func():
+            result = func()
+            if result:
+                print(f"TTS provider: {name}", file=sys.stderr)
                 return True
         except Exception as e:
             print(f"{name} falhou: {e}", file=sys.stderr)
             continue
 
-    print("Todos os providers TTS falharam", file=sys.stderr)
+    print("ERRO: Todos os providers TTS falharam", file=sys.stderr)
     return False
 
 

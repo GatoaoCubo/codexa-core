@@ -23,8 +23,8 @@
       }
     },
     "voice": {
-      "command": "uv",
-      "args": ["run", "codexa.app/voice/server.py"],
+      "command": "python",
+      "args": ["codexa.app/voice/server.py"],
       "env": {
         "ELEVENLABS_API_KEY": "${ELEVENLABS_API_KEY}",
         "VOICE_PORT": "5000",

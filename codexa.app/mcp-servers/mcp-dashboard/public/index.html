@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Dashboard - CODEXA</title>
+  <style>
+    :root {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-tertiary: #21262d;
+      --border-color: #30363d;
+      --text-primary: #c9d1d9;
+      --text-secondary: #8b949e;
+      --accent-cyan: #58a6ff;
+      --accent-green: #3fb950;
+      --accent-yellow: #d29922;
+      --accent-red: #f85149;
+      --accent-purple: #a371f7;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      color: var(--accent-cyan);
+    }
+
+    .logo span {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg-tertiary);
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0 2rem;
+    }
+
+    .tab {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tab:hover {
+      color: var(--text-primary);
+      background: var(--bg-tertiary);
+    }
+
+    .tab.active {
+      color: var(--accent-cyan);
+      border-bottom-color: var(--accent-cyan);
+    }
+
+    .tab-icon {
+      font-size: 1.1rem;
+    }
+
+    /* Main Content */
+    .main {
+      padding: 2rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    /* Health Grid */
+    .health-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .server-card {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: all 0.2s;
+    }
+
+    .server-card:hover {
+      border-color: var(--accent-cyan);
+    }
+
+    .server-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .server-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .server-status {
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .server-status.online {
+      background: rgba(63, 185, 80, 0.2);
+      color: var(--accent-green);
+    }
+
+    .server-status.standby {
+      background: rgba(210, 153, 34, 0.2);
+      color: var(--accent-yellow);
+    }
+
+    .server-status.offline {
+      background: rgba(248, 81, 73, 0.2);
+      color: var(--accent-red);
+    }
+
+    .server-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .server-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .server-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* Tools Grid */
+    .tools-container {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 1.5rem;
+    }
+
+    .tools-sidebar {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      height: fit-content;
+    }
+
+    .tools-sidebar h3 {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .server-filter {
+      padding: 0.75rem;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-bottom: 0.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .server-filter:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .server-filter.active {
+      background: var(--accent-cyan);
+      color: var(--bg-primary);
+    }
+
+    .tool-count {
+      background: var(--bg-tertiary);
+      padding: 0.2rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.75rem;
+    }
+
+    .server-filter.active .tool-count {
+      background: rgba(0,0,0,0.2);
+    }
+
+    .tools-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .tool-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .tool-card:hover {
+      border-color: var(--accent-purple);
+    }
+
+    .tool-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-name {
+      font-weight: 600;
+      color: var(--accent-purple);
+    }
+
+    .tool-server {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      background: var(--bg-tertiary);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .tool-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tool-usage {
+      background: var(--bg-primary);
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--accent-green);
+      cursor: pointer;
+    }
+
+    .tool-usage:hover {
+      background: var(--bg-tertiary);
+    }
+
+    /* Logs */
+    .logs-controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logs-controls select,
+    .logs-controls button {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .logs-controls button:hover {
+      background: var(--accent-cyan);
+      color: var(--bg-primary);
+    }
+
+    .logs-container {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      height: 400px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+
+    .log-entry {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      gap: 1rem;
+    }
+
+    .log-entry:hover {
+      background: var(--bg-secondary);
+    }
+
+    .log-time {
+      color: var(--text-secondary);
+      min-width: 80px;
+    }
+
+    .log-level {
+      min-width: 60px;
+      font-weight: 600;
+    }
+
+    .log-level.INFO { color: var(--accent-cyan); }
+    .log-level.WARN { color: var(--accent-yellow); }
+    .log-level.ERROR { color: var(--accent-red); }
+    .log-level.SUCCESS { color: var(--accent-green); }
+    .log-level.DEBUG { color: var(--text-secondary); }
+
+    .log-server {
+      color: var(--accent-purple);
+      min-width: 120px;
+    }
+
+    .log-message {
+      flex: 1;
+    }
+
+    /* Commands */
+    .commands-search {
+      width: 100%;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .commands-search:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+    }
+
+    .commands-list {
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .command-item {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .command-item:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .command-name {
+      color: var(--accent-green);
+      font-weight: 600;
+      font-family: monospace;
+      margin-bottom: 0.25rem;
+    }
+
+    .command-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .tools-container {
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <h1>MCP Dashboard</h1>
+      <span>CODEXA Server Management</span>
+    </div>
+    <div class="status-badge">
+      <div class="status-dot"></div>
+      <span id="connectionStatus">Connecting...</span>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs">
+    <div class="tab active" data-tab="health">
+      <span class="tab-icon">&#9829;</span>
+      Health
+    </div>
+    <div class="tab" data-tab="tools">
+      <span class="tab-icon">&#9889;</span>
+      Tools
+    </div>
+    <div class="tab" data-tab="logs">
+      <span class="tab-icon">&#128203;</span>
+      Logs
+    </div>
+    <div class="tab" data-tab="commands">
+      <span class="tab-icon">&#62;</span>
+      Commands
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Health Panel -->
+    <div class="panel active" id="health">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">MCP Servers Status</h2>
+          <button onclick="refreshHealth()" style="background: var(--bg-tertiary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">
+            Refresh
+          </button>
+        </div>
+        <div class="health-grid" id="healthGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools Panel -->
+    <div class="panel" id="tools">
+      <div class="tools-container">
+        <div class="tools-sidebar">
+          <h3>Servers</h3>
+          <div id="serverFilters">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+        <div class="tools-list" id="toolsList">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Logs Panel -->
+    <div class="panel" id="logs">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Live Logs</h2>
+        </div>
+        <div class="logs-controls">
+          <select id="logLevelFilter">
+            <option value="ALL">All Levels</option>
+            <option value="INFO">INFO</option>
+            <option value="WARN">WARN</option>
+            <option value="ERROR">ERROR</option>
+            <option value="SUCCESS">SUCCESS</option>
+            <option value="DEBUG">DEBUG</option>
+          </select>
+          <select id="logServerFilter">
+            <option value="ALL">All Servers</option>
+            <option value="scout">scout</option>
+            <option value="codexa-commands">codexa-commands</option>
+            <option value="browser">browser</option>
+            <option value="voice">voice</option>
+            <option value="system">system</option>
+          </select>
+          <button onclick="clearLogs()">Clear</button>
+          <button onclick="toggleAutoscroll()" id="autoscrollBtn">Autoscroll: ON</button>
+        </div>
+        <div class="logs-container" id="logsContainer">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Commands Panel -->
+    <div class="panel" id="commands">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Slash Commands</h2>
+        </div>
+        <input
+          type="text"
+          class="commands-search"
+          placeholder="Search commands..."
+          id="commandSearch"
+          oninput="filterCommands()"
+        >
+        <div class="commands-list" id="commandsList">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    MCP Dashboard v1.0 | CODEXA Meta-Construction Framework
+  </footer>
+
+  <script>
+    // ========================================================================
+    // State
+    // ========================================================================
+
+    let ws = null;
+    let servers = {};
+    let tools = [];
+    let logs = [];
+    let commands = [];
+    let selectedServer = 'all';
+    let autoscroll = true;
+
+    // ========================================================================
+    // WebSocket
+    // ========================================================================
+
+    function connectWebSocket() {
+      ws = new WebSocket(`ws://${window.location.host}`);
+
+      ws.onopen = () => {
+        document.getElementById('connectionStatus').textContent = 'Connected';
+      };
+
+      ws.onclose = () => {
+        document.getElementById('connectionStatus').textContent = 'Disconnected';
+        setTimeout(connectWebSocket, 3000);
+      };
+
+      ws.onmessage = (event) => {
+        const msg = JSON.parse(event.data);
+
+        if (msg.type === 'log') {
+          addLogEntry(msg.data);
+        }
+      };
+    }
+
+    // ========================================================================
+    // Health Panel
+    // ========================================================================
+
+    async function refreshHealth() {
+      const res = await fetch('/api/health');
+      servers = await res.json();
+      renderHealth();
+    }
+
+    function renderHealth() {
+      const grid = document.getElementById('healthGrid');
+      grid.innerHTML = '';
+
+      for (const [name, server] of Object.entries(servers)) {
+        const card = document.createElement('div');
+        card.className = 'server-card';
+        card.innerHTML = `
+          <div class="server-header">
+            <span class="server-name">${name}</span>
+            <span class="server-status ${server.status}">${server.status}</span>
+          </div>
+          <div class="server-desc">${server.description}</div>
+          <div class="server-meta">
+            <span>&#9889; ${server.toolCount} tools</span>
+            <span>&#128187; ${server.command}</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      }
+    }
+
+    // ========================================================================
+    // Tools Panel
+    // ========================================================================
+
+    async function loadTools() {
+      const res = await fetch('/api/tools');
+      tools = await res.json();
+      renderServerFilters();
+      renderTools();
+    }
+
+    function renderServerFilters() {
+      const container = document.getElementById('serverFilters');
+      const serverCounts = {};
+
+      tools.forEach(t => {
+        serverCounts[t.server] = (serverCounts[t.server] || 0) + 1;
+      });
+
+      container.innerHTML = `
+        <div class="server-filter ${selectedServer === 'all' ? 'active' : ''}" onclick="filterTools('all')">
+          <span>All</span>
+          <span class="tool-count">${tools.length}</span>
+        </div>
+      `;
+
+      for (const [server, count] of Object.entries(serverCounts)) {
+        container.innerHTML += `
+          <div class="server-filter ${selectedServer === server ? 'active' : ''}" onclick="filterTools('${server}')">
+            <span>${server}</span>
+            <span class="tool-count">${count}</span>
+          </div>
+        `;
+      }
+    }
+
+    function filterTools(server) {
+      selectedServer = server;
+      renderServerFilters();
+      renderTools();
+    }
+
+    function renderTools() {
+      const container = document.getElementById('toolsList');
+      const filtered = selectedServer === 'all'
+        ? tools
+        : tools.filter(t => t.server === selectedServer);
+
+      container.innerHTML = filtered.map(tool => `
+        <div class="tool-card">
+          <div class="tool-header">
+            <span class="tool-name">${tool.name}</span>
+            <span class="tool-server">${tool.server}</span>
+          </div>
+          <div class="tool-desc">${tool.description}</div>
+          <div class="tool-usage" onclick="copyToClipboard('${tool.fullName}')" title="Click to copy">
+            ${tool.fullName}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text);
+      // Could add a toast notification here
+    }
+
+    // ========================================================================
+    // Logs Panel
+    // ========================================================================
+
+    async function loadLogs() {
+      const res = await fetch('/api/logs?limit=100');
+      logs = await res.json();
+      renderLogs();
+    }
+
+    function addLogEntry(log) {
+      logs.push(log);
+      if (logs.length > 200) logs.shift();
+      renderLogs();
+    }
+
+    function renderLogs() {
+      const container = document.getElementById('logsContainer');
+      const levelFilter = document.getElementById('logLevelFilter').value;
+      const serverFilter = document.getElementById('logServerFilter').value;
+
+      let filtered = logs;
+
+      if (levelFilter !== 'ALL') {
+        filtered = filtered.filter(l => l.level === levelFilter);
+      }
+      if (serverFilter !== 'ALL') {
+        filtered = filtered.filter(l => l.server === serverFilter);
+      }
+
+      container.innerHTML = filtered.map(log => `
+        <div class="log-entry">
+          <span class="log-time">${new Date(log.timestamp).toLocaleTimeString()}</span>
+          <span class="log-level ${log.level}">${log.level}</span>
+          <span class="log-server">[${log.server}]</span>
+          <span class="log-message">${log.message}</span>
+        </div>
+      `).join('');
+
+      if (autoscroll) {
+        container.scrollTop = container.scrollHeight;
+      }
+    }
+
+    function clearLogs() {
+      logs = [];
+      renderLogs();
+    }
+
+    function toggleAutoscroll() {
+      autoscroll = !autoscroll;
+      document.getElementById('autoscrollBtn').textContent = `Autoscroll: ${autoscroll ? 'ON' : 'OFF'}`;
+    }
+
+    // Filter change handlers
+    document.getElementById('logLevelFilter').addEventListener('change', renderLogs);
+    document.getElementById('logServerFilter').addEventListener('change', renderLogs);
+
+    // ========================================================================
+    // Commands Panel
+    // ========================================================================
+
+    async function loadCommands() {
+      const res = await fetch('/api/commands');
+      commands = await res.json();
+      renderCommands();
+    }
+
+    function filterCommands() {
+      const search = document.getElementById('commandSearch').value.toLowerCase();
+      renderCommands(search);
+    }
+
+    function renderCommands(search = '') {
+      const container = document.getElementById('commandsList');
+      const filtered = commands.filter(cmd =>
+        cmd.name.toLowerCase().includes(search) ||
+        cmd.title.toLowerCase().includes(search) ||
+        cmd.description.toLowerCase().includes(search)
+      );
+
+      container.innerHTML = filtered.map(cmd => `
+        <div class="command-item" onclick="viewCommand('${cmd.name}')">
+          <div class="command-name">${cmd.name}</div>
+          <div class="command-desc">${cmd.description}</div>
+        </div>
+      `).join('');
+    }
+
+    function viewCommand(name) {
+      // Could open a modal with full command content
+      window.open(`/api/commands/${name.replace('/', '')}`, '_blank');
+    }
+
+    // ========================================================================
+    // Tab Navigation
+    // ========================================================================
+
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // ========================================================================
+    // Initialize
+    // ========================================================================
+
+    async function init() {
+      connectWebSocket();
+      await refreshHealth();
+      await loadTools();
+      await loadLogs();
+      await loadCommands();
+    }
+
+    init();
+  </script>
+</body>
+</html>

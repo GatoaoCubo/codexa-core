@@ -42,6 +42,48 @@ cd codexa.app/mcp-servers/browser-mcp
 npm install
 ```
 
+**Nota**: Puppeteer baixará automaticamente o Chromium (~150MB) durante a instalação. Isso garante que o browser funcione sem Chrome pré-instalado.
+
+### Chrome/Chromium Setup
+
+O servidor usa uma estratégia inteligente de fallback:
+
+1. **Bundled Chromium (Padrão)**: Puppeteer baixa automaticamente uma versão do Chromium
+   - Local: `node_modules/puppeteer/.local-chromium/`
+   - Não requer Chrome instalado no sistema
+   - Funciona em qualquer ambiente
+
+2. **System Chrome (Opcional)**: Use o Chrome do sistema com variável de ambiente
+   ```bash
+   # Windows
+   set CHROME_PATH=C:\Program Files\Google\Chrome\Application\chrome.exe
+
+   # Linux
+   export CHROME_PATH=/usr/bin/google-chrome
+
+   # macOS
+   export CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+   ```
+
+3. **Fallback Automático**: Se o launch falhar, tenta com configuração mínima
+
+### Troubleshooting
+
+**Erro: "Failed to launch browser"**
+- Solução 1: `npm install puppeteer` (garante que Chromium seja baixado)
+- Solução 2: Defina `CHROME_PATH` para seu Chrome local
+- Solução 3: Verifique permissões e espaço em disco (~200MB necessário)
+
+**Chromium não baixou durante instalação**
+```bash
+# Força o download do Chromium
+node node_modules/puppeteer/install.js
+```
+
+**Windows: Erro de permissão**
+- Execute o terminal como Administrador
+- Ou instale em diretório com permissões de escrita
+
 ## Configuração Claude Code
 
 Adicione ao `.mcp.json`:
@@ -94,7 +136,31 @@ Este MCP habilita o pesquisa_agent a:
 - Extrair dados mesmo de páginas com anti-scraping
 - Coletar evidências visuais para relatórios
 
+## Arquitetura de Fallback
+
+O `getBrowser()` implementa 3 níveis de fallback:
+
+```javascript
+// Nível 1: System Chrome (se CHROME_PATH definido)
+if (process.env.CHROME_PATH) {
+  launchOptions.executablePath = process.env.CHROME_PATH;
+}
+
+// Nível 2: Bundled Chromium (default Puppeteer)
+// executablePath omitido = usa Chromium do npm
+
+// Nível 3: Retry com args mínimos
+minimalOptions = { headless: 'new', args: ['--no-sandbox'] }
+```
+
+**Benefícios**:
+- Funciona sem Chrome instalado (Chromium bundled)
+- Usa Chrome do sistema se disponível (melhor performance)
+- Retry automático com configuração mínima
+- Mensagens de erro com soluções claras
+
 ---
 
-**Versão**: 1.0.0 (2025-11-27)
-**Dependências**: Puppeteer, Puppeteer Stealth, MCP SDK
+**Versão**: 1.1.0 (2025-12-04)
+**Dependências**: Puppeteer (bundled Chromium), Puppeteer Stealth, MCP SDK
+**Changelog**: v1.1.0 - Adicionado fallback para Chromium bundled, erro handling robusto

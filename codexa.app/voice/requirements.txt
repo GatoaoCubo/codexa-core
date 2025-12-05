@@ -1,25 +1,36 @@
 # CODEXA Voice - Dependencies
 # ============================
 # Install: pip install -r requirements.txt
+#
+# IMPORTANT: Works WITHOUT elevenlabs package!
+#   - TTS: Uses edge-tts (FREE, online) by default
+#   - STT: Uses local Whisper (FREE, offline)
+#   - Only install elevenlabs if you want premium quality
 
-# Core Audio
+# Core Audio (REQUIRED)
 sounddevice>=0.4.6
 soundfile>=0.12.1
 numpy>=1.24.0
 
 # TTS Providers
-edge-tts>=6.1.0      # Free, online
-pyttsx3>=2.90        # Offline fallback
-elevenlabs>=1.0.0    # Premium (optional)
+edge-tts>=6.1.0      # FREE, online, good quality (RECOMMENDED)
+pyttsx3>=2.90        # FREE, offline fallback (REQUIRED)
 
-# Audio Playback
+# Audio Playback (REQUIRED)
 pygame>=2.5.0        # For reliable audio playback
 
-# STT (via ElevenLabs)
-# Already included in elevenlabs package
+# STT - Speech to Text (REQUIRED)
+faster-whisper>=0.10.0  # FREE, offline, good quality
+webrtcvad>=2.0.10       # Voice activity detection
 
-# Environment
+# Environment (REQUIRED)
 python-dotenv>=1.0.0
 
-# MCP Server
+# MCP Server (REQUIRED)
 mcp>=0.1.0
+
+# ==============================================================================
+# OPTIONAL: Premium TTS (only if you want ElevenLabs)
+# ==============================================================================
+# Uncomment the line below ONLY if you have ELEVENLABS_API_KEY configured:
+# elevenlabs>=1.0.0
