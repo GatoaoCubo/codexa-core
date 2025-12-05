@@ -12,6 +12,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join, resolve } from 'path';
 import { readFileSync, existsSync, readdirSync } from 'fs';
 import open from 'open';
+import chokidar from 'chokidar';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -26,6 +27,9 @@ const PORT = process.env.PORT || 3456;
 // Serve static files
 app.use(express.static(join(__dirname, 'public')));
 app.use(express.json());
+
+// Serve product images from USER_DOCS
+app.use('/produtos', express.static(join(PROJECT_ROOT, 'USER_DOCS', 'produtos')));
 
 // ============================================================================
 // MCP Server Definitions
@@ -274,6 +278,66 @@ app.get('/api/config', (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+});
+
+// ============================================================================
+// Pipeline API & File Watcher
+// ============================================================================
+
+const PIPELINE_STATE_PATH = join(PROJECT_ROOT, 'outputs', 'pipeline_state.json');
+
+// Get current pipeline state
+app.get('/api/pipeline', (req, res) => {
+  try {
+    if (existsSync(PIPELINE_STATE_PATH)) {
+      const state = JSON.parse(readFileSync(PIPELINE_STATE_PATH, 'utf8'));
+      res.json(state);
+    } else {
+      res.json({ status: 'idle', phases: [], live_thoughts: [] });
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Watch pipeline state file for changes (usePolling for Windows compatibility)
+const pipelineWatcher = chokidar.watch(PIPELINE_STATE_PATH, {
+  persistent: true,
+  ignoreInitial: true,
+  usePolling: true,
+  interval: 500,
+  awaitWriteFinish: {
+    stabilityThreshold: 100,
+    pollInterval: 50
+  }
+});
+
+pipelineWatcher.on('change', (path) => {
+  try {
+    const state = JSON.parse(readFileSync(path, 'utf8'));
+    broadcast({ type: 'pipeline_update', data: state });
+
+    const activePhase = state.phases?.find(p => p.status === 'running');
+    const phaseName = activePhase?.name || (state.status === 'completed' ? 'completed' : 'idle');
+    addLog('pipeline', 'INFO', `Pipeline updated: ${phaseName}`);
+  } catch (err) {
+    addLog('pipeline', 'ERROR', `Failed to parse pipeline state: ${err.message}`);
+  }
+});
+
+pipelineWatcher.on('add', (path) => {
+  addLog('pipeline', 'SUCCESS', 'Pipeline started - state file created');
+  try {
+    const state = JSON.parse(readFileSync(path, 'utf8'));
+    broadcast({ type: 'pipeline_update', data: state });
+  } catch (err) {
+    // Ignore parse errors on initial add
+  }
+});
+
+pipelineWatcher.on('unlink', () => {
+  addLog('pipeline', 'INFO', 'Pipeline state file removed');
+  broadcast({ type: 'pipeline_update', data: { status: 'idle', phases: [], live_thoughts: [] } });
 });
 
 // ============================================================================

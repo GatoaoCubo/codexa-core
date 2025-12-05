@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview Produto - Garrafa Termica Gato</title>
+  <style>
+    :root {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-tertiary: #21262d;
+      --border-color: #30363d;
+      --text-primary: #c9d1d9;
+      --text-secondary: #8b949e;
+      --accent-cyan: #58a6ff;
+      --accent-green: #3fb950;
+      --accent-yellow: #d29922;
+      --accent-purple: #a371f7;
+      --price-color: #3fb950;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      color: var(--accent-cyan);
+      font-size: 1.3rem;
+    }
+
+    .header .badge {
+      background: var(--accent-green);
+      color: #000;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    /* Gallery */
+    .gallery {
+      position: sticky;
+      top: 2rem;
+    }
+
+    .main-image {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 1rem;
+      background: #fff;
+    }
+
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+    }
+
+    .thumbnail {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fff;
+    }
+
+    .thumbnail:hover {
+      border-color: var(--accent-cyan);
+    }
+
+    .thumbnail.active {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+    }
+
+    /* Product Info */
+    .product-info {
+      padding: 1rem 0;
+    }
+
+    .seller {
+      color: var(--accent-cyan);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stars {
+      color: var(--accent-yellow);
+    }
+
+    .rating-text {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .price-section {
+      background: var(--bg-secondary);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--price-color);
+    }
+
+    .price-info {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .buy-button {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .buy-button.primary {
+      background: var(--accent-cyan);
+      color: #000;
+    }
+
+    .buy-button.secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .buy-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Specs */
+    .specs {
+      margin-top: 1.5rem;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .spec-label {
+      color: var(--text-secondary);
+    }
+
+    .spec-value {
+      font-weight: 500;
+    }
+
+    /* Keywords */
+    .keywords-section {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--accent-purple);
+    }
+
+    .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .keyword {
+      background: var(--bg-tertiary);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Bullets */
+    .bullets-section {
+      margin-top: 2rem;
+    }
+
+    .bullet {
+      background: var(--bg-secondary);
+      padding: 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--accent-cyan);
+    }
+
+    .bullet-title {
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .bullet-text {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Description */
+    .description-section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+    }
+
+    .description-section h2 {
+      color: var(--accent-cyan);
+      margin-bottom: 1.5rem;
+    }
+
+    .description-section p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .description-section strong {
+      color: var(--text-primary);
+    }
+
+    /* FAQ */
+    .faq-section {
+      margin-top: 2rem;
+    }
+
+    .faq-item {
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .faq-answer {
+      padding: 0 1.25rem 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-color);
+      margin-top: 3rem;
+    }
+
+    .footer .generated {
+      color: var(--accent-purple);
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery {
+        position: relative;
+        top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>CODEXA Product Preview</h1>
+    <span class="badge">AI Generated</span>
+  </header>
+
+  <div class="container">
+    <div class="product-grid">
+      <!-- Gallery -->
+      <div class="gallery">
+        <img id="mainImage" class="main-image" src="/produtos/garrafa-termica-gato-inox/imagens_geradas/01_HERO_WHITE_180858.png" alt="Garrafa Termica Gato">
+        <div class="thumbnails">
+          <img class="thumbnail active" src="/produtos/garrafa-termica-gato-inox/imagens_geradas/01_HERO_WHITE_180858.png" onclick="changeImage(this)">
+          <img class="thumbnail" src="/produtos/garrafa-termica-gato-inox/imagens_geradas/02_HERO_GRADIENT_180905.png" onclick="changeImage(this)">
+          <img class="thumbnail" src="/produtos/garrafa-termica-gato-inox/imagens_geradas/03_SCALE_HAND_180913.png" onclick="changeImage(this)">
+          <img class="thumbnail" src="/produtos/garrafa-termica-gato-inox/imagens_geradas/04_LIFESTYLE_DESK_180921.png" onclick="changeImage(this)">
+          <img class="thumbnail" src="/produtos/garrafa-termica-gato-inox/imagens_geradas/05_LIFESTYLE_GYM_180929.png" onclick="changeImage(this)">
+          <img class="thumbnail" src="/produtos/garrafa-termica-gato-inox/imagens_geradas/06_LIFESTYLE_OUTDOOR_180937.png" onclick="changeImage(this)">
+          <img class="thumbnail" src="/produtos/garrafa-termica-gato-inox/imagens_geradas/07_DETAIL_EARS_180944.png" onclick="changeImage(this)">
+          <img class="thumbnail" src="/produtos/garrafa-termica-gato-inox/imagens_geradas/08_DETAIL_TEXTURE_180953.png" onclick="changeImage(this)">
+          <img class="thumbnail" src="/produtos/garrafa-termica-gato-inox/imagens_geradas/09_SOCIAL_FLATLAY_181000.png" onclick="changeImage(this)">
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info">
+        <div class="seller">Vendido por GATO AO CUBO</div>
+        <h1 class="title">Garrafa Termica Inox Gato 500ml Parede Dupla Academia Cafe</h1>
+
+        <div class="rating">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-text">4.8 (127 avaliacoes) | +50 vendidos</span>
+        </div>
+
+        <div class="price-section">
+          <div class="price">R$ 65,89</div>
+          <div class="price-info">em 12x R$ 5,49 sem juros | Frete gratis</div>
+        </div>
+
+        <button class="buy-button primary">Comprar agora</button>
+        <button class="buy-button secondary">Adicionar ao carrinho</button>
+
+        <div class="specs">
+          <div class="spec-item">
+            <span class="spec-label">Material</span>
+            <span class="spec-value">Aco Inoxidavel 304</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Capacidade</span>
+            <span class="spec-value">500ml</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Isolamento Frio</span>
+            <span class="spec-value">12 horas</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Isolamento Quente</span>
+            <span class="spec-value">6 horas</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Cores</span>
+            <span class="spec-value">Azul, Dourado, Rosa</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Garantia</span>
+            <span class="spec-value">90 dias</span>
+          </div>
+        </div>
+
+        <div class="keywords-section">
+          <h3 class="section-title">Keywords SEO (60)</h3>
+          <div class="keywords">
+            <span class="keyword">garrafa termica</span>
+            <span class="keyword">garrafa inox</span>
+            <span class="keyword">parede dupla</span>
+            <span class="keyword">isolamento termico</span>
+            <span class="keyword">500ml</span>
+            <span class="keyword">aco inoxidavel</span>
+            <span class="keyword">design gato</span>
+            <span class="keyword">cat lover</span>
+            <span class="keyword">academia treino</span>
+            <span class="keyword">escritorio trabalho</span>
+            <span class="keyword">presente criativo</span>
+            <span class="keyword">livre bpa</span>
+            <span class="keyword">mantem temperatura 12h</span>
+            <span class="keyword">bebida gelada</span>
+            <span class="keyword">cafe quente</span>
+            <span class="keyword">+45 mais...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bullets -->
+    <div class="bullets-section">
+      <h2 class="section-title">Destaques do Produto</h2>
+
+      <div class="bullet">
+        <div class="bullet-title">ISOLAMENTO TERMICO SUPERIOR</div>
+        <div class="bullet-text">Tecnologia de parede dupla em aco inoxidavel mantem bebidas geladas por ate 12 horas ou quentes por 6 horas. Perfeita para cafe da manha quente no escritorio ou agua gelada pos-treino na academia.</div>
+      </div>
+
+      <div class="bullet">
+        <div class="bullet-title">DESIGN EXCLUSIVO CAT LOVER</div>
+        <div class="bullet-text">Orelhinhas de gato na tampa transformam hidratacao em momento de alegria. Ideal para quem ama felinos e quer levar personalidade unica ao trabalho, academia ou viagem.</div>
+      </div>
+
+      <div class="bullet">
+        <div class="bullet-title">MATERIAL PREMIUM E SEGURO</div>
+        <div class="bullet-text">Fabricada em aco inoxidavel 304 de grau alimenticio, livre de BPA e atoxica. Tampa com vedacao em silicone garante zero vazamento na mochila.</div>
+      </div>
+
+      <div class="bullet">
+        <div class="bullet-title">SUSTENTABILIDADE QUE FAZ DIFERENCA</div>
+        <div class="bullet-text">Substitua 180+ copos descartaveis por mes. Economia real de R$400/ano em bebidas compradas fora, reduzindo impacto ambiental.</div>
+      </div>
+
+      <div class="bullet">
+        <div class="bullet-title">PRESENTE PERFEITO</div>
+        <div class="bullet-text">Surpreenda amiga, namorada ou familiar apaixonado por gatos. Presente criativo que une utilidade com design adoravel.</div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="description-section">
+      <h2>Descricao do Produto</h2>
+      <p>Imagine comecar seu dia com cafe quentinho as 7h da manha e, as 13h, ainda sentir o calor aconchegante na ultima gota. Ou treinar pesado na academia com agua geladissima do inicio ao fim, sem aquele gosto de plastico morno que estraga tudo.</p>
+      <p>Agora adicione <strong>orelhinhas adoraveis de gato</strong> que fazem todo mundo sorrir e perguntar: "onde voce comprou isso?". Bem-vindo ao mundo da Garrafa Termica Inox Gato da GATO AO CUBO.</p>
+      <p><strong>O PROBLEMA QUE VOCE ENFRENTA:</strong> Voce ja cansou de garrafa plastica que deixa gosto estranho na agua. Ja perdeu dinheiro comprando cafe e agua toda hora porque nao tinha onde levar. Ja ficou frustrado com garrafa "termica" que nao mantem nada termico depois de 2 horas.</p>
+      <p><strong>A SOLUCAO:</strong> Nossa garrafa une tecnologia de isolamento termico profissional com design exclusivo que celebra seu amor por felinos. Construida com aco inoxidavel 304 em sistema de parede dupla com vacuo interno.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2 class="section-title">Perguntas Frequentes</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>A garrafa realmente mantem temperatura por 12 horas?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">Sim! Testamos com 500ml de agua + gelo as 8h da manha e as 20h (12h depois) ainda havia gelo e agua gelada.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>As orelhinhas de gato podem quebrar ou cair?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">As orelhinhas sao parte integrada do design da tampa em material PP resistente a impacto. Nao sao coladas nem encaixadas, sao moldadas juntas.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Posso colocar na geladeira ou freezer?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">Pode colocar na geladeira sem problemas. No freezer nao recomendamos com liquido dentro pois a expansao pode danificar a vedacao.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>A pintura externa descasca com o tempo?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">A pintura tem acabamento premium resistente a arranhoes. Com uso normal, nao descasca.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Qual cor devo escolher se for presente?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">Azul: tons neutros e elegantes. Dourado: luxo e sofisticacao. Rosa: fofura e feminilidade. Na duvida, azul e a cor mais versatil.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Preview gerado por <span class="generated">CODEXA Pipeline</span></p>
+    <p>anuncio_agent + photo_agent + Gemini Imagen 3.0</p>
+    <p style="margin-top: 1rem; font-size: 0.85rem;">Score de Qualidade: 100% Compliance ML | Persuasao: 0.89 | SEO: Alto</p>
+  </footer>
+
+  <script>
+    function changeImage(thumb) {
+      document.getElementById('mainImage').src = thumb.src;
+      document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    }
+  </script>
+</body>
+</html>

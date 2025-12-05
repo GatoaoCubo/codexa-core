@@ -11,7 +11,8 @@
   "dependencies": {
     "express": "^4.21.0",
     "ws": "^8.18.0",
-    "open": "^10.1.0"
+    "open": "^10.1.0",
+    "chokidar": "^3.6.0"
   },
   "keywords": [
     "mcp",
