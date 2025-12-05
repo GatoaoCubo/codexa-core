@@ -1,0 +1,475 @@
+{
+  "$schema": "shorts_blocks_schema.json",
+  "version": "1.0.0",
+  "description": "Modular block library for Shorts generation - composable templates",
+
+  "hooks": {
+    "description": "12 Hook patterns for attention capture (0-3s)",
+    "templates": [
+      {
+        "id": "hook_question",
+        "pattern": "Question",
+        "template": "Voce sabia que {{ESTATISTICA}}?",
+        "ctr_multiplier": 1.19,
+        "duration_seconds": 3,
+        "visual_style": "text_overlay_center",
+        "use_case": "educational, myth-busting"
+      },
+      {
+        "id": "hook_problem",
+        "pattern": "Problem",
+        "template": "Cansado de {{PROBLEMA}}?",
+        "ctr_multiplier": 1.18,
+        "duration_seconds": 3,
+        "visual_style": "split_screen",
+        "use_case": "pain point, solution"
+      },
+      {
+        "id": "hook_curiosity",
+        "pattern": "Curiosity",
+        "template": "O segredo que ninguem conta sobre {{TEMA}}...",
+        "ctr_multiplier": 1.25,
+        "duration_seconds": 3,
+        "visual_style": "reveal_animation",
+        "use_case": "insider knowledge"
+      },
+      {
+        "id": "hook_number",
+        "pattern": "Number",
+        "template": "{{NUMERO}} razoes para {{ACAO}}",
+        "ctr_multiplier": 1.36,
+        "duration_seconds": 3,
+        "visual_style": "counter_animation",
+        "use_case": "lists, tutorials"
+      },
+      {
+        "id": "hook_contrast",
+        "pattern": "Contrast",
+        "template": "{{ANTES}} vs {{DEPOIS}}",
+        "ctr_multiplier": 1.28,
+        "duration_seconds": 3,
+        "visual_style": "split_screen_transition",
+        "use_case": "comparisons, transformations"
+      },
+      {
+        "id": "hook_shock",
+        "pattern": "Shock",
+        "template": "Isso muda tudo sobre {{TEMA}}",
+        "ctr_multiplier": 1.22,
+        "duration_seconds": 3,
+        "visual_style": "zoom_impact",
+        "use_case": "revelations, updates"
+      },
+      {
+        "id": "hook_social_proof",
+        "pattern": "Social Proof",
+        "template": "{{NUMERO}} pessoas ja {{BENEFICIO}}",
+        "ctr_multiplier": 1.18,
+        "duration_seconds": 3,
+        "visual_style": "testimonial_scroll",
+        "use_case": "case studies, results"
+      },
+      {
+        "id": "hook_howto",
+        "pattern": "How-To",
+        "template": "Como {{RESULTADO}} em {{TEMPO}}",
+        "ctr_multiplier": 1.22,
+        "duration_seconds": 3,
+        "visual_style": "step_preview",
+        "use_case": "tutorials, guides"
+      },
+      {
+        "id": "hook_mistake",
+        "pattern": "Mistake",
+        "template": "O erro #1 que voce comete com {{TEMA}}",
+        "ctr_multiplier": 1.24,
+        "duration_seconds": 3,
+        "visual_style": "warning_style",
+        "use_case": "corrections, tips"
+      },
+      {
+        "id": "hook_secret",
+        "pattern": "Secret",
+        "template": "Isso e o que os experts fazem com {{TEMA}}",
+        "ctr_multiplier": 1.20,
+        "duration_seconds": 3,
+        "visual_style": "insider_reveal",
+        "use_case": "pro tips, advanced"
+      },
+      {
+        "id": "hook_challenge",
+        "pattern": "Challenge",
+        "template": "Voce consegue {{DESAFIO}}?",
+        "ctr_multiplier": 1.15,
+        "duration_seconds": 3,
+        "visual_style": "gamification",
+        "use_case": "engagement, UGC"
+      },
+      {
+        "id": "hook_visual",
+        "pattern": "Visual Only",
+        "template": "[IMPACTO_VISUAL_SEM_TEXTO]",
+        "ctr_multiplier": 1.12,
+        "duration_seconds": 3,
+        "visual_style": "cinematic_hook",
+        "use_case": "product showcase, aesthetic"
+      }
+    ]
+  },
+
+  "educational_blocks": {
+    "description": "30+ Educational segments for middle content (6-10s each)",
+    "templates": [
+      {
+        "id": "edu_tip_numbered",
+        "pattern": "Numbered Tip",
+        "template": "Dica #{{N}}: {{CONTEUDO}}",
+        "duration_seconds": 7,
+        "visual_style": "tip_card"
+      },
+      {
+        "id": "edu_common_mistake",
+        "pattern": "Common Mistake",
+        "template": "Erro comum: {{PROBLEMA}}. O certo e: {{SOLUCAO}}",
+        "duration_seconds": 8,
+        "visual_style": "before_after"
+      },
+      {
+        "id": "edu_pro_tip",
+        "pattern": "Pro Tip",
+        "template": "Pro tip: {{INSIGHT}}",
+        "duration_seconds": 5,
+        "visual_style": "highlight_box"
+      },
+      {
+        "id": "edu_unknown_fact",
+        "pattern": "Unknown Fact",
+        "template": "A maioria nao sabe: {{FATO}}",
+        "duration_seconds": 6,
+        "visual_style": "revelation"
+      },
+      {
+        "id": "edu_difference",
+        "pattern": "Difference",
+        "template": "A diferenca entre {{A}} e {{B}}: {{EXPLICACAO}}",
+        "duration_seconds": 9,
+        "visual_style": "comparison_split"
+      },
+      {
+        "id": "edu_step",
+        "pattern": "Step",
+        "template": "Passo {{N}}: {{ACAO}}",
+        "duration_seconds": 5,
+        "visual_style": "step_indicator"
+      },
+      {
+        "id": "edu_why",
+        "pattern": "Why",
+        "template": "Por que {{PROBLEMA}} acontece: {{RAZAO}}",
+        "duration_seconds": 7,
+        "visual_style": "explanation"
+      },
+      {
+        "id": "edu_truth",
+        "pattern": "Truth",
+        "template": "A verdade sobre {{TEMA}}: {{REVELACAO}}",
+        "duration_seconds": 7,
+        "visual_style": "myth_buster"
+      },
+      {
+        "id": "edu_instead",
+        "pattern": "Instead",
+        "template": "Em vez de {{ERRADO}}, faca {{CERTO}}",
+        "duration_seconds": 6,
+        "visual_style": "swap_animation"
+      },
+      {
+        "id": "edu_benefit",
+        "pattern": "Benefit",
+        "template": "Com {{ACAO}}, voce ganha {{BENEFICIO}}",
+        "duration_seconds": 6,
+        "visual_style": "benefit_highlight"
+      },
+      {
+        "id": "edu_example",
+        "pattern": "Example",
+        "template": "Por exemplo: {{EXEMPLO_CONCRETO}}",
+        "duration_seconds": 7,
+        "visual_style": "demo_style"
+      },
+      {
+        "id": "edu_stat",
+        "pattern": "Statistic",
+        "template": "{{PERCENTUAL}}% {{AFIRMACAO}}",
+        "duration_seconds": 5,
+        "visual_style": "data_viz"
+      },
+      {
+        "id": "edu_analogy",
+        "pattern": "Analogy",
+        "template": "Pense em {{TEMA}} como {{ANALOGIA}}",
+        "duration_seconds": 6,
+        "visual_style": "metaphor_visual"
+      },
+      {
+        "id": "edu_warning",
+        "pattern": "Warning",
+        "template": "Cuidado: {{ALERTA}}",
+        "duration_seconds": 5,
+        "visual_style": "warning_alert"
+      },
+      {
+        "id": "edu_result",
+        "pattern": "Result",
+        "template": "Resultado: {{OUTCOME}}",
+        "duration_seconds": 5,
+        "visual_style": "result_showcase"
+      },
+      {
+        "id": "edu_comparison",
+        "pattern": "Comparison",
+        "template": "{{OPCAO_A}}: {{RESULTADO_A}} | {{OPCAO_B}}: {{RESULTADO_B}}",
+        "duration_seconds": 8,
+        "visual_style": "side_by_side"
+      },
+      {
+        "id": "edu_process",
+        "pattern": "Process",
+        "template": "O processo: {{ETAPA_1}} → {{ETAPA_2}} → {{ETAPA_3}}",
+        "duration_seconds": 8,
+        "visual_style": "flow_diagram"
+      },
+      {
+        "id": "edu_hack",
+        "pattern": "Hack",
+        "template": "Hack: {{ATALHO}}",
+        "duration_seconds": 5,
+        "visual_style": "hack_reveal"
+      },
+      {
+        "id": "edu_myth",
+        "pattern": "Myth",
+        "template": "Mito: {{MITO}} | Realidade: {{VERDADE}}",
+        "duration_seconds": 8,
+        "visual_style": "myth_vs_fact"
+      },
+      {
+        "id": "edu_quote",
+        "pattern": "Quote",
+        "template": "\"{{CITACAO}}\" - {{FONTE}}",
+        "duration_seconds": 5,
+        "visual_style": "quote_card"
+      },
+      {
+        "id": "edu_formula",
+        "pattern": "Formula",
+        "template": "Formula: {{A}} + {{B}} = {{RESULTADO}}",
+        "duration_seconds": 6,
+        "visual_style": "equation_animation"
+      },
+      {
+        "id": "edu_timeline",
+        "pattern": "Timeline",
+        "template": "{{TEMPO_1}}: {{EVENTO_1}} | {{TEMPO_2}}: {{EVENTO_2}}",
+        "duration_seconds": 8,
+        "visual_style": "timeline_scroll"
+      },
+      {
+        "id": "edu_rule",
+        "pattern": "Rule",
+        "template": "Regra de ouro: {{REGRA}}",
+        "duration_seconds": 5,
+        "visual_style": "golden_rule"
+      },
+      {
+        "id": "edu_framework",
+        "pattern": "Framework",
+        "template": "Framework {{NOME}}: {{DESCRICAO}}",
+        "duration_seconds": 7,
+        "visual_style": "framework_diagram"
+      },
+      {
+        "id": "edu_checklist",
+        "pattern": "Checklist",
+        "template": "[x] {{ITEM_1}} [x] {{ITEM_2}} [ ] {{ITEM_3}}",
+        "duration_seconds": 7,
+        "visual_style": "checklist_animation"
+      },
+      {
+        "id": "edu_cost",
+        "pattern": "Cost",
+        "template": "Custo: {{SEM_ISSO}} vs {{COM_ISSO}}",
+        "duration_seconds": 6,
+        "visual_style": "cost_comparison"
+      },
+      {
+        "id": "edu_time",
+        "pattern": "Time",
+        "template": "Tempo: {{SEM_ISSO}} → {{COM_ISSO}}",
+        "duration_seconds": 6,
+        "visual_style": "time_saved"
+      },
+      {
+        "id": "edu_tool",
+        "pattern": "Tool",
+        "template": "Ferramenta: {{NOME}} - {{FUNCAO}}",
+        "duration_seconds": 6,
+        "visual_style": "tool_showcase"
+      },
+      {
+        "id": "edu_mindset",
+        "pattern": "Mindset",
+        "template": "Mentalidade: {{MINDSET_ANTIGO}} → {{MINDSET_NOVO}}",
+        "duration_seconds": 7,
+        "visual_style": "mindset_shift"
+      },
+      {
+        "id": "edu_case",
+        "pattern": "Case Study",
+        "template": "Case: {{CLIENTE}} conseguiu {{RESULTADO}}",
+        "duration_seconds": 7,
+        "visual_style": "case_study"
+      }
+    ]
+  },
+
+  "cta_blocks": {
+    "description": "8 CTA patterns for conversion (3-5s each)",
+    "templates": [
+      {
+        "id": "cta_link_bio",
+        "pattern": "Link in Bio",
+        "template": "Link na bio pra {{ACAO}}",
+        "duration_seconds": 4,
+        "visual_style": "arrow_pointing_up",
+        "use_case": "direct conversion"
+      },
+      {
+        "id": "cta_subscribe",
+        "pattern": "Subscribe",
+        "template": "Se inscreve pra mais {{CONTEUDO}}",
+        "duration_seconds": 4,
+        "visual_style": "subscribe_button",
+        "use_case": "channel growth"
+      },
+      {
+        "id": "cta_urgency",
+        "pattern": "Urgency",
+        "template": "Corre que {{OFERTA}} acaba {{QUANDO}}",
+        "duration_seconds": 4,
+        "visual_style": "countdown_timer",
+        "use_case": "limited offers"
+      },
+      {
+        "id": "cta_soft",
+        "pattern": "Soft CTA",
+        "template": "Comenta {{PERGUNTA}} ai embaixo",
+        "duration_seconds": 3,
+        "visual_style": "comment_prompt",
+        "use_case": "engagement"
+      },
+      {
+        "id": "cta_challenge",
+        "pattern": "Challenge",
+        "template": "Faz um dueto/stitch mostrando {{DESAFIO}}",
+        "duration_seconds": 4,
+        "visual_style": "challenge_badge",
+        "use_case": "UGC, virality"
+      },
+      {
+        "id": "cta_teaser",
+        "pattern": "Teaser",
+        "template": "Na parte 2 eu mostro {{PROMESSA}}",
+        "duration_seconds": 4,
+        "visual_style": "to_be_continued",
+        "use_case": "series, retention"
+      },
+      {
+        "id": "cta_question",
+        "pattern": "Question",
+        "template": "Voce {{PERGUNTA}}? Comenta!",
+        "duration_seconds": 3,
+        "visual_style": "question_bubble",
+        "use_case": "comments boost"
+      },
+      {
+        "id": "cta_value",
+        "pattern": "Value Reinforce",
+        "template": "{{BENEFICIO}} - teste gratis {{DURACAO}}",
+        "duration_seconds": 5,
+        "visual_style": "value_proposition",
+        "use_case": "trial conversion"
+      }
+    ]
+  },
+
+  "assembly_rules": {
+    "description": "Rules for composing blocks into complete Shorts",
+    "duration_formulas": {
+      "15s": {
+        "structure": ["hook", "educational", "cta"],
+        "shot_count": 3,
+        "distribution": {"hook": 0.20, "educational": 0.53, "cta": 0.27}
+      },
+      "30s": {
+        "structure": ["hook", "educational", "educational", "educational", "cta"],
+        "shot_count": 5,
+        "distribution": {"hook": 0.10, "educational": 0.70, "cta": 0.20}
+      },
+      "45s": {
+        "structure": ["hook", "educational", "educational", "educational", "educational", "cta"],
+        "shot_count": 6,
+        "distribution": {"hook": 0.07, "educational": 0.73, "cta": 0.20}
+      },
+      "60s": {
+        "structure": ["hook", "educational", "educational", "educational", "educational", "educational", "cta"],
+        "shot_count": 7,
+        "distribution": {"hook": 0.05, "educational": 0.80, "cta": 0.15}
+      }
+    },
+    "narrative_arc": {
+      "hook": "Capture attention, create curiosity gap",
+      "build": "Deliver value, build anticipation",
+      "benefit": "Show transformation, proof",
+      "cta": "Clear action, reinforce value"
+    }
+  },
+
+  "safe_zones": {
+    "youtube_shorts": {
+      "top_percent": 5,
+      "bottom_percent": 15,
+      "sides_percent": 5
+    },
+    "tiktok": {
+      "top_percent": 10,
+      "bottom_percent": 25,
+      "sides_percent": 5
+    },
+    "instagram_reels": {
+      "top_percent": 5,
+      "bottom_percent": 20,
+      "sides_percent": 5
+    }
+  },
+
+  "orchestration_interface": {
+    "description": "Standard interface for ADW composition - enables 200_ADW orchestration",
+    "input_contract": {
+      "required": ["product_brief", "duration_target", "angle"],
+      "optional": ["brand_profile", "hook_override", "cta_override"]
+    },
+    "output_contract": {
+      "primary": "short_video.mp4",
+      "metadata": "short_metadata.json",
+      "chaining_data": {
+        "script": "$shorts_script",
+        "visual_prompts": "$visual_prompts",
+        "quality_score": "$quality_score"
+      }
+    },
+    "spawn_compatible": true,
+    "max_parallel_instances": 5,
+    "consolidation_strategy": "merge_to_batch"
+  }
+}
