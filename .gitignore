@@ -15,3 +15,7 @@ logs/
 outputs/bugfixes/*.md
 !outputs/bugfixes/.gitkeep
 
+
+# Runtime state (bugloop)
+.codexa/
+tests/*.log
