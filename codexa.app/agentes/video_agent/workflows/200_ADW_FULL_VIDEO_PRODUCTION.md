@@ -1,6 +1,6 @@
 # ADW-200: Full Video Production Pipeline (Master Orchestrator)
 
-**Version**: 1.0.0
+**Version**: 2.0.0
 **Duration**: 8-15 minutes (spawn-optimized)
 **Pattern**: 1 Brief → Complete Multi-Platform Content Package
 **Mode**: Master Orchestrator (calls multiple ADWs via /spawn)
@@ -123,15 +123,12 @@
   "output_contract": {
     "package_directory": "outputs/production/{production_id}/",
     "structure": {
-      "video/": "Long-form video + Trinity metadata",
-      "youtube/": "Title, description, tags, chapters",
-      "thumbnails/": "5 Midjourney prompts",
-      "shorts/": "5 short videos + metadata",
-      "platforms/": "15 platform variants (YT/TT/IG)",
-      "docs/": "Reports and guides",
-      "MANIFEST.json": "Complete package manifest",
-      "README.md": "Human navigation guide"
-    }
+      "PRODUCTION.json": "LLM-optimized (all data, structured)",
+      "PRODUCTION.md": "Human-optimized (copy-paste ready)",
+      "assets/": "(optional) Generated video/image files"
+    },
+    "unified_format": true,
+    "note": "v2.0 consolidates 29+ files into 2 unified outputs"
   },
 
   "phases": [
@@ -431,207 +428,210 @@ async def stage_c_platform_optimization(shorts_batch):
 **Mode**: Sequential (final assembly)
 **Duration**: ~30 seconds
 
-### Output Package Structure
+### Output Package Structure (UNIFIED)
+
+> **Design Decision**: Todos os outputs consolidados em 2 arquivos ao invés de 29+.
+> Isso simplifica navegação, cópia e automação.
 
 ```
 outputs/production/{production_id}/
 │
-├── video/
-│   ├── main_video.mp4              # Long-form video
-│   ├── main_video.llm.json         # LLM metadata
-│   └── main_video.meta.json        # Human metadata
-│
-├── youtube/
-│   ├── metadata.json               # Complete YouTube metadata
-│   ├── title_variants.json         # 5 title options
-│   ├── description.txt             # Copy-paste ready
-│   ├── tags.txt                    # Comma-separated
-│   └── chapters.txt                # Timestamp format
-│
-├── thumbnails/
-│   ├── THUMBNAIL_PROMPTS.md        # Human-readable guide
-│   ├── prompts.json                # Midjourney prompts
-│   └── design_specs.json           # Specs for designer
-│
-├── shorts/
-│   ├── videos/
-│   │   ├── short_001.mp4
-│   │   ├── short_002.mp4
-│   │   ├── short_003.mp4
-│   │   ├── short_004.mp4
-│   │   └── short_005.mp4
-│   ├── metadata/
-│   │   └── ... (llm.json + meta.json per short)
-│   └── SHORTS_REPORT.md
-│
-├── platforms/
-│   ├── youtube_shorts/
-│   │   └── ... (captions, hashtags per short)
-│   ├── tiktok/
-│   │   └── ... (captions, hashtags per short)
-│   ├── instagram_reels/
-│   │   └── ... (captions, hashtags per short)
-│   └── CROSS_POST_SCHEDULE.md
-│
-├── docs/
-│   ├── PRODUCTION_REPORT.md        # Full production report
-│   ├── COST_BREAKDOWN.json         # Detailed costs
-│   ├── QUALITY_METRICS.json        # All quality scores
-│   └── USAGE_GUIDE.md              # How to use this package
-│
-├── MANIFEST.json                   # Complete package manifest (LLM)
-└── README.md                       # Human navigation guide
+├── PRODUCTION.json          # LLM-optimized (all data, structured)
+├── PRODUCTION.md            # Human-optimized (copy-paste ready)
+└── assets/                  # (optional) Generated video/image files
 ```
 
-### MANIFEST.json (LLM-Optimized)
+#### Por que 2 arquivos?
+
+| Antes (29+ arquivos) | Depois (2 arquivos) |
+|---------------------|---------------------|
+| Navegação confusa | Encontra tudo imediatamente |
+| Múltiplos copy-paste | Um arquivo = tudo pronto |
+| Fragmentação de dados | JSON único para automação |
+| Difícil manutenção | Fácil atualizar/versionar |
+
+#### PRODUCTION.json (LLM-Optimized)
+
+Contém TODOS os dados estruturados para consumo por LLMs ou scripts:
+- Brief do produto
+- Scripts dos 5 shorts
+- Legendas por plataforma (TikTok, Instagram, YouTube)
+- Calendário de publicação
+- Prompts visuais (Runway, Midjourney)
+- Thumbnails
+- Metadata YouTube
+- Métricas de qualidade
+
+#### PRODUCTION.md (Human-Optimized)
+
+Contém tudo formatado para copy-paste direto:
+- Resumo do conceito
+- Roteiros dos 5 shorts com overlays
+- Legendas organizadas por plataforma (collapsible)
+- Calendário 2 semanas
+- Prompts visuais prontos
+- Thumbnails prontos
+- Metadata YouTube pronto
+
+### PRODUCTION.json Structure
 
 ```json
 {
-  "manifest_version": "1.0.0",
-  "production_id": "prod_codexa_20251205_143022",
-  "created_at": "2025-12-05T14:30:22Z",
-  "product": "CODEXA - IA para E-commerce",
+  "meta": {
+    "production_id": "prod_ia_investment_20251205",
+    "tema": "O Novo Investimento em IA",
+    "subtema": "Meta-construcao: IA programa IA",
+    "created_at": "2025-12-05",
+    "version": "2.0.0"
+  },
 
-  "summary": {
+  "brief": {
+    "conceito_central": {
+      "problema": "IA generica (chatbots) = superficial, nao escala",
+      "solucao": "Sistema de agentes especializados"
+    },
+    "pilares": [
+      "3 Camadas: Chatbot → SaaS → Meta-construcao (1000x)",
+      "Destilacao: 10.000 horas → Sistema executavel",
+      "Verticalizacao: 6 agentes especializados > 1 generalista",
+      "12 Alavancas: 20% IN-AGENT + 80% OUT-AGENT"
+    ],
+    "target": "Empreendedores digitais BR que usam IA superficialmente",
+    "cta": "Comenta/Salva/Compartilha"
+  },
+
+  "video_principal": {
+    "duracao": 30,
+    "formato": "9:16",
+    "storyboard": ["hook", "context", "value_1", "value_2", "benefit", "cta"],
+    "visual_prompts": [...]
+  },
+
+  "shorts": [
+    {
+      "id": "short_001",
+      "angle": "number",
+      "hook": "3 camadas de IA: voce ainda esta na primeira",
+      "score": 8.9,
+      "script": [...],
+      "overlays": [...],
+      "captions": {
+        "tiktok": "...",
+        "instagram": "...",
+        "youtube": "..."
+      }
+    }
+    // ... shorts 002-005
+  ],
+
+  "youtube_metadata": {
+    "title": "O Novo Investimento em IA: Como Construir Sistemas que Constroem Sistemas",
+    "description": "...",
+    "tags": ["ia", "agentes", "automacao", ...]
+  },
+
+  "thumbnails": [
+    {"id": 1, "concept": "contrast", "prompt": "...", "text": "CHATBOT vs SISTEMA"},
+    // ... 4 more
+  ],
+
+  "schedule": {
+    "week_1": [
+      {"dia": "Seg", "plataforma": "TikTok", "short": "001", "horario": "19:00"}
+      // ...
+    ],
+    "week_2": [...]
+  },
+
+  "metrics": {
     "total_assets": 26,
-    "long_form_videos": 1,
-    "shorts": 5,
-    "platform_variants": 15,
-    "thumbnail_prompts": 5,
-    "total_duration_seconds": 350,
-    "total_cost_usd": 10.82,
-    "avg_quality_score": 8.47
-  },
-
-  "assets": {
-    "long_form": {
-      "path": "video/main_video.mp4",
-      "duration": 30,
-      "quality_score": 8.5
-    },
-    "youtube_metadata": {
-      "title": "7 Prompts de ChatGPT Que Todo Dev Precisa",
-      "path": "youtube/metadata.json"
-    },
-    "shorts": {
-      "count": 5,
-      "best_performer": "short_005",
-      "path": "shorts/videos/"
-    },
-    "platform_variants": {
-      "youtube_shorts": 5,
-      "tiktok": 5,
-      "instagram_reels": 5,
-      "path": "platforms/"
-    },
-    "thumbnails": {
-      "count": 5,
-      "path": "thumbnails/prompts.json"
-    }
-  },
-
-  "quick_actions": {
-    "upload_youtube_long": {
-      "video": "video/main_video.mp4",
-      "title": "youtube/metadata.json#title",
-      "description": "youtube/description.txt",
-      "tags": "youtube/tags.txt"
-    },
-    "upload_youtube_shorts": {
-      "videos": "shorts/videos/*.mp4",
-      "captions": "platforms/youtube_shorts/"
-    },
-    "upload_tiktok": {
-      "videos": "shorts/videos/*.mp4",
-      "captions": "platforms/tiktok/"
-    },
-    "upload_instagram": {
-      "videos": "shorts/videos/*.mp4",
-      "captions": "platforms/instagram_reels/"
-    }
-  },
-
-  "chaining_data": {
-    "$production_id": "prod_codexa_20251205_143022",
-    "$all_video_paths": [...],
-    "$best_short": "short_005",
-    "$total_cost": 10.82
+    "quality_score": 8.58,
+    "best_performer": "short_001",
+    "cost_usd": 10.50
   }
 }
 ```
 
-### README.md (Human-Optimized)
+### PRODUCTION.md Structure
 
 ```markdown
-# Production Package: CODEXA
+# {Tema}
 
-**Generated**: 2025-12-05 14:30:22
-**Production ID**: prod_codexa_20251205_143022
+> **"{Frase conceito principal}"**
 
----
-
-## Quick Start
-
-### 1. Upload Long-Form to YouTube
-1. Open `video/main_video.mp4`
-2. Copy title from `youtube/metadata.json`
-3. Paste description from `youtube/description.txt`
-4. Add tags from `youtube/tags.txt`
-5. Generate thumbnail using `thumbnails/THUMBNAIL_PROMPTS.md`
-
-### 2. Upload Shorts
-- **YouTube Shorts**: Use `platforms/youtube_shorts/` captions
-- **TikTok**: Use `platforms/tiktok/` captions
-- **Instagram Reels**: Use `platforms/instagram_reels/` captions
-
-### 3. Follow Cross-Post Schedule
-See `platforms/CROSS_POST_SCHEDULE.md` for optimal timing.
+**ID**: {production_id} | **Score**: {score}/10 | **Assets**: {count}
 
 ---
 
-## What's Inside
+## Conceito Central
 
-| Folder | Contents | Count |
-|--------|----------|-------|
-| `video/` | Long-form video + metadata | 1 |
-| `youtube/` | Title, description, tags, chapters | 5 files |
-| `thumbnails/` | Midjourney prompts | 5 prompts |
-| `shorts/` | Short videos | 5 videos |
-| `platforms/` | Platform-specific variants | 15 variants |
-| `docs/` | Reports and guides | 4 files |
+| Problema | Solucao |
+|----------|---------|
+| {problema} | {solucao} |
 
----
-
-## Quality Summary
-
-| Asset | Score | Status |
-|-------|-------|--------|
-| Long-form | 8.5/10 | Ready |
-| YouTube Metadata | 8.6/10 | Ready |
-| Shorts (avg) | 8.5/10 | Ready |
-| Thumbnails | N/A | Prompts ready |
-
-**Best Performer**: `short_005` (Number angle, 8.9/10)
+### Os 4 Pilares
+1. **{pilar_1}**
+2. **{pilar_2}**
+...
 
 ---
 
-## Costs
+## 5 Shorts (Copy-Paste Ready)
 
-| Stage | Cost |
-|-------|------|
-| Long-form production | $2.50 |
-| Shorts (5x) | $4.05 |
-| TTS/Audio | $0.50 |
-| API calls | $3.77 |
-| **Total** | **$10.82** |
+### Short 001 - {Angle} {best_emoji}
+**Hook**: "{hook}"
+**Score**: {score}/10
+
+**Roteiro**:
+{script com timestamps}
+
+**Overlays**: {overlays sequenciais}
+
+<details>
+<summary>📱 Legendas por Plataforma</summary>
+
+**TikTok**:
+{legenda tiktok}
+
+**Instagram**:
+{legenda instagram}
+
+**YouTube**:
+{legenda youtube}
+</details>
 
 ---
 
-## Need Help?
+## Calendario 2 Semanas
 
-- Production issues: Check `docs/PRODUCTION_REPORT.md`
-- Quality concerns: Check `docs/QUALITY_METRICS.json`
-- Usage questions: Check `docs/USAGE_GUIDE.md`
+### Semana 1
+| Dia | Plataforma | Short | Horario | Hook |
+...
+
+---
+
+## Prompts Visuais (Runway)
+{6 prompts para shots}
+
+---
+
+## Thumbnails (Midjourney)
+{5 prompts para thumbnails}
+
+---
+
+## YouTube Metadata
+### Titulo
+### Descricao
+### Tags
+
+---
+
+## Metricas
+| Metrica | Valor |
+...
+
+**Gerado por**: CODEXA 200_ADW_FULL_VIDEO_PRODUCTION v2.0.0
 ```
 
 ---
@@ -814,6 +814,14 @@ batch_results = await spawn_parallel([
 ---
 
 ## VERSION HISTORY
+
+### v2.0.0 (2025-12-05)
+- **BREAKING**: Unified output format (29+ files → 2 files)
+  - `PRODUCTION.json` - All data, LLM-optimized
+  - `PRODUCTION.md` - Copy-paste ready, human-optimized
+- Simplified package structure
+- Collapsible platform captions in MD
+- Improved navigation and usability
 
 ### v1.0.0 (2025-12-05)
 - Initial master orchestrator implementation
