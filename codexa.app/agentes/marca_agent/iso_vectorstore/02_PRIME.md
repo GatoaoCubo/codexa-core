@@ -1,19 +1,19 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: PRIME.md
-  Agent: marca_agent
-  Synced: 2025-11-30
-  Version: 3.0.0
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: marca_agent/PRIME.md
+Synced: 2025-12-05
+Version: 3.1.0
 -->
 
-# /prime-marca | Brand Strategy Agent v3.0.0
+# /prime-marca | Brand Strategy Agent v3.1.0
 
 **Purpose**: TAC-7 system for comprehensive Brazilian e-commerce brand identities
 **Time**: 15-20min | **Output**: brand_strategy.md (32 blocks) + validation_report.txt + metadata.json (Trinity)
 **Architecture**: Dual-Layer ADW+HOP | 5-Phase SDLC | 12 Leverage Points
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
+
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
 
 ---
 
@@ -322,12 +322,25 @@ USER_DOCS/Marca/
 
 ---
 
-**Version**: 3.0.0
-**Updated**: 2025-11-29
+**Version**: 3.1.0
+**Updated**: 2025-12-05
 **Status**: Production Ready
 **Architecture**: Dual-Layer ADW+HOP | 5-Phase SDLC
 **12 Leverage Points**: Fully Implemented
 **Integration**: anuncio_agent, pesquisa_agent, USER_DOCS/Marca/
+
+**Changelog v3.1.0** (2025-12-05):
+- Version consistency enforced across PRIME.md, README.md, INSTRUCTIONS.md
+- Quality claims updated to reflect 8.5/10 maturity score
+- Documentation synchronized with latest architecture changes
+- Fixed outdated quality metrics (removed "4.5/10" references)
+
+**Changelog v3.0.0** (2025-11-30):
+- iso_vectorstore optimization (ADW-104 v2.1.0): 33 → 20 files, -58% tokens
+- HOPs optimized: 13 (~6k → ~700 tokens), 14 (~6k → ~800 tokens)
+- Created 00_MANIFEST.md and SYSTEM_INSTRUCTIONS_AGENT_BUILDER.md
+- Applied lessons learned (8.5-8.8 patterns)
+- Version consistency enforced across all files
 
 **Changelog v2.5.0** (2025-11-25):
 - Full 12 Leverage Points implementation

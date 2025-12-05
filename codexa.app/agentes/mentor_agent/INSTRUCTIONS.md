@@ -1,7 +1,7 @@
 # INSTRUCTIONS FOR AI ASSISTANTS - Mentor Agent
 
-**Version**: 2.1.0 (Added FONTES/ system)
-**Last Updated**: 2025-11-24
+**Version**: 2.6.0 (PROMPT_ENGINEERING Pipeline)
+**Last Updated**: 2025-12-01
 **Purpose**: Technical guide for AI assistants working with Mentor Agent
 
 ---
@@ -18,13 +18,13 @@
 
 **If no relevant knowledge found** → Tell seller honestly and ask if they have materials to add to RASCUNHO/
 
-### 🆕 FONTES/ Integration (v2.1.0)
+### 🆕 FONTES/ Integration (Pillar 5)
 
 **When to search FONTES/** (external docs):
-- Questions about LLM APIs (Claude, GPT, Gemini)
-- Marketplace API integration (Mercado Livre, Shopee, Amazon)
+- Questions about LLM APIs (Claude, GPT, Gemini, Cohere)
+- Marketplace API integration (Mercado Livre, Shopee, Amazon, Magalu)
 - AI frameworks (LangChain, Vercel AI SDK, LlamaIndex, CrewAI)
-- E-commerce best practices (Google SEO, copywriting, CRO)
+- E-commerce best practices (Google SEO, copywriting, CRO, analytics)
 
 **Scout automatically detects** when to search FONTES/ based on keywords.
 
@@ -33,7 +33,13 @@
 - Weekly routine (Monday mornings)
 - Before answering technical platform questions
 
-**Command**: `/fontes sync` (consolidado - roda tudo: check + refresh + validate)
+**Command**: `/refresh_fontes` (auto-refresh system)
+
+**16 External Sources**:
+- **LLM_PLATFORMS/**: Anthropic, OpenAI, Google, Cohere
+- **MARKETPLACES/**: Mercado Livre, Shopee, Amazon, Magalu
+- **FRAMEWORKS/**: LangChain, Vercel AI SDK, LlamaIndex, CrewAI
+- **ECOMMERCE/**: SEO, copywriting, CRO, analytics
 
 ---
 
@@ -424,10 +430,11 @@ Is it a question about HOW TO do something?
 
 ### External Documentation (FONTES/)
 
-1. **Use unified command**: `/fontes sync` (not separate scripts)
+1. **Use refresh command**: `/refresh_fontes` (auto-refresh system)
 2. **Update weekly**: Every Monday (critical sources)
 3. **Never manually edit** downloaded .md files (will be overwritten)
 4. **Check before answering**: Platform/API questions need fresh docs
+5. **16 sources tracked**: LLMs (4), Marketplaces (4), Frameworks (4), E-commerce (4)
 
 ### Communication
 
@@ -459,10 +466,10 @@ Is it a question about HOW TO do something?
 
 ### Before Answering Platform/API Questions
 
-- [ ] Checked if FONTES/ docs are fresh (`/fontes status --show-pending`)?
-- [ ] If pending updates detected → run `/fontes sync`?
+- [ ] Checked if FONTES/ docs are fresh?
+- [ ] If outdated → run `/refresh_fontes`?
 - [ ] Read from FONTES/ after sync?
-- [ ] Combined external + internal knowledge?
+- [ ] Combined external + internal knowledge (PROCESSADOS/ + FONTES/)?
 
 ### After Processing New File
 
@@ -503,7 +510,27 @@ Is it a question about HOW TO do something?
 
 ---
 
-**Version**: 2.0.0 (Consolidated)
-**Agent Type**: Intelligence + Processing + Mentoring
-**For**: AI Assistants working with Brazilian e-commerce sellers
+---
+
+**Version**: 2.6.0 (PROMPT_ENGINEERING Pipeline)
+**Last Updated**: 2025-12-01
+**Agent Type**: Intelligence + Processing + Mentoring + External Knowledge
+**Target Users**: Brazilian e-commerce sellers
 **Dependencies**: None (self-contained)
+**Framework**: 12 Leverage Points + Dual-Layer ADW+HOP
+
+**New in 2.6.0**:
+- PROMPT_ENGINEERING knowledge base (100+ system prompts analyzed)
+- 13 Architecture Pillars (5 Foundational + 8 Operational)
+- Enhanced FONTES/ system with 16 external sources
+- Unified Scout search (PROCESSADOS + FONTES)
+- Auto-refresh automation for external documentation
+
+**v2.5.0 Features** (preserved):
+- 12_execution_plans.json with full/quick modes
+- Complete 05_ARCHITECTURE.md system design
+- Mental checklist in QUICK_START
+- Task boundaries for progress visibility
+- 51% → 89% Leverage Points compliance (+38%)
+
+---

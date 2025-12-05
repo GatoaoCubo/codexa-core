@@ -1,10 +1,8 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: README.md
-  Agent: anuncio_agent
-  Synced: 2025-11-30
-  Version: 3.2.0
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: anuncio_agent/README.md
+Synced: 2025-12-05
+Version: 3.2.0
 -->
 
 # anuncio_agent | Brazilian Marketplace Ad Generation System
@@ -400,13 +398,13 @@ pytest tests/test_models.py::TestConfidenceScore -v
 
 | File | Purpose | For |
 |------|---------|-----|
-| [SETUP.md](../SETUP.md) | Universal setup (all platforms) | Everyone |
-| [ARCHITECTURE.md](../ARCHITECTURE.md) | Detailed technical architecture | Developers |
-| [PRIME.md](../PRIME.md) | Entry point (TAC-7 format) | AI Assistants |
-| [prompts/10_main_agent_hop.md](../prompts/10_main_agent_hop.md) | HOP Orchestrator | Configuration |
-| [config/copy_rules.json](../config/copy_rules.json) | Compliance rules | DevOps |
-| [plans/full_anuncio.json](../plans/full_anuncio.json) | Execution plan (7 phases) | Automation |
-| [sample_data/](../sample_data/) | Examples & reference outputs | Learning |
+| [SETUP.md](SETUP.md) | Universal setup (all platforms) | Everyone |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Detailed technical architecture | Developers |
+| [PRIME.md](PRIME.md) | Entry point (TAC-7 format) | AI Assistants |
+| [prompts/10_main_agent_hop.md](prompts/10_main_agent_hop.md) | HOP Orchestrator | Configuration |
+| [config/copy_rules.json](config/copy_rules.json) | Compliance rules | DevOps |
+| [plans/full_anuncio.json](plans/full_anuncio.json) | Execution plan (7 phases) | Automation |
+| [sample_data/](sample_data/) | Examples & reference outputs | Learning |
 
 ---
 
@@ -548,4 +546,12 @@ pytest tests/test_models.py::TestConfidenceScore -v
 
 **Version**: 3.2.0 | **Updated**: 2025-11-30 | **Status**: Production Ready
 **Architecture**: Dual-Layer (ADW + HOP) | **12 Leverage Points**: 12/12 (100%)
-**Scope**: TEXT-ONLY | **Output**: 3-PART (Visual + Copyable + JSON)
+
+**Changelog v3.2.0**:
+- Performance optimization: 57k → 25k tokens target (-56%)
+- 3-PART output structure (Visual + Copyable + Structured)
+- Code fence `[INICIO_COPIAR]`/`[FIM_COPIAR]` for 1-click copy
+- Config presets: EFICIENTE (-68% tokens) + PERFORMANCE (+quality)
+- Solved download issue (sandbox limitation → code fence)
+- 5D scoring: Titulo 30%, Keywords 25%, Descricao 20%, Bullets 15%, Compliance 10%
+- Intelligent Fallback (4 confidence levels)

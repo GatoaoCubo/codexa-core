@@ -1,23 +1,23 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: PRIME.md
-  Agent: photo_agent
-  Synced: 2025-11-30
-  Version: 2.5.1
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: photo_agent/PRIME.md
+Synced: 2025-12-05
+Version: 2.6.0
 -->
 
-# PRIME: photo_agent v2.5.0
+# PRIME: photo_agent v2.6.0
 
 **AI Assistant Entry Point** - Professional AI photography prompt generation for e-commerce
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
+
 ---
 
 ## 1. IDENTITY
 
-**Agent**: `photo_agent` v2.5.0
+**Agent**: `photo_agent` v2.6.0
 **Domain**: AI Product Photography (E-commerce Marketplaces)
 **Architecture**: Dual-Layer (ADW + HOP) | 12 Leverage Points Compliant
 
@@ -258,15 +258,21 @@ iso_vectorstore?       → iso_vectorstore/01_QUICK_START.md
 
 ---
 
-**Version**: 2.5.1 | **Updated**: 2025-11-29 | **Target**: ≤8000 chars
+**Version**: 2.6.0 | **Updated**: 2025-12-05 | **Target**: ≤8000 chars
 **Architecture**: Dual-Layer (ADW + HOP) | 12 Leverage Points Compliant
 **Status**: Production Ready
+
+**Changelog v2.6.0**:
+- Scout integration (LAW 9) - `/prime-photo` trigger
+- Removed duplicate *_HOP_HOP.md files from iso_vectorstore
+- Updated README.md and INSTRUCTIONS.md to v2.6.0
+- Synchronized documentation versions across all Trinity files
+- Clarified dual-input workflow in all docs
 
 **Changelog v2.5.0**:
 - Applied 12 Leverage Points framework
 - Added model recommendations section
 - Added execution modes (full/quick/single)
-- Added 12 Leverage Points status table
 - Synchronized with iso_vectorstore v3.2.0 format
 - Removed Trinity output format (deprecated)
 - Added task boundaries support

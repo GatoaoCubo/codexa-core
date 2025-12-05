@@ -1,17 +1,17 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: PRIME.md
-  Agent: pesquisa_agent
-  Synced: 2025-11-30
-  Version: 3.0.0
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: pesquisa_agent/PRIME.md
+Synced: 2025-12-05
+Version: 3.2.0
 -->
 
 # /prime-pesquisa | Brazilian E-commerce Research Agent
 
-**Version**: 3.0.0 | **Status**: Production | **Isolation**: Full | **Framework**: 12 Leverage Points
+**Version**: 3.2.0 | **Status**: Production | **Isolation**: Full | **Framework**: 12 Leverage Points
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
+
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
 
 ---
 
@@ -117,8 +117,8 @@ user_research/
 
 ### MODULE_METADATA
 ```yaml
-id: pesquisa_agent_v3
-version: 3.0.0
+id: pesquisa_agent_v2
+version: 2.5.0
 category: market_research
 dependencies: [web_search (required), vision (optional), file_search (optional)]
 isolation: full
@@ -441,7 +441,7 @@ CODE_INTERPRETER=false # Optional (advanced metrics)
 
 ---
 
-## 📚 KEY FILES (~90 files total)
+## 📚 KEY FILES (~100 files total)
 
 ### Core Files (Entry Points)
 | File | Purpose | Required |
@@ -582,7 +582,20 @@ After execution:
 
 ---
 
-**Version**: 3.0.0 (2025-11-30) - iso_vectorstore optimization + version sync
-**Previous**: v2.7.1 (Shared Principles) | v2.6 (Claude Code tools mapping) | v2.5 (12 Leverage Points) | v2.1 (Full isolation) | v2.0 (HOP framework)
-**Status**: ✅ Production-ready | Isolation: Full | Portability: Universal | Framework: 12 Leverage Points
-**Files**: ~95 total (core: 4, config: 6, prompts: 12, iso_vectorstore: 21, competitor_intelligence: ~40, templates: 2, workflows: 6, mcp-servers: 3)
+**Version**: 3.1.0 (2025-11-30) - Platform-Agnostic Visual Strategy
+**Previous**: v3.0.0 (Validators) | v2.7.1 (Shared Principles) | v2.6 (Claude Code tools) | v2.5 (12 Leverage Points)
+**Status**: VALIDATED | Isolation: Full | Portability: Universal | Framework: 12 Leverage Points
+**Files**: ~100 total (core: 4, config: 6, prompts: 12, iso_vectorstore: 21, competitor_intelligence: ~40, templates: 2, workflows: 6, validators: 2)
+
+**Changelog v3.1.0**:
+- Platform-agnostic Visual Research Strategy (works on GPT-4/5 Vision, Claude, Gemini)
+- 3 strategies: Vision + Image URLs | Screenshot Tool | Text-Only Fallback
+- Capability auto-detection (web_search, vision, file_search, screenshot_tool)
+- PLATFORM NOTES section for OpenAI Agent Builder, Claude, Gemini
+- Removed Claude-specific MCP references from SYSTEM_INSTRUCTIONS
+
+**Changelog v3.0.0**:
+- Added validate_iso.py (iso_vectorstore compliance validator)
+- Added code_interpreter/validator.py (22-block research_notes validator)
+- 6-Dimension Quality Scoring (completeness, competitors, queries, insights, compliance, coherence)
+- Standalone output (research_notes.md) production-ready

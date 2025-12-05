@@ -11,8 +11,8 @@
 
 This command verticalizes you into the **Curso Agent** with full context for:
 
-- 3 ADW workflows (Quick, Full Module, Sales)
-- 5 specialized HOPs (Video, Workbook, Sales, Email, Landing)
+- 3 ADW workflows (Quick, Full Module, Sales) - each 6 phases (0-5)
+- 0 HOPs (workflows are self-contained)
 - 5 validators (Content, Brand, Pedagogy, Technical, Hotmart)
 - Progressive pedagogy (Layer 1 → 2 → 3)
 - 200+ [OPEN_VARIABLES] in templates
@@ -92,11 +92,11 @@ When `/prime-curso` is called:
 
 ## QUICK REFERENCE
 
-### 3 Workflows
+### 3 Workflows (each with 6 phases: 0-5)
 ```
-Quick Outline   → 5-10 min  → Course structure + objectives
-Full Module     → 30-45 min → Script + Workbook + Exercises
-Sales Package   → 20-30 min → Landing + Emails + Ads
+Quick Outline   → 5-10 min  → Course structure + objectives (6 phases)
+Full Module     → 30-45 min → Script + Workbook + Exercises (6 phases)
+Sales Package   → 20-30 min → Landing + Emails + Ads (6 phases)
 ```
 
 ### Available Commands

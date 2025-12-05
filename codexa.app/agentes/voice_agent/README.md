@@ -9,19 +9,42 @@ Accessibility-first voice interface controller for CODEXA. Enables hands-free in
 /v
 ```
 
-That's it. The daemon starts in background and you can speak commands.
+A beep plays, speak your command, another beep signals end of recording.
 
-## Architecture (v3.0)
+## Architecture (v7.0 - Beep-Only)
 
-The Voice Agent uses a **background daemon** architecture:
+The Voice Agent uses a **beep-only feedback** system with manual microphone control:
 
 ```
-Voice Daemon (Background) <---> Files (IPC) <---> Claude Code (Main)
-     |                              |                    |
-     v                              v                    v
-  Listen                    command.txt              Poll
-  Transcribe                response.txt             Process
-  Speak                     status.txt               Respond
+┌─────────────────────────────────────────────────────────────┐
+│                      /v FLOW (v7.0)                          │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  1. User types /v                                            │
+│         │                                                    │
+│         ▼                                                    │
+│  2. BEEP (800Hz) - recording starts immediately              │
+│         │                                                    │
+│         ▼                                                    │
+│  3. User speaks freely (15s window, no wake word)            │
+│         │                                                    │
+│         ▼                                                    │
+│  4. BEEP (1200Hz) - recording ended                          │
+│         │                                                    │
+│         ▼                                                    │
+│  5. Whisper transcribes                                      │
+│         │                                                    │
+│         ▼                                                    │
+│  6. Claude interprets as "desire/intent"                     │
+│         │                                                    │
+│         ├─── Clear? → Execute, speak response                │
+│         │                                                    │
+│         └─── Unclear? → "Nao entendi. Repita."               │
+│                         └─→ Listen again                     │
+│                                                              │
+│  7. Return to chat (user types /v for next command)          │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ## Structure
@@ -42,66 +65,58 @@ voice_agent/
 
 | File | Purpose |
 |------|---------|
-| `voice_daemon.py` | Background daemon for continuous listening |
-| `stt.py` | Speech-to-Text with VAD |
-| `tts.py` | TTS router (Edge > ElevenLabs > pyttsx3) |
+| `server.py` | MCP server for voice commands |
+| `stt.py` | Speech-to-Text with beep feedback |
+| `tts.py` | Text-to-speech for responses |
+| `voice_filter.py` | Noise filter (wake word disabled) |
 | `config.py` | Centralized configuration |
-| `server.py` | MCP server (alternative) |
 
-## IPC Files (Temp Directory)
+## Feedback Signals
 
-| File | Purpose |
-|------|---------|
-| `codexa_voice_command.txt` | Voice commands from daemon |
-| `codexa_voice_response.txt` | Responses for daemon to speak |
-| `codexa_voice_status.txt` | Daemon status |
+| Signal | Meaning |
+|--------|---------|
+| BEEP 800Hz | Recording started - speak now |
+| BEEP 1200Hz | Recording ended - processing |
+| BEEP 400Hz | Timeout - no speech detected |
 
 ## Configuration
 
 Set in `.env`:
 
 ```
-ELEVENLABS_API_KEY=your_key_here
+WAKE_WORD_ENABLED=false   # No wake word needed in v7.0
 STT_LANGUAGE=pt
-VAD_SILENCE_THRESHOLD=1.5
+STT_MAX_DURATION=15
 EDGE_VOICE=pt-BR-FranciscaNeural
+ELEVENLABS_API_KEY=your_key_here
 ```
 
 ## Usage
 
-### Continuous Mode
+### Single Command Mode (v7.0)
 
 ```
 User: /v
-Daemon: "Modo voz ativado. Pode falar!"
+System: BEEP (800Hz)
 User: (speaks) "Liste os arquivos"
+System: BEEP (1200Hz)
 Claude: (runs ls, writes response)
-Daemon: "Encontrei 5 arquivos"
+Claude: (TTS) "Encontrei 5 arquivos"
+[Control returns to chat]
+User: /v
+System: BEEP (800Hz)
 User: (speaks) "parar"
-Daemon: "Até logo!"
-```
-
-### Daemon Commands
-
-```bash
-# Start daemon manually
-py -3.12 codexa.app/voice/voice_daemon.py start
-
-# Stop daemon
-py -3.12 codexa.app/voice/voice_daemon.py stop
-
-# Check status
-py -3.12 codexa.app/voice/voice_daemon.py status
+Claude: (TTS) "Até logo"
 ```
 
 ## Exit Commands
 
-Any of: parar, sair, exit, quit, stop, encerrar, tchau
+Any of: parar, sair, exit, quit, stop, tchau
 
 ## Version
 
-- **Version**: 3.0.0
+- **Version**: 7.0.0
 - **Created**: 2025-11-27
-- **Updated**: 2025-11-28
+- **Updated**: 2025-11-30
 - **Status**: Production
-- **Architecture**: Background daemon with file-based IPC
+- **Architecture**: Beep-only feedback, single capture per /v

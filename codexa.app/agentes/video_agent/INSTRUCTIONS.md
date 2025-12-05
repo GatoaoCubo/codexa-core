@@ -1,9 +1,9 @@
 # INSTRUCTIONS | video_agent
 
-**Version**: 2.7.0
+**Version**: 3.0.0
 **Purpose**: Instructions for AI assistants / Agent builders to use video_agent
 **Type**: HOP (Higher-Order Prompt) for LLM execution
-**Updated**: 2025-12-04
+**Updated**: 2025-12-05
 
 ---
 
@@ -35,14 +35,18 @@
 - Video generation APIs (async, parallel)
 - Local video processing (concatenation, audio mixing, text overlays)
 
-**4. Prompts**: 7 HOPs (one per pipeline stage) in TAC-7 format
+**4. Prompts**: 11 HOPs (pipeline stages + metadata optimization) in TAC-7 format
 - 10_concept_planner_HOP.md (storyboard)
 - 20_script_writer_HOP.md (narration)
 - 30_visual_prompter_HOP.md (platform prompts)
 - 40_production_runner_HOP.md (API orchestration)
 - 50_editor_assembler_HOP.md (FFmpeg editing)
 - 60_title_optimizer_HOP.md (YouTube titles)
-- 61_description_optimizer_HOP.md (YouTube descriptions) ← NEW
+- 61_description_optimizer_HOP.md (YouTube descriptions)
+- 62_tags_optimizer_HOP.md (YouTube tags)
+- 63_thumbnail_text_HOP.md (YouTube thumbnail text)
+- 64_chapters_generator_HOP.md (YouTube chapters)
+- 72_platform_optimizer_HOP.md (Multi-platform optimization)
 
 ### 8 OUT-AGENT Pillars (External Artifacts)
 
@@ -435,6 +439,24 @@ Output: 5-section description + scoring
 
 ## CHANGELOG
 
+### v3.0.0 (2025-12-05)
+- Shorts & Master Orchestration
+- Added 72_platform_optimizer_HOP.md (multi-platform: YT/TikTok/IG)
+- Added 110_ADW_RUN_SHORTS.md (single short generation)
+- Added 111_ADW_SHORTS_MULTI_VARIANT.md (parallel N shorts via /spawn)
+- Added 200_ADW_FULL_VIDEO_PRODUCTION.md (MASTER ORCHESTRATOR)
+- Added config/shorts_blocks.json (12 hooks, 30 educational, 8 CTAs)
+- Block-based modular Shorts architecture
+- /spawn parallel execution (2.4x speedup)
+- Complete production pipeline: 1 brief → 26+ assets
+
+### v2.8.0 (2025-12-04)
+- YouTube Optimization Suite Expansion
+- Added 62_tags_optimizer_HOP.md (Phase 6+++)
+- Added 63_thumbnail_text_HOP.md (Phase 6++++)
+- Added 64_chapters_generator_HOP.md (Phase 6.5)
+- 4 tag categories, 5 thumbnail angles, 3 chapter input modes
+
 ### v2.7.0 (2025-12-04)
 - YouTube Description Optimizer (Phase 6++)
 - 5-section structure (Hook, Value Prop, Timestamps, Links, Hashtags)
@@ -470,12 +492,13 @@ Output: 5-section description + scoring
 
 ---
 
-**Status**: Production-Ready | **Version**: 2.7.0 | **Type**: Specialist Agent
-**Dependencies**: FFmpeg, Runway/Pika API | **Quality Score**: 9.5/10.0
+**Status**: Production-Ready | **Version**: 3.0.0 | **Type**: Specialist Agent + Master Orchestrator
+**Dependencies**: FFmpeg, Runway/Pika API | **Quality Score**: 9.8/10.0
 **12 Leverage Points**: Fully Implemented
+**Orchestration**: 200_ADW Master + /spawn parallelism
 
 ---
 
 > TIP: Always use task boundaries for progress visibility
 > GOAL: Generate professional e-commerce videos with 0 human edits
-> READY: Full 7-phase pipeline operational
+> READY: Full 7-phase pipeline + Master Orchestration operational

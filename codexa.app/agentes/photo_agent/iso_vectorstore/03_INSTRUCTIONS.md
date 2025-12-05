@@ -1,23 +1,23 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: INSTRUCTIONS.md
-  Agent: photo_agent
-  Synced: 2025-11-30
-  Version: 1.0.0
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: photo_agent/INSTRUCTIONS.md
+Synced: 2025-12-05
+Version: 2.6.0
 -->
 
 # INSTRUCTIONS: photo_agent Operations
 
-**Version**: 1.0.0
+**Version**: 2.6.0
 **Audience**: AI Assistants operating photo_agent
-**Purpose**: Step-by-step operational guidance
+**Purpose**: Step-by-step operational guidance for v3.2.0 dual-input workflow
 
 ---
 
 ## Overview
 
 This document provides operational instructions for AI assistants using `photo_agent` to generate professional photography prompts. Follow these workflows systematically to ensure quality output.
+
+**Key Change in v3.2.0**: All prompts now use `{user_image} {seed:[RANDOM]}` prefix for dual-input workflow, ensuring maximum product fidelity while enabling controlled variations through seeds and `[OPEN_VARIABLES]`.
 
 ---
 
@@ -58,83 +58,99 @@ For each scene (1-9):
   7. Apply brand profile (if provided): color grading, mood alignment
 ```
 
-**Step 4: Assemble Prompts**
+**Step 4: Assemble Prompts (v3.2.0 Format)**
 ```
-For each scene:
-  1. Start with universal template structure:
-     "Professional [STYLE] photography, [SUBJECT], ..."
+PROMPT 1: Grid 3x3 Master (single image with all 9 scenes)
+  1. Start with dual-input prefix:
+     "{user_image} {seed:[RANDOM]} Professional photography grid..."
 
-  2. Add technical specs:
-     "camera: [FOCAL_LENGTH] [APERTURE] [SHUTTER] ISO [ISO], ..."
+  2. Add 9-scene composition:
+     "3x3 grid showing [SUBJECT] in 9 different scenes..."
 
-  3. Add lighting:
-     "lighting: [TYPE] [DIRECTION] [QUALITY], ..."
+  3. Add technical specs for master shot:
+     "camera: 50mm f/8, uniform lighting across grid..."
 
-  4. Add composition & background:
-     "background: [SPEC], composition: [RULE], ..."
+  4. Add [OPEN_VARIABLES] for controlled randomization
+  5. Add compliance + generation commands
 
-  5. Add PNL trigger:
-     "PNL: '[EMOTIONAL_ANCHOR]', ..."
+PROMPT 2: Individual Prompts (9 separate images)
+  For each scene (1-9):
+  1. Start with dual-input prefix:
+     "{user_image} {seed:[RANDOM]} Professional [STYLE] photography..."
 
-  6. Add compliance instructions:
-     "no watermarks, no text overlay, no third-party logos, ..."
+  2. Add scene-specific technical specs:
+     "camera: [FOCAL] [APERTURE], lighting: [TYPE]..."
 
-  7. Add brand lock:
-     "brand/style lock to [SUBJECT], 8K high quality"
+  3. Add composition & background:
+     "background: [SPEC], composition: [RULE]..."
 
-  8. Apply intentional gaps strategy:
-     - Do NOT specify: exact secondary light position, minor prop details, small angle variations
-     - DO specify: main light type, general background, primary composition rule
-```
+  4. Add PNL trigger:
+     "[EMOTIONAL_ANCHOR] [OPTIONS]..."
 
-**Step 5: Validate Each Prompt**
-```
-For each prompt, check 11-point validation:
-  1. Length: 80-350 characters ✓
-  2. Camera specified ✓
-  3. Lighting described ✓
-  4. Background mentioned ✓
-  5. Composition defined ✓
-  6. Resolution stated ✓
-  7. Contains "no watermarks" ✓
-  8. Contains "no text" ✓
-  9. Contains "no third-party logos" ✓
-  10. PNL trigger included ✓
-  11. No impossible instructions ✓
-
-Calculate validation score: (passed checks / 11)
-If score < 0.85: Auto-correct and retry once
-If still < 0.85: Escalate to human review
+  5. Add [OPEN_VARIABLES] placeholders
+  6. Add compliance instructions
+  7. Add generation commands at end
 ```
 
-**Step 6: Format Output**
+**Step 5: Validate Each Prompt (v3.2.0 - 13 Points)**
 ```
-Generate Trinity output:
+For each prompt, check 13-point validation:
+  TECHNICAL (7 points):
+  1. {user_image} {seed:[RANDOM]} prefix ✓
+  2. [OPEN_VARIABLES] present ✓
+  3. Camera specs realistic ✓
+  4. Lighting physics correct ✓
+  5. Word count: P1 500-800, P2 180-300 each ✓
+  6. No impossible setups ✓
+  7. Generation commands present ✓
 
-1. Markdown (.md):
-   - Metadata block (subject, style, total prompts, validation status)
-   - Scene-by-scene breakdown with prompts and specs
-   - Quality report summary
+  CONTENT (6 points):
+  8. Scene 1 white #FFFFFF ✓
+  9. Scene 9 white #FFFFFF (CRITICAL) ✓
+  10. PNL triggers with [OPTIONS] ✓
+  11. Brand colors (if provided) ✓
+  12. No text/logos ✓
+  13. Copy-paste ready ✓
 
-2. LLM JSON (.llm.json):
-   - Structured array of prompt objects
-   - Technical metadata per scene
-   - Validation scores
-
-3. Meta JSON (.meta.json):
-   - Input hash (SHA256)
-   - Generation timestamp
-   - Quality metrics
-   - Compliance report
+Calculate validation score: (passed checks / 13)
+Threshold: ≥0.85 (general) | ≥0.90 (marketplace)
+If score < threshold: Auto-correct and retry once
+If still below: Escalate to human review
 ```
 
-**Step 7: Quality Assurance**
+**Step 6: Format Output (v3.2.0)**
+```
+Generate output with 2 prompts:
+
+1. PROMPT 1: Grid 3x3 master
+   - Single copyable block with {user_image} {seed:[RANDOM]} prefix
+   - 500-800 words describing 9-scene grid
+   - [OPEN_VARIABLES] for controlled randomization
+   - Generation commands inline
+
+2. PROMPT 2: 9 individual prompts
+   - Each prompt 180-300 words
+   - Each starts with {user_image} {seed:[RANDOM]}
+   - Scenes 1+9 = white background #FFFFFF
+   - [OPEN_VARIABLES] in each
+   - Auto-PNG generation commands at end
+
+3. Quality Report:
+   - 13-point validation summary
+   - Compliance status
+   - Warnings/errors
+```
+
+**Step 7: Quality Assurance (v3.2.0)**
 ```
 Final checks:
-  - All 9 prompts generated ✓
-  - Average validation score ≥0.85 ✓
-  - No validation errors ✓
-  - Trinity output complete (.md + .llm.json + .meta.json) ✓
+  - PROMPT 1 (Grid 3x3) generated ✓
+  - PROMPT 2 (9 individual) generated ✓
+  - All start with {user_image} {seed:[RANDOM]} ✓
+  - [OPEN_VARIABLES] present in all ✓
+  - Scenes 1+9 = white background ✓
+  - Validation score ≥0.85 ✓
+  - Generation commands included ✓
   - Copy-paste ready (no preprocessing needed) ✓
 ```
 
@@ -894,6 +910,14 @@ def generate_prompts(input):
 
 ---
 
-**Version**: 1.0.0
-**Last Updated**: 2025-11-14
+**Version**: 2.6.0
+**Last Updated**: 2025-12-05
 **Maintained by**: CODEXA Meta-Construction Framework
+
+**Changelog v2.6.0**:
+- Updated to v3.2.0 dual-input workflow (`{user_image}` + seeds)
+- 13-point validation (was 11-point)
+- 2 prompt output format (Grid + Individual)
+- [OPEN_VARIABLES] support
+- Task boundaries integration
+- Execution modes (full/quick/single)

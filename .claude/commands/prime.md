@@ -11,22 +11,22 @@ Execute um workflow ADW (Agentic Developer Workflow) completo de ponta a ponta.
 ## Available Agents
 
 ### Tier 1: Content Production (ADW Workflows)
-| Agent | Domain | Phases | Duration | Command |
-|-------|--------|--------|----------|---------|
-| `pesquisa` | Market Research | 10 | 20-30min | `/prime-pesquisa` |
-| `anuncio` | Ad Generation | 8 | 23-38min | `/prime-anuncio` |
-| `mentor` | E-commerce Mentoring | 7 | 16-31min | `/prime-mentor` |
-| `marca` | Brand Strategy | 8 | 21-36min | `/prime-marca` |
-| `photo` | AI Photography | 5 | 15-30min | `/prime-photo` |
-| `video` | Video Production | 10 | 25-45min | `/prime-video` |
-| `curso` | Course Building | 3 | 30-60min | `/prime-curso` |
+| Agent | Domain | Phases | HOPs | Duration | Command |
+|-------|--------|--------|------|----------|---------|
+| `pesquisa` | Market Research | 10 | 1 | 20-30min | `/prime-pesquisa` |
+| `anuncio` | Ad Generation | 8 | 1 | 24-40min | `/prime-anuncio` |
+| `mentor` | E-commerce Mentoring | 7 | 4 | 17-33min | `/prime-mentor` |
+| `marca` | Brand Strategy | 8 | 2 | 21-36min | `/prime-marca` |
+| `photo` | AI Photography | 6 | 5 | 15-30min | `/prime-photo` |
+| `video` | Video Production | 8 | 11 | 3-7min | `/prime-video` |
+| `curso` | Course Building | 6 | 0 | 5-10min/workflow | `/prime-curso` |
 
 ### Tier 2: System & Infrastructure
-| Agent | Domain | Type | Command |
-|-------|--------|------|---------|
-| `codexa` | Meta-Construction | Builder | `/prime-codexa` |
-| `scout` | File Navigation | MCP Server | `/prime-scout` |
-| `voice` | Voice Interface | MCP Server | `/prime-voice` |
+| Agent | Domain | HOPs | Type | Command |
+|-------|--------|------|------|---------|
+| `codexa` | Meta-Construction | N/A | Builder (17 ADWs) | `/prime-codexa` |
+| `scout` | File Navigation | 0 | MCP Server | `/prime-scout` |
+| `voice` | Voice Interface | 1 | MCP Server | `/prime-voice` |
 
 ### Not Yet Available (No /prime-* command)
 - `persona` - Persona generation (use via codexa_agent)
@@ -285,22 +285,22 @@ agentes/{agent_name}_agent/
 ## Status
 
 ### Tier 1: Content Production (7 agents)
-| Agent | Status | ADW | Notes |
-|-------|--------|-----|-------|
-| pesquisa | ✅ PRODUCTION | 100_ADW_RUN_PESQUISA | 10 phases |
-| anuncio | ✅ PRODUCTION | 100_ADW_RUN_ANUNCIO | 8 phases |
-| mentor | ✅ PRODUCTION | 100_ADW_RUN_MENTOR | 7 phases |
-| marca | ✅ PRODUCTION | 100_ADW_RUN_MARCA | 8 phases |
-| photo | ✅ PRODUCTION | 100_ADW_RUN_PHOTO | 5 phases |
-| video | ✅ PRODUCTION | 100_ADW_RUN_VIDEO | 10 workflows |
-| curso | ✅ PRODUCTION | 01-03_ADW_* | 3 workflows |
+| Agent | Status | ADW | Phases | HOPs |
+|-------|--------|-----|--------|------|
+| pesquisa | ✅ PRODUCTION | 100_ADW_RUN_PESQUISA | 10 | 1 |
+| anuncio | ✅ PRODUCTION | 100_ADW_RUN_ANUNCIO | 8 | 1 |
+| mentor | ✅ PRODUCTION | 100_ADW_RUN_MENTOR | 7 | 4 |
+| marca | ✅ PRODUCTION | 100_ADW_RUN_MARCA | 8 | 2 |
+| photo | ✅ PRODUCTION | 100_ADW_RUN_PHOTO | 6 | 5 |
+| video | ✅ PRODUCTION | 100_ADW_RUN_VIDEO | 8 | 11 |
+| curso | ✅ PRODUCTION | 01-03_ADW_* | 6 (per workflow) | 0 |
 
 ### Tier 2: System & Infrastructure (3 agents)
-| Agent | Status | Type | Notes |
-|-------|--------|------|-------|
-| codexa | ✅ PRODUCTION | Meta-Builder | 17 ADWs |
-| scout | ✅ PRODUCTION | MCP Server | 10+ tools |
-| voice | ⚠️ BETA | MCP Server | Requires setup |
+| Agent | Status | Type | HOPs | Notes |
+|-------|--------|------|------|-------|
+| codexa | ✅ PRODUCTION | Meta-Builder | N/A | 17 ADWs |
+| scout | ✅ PRODUCTION | MCP Server | 0 | 10+ tools |
+| voice | ⚠️ BETA | MCP Server | 1 | Requires setup |
 
 ### Not Yet Available (2 agents)
 - `persona_agent` - No /prime-persona command

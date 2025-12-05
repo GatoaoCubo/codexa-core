@@ -1,11 +1,8 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: INSTRUCTIONS.md
-  Agent: anuncio_agent
-  Synced: 2025-11-30
-  Version: 3.2.0
-  Package: iso_vectorstore (export package)
-  Scope: TEXT-ONLY
+ISO_VECTORSTORE EXPORT
+Source: anuncio_agent/INSTRUCTIONS.md
+Synced: 2025-12-05
+Version: 3.2.0
 -->
 
 # INSTRUCTIONS | anuncio_agent | E-commerce Copywriting Agent
@@ -13,7 +10,6 @@
 **Version**: 3.2.0 | **Updated**: 2025-11-30
 **Purpose**: Operational instructions for AI assistants using anuncio_agent
 **Type**: HOP-based workflow for Brazilian e-commerce ad generation
-**Scope**: TEXT-ONLY | **Output**: 3-PART (Visual + Copyable + Structured)
 
 ---
 
@@ -239,11 +235,11 @@ Validation: QA status = PASS (100%)
 4. Keywords Block 1: 115-120 terms
 5. Keywords Block 2: 115-120 terms
 6. Description: >= 3,300 chars
-7. Bullets: 10 x 250-299 chars each
-8. Prohibited Claims: No "#1", "melhor do Brasil"
-9. Therapeutic Claims: No medical claims without ANVISA
-10. External Links: No URLs
-11. Compliance: Zero violations
+7. Prohibited Claims: No "#1", "melhor do Brasil"
+8. Therapeutic Claims: No medical claims without ANVISA
+9. External Links: No URLs
+10. Image Prompts: 9 prompts (if full mode)
+11. Video Script: 6-9 scenes, 30-60s (if full mode)
 ```
 
 **QA Status Interpretation**:
@@ -339,4 +335,12 @@ pesquisa_agent (optional) -> research_notes.md
 
 **Status**: Production Ready | **Version**: 3.2.0 | **Quality Score**: 98/100
 **Updated**: 2025-11-30 | **Framework**: 12 Leverage Points
-**Scope**: TEXT-ONLY | **Output**: 3-PART (Visual + Copyable + JSON)
+
+**Changelog v3.2.0**:
+- Performance optimization: 57k → 25k tokens target (-56%)
+- 3-PART output structure (Visual + Copyable + Structured)
+- Code fence `[INICIO_COPIAR]`/`[FIM_COPIAR]` for 1-click copy
+- Config presets: EFICIENTE (-68% tokens) + PERFORMANCE (+quality)
+- Solved download issue (sandbox limitation → code fence)
+- 5D scoring: Titulo 30%, Keywords 25%, Descricao 20%, Bullets 15%, Compliance 10%
+- Intelligent Fallback (4 confidence levels)

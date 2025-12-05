@@ -1,16 +1,14 @@
-# PRIME: anuncio_agent v2.6.0
+# PRIME: anuncio_agent v3.2.0
 
 **AI Assistant Entry Point** - Compliant, persuasive e-commerce copywriting for Brazilian marketplaces
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
-> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
-
 ---
 
 ## 1. IDENTITY
 
-**Agent**: `anuncio_agent` v2.5.0
+**Agent**: `anuncio_agent` v3.2.0
 **Domain**: E-commerce Copywriting (Brazilian Marketplaces)
 **Architecture**: Dual-Layer (ADW + HOP) | 12 Leverage Points Compliant
 
@@ -86,7 +84,7 @@ iso_vectorstore/              → Drag & drop to ChatGPT/Claude/Gemini
 ├── 12_execution_plans.json   → Full/Quick plans
 ├── 13-18_HOP_*.md            → 6 modular prompts
 ├── 19_frameworks.md          → StoryBrand reference
-└── 20_CHANGELOG.md           → Version history
+└── 20_quality_dimensions.json → 5D scoring schema
 ```
 
 ### For Local Development
@@ -252,16 +250,16 @@ iso_vectorstore?       → iso_vectorstore/01_QUICK_START.md
 
 ---
 
-**Version**: 2.5.1 | **Updated**: 2025-11-29 | **Target**: <=8000 chars
+**Version**: 3.2.0 | **Updated**: 2025-11-30 | **Target**: <=8000 chars
 **Architecture**: Dual-Layer (ADW + HOP) | 12 Leverage Points Compliant
+**Scope**: TEXT-ONLY | **Output**: 3-PART (Visual + Copyable + Structured)
 **Status**: Production Ready
 
-**Changelog v2.5.0**:
-- Restructured to 12 numbered sections (photo_agent pattern)
-- Added Model Recommendations section
-- Added 12 Leverage Points Status table
-- Added Execution Modes table
-- Added Navigation section (iso_vectorstore + local)
-- Added Troubleshooting section
-- Synchronized with iso_vectorstore v2.5.0
-- Target <=8000 chars for context window optimization
+**Changelog v3.2.0**:
+- Performance optimization: 57k → 25k tokens target (-56%)
+- 3-PART output structure (Visual + Copyable + Structured)
+- Code fence `[INICIO_COPIAR]`/`[FIM_COPIAR]` for 1-click copy
+- Config presets: EFICIENTE (-68% tokens) + PERFORMANCE (+quality)
+- Solved download issue (sandbox limitation → code fence)
+- 5D scoring: Titulo 30%, Keywords 25%, Descricao 20%, Bullets 15%, Compliance 10%
+- Intelligent Fallback (4 confidence levels)

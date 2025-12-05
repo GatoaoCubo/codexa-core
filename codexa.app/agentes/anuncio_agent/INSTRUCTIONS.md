@@ -1,6 +1,6 @@
 # INSTRUCTIONS | anuncio_agent | E-commerce Copywriting Agent
 
-**Version**: 2.5.0 | **Updated**: 2025-11-25
+**Version**: 3.2.0 | **Updated**: 2025-11-30
 **Purpose**: Operational instructions for AI assistants using anuncio_agent
 **Type**: HOP-based workflow for Brazilian e-commerce ad generation
 
@@ -294,7 +294,7 @@ pesquisa_agent (optional) -> research_notes.md
 3. **Sequential HOPs**: Execute 13->14->15->16->17->18 in order
 4. **QA Gate**: Never skip QA validation (HOP 18)
 5. **Template Compliance**: Use output template (07) for formatting
-6. **Version Consistency**: Ensure all files reference v2.5.0
+6. **Version Consistency**: Ensure all files reference v3.2.0
 
 ---
 
@@ -326,5 +326,14 @@ pesquisa_agent (optional) -> research_notes.md
 
 ---
 
-**Status**: Production Ready | **Version**: 2.5.0 | **Quality Score**: 98/100
-**Updated**: 2025-11-25 | **Framework**: 12 Leverage Points
+**Status**: Production Ready | **Version**: 3.2.0 | **Quality Score**: 98/100
+**Updated**: 2025-11-30 | **Framework**: 12 Leverage Points
+
+**Changelog v3.2.0**:
+- Performance optimization: 57k → 25k tokens target (-56%)
+- 3-PART output structure (Visual + Copyable + Structured)
+- Code fence `[INICIO_COPIAR]`/`[FIM_COPIAR]` for 1-click copy
+- Config presets: EFICIENTE (-68% tokens) + PERFORMANCE (+quality)
+- Solved download issue (sandbox limitation → code fence)
+- 5D scoring: Titulo 30%, Keywords 25%, Descricao 20%, Bullets 15%, Compliance 10%
+- Intelligent Fallback (4 confidence levels)

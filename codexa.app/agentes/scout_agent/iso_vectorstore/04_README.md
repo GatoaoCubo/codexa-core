@@ -1,15 +1,15 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: README.md
-  Agent: scout_agent
-  Synced: 2025-11-30
-  Version: 1.0.0
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: scout_agent/README.md
+Synced: 2025-12-05
+Version: 1.1.0
 -->
 
 # Scout Agent - Path Discovery & Navigation
 
 > "Master of Paths" - Every agent's companion
+
+**Version**: 1.1.0 | **Status**: Active | **Type**: Infrastructure Agent
 
 ## Quick Start
 
@@ -60,6 +60,7 @@ Scout is an **MCP Server** that indexes your entire project and provides:
 | `validate_paths` | Check if paths exist |
 | `map_dependencies` | Find file references |
 | `related` | Find related files |
+| `smart_context` | Get intelligent agent context (LLM-optimized) |
 
 ---
 
@@ -110,6 +111,52 @@ config/
 
 ---
 
+## PATH REGISTRY SYSTEM
+
+Scout manages the **PATH_REGISTRY_SYSTEM** - centralized path management that eliminates hardcoded paths.
+
+### Core Components
+
+| Component | Location | Purpose |
+|-----------|----------|---------|
+| **path_registry.json** | Project root | Single source of truth for all paths |
+| **path_resolver.py** | codexa.app/core/ | Python resolver (auto-detects root) |
+| **pathResolver.cjs** | codexa.app/core/ | Node.js resolver |
+| **setup_paths.py** | codexa.app/core/ | Regenerates MCP configs |
+
+### Standard Placeholders
+
+```
+{{PROJECT_ROOT}}  -> Git root (auto-detect)
+{{CODEXA_APP}}    -> PROJECT_ROOT/codexa.app
+{{AGENTES}}       -> CODEXA_APP/agentes
+{{MCP_SERVERS}}   -> CODEXA_APP/mcp-servers
+{{CLAUDE_DIR}}    -> PROJECT_ROOT/.claude
+```
+
+### Usage
+
+**Python:**
+```python
+from codexa.app.core.path_resolver import resolve_path
+path = resolve_path("{{AGENTES}}/scout_agent/PRIME.md")
+```
+
+**Node.js:**
+```javascript
+const { resolvePath } = require('./codexa.app/core/pathResolver.cjs');
+const path = resolvePath('{{AGENTES}}/scout_agent/PRIME.md');
+```
+
+**Regenerate for new machine:**
+```bash
+python codexa.app/core/setup_paths.py
+```
+
+See: `specs/PATH_REGISTRY_SYSTEM_SPEC.md` for full documentation.
+
+---
+
 ## Architecture
 
 ```
@@ -146,10 +193,29 @@ mcp-servers/scout-mcp/ # MCP Server
 
 ---
 
+## Changelog
+
+### v1.1.0 (2025-11-29)
+- Added PATH REGISTRY SYSTEM documentation
+- Added `smart_context` tool for LLM-optimized agent context
+- Enhanced path management with placeholder system
+- Added path resolver integration (Python & Node.js)
+
+### v1.0.0 (2025-11-28)
+- Initial release
+- MVP tools: discover, search, agent_context
+- CRUD tools: create, read, update, delete, move
+- Index management: refresh, stats
+- Multi-factor relevance scoring
+- Safety system with backups
+
+---
+
 ## Version
 
-- **Version**: 1.0.0
+- **Version**: 1.1.0
 - **Created**: 2025-11-28
+- **Updated**: 2025-11-29
 - **Type**: Infrastructure Agent (MCP Server)
 
 ---
@@ -159,3 +225,4 @@ mcp-servers/scout-mcp/ # MCP Server
 - `/prime-scout` - Load Scout context
 - `51_AGENT_REGISTRY.json` - Agent registry
 - `.mcp.json` - MCP configuration
+- `specs/PATH_REGISTRY_SYSTEM_SPEC.md` - Path management documentation

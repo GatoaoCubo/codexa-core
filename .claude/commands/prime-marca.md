@@ -11,7 +11,8 @@
 
 This command verticalizes you into the **Marca Agent** with full context for:
 
-- 7-phase ADW workflow (21-36min)
+- 8-phase ADW workflow (21-36min)
+- 2 HOPs (01_brand_identity_HOP.md, main_agent_HOP.md)
 - Brand identity development
 - Positioning strategy
 - Visual identity guidelines
@@ -92,10 +93,10 @@ When `/prime-marca` is called:
 
 ## QUICK REFERENCE
 
-### 7-Phase Pipeline
+### 8-Phase Pipeline (includes Phase 0: Knowledge Loading)
 ```
-Discovery → Identity → Positioning → Visual → Voice → Guidelines → Validation
-   ~5min      ~5min       ~5min      ~5min   ~3min     ~5min        ~3min
+Knowledge → Input → Positioning → Messaging → Visual → Assets → QA → Output
+  1-2min    2-5min    3-7min        3-7min     3-7min  5-10min 3-7min 2-5min
 ```
 
 ### Brand Elements

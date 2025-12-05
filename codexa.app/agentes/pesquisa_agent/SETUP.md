@@ -1,8 +1,8 @@
-# SETUP GUIDE | Pesquisa Agent v2.6
+# SETUP GUIDE | Pesquisa Agent v3.1
 
 **Universal setup instructions** for loading the Pesquisa Agent into different LLM platforms.
 
-**Last Updated**: 2025-11-26
+**Last Updated**: 2025-12-05
 
 ---
 
@@ -370,10 +370,11 @@ cat user_research/*_metadata.json
 
 ---
 
-**Version**: 2.6.0
-**Last Updated**: 2025-11-26
+**Version**: 3.1.0
+**Last Updated**: 2025-12-05
 **Maintainer**: CODEXA Team
 **Platforms Tested**: Claude Code ✅ | OpenAI Assistants ✅ | Custom GPT ✅ | Gemini ✅ | Ollama ⚠️
+**Aligned with**: PRIME.md v3.2.0, README.md v3.1.0, INSTRUCTIONS.md v3.1.0
 
 ---
 

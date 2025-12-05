@@ -2,16 +2,16 @@
 <!--
   Source: README.md
   Agent: video_agent
-  Synced: 2025-11-30
-  Version: 2.5.0
+  Synced: 2025-12-05
+  Version: 3.0.0
   Package: iso_vectorstore (export package)
 -->
 
 # video_agent
 
-**Version**: 2.5.0
-**Type**: Specialized Video Production AI Agent
-**Status**: Production-Ready (12 Leverage Points Implemented)
+**Version**: 3.0.0
+**Type**: Specialized Video Production AI Agent + Master Orchestrator
+**Status**: Production-Ready (12 Leverage Points Implemented + Master Orchestration)
 
 ## Overview
 
@@ -86,6 +86,12 @@ STAGE 5: EDITING (Timeline Assembly) - ~15s
 | 3 | Prompt Engineering | `30_visual_prompter_HOP.md` | `03_visual_builder.py` | visual_prompts.json |
 | 4 | Video Generation | `40_production_runner_HOP.md` | `04_production_builder.py` | clips/*.mp4 |
 | 5 | Video Editing | `50_editor_assembler_HOP.md` | `05_editing_builder.py` | final_video.mp4 |
+| 6+ | YouTube Title | `60_title_optimizer_HOP.md` | (standalone or integrated) | titles.json |
+| 6++ | YouTube Description | `61_description_optimizer_HOP.md` | (standalone or integrated) | description.json |
+| 6+++ | YouTube Tags | `62_tags_optimizer_HOP.md` | (standalone or integrated) | tags.json |
+| 6++++ | Thumbnail Text | `63_thumbnail_text_HOP.md` | (standalone or integrated) | thumbnail_text.json |
+| 6.5 | YouTube Chapters | `64_chapters_generator_HOP.md` | (standalone or integrated) | chapters.json |
+| 7.2 | Platform Optimizer | `72_platform_optimizer_HOP.md` | (platform variants) | platform_variants/ |
 
 ## Key Capabilities
 
@@ -117,6 +123,62 @@ STAGE 5: EDITING (Timeline Assembly) - ~15s
 - **11-Point Checklist**: Duration, resolution, audio sync, text visibility, etc.
 - **Brand Compliance**: Colors, tone, logo placement
 - **Schema Validation**: JSON input/output contracts
+
+### 6. YouTube Title Optimization
+- **5 Psychological Angles**: Question, Number, Social Proof, How-To, Comparison
+- **4D Scoring**: CTR (35%), SEO (30%), Brand (20%), Technical (15%)
+- **CTR Multipliers**: Number angle = 1.36x (best), Comparison = 1.30x
+- **Quality Gate**: Minimum score ≥7.5/10
+- **Integration**: Post Phase 5 OR standalone via `/youtube-title`
+
+### 7. YouTube Description Optimization
+- **5-Section Structure**: Hook, Value Proposition, Timestamps, Links/CTAs, Hashtags
+- **4D Scoring**: Engagement (35%), SEO (30%), Brand (20%), Technical (15%)
+- **Automatic Timestamps**: Generated for videos ≥3 minutes
+- **SEO Features**: Keyword density (1-3%), first 25 words optimization
+- **Quality Gate**: Minimum score ≥7.5/10
+- **Integration**: Post Title Optimizer OR standalone via `/youtube-description`
+
+### 8. YouTube Tags Optimization
+- **4 Tag Categories**: Primary (3-5), Secondary (8-12), Long-tail (12-20), Semantic (5-8)
+- **4D Scoring**: Relevance (35%), SEO (30%), Brand (20%), Technical (15%)
+- **500 Character Limit**: YouTube's maximum tag character count
+- **Quality Gate**: Minimum score ≥7.5/10
+- **Integration**: Post Description Optimizer OR standalone via `/youtube-tags`
+
+### 9. YouTube Thumbnail Text Optimization
+- **5 Psychological Angles**: Hook, Benefit, Curiosity, Urgency, Transformation
+- **CTR Multipliers**: Benefit (1.32x best), Transformation (1.28x), Curiosity (1.25x)
+- **3-5 Word Limit**: Maximum readability on mobile
+- **4D Scoring**: CTR (35%), Clarity (30%), Brand (20%), Technical (15%)
+- **Quality Gate**: Minimum score ≥7.5/10
+- **Integration**: Post Title Optimizer OR standalone via `/youtube-thumbnail-text`
+
+### 10. YouTube Chapters Generation
+- **3 Input Modes**: Transcript, Script, Outline
+- **5D Scoring**: Navigation (25%), SEO (20%), Engagement (20%), Brand (15%), Technical (20%)
+- **Chapter Requirements**: First chapter at 00:00, minimum 3 chapters, 10s minimum gap
+- **Max Title Length**: 50 characters per chapter
+- **Integration**: Post Script OR standalone via `/youtube-chapters`
+
+### 11. Shorts Generation (Modular Blocks)
+- **Block Library**: 12 Hooks + 30 Educational + 8 CTAs (config/shorts_blocks.json)
+- **Hook Angles**: Question (1.19x), Number (1.36x), Curiosity (1.25x), Contrast (1.28x)
+- **Duration**: 15-60 seconds, 9:16 aspect ratio
+- **Quality Gate**: Same 11-point checklist as long-form
+- **Integration**: Standalone via `/run-short` OR batch via `/shorts-batch`
+
+### 12. Multi-Platform Optimization
+- **3 Platforms**: YouTube Shorts, TikTok, Instagram Reels
+- **15 Variants**: 5 per platform (hooks, CTAs, aspect ratios)
+- **HOP**: 72_platform_optimizer_HOP.md
+- **Integration**: Part of 200_ADW_FULL_VIDEO_PRODUCTION.md
+
+### 13. Master Orchestration (200_ADW)
+- **Complete Pipeline**: 1 Brief → 26+ Assets
+- **4 Stages**: A) Long-form video, B) Parallel metadata/thumbnails/shorts, C) Platform variants, D) Consolidation
+- **Performance**: 2.4x speedup with /spawn parallelism
+- **Output Package**: Video + YouTube metadata + Thumbnails + 5 Shorts + 15 Platform variants
 
 ## Quick Start
 
@@ -176,11 +238,21 @@ video_agent/
 ├── schemas/                     # Input/output contracts
 │   ├── video_input.json
 │   ├── video_output.json
+│   ├── title_optimizer_input.json  # YouTube title input schema
+│   ├── description_optimizer_input.json  # YouTube description input schema (NEW)
 │   └── SCHEMAS_GUIDE.md
 │
 ├── config/                      # Configuration files
 │   ├── video_styles.json       # Style presets
 │   ├── api_config.json         # API settings
+│   ├── voice_config.json       # PT-BR voice settings
+│   ├── video_modes.json        # Overlay vs clean modes
+│   ├── shorts_blocks.json      # Shorts modular blocks (12 hooks, 30 edu, 8 CTAs)
+│   ├── youtube_title_rules.json # Title optimization config
+│   ├── youtube_description_rules.json # Description optimization config
+│   ├── youtube_tags_rules.json # Tags optimization config
+│   ├── youtube_thumbnail_rules.json # Thumbnail text config
+│   ├── youtube_chapters_rules.json # Chapters config
 │   └── brand_profiles.json     # Brand templates
 │
 ├── prompts/                     # HOPs (Higher-Order Prompts)
@@ -188,10 +260,24 @@ video_agent/
 │   ├── 20_script_writer_HOP.md
 │   ├── 30_visual_prompter_HOP.md
 │   ├── 40_production_runner_HOP.md
-│   └── 50_editor_assembler_HOP.md
+│   ├── 50_editor_assembler_HOP.md
+│   ├── 60_title_optimizer_HOP.md  # YouTube title optimization
+│   ├── 61_description_optimizer_HOP.md  # YouTube description optimization
+│   ├── 62_tags_optimizer_HOP.md  # YouTube tags optimization
+│   ├── 63_thumbnail_text_HOP.md  # YouTube thumbnail text
+│   ├── 64_chapters_generator_HOP.md  # YouTube chapters
+│   └── 72_platform_optimizer_HOP.md  # Multi-platform optimization
 │
 ├── workflows/                   # ADW orchestration
-│   └── 100_ADW_RUN_VIDEO.md
+│   ├── 100_ADW_RUN_VIDEO.md
+│   ├── 101_ADW_CURSO_BRIDGE.md
+│   ├── 102_ADW_NOTEBOOKLM_VIDEO.md
+│   ├── 103_ADW_YOUTUBE_TITLE.md   # YouTube title workflow
+│   ├── 104_ADW_YOUTUBE_DESCRIPTION.md   # YouTube description workflow
+│   ├── 105_ADW_YOUTUBE_FULL_METADATA.md   # Complete YouTube metadata suite
+│   ├── 110_ADW_RUN_SHORTS.md   # Single short generation
+│   ├── 111_ADW_SHORTS_MULTI_VARIANT.md   # Parallel N shorts
+│   └── 200_ADW_FULL_VIDEO_PRODUCTION.md   # MASTER ORCHESTRATOR
 │
 ├── examples/                    # Trinity output examples
 │   ├── tenis_nike_30s.md
@@ -282,6 +368,44 @@ video_agent/
 
 ## Version History
 
+- **v3.0.0** (2025-12-05): Shorts & Master Orchestration
+  - Added 72_platform_optimizer_HOP.md (multi-platform: YT/TikTok/IG)
+  - Added 110_ADW_RUN_SHORTS.md (single short generation)
+  - Added 111_ADW_SHORTS_MULTI_VARIANT.md (parallel N shorts via /spawn)
+  - Added 200_ADW_FULL_VIDEO_PRODUCTION.md (MASTER ORCHESTRATOR)
+  - Added config/shorts_blocks.json (12 hooks, 30 educational, 8 CTAs)
+  - Block-based modular Shorts architecture
+  - /spawn parallel execution (2.4x speedup)
+  - Unified output packages (MANIFEST.json + README.md)
+  - Complete production pipeline: 1 brief → 26+ assets
+  - Cross-platform optimization (YouTube Shorts, TikTok, Instagram Reels)
+  - Integration with photo_agent for thumbnail prompts
+
+- **v2.8.0** (2025-12-04): YouTube Optimization Suite Expansion
+  - Added 62_tags_optimizer_HOP.md (Phase 6+++)
+  - Added 63_thumbnail_text_HOP.md (Phase 6++++)
+  - Added 64_chapters_generator_HOP.md (Phase 6.5)
+  - Added youtube_tags_rules.json, youtube_thumbnail_rules.json, youtube_chapters_rules.json
+  - 4 tag categories (Primary, Secondary, Long-tail, Semantic) with 500 char limit
+  - 5 psychological thumbnail angles with CTR multipliers (Benefit 1.32x best)
+  - 3 chapter input modes (transcript, script, outline) with 5D scoring
+
+- **v2.7.0** (2025-12-04): YouTube Description Optimizer
+  - Added 61_description_optimizer_HOP.md (Phase 6++)
+  - Added 104_ADW_YOUTUBE_DESCRIPTION.md workflow
+  - Added youtube_description_rules.json config
+  - 5-section structure (Hook, Value Prop, Timestamps, Links, Hashtags)
+  - 4D scoring (Engagement 35%, SEO 30%, Brand 20%, Technical 15%)
+  - Auto-timestamps for videos >= 3 minutes
+  - Keyword density analysis (1-3% target)
+
+- **v2.6.0** (2025-12-04): YouTube Title Optimizer
+  - Phase 6+: Title optimization for YouTube uploads
+  - 5 psychological angles (Question, Number, Social Proof, How-To, Comparison)
+  - 4D scoring (CTR 35%, SEO 30%, Brand 20%, Technical 15%)
+  - New files: 60_title_optimizer_HOP.md, 103_ADW_YOUTUBE_TITLE.md
+  - Config: youtube_title_rules.json, Schema: title_optimizer_input.json
+
 - **v2.5.0** (2025-11-25): 12 Leverage Points Implementation
   - Restructured iso_vectorstore (22 -> 20 files)
   - Added execution_plans.json (4 plans: full, quick, batch, campaign)
@@ -313,6 +437,7 @@ video_agent/
 ---
 
 **Created by**: CODEXA Meta-Constructor
-**Last Updated**: 2025-11-25
-**Quality Score**: 9.5/10.0 (production-ready)
+**Last Updated**: 2025-12-05
+**Quality Score**: 9.8/10.0 (production-ready + master orchestration)
 **12 Leverage Points**: Fully Implemented
+**Orchestration**: 200_ADW Master + /spawn parallelism

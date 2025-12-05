@@ -1,8 +1,8 @@
-# Pesquisa Agent v2.6 | Brazilian E-commerce Research
+# Pesquisa Agent v3.1 | Brazilian E-commerce Research
 
 **Isolated, portable, LLM-agnostic market research agent** for Brazilian marketplaces.
 
-**Framework**: 12 Leverage Points | **Architecture**: Dual-Layer ADW+HOP | **Files**: ~90
+**Framework**: 12 Leverage Points | **Architecture**: Dual-Layer ADW+HOP | **Files**: ~100
 
 ---
 
@@ -28,7 +28,7 @@ When running in Claude Code, capabilities auto-map:
 
 ---
 
-## 📂 STRUCTURE (~90 Files)
+## 📂 STRUCTURE (~100 Files)
 
 ```
 pesquisa_agent/
@@ -50,7 +50,7 @@ pesquisa_agent/
 │       └── comprehensive_research.json # Deep dive (60+ min)
 │
 ├── 📁 prompts/ (12 modular HOPs)
-│   ├── main_agent_hop.md           # HOP orchestrator
+│   ├── main_agent_HOP.md           # HOP orchestrator
 │   ├── intake_validation.md        # Brief validation
 │   ├── web_search_inbound.md       # Marketplace search (9 BR)
 │   ├── web_search_outbound.md      # SERP + social search
@@ -63,17 +63,20 @@ pesquisa_agent/
 │   ├── trend_analysis.md           # Trend identification
 │   └── strategy_gaps.md            # Strategic opportunities
 │
-├── 📁 iso_vectorstore/ (20 files) 🆕
+├── 📁 iso_vectorstore/ (21 files)
+│   ├── 00_MANIFEST.md              # File manifest
 │   ├── 01_QUICK_START.md           # Compact guide for external LLMs
 │   ├── 02_PRIME.md                 # Full framework
-│   ├── 03-04                       # Instructions + README
-│   ├── 05-09                       # Architecture + JSON configs
+│   ├── 03_INSTRUCTIONS.md          # Setup guide
+│   ├── 04_README.md                # Overview
+│   ├── 05_ARCHITECTURE.md          # Technical structure
+│   ├── 06-09                       # JSON configs (agent, brief, plan, marketplaces)
 │   ├── 10-12                       # HOP orchestration + ADW workflow
-│   ├── 13-19                       # Research modules
+│   ├── 13-19                       # Research modules (marketplace, competitor, trends, templates, output, quality, framework)
 │   └── 20_CHANGELOG.md             # Version history
 │   └── (Upload to OpenAI/Custom GPT knowledge base)
 │
-├── 📁 competitor_intelligence/ (40+ sources) 🆕
+├── 📁 competitor_intelligence/ (40+ sources)
 │   ├── INDEX.md                    # Navigation hub
 │   ├── QUICKSTART.md               # 5-minute setup
 │   ├── README.md                   # Full documentation
@@ -94,11 +97,18 @@ pesquisa_agent/
 ├── 📁 workflows/ (6 files)
 │   ├── 100_ADW_RUN_PESQUISA.md     # Main execution workflow
 │   ├── ADW_TEMPLATE.md             # Workflow template
+│   ├── IMPLEMENTATION_GUIDE.md     # Implementation guide
+│   ├── IMPLEMENTATION_SUMMARY.md   # Summary
+│   ├── PHASE_B_PYTHON_AUTOMATION.md # Automation guide
 │   └── README_WORKFLOWS.md         # Documentation
 │
 ├── 📁 commands/ (2 files)
 │   ├── pesquisa.md                 # /pesquisa slash command
 │   └── update-competitor-docs.md   # /update-competitor-docs
+│
+├── 📁 code_interpreter/ (2 files)
+│   ├── validator.py                # 22-block research_notes validator
+│   └── README.md                   # Validator documentation
 │
 └── 📁 user_research/ (output)
     ├── [produto]_research_notes.md     # 22-block report
@@ -107,7 +117,7 @@ pesquisa_agent/
     └── [produto]_queries.json           # Web searches logged
 ```
 
-**Total**: ~90 files (organized in 8 directories)
+**Total**: ~100 files (organized in 10 directories)
 
 ---
 
@@ -294,17 +304,20 @@ CODE_INTERPRETER=false
 
 ## 🚦 VERSION
 
-**Current**: v2.6.0 (2025-11-26)
-- ✅ **Claude Code Tools Mapping** - Direct mapping to WebSearch, Read, Grep, Glob
-- ✅ **iso_vectorstore Documentation** - 20-file knowledge base documented
-- ✅ **competitor_intelligence Integration** - 40+ sources integrated
+**Current**: v3.1.0 (2025-11-30)
+- ✅ **Platform-Agnostic Visual Strategy** - Works on GPT-4/5 Vision, Claude, Gemini
+- ✅ **3 Visual Strategies** - Vision + Image URLs | Screenshot Tool | Text-Only Fallback
+- ✅ **Capability Auto-Detection** - web_search, vision, file_search, screenshot_tool
+- ✅ **PLATFORM NOTES** - OpenAI Agent Builder, Claude, Gemini specific guidance
+- ✅ **Trinity Output** - research_notes.md + .llm.json + metadata.json
+- ✅ **Quality Validators** - validate_iso.py, code_interpreter/validator.py
+- ✅ **iso_vectorstore** - 21-file knowledge base documented
+- ✅ **competitor_intelligence** - 40+ sources integrated
 - ✅ **12 Leverage Points Framework** - Full implementation
-- ✅ **~90 Files Structure** - Complete documentation of all components
 - ✅ Full isolation (no external dependencies)
 - ✅ LLM-agnostic (works on any platform)
-- ✅ Auto-capability detection
 
-**Previous**: v2.5 (12 Leverage Points), v2.1 (Isolation), v2.0 (HOP), v1.1 (Vision), v1.0 (Initial)
+**Previous**: v3.0.0 (Validators), v2.7.1 (Shared Principles), v2.6 (Claude Code tools), v2.5 (12 Leverage Points)
 
 ---
 
@@ -317,10 +330,10 @@ CODE_INTERPRETER=false
 
 ---
 
-**Status**: ✅ Production-ready
-**Version**: 2.6.0
+**Status**: ✅ Production-ready | VALIDATED
+**Version**: 3.1.0
 **Isolation**: Full
 **Portability**: Universal (Claude, OpenAI, Gemini, Local LLMs)
 **Quality**: Enterprise-grade (≥0.75 confidence)
 **Framework**: 12 Leverage Points
-**Files**: ~90 (8 directories)
+**Files**: ~100 (10 directories)

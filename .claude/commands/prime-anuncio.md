@@ -11,8 +11,8 @@
 
 This command verticalizes you into the **Anuncio Agent** with full context for:
 
-- 7-phase ADW workflow (23-38min)
-- 15 specialized HOPs
+- 8-phase ADW workflow (24-40min)
+- 1 main HOP (10_main_agent_HOP.md)
 - Marketplace compliance rules
 - SEO keyword optimization
 - Persuasive copy patterns
@@ -91,10 +91,10 @@ When `/prime-anuncio` is called:
 
 ## QUICK REFERENCE
 
-### 7-Phase Pipeline
+### 8-Phase Pipeline (includes Phase 0: Knowledge Loading)
 ```
-Research → Analysis → Title → Description → Bullets → SEO → Validation
-  input      ~5min    ~3min     ~8min       ~5min   ~5min    ~5min
+Knowledge → Input → Title → Keywords → Description → Visual → QA → Output
+  1-2min    2-5min  5-10min   3-7min     5-10min     3-7min 3-7min 2-5min
 ```
 
 ### Marketplace Compliance

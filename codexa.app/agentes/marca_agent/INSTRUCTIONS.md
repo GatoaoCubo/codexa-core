@@ -1,6 +1,6 @@
 # INSTRUCTIONS | marca_agent | Brand Strategy Agent
 
-**Version**: 2.5.0 | **Updated**: 2025-11-25
+**Version**: 3.1.0 | **Updated**: 2025-12-05
 **Purpose**: Instructions for AI assistants using marca_agent for brand creation
 **Type**: HOP-based workflow for Brazilian e-commerce brand strategy
 
@@ -237,5 +237,5 @@ User Brief -> marca_agent (8-step workflow) -> brand_strategy.md
 
 ---
 
-**Status**: Production Ready | **Version**: 2.5.0 | **Quality Score**: 85/100
-**Updated**: 2025-11-25 | **Framework**: 12 Leverage Points
+**Status**: Production Ready | **Version**: 3.1.0 | **Quality Score**: 85/100
+**Updated**: 2025-12-05 | **Framework**: 12 Leverage Points

@@ -11,7 +11,8 @@
 
 This command verticalizes you into the **Video Production Agent** with full context for:
 
-- 5-stage video pipeline (Concept -> Script -> Visual -> Production -> Editing)
+- 8-phase ADW workflow (3-7min per workflow spec, but actually longer with production time)
+- 11 HOPs (concept_planner, script_writer, visual_prompter, production_runner, editor_assembler, title_optimizer, description_optimizer, tags_optimizer, thumbnail_text, chapters_generator, platform_optimizer)
 - Runway Gen-3 and Pika 1.5 prompt engineering
 - ElevenLabs TTS narration
 - FFmpeg editing workflows
@@ -96,10 +97,10 @@ When `/prime-video` is called:
 
 ## QUICK REFERENCE
 
-### 5-Stage Pipeline
+### 8-Phase Pipeline (includes Phase 0: Knowledge Loading + Pre-flight + Post-validation)
 ```
-Brief -> [Concept] -> [Script] -> [Visual] -> [Production] -> [Editing] -> Video
-           ~5s         ~3s        ~10s        120-300s         ~15s
+Knowledge → PreFlight → Concept → Script → Visual → Production → Editing → PostVal
+  1-2min      ~2s        ~5s       ~3s      ~10s     120-300s     ~15s      ~5s
 ```
 
 ### Style Presets

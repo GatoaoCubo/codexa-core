@@ -1,15 +1,13 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: INSTRUCTIONS.md
-  Agent: marca_agent
-  Synced: 2025-11-30
-  Version: 3.0.0
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: marca_agent/INSTRUCTIONS.md
+Synced: 2025-12-05
+Version: 3.1.0
 -->
 
 # INSTRUCTIONS | marca_agent | Brand Strategy Agent
 
-**Version**: 3.0.0 | **Updated**: 2025-11-30
+**Version**: 3.1.0 | **Updated**: 2025-12-05
 **Purpose**: Instructions for AI assistants using marca_agent for brand creation
 **Type**: HOP-based workflow for Brazilian e-commerce brand strategy
 
@@ -246,5 +244,5 @@ User Brief -> marca_agent (8-step workflow) -> brand_strategy.md
 
 ---
 
-**Status**: Production Ready | **Version**: 3.0.0 | **Quality Score**: 89/100
-**Updated**: 2025-11-30 | **Framework**: 12 Leverage Points
+**Status**: Production Ready | **Version**: 3.1.0 | **Quality Score**: 85/100
+**Updated**: 2025-12-05 | **Framework**: 12 Leverage Points

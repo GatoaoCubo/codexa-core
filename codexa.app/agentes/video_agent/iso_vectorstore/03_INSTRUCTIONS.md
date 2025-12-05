@@ -1,9 +1,18 @@
+<!-- iso_vectorstore -->
+<!--
+  Source: INSTRUCTIONS.md
+  Agent: video_agent
+  Synced: 2025-12-05
+  Version: 3.0.0
+  Package: iso_vectorstore (export package)
+-->
+
 # INSTRUCTIONS | video_agent
 
-**Version**: 2.5.0
+**Version**: 3.0.0
 **Purpose**: Instructions for AI assistants / Agent builders to use video_agent
 **Type**: HOP (Higher-Order Prompt) for LLM execution
-**Updated**: 2025-11-25
+**Updated**: 2025-12-05
 
 ---
 
@@ -35,12 +44,18 @@
 - Video generation APIs (async, parallel)
 - Local video processing (concatenation, audio mixing, text overlays)
 
-**4. Prompts**: 5 HOPs (one per pipeline stage) in TAC-7 format
+**4. Prompts**: 11 HOPs (pipeline stages + metadata optimization) in TAC-7 format
 - 10_concept_planner_HOP.md (storyboard)
 - 20_script_writer_HOP.md (narration)
 - 30_visual_prompter_HOP.md (platform prompts)
 - 40_production_runner_HOP.md (API orchestration)
 - 50_editor_assembler_HOP.md (FFmpeg editing)
+- 60_title_optimizer_HOP.md (YouTube titles)
+- 61_description_optimizer_HOP.md (YouTube descriptions)
+- 62_tags_optimizer_HOP.md (YouTube tags)
+- 63_thumbnail_text_HOP.md (YouTube thumbnail text)
+- 64_chapters_generator_HOP.md (YouTube chapters)
+- 72_platform_optimizer_HOP.md (Multi-platform optimization)
 
 ### 8 OUT-AGENT Pillars (External Artifacts)
 
@@ -288,7 +303,186 @@ None - video_agent runs independently.
 
 ---
 
+## YOUTUBE TITLE OPTIMIZATION (NEW)
+
+### When to Use
+Use the Title Optimizer (Phase 6+) when uploading videos to YouTube and need CTR-optimized titles.
+
+### Quick Usage
+
+**Standalone Mode** (via command):
+```
+/youtube-title "ChatGPT programação, devs iniciantes, acelerar desenvolvimento"
+```
+
+**Pipeline Mode** (after Phase 5):
+```
+PHASE 6+: TITLE OPTIMIZATION | STARTING
+Input: $video_brief from Phase 1
+Output: 5 titles + recommended winner
+```
+
+### Title Generation Process
+
+```
+1. RESEARCH (~10s)
+   ├── Extract primary keyword
+   ├── Infer audience pain
+   └── Map brand tone
+
+2. GENERATE (~15s)
+   ├── Title A: Question (1.25x CTR)
+   ├── Title B: Number (1.36x CTR) ⭐ BEST
+   ├── Title C: Social Proof (1.18x CTR)
+   ├── Title D: How-To (1.22x CTR)
+   └── Title E: Comparison (1.30x CTR)
+
+3. VALIDATE (~10s)
+   ├── Score with 4D system
+   ├── Select winner (≥7.5 score)
+   └── Suggest A/B test
+```
+
+### Example Output
+```json
+{
+  "recommended": {
+    "text": "7 Prompts de ChatGPT Que Todo Dev Precisa Conhecer",
+    "angle": "number",
+    "score_total": 8.9,
+    "rationale": "Number angle (1.36x CTR), strong keyword position"
+  }
+}
+```
+
+### Files Reference
+| File | Purpose |
+|------|---------|
+| `prompts/60_title_optimizer_HOP.md` | Core HOP |
+| `workflows/103_ADW_YOUTUBE_TITLE.md` | ADW documentation |
+| `config/youtube_title_rules.json` | Formulas + thresholds |
+| `schemas/title_optimizer_input.json` | Input validation |
+
+---
+
+## YOUTUBE DESCRIPTION OPTIMIZATION (NEW)
+
+### When to Use
+Use the Description Optimizer (Phase 6++) after Title Optimizer for complete YouTube metadata, or standalone for description-only optimization.
+
+### Quick Usage
+
+**Standalone Mode** (via command):
+```
+/youtube-description "7 Prompts de ChatGPT, duracao 12:34, devs iniciantes, acelerar desenvolvimento"
+```
+
+**Pipeline Mode** (after Title Optimizer):
+```
+PHASE 6++: DESCRIPTION OPTIMIZATION | STARTING
+Input: $video_brief + $title_optimizer_output
+Output: 5-section description + scoring
+```
+
+### Description Generation Process
+
+```
+1. RESEARCH (~10s)
+   ├── Extract primary keyword
+   ├── Parse video duration
+   ├── Load title keywords for consistency
+   └── Determine content strategy (length, timestamps)
+
+2. GENERATE (~15s)
+   ├── Section 1: Hook (100-150 chars, above-fold)
+   ├── Section 2: Value Proposition (150-300 chars)
+   ├── Section 3: Timestamps (if video >= 3min)
+   ├── Section 4: Links & CTAs (200-400 chars)
+   └── Section 5: Hashtags & Keywords (50-100 chars)
+
+3. VALIDATE (~10s)
+   ├── Score with 4D system
+   ├── Check keyword density (1-3%)
+   ├── Verify above-fold quality
+   └── Generate optimization notes
+```
+
+### Section Structure
+
+| Section | Purpose | Char Limit | Required |
+|---------|---------|------------|----------|
+| Hook | Above-fold scroll-stopper | 100-150 | Yes |
+| Value Prop | What viewer gets | 150-300 | Yes |
+| Timestamps | Navigation + watch time | Variable | If >= 3min |
+| Links/CTAs | Conversions | 200-400 | Yes |
+| Hashtags | Discoverability | 50-100 | Yes |
+
+### Example Output
+```json
+{
+  "description_full": "ChatGPT para programação: os 7 prompts que vão...",
+  "char_count": 847,
+  "scores": {
+    "engagement": 8.5,
+    "seo": 8.2,
+    "brand": 7.8,
+    "technical": 9.0
+  },
+  "score_total": 8.35,
+  "keyword_analysis": {
+    "primary": "ChatGPT programação",
+    "density": "2.1%"
+  }
+}
+```
+
+### Files Reference
+| File | Purpose |
+|------|---------|
+| `prompts/61_description_optimizer_HOP.md` | Core HOP |
+| `workflows/104_ADW_YOUTUBE_DESCRIPTION.md` | ADW documentation |
+| `config/youtube_description_rules.json` | Section formulas + thresholds |
+| `schemas/description_optimizer_input.json` | Input validation |
+
+---
+
 ## CHANGELOG
+
+### v3.0.0 (2025-12-05)
+- Shorts & Master Orchestration
+- Added 72_platform_optimizer_HOP.md (multi-platform: YT/TikTok/IG)
+- Added 110_ADW_RUN_SHORTS.md (single short generation)
+- Added 111_ADW_SHORTS_MULTI_VARIANT.md (parallel N shorts via /spawn)
+- Added 200_ADW_FULL_VIDEO_PRODUCTION.md (MASTER ORCHESTRATOR)
+- Added config/shorts_blocks.json (12 hooks, 30 educational, 8 CTAs)
+- Block-based modular Shorts architecture
+- /spawn parallel execution (2.4x speedup)
+- Complete production pipeline: 1 brief → 26+ assets
+
+### v2.8.0 (2025-12-04)
+- YouTube Optimization Suite Expansion
+- Added 62_tags_optimizer_HOP.md (Phase 6+++)
+- Added 63_thumbnail_text_HOP.md (Phase 6++++)
+- Added 64_chapters_generator_HOP.md (Phase 6.5)
+- 4 tag categories, 5 thumbnail angles, 3 chapter input modes
+
+### v2.7.0 (2025-12-04)
+- YouTube Description Optimizer (Phase 6++)
+- 5-section structure (Hook, Value Prop, Timestamps, Links, Hashtags)
+- 4D scoring system (Engagement, SEO, Brand, Technical)
+- New files: 61_description_optimizer_HOP.md, 104_ADW_YOUTUBE_DESCRIPTION.md
+- Config: youtube_description_rules.json
+- Schema: description_optimizer_input.json
+- Auto-timestamps for videos >= 3 minutes
+- Keyword density analysis (1-3% target)
+
+### v2.6.0 (2025-12-04)
+- YouTube Title Optimizer (Phase 6+)
+- 5 psychological title angles
+- 4D scoring system (CTR, SEO, Brand, Technical)
+- New files: 60_title_optimizer_HOP.md, 103_ADW_YOUTUBE_TITLE.md
+- Config: youtube_title_rules.json
+- Schema: title_optimizer_input.json
 
 ### v2.5.0 (2025-11-25)
 - 12 Leverage Points implementation
@@ -307,12 +501,13 @@ None - video_agent runs independently.
 
 ---
 
-**Status**: Production-Ready | **Version**: 2.5.0 | **Type**: Specialist Agent
-**Dependencies**: FFmpeg, Runway/Pika API | **Quality Score**: 9.5/10.0
+**Status**: Production-Ready | **Version**: 3.0.0 | **Type**: Specialist Agent + Master Orchestrator
+**Dependencies**: FFmpeg, Runway/Pika API | **Quality Score**: 9.8/10.0
 **12 Leverage Points**: Fully Implemented
+**Orchestration**: 200_ADW Master + /spawn parallelism
 
 ---
 
 > TIP: Always use task boundaries for progress visibility
 > GOAL: Generate professional e-commerce videos with 0 human edits
-> READY: Full 7-phase pipeline operational
+> READY: Full 7-phase pipeline + Master Orchestration operational

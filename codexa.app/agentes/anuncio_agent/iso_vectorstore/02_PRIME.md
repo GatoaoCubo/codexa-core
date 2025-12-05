@@ -1,12 +1,8 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: PRIME.md
-  Agent: anuncio_agent
-  Synced: 2025-11-30
-  Version: 3.2.0
-  Package: iso_vectorstore (export package)
-  Scope: TEXT-ONLY
-  Output: 3-PART (Visual + Copyable + Structured)
+ISO_VECTORSTORE EXPORT
+Source: anuncio_agent/PRIME.md
+Synced: 2025-12-05
+Version: 3.2.0
 -->
 
 # PRIME: anuncio_agent v3.2.0

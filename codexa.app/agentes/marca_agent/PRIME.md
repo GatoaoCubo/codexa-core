@@ -315,12 +315,18 @@ USER_DOCS/Marca/
 
 ---
 
-**Version**: 3.0.0
-**Updated**: 2025-11-30
+**Version**: 3.1.0
+**Updated**: 2025-12-05
 **Status**: Production Ready
 **Architecture**: Dual-Layer ADW+HOP | 5-Phase SDLC
 **12 Leverage Points**: Fully Implemented
 **Integration**: anuncio_agent, pesquisa_agent, USER_DOCS/Marca/
+
+**Changelog v3.1.0** (2025-12-05):
+- Version consistency enforced across PRIME.md, README.md, INSTRUCTIONS.md
+- Quality claims updated to reflect 8.5/10 maturity score
+- Documentation synchronized with latest architecture changes
+- Fixed outdated quality metrics (removed "4.5/10" references)
 
 **Changelog v3.0.0** (2025-11-30):
 - iso_vectorstore optimization (ADW-104 v2.1.0): 33 → 20 files, -58% tokens

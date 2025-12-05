@@ -1,6 +1,6 @@
 # photo_agent
 
-**Version**: 1.0.0
+**Version**: 2.6.0
 **Type**: Specialized Photography AI Agent
 **Status**: Production Ready
 
@@ -8,31 +8,34 @@
 
 `photo_agent` is a specialized agent for professional AI image generation using advanced photography techniques, scene composition, lighting design, and programação neurolinguística (PNL). It transforms any subject (products, people, scenes, concepts) into professionally-directed photography prompts for AI image generators.
 
-## Architecture: Dual-Layer Integration (v2.0.0)
+**Transform**: Subject description → 2 copyable photography prompts (Grid 3x3 master + 9 individual prompts) with `{user_image} {seed:[RANDOM]}` + `[OPEN_VARIABLES]` format for maximum product fidelity and controlled variations.
 
-`photo_agent` implements a professional **Dual-Layer Architecture** combining orchestration with detailed execution:
+## Architecture: Dual-Layer Integration (v2.6.0)
+
+`photo_agent` implements a professional **Dual-Layer Architecture** combining orchestration with detailed execution, fully compliant with **12 Leverage Points** framework:
 
 ### Layer 1: ADW (Agentic Developer Workflow)
-- **File**: `workflows/100_ADW_RUN_PHOTO.md` (v2.0.0)
+- **File**: `workflows/14_ADW_orchestrator.md` (v3.2.0)
 - **Purpose**: High-level workflow orchestration (WHAT to do, WHEN to do it)
-- **Structure**: 5-phase workflow with clear objectives, inputs, outputs, and validations
-- **Duration**: 15-30 minutes end-to-end
+- **Structure**: 5-phase workflow with clear objectives, inputs, outputs, validations, and task boundaries
+- **Duration**: 10-20 minutes end-to-end (full mode)
 
 ### Layer 2: HOP (Higher-Order Prompts)
-- **Location**: `prompts/` directory (5 modular prompts)
+- **Location**: `prompts/` directory (5 modular TAC-7 prompts: 13-19)
 - **Purpose**: Detailed step-by-step execution instructions (HOW to do it)
 - **Content**: Comprehensive guides with examples, error handling, and validation checklists
 - **Total Size**: ~50KB of specialized photography knowledge
+- **Format**: TAC-7 compliant (Task/Action/Constraints structure)
 
 ### Workflow Phases → HOP Mapping
 
 | Phase | Workflow Step | HOP Prompt | Output |
 |-------|--------------|------------|--------|
-| 1 | Input Processing & Scene Planning | `10_scene_planner_HOP.md` | 9-scene grid (3x3) |
-| 2 | Camera & Lighting Design | `20_camera_designer_HOP.md` | Camera specs + lighting |
-| 3 | Prompt Generation (Scenes 1-9) | `30_prompt_generator_HOP.md` | 9 AI prompts (≥80 words) |
-| 4 | Brand & Compliance Validation | `40_brand_validator_HOP.md` | Quality score ≥7.0/10 |
-| 5 | Batch Assembly & QA | `50_batch_assembler_HOP.md` | Trinity output (.md/.json) |
+| 1 | Input Processing & Scene Planning | `13_HOP_scene_planner.md` | 9-scene grid (3x3) |
+| 2 | Camera & Lighting Design | `14_HOP_camera_designer.md` | Camera specs + lighting |
+| 3 | Prompt Generation (Scenes 1-9) | `15_HOP_prompt_generator.md` | 2 prompts (Grid + Individual) with seeds |
+| 4 | Brand & Compliance Validation | `16_HOP_brand_validator.md` | Quality score ≥0.85 |
+| 5 | Batch Assembly & QA | `17_HOP_batch_assembler.md` | Output with generation commands |
 
 ### Benefits
 - **Modularity**: Each HOP prompt is independently updatable
@@ -42,11 +45,17 @@
 
 ### Quick Start with Dual-Layer
 ```bash
-# For AI Assistants: Execute complete workflow
-READ: agentes/photo_agent/workflows/100_ADW_RUN_PHOTO.md
+# For AI Assistants: Start with PRIME.md
+READ: agentes/photo_agent/PRIME.md
+
+# For external LLMs: Use iso_vectorstore entry point
+READ: agentes/photo_agent/iso_vectorstore/01_QUICK_START.md
+
+# For workflow execution:
+READ: agentes/photo_agent/workflows/14_ADW_orchestrator.md
 
 # For specific phase details:
-READ: agentes/photo_agent/prompts/30_prompt_generator_HOP.md  # Phase 3 example
+READ: agentes/photo_agent/prompts/15_HOP_prompt_generator.md  # Phase 3 example
 ```
 
 ## Key Capabilities
@@ -505,8 +514,11 @@ config/
 
 ## Version History
 
-- **1.0.0** (2025-11-14): Initial release with 5 photography styles, 9-scene orchestration, PNL triggers, brand profile system
+- **2.6.0** (2025-12-05): 12 Leverage Points compliance, TAC-7 HOP format, v3.2.0 output with `{user_image}` + seeds, task boundaries, Scout integration
+- **2.5.0** (2025-11-29): Dual-input workflow (user image + prompt), 13-point validation v3.2.0, execution modes (full/quick/single)
+- **2.0.0** (2025-11-20): Dual-Layer Architecture (ADW + HOP), iso_vectorstore export
 - **1.1.0** (2025-11-15): Dual output schemas (marketplace + brand), validators, examples, self-contained operation
+- **1.0.0** (2025-11-14): Initial release with 5 photography styles, 9-scene orchestration, PNL triggers, brand profile system
 
 ---
 

@@ -434,7 +434,7 @@ CODE_INTERPRETER=false # Optional (advanced metrics)
 
 ---
 
-## 📚 KEY FILES (~90 files total)
+## 📚 KEY FILES (~100 files total)
 
 ### Core Files (Entry Points)
 | File | Purpose | Required |

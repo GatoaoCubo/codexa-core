@@ -1,10 +1,8 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: README.md
-  Agent: curso_agent
-  Synced: 2025-11-30
-  Version: 2.5.1
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: curso_agent/README.md
+Synced: 2025-12-05
+Version: 2.5.1
 -->
 
 # CODEXA Curso Agent v2.5.1
@@ -273,4 +271,4 @@ User → Command → Builder → META-PROMPT → LLM → Final Content → Valid
 
 ---
 
-**Quality Score**: 9.3/10 | **Status**: Production-ready (12 Leverage Points) | **Last Updated**: 2025-11-25 | **See**: [CHANGELOG.md](../CHANGELOG.md) for full details
+**Quality Score**: 9.3/10 | **Status**: Production-ready (12 Leverage Points) | **Last Updated**: 2025-11-25 | **See**: [CHANGELOG.md](CHANGELOG.md) for full details

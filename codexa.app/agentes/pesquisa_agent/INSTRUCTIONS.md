@@ -1,4 +1,4 @@
-# SETUP GUIDE | Pesquisa Agent v2.1
+# SETUP GUIDE | Pesquisa Agent v3.1
 
 **Universal setup instructions** for loading the Pesquisa Agent into different LLM platforms.
 
@@ -8,10 +8,11 @@
 
 ### Required Files
 Ensure you have the complete `pesquisa_agent/` folder with:
-- ✅ **PRIME.md** - Entry point
-- ✅ **config/** - Agent configs + marketplaces + execution plans
-- ✅ **prompts/** - 7 modular prompts
-- ✅ **templates/** - research_notes.md template
+- ✅ **PRIME.md** - Entry point (TAC-7 framework)
+- ✅ **config/** - Agent configs + marketplaces + execution plans (6 files)
+- ✅ **prompts/** - 12 modular HOPs (see list below)
+- ✅ **workflows/** - 6 ADW workflow files
+- ✅ **templates/** - research_notes.md + llm.json.template
 - ✅ **user_research/** - Output directory
 
 ### Minimum Capabilities Required
@@ -19,6 +20,28 @@ Ensure you have the complete `pesquisa_agent/` folder with:
 - 📄 **vision** - Optional (enables screenshot analysis)
 - 📄 **file_search** - Optional (enables compliance rules lookup)
 - 📄 **code_interpreter** - Optional (enables advanced metrics)
+
+### 12 Modular HOPs (prompts/)
+1. **main_agent_HOP.md** - Main orchestrator
+2. **intake_validation.md** - Brief validation
+3. **web_search_inbound.md** - Marketplace search (9 BR)
+4. **web_search_outbound.md** - SERP + social search
+5. **competitor_analysis.md** - Competitor deep dive
+6. **seo_taxonomy.md** - SEO keyword extraction
+7. **image_analysis.md** - Visual analysis
+8. **price_comparison.md** - Pricing intelligence
+9. **sentiment_analysis.md** - Review sentiment
+10. **gap_identification.md** - Market gaps
+11. **trend_analysis.md** - Trend identification
+12. **strategy_gaps.md** - Strategic opportunities
+
+### 6 Workflow Files (workflows/)
+1. **100_ADW_RUN_PESQUISA.md** - Main execution workflow
+2. **ADW_TEMPLATE.md** - Workflow template
+3. **IMPLEMENTATION_GUIDE.md** - Implementation guide
+4. **IMPLEMENTATION_SUMMARY.md** - Summary
+5. **PHASE_B_PYTHON_AUTOMATION.md** - Automation guide
+6. **README_WORKFLOWS.md** - Documentation
 
 ---
 
@@ -57,10 +80,10 @@ Ensure you have the complete `pesquisa_agent/` folder with:
 4. Agent will auto-detect capabilities and execute research
 
 **Capabilities in Claude Code**:
-- ✅ web_search (via WebFetch tool)
+- ✅ web_search (via WebSearch + WebFetch tools)
 - ✅ vision (via Read tool for images)
-- ❌ file_search (not available - will use web-only)
-- ❌ code_interpreter (not available - manual metrics)
+- ✅ file_search (via Grep + Glob tools)
+- ✅ code_interpreter (via Bash + mcp__ide__executeCode)
 
 **Output Location**: `user_research/[produto]_research_notes.md`
 
@@ -78,10 +101,10 @@ Ensure you have the complete `pesquisa_agent/` folder with:
 4. Agent adapts to available tools
 
 **Capabilities**:
-- ✅ web_search (if enabled in Claude web)
+- ✅ web_search (if enabled in Claude web - check subscription)
 - ✅ vision (native Claude feature)
-- ❌ file_search (not available)
-- ❌ code_interpreter (not available)
+- ⚠️ file_search (limited - requires file upload)
+- ⚠️ code_interpreter (limited - analysis mode only)
 
 ---
 
@@ -475,5 +498,6 @@ cat user_research/mochila_notebook_metadata.json
 
 ---
 
-**Version**: 2.1.0 | **Updated**: 2025-11-13
+**Version**: 3.1.0 | **Updated**: 2025-12-05
 **Platforms Tested**: Claude Code ✅ | OpenAI Assistants ✅ | Gemini AI Studio ✅ | Ollama ⚠️
+**Aligned with**: PRIME.md v3.2.0, README.md v3.1.0

@@ -11,8 +11,8 @@
 
 This command verticalizes you into the **Pesquisa Agent** with full context for:
 
-- 9-phase ADW workflow (20-30min)
-- 22 specialized HOPs
+- 10-phase ADW workflow (20-30min)
+- 1 main HOP (main_agent_HOP.md)
 - Competitor analysis
 - Keyword research
 - Price intelligence
@@ -92,10 +92,10 @@ When `/prime-pesquisa` is called:
 
 ## QUICK REFERENCE
 
-### 9-Phase Pipeline
+### 10-Phase Pipeline (includes Phase 0: Knowledge Loading)
 ```
-Brief → Market → Competitors → Keywords → Prices → Trends → Gaps → Synthesis → Report
- ~2min   ~3min      ~5min       ~3min     ~2min    ~3min   ~2min     ~3min      ~2min
+Knowledge → Discovery → QueryBank → InboundSearch → OutboundSearch → Competitors → SEO → Compliance → Synthesis → Output
+  1-2min      2min       3min         8min            8min           6min        4min     3min         3min        2min
 ```
 
 ### Research Output (22 Blocks)

@@ -11,8 +11,8 @@
 
 This command verticalizes you into the **Mentor Agent** with full context for:
 
-- 6-phase ADW workflow (16-31min)
-- 16 specialized HOPs
+- 7-phase ADW workflow (17-33min)
+- 4 specialized HOPs (knowledge_processor, quality_validator_5d, scout_global_navigator, knowledge_router)
 - Problem diagnosis
 - Strategy development
 - Skill gap analysis
@@ -78,7 +78,7 @@ When `/prime-mentor` is called:
 
 1. Read `codexa.app/agentes/mentor_agent/PRIME.md` (complete file)
 2. Confirm context loaded: "Mentoring context loaded"
-3. List workflow phases (6 phases)
+3. List workflow phases (7 phases)
 4. Show quick reference (problem categories)
 5. Indicate readiness: "Ready for mentoring tasks"
 
@@ -92,10 +92,10 @@ When `/prime-mentor` is called:
 
 ## QUICK REFERENCE
 
-### 6-Phase Pipeline
+### 7-Phase Pipeline (includes Phase 0: Knowledge Loading)
 ```
-Intake → Diagnosis → Analysis → Strategy → Action Plan → Follow-up
- ~3min     ~5min      ~5min      ~5min       ~5min        ~3min
+Knowledge → Discovery → Synthesis → Assessment → Planning → Guidance → Output
+  1-2min      2-5min      3-7min       3-7min      3-7min    3-7min    2-5min
 ```
 
 ### Problem Categories

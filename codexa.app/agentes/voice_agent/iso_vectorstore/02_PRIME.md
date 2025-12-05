@@ -1,61 +1,56 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: PRIME.md
-  Agent: voice_agent
-  Synced: 2025-11-30
-  Version: 6.0.0
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: voice_agent/PRIME.md
+Synced: 2025-12-05
+Version: 7.0.0
 -->
 
 # Voice Agent | PRIME
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
+
 ## PURPOSE
 
 **VOICE_AGENT**: Accessibility-first voice interface for CODEXA. Enables hands-free interaction with Claude Code.
 
-**Provides**: Voice-to-text | Text-to-speech | Wake word detection | Noise filtering
+**Provides**: Voice-to-text | Text-to-speech | Noise filtering
 
-**Philosophy**: Simple, reliable, one command at a time.
+**Philosophy**: Simple, reliable, one command at a time. User speaks "desires", Claude orchestrates.
 
 **Activation**: `/v`
 
-## ARCHITECTURE (v6.0 - Simplified)
+## ARCHITECTURE (v7.0 - Beep-Only UX)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                         /v FLOW                              │
+│                      /v FLOW (v7.0)                          │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  1. User types /v                                            │
 │         │                                                    │
 │         ▼                                                    │
-│  2. Claude: mcp__voice__speak("Pode falar.")                │
+│  2. BEEP (800Hz) - recording starts immediately              │
 │         │                                                    │
 │         ▼                                                    │
-│  3. Claude: mcp__voice__listen_start()                      │
+│  3. User speaks freely (15s window, no wake word)            │
 │         │                                                    │
 │         ▼                                                    │
-│  4. Claude polls: mcp__voice__listen_poll()                 │
+│  4. BEEP (1200Hz) - recording ended                          │
 │         │                                                    │
 │         ▼                                                    │
-│  5. User says: "codexa liste arquivos"                      │
+│  5. Whisper transcribes                                      │
 │         │                                                    │
 │         ▼                                                    │
-│  6. Filter: wake word detected? noise? valid command?       │
+│  6. Claude interprets as "desire/intent"                     │
 │         │                                                    │
-│         ▼                                                    │
-│  7. Claude executes command                                  │
+│         ├─── Clear? → Execute, speak response                │
 │         │                                                    │
-│         ▼                                                    │
-│  8. Claude: mcp__voice__speak("5 arquivos encontrados")     │
-│         │                                                    │
-│         ▼                                                    │
-│  9. Control returns to chat                                  │
-│         │                                                    │
-│         ▼                                                    │
-│  10. User types /v for next command                         │
+│         └─── Unclear? → "Nao entendi. Repita."               │
+│                         └─→ Listen again                     │
+│                                                              │
+│  7. Return to chat (user types /v for next command)          │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -68,21 +63,22 @@
 | `codexa.app/voice/server.py` | MCP server |
 | `codexa.app/voice/stt.py` | Speech-to-text |
 | `codexa.app/voice/tts.py` | Text-to-speech |
-| `codexa.app/voice/voice_filter.py` | Wake word + noise filter |
+| `codexa.app/voice/voice_filter.py` | Noise filter (wake word disabled) |
 | `codexa.app/voice/config.py` | Configuration |
 
 ## INSTRUCTIONS FOR AI
 
 ### When /v is called:
 
-1. **Speak greeting**: `mcp__voice__speak("Pode falar.")`
+1. **NO TTS greeting** - just start listening immediately
 2. **Start listening**: `mcp__voice__listen_start(max_duration=15, initial_timeout=5)`
+   - BEEP plays automatically when recording starts
 3. **Poll until done**: Keep calling `mcp__voice__listen_poll(session_id)`
 4. **Handle result**:
-   - `VOICE_COMMAND: {text}` → Execute, speak response
-   - `NOISE_FILTERED` → Speak "Nao entendi"
+   - `VOICE_COMMAND: {text}` → Execute user's intent, speak short response
+   - `NOISE_FILTERED` or `INVALID_COMMAND` → Speak "Nao entendi. Repita." and listen again
    - `EXIT_VOICE_LOOP` → Speak "Ate logo", stop
-   - Timeout → Say "Use /v para tentar novamente"
+   - `NO_SPEECH_DETECTED` → Return to chat silently
 5. **Return to chat**
 
 ### Response Rules
@@ -90,11 +86,15 @@
 - Keep TTS to 1-2 sentences
 - Confirm actions: "Feito", "3 arquivos"
 - User cannot see screen - be descriptive
+- On unclear input: "Nao entendi. Repita por favor."
 
-## WAKE WORDS
+## FEEDBACK SIGNALS
 
-- "codexa", "codex", "codigo", "code"
-- "ei codexa", "hey codexa", "oi codexa"
+| Signal | Meaning |
+|--------|---------|
+| BEEP 800Hz | Recording started - speak now |
+| BEEP 1200Hz | Recording ended - processing |
+| BEEP 400Hz | Timeout - no speech detected |
 
 ## EXIT COMMANDS
 
@@ -103,17 +103,18 @@ parar, sair, exit, quit, stop, tchau
 ## CONFIGURATION
 
 ```bash
-# In .env
-WAKE_WORD_ENABLED=true
+# In .env (v7.0 defaults)
+WAKE_WORD_ENABLED=false   # No wake word needed
 STT_LANGUAGE=pt
+STT_MAX_DURATION=15
 EDGE_VOICE=pt-BR-FranciscaNeural
 ```
 
 ---
 
-**Version**: 6.0.0
+**Version**: 7.0.0
 **Created**: 2025-11-27
 **Updated**: 2025-11-30
 **Agent Type**: Voice Interface
-**Architecture**: Simple inline polling
-**Dependencies**: sounddevice, edge-tts, ElevenLabs API (optional)
+**Architecture**: Beep-only feedback, single capture per /v
+**Dependencies**: sounddevice, edge-tts, ElevenLabs API

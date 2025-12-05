@@ -3,7 +3,7 @@
 **Purpose**: Production-ready marketplace ad generation for Brazilian e-commerce
 **Output**: Single copyable block (marketplace-ready) | Compliant, persuasive listings
 
-**Version**: 2.5.0 (2025-11-26) | **Framework**: 12 Leverage Points | **Architecture**: Dual-Layer (ADW + HOP)
+**Version**: 3.2.0 (2025-11-30) | **Framework**: 12 Leverage Points | **Architecture**: Dual-Layer (ADW + HOP)
 
 ---
 
@@ -537,5 +537,14 @@ pytest tests/test_models.py::TestConfidenceScore -v
 
 ---
 
-**Version**: 2.5.0 | **Updated**: 2025-11-26 | **Status**: Production Ready
+**Version**: 3.2.0 | **Updated**: 2025-11-30 | **Status**: Production Ready
 **Architecture**: Dual-Layer (ADW + HOP) | **12 Leverage Points**: 12/12 (100%)
+
+**Changelog v3.2.0**:
+- Performance optimization: 57k → 25k tokens target (-56%)
+- 3-PART output structure (Visual + Copyable + Structured)
+- Code fence `[INICIO_COPIAR]`/`[FIM_COPIAR]` for 1-click copy
+- Config presets: EFICIENTE (-68% tokens) + PERFORMANCE (+quality)
+- Solved download issue (sandbox limitation → code fence)
+- 5D scoring: Titulo 30%, Keywords 25%, Descricao 20%, Bullets 15%, Compliance 10%
+- Intelligent Fallback (4 confidence levels)

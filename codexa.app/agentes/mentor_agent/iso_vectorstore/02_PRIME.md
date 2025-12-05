@@ -1,15 +1,15 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: PRIME.md
-  Agent: mentor_agent
-  Synced: 2025-11-30
-  Version: 2.5.1
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: mentor_agent/PRIME.md
+Synced: 2025-12-05
+Version: 2.6.0
 -->
 
 # /prime-mentor
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
+
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
 
 ## 🎯 Purpose
 Provide focused context for the **Mentor Agent** - a consolidated intelligence system combining discovery (scout), knowledge processing, and practical mentoring for Brazilian e-commerce sellers.
@@ -426,9 +426,9 @@ def improve_knowledge_base():
 - **INSTRUCTIONS.md** - AI assistant guide
 
 **Prompts**:
-- **prompts/mentor_orchestrator.md** - Main prompt (400 lines)
-- **prompts/scout_internal.md** - Discovery logic (200 lines)
-- **prompts/aula_builder.md** - Live lesson generator (200 lines)
+- **prompts/mentor_orchestrator.md** - Main prompt (619 lines)
+- **prompts/scout_internal.md** - Discovery logic (474 lines)
+- **prompts/aula_builder.md** - Live lesson generator (463 lines)
 
 **Config**:
 - **config/categorias_conhecimento.json** - Full taxonomy
@@ -575,8 +575,8 @@ Pega um produto seu e reescreve a descrição usando os 3 pilares."
 
 ---
 
-**Version**: 2.5.1 (Shared Principles Integration)
-**Last Updated**: 2025-11-29
+**Version**: 2.6.0 (PROMPT_ENGINEERING Pipeline)
+**Last Updated**: 2025-12-01
 **Agent Type**: Intelligence + Processing + Mentoring + External Knowledge
 **Target Users**: Brazilian e-commerce sellers
 **Dependencies**: None (self-contained)
@@ -598,6 +598,75 @@ Pega um produto seu e reescreve a descrição usando os 3 pilares."
 - Auto-refresh automation scripts
 - Unified Scout search (PROCESSADOS + FONTES)
 - /refresh_fontes slash command
+
+---
+
+## PROMPT_ENGINEERING Knowledge Base (v1.0.0)
+
+> **Localização**: `FONTES/PROMPT_ENGINEERING/`
+> **Propósito**: Conhecimento extraído de 100+ system prompts de ferramentas AI
+> **Público**: Desenvolvedores CODEXA (técnico)
+
+### O que é
+
+Pipeline de 4 estágios para converter prompts de ferramentas AI (Cursor, Claude Code, Devin, Windsurf, etc.) em conhecimento reaproveitável para construção de agentes CODEXA.
+
+### Estrutura
+
+```
+FONTES/PROMPT_ENGINEERING/
+├── scripts/
+│   ├── pipeline_extract.py      # Stage 1: Extração
+│   └── pipeline_synthesize.py   # Stage 3-4: Síntese
+├── raw_extractions/             # JSONs por ferramenta (96 arquivos)
+├── patterns/                    # Knowledge cards de padrões universais
+├── techniques/                  # Knowledge cards de técnicas
+├── comparisons/                 # Análises comparativas por categoria
+├── playbook_prompt_engineering_*.md  # Guia consolidado
+├── catalogo_prompts.json        # Índice master
+└── extraction_schema.json       # Schema de extração
+```
+
+### Como Usar
+
+```bash
+# Listar ferramentas disponíveis
+python scripts/pipeline_extract.py --mode list
+
+# Processar com Claude API (análise profunda)
+export ANTHROPIC_API_KEY=sk-ant-xxx
+python scripts/pipeline_extract.py --mode full
+
+# Processar sem LLM (extração básica via regex)
+python scripts/pipeline_extract.py --mode full --no-llm
+
+# Gerar knowledge cards + playbook
+python scripts/pipeline_synthesize.py --mode all
+```
+
+### Padrões Universais Identificados
+
+| Pattern | Frequência | Status |
+|---------|------------|--------|
+| `tool_calling` | 100% | Obrigatório |
+| `task_management` | 97% | Obrigatório |
+| `file_operations` | 86% | Obrigatório |
+| `terminal_commands` | 84% | Obrigatório |
+| `security_constraints` | 38% | Recomendado |
+
+### Ferramentas Processadas (34)
+
+- **Coding IDEs**: Cursor, Windsurf, Augment, VS Code Agent, Xcode, Trae
+- **AI Agents**: Devin, Manus, Lovable, Same.dev, Junie, Kiro, Emergent
+- **Platforms**: Claude Code, Anthropic, Replit, v0, Perplexity, Notion AI, Gemini
+- **Open Source**: Cline, Bolt, RooCode, Codex CLI, Gemini CLI, Lumo
+- **Enterprise**: Cluely, CodeBuddy, Comet, AMP, Qoder, Orchids, Leap, Poke, Warp, Dia, Traycer, Zai
+
+### Próximos Passos (quando retomar)
+
+1. Re-executar com `ANTHROPIC_API_KEY` para análise profunda via Claude
+2. Gerar technique cards (requer extrações com LLM)
+3. Aplicar padrões nos agentes CODEXA existentes
 
 ---
 

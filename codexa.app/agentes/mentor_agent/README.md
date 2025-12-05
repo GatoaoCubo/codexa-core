@@ -1,6 +1,6 @@
 # Mentor Agent - Seu Guia Prático de E-commerce
 
-**Versão 2.0 - Sistema Consolidado de Conhecimento + Mentoria**
+**Version 2.6.0 - Sistema Consolidado de Conhecimento + Mentoria**
 
 Olá! Eu sou o Mentor Agent, seu conselheiro prático para vender mais nos marketplaces brasileiros (Mercado Livre, Shopee, Magalu, etc.).
 
@@ -339,25 +339,25 @@ Bom: "Vendo camisetas no ML, 50 vendas/mês. Como dobrar isso?"
 
 ## 🔧 Para Desenvolvedores & AI Assistants
 
-### Arquitetura Técnica (v2.0)
+### Arquitetura Técnica (v2.6.0)
 
-O mentor_agent v2.0 consolida 3 componentes principais:
+O mentor_agent v2.6.0 consolida 3 componentes principais:
 
-**1. Scout Global Navigator** (`prompts/scout_global_navigator_HOP.md`)
-- Navega todo projeto codexa (../../ até raiz)
-- Escaneia 9 PRIME.md + 24 README.md de todos agentes
-- Calcula relevância para tarefa (0.0-1.0 scoring)
-- Retorna TOP 5 contextos mais relevantes
-- Performance: 2-4 min para full scan
+**1. Scout Internal Discovery** (`prompts/scout_internal.md`)
+- Busca semântica em catalogo.json (PROCESSADOS/) e catalogo_fontes.json (FONTES/)
+- Multi-dimensional matching: categoria + assunto + tags + aplicacao
+- Detecção automática de quando usar fontes externas (LLM APIs, marketplaces, frameworks)
+- Retorna TOP 3 matches mais relevantes
+- Performance: <1s para busca interna, 2-3s com FONTES/
 
-**2. Knowledge Processor** (`prompts/knowledge_processor_HOP.md`)
+**2. Knowledge Processor** (4-Stage Pipeline)
 - Pipeline: Extract → Classify → Synthesize → Validate
 - Suporta 12 formatos (PDF, video, audio, images, docs)
 - Categoriza em 10 categorias + 27 tags
 - Target output: 800-1200 tokens, seller language
 - Performance: 10-30s (text), 30-120s (video)
 
-**3. Quality Validator 5D** (`prompts/quality_validator_5d_HOP.md`)
+**3. Quality Validator 5D** (5-Dimension Validation)
 - 5 dimensões: Completeness, Clarity, Accuracy, Relevance, Actionability
 - Threshold: Overall ≥0.75 (excellent/good), per-dimension ≥0.60
 - Auto-improvement: Se 0.60-0.74, tenta melhorar dimensões fracas (max 3x)
@@ -379,10 +379,10 @@ O mentor_agent v2.0 consolida 3 componentes principais:
 
 ### Documentação Completa
 
-- **PRIME.md** - Arquitetura (4+8 pillars)
-- **INSTRUCTIONS.md** - Guia operacional para AI assistants
-- **INTEGRATION.md** - Sistema consolidado, integração de componentes
-- **HOPs em prompts/** - Módulos TAC-7 reutilizáveis
+- **PRIME.md** (v2.6.0) - Arquitetura (5+8 pillars = 13 total)
+- **README.md** (v2.6.0 - este arquivo) - Guia para sellers
+- **INSTRUCTIONS.md** (v2.6.0) - Guia operacional para AI assistants
+- **prompts/** - HOPs reutilizáveis (mentor_orchestrator, scout_internal, aula_builder)
 
 ### Performance Benchmarks
 
@@ -449,9 +449,11 @@ python enrich_agents.py --agent anuncio_agent
 
 ---
 
-**Versão**: 2.1.0 (+ Sistema de Distribuição de Conhecimento)
-**Última Atualização**: 2025-11-14
-**Feito para**: Sellers de e-commerce brasileiro
+**Version**: 2.6.0 (PROMPT_ENGINEERING Pipeline)
+**Last Updated**: 2025-12-01
+**Target Users**: Brazilian e-commerce sellers
+**Agent Type**: Intelligence + Processing + Mentoring + External Knowledge
+**Framework**: 12 Leverage Points + Dual-Layer ADW+HOP
 
 ---
 

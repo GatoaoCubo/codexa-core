@@ -11,7 +11,8 @@
 
 This command verticalizes you into the **Photo Agent** with full context for:
 
-- 5-phase ADW workflow (15-30min)
+- 6-phase ADW workflow (15-30min)
+- 5 HOPs (scene_planner, camera_designer, prompt_generator, brand_validator, batch_assembler)
 - 9 scene types per product
 - AI prompt engineering (Midjourney, DALL-E, Stable Diffusion)
 - Lighting and composition
@@ -77,7 +78,7 @@ When `/prime-photo` is called:
 
 1. Read `codexa.app/agentes/photo_agent/PRIME.md` (complete file)
 2. Confirm context loaded: "Photo direction context loaded"
-3. List workflow phases (5 phases)
+3. List workflow phases (6 phases)
 4. Show quick reference (9 scene types)
 5. Indicate readiness: "Ready for photo prompt tasks"
 
@@ -91,10 +92,10 @@ When `/prime-photo` is called:
 
 ## QUICK REFERENCE
 
-### 5-Phase Pipeline
+### 6-Phase Pipeline (includes Phase 0: Knowledge Loading)
 ```
-Brief → Style → Scenes → Prompts → Validation
- ~3min   ~3min   ~5min    ~10min     ~5min
+Knowledge → Input → Camera → Prompts → Validation → Batch
+  1-2min    2-5min  3-7min   5-10min    3-7min      2-5min
 ```
 
 ### 9 Scene Types

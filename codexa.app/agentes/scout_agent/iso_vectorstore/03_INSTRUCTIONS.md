@@ -1,15 +1,15 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: INSTRUCTIONS.md
-  Agent: scout_agent
-  Synced: 2025-11-30
-  Version: 1.0.0
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: scout_agent/INSTRUCTIONS.md
+Synced: 2025-12-05
+Version: 1.1.0
 -->
 
 # Scout Agent | INSTRUCTIONS
 
 > Operational guide for using the Scout MCP Server
+
+**Version**: 1.1.0 | **Last Updated**: 2025-11-29
 
 ---
 
@@ -54,6 +54,7 @@ mcp__scout__search("**/*_HOP.md")
 | `discover(query)` | Find files by natural language | `discover("market research")` |
 | `search(pattern)` | Find files by glob pattern | `search("**/*.json")` |
 | `agent_context(agent)` | Get all files for agent | `agent_context("codexa_agent")` |
+| `smart_context(agent)` | Get LLM-optimized context | `smart_context("anuncio_agent")` |
 
 ### CRUD Tools
 
@@ -166,15 +167,75 @@ config: 0.7
 
 ---
 
-## Best Practices
+## Path Registry System
 
-1. **Use natural language** for `discover()` - it understands context
-2. **Be specific** with agent names in `agent_context()`
-3. **Always confirm deletes** - pass `confirm: true`
-4. **Check results** before acting on discovered files
-5. **Use `related()`** to find connected files
+Scout manages the **PATH_REGISTRY_SYSTEM** for centralized path management.
+
+### Using Path Placeholders
+
+Instead of hardcoding paths, use placeholders:
+
+```python
+# Python
+from codexa.app.core.path_resolver import resolve_path
+path = resolve_path("{{AGENTES}}/scout_agent/PRIME.md")
+```
+
+```javascript
+// Node.js
+const { resolvePath } = require('./codexa.app/core/pathResolver.cjs');
+const path = resolvePath('{{AGENTES}}/scout_agent/PRIME.md');
+```
+
+### Standard Placeholders
+
+- `{{PROJECT_ROOT}}` - Git root (auto-detect)
+- `{{CODEXA_APP}}` - codexa.app directory
+- `{{AGENTES}}` - agentes directory
+- `{{MCP_SERVERS}}` - mcp-servers directory
+- `{{CLAUDE_DIR}}` - .claude directory
+
+### Regenerating Paths
+
+When setting up on a new machine:
+
+```bash
+python codexa.app/core/setup_paths.py
+```
+
+This regenerates all MCP configurations with correct absolute paths.
+
+See: `specs/PATH_REGISTRY_SYSTEM_SPEC.md` for full documentation.
 
 ---
 
-**Version**: 1.0.0
+## Best Practices
+
+1. **Use natural language** for `discover()` - it understands context
+2. **Use `smart_context()`** for LLM-optimized file navigation
+3. **Be specific** with agent names in `agent_context()`
+4. **Always confirm deletes** - pass `confirm: true`
+5. **Check results** before acting on discovered files
+6. **Use `related()`** to find connected files
+7. **Use path placeholders** instead of hardcoded paths
+
+---
+
+## Changelog
+
+### v1.1.0 (2025-11-29)
+- Added PATH REGISTRY SYSTEM documentation
+- Added `smart_context` tool for LLM-optimized agent context
+- Enhanced path management with placeholder system
+- Added path resolver integration (Python & Node.js)
+
+### v1.0.0 (2025-11-28)
+- Initial release
+- MVP tools: discover, search, agent_context
+- CRUD operations with safety features
+- Multi-factor relevance scoring
+
+---
+
+**Version**: 1.1.0
 **Last Updated**: 2025-11-29

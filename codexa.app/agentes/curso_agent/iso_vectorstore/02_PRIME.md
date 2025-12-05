@@ -1,15 +1,15 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: PRIME.md
-  Agent: curso_agent
-  Synced: 2025-11-30
-  Version: 2.5.1
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: curso_agent/PRIME.md
+Synced: 2025-12-05
+Version: 2.5.1
 -->
 
 # /prime-curso | CODEXA Course Builder Agent
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
+
+> **LAW 9**: Scout-First Consolidation | Toda tarefa começa com scouts → CRUD Priority: Delete > Update > Read > Create
 
 ## 🗺️ NAVIGATION MAP (Quick Reference)
 

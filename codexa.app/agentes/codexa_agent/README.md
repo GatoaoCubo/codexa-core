@@ -1,6 +1,6 @@
 # CODEXA Agent | Meta-Constructor & Multi-Agent System
 
-**Version**: 2.5.0 | **Status**: Production-Ready
+**Version**: 2.6.0 | **Status**: Production-Ready
 **Purpose**: Self-building meta-construction system with LLM integration
 
 ---
@@ -23,8 +23,10 @@ python codexa.py validate hop prompts/91_meta_build_agent_HOP.md
 
 ---
 
-## What's New in v2.5.0
+## What's New in v2.6.0
 
+- **LAW 9 Integration**: Scout-First Consolidation workflow (discover before create)
+- **CRUD Priority**: Delete > Update > Read > Create discipline
 - **Phase 1-4**: 8 composable prompt layers + Multi-Agent System
 - **Phase 5**: Code Quality Standards (CODE_STYLE_GUIDE, DESIGN_SYSTEM)
 - **Phase 6**: ADW Suite v2.0 (Two-Phase Planning, Parallel Orchestration)
@@ -56,8 +58,8 @@ codexa_agent/
 │   ├── tools/         # File & bash tools
 │   ├── runtime/       # Agent loop
 │   └── auth/          # Security
-├── builders/          # Construction tools (14 scripts)
-├── validators/        # Quality gates (5 scripts)
+├── builders/          # Construction tools (15 scripts)
+├── validators/        # Quality gates (9 scripts)
 ├── prompts/           # HOPs + 8 composable layers
 ├── agents/            # 5 agent definitions
 ├── config/            # Configuration (paths, modes)
@@ -113,7 +115,7 @@ result = await agent.run("Hello!")
 
 ---
 
-## Builders (14 tools)
+## Builders (15 tools)
 
 | Builder | Purpose |
 |---------|---------|
@@ -129,13 +131,15 @@ uv run builders/02_agent_meta_constructor.py "Agent description"
 
 ---
 
-## Validators (5 tools)
+## Validators (9 tools)
 
 | Validator | Purpose |
 |-----------|---------|
 | `07_hop_sync_validator.py` | TAC-7 compliance |
-| `09_readme_validator.py` | Documentation |
-| `12_doc_sync_validator.py` | Doc sync |
+| `09_readme_validator.py` | Documentation standards |
+| `10_taxonomy_validator.py` | Registry consistency |
+| `12_doc_sync_validator.py` | Doc synchronization |
+| `13_code_quality_validator.py` | Code style guide compliance |
 | `16_path_consistency_validator.py` | Path validation |
 
 **Usage**:
@@ -219,15 +223,16 @@ OPENAI_API_KEY=sk-...
 
 | Component | Count |
 |-----------|-------|
-| Builders | 14 |
-| Validators | 5 |
+| Builders | 15 |
+| Validators | 9 |
 | HOPs | 5 |
 | Prompt Layers | 8 |
 | Agent Definitions | 5 |
+| ADW Workflows | 16 |
 | LLM Providers | 3 |
 | Tools | 6 |
-| Total Files | ~151 |
-| Total Lines | ~15,000 |
+| Total Files | ~160 |
+| Total Lines | ~17,000 |
 
 ---
 
@@ -235,6 +240,8 @@ OPENAI_API_KEY=sk-...
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| 2.6.0 | 2025-12-05 | LAW 9 Scout-First, CRUD Priority |
+| 2.5.0 | 2025-12-05 | Phase 9 Deployment Complete |
 | 2.0.0 | 2025-11-24 | Phase 3 complete, full integration |
 | 1.3.0 | 2025-11-24 | Template Metaprompt Framework |
 | 1.2.0 | 2025-11-16 | Path normalization |

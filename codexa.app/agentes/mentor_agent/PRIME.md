@@ -419,9 +419,9 @@ def improve_knowledge_base():
 - **INSTRUCTIONS.md** - AI assistant guide
 
 **Prompts**:
-- **prompts/mentor_orchestrator.md** - Main prompt (400 lines)
-- **prompts/scout_internal.md** - Discovery logic (200 lines)
-- **prompts/aula_builder.md** - Live lesson generator (200 lines)
+- **prompts/mentor_orchestrator.md** - Main prompt (619 lines)
+- **prompts/scout_internal.md** - Discovery logic (474 lines)
+- **prompts/aula_builder.md** - Live lesson generator (463 lines)
 
 **Config**:
 - **config/categorias_conhecimento.json** - Full taxonomy

@@ -1,17 +1,17 @@
-<!-- iso_vectorstore -->
 <!--
-  Source: PRIME.md
-  Agent: scout_agent
-  Synced: 2025-11-30
-  Version: 1.0.0
-  Package: iso_vectorstore (export package)
+ISO_VECTORSTORE EXPORT
+Source: scout_agent/PRIME.md
+Synced: 2025-12-05
+Version: 1.1.0
 -->
 
 # /prime-scout | Path Discovery & Navigation System
 
-**Version**: 1.0.0 | **Status**: Active | **Type**: Infrastructure Agent | **Architecture**: MCP Server
+**Version**: 1.1.0 | **Status**: Active | **Type**: Infrastructure Agent | **Architecture**: MCP Server
 
 > **Scout**: Este é o próprio Scout! Veja [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md) para instruções de uso.
+
+> **LAW 9**: Scout-First Consolidation | Scout é a PRIMEIRA ação de qualquer tarefa → CRUD Priority: Delete > Update > Read > Create
 
 ---
 
@@ -323,7 +323,59 @@ mcp-servers/scout-mcp/
 
 ---
 
-## 12. EXAMPLES
+## 12. PATH REGISTRY SYSTEM
+
+Scout manages the **PATH_REGISTRY_SYSTEM** - a centralized path management solution that eliminates hardcoded paths across the project.
+
+### Core Components
+
+| Component | Location | Purpose |
+|-----------|----------|---------|
+| **path_registry.json** | `{{PROJECT_ROOT}}/` | Single source of truth for all paths |
+| **path_resolver.py** | `{{CODEXA_APP}}/core/` | Python resolver (auto-detects root) |
+| **pathResolver.cjs** | `{{CODEXA_APP}}/core/` | Node.js resolver |
+| **setup_paths.py** | `{{CODEXA_APP}}/core/` | Regenerates MCP configs |
+
+### Standard Placeholders
+
+```
+{{PROJECT_ROOT}}  -> Git root (auto-detect)
+{{CODEXA_APP}}    -> PROJECT_ROOT/codexa.app
+{{AGENTES}}       -> CODEXA_APP/agentes
+{{MCP_SERVERS}}   -> CODEXA_APP/mcp-servers
+{{CLAUDE_DIR}}    -> PROJECT_ROOT/.claude
+{{AGENT_DIR}}     -> Context-dependent (dynamic)
+```
+
+### Usage
+
+**Python:**
+```python
+from codexa.app.core.path_resolver import resolve_path
+path = resolve_path("{{AGENTES}}/scout_agent/PRIME.md")
+```
+
+**Node.js:**
+```javascript
+const { resolvePath } = require('./codexa.app/core/pathResolver.cjs');
+const path = resolvePath('{{AGENTES}}/scout_agent/PRIME.md');
+```
+
+**Regenerate configs for new machine:**
+```bash
+python codexa.app/core/setup_paths.py
+```
+
+### Documentation
+
+Full specifications in `specs/`:
+- `PATH_REGISTRY_SYSTEM_SPEC.md` - Complete specification (12k+ words)
+- `PATH_REGISTRY_SUMMARY.md` - Executive summary
+- `PATH_MIGRATION_GUIDE.md` - Step-by-step migration
+
+---
+
+## 13. USAGE EXAMPLES
 
 ### Example 1: Find Files for Task
 ```
@@ -373,7 +425,7 @@ Response:
 
 ---
 
-## 13. PERFORMANCE
+## 14. PERFORMANCE
 
 | Operation | Target | Actual |
 |-----------|--------|--------|
@@ -385,7 +437,7 @@ Response:
 
 ---
 
-## 14. CHANGELOG
+## 15. CHANGELOG
 
 ### v1.0.0 (2025-11-28)
 - Initial release
@@ -397,7 +449,7 @@ Response:
 
 ---
 
-## 15. SHARED PRINCIPLES
+## 16. SHARED PRINCIPLES
 
 > See full details: [SHARED_PRINCIPLES.md](../SHARED_PRINCIPLES.md)
 
