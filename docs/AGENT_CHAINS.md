@@ -54,8 +54,8 @@ CODEXA has 12 agents organized in interconnected chains. This document maps how 
 | 8 | mentor_agent | Guidance | `/mentor` | recommendations |
 | 9 | codexa_agent | Meta-construction | `/codexa-*` | agents, workflows, prompts |
 | 10 | scout_agent | File discovery | `mcp__scout__*` | file paths, context |
-| 11 | qa_gato3_agent | Quality assurance | internal | validation reports |
-| 12 | ronronalda_agent | Personality | internal | themed responses |
+| 11 | qa_agent | Quality assurance | `/qa` | validation reports |
+| 12 | persona_agent | Brand chatbot | `/persona` | themed responses |
 
 ---
 

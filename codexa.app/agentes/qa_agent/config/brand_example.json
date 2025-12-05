@@ -1,0 +1,69 @@
+{
+  "_comment": "GATO3 Brand Configuration Example - Copy this file to brand.json and customize for your brand",
+
+  "brand": {
+    "BRAND_NAME": "GATO3",
+    "brand_name": "gato3",
+    "DOMAIN": "gato3.com.br",
+    "BASE_URL": "gatoaocubo.lovable.app",
+    "SHOPIFY_DOMAIN": "gatoaocubo.myshopify.com",
+    "PROJECT_FOLDER": "connect-my-github",
+    "PRODUCT_CATEGORY": "produtos felinos"
+  },
+
+  "ai_assistant": {
+    "AI_ASSISTANT_NAME": "Ronronalda",
+    "AI_CHAT_FUNCTION": "ronronalda-chat",
+    "AI_RECOMMENDATIONS_FUNCTION": "ronronalda-recommendations",
+    "AI_TTS_FUNCTION": "ronronalda-tts"
+  },
+
+  "supabase": {
+    "SUPABASE_FUNCTIONS_URL": "https://fuuguegkqnpzrrhwymgw.supabase.co/functions/v1"
+  },
+
+  "test_data": {
+    "TEST_PRODUCT_SLUG": "tapete-refrescante-65x50",
+
+    "CHAT_TEST_1_INPUT": "Meu gato arranha o sofa",
+    "CHAT_TEST_1_EXPECT": "arranhador",
+
+    "CHAT_TEST_2_INPUT": "Gato vomitando apos comer",
+    "CHAT_TEST_2_EXPECT": "comedouro",
+
+    "CHAT_TEST_3_INPUT": "Gato estressado com mudanca",
+    "CHAT_TEST_3_EXPECT": "toca|cama",
+
+    "CHAT_TEST_4_INPUT": "Xixi fora da caixa",
+    "CHAT_TEST_4_EXPECT": "caixa|areia",
+
+    "CHAT_TEST_5_INPUT": "Gato com sangue",
+    "CHAT_TEST_5_EXPECT": "veterinario"
+  },
+
+  "_usage": {
+    "instructions": [
+      "1. Copy this file to 'brand.json' in the same directory",
+      "2. Replace all values with your brand-specific information",
+      "3. The qa_agent will load these values and replace {{PLACEHOLDERS}} in templates",
+      "4. Run /prime-qa to initialize the agent with your brand configuration"
+    ],
+    "placeholders_used": [
+      "{{BRAND_NAME}} - Full brand name (e.g., GATO3)",
+      "{{brand_name}} - Lowercase brand name (e.g., gato3)",
+      "{{DOMAIN}} - Primary domain (e.g., gato3.com.br)",
+      "{{BASE_URL}} - Staging/production URL (e.g., gatoaocubo.lovable.app)",
+      "{{SHOPIFY_DOMAIN}} - Shopify store URL (e.g., gatoaocubo.myshopify.com)",
+      "{{PROJECT_FOLDER}} - Local project folder name",
+      "{{PRODUCT_CATEGORY}} - Type of products sold",
+      "{{AI_ASSISTANT_NAME}} - Name of AI assistant/chatbot",
+      "{{AI_CHAT_FUNCTION}} - Supabase function for chat",
+      "{{AI_RECOMMENDATIONS_FUNCTION}} - Supabase function for recommendations",
+      "{{AI_TTS_FUNCTION}} - Supabase function for text-to-speech",
+      "{{SUPABASE_FUNCTIONS_URL}} - Base URL for Supabase Edge Functions",
+      "{{TEST_PRODUCT_SLUG}} - Slug of product to use in checkout tests",
+      "{{CHAT_TEST_N_INPUT}} - Input message for chat test scenario N",
+      "{{CHAT_TEST_N_EXPECT}} - Expected keyword in response for test N"
+    ]
+  }
+}

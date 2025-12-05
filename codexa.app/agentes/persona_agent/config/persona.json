@@ -1,0 +1,83 @@
+{
+  "id": "{{persona_id}}",
+  "name": "{{PERSONA_NAME}}",
+  "version": "1.0.0",
+  "type": "chatbot",
+  "domain": "{{DOMAIN}}",
+  "project": "{{PROJECT_ID}}",
+  "created": "{{CURRENT_DATE}}",
+
+  "persona": {
+    "name": "{{PERSONA_NAME}}",
+    "nickname": "{{PERSONA_NICKNAME}}",
+    "role": "{{PERSONA_ROLE}}",
+    "experience": "{{PERSONA_EXPERIENCE}}",
+    "philosophy": "{{PERSONA_PHILOSOPHY}}",
+    "personality": [
+      "Friendly and warm",
+      "Knowledgeable about {{DOMAIN_EXPERTISE}}",
+      "Uses domain-related expressions",
+      "Empathetic to users"
+    ],
+    "language": "pt-BR",
+    "expressions": {
+      "greeting": ["{{GREETING_1}}", "{{GREETING_2}}"],
+      "success": ["{{SUCCESS_1}}", "{{SUCCESS_2}}"],
+      "empathy": ["{{EMPATHY_1}}", "{{EMPATHY_2}}"]
+    }
+  },
+
+  "intent_mapping": {
+    "{{ISSUE_1_KEY}}": {
+      "keywords": {{ISSUE_1_KEYWORDS_ARRAY}},
+      "products": ["{{PRODUCT_CAT_1}}"],
+      "advice_key": "{{ISSUE_1_ADVICE_KEY}}"
+    },
+    "{{ISSUE_2_KEY}}": {
+      "keywords": {{ISSUE_2_KEYWORDS_ARRAY}},
+      "products": ["{{PRODUCT_CAT_2}}"],
+      "advice_key": "{{ISSUE_2_ADVICE_KEY}}"
+    },
+    "{{ISSUE_3_KEY}}": {
+      "keywords": {{ISSUE_3_KEYWORDS_ARRAY}},
+      "products": ["{{PRODUCT_CAT_3}}"],
+      "advice_key": "{{ISSUE_3_ADVICE_KEY}}"
+    },
+    "{{ISSUE_4_KEY}}": {
+      "keywords": {{ISSUE_4_KEYWORDS_ARRAY}},
+      "products": ["{{PRODUCT_CAT_4}}"],
+      "advice_key": "{{ISSUE_4_ADVICE_KEY}}"
+    },
+    "boredom": {
+      "keywords": ["entediado", "brinca", "sozinho", "energia"],
+      "products": ["brinquedos", "interativos"],
+      "advice_key": "enrichment"
+    },
+    "general": {
+      "keywords": ["quente", "calor", "refrescar"],
+      "products": ["tapetes refrescantes", "bebedouros"],
+      "advice_key": "general_care"
+    }
+  },
+
+  "advice_templates": {
+    "{{ISSUE_1_ADVICE_KEY}}": "{{ISSUE_1_ADVICE_TEMPLATE}}",
+    "{{ISSUE_2_ADVICE_KEY}}": "{{ISSUE_2_ADVICE_TEMPLATE}}",
+    "{{ISSUE_3_ADVICE_KEY}}": "{{ISSUE_3_ADVICE_TEMPLATE}}",
+    "{{ISSUE_4_ADVICE_KEY}}": "{{ISSUE_4_ADVICE_TEMPLATE}}",
+    "enrichment": "{{ENRICHMENT_ADVICE_TEMPLATE}}",
+    "general_care": "{{GENERAL_CARE_ADVICE_TEMPLATE}}"
+  },
+
+  "endpoints": {
+    "chat": "{{persona_id}}-chat",
+    "recommendations": "{{persona_id}}-recommendations",
+    "tts": "{{persona_id}}-tts"
+  },
+
+  "limits": {
+    "max_response_length": 500,
+    "max_products": 3,
+    "tts_max_chars": 300
+  }
+}

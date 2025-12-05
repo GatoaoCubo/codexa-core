@@ -1,0 +1,114 @@
+{
+  "id": "qa_agent",
+  "name": "QA Agent",
+  "version": "1.0.0",
+  "type": "qa",
+  "domain": "e-commerce",
+  "project": "{{PROJECT_FOLDER}}",
+  "created": "2025-12-05",
+  "author": "CODEXA System",
+
+  "environment": {
+    "production_url": "https://{{BASE_URL}}",
+    "staging_url": "https://staging.{{BASE_URL}}",
+    "local_url": "http://localhost:5173",
+    "supabase_functions_url": "{{SUPABASE_FUNCTIONS_URL}}"
+  },
+
+  "routes": [
+    { "path": "/", "name": "B2C Landing", "priority": "critical" },
+    { "path": "/b2b", "name": "B2B Partners", "priority": "high" },
+    { "path": "/catalogo", "name": "Catalog", "priority": "critical" },
+    { "path": "/produto/:slug", "name": "Product Detail", "priority": "critical" },
+    { "path": "/login", "name": "Login", "priority": "medium" },
+    { "path": "/admin", "name": "Admin Dashboard", "priority": "medium" },
+    { "path": "/privacidade", "name": "Privacy Policy", "priority": "low" },
+    { "path": "/termos", "name": "Terms of Service", "priority": "low" }
+  ],
+
+  "edge_functions": [
+    { "name": "create-shopify-checkout", "type": "public", "critical": true },
+    { "name": "{{AI_CHAT_FUNCTION}}", "type": "public", "critical": true },
+    { "name": "{{AI_RECOMMENDATIONS_FUNCTION}}", "type": "public", "critical": false },
+    { "name": "{{AI_TTS_FUNCTION}}", "type": "public", "critical": false },
+    { "name": "fetch-from-shopify", "type": "admin", "critical": false },
+    { "name": "migrate-product", "type": "admin", "critical": false },
+    { "name": "sync-shopify-product", "type": "admin", "critical": false },
+    { "name": "shopify-webhook-handler", "type": "webhook", "critical": false }
+  ],
+
+  "checks": {
+    "pages": {
+      "enabled": true,
+      "timeout": 30000,
+      "retries": 3
+    },
+    "images": {
+      "enabled": true,
+      "require_alt": true,
+      "require_dimensions": true
+    },
+    "seo": {
+      "enabled": true,
+      "title_max_length": 60,
+      "description_min_length": 50,
+      "description_max_length": 160,
+      "require_og_image": true,
+      "require_canonical": true
+    },
+    "checkout": {
+      "enabled": true,
+      "test_product_slug": "{{TEST_PRODUCT_SLUG}}",
+      "expected_redirect": "{{SHOPIFY_DOMAIN}}"
+    },
+    "chat": {
+      "enabled": true,
+      "scenarios": [
+        { "input": "{{CHAT_TEST_1_INPUT}}", "expect_keyword": "{{CHAT_TEST_1_EXPECT}}" },
+        { "input": "{{CHAT_TEST_2_INPUT}}", "expect_keyword": "{{CHAT_TEST_2_EXPECT}}" },
+        { "input": "{{CHAT_TEST_3_INPUT}}", "expect_keyword": "{{CHAT_TEST_3_EXPECT}}" },
+        { "input": "{{CHAT_TEST_4_INPUT}}", "expect_keyword": "{{CHAT_TEST_4_EXPECT}}" }
+      ]
+    },
+    "forms": {
+      "enabled": true,
+      "test_data": {
+        "name": "Teste QA",
+        "email": "qa@test.{{DOMAIN}}",
+        "phone": "11999999999",
+        "company": "QA Test LTDA",
+        "message": "Teste automatizado - ignorar"
+      }
+    },
+    "accessibility": {
+      "enabled": true,
+      "wcag_level": "AA",
+      "contrast_ratio": 4.5
+    },
+    "performance": {
+      "enabled": true,
+      "lcp_threshold": 2500,
+      "cls_threshold": 0.1,
+      "fid_threshold": 100
+    }
+  },
+
+  "tools": {
+    "browser_mcp": true,
+    "bash": true,
+    "read_grep": true,
+    "web_fetch": true
+  },
+
+  "reports": {
+    "format": ["md", "json"],
+    "output_dir": "reports",
+    "include_screenshots": true,
+    "include_recommendations": true
+  },
+
+  "thresholds": {
+    "pass_rate": 0.95,
+    "critical_must_pass": true
+  }
+}

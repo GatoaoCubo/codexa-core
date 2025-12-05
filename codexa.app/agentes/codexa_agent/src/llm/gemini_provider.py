@@ -89,8 +89,15 @@ class GeminiProvider(LLMProvider):
 
         for msg in messages:
             # Gemini uses "model" instead of "assistant"
-            role = "model" if msg.role == "assistant" else msg.role
-            conversation.append({"role": role, "parts": [msg.content]})
+            # Handle both dict and object message formats
+            if isinstance(msg, dict):
+                msg_role = msg.get("role", "user")
+                msg_content = msg.get("content", "")
+            else:
+                msg_role = msg.role
+                msg_content = msg.content
+            role = "model" if msg_role == "assistant" else msg_role
+            conversation.append({"role": role, "parts": [msg_content]})
 
         # Prepare generation config
         generation_config = {
@@ -169,6 +176,10 @@ class GeminiProvider(LLMProvider):
 
             except Exception as e:
                 error_str = str(e).lower()
+
+                # Handle model not found (404 errors) - check FIRST before rate limit
+                if "not found" in error_str or "404" in error_str:
+                    raise LLMError(f"Model not found or unavailable: {e}")
 
                 # Handle rate limiting
                 if "rate" in error_str or "quota" in error_str:

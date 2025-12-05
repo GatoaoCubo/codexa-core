@@ -432,25 +432,27 @@
       ],
       "specialty": "Voice interface, accessibility, hands-free control, audio I/O"
     },
-    "qa_gato3_agent": {
-      "name": "QA Agent (GATO3 Quality Assurance)",
-      "description": "Quality assurance specialist for GATO3 e-commerce - validates UI, user flows, SEO, accessibility",
-      "version": "1.0.0",
-      "prime_command": "/prime-qa-gato3",
+    "qa_agent": {
+      "name": "QA Agent (Generic Quality Assurance)",
+      "description": "Quality assurance specialist for e-commerce - validates UI, user flows, SEO, accessibility. Uses {{PLACEHOLDERS}} for brand customization.",
+      "version": "2.0.0",
+      "prime_command": "/prime-qa",
       "entry_command": "/qa-run-all",
-      "location": "codexa.app/agentes/qa_gato3_agent",
-      "iso_vectorstore_files": 11,
+      "location": "codexa.app/agentes/qa_agent",
+      "iso_vectorstore_files": 15,
       "prompts_count": 4,
       "hop_enabled": true,
       "dependencies": [],
       "status": "active",
       "created": "2025-11-28",
-      "updated": "2025-11-28",
+      "updated": "2025-12-05",
+      "distilled_from": "qa_gato3_agent",
       "components": {
-        "prime": "codexa.app/agentes/qa_gato3_agent/PRIME.md",
-        "iso_vectorstore": "codexa.app/agentes/qa_gato3_agent/iso_vectorstore/",
-        "prompts": "codexa.app/agentes/qa_gato3_agent/prompts/",
-        "workflows": "codexa.app/agentes/qa_gato3_agent/workflows/"
+        "prime": "codexa.app/agentes/qa_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/qa_agent/iso_vectorstore/",
+        "prompts": "codexa.app/agentes/qa_agent/prompts/",
+        "workflows": "codexa.app/agentes/qa_agent/workflows/",
+        "brand_config": "codexa.app/agentes/qa_agent/config/brand_example.json"
       },
       "hop_prompts": [
         "qa_pages_HOP.md",
@@ -458,46 +460,59 @@
         "qa_seo_HOP.md",
         "qa_a11y_HOP.md"
       ],
+      "placeholders": [
+        "{{BRAND_NAME}}", "{{BASE_URL}}", "{{DOMAIN}}", "{{SHOPIFY_DOMAIN}}",
+        "{{PRODUCT_CATEGORY}}", "{{AI_ASSISTANT_NAME}}", "{{AI_CHAT_FUNCTION}}"
+      ],
       "capabilities": [
         "Page load validation",
         "Checkout flow testing",
         "SEO validation",
         "WCAG accessibility audit",
         "Broken link detection",
-        "Markdown + JSON reports"
+        "Markdown + JSON reports",
+        "Multi-brand support via {{PLACEHOLDERS}}"
       ],
-      "specialty": "E-commerce QA, accessibility audit, SEO testing"
+      "specialty": "E-commerce QA, accessibility audit, SEO testing, multi-brand"
     },
-    "ronronalda_agent": {
-      "name": "Ronronalda (GATO3 Brand Persona)",
-      "description": "The voice of GATO3 brand - feline mentoring persona for customer interaction",
-      "version": "0.1.0",
-      "prime_command": "/prime-ronronalda",
-      "entry_command": "/ro-status",
-      "location": "codexa.app/agentes/ronronalda_agent",
-      "iso_vectorstore_files": 8,
+    "persona_agent": {
+      "name": "Persona Agent (Generic Brand Chatbot)",
+      "description": "Generic brand persona chatbot for customer interaction. Uses {{PLACEHOLDERS}} for persona customization.",
+      "version": "2.0.0",
+      "prime_command": "/prime-persona",
+      "entry_command": "/persona-status",
+      "location": "codexa.app/agentes/persona_agent",
+      "iso_vectorstore_files": 10,
       "prompts_count": 1,
       "hop_enabled": true,
       "dependencies": ["pesquisa_agent", "marca_agent", "anuncio_agent"],
       "status": "active",
       "created": "2025-11-25",
-      "updated": "2025-11-28",
+      "updated": "2025-12-05",
+      "distilled_from": "ronronalda_agent",
       "architecture": "persona_driven",
       "components": {
-        "prime": "codexa.app/agentes/ronronalda_agent/PRIME.md",
-        "iso_vectorstore": "codexa.app/agentes/ronronalda_agent/iso_vectorstore/",
-        "prompts": "codexa.app/agentes/ronronalda_agent/prompts/",
-        "workflows": "codexa.app/agentes/ronronalda_agent/workflows/",
-        "knowledge": "codexa.app/agentes/ronronalda_agent/knowledge/"
+        "prime": "codexa.app/agentes/persona_agent/PRIME.md",
+        "iso_vectorstore": "codexa.app/agentes/persona_agent/iso_vectorstore/",
+        "prompts": "codexa.app/agentes/persona_agent/prompts/",
+        "workflows": "codexa.app/agentes/persona_agent/workflows/",
+        "knowledge": "codexa.app/agentes/persona_agent/knowledge/",
+        "brand_config": "codexa.app/agentes/persona_agent/config/brand_example_gato3.json"
       },
+      "placeholders": [
+        "{{PERSONA_NAME}}", "{{PERSONA_ROLE}}", "{{PERSONA_PHILOSOPHY}}",
+        "{{BRAND_NAME}}", "{{DOMAIN_EXPERTISE}}", "{{DOMAIN_TOPIC}}",
+        "{{ISSUE_1}}", "{{ISSUE_2}}", "{{PRODUCT_CAT_1}}", "{{PRODUCT_CAT_2}}"
+      ],
       "capabilities": [
-        "Cat behavior consultation",
+        "Domain-specific consultation",
         "Product recommendations",
         "Multi-channel persona (chat, WhatsApp, social)",
-        "AI-powered responses (Gemini 2.5 Flash)",
-        "Text-to-speech narration"
+        "AI-powered responses (configurable model)",
+        "Text-to-speech narration",
+        "Multi-brand support via {{PLACEHOLDERS}}"
       ],
-      "specialty": "Brand persona, customer service, cat behavior consulting"
+      "specialty": "Brand persona, customer service, domain consulting, multi-brand"
     }
   },
   "navigation_system": {
@@ -518,8 +533,8 @@
         ".claude/commands/prime_curso.md",
         ".claude/commands/prime_scout.md",
         ".claude/commands/prime-voice.md",
-        ".claude/commands/prime-qa-gato3.md",
-        ".claude/commands/prime-ronronalda.md"
+        ".claude/commands/prime-qa.md",
+        ".claude/commands/prime-persona.md"
       ],
       "build_commands": [
         ".claude/commands/codexa_when_to_use.md",

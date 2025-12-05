@@ -1,0 +1,60 @@
+{
+  "id": "qa_agent",
+  "name": "QA Agent",
+  "version": "1.0.0",
+  "type": "qa",
+  "domain": "e-commerce",
+  "project": "{{PROJECT_FOLDER}}",
+  "created": "2025-12-05",
+  "author": "CODEXA System",
+
+  "environment": {
+    "production_url": "https://{{BASE_URL}}",
+    "staging_url": "https://staging.{{BASE_URL}}",
+    "local_url": "http://localhost:5173",
+    "supabase_functions_url": "{{SUPABASE_FUNCTIONS_URL}}"
+  },
+
+  "routes": [
+    { "path": "/", "name": "B2C Landing", "priority": "critical" },
+    { "path": "/b2b", "name": "B2B Partners", "priority": "high" },
+    { "path": "/catalogo", "name": "Catalog", "priority": "critical" },
+    { "path": "/produto/:slug", "name": "Product Detail", "priority": "critical" },
+    { "path": "/login", "name": "Login", "priority": "medium" },
+    { "path": "/admin", "name": "Admin Dashboard", "priority": "medium" },
+    { "path": "/privacidade", "name": "Privacy Policy", "priority": "low" },
+    { "path": "/termos", "name": "Terms of Service", "priority": "low" }
+  ],
+
+  "checks": {
+    "pages": {
+      "enabled": true,
+      "timeout": 30000,
+      "retries": 3
+    },
+    "seo": {
+      "enabled": true,
+      "title_max_length": 60,
+      "description_min_length": 50,
+      "description_max_length": 160,
+      "require_og_image": true,
+      "require_canonical": true
+    },
+    "accessibility": {
+      "enabled": true,
+      "wcag_level": "AA",
+      "contrast_ratio": 4.5
+    },
+    "performance": {
+      "enabled": true,
+      "lcp_threshold": 2500,
+      "cls_threshold": 0.1,
+      "fid_threshold": 100
+    }
+  },
+
+  "thresholds": {
+    "pass_rate": 0.95,
+    "critical_must_pass": true
+  }
+}

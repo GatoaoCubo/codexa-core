@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "persona_agent Input Schema",
+  "type": "object",
+  "properties": {
+    "task": {
+      "type": "string",
+      "description": "Task description"
+    },
+    "context": {
+      "type": "object",
+      "description": "Additional context"
+    },
+    "brand_config": {
+      "type": "object",
+      "description": "Brand-specific configuration from brand_example_*.json",
+      "properties": {
+        "brand": {
+          "type": "object",
+          "properties": {
+            "BRAND_NAME": { "type": "string" },
+            "BASE_URL": { "type": "string" },
+            "DOMAIN": { "type": "string" }
+          }
+        },
+        "persona": {
+          "type": "object",
+          "properties": {
+            "PERSONA_NAME": { "type": "string" },
+            "PERSONA_NICKNAME": { "type": "string" },
+            "PERSONA_ROLE": { "type": "string" },
+            "PERSONA_PHILOSOPHY": { "type": "string" }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "task"
+  ]
+}
