@@ -1,0 +1,141 @@
+{
+  "product": "{{PRODUCT_NAME}}",
+  "generated_at": "{{GENERATED_DATE}}",
+  "agent": "photo_agent",
+  "hard_rule_applied": true,
+  "reference_image": "{{REFERENCE_IMAGE_PATH}}",
+  "product_description": {
+    "main_object": "{{PRODUCT_MAIN_OBJECT}}",
+    "material": "{{PRODUCT_MATERIAL}}",
+    "color": "{{PRODUCT_COLOR}}",
+    "finish": "{{PRODUCT_FINISH}}",
+    "distinctive_feature": "{{PRODUCT_DISTINCTIVE_FEATURE}}",
+    "size": "{{PRODUCT_SIZE}}"
+  },
+  "prompts": [
+    {
+      "prompt_id": "photo_01_hero",
+      "scene_name": "Hero Shot - Packshot Principal",
+      "prompt_text": "Professional e-commerce product photography of {{PRODUCT_MAIN_OBJECT}} {{PRODUCT_SIZE}} with {{PRODUCT_DISTINCTIVE_FEATURE}}, {{PRODUCT_COLOR}} {{PRODUCT_FINISH}} finish{{PRODUCT_TEXTURE_DETAIL}}. Front 3/4 view angle showing distinctive features and overall form. Pure white background #FFFFFF, centered composition with product occupying 85% of frame. Soft box key light front-left 45 degrees, fill light front-right 30%, rim light back 20% for {{MATERIAL_TYPE}} highlight definition. Ultra-sharp 8K resolution, commercial product photography, hyper-realistic {{MATERIAL_TYPE}} reflections, no text, no logos, no watermarks. Marketplace compliant.",
+      "reference_images": ["{{REFERENCE_IMAGE_PATH}}"],
+      "style_modifiers": ["commercial", "e-commerce", "professional", "packshot", "hero"],
+      "technical_specs": {
+        "aspect_ratio": "1:1",
+        "background": "#FFFFFF pure white",
+        "lighting": "3-point studio softbox"
+      },
+      "marketplace_use": ["main_image", "mercado_livre", "shopee", "amazon"]
+    },
+    {
+      "prompt_id": "photo_02_detail_{{DETAIL_FEATURE_SLUG}}",
+      "scene_name": "Detail Shot - {{DETAIL_FEATURE_NAME}} Close-Up",
+      "prompt_text": "Professional macro product photography extreme close-up of {{DETAIL_FEATURE_DESCRIPTION}} on {{PRODUCT_MAIN_OBJECT}}, {{PRODUCT_COLOR}} {{PRODUCT_FINISH}} finish showing precise detail and texture. Top-down 45 degree angle focusing on {{DETAIL_FEATURE_NAME}} revealing depth and dimension. Soft neutral gray background with subtle gradient blur. Rim lighting from behind to highlight 3D contours and {{MATERIAL_TYPE}} reflections, soft diffused key light front for detail visibility. Ultra-sharp 8K macro photography revealing craftsmanship quality, tactile desire aesthetic. Focus on unique design differentiator, premium quality.",
+      "reference_images": ["{{REFERENCE_IMAGE_PATH}}"],
+      "style_modifiers": ["macro", "detail", "close-up", "product-feature"],
+      "technical_specs": {
+        "aspect_ratio": "1:1",
+        "background": "soft neutral gray gradient",
+        "lighting": "rim light + soft diffused front"
+      },
+      "marketplace_use": ["carousel_image", "feature_highlight", "all_platforms"]
+    },
+    {
+      "prompt_id": "photo_03_lifestyle_{{LIFESTYLE_1_SLUG}}",
+      "scene_name": "Lifestyle - {{LIFESTYLE_1_NAME}} Setting",
+      "prompt_text": "Professional lifestyle product photography of {{PRODUCT_MAIN_OBJECT}} {{PRODUCT_SIZE}} with {{PRODUCT_DISTINCTIVE_FEATURE}}, {{PRODUCT_COLOR}} {{PRODUCT_FINISH}} finish, placed {{LIFESTYLE_1_PLACEMENT}}. {{LIFESTYLE_1_ENVIRONMENT}} environment with blurred {{LIFESTYLE_1_BACKGROUND}} in background creating depth. Natural {{LIFESTYLE_1_LIGHTING}} with {{LIFESTYLE_1_SHADOWS}}, {{LIFESTYLE_1_TONES}} tones. Environmental composition with product prominent in foreground, rule of thirds placement. {{LIFESTYLE_1_MOOD}}, {{LIFESTYLE_1_AUDIENCE}} aesthetic, {{LIFESTYLE_1_ENERGY}} mood. 8K quality lifestyle editorial photography.",
+      "reference_images": ["{{REFERENCE_IMAGE_PATH}}"],
+      "style_modifiers": ["lifestyle", "{{LIFESTYLE_1_STYLE}}", "aspirational", "editorial"],
+      "technical_specs": {
+        "aspect_ratio": "4:5",
+        "background": "{{LIFESTYLE_1_NAME}} environment bokeh",
+        "lighting": "{{LIFESTYLE_1_LIGHTING_TYPE}}"
+      },
+      "marketplace_use": ["carousel_image", "lifestyle_shot", "instagram", "shopee"]
+    },
+    {
+      "prompt_id": "photo_04_lifestyle_{{LIFESTYLE_2_SLUG}}",
+      "scene_name": "Lifestyle - {{LIFESTYLE_2_NAME}} Workspace",
+      "prompt_text": "Professional lifestyle product photography of {{PRODUCT_MAIN_OBJECT}} {{PRODUCT_SIZE}} with {{PRODUCT_DISTINCTIVE_FEATURE}}, {{PRODUCT_COLOR}} {{PRODUCT_FINISH}} finish, positioned {{LIFESTYLE_2_PLACEMENT}}. {{LIFESTYLE_2_ENVIRONMENT}} workspace with {{LIFESTYLE_2_PROPS}} visible. Natural window light from left side creating soft shadows, warm daylight tones. Composition showing product {{LIFESTYLE_2_CONTEXT}}, sophisticated {{LIFESTYLE_2_AESTHETIC}} aesthetic. {{LIFESTYLE_2_TARGET}} context, elegant minimalist style. 8K commercial lifestyle photography.",
+      "reference_images": ["{{REFERENCE_IMAGE_PATH}}"],
+      "style_modifiers": ["lifestyle", "{{LIFESTYLE_2_STYLE}}", "minimalist", "sophisticated"],
+      "technical_specs": {
+        "aspect_ratio": "4:5",
+        "background": "minimalist {{LIFESTYLE_2_NAME}} setup",
+        "lighting": "natural window light soft shadows"
+      },
+      "marketplace_use": ["carousel_image", "lifestyle_shot", "instagram", "pinterest"]
+    },
+    {
+      "prompt_id": "photo_05_lifestyle_{{LIFESTYLE_3_SLUG}}",
+      "scene_name": "Lifestyle - {{LIFESTYLE_3_NAME}} Cozy Aesthetic",
+      "prompt_text": "Professional lifestyle product photography of {{PRODUCT_MAIN_OBJECT}} {{PRODUCT_SIZE}} with {{PRODUCT_DISTINCTIVE_FEATURE}}, {{PRODUCT_COLOR}} {{PRODUCT_FINISH}} finish, arranged in cozy {{LIFESTYLE_3_CONTEXT}} composition. Overhead 45 degree angle showing product with {{LIFESTYLE_3_PROPS}} on {{LIFESTYLE_3_SURFACE}} surface. Warm ambient lighting creating inviting {{LIFESTYLE_3_ATMOSPHERE}} atmosphere. {{LIFESTYLE_3_COMPOSITION}} composition with harmonious prop arrangement. {{LIFESTYLE_3_TARGET}} context, cozy {{LIFESTYLE_3_AESTHETIC}} aesthetic, comfort belonging mood. 8K lifestyle photography, Instagram aesthetic curated props.",
+      "reference_images": ["{{REFERENCE_IMAGE_PATH}}"],
+      "style_modifiers": ["lifestyle", "{{LIFESTYLE_3_STYLE}}", "cozy", "flat-lay", "instagram-aesthetic"],
+      "technical_specs": {
+        "aspect_ratio": "1:1",
+        "background": "{{LIFESTYLE_3_SURFACE}} surface with {{LIFESTYLE_3_STYLE}} props",
+        "lighting": "warm ambient {{AMBIENT_TEMP}}K"
+      },
+      "marketplace_use": ["carousel_image", "lifestyle_shot", "instagram", "pinterest", "shopee"]
+    },
+    {
+      "prompt_id": "photo_06_in_use_{{IN_USE_SLUG}}",
+      "scene_name": "In-Use Shot - {{IN_USE_NAME}}",
+      "prompt_text": "Professional lifestyle product photography of {{IN_USE_HAND_TYPE}} hand {{IN_USE_ACTION}} {{PRODUCT_MAIN_OBJECT}} {{PRODUCT_SIZE}} with {{PRODUCT_DISTINCTIVE_FEATURE}}, {{PRODUCT_COLOR}} {{PRODUCT_FINISH}} finish, positioned for {{IN_USE_PURPOSE}}. Side profile view showing elegant hand grip on product body, {{PRODUCT_DISTINCTIVE_FEATURE}} visible at top{{IN_USE_ACCESSORY_DETAIL}}. Soft outdoor natural lighting or bright studio setting, neutral blurred background. Dynamic action composition showing product scale and ergonomic design. {{IN_USE_TARGET_AUDIENCE}} target audience, authentic usage demonstration. {{IN_USE_BENEFIT_STATEMENT}}. 8K commercial photography.",
+      "reference_images": ["{{REFERENCE_IMAGE_PATH}}"],
+      "style_modifiers": ["in-use", "action", "dynamic", "hands", "authentic"],
+      "technical_specs": {
+        "aspect_ratio": "4:5",
+        "background": "soft neutral blur",
+        "lighting": "natural or bright studio"
+      },
+      "marketplace_use": ["carousel_image", "usage_demonstration", "shopee", "tiktok"]
+    },
+    {
+      "prompt_id": "photo_07_group_{{GROUP_SLUG}}",
+      "scene_name": "Group Shot - {{GROUP_NAME}} Display",
+      "prompt_text": "Professional product photography group shot of {{GROUP_QUANTITY}} {{PRODUCT_MAIN_OBJECT}}s {{PRODUCT_SIZE}} with {{PRODUCT_DISTINCTIVE_FEATURE}} arranged aesthetically. Center product {{PRODUCT_COLOR}} {{PRODUCT_FINISH}} original, flanked by {{GROUP_VARIANT_1}} variant and {{GROUP_VARIANT_2}} variant. Front view with slight stagger depth arrangement creating visual interest. Pure white background #FFFFFF. Even studio lighting from multiple softboxes ensuring consistent exposure across all products, no harsh shadows. Centered symmetrical composition with {{GROUP_QUANTITY}}-product arrangement. Product line showcase, color options display, catalog commercial style. 8K resolution, marketplace compliant.",
+      "reference_images": ["{{REFERENCE_IMAGE_PATH}}"],
+      "style_modifiers": ["group-shot", "catalog", "color-variants", "commercial"],
+      "technical_specs": {
+        "aspect_ratio": "16:9",
+        "background": "#FFFFFF pure white",
+        "lighting": "even multi-softbox studio"
+      },
+      "marketplace_use": ["carousel_image", "variant_display", "all_platforms"]
+    },
+    {
+      "prompt_id": "photo_08_flatlay_{{FLATLAY_SLUG}}",
+      "scene_name": "Flat Lay - {{FLATLAY_NAME}} Kit",
+      "prompt_text": "Professional flat lay product photography top-down 90 degree overhead view of {{PRODUCT_MAIN_OBJECT}} {{PRODUCT_SIZE}} with {{PRODUCT_DISTINCTIVE_FEATURE}}, {{PRODUCT_COLOR}} {{PRODUCT_FINISH}} finish, arranged with {{FLATLAY_CONTEXT}} essentials. Composition includes product, {{FLATLAY_PROPS}} on clean {{FLATLAY_SURFACE}} surface. Soft overhead diffused lighting avoiding harsh shadows. Symmetrical balanced arrangement with negative space, Instagram aesthetic curated props style. {{FLATLAY_CONCEPT}} concept. 8K quality, social media ready.",
+      "reference_images": ["{{REFERENCE_IMAGE_PATH}}"],
+      "style_modifiers": ["flat-lay", "overhead", "essentials", "instagram-aesthetic", "curated"],
+      "technical_specs": {
+        "aspect_ratio": "1:1",
+        "background": "{{FLATLAY_SURFACE}} surface",
+        "lighting": "soft overhead diffused"
+      },
+      "marketplace_use": ["carousel_image", "lifestyle_shot", "instagram", "pinterest"]
+    },
+    {
+      "prompt_id": "photo_09_emotional_{{EMOTIONAL_SLUG}}",
+      "scene_name": "Emotional - {{EMOTIONAL_NAME}} Brand Connection",
+      "prompt_text": "Professional lifestyle product photography of {{PRODUCT_MAIN_OBJECT}} {{PRODUCT_SIZE}} with {{PRODUCT_DISTINCTIVE_FEATURE}}, {{PRODUCT_COLOR}} {{PRODUCT_FINISH}} finish, positioned on clean white surface with {{EMOTIONAL_THEMED_ELEMENTS}}. Pure white background #FFFFFF maintaining marketplace compliance while adding emotional {{EMOTIONAL_CONNECTION}} connection. Warm cozy lighting creating inviting atmosphere. Creative composition emphasizing {{PRODUCT_DISTINCTIVE_FEATURE}} design echoing {{EMOTIONAL_ECHO_ELEMENT}}. Emotive shareable content for {{EMOTIONAL_COMMUNITY}} community. Brand identity reinforcement showing product designed for {{EMOTIONAL_TARGET_ENTHUSIASTS}}. {{EMOTIONAL_AESTHETIC}} aesthetic meets premium quality. 8K commercial photography, marketplace compliant.",
+      "reference_images": ["{{REFERENCE_IMAGE_PATH}}"],
+      "style_modifiers": ["emotional", "{{EMOTIONAL_THEME}}-lover", "brand-connection", "shareable", "cozy"],
+      "technical_specs": {
+        "aspect_ratio": "1:1",
+        "background": "#FFFFFF pure white",
+        "lighting": "warm cozy {{WARM_TEMP}}K"
+      },
+      "marketplace_use": ["main_image_alternate", "social_media", "brand_storytelling"]
+    }
+  ],
+  "validation": {
+    "total_prompts": 9,
+    "hard_rule_compliance": "100% - all prompts include reference_images",
+    "language": "English (for Imagen model)",
+    "marketplace_compliant": true,
+    "scenes_with_white_bg": ["photo_01_hero", "photo_07_group_{{GROUP_SLUG}}", "photo_09_emotional_{{EMOTIONAL_SLUG}}"]
+  }
+}

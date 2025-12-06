@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PRODUCT_NAME}} - Preview Completo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #0d9488, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle { color: #94a3b8; font-size: 1.1rem; }
+        .pipeline-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #059669, #10b981);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .stat {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-value { font-size: 1.8rem; font-weight: bold; color: #14b8a6; }
+        .stat-label { font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; }
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #94a3b8;
+        }
+        .tab:hover, .tab.active {
+            background: rgba(20,184,166,0.2);
+            border-color: #14b8a6;
+            color: #14b8a6;
+        }
+        .section { display: none; animation: fadeIn 0.3s ease; }
+        .section.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        .photo-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .photo-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .photo-info { padding: 1rem; }
+        .photo-id {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #14b8a6;
+            background: rgba(20,184,166,0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+        .photo-title { color: white; font-size: 1rem; margin-top: 0.5rem; }
+        .photo-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .badge {
+            background: #059669;
+            color: white;
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+        }
+        .anuncio-section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .section-title {
+            color: #14b8a6;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #14b8a6;
+            border-radius: 2px;
+        }
+        .title-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            border-left: 3px solid #14b8a6;
+        }
+        .title-marketplace {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .title-text { font-size: 1.1rem; color: white; margin-top: 0.25rem; }
+        .title-chars { font-size: 0.75rem; color: #94a3b8; margin-top: 0.25rem; }
+        .keywords-container { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .keyword {
+            background: rgba(20,184,166,0.1);
+            color: #5eead4;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(20,184,166,0.2);
+        }
+        .keyword-category {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin: 1rem 0 0.5rem;
+            font-weight: 600;
+        }
+        .bullet-group { margin-bottom: 1.5rem; }
+        .bullet-marketplace { color: #f59e0b; font-weight: 600; margin-bottom: 0.75rem; }
+        .bullet-item {
+            background: rgba(255,255,255,0.03);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            border-left: 2px solid #3b82f6;
+        }
+        .description-block {
+            background: rgba(255,255,255,0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .description-block h4 { color: #14b8a6; margin-bottom: 1rem; }
+        .description-block p { color: #cbd5e1; margin-bottom: 0.75rem; }
+        .description-block ul { margin-left: 1.5rem; color: #cbd5e1; }
+        .description-block li { margin-bottom: 0.5rem; }
+        .highlight { color: #14b8a6; font-weight: 600; }
+        .specs-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .specs-table th, .specs-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .specs-table th { color: #94a3b8; font-weight: 500; width: 40%; }
+        .specs-table td { color: white; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .comparison-table th {
+            background: rgba(20,184,166,0.2);
+            padding: 1rem;
+            text-align: left;
+            color: #14b8a6;
+        }
+        .comparison-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .comparison-table tr:hover { background: rgba(255,255,255,0.03); }
+        .price-highlight { color: #10b981; font-weight: bold; font-size: 1.1rem; }
+        .faq-item {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 1rem;
+            color: #14b8a6;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .faq-answer { padding: 0 1rem 1rem; color: #94a3b8; }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.active { display: flex; }
+        .modal img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #64748b;
+        }
+        footer a { color: #14b8a6; text-decoration: none; }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #0d9488, #14b8a6);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(20,184,166,0.3);
+        }
+        .reference-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .reference-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #14b8a6;
+        }
+        .reference-info h3 { color: white; font-size: 1rem; }
+        .reference-info p { color: #64748b; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{PRODUCT_NAME}}</h1>
+            <p class="subtitle">Pipeline 200_ADW_PRODUTO_COMPLETO - Preview Completo</p>
+            <span class="pipeline-badge">{{PHASES_COMPLETED}}/6 Phases Complete - {{COMPLIANCE_SCORE}}% Compliance</span>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">{{IMAGES_COUNT}}/9</div>
+                    <div class="stat-label">Images</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">{{TITLES_COUNT}}</div>
+                    <div class="stat-label">Titles</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">{{KEYWORDS_TOTAL}}</div>
+                    <div class="stat-label">Keywords</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">{{BULLETS_COUNT}}</div>
+                    <div class="stat-label">Bullets</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">R$ {{PRODUCT_PRICE}}</div>
+                    <div class="stat-label">Price</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="reference-section">
+            <img src="{{REFERENCE_IMAGE_PATH}}" alt="Reference" class="reference-img">
+            <div class="reference-info">
+                <h3>Produto Original</h3>
+                <p>{{MLB_ID}} | {{SELLER_NAME}} | {{SELLER_RATING}}</p>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <div class="tab active" onclick="showSection('fotos')">Fotos ({{IMAGES_COUNT}})</div>
+            <div class="tab" onclick="showSection('titulos')">Titulos SEO</div>
+            <div class="tab" onclick="showSection('keywords')">Keywords ({{KEYWORDS_TOTAL}})</div>
+            <div class="tab" onclick="showSection('bullets')">Bullets ({{BULLETS_COUNT}})</div>
+            <div class="tab" onclick="showSection('descricao')">Descricao</div>
+            <div class="tab" onclick="showSection('specs')">Specs</div>
+            <div class="tab" onclick="showSection('faq')">FAQ</div>
+        </div>
+
+        <!-- FOTOS Section -->
+        <div id="fotos" class="section active">
+            <div class="gallery">
+                {{IMAGES_GALLERY}}
+            </div>
+        </div>
+
+        <!-- TITULOS Section -->
+        <div id="titulos" class="section">
+            <div class="anuncio-section">
+                <h3 class="section-title">Titulos SEO Otimizados</h3>
+                {{TITLES_HTML}}
+            </div>
+        </div>
+
+        <!-- KEYWORDS Section -->
+        <div id="keywords" class="section">
+            <div class="anuncio-section">
+                <h3 class="section-title">{{KEYWORDS_TOTAL}} Keywords Mapeadas</h3>
+                {{KEYWORDS_HTML}}
+            </div>
+        </div>
+
+        <!-- BULLETS Section -->
+        <div id="bullets" class="section">
+            <div class="anuncio-section">
+                <h3 class="section-title">Bullet Points por Marketplace</h3>
+                {{BULLETS_HTML}}
+            </div>
+        </div>
+
+        <!-- DESCRICAO Section -->
+        <div id="descricao" class="section">
+            <div class="anuncio-section">
+                <h3 class="section-title">Descricao Completa (StoryBrand)</h3>
+                {{DESCRIPTION_HTML}}
+            </div>
+        </div>
+
+        <!-- SPECS Section -->
+        <div id="specs" class="section">
+            <div class="anuncio-section">
+                <h3 class="section-title">Especificacoes Tecnicas</h3>
+                {{SPECS_HTML}}
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div id="faq" class="section">
+            <div class="anuncio-section">
+                <h3 class="section-title">Perguntas Frequentes</h3>
+                {{FAQ_HTML}}
+            </div>
+        </div>
+
+        <footer>
+            <p>Generated by <a href="#">CODEXA Pipeline 200_ADW_PRODUTO_COMPLETO</a></p>
+            <p style="margin-top: 0.5rem;">Model: {{IMAGE_MODEL}} | Agent: anuncio_agent v3.2.0</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">{{GENERATED_DATE}} | Compliance: {{COMPLIANCE_SCORE}}%</p>
+        </footer>
+    </div>
+
+    <div class="modal" id="imageModal">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <img src="" alt="Full size" id="modalImage">
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+        function openModal(img) {
+            document.getElementById('modalImage').src = img.src;
+            document.getElementById('imageModal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active');
+        }
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>

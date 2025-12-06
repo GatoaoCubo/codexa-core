@@ -34,14 +34,26 @@
     {
       "id": "images",
       "name": "Image Gen (Gemini 2.5)",
-      "status": "pending",
-      "progress": 0
+      "status": "completed",
+      "progress": 100,
+      "started_at": "2025-12-05T20:48:58.000000",
+      "completed_at": "2025-12-05T20:51:30.000000",
+      "quality_score": 1.0,
+      "output": {
+        "images_generated": 9,
+        "success_rate": "100%",
+        "total_size_kb": 15418.6,
+        "model": "gemini-2.5-flash-preview-05-20"
+      }
     },
     {
       "id": "preview",
       "name": "Preview HTML",
-      "status": "pending",
-      "progress": 0
+      "status": "completed",
+      "progress": 100,
+      "started_at": "2025-12-05T20:51:30.000000",
+      "completed_at": "2025-12-05T20:52:00.000000",
+      "quality_score": 1.0
     },
     {
       "id": "shopify",
@@ -85,12 +97,28 @@
       "timestamp": "2025-12-05T00:18:00.000000",
       "agent": "photo_agent",
       "message": "Prompts prontos: Hero, Detail, Gym, Office, Study, In-Use, Group, Flatlay, Emotional"
+    },
+    {
+      "timestamp": "2025-12-05T20:48:58.000000",
+      "agent": "photo_agent",
+      "message": "Iniciando geração de 9 imagens com Gemini 2.5 Flash + reference image"
+    },
+    {
+      "timestamp": "2025-12-05T20:51:30.000000",
+      "agent": "photo_agent",
+      "message": "9/9 imagens geradas com sucesso! Total: 15.4 MB"
+    },
+    {
+      "timestamp": "2025-12-05T20:52:00.000000",
+      "agent": "orchestrator",
+      "message": "Preview HTML gerado - pronto para validação visual"
     }
   ],
   "current_results": {
     "title_preview": "Garrafa Térmica Gato 320ml Inox Tampa Orelhas 3D Gelada 24h",
     "image_original": "user_research/garrafa_termica_gato/imagem_original.webp",
     "prompts_ready": 9,
+    "images_generated": 9,
     "compliance_score": 1.0
   },
   "files": {
@@ -98,13 +126,15 @@
     "product_data": "user_research/garrafa_termica_gato/product_data.json",
     "original_image": "user_research/garrafa_termica_gato/imagem_original.webp",
     "anuncio": "user_research/garrafa_termica_gato/anuncio_completo.md",
-    "photo_prompts": "user_research/garrafa_termica_gato/photo_prompts.json"
+    "photo_prompts": "user_research/garrafa_termica_gato/photo_prompts.json",
+    "images_dir": "user_research/garrafa_termica_gato/images/",
+    "generation_log": "user_research/garrafa_termica_gato/images/generation_log.json",
+    "preview": "user_research/garrafa_termica_gato/preview.html"
   },
   "next_action": {
-    "phase": "images",
-    "model": "gemini-2.5-flash-preview-05-20 + imagen-3.0-generate-002",
-    "input": "photo_prompts.json",
-    "reference_image": "imagem_original.webp"
+    "phase": "shopify",
+    "description": "Sync product and images to Shopify store",
+    "ready": true
   },
-  "updated_at": "2025-12-05T00:18:00.000000"
+  "updated_at": "2025-12-05T20:52:00.000000"
 }

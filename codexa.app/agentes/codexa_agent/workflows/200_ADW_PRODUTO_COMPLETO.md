@@ -764,7 +764,40 @@ Or manual:
 
 ---
 
+## CONSOLIDATED TEMPLATES (v2.1.0)
+
+Reusable templates for scaling product creation:
+
+```
+codexa.app/templates/produto_completo/
+├── README.md                      → Quick start guide
+├── TEMPLATE_PRODUTO.md            → Product documentation (80+ placeholders)
+├── TEMPLATE_PHOTO_PROMPTS.json    → 9 photo prompts (50+ placeholders)
+├── generate_images_universal.py   → Auto-detect image generation script
+└── preview_template.html          → Preview HTML (30+ placeholders)
+```
+
+### Key Placeholders
+- `{{PRODUCT_NAME}}` → Full product name
+- `{{PRODUCT_SLUG}}` → URL-friendly slug
+- `{{PRODUCT_DISTINCTIVE_FEATURE}}` → Unique selling point
+- `{{LIFESTYLE_*_NAME}}` → Lifestyle scene names
+- `{{EMOTIONAL_THEME}}` → Brand connection theme
+
+### Scale Workflow (15 min/product)
+1. Copy templates to `user_research/{{PRODUCT_SLUG}}/`
+2. Run `/prime-pesquisa` → `product_data.json`
+3. Run `/prime-anuncio` → `anuncio_completo.md`
+4. Run `/prime-photo` → `photo_prompts.json`
+5. Run `python generate_images.py` → 9 images
+6. Serve `preview.html` → validate
+
+**Full documentation**: `codexa.app/templates/produto_completo/README.md`
+
+---
+
 **Status**: Production-Ready
 **Maintainer**: CODEXA Meta-Constructor
 **Dashboard**: http://localhost:3456 (Pipeline Live tab)
-**Reference Implementation**: `USER_DOCS/produtos/garrafa-termica-gato-inox/`
+**Reference Implementation**: `user_research/garrafa_termica_gato/`
+**Templates**: `codexa.app/templates/produto_completo/`

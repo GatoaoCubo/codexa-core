@@ -1,0 +1,71 @@
+{
+  "product": "Garrafa Térmica Inox Gato 320ml",
+  "generated_at": "2025-12-05T20:48:58.166609",
+  "reference_image": "C:\\Users\\PC\\Documents\\GitHub\\codexa-core\\user_research\\garrafa_termica_gato\\imagem_original.webp",
+  "model": "gemini-2.5-flash-preview-05-20",
+  "results": [
+    {
+      "prompt_id": "photo_01_hero",
+      "scene_name": "Hero Shot - Packshot Principal",
+      "filename": "photo_01_hero.png",
+      "size_kb": 1003.6,
+      "status": "success"
+    },
+    {
+      "prompt_id": "photo_02_detail_ears",
+      "scene_name": "Detail Shot - 3D Cat Ears Close-Up",
+      "filename": "photo_02_detail_ears.png",
+      "size_kb": 1725.1,
+      "status": "success"
+    },
+    {
+      "prompt_id": "photo_03_lifestyle_gym",
+      "scene_name": "Lifestyle - Gym Academia Setting",
+      "filename": "photo_03_lifestyle_gym.png",
+      "size_kb": 2144.2,
+      "status": "success"
+    },
+    {
+      "prompt_id": "photo_04_lifestyle_office",
+      "scene_name": "Lifestyle - Modern Office Workspace",
+      "filename": "photo_04_lifestyle_office.png",
+      "size_kb": 1908.7,
+      "status": "success"
+    },
+    {
+      "prompt_id": "photo_05_lifestyle_study",
+      "scene_name": "Lifestyle - Study Area Cozy Aesthetic",
+      "filename": "photo_05_lifestyle_study.png",
+      "size_kb": 2120.1,
+      "status": "success"
+    },
+    {
+      "prompt_id": "photo_06_in_use_drinking",
+      "scene_name": "In-Use Shot - Hand Holding Drinking",
+      "filename": "photo_06_in_use_drinking.png",
+      "size_kb": 1932.4,
+      "status": "success"
+    },
+    {
+      "prompt_id": "photo_07_group_colors",
+      "scene_name": "Group Shot - Color Variants Display",
+      "filename": "photo_07_group_colors.png",
+      "size_kb": 1754.8,
+      "status": "success"
+    },
+    {
+      "prompt_id": "photo_08_flatlay_essentials",
+      "scene_name": "Flat Lay - Daily Essentials Kit",
+      "filename": "photo_08_flatlay_essentials.png",
+      "size_kb": 1573.1,
+      "status": "success"
+    },
+    {
+      "prompt_id": "photo_09_emotional_cat",
+      "scene_name": "Emotional - Cat Lover Brand Connection",
+      "filename": "photo_09_emotional_cat.png",
+      "size_kb": 1256.6,
+      "status": "success"
+    }
+  ]
+}
