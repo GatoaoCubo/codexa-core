@@ -1,0 +1,94 @@
+{
+  "$schema": "video_brief_v2",
+  "$description": "Template de input para 200_ADW_FULL_VIDEO_PRODUCTION",
+  "$usage": "Preencher campos e passar para /full-video-production",
+  "$version": "2.0.0",
+
+  "tema": {
+    "$description": "Titulo/tema principal do conteudo",
+    "$example": "O Novo Investimento em IA",
+    "$required": true,
+    "value": ""
+  },
+
+  "subtema": {
+    "$description": "Subtitulo ou angulo especifico",
+    "$example": "Meta-construcao: IA programa IA",
+    "$required": false,
+    "value": ""
+  },
+
+  "conceito": {
+    "problema": {
+      "$description": "Dor/problema que o conteudo resolve",
+      "$example": "A maioria usa IA de forma superficial",
+      "$required": true,
+      "value": ""
+    },
+    "solucao": {
+      "$description": "Solucao que voce oferece",
+      "$example": "Sistema de agentes especializados",
+      "$required": true,
+      "value": ""
+    },
+    "metafora": {
+      "$description": "Frase de impacto que resume o conceito",
+      "$example": "E como a diferenca entre pedir comida e aprender a cozinhar",
+      "$required": true,
+      "value": ""
+    }
+  },
+
+  "pilares": {
+    "$description": "3-5 pontos principais do conteudo",
+    "$example": ["3 Camadas", "Destilacao", "Verticalizacao"],
+    "$required": true,
+    "value": []
+  },
+
+  "target": {
+    "$description": "Publico-alvo",
+    "$example": "Empreendedores BR que usam IA superficialmente",
+    "$required": true,
+    "value": ""
+  },
+
+  "perspectiva": {
+    "$description": "Tom do conteudo: 'persuasiva' ou 'didatica'",
+    "$options": ["persuasiva", "didatica"],
+    "$default": "persuasiva",
+    "$required": false,
+    "value": "persuasiva"
+  },
+
+  "config": {
+    "duracao": {
+      "$description": "Duracao em segundos (15-60)",
+      "$default": 30,
+      "value": 30
+    },
+    "formato": {
+      "$description": "Aspect ratio",
+      "$options": ["9:16", "16:9", "1:1"],
+      "$default": "9:16",
+      "value": "9:16"
+    },
+    "shorts_count": {
+      "$description": "Numero de shorts a gerar",
+      "$default": 5,
+      "value": 5
+    },
+    "platforms": {
+      "$description": "Plataformas alvo",
+      "$default": ["tiktok", "instagram", "youtube"],
+      "value": ["tiktok", "instagram", "youtube"]
+    }
+  },
+
+  "angles": {
+    "$description": "Angulos para os 5 shorts",
+    "$options": ["number", "howto", "curiosity", "contrast", "mistake", "question", "social_proof"],
+    "$default": ["number", "howto", "curiosity", "contrast", "mistake"],
+    "value": ["number", "howto", "curiosity", "contrast", "mistake"]
+  }
+}

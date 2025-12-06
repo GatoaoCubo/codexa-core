@@ -1,0 +1,117 @@
+{
+  "$schema": "video_perspectives_v1",
+  "$description": "Configuracoes de perspectiva/tom para geracao de conteudo",
+  "$usage": "Selecionar perspectiva no brief: perspectiva='didatica' ou perspectiva='persuasiva'",
+
+  "perspectives": {
+    "persuasiva": {
+      "id": "persuasiva",
+      "name": "Persuasiva/Marketeira",
+      "description": "Tom de urgencia, CTAs agressivos, linguagem de vendas",
+
+      "characteristics": {
+        "tom": "urgencia",
+        "foco": "converter",
+        "linguagem": "jargao_tecnico",
+        "emocao": "FOMO"
+      },
+
+      "hook_patterns": {
+        "number": "{{N}} camadas de {{TEMA}}. Voce ainda ta na primeira.",
+        "howto": "Como transformar {{INPUT}} em {{OUTPUT}}",
+        "curiosity": "O segredo que separa quem USA de quem INVESTE em {{TEMA}}",
+        "contrast": "{{RUIM}} vs {{BOM}} que constroi {{RESULTADO}}",
+        "mistake": "O erro que 99% cometem: {{ERRO}}"
+      },
+
+      "cta_patterns": {
+        "comment": "Comenta {{PALAVRA_CHAVE}} se voce quer {{BENEFICIO}}",
+        "save": "Salva esse video pra aplicar depois",
+        "question": "Qual voce prefere? Comenta ai.",
+        "challenge": "Voce ta usando {{TEMA}} errado? Comenta ai."
+      },
+
+      "caption_rules": {
+        "hashtags": 5,
+        "emojis": true,
+        "urgency_words": ["agora", "pare", "erro", "segredo"],
+        "numbers": ["1000x", "99%", "80%", "10x"]
+      },
+
+      "overlay_style": {
+        "caps": true,
+        "short_phrases": true,
+        "max_words": 3
+      }
+    },
+
+    "didatica": {
+      "id": "didatica",
+      "name": "Didatica/Mentor",
+      "description": "Tom de professor, explicacoes naturais, linguagem acessivel",
+
+      "characteristics": {
+        "tom": "calmo",
+        "foco": "entender",
+        "linguagem": "natural_analogias",
+        "emocao": "curiosidade"
+      },
+
+      "hook_patterns": {
+        "number": "Deixa eu te mostrar as {{N}} formas que as pessoas {{ACAO}} hoje.",
+        "howto": "Vou te ensinar a {{ACAO}} de um jeito simples.",
+        "curiosity": "Tem uma diferenca grande entre {{A}} e {{B}}.",
+        "contrast": "Deixa eu te mostrar a diferenca entre {{A}} e {{B}}.",
+        "mistake": "Muita gente {{ERRO}} sem saber. Deixa eu explicar."
+      },
+
+      "cta_patterns": {
+        "comment": "Me conta nos comentarios qual dessas voce usa.",
+        "save": "Salva esse video que eu vou explicar mais nos proximos.",
+        "question": "O que voce prefere? Me conta ai.",
+        "experience": "Voce ja pensou nisso? Me conta sua experiencia."
+      },
+
+      "caption_rules": {
+        "hashtags": 0,
+        "emojis": false,
+        "context_phrases": true,
+        "analogies": ["como receita", "como cozinhar", "como formula"]
+      },
+
+      "overlay_style": {
+        "caps": true,
+        "natural_phrases": true,
+        "max_words": 4
+      }
+    }
+  },
+
+  "angle_mapping": {
+    "number": {
+      "persuasiva": "Numeros impactantes + provocacao",
+      "didatica": "Contagem educacional + convite"
+    },
+    "howto": {
+      "persuasiva": "Tutorial rapido + resultado prometido",
+      "didatica": "Passo a passo com analogias"
+    },
+    "curiosity": {
+      "persuasiva": "Segredo revelado + exclusividade",
+      "didatica": "Diferenca explicada + reflexao"
+    },
+    "contrast": {
+      "persuasiva": "Bom vs ruim drastico",
+      "didatica": "Comparacao educacional"
+    },
+    "mistake": {
+      "persuasiva": "Erro estatistico + medo",
+      "didatica": "Erro comum + explicacao"
+    }
+  },
+
+  "defaults": {
+    "perspective": "persuasiva",
+    "fallback": "didatica"
+  }
+}

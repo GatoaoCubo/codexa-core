@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEXA Video Production - {{TEMA}}</title>
+    <style>
+        /*
+         * TEMPLATE: index_template.html
+         * VERSION: 2.0.0
+         * USAGE: Copiar para output dir e substituir {{PLACEHOLDERS}} ou carregar PRODUCTION.json via JS
+         */
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0f;
+            --card: #12121a;
+            --border: #1e1e2e;
+            --primary: {{PRIMARY_COLOR}};
+            --primary-glow: {{PRIMARY_GLOW}};
+            --secondary: {{SECONDARY_COLOR}};
+            --text: #e4e4e7;
+            --muted: #71717a;
+            --success: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(180deg, var(--card) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .score-badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-quote {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .perspective-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: rgba(13, 148, 136, 0.2);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat { text-align: center; }
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .tabs-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .tab:hover { background: var(--card); color: var(--text); }
+        .tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        .content { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .shorts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .short-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .short-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px var(--primary-glow);
+            transform: translateY(-4px);
+        }
+
+        .short-card.best { border-color: var(--primary); position: relative; }
+
+        .short-card.best::before {
+            content: 'BEST';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            z-index: 10;
+        }
+
+        .short-header { padding: 1.5rem; border-bottom: 1px solid var(--border); }
+        .short-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+        .short-number { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .short-score {
+            background: rgba(13, 148, 136, 0.2);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .short-hook { font-size: 1.1rem; font-weight: 600; color: white; line-height: 1.4; }
+        .short-body { padding: 1.5rem; }
+
+        .script-block {
+            background: var(--bg);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .script-block .time { color: var(--primary); font-weight: 600; }
+
+        .overlays { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+
+        .overlay-tag {
+            background: var(--secondary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .captions-section { margin-top: 1rem; }
+
+        .caption-toggle {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .caption-toggle:hover { border-color: var(--primary); }
+
+        .caption-content {
+            display: none;
+            padding: 1rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+
+        .caption-content.open { display: block; }
+
+        .platform-caption { margin-bottom: 1rem; }
+        .platform-caption:last-child { margin-bottom: 0; }
+        .platform-name { font-size: 0.75rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+
+        .platform-text {
+            background: var(--card);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .platform-text:hover { background: var(--border); }
+
+        .copy-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover { opacity: 0.8; }
+        .copy-btn.copied { background: var(--success); }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--success);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.75rem; }
+            .shorts-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">CODEXA VIDEO</div>
+            <div class="score-badge">Score: <span id="scoreValue">{{QUALITY_SCORE}}</span>/10</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="perspective-badge" id="perspectiveBadge">{{PERSPECTIVA}}: {{TOM}}</div>
+        <h1 id="heroTitle">{{TEMA}}</h1>
+        <p class="hero-quote" id="heroQuote">"{{METAFORA}}"</p>
+        <div class="stats-row">
+            <div class="stat">
+                <div class="stat-value" id="statAssets">{{TOTAL_ASSETS}}</div>
+                <div class="stat-label">Assets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Shorts</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Plataformas</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="statCost">${{COST_USD}}</div>
+                <div class="stat-label">Custo</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab active" data-tab="shorts">Shorts</button>
+            <button class="tab" data-tab="calendario">Calendario</button>
+            <button class="tab" data-tab="prompts">Prompts</button>
+            <button class="tab" data-tab="youtube">YouTube</button>
+        </div>
+    </div>
+
+    <main class="content">
+        <div class="tab-content active" id="shorts">
+            <div class="shorts-grid" id="shortsGrid">
+                <!-- Shorts will be injected here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="calendario">
+            <div id="calendarioContent">
+                <!-- Calendar will be injected here -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="prompts">
+            <div id="promptsContent">
+                <!-- Prompts will be injected here -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="youtube">
+            <div id="youtubeContent">
+                <!-- YouTube metadata will be injected here -->
+            </div>
+        </div>
+    </main>
+
+    <div class="toast" id="toast">Copiado!</div>
+
+    <script>
+        // TEMPLATE SCRIPT - Load data from PRODUCTION.json
+        // Usage: Place this HTML in same folder as PRODUCTION.json
+
+        let productionData = null;
+
+        async function loadData() {
+            try {
+                const response = await fetch('./PRODUCTION.json');
+                productionData = await response.json();
+                renderPage();
+            } catch (e) {
+                console.log('No PRODUCTION.json found, using placeholder data');
+                // Fallback to placeholder mode
+            }
+        }
+
+        function renderPage() {
+            if (!productionData) return;
+
+            // Update header
+            document.getElementById('scoreValue').textContent = productionData.metrics?.quality_score || '8.5';
+            document.getElementById('heroTitle').textContent = productionData.meta?.tema || 'Video Production';
+            document.getElementById('heroQuote').textContent = `"${productionData.brief?.conceito_central?.metafora || ''}"`;
+            document.getElementById('perspectiveBadge').textContent = `${productionData.meta?.perspectiva || 'PADRAO'}: ${productionData.meta?.tom || ''}`;
+            document.getElementById('statAssets').textContent = productionData.metrics?.total_assets || '26';
+            document.getElementById('statCost').textContent = `$${productionData.metrics?.cost_usd || '10.50'}`;
+
+            // Render shorts
+            renderShorts();
+        }
+
+        function renderShorts() {
+            if (!productionData?.shorts) return;
+
+            const grid = document.getElementById('shortsGrid');
+            const bestId = productionData.metrics?.best_performer?.replace('short_', '') || '001';
+
+            grid.innerHTML = productionData.shorts.map(short => `
+                <div class="short-card ${short.id === bestId ? 'best' : ''}">
+                    <div class="short-header">
+                        <div class="short-meta">
+                            <span class="short-number">Short ${short.id} - ${short.angle}</span>
+                            <span class="short-score">${short.score}/10</span>
+                        </div>
+                        <div class="short-hook">"${short.hook}"</div>
+                    </div>
+                    <div class="short-body">
+                        <div class="script-block">
+                            ${short.script?.narration?.map(n =>
+                                `<span class="time">${n.time}</span> ${n.text}`
+                            ).join('<br>') || ''}
+                        </div>
+                        <div class="overlays">
+                            ${short.script?.overlays?.map(o =>
+                                `<span class="overlay-tag">${o}</span>`
+                            ).join('') || ''}
+                        </div>
+                        <div class="captions-section">
+                            <button class="caption-toggle" onclick="toggleCaption(this)">
+                                <span>Legendas por Plataforma</span>
+                                <span>+</span>
+                            </button>
+                            <div class="caption-content">
+                                ${['tiktok', 'instagram', 'youtube'].map(platform => `
+                                    <div class="platform-caption">
+                                        <div class="platform-name">${platform}</div>
+                                        <div class="platform-text" onclick="copyText(this)">${short.captions?.[platform] || ''}</div>
+                                        <button class="copy-btn" onclick="copyFromBtn(this)">Copiar</button>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        function toggleCaption(btn) {
+            const content = btn.nextElementSibling;
+            content.classList.toggle('open');
+            btn.querySelector('span:last-child').textContent = content.classList.contains('open') ? '-' : '+';
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        function copyText(el) {
+            navigator.clipboard.writeText(el.textContent.trim());
+            showToast();
+        }
+
+        function copyFromBtn(btn) {
+            const text = btn.previousElementSibling.textContent.trim();
+            navigator.clipboard.writeText(text);
+            btn.textContent = 'Copiado!';
+            btn.classList.add('copied');
+            setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2000);
+        }
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>

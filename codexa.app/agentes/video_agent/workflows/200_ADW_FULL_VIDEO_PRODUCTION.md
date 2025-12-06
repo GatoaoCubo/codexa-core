@@ -862,6 +862,57 @@ batch_results = await spawn_parallel([
 | `config/shorts_blocks.json` | Block library for shorts |
 | `config/voice_config.json` | TTS voice selection |
 | `config/video_modes.json` | Overlay/clean modes |
+| `config/perspectives.json` | Perspectiva persuasiva vs didatica |
+
+### Templates (v2.1.0)
+| File | Purpose |
+|------|---------|
+| `templates/input/BRIEF_TEMPLATE.json` | Schema de input para brief |
+| `templates/output/PRODUCTION_TEMPLATE.json` | Template JSON com {{PLACEHOLDERS}} |
+| `templates/output/PRODUCTION_TEMPLATE.md` | Template MD copy-paste ready |
+| `templates/output/index_template.html` | Template HTML para visualizacao |
+
+---
+
+## PERSPECTIVES (v2.1.0)
+
+O workflow suporta duas perspectivas de conteudo:
+
+### Persuasiva (Default)
+- **Tom**: Urgencia, FOMO, vendas
+- **CTAs**: "Comenta INVESTIDOR", "Voce ta errado?"
+- **Linguagem**: Jargao tecnico, numeros impactantes
+- **Hashtags**: 5-6 por post
+
+### Didatica
+- **Tom**: Calmo, educacional, mentor
+- **CTAs**: "Me conta sua experiencia", "Faz sentido?"
+- **Linguagem**: Analogias do dia-a-dia, explicacoes
+- **Hashtags**: 0 (contexto natural)
+
+### Como Usar
+
+```bash
+# Perspectiva persuasiva (default)
+/full-video-production "Brief: ..."
+
+# Perspectiva didatica
+/full-video-production "Brief: ..." --perspectiva didatica
+
+# Via JSON
+{
+  "tema": "...",
+  "perspectiva": "didatica"
+}
+```
+
+### Transformacao Automatica
+
+O workflow aplica regras de `config/perspectives.json` para:
+1. Reescrever hooks de acordo com perspectiva
+2. Ajustar CTAs (vendas vs engajamento)
+3. Modificar legendas (hashtags vs contexto)
+4. Adaptar overlays (caps agressivo vs natural)
 
 ---
 
@@ -870,3 +921,4 @@ batch_results = await spawn_parallel([
 **Status**: Production Ready
 **Type**: Master Orchestrator
 **Spawn Pattern**: Parallel fan-out, sequential consolidation
+**Templates**: v2.1.0 (reutilizaveis com {{PLACEHOLDERS}})

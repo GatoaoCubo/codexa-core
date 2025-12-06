@@ -1,0 +1,143 @@
+{
+  "$schema": "production_output_v2",
+  "$description": "Template reutilizavel para output de 200_ADW_FULL_VIDEO_PRODUCTION",
+  "$usage": "Substituir {{PLACEHOLDERS}} com valores do brief",
+  "$version": "2.0.0",
+
+  "meta": {
+    "production_id": "{{PRODUCTION_ID}}",
+    "tema": "{{TEMA}}",
+    "subtema": "{{SUBTEMA}}",
+    "perspectiva": "{{PERSPECTIVA}}",
+    "tom": "{{TOM}}",
+    "created_at": "{{CREATED_AT}}",
+    "version": "2.0.0",
+    "adw": "200_ADW_FULL_VIDEO_PRODUCTION"
+  },
+
+  "brief": {
+    "conceito_central": {
+      "problema": "{{PROBLEMA}}",
+      "solucao": "{{SOLUCAO}}",
+      "metafora": "{{METAFORA}}"
+    },
+    "pilares": "{{PILARES_ARRAY}}",
+    "target": "{{TARGET_AUDIENCE}}",
+    "cta": "{{CTA_PRINCIPAL}}"
+  },
+
+  "video_principal": {
+    "duracao": "{{DURACAO}}",
+    "formato": "{{FORMATO}}",
+    "video_mode": "{{VIDEO_MODE}}",
+    "voice": {
+      "id": "{{VOICE_ID}}",
+      "name": "{{VOICE_NAME}}",
+      "style": "{{VOICE_STYLE}}"
+    },
+    "storyboard": "{{STORYBOARD_ARRAY}}",
+    "visual_prompts": "{{VISUAL_PROMPTS_ARRAY}}"
+  },
+
+  "shorts": [
+    {
+      "id": "001",
+      "angle": "{{SHORT_001_ANGLE}}",
+      "hook": "{{SHORT_001_HOOK}}",
+      "score": "{{SHORT_001_SCORE}}",
+      "script": {
+        "narration": "{{SHORT_001_NARRATION_ARRAY}}",
+        "overlays": "{{SHORT_001_OVERLAYS_ARRAY}}"
+      },
+      "captions": {
+        "tiktok": "{{SHORT_001_TIKTOK}}",
+        "instagram": "{{SHORT_001_INSTAGRAM}}",
+        "youtube": "{{SHORT_001_YOUTUBE}}"
+      }
+    },
+    {
+      "id": "002",
+      "angle": "{{SHORT_002_ANGLE}}",
+      "hook": "{{SHORT_002_HOOK}}",
+      "score": "{{SHORT_002_SCORE}}",
+      "script": {
+        "narration": "{{SHORT_002_NARRATION_ARRAY}}",
+        "overlays": "{{SHORT_002_OVERLAYS_ARRAY}}"
+      },
+      "captions": {
+        "tiktok": "{{SHORT_002_TIKTOK}}",
+        "instagram": "{{SHORT_002_INSTAGRAM}}",
+        "youtube": "{{SHORT_002_YOUTUBE}}"
+      }
+    },
+    {
+      "id": "003",
+      "angle": "{{SHORT_003_ANGLE}}",
+      "hook": "{{SHORT_003_HOOK}}",
+      "score": "{{SHORT_003_SCORE}}",
+      "script": {
+        "narration": "{{SHORT_003_NARRATION_ARRAY}}",
+        "overlays": "{{SHORT_003_OVERLAYS_ARRAY}}"
+      },
+      "captions": {
+        "tiktok": "{{SHORT_003_TIKTOK}}",
+        "instagram": "{{SHORT_003_INSTAGRAM}}",
+        "youtube": "{{SHORT_003_YOUTUBE}}"
+      }
+    },
+    {
+      "id": "004",
+      "angle": "{{SHORT_004_ANGLE}}",
+      "hook": "{{SHORT_004_HOOK}}",
+      "score": "{{SHORT_004_SCORE}}",
+      "script": {
+        "narration": "{{SHORT_004_NARRATION_ARRAY}}",
+        "overlays": "{{SHORT_004_OVERLAYS_ARRAY}}"
+      },
+      "captions": {
+        "tiktok": "{{SHORT_004_TIKTOK}}",
+        "instagram": "{{SHORT_004_INSTAGRAM}}",
+        "youtube": "{{SHORT_004_YOUTUBE}}"
+      }
+    },
+    {
+      "id": "005",
+      "angle": "{{SHORT_005_ANGLE}}",
+      "hook": "{{SHORT_005_HOOK}}",
+      "score": "{{SHORT_005_SCORE}}",
+      "script": {
+        "narration": "{{SHORT_005_NARRATION_ARRAY}}",
+        "overlays": "{{SHORT_005_OVERLAYS_ARRAY}}"
+      },
+      "captions": {
+        "tiktok": "{{SHORT_005_TIKTOK}}",
+        "instagram": "{{SHORT_005_INSTAGRAM}}",
+        "youtube": "{{SHORT_005_YOUTUBE}}"
+      }
+    }
+  ],
+
+  "youtube_metadata": {
+    "title": {
+      "primary": "{{YOUTUBE_TITLE}}",
+      "variants": "{{YOUTUBE_TITLE_VARIANTS_ARRAY}}"
+    },
+    "description": "{{YOUTUBE_DESCRIPTION}}",
+    "tags": "{{YOUTUBE_TAGS}}"
+  },
+
+  "thumbnails": "{{THUMBNAILS_ARRAY}}",
+
+  "schedule": {
+    "week_1": "{{SCHEDULE_WEEK_1}}",
+    "week_2": "{{SCHEDULE_WEEK_2}}"
+  },
+
+  "metrics": {
+    "total_assets": "{{TOTAL_ASSETS}}",
+    "quality_score": "{{QUALITY_SCORE}}",
+    "cost_usd": "{{COST_USD}}",
+    "best_performer": "{{BEST_PERFORMER}}",
+    "execution_time_seconds": "{{EXECUTION_TIME}}"
+  }
+}

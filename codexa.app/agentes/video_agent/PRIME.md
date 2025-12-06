@@ -2,7 +2,7 @@
 
 **AI Assistant Entry Point** - Navigation guide for video production specialist
 
-**Version**: 3.0.0 | **Status**: Production-Ready | **Type**: Specialist Agent + Master Orchestrator
+**Version**: 3.1.0 | **Status**: Production-Ready | **Type**: Specialist Agent + Master Orchestrator
 
 > **Scout**: Para descoberta de arquivos, use `mcp__scout__*` | [SCOUT_INTEGRATION.md](../SCOUT_INTEGRATION.md)
 
@@ -485,10 +485,76 @@ pesquisa_agent ──► Competitor analysis ──► video_agent (differentiat
 | `video_modes.json` | Overlay vs clean mode rules |
 | `video_styles.json` | Style presets (energetic, calm, etc.) |
 | `youtube_*.json` | YouTube optimization rules |
+| `perspectives.json` | **Perspectiva persuasiva vs didatica** |
+
+### Templates (templates/)
+| File | Purpose |
+|------|---------|
+| `input/BRIEF_TEMPLATE.json` | Schema de input para brief |
+| `output/PRODUCTION_TEMPLATE.json` | Template LLM com {{PLACEHOLDERS}} |
+| `output/PRODUCTION_TEMPLATE.md` | Template Human copy-paste |
+| `output/index_template.html` | Template Web visualizacao |
 
 ---
 
-## 12. VERSION HISTORY
+## 12. QUICK COMMAND
+
+```bash
+/full-video-production "Brief: [SEU TEMA]" --perspectiva [persuasiva|didatica]
+```
+
+**Exemplos**:
+```bash
+# Persuasivo (vendas, urgencia)
+/full-video-production "Brief: Como Escalar com IA"
+
+# Didatico (mentor, explicativo)
+/full-video-production "Brief: Como Escalar com IA" --perspectiva didatica
+```
+
+---
+
+## 13. PERSPECTIVES (v3.1.0)
+
+O workflow suporta duas perspectivas de conteudo:
+
+| Aspecto | Persuasiva (default) | Didatica |
+|---------|---------------------|----------|
+| **Tom** | Urgencia, FOMO | Calmo, mentor |
+| **Hooks** | "Voce ainda ta na primeira" | "Deixa eu te mostrar" |
+| **CTAs** | "Comenta INVESTIDOR" | "Me conta sua experiencia" |
+| **Numeros** | "1000x", "99%" | "funciona sempre" |
+| **Hashtags** | 5-6 por post | 0 (contexto natural) |
+| **Foco** | Converter | Entender |
+
+### Transformacao Automatica
+
+O workflow aplica regras de `config/perspectives.json` para:
+1. Reescrever hooks de acordo com perspectiva
+2. Ajustar CTAs (vendas vs engajamento)
+3. Modificar legendas (hashtags vs contexto)
+4. Adaptar overlays (caps agressivo vs natural)
+
+### Exemplo de Transformacao
+
+| Elemento | Persuasiva | Didatica |
+|----------|------------|----------|
+| Hook | "3 camadas de IA. Voce ainda ta na primeira." | "Deixa eu te mostrar as 3 formas de usar IA." |
+| CTA | "Comenta INVESTIDOR se voce quer evoluir." | "Me conta nos comentarios qual dessas voce usa." |
+| Analogia | "1000x mais resultado" | "E como aprender a cozinhar vs pedir comida" |
+
+---
+
+## 14. VERSION HISTORY
+
+- **v3.1.0** (2025-12-05): Perspectives & Meta-Construction Templates
+  - Added `config/perspectives.json` (persuasiva vs didatica)
+  - Added `templates/input/BRIEF_TEMPLATE.json` (input schema)
+  - Added `templates/output/PRODUCTION_TEMPLATE.json` (LLM output)
+  - Added `templates/output/PRODUCTION_TEMPLATE.md` (Human output)
+  - Added `templates/output/index_template.html` (Web visualization)
+  - Quick command: `/full-video-production "Brief: [TEMA]" --perspectiva [tipo]`
+  - Reutilizavel para qualquer tema via meta-construcao
 
 - **v3.0.0** (2025-12-05): Shorts & Master Orchestration
   - Added 72_platform_optimizer_HOP.md (multi-platform: YT/TikTok/IG)
@@ -591,6 +657,7 @@ pesquisa_agent ──► Competitor analysis ──► video_agent (differentiat
 
 **Created by**: CODEXA Meta-Constructor
 **Last Updated**: 2025-12-05
-**Quality Score**: 9.8/10.0 (production-ready + master orchestration)
+**Quality Score**: 9.9/10.0 (production-ready + meta-construction)
 **12 Leverage Points**: Fully Implemented
 **Orchestration**: 200_ADW Master + /spawn parallelism
+**Perspectives**: Persuasiva + Didatica (reutilizavel para qualquer tema)
