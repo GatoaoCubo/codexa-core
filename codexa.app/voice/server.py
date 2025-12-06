@@ -64,7 +64,7 @@ from stt import (
     transcribe_audio,
     play_start_beep
 )
-from tts import speak as voice_speak
+from tts import speak as voice_speak, play_activation_sound
 from config import (
     EXIT_COMMANDS,
     MSG_ACTIVATED,
@@ -81,7 +81,8 @@ from voice_filter import (
     FilterConfig,
     FilterResult,
     is_noise,
-    clean_transcript
+    clean_transcript,
+    is_activation_command
 )
 
 # Import new poll-based session manager
@@ -356,6 +357,20 @@ User can speak now - recording in background."""
                             return [TextContent(
                                 type="text",
                                 text=f"EXIT_VOICE_LOOP: User said exit command.\nTranscript: {filter_result.command}"
+                            )]
+
+                        # Check for activation command (Easter Egg: CODEXA ATIVAR)
+                        if is_activation_command(transcript):
+                            print("EASTER EGG: CODEXA ATIVAR detected!", file=sys.stderr)
+                            await asyncio.to_thread(play_activation_sound)
+                            return [TextContent(
+                                type="text",
+                                text=f"""ACTIVATION_EASTER_EGG: Playing theme song!
+session_id: {session_id}
+elapsed: {elapsed}s
+command: {filter_result.command}
+
+Stranger Things theme playing... CODEXA ATIVADO!"""
                             )]
 
                         return [TextContent(

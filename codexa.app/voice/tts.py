@@ -30,10 +30,38 @@ from dotenv import load_dotenv
 VOICE_ROOT = Path(__file__).parent
 PROJECT_ROOT = VOICE_ROOT.parent.parent  # codexa.gato/
 ENV_PATH = PROJECT_ROOT / '.env'
+AUDIO_DIR = VOICE_ROOT / 'audio'
 load_dotenv(dotenv_path=ENV_PATH)
+
+# =============================================================================
+# AUDIO FILES (Easter Eggs)
+# =============================================================================
+
+ACTIVATION_AUDIO = AUDIO_DIR / 'should-i-stay-or-should-i-go.mp3'
 
 # Import audio device config (after loading .env)
 from config import AUDIO_OUTPUT_DEVICE
+
+
+# =============================================================================
+# EASTER EGG: ACTIVATION SOUND
+# =============================================================================
+
+def play_activation_sound() -> bool:
+    """
+    Play the CODEXA activation sound (Stranger Things easter egg).
+
+    Triggered by voice command "CODEXA ATIVAR".
+
+    Returns:
+        True if sound played successfully
+    """
+    if not ACTIVATION_AUDIO.exists():
+        print(f"Audio nao encontrado: {ACTIVATION_AUDIO}", file=sys.stderr)
+        # Fallback: speak activation message
+        return speak("Codexa ativado. Sistema operacional.")
+
+    return _play_audio_file(str(ACTIVATION_AUDIO))
 
 
 # =============================================================================

@@ -233,6 +233,36 @@ EXIT_COMMANDS_FILTER = [
     "encerrar", "tchau", "finalizar", "quit"
 ]
 
+# =============================================================================
+# ACTIVATION COMMAND (Easter Egg)
+# =============================================================================
+
+ACTIVATION_COMMANDS = [
+    "codexa ativar",
+    "codexa activar",
+    "ativar codexa",
+    "activar codexa",
+    "codexa activate",
+    "activate codexa",
+    "ei codexa ativar",
+    "hey codexa activate",
+    "oi codexa ativar",
+]
+
+
+def is_activation_command(transcript: str) -> bool:
+    """
+    Check if transcript is the CODEXA activation command.
+
+    Triggers: "CODEXA ATIVAR" or variations
+
+    Returns True if this is the activation easter egg.
+    """
+    text = transcript.lower().strip()
+    text = text.rstrip(",.:;!? ")
+
+    return any(cmd in text for cmd in ACTIVATION_COMMANDS)
+
 
 def is_exit_command_filter(transcript: str) -> bool:
     """Check if transcript is an exit command."""
