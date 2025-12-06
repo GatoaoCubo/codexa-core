@@ -5,8 +5,8 @@ CODEXA Voice TTS (Text-to-Speech)
 =================================
 
 Robust TTS with automatic fallback chain:
-1. Edge TTS (free, online, good quality)
-2. ElevenLabs (premium, if API key configured)
+1. ElevenLabs (premium, best quality - if API key configured)
+2. Edge TTS (free, online, good quality)
 3. pyttsx3 (offline, always works)
 
 The system automatically selects the best available option.
@@ -330,12 +330,12 @@ def speak(
         return speak_pyttsx3(text)
 
     # Auto mode: try each provider in order
-    # Edge TTS first (free, good quality)
-    # ElevenLabs second (premium, only if configured)
+    # ElevenLabs first (premium, best quality - if API key configured)
+    # Edge TTS second (free, good quality)
     # pyttsx3 last (offline fallback, always works)
     providers = [
-        ('edge', lambda: speak_edge(text, save_to_file=save_to_file)),
         ('elevenlabs', lambda: speak_elevenlabs(text, voice_id=voice_id, save_to_file=save_to_file)),
+        ('edge', lambda: speak_edge(text, save_to_file=save_to_file)),
         ('pyttsx3', lambda: speak_pyttsx3(text)),
     ]
 

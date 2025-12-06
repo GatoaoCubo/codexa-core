@@ -50,7 +50,14 @@ VOICE_ROOT = Path(__file__).parent
 PROJECT_ROOT = VOICE_ROOT.parent.parent
 load_dotenv(dotenv_path=PROJECT_ROOT / '.env')
 
-from config import AUDIO_INPUT_DEVICE, AUDIO_OUTPUT_DEVICE
+from config import (
+    AUDIO_INPUT_DEVICE,
+    AUDIO_OUTPUT_DEVICE,
+    VAD_SILENCE_THRESHOLD,
+    VAD_ENERGY_THRESHOLD,
+    VOICE_SILENCE_DURATION,
+    VOICE_INITIAL_TIMEOUT,
+)
 
 
 class SessionStatus(Enum):
@@ -72,13 +79,13 @@ class VoiceSession:
     id: str
     status: SessionStatus = SessionStatus.STARTING
 
-    # Config
+    # Config - defaults from config.py
     max_duration: float = 15.0
     language: str = "pt"
     use_vad: bool = True
-    silence_threshold: float = 0.015  # Slightly higher for less sensitivity
-    silence_duration: float = 1.2     # Faster cutoff
-    initial_timeout: float = 3.0      # Exit if no speech in first 3s
+    silence_threshold: float = VAD_ENERGY_THRESHOLD  # RMS threshold from config
+    silence_duration: float = VOICE_SILENCE_DURATION  # 2.0s - allows natural pauses
+    initial_timeout: float = VOICE_INITIAL_TIMEOUT    # 3.0s - exit if no speech
 
     # Runtime state
     audio_buffer: List = field(default_factory=list)

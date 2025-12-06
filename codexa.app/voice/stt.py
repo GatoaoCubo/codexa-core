@@ -117,17 +117,33 @@ def transcribe_with_google(audio_path, language='pt-BR'):
 
 def transcribe_with_elevenlabs(audio_path, language='pt'):
     api_key = os.getenv('ELEVENLABS_API_KEY')
-    if not api_key: return None
+    if not api_key:
+        print('ElevenLabs: No API key', file=sys.stderr)
+        return None
     try:
         from elevenlabs.client import ElevenLabs
         client = ElevenLabs(api_key=api_key)
+        file_size = os.path.getsize(audio_path)
+        print(f'ElevenLabs: Sending {file_size} bytes, lang={language}', file=sys.stderr)
         with open(audio_path, 'rb') as f:
             response = client.speech_to_text.convert(file=f, model_id='scribe_v1', language_code=language if language else None)
-        if hasattr(response, 'text'): return response.text.strip()
-        elif isinstance(response, dict) and 'text' in response: return response['text'].strip()
-        return str(response).strip()
+        print(f'ElevenLabs response type: {type(response)}', file=sys.stderr)
+        print(f'ElevenLabs response: {response}', file=sys.stderr)
+        if hasattr(response, 'text'):
+            text = response.text.strip()
+            print(f'ElevenLabs text: "{text}"', file=sys.stderr)
+            return text if text else None
+        elif isinstance(response, dict) and 'text' in response:
+            text = response['text'].strip()
+            print(f'ElevenLabs dict text: "{text}"', file=sys.stderr)
+            return text if text else None
+        result = str(response).strip()
+        print(f'ElevenLabs str result: "{result}"', file=sys.stderr)
+        return result if result else None
     except Exception as e:
         print(f'ElevenLabs error: {e}', file=sys.stderr)
+        import traceback
+        traceback.print_exc(file=sys.stderr)
         return None
 
 def transcribe_audio(audio_path, language='pt'):
@@ -135,9 +151,10 @@ def transcribe_audio(audio_path, language='pt'):
     file_size = os.path.getsize(audio_path)
     if file_size < 1000: return f'ERROR: Audio file too small ({file_size} bytes)'
     print(f'Transcribing ({file_size} bytes)...', file=sys.stderr)
-    text = transcribe_with_google(audio_path, language)
-    if text: return text
+    # Priority: ElevenLabs Scribe (premium) > Google Speech (free)
     text = transcribe_with_elevenlabs(audio_path, language)
+    if text: return text
+    text = transcribe_with_google(audio_path, language)
     if text: return text
     return 'ERROR: Transcription failed - no speech detected'
 

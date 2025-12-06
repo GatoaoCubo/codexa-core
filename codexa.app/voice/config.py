@@ -83,8 +83,8 @@ def _env_int_or_none(key: str):
     except ValueError:
         return None
 
-# Use system default input device (device 1 - Intel Smart Sound mic)
-_default_input = 1  # "Grupo de microfones (Tecnologia Intel Smart Sound)" - system default
+# Use system default input device (None = auto-detect)
+_default_input = None  # Let sounddevice pick the best available device
 AUDIO_INPUT_DEVICE = _env_int_or_none('AUDIO_INPUT_DEVICE')
 if AUDIO_INPUT_DEVICE is None:
     AUDIO_INPUT_DEVICE = _default_input
@@ -94,10 +94,17 @@ AUDIO_OUTPUT_DEVICE = _env_int_or_none('AUDIO_OUTPUT_DEVICE')
 # VAD (Voice Activity Detection)
 # =============================================================================
 
-VAD_SILENCE_THRESHOLD = _env('VAD_SILENCE_THRESHOLD', 1.5, float)
+VAD_SILENCE_THRESHOLD = _env('VAD_SILENCE_THRESHOLD', 2.0, float)  # v10.1: 1.5→2.0 (menos cortes)
 VAD_MAX_DURATION = _env('VAD_MAX_DURATION', 15.0, float)
 VAD_MIN_SPEECH = _env('VAD_MIN_SPEECH', 0.3, float)
-VAD_ENERGY_THRESHOLD = _env('VAD_ENERGY_THRESHOLD', 0.025, float)  # Increased for noise rejection
+VAD_ENERGY_THRESHOLD = _env('VAD_ENERGY_THRESHOLD', 0.03, float)  # v10.2: 0.02→0.03 (ignora ruído leve)
+
+# =============================================================================
+# UX TIMING
+# =============================================================================
+
+# Delay after TTS before starting recording (avoids mic capturing TTS playback)
+TTS_TO_RECORD_DELAY = _env('TTS_TO_RECORD_DELAY', 1.5, float)  # v10.1: 1.5s delay
 
 # =============================================================================
 # VOICE FILTER (Wake Word & Noise Gate)
@@ -115,7 +122,7 @@ MIN_COMMAND_WORDS = _env('MIN_COMMAND_WORDS', 1, int)
 
 # Voice session settings
 VOICE_INITIAL_TIMEOUT = _env('VOICE_INITIAL_TIMEOUT', 3.0, float)
-VOICE_SILENCE_DURATION = _env('VOICE_SILENCE_DURATION', 1.2, float)
+VOICE_SILENCE_DURATION = _env('VOICE_SILENCE_DURATION', 2.0, float)  # v10.1: 1.2→2.0 (pausas naturais)
 VOICE_SILENCE_THRESHOLD = _env('VOICE_SILENCE_THRESHOLD', 0.02, float)  # Increased
 
 # =============================================================================

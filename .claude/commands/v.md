@@ -1,187 +1,104 @@
-# /v - Voice Mode v8.0 (Boot + Simplified UX)
+# /v - Voice Mode v10.1
 
-Single voice capture with beep feedback. Auto-installs dependencies on first run.
+Interacao fluida por voz com feedback claro e timing otimizado.
 
-## BOOT SEQUENCE (Run First)
+## FLUXO SIMPLIFICADO
 
-**Before calling voice tools, verify MCP is ready:**
+```
+1. Falar "Pode falar" via TTS
+2. AGUARDAR 1.5s (evita mic capturar TTS)
+3. Iniciar gravacao (15s)
+4. Polling rapido ate terminar
+5. Processar e responder via TTS
+```
 
+## EXECUCAO IMEDIATA
+
+Ao receber /v, execute EXATAMENTE nesta ordem:
+
+### PASSO 1: Aviso Sonoro
+```
+mcp__voice__speak("Pode falar")
+```
+Isso avisa o usuario que a gravacao vai comecar.
+
+### PASSO 2: DELAY OBRIGATORIO
 ```python
-# Step 1: Check if voice tools are available
-IF mcp__voice__listen_start NOT available:
-    # Boot sequence needed
-    RUN boot_voice()
-    RETURN "Voice MCP reiniciando. Execute /v novamente."
+# Aguardar 1.5s para TTS terminar de tocar
+# Isso evita que o microfone capture o proprio TTS
+import time; time.sleep(1.5)  # Ou equivalente no contexto
+```
+**IMPORTANTE**: Sem este delay, os primeiros segundos de fala sao perdidos!
 
-# Step 2: Voice tools available - proceed to FLOW
+### PASSO 3: Iniciar Gravacao
+```
+mcp__voice__listen_start(max_duration=15, initial_timeout=5, language="pt")
+```
+Retorna session_id imediatamente.
+
+### PASSO 4: Polling Rapido
+```
+LOOP ate status != "recording":
+    mcp__voice__listen_poll(session_id)
+    - "recording" + has_speech=True -> continuar
+    - "recording" + has_speech=False -> continuar
+    - "processing/transcribing" -> aguardar
+    - "done" -> processar transcript
+    - "timeout" -> informar "Nao detectei fala"
+    - "error" -> informar erro
 ```
 
-### boot_voice() Implementation
+### PASSO 5: Processar e Responder
+- Interpretar o comando/pergunta do usuario
+- Executar acao se aplicavel
+- Responder via `mcp__voice__speak("resposta curta")`
 
-```bash
-# Check and install dependencies
-pip show mcp sounddevice soundfile numpy edge-tts pyttsx3 pygame faster-whisper python-dotenv webrtcvad-wheels 2>&1 | grep -q "not found"
+## REGRAS DE RESPOSTA
 
-IF any missing:
-    pip install -r codexa.app/voice/requirements.txt
-    pip install webrtcvad-wheels  # Windows-compatible wheel
-    pip install mcp
+| Situacao | Resposta TTS |
+|----------|--------------|
+| Comando executado | "Feito" ou descricao curta |
+| Pergunta respondida | Resposta em 1-2 frases |
+| Nao entendeu | "Nao entendi. Repita por favor." |
+| Timeout | "Nao detectei sua voz. Tente novamente." |
+| Exit (parar/sair) | "Ate logo!" |
 
-# Verify voice server can start
-python codexa.app/voice/server.py --check
-
-# If all good, inform user to restart Claude Code
-RETURN "Dependencias instaladas. Reinicie o Claude Code para ativar voice MCP."
-```
-
-### Quick Boot Commands (for manual execution)
-
-```bash
-# Install all voice dependencies
-pip install mcp sounddevice soundfile numpy edge-tts pyttsx3 pygame faster-whisper python-dotenv webrtcvad-wheels
-
-# Test voice server
-python codexa.app/voice/server.py --check
-
-# If MCP still not available, restart Claude Code
-```
-
----
-
-## FLOW (After Boot)
+## EXEMPLO COMPLETO
 
 ```
-1. /v is called
-2. Check if mcp__voice__ tools available
-   - NO: Run boot sequence, ask user to restart
-   - YES: Continue
-3. BEEP plays (recording starts immediately after beep)
-4. User has 15s window to speak anything
-5. Whisper transcribes
-6. Claude interprets as "desire/intent"
-7. If unclear -> speak "Nao entendi. Repita."
-8. If clear -> execute and speak short response
-9. Return to chat (user types /v for next command)
+Usuario digita: /v
+
+Claude:
+1. mcp__voice__speak("Pode falar")
+2. [AGUARDA 1.5s - delay obrigatorio]
+3. mcp__voice__listen_start(max_duration=15, ...)
+   -> session_id: abc123
+4. mcp__voice__listen_poll("abc123")
+   -> status: recording, has_speech: True
+5. mcp__voice__listen_poll("abc123")
+   -> status: done, transcript: "quantos arquivos tem aqui"
+6. [Conta arquivos na pasta atual]
+7. mcp__voice__speak("Tem 15 arquivos nesta pasta")
 ```
 
-## IMPLEMENTATION
+## CONFIG
 
-```python
-# BOOT CHECK
-IF mcp__voice__listen_start NOT in available_tools:
-    # Run installation
-    Bash("pip install mcp sounddevice soundfile numpy edge-tts pyttsx3 pygame faster-whisper python-dotenv webrtcvad-wheels --quiet")
-    Bash("python codexa.app/voice/server.py --check")
-    RETURN "Voice dependencies installed. Restart Claude Code to activate."
-
-# NO TTS greeting - just start listening
-session = listen_start(max_duration=15, initial_timeout=5)
-
-# Poll until done
-WHILE polling:
-    result = listen_poll(session_id)
-
-    IF result.status == "done":
-        BREAK
-    IF result.status in ["timeout", "error"]:
-        # No speech - exit silently, user can type /v again
-        RETURN "Use /v para tentar novamente"
-
-    # Keep polling
-    WAIT ~500ms
-
-# PROCESS RESULT
-IF result starts with "VOICE_COMMAND:":
-    command = extract_command(result)
-
-    # Check exit
-    IF is_exit_command(command):
-        speak("Ate logo")
-        RETURN
-
-    # Execute user's intent
-    execute(command)
-    speak(short_response)  # "Feito", "3 arquivos", etc
-
-ELIF result starts with "NOISE_FILTERED:" or "INVALID_COMMAND:":
-    # Couldn't understand - ask to repeat
-    speak("Nao entendi. Repita.")
-    # Start new listen immediately
-    session = listen_start(...)
-    # Continue polling...
-
-ELIF result starts with "EXIT_VOICE_LOOP:":
-    speak("Ate logo")
-    RETURN
-
-ELSE:
-    # Timeout, error, etc - return to chat
-    RETURN "Use /v para tentar novamente"
-```
-
-## KEY CHANGES (v8.0)
-
-| Old (v7.0) | New (v8.0) |
-|------------|------------|
-| Assumes MCP ready | Boot check + auto-install |
-| Fails silently on missing deps | Clear install instructions |
-| Manual dependency setup | One-command install |
-
-## DEPENDENCIES
-
-Required packages (auto-installed by boot):
-
-| Package | Purpose |
-|---------|---------|
-| `mcp` | MCP SDK for Claude Code |
-| `sounddevice` | Audio capture |
-| `soundfile` | Audio file handling |
-| `numpy` | Audio processing |
-| `edge-tts` | TTS (free, online) |
-| `pyttsx3` | TTS fallback (offline) |
-| `pygame` | Audio playback |
-| `faster-whisper` | STT (free, offline) |
-| `python-dotenv` | Environment loading |
-| `webrtcvad-wheels` | Voice activity detection (Windows) |
-
-## FEEDBACK SIGNALS
-
-| Signal | Meaning |
-|--------|---------|
-| BEEP (800Hz) | Recording started - speak now |
-| BEEP (1200Hz) | Recording ended - processing |
-| BEEP (400Hz low) | Timeout - no speech detected |
-
-## RESPONSE GUIDELINES
-
-- Keep TTS to 1-2 sentences max
-- Be descriptive (user may not see screen)
-- Confirm actions: "Feito", "3 arquivos encontrados"
-- On unclear: "Nao entendi. Repita por favor."
+- **TTS**: ElevenLabs (prioridade) > Edge > pyttsx3
+- **STT**: ElevenLabs Scribe (prioridade) > Google Speech
+- **Microfone**: Auto-detect (system default)
+- **Idioma**: pt-BR
+- **Max duracao**: 15 segundos
+- **Initial timeout**: 5 segundos (sai se nao detectar fala)
+- **TTS→Record delay**: 1.5s (evita feedback)
+- **VAD silence**: 2.0s (permite pausas naturais)
 
 ## EXIT KEYWORDS
 
 parar, sair, exit, quit, stop, encerrar, tchau
 
-## CONFIGURATION
-
-```bash
-# In .env (already set for v8.0)
-WAKE_WORD_ENABLED=false    # No wake word
-STT_LANGUAGE=pt
-STT_MAX_DURATION=15
-```
-
-## TROUBLESHOOTING
-
-| Issue | Solution |
-|-------|----------|
-| `mcp__voice__* not available` | Run boot sequence, restart Claude Code |
-| `webrtcvad failed to build` | Use `pip install webrtcvad-wheels` instead |
-| `No microphone detected` | Check Windows Sound Settings > Recording |
-| `Whisper model download` | First run downloads ~500MB model (one-time) |
-
 ---
-**Version**: 8.0.0
-**Date**: 2025-12-06
-**Changes**: Boot sequence with auto-install, webrtcvad-wheels for Windows, troubleshooting guide
+**Version**: 10.1.0 | **Date**: 2025-12-06
+**Mudancas v10.1**:
+- Delay 1.5s entre TTS e gravacao (fix inicio cortado)
+- VAD silence 2.0s (fix final cortado)
+- Energy threshold mais sensivel
